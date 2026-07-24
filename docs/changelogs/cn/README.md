@@ -6,4 +6,5 @@
 
 | 日期 | 更新内容 |
 |------|---------|
+| [2026-07-25](./2026-07-25/README.md) | Live2D 预览页 Bug 修复（AttributeError / ImportError / 0x0 canvas） |
 | [2026-07-24](./2026-07-24/README.md) | BNOS Runtime 引擎重构 / GUI 全面重建 / 节点开发规范更新 / 组件适配 / Git 初始化 |
