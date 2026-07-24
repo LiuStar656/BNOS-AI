@@ -1,0 +1,117 @@
+{
+  "name": "BNOS_AI_project",
+  "generated_at": "2026-07-24T02:10:00",
+  "generated_from": "canvas_layout.json + node_config.json",
+  "nodes": {
+    "node_python_user_input": {
+      "type": "standalone",
+      "path": "nodes/node_python_user_input",
+      "entry": "listener.py",
+      "exe_entry": null,
+      "venv": "./nodes/node_python_user_input/venv",
+      "parameters": {
+        "input_mode": "gui"
+      },
+      "timeout": 300,
+      "resource_limit": {
+        "cpu_percent": 50,
+        "memory_mb": 128
+      }
+    },
+    "node_python_gui_bridge": {
+      "type": "standalone",
+      "path": "nodes/node_python_gui_bridge",
+      "entry": "listener.py",
+      "exe_entry": null,
+      "venv": "./nodes/node_python_gui_bridge/venv",
+      "parameters": {
+        "init_timeout": 10
+      },
+      "timeout": 300,
+      "resource_limit": {
+        "cpu_percent": 30,
+        "memory_mb": 128
+      }
+    },
+    "node_python_llm_infer": {
+      "type": "standalone",
+      "path": "nodes/node_python_llm_infer",
+      "entry": "listener.py",
+      "exe_entry": null,
+      "venv": null,
+      "parameters": {
+        "model_type": "cloud",
+        "model_path": "./models/qwen3-1.7b-q4_k_m.gguf",
+        "llama_port": 8080,
+        "cloud_vendor": "deepseek",
+        "api_base": "https://api.deepseek.com/v1",
+        "api_key": "sk-41cc771ca751481aa5478f0252f76829",
+        "cloud_model": "deepseek-chat",
+        "max_tokens": 2048,
+        "temperature": 0.7
+      },
+      "timeout": 300,
+      "resource_limit": {
+        "cpu_percent": 90,
+        "memory_mb": 2048
+      }
+    },
+    "node_python_aaa_cognition": {
+      "type": "standalone",
+      "path": "nodes/node_python_aaa_cognition",
+      "entry": "listener.py",
+      "exe_entry": null,
+      "venv": null,
+      "parameters": {
+        "db_path": "../../shared/chatbot.db",
+        "faiss_index_path": "../shared/faiss.index",
+        "max_history_summary": 3,
+        "max_tool_rounds": 3
+      },
+      "timeout": 300,
+      "resource_limit": {
+        "cpu_percent": 80,
+        "memory_mb": 512
+      }
+    },
+    "node_python_gui_adapter": {
+      "type": "standalone",
+      "path": "nodes/node_python_gui_adapter",
+      "entry": "listener.py",
+      "exe_entry": null,
+      "venv": null,
+      "parameters": {},
+      "timeout": 300,
+      "resource_limit": {
+        "cpu_percent": 10,
+        "memory_mb": 64
+      }
+    }
+  },
+  "edges": [
+    {
+      "from": "node_python_user_input",
+      "to": "node_python_aaa_cognition",
+      "source_port": "default",
+      "target_port": "user_input"
+    },
+    {
+      "from": "node_python_aaa_cognition",
+      "to": "node_python_llm_infer",
+      "source_port": "prompt",
+      "target_port": "prompt"
+    },
+    {
+      "from": "node_python_llm_infer",
+      "to": "node_python_aaa_cognition",
+      "source_port": "default",
+      "target_port": "llm_response"
+    },
+    {
+      "from": "node_python_aaa_cognition",
+      "to": "node_python_gui_adapter",
+      "source_port": "default",
+      "target_port": "reply"
+    }
+  ]
+}

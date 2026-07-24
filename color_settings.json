@@ -1,0 +1,21 @@
+{
+  "canvas_bg_color": "#1a1b1b",
+  "grid_color": "#2a2a2a",
+  "grid_opacity": 0.3,
+  "edge_color": "#007acc",
+  "edge_width": 2,
+  "node_bg_color": "#2d2d30",
+  "node_border_color": "#454545",
+  "node_text_color": "#d4d4d4",
+  "node_selected_color": "#007acc",
+  "input_anchor_color": "#6a9955",
+  "output_anchor_color": "#007acc",
+  "toast_info_color": "#323232",
+  "toast_success_color": "#4caf50",
+  "toast_warning_color": "#ff9800",
+  "toast_error_color": "#f44336",
+  "toast_text_color": "#ffffff",
+  "toast_opacity": 0.9,
+  "dock_floating_border_color": "#007acc",
+  "dock_floating_border_inactive": "#3c3c3c"
+}
