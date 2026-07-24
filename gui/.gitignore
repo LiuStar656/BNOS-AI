@@ -5,6 +5,10 @@ __pycache__/
 output.json
 .pid
 
+# Live2D 模型文件（太大，单独下载/复制）
+live2d/2D/
+live2d/libs/
+
 # OS
 .DS_Store
 Thumbs.db

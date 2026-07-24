@@ -134,8 +134,8 @@ class StandaloneRunner:
             proc = subprocess.Popen(
                 ["node", entry],
                 cwd=str(node_path),
-                stdout=None, stderr=None,
-                env={**os.environ, "BNOS_RUNTIME": "1"},
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                env={**os.environ, "BNOS_RUNTIME": "1", "PYTHONIOENCODING": "utf-8"},
             )
         else:
             # Python 节点：使用解析到的 Python 解释器
@@ -143,8 +143,8 @@ class StandaloneRunner:
             proc = subprocess.Popen(
                 [str(python_exe), entry],
                 cwd=str(node_path),
-                stdout=None, stderr=None,  # 继承引擎 stdout/stderr（不捕获，防管道阻塞）
-                env={**os.environ, "BNOS_RUNTIME": "1"},
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                env={**os.environ, "BNOS_RUNTIME": "1", "PYTHONIOENCODING": "utf-8"},
             )
         return self.node_id, proc
 

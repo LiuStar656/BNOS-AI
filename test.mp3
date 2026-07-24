@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            :root {
+                color-scheme: light dark;
+            }
+        </style>
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 400</p>
+        <p>Message: Bad request syntax ('GET /tts?text=ä½\xa0å¥½ HTTP/1.1').</p>
+        <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>
+    </body>
+</html>

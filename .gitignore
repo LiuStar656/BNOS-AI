@@ -18,6 +18,10 @@ env/
 
 # Sub-repos — 每个节点独立仓库，不由主仓库跟踪
 nodes/
+voice/
+audio/
+models/
+live2d/
 
 # Reference projects
 referencees/

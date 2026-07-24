@@ -19,41 +19,16 @@
       "is_internal": false
     },
     "node_js_live2d_face": {
-      "x": 0.0,
+      "x": -1.0,
       "y": 0.0,
       "width": 340.0,
-      "height": 358.0,
+      "height": 350.0,
       "style": "detailed",
       "custom_colors": null,
       "is_internal": false
     }
   },
   "edges": [
-    {
-      "source": "node_python_aaa_cognition",
-      "target": "node_python_llm_infer",
-      "source_port": "prompt",
-      "target_port": "prompt",
-      "waypoints": [
-        [
-          0.13463353255740798,
-          83.3044982698962,
-          44.42906574394465
-        ],
-        [
-          0.9131802453601762,
-          -53.71972318339101,
-          -28.65051903114187
-        ]
-      ],
-      "edge_key": [
-        "STANDALONE_PORT_MAP",
-        "node_python_aaa_cognition",
-        "node_python_llm_infer",
-        "prompt",
-        "prompt"
-      ]
-    },
     {
       "source": "node_python_llm_infer",
       "target": "node_python_aaa_cognition",
@@ -91,14 +66,39 @@
     },
     {
       "source": "node_python_aaa_cognition",
+      "target": "node_python_llm_infer",
+      "source_port": "prompt",
+      "target_port": "prompt",
+      "waypoints": [
+        [
+          0.11661536258858902,
+          68.89261937146539,
+          38.133223566468615
+        ],
+        [
+          0.8820889111604266,
+          -69.65809292003723,
+          -38.55692605054048
+        ]
+      ],
+      "edge_key": [
+        "STANDALONE_PORT_MAP",
+        "node_python_aaa_cognition",
+        "node_python_llm_infer",
+        "prompt",
+        "prompt"
+      ]
+    },
+    {
+      "source": "node_python_aaa_cognition",
       "target": "node_js_live2d_face",
       "source_port": "reply",
       "target_port": "reply",
       "waypoints": [
         [
-          0.06557108315232982,
-          37.37715667390681,
-          -9.901233556001799
+          0.0625359756598964,
+          36.56109694926404,
+          -9.44293232464436
         ]
       ],
       "edge_key": [
@@ -111,11 +111,11 @@
     }
   ],
   "view_state": {
-    "scale": 1.0000000000000002,
-    "scroll_x": -512,
-    "scroll_y": -274,
-    "center_x": 50.0,
-    "center_y": 133.0
+    "scale": 1.0,
+    "scroll_x": -508,
+    "scroll_y": -559,
+    "center_x": 54.0,
+    "center_y": -152.0
   },
   "canvas_size": {
     "width": 5000,

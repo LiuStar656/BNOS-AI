@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("BNOS AI 伴侣")
         self.setMinimumSize(900, 600)
-        self.setMaximumSize(1400, 1000)
+        self.setMaximumSize(1500, 1000)
         self.setStyleSheet(get_light_qss())
 
         self._config = AppConfig()
@@ -162,11 +162,15 @@ class MainWindow(QMainWindow):
         geometry = self._config.get("window", {}).get("geometry", {})
         x = geometry.get("x", 100)
         y = geometry.get("y", 100)
-        w = geometry.get("width", 900)
-        h = geometry.get("height", 680)
+        w = geometry.get("width", 1200)
+        h = geometry.get("height", 800)
+
+        # 升级旧配置（旧默认 900×680）到新 3:2 默认
+        if w == 900 and h == 680:
+            w, h = 1200, 800
 
         # 确保窗口尺寸在合理范围内
-        w = max(900, min(1400, w))
+        w = max(900, min(1500, w))
         h = max(600, min(1000, h))
 
         self.setGeometry(x, y, w, h)
@@ -185,6 +189,10 @@ class MainWindow(QMainWindow):
         self._config.save()
 
     def closeEvent(self, event):
-        """窗口关闭时保存配置"""
+        """窗口关闭时保存配置并清理子进程"""
         self._save_window_geometry()
+        # 清理 Live2D 服务
+        live2d_page = self._pages.get("live2d")
+        if live2d_page and hasattr(live2d_page, '_stop_server'):
+            live2d_page._stop_server()
         super().closeEvent(event)

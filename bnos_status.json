@@ -1,14 +1,18 @@
 {
-  "updated_at": "2026-07-24T19:49:28",
+  "updated_at": "2026-07-25T03:12:12",
   "engine_status": "online",
   "nodes": {
-    "node_python_llm_infer": {
-      "status": "running",
-      "pid": 11612
-    },
     "node_python_aaa_cognition": {
       "status": "running",
-      "pid": 14520
+      "pid": 8116
+    },
+    "node_python_llm_infer": {
+      "status": "running",
+      "pid": 27548
+    },
+    "node_js_live2d_face": {
+      "status": "running",
+      "pid": 23696
     }
   }
 }

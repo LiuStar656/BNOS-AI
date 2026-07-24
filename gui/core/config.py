@@ -52,6 +52,7 @@ class AppConfig:
                 "toast_warning": "#fff3e0",
                 "toast_error": "#ffebee",
                 "toast_text": "#333333",
+                "select_bg": "#1557b0",
             },
             "window": {
                 "geometry": {"x": 100, "y": 100, "width": 900, "height": 680},
@@ -76,6 +77,9 @@ class AppConfig:
                         default_type = type(self.config[key])
                         if isinstance(loaded[key], default_type):
                             self.config[key] = loaded[key]
+                    else:
+                        # 保留未知键（live2d_overlay, live2d_current_model 等第三方写入的键）
+                        self.config[key] = loaded[key]
         except (OSError, json.JSONDecodeError):
             pass
 
