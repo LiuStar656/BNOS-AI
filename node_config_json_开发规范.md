@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿# node_config.json 多输入面板组件开发规范
+﻿﻿﻿﻿﻿﻿# node_config.json 多输入面板组件开发规范
 
 ## 概述
 
@@ -128,7 +128,7 @@ FILE  = "file"    # 外部文件引用 → 面板内控件（无锚点）
 ]
 ```
 
-> **注意**：目前锚点管理器会**始终生成一个 default 主输入锚点（16px）**，输出的锚点也是单个 default。`input_ports` 中 `source=node` 的端口会被渲染为**10px 小锚点**，供节点内部分线连接。
+> **注意**：`input_ports` 中 `source=node` 的端口会被渲染为**10px 小锚点**，供节点内部分线连接。`output_ports` 中的每个端口都会生成独立的输出锚点（16px），并写入对应的 `output_file`。
 
 ---
 
@@ -142,17 +142,104 @@ FILE  = "file"    # 外部文件引用 → 面板内控件（无锚点）
 | `label` | `string` | 否 | 面板中显示的标签文字 |
 | `type` | `string` | 否 | 数据类型，默认 `"default"` |
 | `description` | `string` | 否 | 提示文字 |
+| `output_file` | `string` | 否 | **该端口独立的输出文件路径**。为空时自动推导为 `./output_{name}.json`。不配置则使用顶层 `output_file` 回退 |
 
-### 示例
+### `output_file` 详解
+
+`output_file` 字段让**每个输出端口写入独立的 JSON 文件**，实现多端口输出隔离：
 
 ```jsonc
 "output_ports": [
-  { "name": "response",    "label": "响应文本",   "type": "string" },
-  { "name": "tokens_used", "label": "Token 用量", "type": "int" }
+  {
+    "name": "default",
+    "label": "回复内容",
+    "output_file": "./output_default.json",   // ← 此端口的输出写到这里
+    "type": "default"
+  },
+  {
+    "name": "gui_text",
+    "label": "文本输入 → 系统节点",
+    "output_file": "./output_gui_text.json",  // ← 此端口的输出写到这里
+    "type": "json"
+  }
 ]
 ```
 
-> **当前实现**：画布右侧生成一个 default 输出锚点（16px），多输出端口独立锚点的功能尚未完全实现。`output_ports` 主要用于元数据声明。
+- 画布右侧为每个 port 生成独立的输出锚点
+- listener 根据 `main.py` 返回结果的 `type` 字段路由到对应文件
+- 顶层 `output_file` 作为回退：当 `type` 不匹配任何已注册端口时，写入顶层路径
+
+#### Listener 路由逻辑
+
+```python
+# 构建端口→文件映射
+OUTPUT_PORTS = {}
+for port in cfg.get("output_ports", []):
+    if isinstance(port, dict) and port.get("name"):
+        fpath = port.get("output_file", "")
+        if fpath:
+            OUTPUT_PORTS[port["name"]] = os.path.abspath(os.path.join(NODE_DIR, fpath))
+
+# 按 type 路由写入
+port_name = result.get("type", "default") if isinstance(result, dict) else "default"
+out_path = OUTPUT_PORTS.get(port_name, OUTPUT_FILE)
+```
+
+#### 重要：下游 listener 解析上游输出路径时的注意点 ★
+
+当下游节点的 listener 通过 `pipeline.json` 解析本节点的输出文件路径时，如果本节点配置了 `output_ports`，下游的 `resolve_input_sources()` **必须根据端口名匹配 `output_ports`**，而非直接使用顶层 `output_file`：
+
+```
+本节点配置：
+  "output_file": "./output.json",           ← 旧版默认值，可能不被写入
+  "output_ports": [
+    { "name": "default",  "output_file": "./output_default.json" },
+    { "name": "gui_text", "output_file": "./output_gui_text.json" }
+  ]
+
+pipeline.json 中指向本节点的边：
+  { "from": "本节点", "to": "下游节点", "source_port": "default" }
+
+下游 resolve_input_sources() 错误写法（只取顶层 output_file）：
+  ❌ 监听 ./output.json → 文件不存在或过时，数据链中断
+
+正确写法（匹配 output_ports）：
+  ✅ 根据 source_port="default" 匹配到 ./output_default.json → 监听正确文件
+```
+
+**根因**：多端口输出后，顶层 `output_file` 仅作为未匹配端口时的回退路径，不代表实际端口输出。每个端口的实际输出文件在 `output_ports[*].output_file` 中定义。下游解析时必须匹配端口名，否则监听器会监听到错误的文件。
+
+#### main.py 输出规范
+
+`process()` 返回的结果应包含 `type` 字段，值对应 `output_ports[*].name`：
+
+```python
+# GUI 文本输入 → 路由到 gui_text 端口的文件
+return {
+    "type": "gui_text",
+    "data_type": "text",
+    "content": text,
+}
+
+# 回复数据 → 无 type，路由到顶层 output_file
+return {
+    "data_type": "reply",
+    "content": reply_text,
+}
+```
+
+### 完整示例
+
+```jsonc
+"output_ports": [
+  { "name": "response",    "label": "响应文本",   "type": "string",
+    "output_file": "./output_response.json" },
+  { "name": "tokens_used", "label": "Token 用量", "type": "int",
+    "output_file": "./output_tokens.json" }
+]
+```
+
+> **v2.1+ 多端口输出已完全实现**：每个输出端口生成独立的画布锚点，并写入对应的 JSON 文件。旧版单端口行为（所有输出写入 `output.json`）保持向后兼容。
 
 ---
 
@@ -348,8 +435,10 @@ WidgetRegistry 支持 11 种控件类型，每种有各自的专属字段：
   ],
 
   "output_ports": [
-    { "name": "response",    "label": "响应文本",   "type": "string" },
-    { "name": "tokens_used", "label": "Token 用量", "type": "int" }
+    { "name": "response",    "label": "响应文本",   "type": "string",
+      "output_file": "./output_response.json" },
+    { "name": "tokens_used", "label": "Token 用量", "type": "int",
+      "output_file": "./output_tokens.json" }
   ],
 
   "parameters": [
@@ -509,6 +598,9 @@ WidgetRegistry 支持 11 种控件类型，每种有各自的专属字段：
 - [ ] `type=int/float/range` 时 `min` / `max` 范围合理
 - [ ] `default` 的类型与 `type` 匹配
 - [ ] JSON 语法正确（无尾逗号、无注释、引号闭合）
+- [ ] `output_ports` 中每个端口配置了 `output_file`（指向独立文件，否则使用顶层 `output_file` 回退）
+- [ ] 多端口输出时，`main.py` 返回结果包含 `type` 字段对应 `output_ports[*].name`
+- [ ] ★ 下游节点 `resolve_input_sources()` 从 `pipeline.json` 解析本节点路径时，必须根据 `source_port` 匹配 `output_ports` 获取正确的输出文件，而非使用顶层 `output_file`（否则下游监听错误文件，数据链中断）
 - [ ] `resource_limit` 配置合理（如需限制资源占用）
 
 ---

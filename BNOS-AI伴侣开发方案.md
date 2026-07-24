@@ -57,7 +57,7 @@
 - **AAA 是唯一中枢 + 统一记忆入口**：所有输入源都汇聚到 AAA 的多输入端口，到达即写 DB
 - **记忆输入来源可无限扩展**：当前用文本输入，未来可接入 ASR、视觉、环境传感器、系统监控等
 - **单输出端口 + data_type 路由**：prompt → LLM, tool_call → Grok, reply → Live2D, knowledge → Logseq
-- **GUI 通过专用 gui_bridge 节点与每个业务节点双向通信**：发初始化检测信号/收状态反馈
+- **GUI 通过 shared/gui_input.json 直接与 AAA 通信**：GUI 写 gui_input.json → AAA 直接读取处理
 - **并行决策路径**：
   - 无工具路径：输入源 → AAA → LLM → AAA → Live2D/Logseq
   - 有工具路径：输入源 → AAA → LLM → AAA → Grok → AAA → LLM → AAA → Live2D/Logseq
@@ -75,19 +75,19 @@
 │              项目运行时（用户侧，不含 BNOS IDE）                │
 │                                                             │
 │  ★ 多源输入层（Phase 1: 仅 text，Phase 2+: 全部接入）         │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐      │
-│  │ 用户文本  │ │ ASR 语音 │ │ 视觉观察  │ │ 环境/系统 │      │
-│  │user_input│ │asr_input │ │vision_in │ │ env_input│      │
-│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └────┬─────┘      │
-│       │ text        │ text       │ json       │ json        │
-│       └─────────────┼────────────┼────────────┘             │
-│                     ▼            ▼                          │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐                    │
+│  │ ASR 语音  │ │ 视觉观察  │ │ 环境/系统 │                    │
+│  │asr_input │ │vision_in │ │ env_input│                    │
+│  └────┬─────┘ └────┬─────┘ └────┬─────┘                    │
+│       │ text       │ json       │ json                      │
+│       └────────────┼────────────┘                          │
+│                    ▼                                        │
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │           AAA 认知记忆中枢（统一记忆入口）               │   │
 │  │           (aaa_cognition)                            │   │
 │  │                                                      │   │
 │  │  多输入端口（到达即写 DB，按 source 标签区分来源）:      │   │
-│  │  ├── user_input   (text)   ← 用户文本输入(P1)         │   │
+│  │  ├── gui_input    (text)   ← GUI 文本输入(P1)          │   │
 │  │  ├── asr_input    (text)   ← 语音识别文本(P2+)        │   │
 │  │  ├── vision_input (json)   ← 视觉观察数据(P2+)        │   │
 │  │  ├── env_input    (json)   ← 环境/系统信息(P2+)       │   │
@@ -107,22 +107,20 @@
 │  │  └── "knowledge" → Logseq 写入节点                    │   │
 │  └──────────────────────────────────────────────────────┘   │
 │       │          │          │            │                 │
-│  ┌────┼────┐ ┌───┼───┐ ┌───┴───┐ ┌─────┴─────┐            │
-│  ▼    ▼    │ │   ▼   │ │       │ │           │            │
-│ ┌──────┐ ┌──┴┐│ ┌──────┐│ ┌──────┐│ ┌────────┐│            │
-│ │ LLM  │ │Grok│ │Live2D││ │Logseq ││ │  GUI   ││            │
-│ │推理  │ │工具│ │ +TTS ││ │知识库 ││ │ Bridge ││            │
-│ └──┬───┘ └──┬─┘│ └──────┘│ └──────┘│ └───┬────┘│            │
-│    │        │  │         │         │     │     │            │
-│    └────────┼──┘         │         │     │     │            │
-│     llm_response   tool_result      │     │     │            │
-│     回传 AAA        回传 AAA        │     │     │            │
-│                                      │     │     │            │
-│  ┌───────────────────────────────────┘     │     │            │
-│  │  ┌──────────────────────────────────────┘     │            │
-│  │  │  ┌─────────────────────────────────────────┘            │
-│  │  │  │  GUI ↔ 各节点: init_check → / status ←              │
-│  ▼  ▼  ▼  ▼                                                 │
+│  ┌────┼────┐ ┌───┼───┐ ┌───┴───┐ ┌─────┴────┐             │
+│  ▼    ▼    │ │   ▼   │ │       │ │          │             │
+│ ┌──────┐ ┌──┴┐│ ┌──────┐│ ┌───────┐│                       │
+│ │ LLM  │ │Grok│ │Live2D││ │Logseq ││                       │
+│ │推理  │ │工具│ │ +TTS ││ │知识库 ││                       │
+│ └──┬───┘ └──┬─┘│ └──────┘│ └───────┘│                       │
+│    │        │  │                                                │
+│    └────────┼──┘                                                │
+│     llm_response   tool_result                                 │
+│     回传 AAA        回传 AAA                                   │
+│                                                                │
+│  ┌─────────────────────────────────────────────────────────────┘
+│  │                                                              │
+│  ▼                                                              │
 │  共享数据库 (SQLite, shared/chatbot.db)                       │
 └─────────────────────────────────────────────────────────────┘
 │                                                             │
@@ -141,12 +139,11 @@
 ### 2.3 节点拓扑（BNOS DAG 连线）
 
 ```
-★ 多源输入层（Phase 1: user_input，Phase 2+: 全部）
-  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
-  │user_input│ │asr_input │ │vision_in │ │ env_input│  ...可无限扩展
-  └────┬─────┘ └────┬─────┘ └────┬─────┘ └────┬─────┘
-       │ text        │ text       │ json       │ json
-       └─────────────┼────────────┼────────────┘
+★ 多源输入层（Phase 1: text 由 GUI 直接输入，Phase 2+: 全部接入）
+  ┌──────────┐ ┌──────────┐ ┌──────────┐
+  │asr_input │ │vision_in │ │ env_input│  ...可无限扩展
+  └──────────┘ └────┬─────┘ └────┬─────┘
+                     │ json       │ json
                      ▼            ▼
 ┌─────────────────────────────────────────────────────┐
 │                  AAA 认知记忆中枢                     │
@@ -154,7 +151,7 @@
 │                                                     │
 │  Input Ports (多端口 + filter 路由):                  │
 │  ┌──────────┬──────────┬──────────┬──────────┐     │
-│  │user_input│asr_input │vision_in │ env_input│     │
+│  │gui_input │asr_input │vision_in │ env_input│     │
 │  └──────────┴──────────┴──────────┴──────────┘     │
 │  ┌──────────────┬──────────────┐                   │
 │  │ llm_response │ tool_result  │                   │
@@ -178,14 +175,6 @@
       │
       └── data_type: "knowledge" ───→ [Logseq 写入节点]
            logseq_writer port: entry (filter: knowledge)
-
-★ GUI 通信网（gui_bridge ↔ 各节点 init_check / status）
-  ┌──────────┐
-  │gui_bridge│──→ aaa_cognition.init_check  → aaa_cognition.status
-  └──────────┘──→ llm_infer.init_check      → llm_infer.status
-                  → grok_hands.init_check    → grok_hands.status
-                  → live2d_face.init_check   → live2d_face.status
-                  → logseq_writer.init_check  → logseq_writer.status
 ```
 
 ### 2.4 技术栈
@@ -211,10 +200,8 @@
 | 节点 ID | 名称 | 语言 | 来源 | 优先级 |
 |---------|------|------|------|--------|
 | `aaa_cognition` | AAA 认知记忆中枢（统一记忆入口） | Python | AAA + LN 重构 | P0 |
-| `user_input` | 用户文本输入 | Python | 新建 | P0 |
 | `llm_infer` | LLM 推理（唯一算力入口） | Python | 新建 | P0 |
 | `live2d_face` | Live2D 面孔 + TTS | JS + Python | My-Neuro 提取 | P0 |
-| `gui_bridge` | GUI 通信桥接 | Python | 新建 | P0 |
 | `grok_hands` | Grok 工具执行（纯执行） | Rust | Grok Build 封装 | P1 |
 | `logseq_writer` | Logseq 知识写入 | Python | 新建 | P1 |
 | `asr_input` | 语音识别输入 | Python | 新建（预留） | P2 |
@@ -254,7 +241,7 @@
 
 | 端口名 | filter (data_type) | 来源节点 | 说明 |
 |--------|-------------------|----------|------|
-| `user_input` | `text` | user_input | 用户原始输入，到达后立即写入 long_term_memory |
+| `gui_input` | `text` | GUI 客户端 | 用户原始输入，到达后立即写入 long_term_memory |
 | `llm_response` | `text` | llm_infer | LLM 返回的节标记原始文本，AAA 内解析为 13 字段后写 DB |
 | `tool_result` | `json` | grok_hands | Grok 工具执行结果，到达后写入 long_term_memory 作为上下文 |
 
@@ -274,7 +261,7 @@
 
 ```
                     ┌─────────────┐
-     user_input ──→│  IDLE       │
+     gui_input ───→│  IDLE       │
          │         └──────┬──────┘
          │                │ ① 输入在内存中直接使用（不读 DB）
          │                │   fire-and-forget 写 DB（并行，不等结果）
@@ -333,10 +320,10 @@
 
 ```
 Phase 1（text only）:
-  user_input ──→ AAA 处理（直连） + DB（并行写）
+  gui_input ───→ AAA 处理（直连） + DB（并行写）
 
 Phase 2+（多源）:
-  user_input ──→ AAA 处理（直连） + DB（并行写）
+  gui_input ───→ AAA 处理（直连） + DB（并行写）
   asr_input  ──→ DB（先写）──┐
   vision_in  ──→ DB（先写）──┤
   env_input  ──→ DB（先写）──┼──→ AAA build_context() 一次查询取出全部
@@ -387,7 +374,7 @@ DB 读取汇总:
 #### 具体时机
 
 ```
-时机 1：user_input 端口收到数据 (Phase 1)
+时机 1：gui_input 端口收到数据 (Phase 1)
   → [并行] fire-and-forget INSERT INTO memory (content, role='user', source='text')
   → [并行] current_input_text 直接在内存中使用 → 构建 prompt → 输出到 LLM
 
@@ -423,25 +410,15 @@ DB 读取汇总:
   // === 多输入端口（filter 自动路由，所有 input 到达即写 DB） ===
   "input_ports": [
     // ---- Phase 1 核心端口 ----
-    {"name": "user_input",   "label": "用户输入",     "type": "text", "required": false, "source": "node"},
+    {"name": "gui_input",    "label": "GUI 输入",     "type": "text", "required": false, "source": "node"},
     {"name": "llm_response", "label": "LLM 响应",     "type": "text", "required": false, "source": "node"},
-    {"name": "tool_result",  "label": "工具结果",     "type": "json", "required": false, "source": "node"},
-    // ---- Phase 2+ 扩展记忆输入端口 ----
-    {"name": "asr_input",    "label": "语音输入",     "type": "text", "required": false, "source": "node"},
-    {"name": "vision_input", "label": "视觉观察",     "type": "json", "required": false, "source": "node"},
-    {"name": "env_input",    "label": "环境/系统信息","type": "json", "required": false, "source": "node"},
-    // ---- GUI 通信端口 ----
-    {"name": "init_check",   "label": "GUI 初始化检测","type": "json", "required": false, "source": "node"}
+    {"name": "tool_result",  "label": "工具结果",     "type": "json", "required": false, "source": "node"}
   ],
 
   "filter": {
-    "user_input":   {"data_type": "text", "source": "text"},
+    "gui_input":    {"data_type": "text", "source": "gui"},
     "llm_response": {"data_type": "text", "source": "llm"},
-    "tool_result":  {"data_type": "tool_result"},
-    "asr_input":    {"data_type": "text", "source": "asr"},
-    "vision_input": {"data_type": "text", "source": "vision"},
-    "env_input":    {"data_type": "text", "source": "env"},
-    "init_check":   {"cmd": "init_check"}
+    "tool_result":  {"data_type": "tool_result"}
   },
 
   // === 输出端口（主输出 + 状态反馈） ===
@@ -468,11 +445,23 @@ DB 读取汇总:
 |----------|--------|
 | 内嵌 LLM 调用 (qwen_api) | LLM 独立为节点，通过 data_type:"prompt" 发送，llm_response 端口接收 |
 | 内嵌定时任务线程 | **删除** |
-| 仅 user_input 一个入口 | **多源记忆输入**：user_input / asr / vision / env 等，统一 DB 写入 |
+| 仅 user_input 一个入口 | **多源记忆输入**：gui_input / asr / vision / env 等，统一 DB 写入 |
 | 多输出端口 | 单输出端口 + data_type 字段区分 |
 | __init__ 中创建所有依赖 | 多输入端口动态接收，到达即写 DB |
 | 确定性哈希向量 | 保留 FAISS（Phase 2 升级真 embedding） |
 | 无状态反馈端口 | **新增** status 端口，GUI 可查询初始化/运行状态 |
+| 独立的 gui_adapter + user_input 节点 | **AAA 内置**：AAA 直接读取 gui_input.json，合并 GUI 适配 + 用户输入处理 + 认知拼接 |
+| 无会话上下文感知 | **新增会话上下文感知**：实时跟踪会话状态（IDLE/CHATTING/ENDED），计算对话时间间隔 |
+#### 会话上下文感知
+
+详见 [AAA 节点开发方案 → 十三、会话上下文感知](nodes/node_python_aaa_cognition/开发方案.md#十三会话上下文感知)。
+
+**设计概要**（参考 Lumi_Nox 状态机 + 时间戳机制）：
+
+- **状态定义**：`IDLE`（空闲）→ `CHATTING`（对话中）→ `ENDED`（结束）
+- **时间间隔计算**：通过 DB 中 `conversation_state` 表记录 `last_input_time`、`last_reply_time` 等时间戳，每次 `_gather_context()` 时计算 `time_since_last_input`、`time_since_session_start` 等字段注入 prompt
+- **轻量化检测**：不依赖跨进程信号，通过"5 分钟无输入自动标记 ENDED" + "下次输入自动恢复 CHATTING" 推断应用生命周期
+- **Prompt 注入**：新增 `{session_status}`、`{time_since_last_input}`、`{time_since_session_start}`、`{input_count_this_session}` 字段
 
 #### AAA 节点处理代码
 
@@ -611,9 +600,9 @@ class AAACognitionNode:
 
     def on_port_input(self, port_name: str, data):
         """多端口输入处理：输入直接用于推理，DB 写并行 fire-and-forget"""
-        if port_name in ("user_input", "asr_input", "vision_input"):
+        if port_name in ("gui_input", "asr_input", "vision_input"):
             # [并行] fire-and-forget 写 DB，不等待
-            source = {"user_input": "text", "asr_input": "asr", "vision_input": "vision"}[port_name]
+            source = {"gui_input": "text", "asr_input": "asr", "vision_input": "vision"}[port_name]
             threading.Thread(target=self.db.insert_memory, args=(data, "user", source), daemon=True).start()
             # [并行] 直接用内存中的 data 构建 prompt → 发给 LLM
             prompt = PROMPT_TEMPLATE.format(**self.build_context(current_input=data))
@@ -663,52 +652,22 @@ def _mood_to_tag(mood: str) -> str:
 
 | 输入源 | data_type | 触发认知循环? | DB source 标签 | 格式示例 |
 |--------|-----------|:---:|--------|------|
-| user_input | text | **是** | `text` | `"今天天气怎么样"` |
+| gui_input | text | **是** | `text` | `"今天天气怎么样"` |
 | asr_input | text | **是** | `asr` | `"帮我查一下天气"` |
 | vision_input | json | **是** | `vision` | `{"scene":"房间","objects":["杯子","书"]}` |
 | env_input | json | **否** | `env` | `{"cpu":45,"mem":60,"hour":14}` |
 | llm_response | text | — | `llm` | 节标记文本 |
 | tool_result | json | — | `grok` | `{"result":"..."}` |
-| init_check | json | — | — | `{"cmd":"init_check","ts":...}` |
 
 - **env_input 不触发认知循环**：环境数据是持续背景，仅作为 prompt 的当前上下文字段注入
 - **每次触发认知循环时，所有多源上下文字段一起注入 prompt**（空字段显示为空）
-- Phase 1 只实现 user_input，其余端口预留在 node_config 中但无上游连线，不影响运行
+- Phase 1 只实现 gui_input（由 GUI 直接写入 gui_input.json），其余端口预留在 node_config 中但无上游连线，不影响运行
 
 ---
 
-### 3.3 用户输入节点 (`user_input`)
-
-**来源**：新建
-
-**职责**：
-- 从 GUI 对话窗口或 stdin 读取用户输入文本
-- 输出到 AAA 的 `user_input` 端口
-
-**输出端口**：
-
-| 端口名 | data_type | 目标 |
-|--------|-----------|------|
-| `default` | `text` | AAA user_input 端口 |
-
-**配置文件**：
-
-```jsonc
-{
-  "node_name": "user_input",
-  "language": "python",
-  "parameters": [
-    {"name": "input_mode", "type": "enum", "label": "输入模式", "options": ["stdin", "gui", "file_watch"], "default": "stdin"}
-  ],
-  "output_ports": [
-    {"name": "default", "label": "用户输入", "type": "default"}
-  ]
-}
-```
-
 ---
 
-### 3.4 LLM 推理节点 (`llm_infer`)
+### 3.3 LLM 推理节点 (`llm_infer`)
 
 **来源**：新建，封装 llama.cpp server API + 云端 API 统一适配层
 
@@ -784,7 +743,7 @@ llm_infer 节点
 
 ---
 
-### 3.5 Live2D 面孔节点 (`live2d_face`)
+### 3.4 Live2D 面孔节点 (`live2d_face`)
 
 **来源**：从 My-Neuro 提取核心 Live2D 渲染 + 情绪映射 + MOSS-TTS
 
@@ -982,94 +941,9 @@ Grok 仅执行，不吃算力。如果工具结果需要理解和总结，由 AA
 
 ---
 
-### 3.8 GUI 通信桥接节点 (`gui_bridge`)
-
-**来源**：新建
-
-**定位**：GUI 客户端与所有业务节点的专用通信桥梁。GUI 通过此节点向各节点发送初始化检测/控制信号，并接收状态反馈。
-
-**为什么需要**：
-- 业务节点的 output.json 是数据流通道，不能混入控制/状态信号
-- GUI 需要独立于数据流之外的控制通道
-- 一次初始化检测 = 向所有节点广播信号 + 汇总反馈
-
-**通信机制**：
-
-```
-GUI PySide6
-  │
-  │ 写 gui_cmd.json
-  ▼
-gui_bridge 节点（监听 gui_cmd.json）
-  │
-  ├──→ aaa_cognition/init_check.json    → aaa_cognition/status.json
-  ├──→ llm_infer/init_check.json        → llm_infer/status.json
-  ├──→ grok_hands/init_check.json       → grok_hands/status.json
-  ├──→ live2d_face/init_check.json       → live2d_face/status.json
-  └──→ logseq_writer/init_check.json     → logseq_writer/status.json
-  │
-  │ 汇总所有 status.json
-  ▼
-输出 gui_status.json → GUI 显示
-```
-
-**输入端口**：
-
-| 端口名 | filter (data_type) | 说明 |
-|--------|-------------------|------|
-| `gui_cmd` | `json` | GUI 发来的命令（如 `{"cmd":"init_check"}`） |
-
-**输出端口**：
-
-| 端口名 | data_type | 说明 |
-|--------|-----------|------|
-| `default` | `json` | 汇总后反馈给 GUI（`gui_status.json`） |
-
-**配置文件**：
-
-```jsonc
-{
-  "node_name": "gui_bridge",
-  "language": "python",
-  "parameters": [
-    {"name": "gui_cmd_file", "type": "file", "label": "GUI 命令文件", "default": "../shared/gui_cmd.json"},
-    {"name": "gui_status_file", "type": "file", "label": "状态汇总文件", "default": "../shared/gui_status.json"}
-  ],
-  "input_ports": [
-    {"name": "gui_cmd", "label": "GUI 命令", "type": "json", "required": false, "source": "node"}
-  ],
-  "filter": {
-    "gui_cmd": {"data_type": "json"}
-  },
-  "output_ports": [
-    {"name": "default", "label": "状态汇总", "type": "json"}
-  ]
-}
-```
-
-**Status JSON 格式（每个节点统一定义）**：
-
-```jsonc
-{
-  "node_name": "aaa_cognition",
-  "timestamp": "2026-07-23 15:30:00",
-  "init_status": "ok",           // ok / warning / error
-  "components": {
-    "db": {"status": "ok", "detail": "shared/chatbot.db, 124KB"},
-    "faiss": {"status": "ok", "detail": "索引已加载, 3400条"},
-    "config": {"status": "ok", "detail": "4 参数, 无异常"}
-  },
-  "metrics": {
-    "uptime_seconds": 3600,
-    "memory_mb": 45.2,
-    "last_error": null
-  }
-}
-```
-
 ---
 
-### 3.9 预留扩展输入节点
+### 3.7 预留扩展输入节点
 
 以下节点 Phase 1 仅预留 node_config, Phase 2+ 逐个接入，均连到 AAA 的对应端口：
 
@@ -1136,7 +1010,7 @@ SQLite，单文件 `shared/chatbot.db`，AAA 节点独占写入，其他节点�
 
 | 写入者 | 写入时机 | 写入的表 |
 |--------|----------|----------|
-| AAA（user_input 到达时） | 并行 fire-and-forget | `long_term_memory`（source='text', role='user'） |
+| AAA（gui_input 到达时） | 并行 fire-and-forget | `long_term_memory`（source='text', role='user'） |
 | AAA（asr_input 到达时） | 并行 fire-and-forget | `long_term_memory`（source='asr', role='user'） |
 | AAA（vision_input 到达时） | 并行 fire-and-forget | `long_term_memory`（source='vision', role='user'） |
 | AAA（env_input 到达时） | 并行 fire-and-forget | `long_term_memory`（source='env', role='system'） |
@@ -1247,7 +1121,7 @@ Phase 1（单用户）:
   首次启动自动创建: INSERT OR IGNORE INTO user_profiles (identity_key, display_name) VALUES ('default_user', '用户')
 
 Phase 2+（多用户）:
-  方案 A: GUI 选择当前对话身份 → identity_key 随 user_input 传到 AAA
+  方案 A: GUI 选择当前对话身份 → identity_key 随 gui_input 传到 AAA
   方案 B: AAA 根据 LLM 的"他人认知"自动判断 → 匹配 user_profiles 中最相似的身份
   方案 C: 首次对话时 LLM 输出"用户信息 name=小明" → AAA 自动创建新 user_profile
 ```
@@ -1319,10 +1193,10 @@ build_context() 按当前 identity_key 读取用户专属上下文:
 
 ```
 Step 1: 用户输入
-  user_input 节点 → output.json
+  GUI 写 gui_input.json → AAA 直接读取
   {"data_type": "text", "content": "帮我查一下今天天气"}
 
-Step 2: AAA 收到 user_input（user_input 端口）
+Step 2: AAA 收到 gui_input（gui_input 端口）
   ├─ [并行] fire-and-forget INSERT INTO memory (content='帮我查...', source='text')
   ├─ [并行] 读 DB 历史上下文: self_cognition, feelings, event_summary, user_info
   ├─ 当前输入 "帮我查一下今天天气" 直接在内存中使用（不读 DB）
@@ -1488,18 +1362,17 @@ Live2D 收到 reply 后，内部并行处理：解析情绪标签 → 切换表�
 
 ### 6.4 与 BNOS 引擎的通信
 
-GUI 通过 `gui_bridge` 节点与所有业务节点双向通信，不直接读 output.json：
+GUI 直接与 AAA 通信（通过 gui_input.json），AAA 处理输入并通过各节点的 status 端口收集状态：
 
 ```
-GUI ←→ shared/gui_cmd.json（写） / shared/gui_status.json（读） ←→ gui_bridge 节点
-                                                                     │
-                                            向各节点写 init_check.json → 收 status.json
+GUI ──→ shared/gui_input.json（写） ──→ AAA 直接读取处理
+GUI ←── 各节点的 status.json（AAA 汇总或各节点独立输出）
 ```
 
 | 通信方向 | 机制 | 说明 |
 |----------|------|------|
-| GUI → 节点 | `shared/gui_cmd.json` | GUI 写命令 → gui_bridge 读取 → 分发到各节点 |
-| 节点 → GUI | `shared/gui_status.json` | gui_bridge 汇总各节点 status.json → GUI 读取 |
+| GUI → AAA | `shared/gui_input.json` | GUI 写 gui_input.json → AAA 直接读取 |
+| 节点 → GUI | 各节点 `status.json` | 各节点独立输出 status.json，GUI 直接读取 |
 | 配置变更 | 修改 `node_config.json` | GUI 直接修改各节点的配置文件（需重启生效） |
 | 日志查看 | 监听 stdout/stderr 日志文件 | GUI 实时 tail 各节点的日志输出 |
 
@@ -1524,11 +1397,10 @@ GUI ←→ shared/gui_cmd.json（写） / shared/gui_status.json（读） ←→
 
 | 任务 | 来源 | 说明 |
 |------|------|------|
-| **AAA 认知中枢节点** | AAA `main.py` | 提取 DataReader/DataWriter，改为多输入端口+单输出端口+data_type 路由 |
-| **用户输入节点** | 新建 | stdin 读取 + 输出 text |
+| **AAA 认知中枢节点**（合并 gui_adapter + user_input） | AAA `main.py` | 提取 DataReader/DataWriter，改为多输入端口+单输出端口+data_type 路由；直接读取 gui_input.json |
 | **LLM 推理节点** | 新建 | Python 封装 llama.cpp server API，OpenAI 兼容格式 |
 | **Live2D 面孔节点** | My-Neuro | 提取渲染核心 + 情绪映射 + MOSS-TTS，多输入端口 |
-| 端到端联调 | — | user_input → AAA → LLM → AAA → Live2D 完整链路 |
+| 端到端联调 | — | gui_input → AAA → LLM → AAA → Live2D 完整链路 |
 
 ### Phase 2：记忆增强 + 工具调用 + 知识图谱 — P1
 
@@ -1573,8 +1445,10 @@ GUI ←→ shared/gui_cmd.json（写） / shared/gui_status.json（读） ←→
 | 9 | 流式输出改为完整文本 | BNOS 节点间用 output.json 传递完整结果，避免流式分片复杂性 | 2026-07-23 |
 | 10 | 模型选 Qwen3-1.7B Q4_K_M，llm_infer 支持切云端 | 本地轻量；双后端一键切换，不锁定单一推理后端 | 2026-07-23 |
 | 11 | **删除定时触发器节点** | 用户输入是唯一驱动源；AAA 不再输出 schedule_trigger | 2026-07-23 |
-| 12 | **输入/输出直达数据库** | AAA 收到 user_input/llm_response/tool_result 立即写 DB | 2026-07-23 |
+| 12 | **输入/输出直达数据库** | AAA 收到 gui_input/llm_response/tool_result 立即写 DB | 2026-07-23 |
 | 13 | **单输出端口 + data_type 路由** | AAA 输出只有一个端口，通过 data_type 字段区分类型，BNOS port_mappings 自动分发 | 2026-07-23 |
+| 14 | **gui_adapter + user_input 合并到 AAA** | GUI 输入本质是简单的文件写入（gui_input.json），不需要独立节点做中转；AAA 直接监听文件更高效，减少进程间通信和 node_config 维护成本 | 2026-07-24 |
+| 15 | **AAA 内置轻量化会话上下文感知** | 通过 DB 表记录会话状态和时间戳，AAA 内部计算时间间隔并注入 prompt。不依赖跨进程信号，通过超时推断应用生命周期。参考 Lumi_Nox 状态机设计，但实现极简（无独立状态机、无事件总线） | 2026-07-24 |
 
 ---
 
@@ -1614,7 +1488,7 @@ GUI ←→ shared/gui_cmd.json（写） / shared/gui_status.json（读） ←→
 |------|------|-----------|
 | 0.1 | 创建 `shared/` 目录，初始化 `chatbot.db`（建表 SQL） | 数据库文件存在，表结构正确 |
 | 0.2 | 修复所有 `node_config.json` 规范问题（`number`→`int`、`resource_limit`） | ruff 检查通过，无 key 缺失 |
-| 0.3 | 每个节点独立运行 `init_check`，确认返回 ok | 收到 8 个 `{"status": "ok"}` |
+| 0.3 | 每个节点独立运行 `init_check`，确认返回 ok | 收到 6 个 `{"status": "ok"}` |
 | 0.4 | 准备 llm_infer 的模型文件（下载 qwen3-1.7b-q4_k_m.gguf） | 模型文件就位 |
 
 **耗时**：1-2 小时
@@ -1630,21 +1504,21 @@ GUI ←→ shared/gui_cmd.json（写） / shared/gui_status.json（读） ←→
 
 **目标**：用户打字输入 → AI 回复 → 显示在屏幕上。先做通再做快。
 
-**涉及节点**：`aaa_cognition`、`llm_infer`、`user_input`、`live2d_face`
+**涉及节点**：`aaa_cognition`（合并 gui_adapter + user_input）、`llm_infer`、`live2d_face`
 
 | 步骤 | 内容 | 可验证结果 |
 |------|------|-----------|
 | **1.1** | **llm_infer 接入 http_server 后端** — 将已写完的 `LlamaServer` 类接入 `process()`，接收 prompt 调用 HTTP API 返回文本 | `python main.py '{"data_type":"text","content":"你好"}'` → 返回 LLM 回复文本 |
-| **1.2** | **aaa_cognition 实现简化 process()** — 不做 context 拼接、不做多端口路由，仅将 user_input 原样转发为 prompt 到 llm_infer，接收回复后写入 `output.json`（不写 DB） | user_input → aaa → llm_infer → reply 文本可输出 |
-| **1.3** | **openai 兼容格式适配** — 确认 user_input/aaa/llm_infer 间数据格式统一（data_type + content 格式） | 全链路数据格式验证通过 |
-| **1.4** | **BNOS 画布链路联调** — 在画布上连线 user_input → aaa → llm_infer → live2d_face，验证完整流式打字回复 | 用户打字 → AI 文字回复出现在 Live2D 界面 |
+| **1.2** | **aaa_cognition 实现简化 process()** — 不做 context 拼接、不做多端口路由，仅将 gui_input 原样转发为 prompt 到 llm_infer，接收回复后写入 `output.json`（不写 DB） | gui_input → aaa → llm_infer → reply 文本可输出 |
+| **1.3** | **openai 兼容格式适配** — 确认 gui_input/aaa/llm_infer 间数据格式统一（data_type + content 格式） | 全链路数据格式验证通过 |
+| **1.4** | **BNOS 画布链路联调** — 在画布上连线 aaa → llm_infer → live2d_face（GUI 输入由 AAA 直接读取 gui_input.json），验证完整流式打字回复 | 用户打字 → AI 文字回复出现在 Live2D 界面 |
 
 **耗时**：3-5 天
 
 **Phase 1 完成后效果**：
 ```
-打字输入 ──→ AAAsimplified ──→ llm_infer ──→ live2d_face
-                                              └── 显示 AI 回复文字
+GUI 输入 ──→ AAA(合并 gui_adapter+user_input) ──→ llm_infer ──→ live2d_face
+                                                               └── 显示 AI 回复文字
 ```
 
 ---
@@ -1752,7 +1626,7 @@ GUI ←→ shared/gui_cmd.json（写） / shared/gui_status.json（读） ←→
 
 | 步骤 | 内容 | 可验证结果 |
 |------|------|-----------|
-| **6.1** | **gui_bridge 广播+汇总** — 定期收集所有节点的 status，统一推送到 GUI | 控制面板实时显示所有节点运行状态 |
+| **6.1** | **各节点 status 收集** — 各节点输出独立 status.json，GUI 或 AAA 定期汇总 | 控制面板实时显示所有节点运行状态 |
 | **6.2** | **错误处理与重试** — AAA 处理 LLM 超时、工具调用失败的降级策略 | 拔掉网线 → AI 回复"网络异常，请稍后重试" |
 | **6.3** | **节点启动顺序检测** — Phase 启动脚本检查依赖关系，等待上游就绪 | 一键启动所有节点，按顺序自动等待 |
 | **6.4** | **GUI 配置面板完善** — 各节点 parameters 同步到 GUI 侧边栏 | 侧边栏可调整所有节点的可配置参数 |
@@ -1790,11 +1664,9 @@ Phase 1: 最小对话链路  ◄── 最优先，拿到运行效果
 
 | 节点 | 方案状态 | 实现状态 | 关键缺口 |
 |------|---------|---------|----------|
-| `aaa_cognition` | ✅ [完成](nodes/node_python_aaa_cognition/开发方案.md) | 🟢 核心链路完成并测试通过 | `process()` 实现完整：上下文拼接、节标记解析、情绪注入、DB 持久化；AAA → LLM → AAA 端到端循环验证成功 |
-| `user_input` | ✅ [完成](nodes/node_python_user_input/开发方案.md) | 🟡 基础实现，缺 file_watch 模式 | stdin/gui 模式可用，file_watch 模式未实现 |
+| `aaa_cognition` | ✅ [完成](nodes/node_python_aaa_cognition/开发方案.md) | 🟢 核心链路完成并测试通过 | 已合并 gui_adapter + user_input，直接监听 gui_input.json；`process()` 实现完整：上下文拼接、节标记解析、情绪注入、DB 持久化；AAA → LLM → AAA 端到端循环验证成功；**会话上下文感知设计方案已完成，待实现** |
 | `llm_infer` | ✅ [完成](nodes/node_python_llm_infer/开发方案.md) | 🟢 云端 API 后端接入并测试通过 | `process()` + `CloudApiBackend` 完整链路通过 DeepSeek 真实 API 验证；三后端类齐全（http_server/cli_local/cloud） |
 | `live2d_face` | ✅ [完成](nodes/node_js_live2d_face/开发方案.md) | 🟢 核心逻辑完整 | 情绪解析、TTS 集成、init_check 均已实现 |
-| `gui_bridge` | ✅ [完成](nodes/node_python_gui_bridge/开发方案.md) | 🟡 骨架完成，缺广播+汇总逻辑 | `process()` 仅透传数据 |
 | `grok_hands` | ✅ [完成](nodes/node_rust_grok_hands/开发方案.md) | 🟡 基础编译可用，缺 MCP 集成 | 仅 hello-world 级别 |
 | `logseq_writer` | ✅ [完成](nodes/node_python_logseq_writer/开发方案.md) | 🟡 生成 .md 内容但未写磁盘 | 返回文件内容，未实际写入 Logseq 目录 |
 | `asr_input` | ✅ [完成](nodes/node_python_asr_input/开发方案.md) | 🔴 预留状态 | 骨架存在，Whisper 集成未实施 |
@@ -1810,10 +1682,8 @@ Phase 1: 最小对话链路  ◄── 最优先，拿到运行效果
 | 节点 | 方案文件 | 代码目录 |
 |------|---------|---------|
 | AAA 认知中枢 | [aaa_cognition/开发方案.md](nodes/node_python_aaa_cognition/开发方案.md) | [aaa_cognition/](nodes/node_python_aaa_cognition/) |
-| 用户输入 | [user_input/开发方案.md](nodes/node_python_user_input/开发方案.md) | [user_input/](nodes/node_python_user_input/) |
 | LLM 推理 | [llm_infer/开发方案.md](nodes/node_python_llm_infer/开发方案.md) | [llm_infer/](nodes/node_python_llm_infer/) |
 | Live2D 面孔 | [live2d_face/开发方案.md](nodes/node_js_live2d_face/开发方案.md) | [live2d_face/](nodes/node_js_live2d_face/) |
-| GUI 桥接 | [gui_bridge/开发方案.md](nodes/node_python_gui_bridge/开发方案.md) | [gui_bridge/](nodes/node_python_gui_bridge/) |
 | Grok 工具 | [grok_hands/开发方案.md](nodes/node_rust_grok_hands/开发方案.md) | [grok_hands/](nodes/node_rust_grok_hands/) |
 | Logseq 写入 | [logseq_writer/开发方案.md](nodes/node_python_logseq_writer/开发方案.md) | [logseq_writer/](nodes/node_python_logseq_writer/) |
 | ASR 语音输入 | [asr_input/开发方案.md](nodes/node_python_asr_input/开发方案.md) | [asr_input/](nodes/node_python_asr_input/) |
@@ -1838,11 +1708,9 @@ Phase 1: 最小对话链路  ◄── 最优先，拿到运行效果
 ```
 Phase 1 核心：
   ① shared/chatbot.db 初始化（手动或 AAA 首次启动自动创建）
-  ② gui_bridge（控制通道，独立于数据流）
-  ③ live2d_face（Live2D 模型加载 + TTS 服务就绪）
-  ④ user_input（输入入口，待命中）
-  ⑤ llm_infer（LLM 模型加载 / API 连接）
-  ⑥ aaa_cognition（DB + FAISS 初始化）← 所有上游就绪后启动
+  ② live2d_face（Live2D 模型加载 + TTS 服务就绪）
+  ③ llm_infer（LLM 模型加载 / API 连接）
+  ④ aaa_cognition（DB + FAISS 初始化）← 所有上游就绪后启动
 
 Phase 2 扩展（不阻塞核心链路）：
   ⑦ logseq_writer（Logseq 目录验证）
@@ -1858,14 +1726,13 @@ Phase 2 扩展（不阻塞核心链路）：
 |--------|------|-----------|---------|
 | **P0** ✅ | aaa_cognition — `process()` 完成，AAA → LLM → AAA 全链路已测试通过 | — | — |
 | **P0** ✅ | llm_infer — 云端 API 后端接入，AAA + LLM 端到端验证通过 | — | — |
-| **P1** | gui_bridge — 广播+汇总逻辑 | 中 (2-3天) | 各节点 init_check 就绪 |
+| **P1** | aaa_cognition — 会话上下文感知实现 | 小 (1天) | DB 结构就绪 |
 | **P1** | logseq_writer — 实际写磁盘 | 小 (0.5天) | Logseq pages 目录配置 |
 | **P1** | 端到端联调 | 中 (2-3天) | P0 完成 |
 | **P2** | grok_hands — MCP 工具执行 | 大 (5-7天) | Rust 编译环境 |
 | **P2** | asr_input — Whisper 集成 | 中 (3-5天) | whisper-main 依赖 |
 | **P2** | env_input — psutil 采集 | 小 (0.5天) | — |
 | **P3** | vision_input — 新建节点 | 大 (5-7天) | supervision 集成 |
-| **P3** | user_input — file_watch 模式补全 | 小 (0.5天) | — |
 
 ---
 

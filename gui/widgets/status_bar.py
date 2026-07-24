@@ -5,6 +5,8 @@ from __future__ import annotations
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QHBoxLayout, QLabel, QWidget
 
+from gui.core.config import AppConfig
+
 
 class StatusBar(QWidget):
     """底部状态栏 — 显示引擎状态、当前模型、节点数量。"""
@@ -13,16 +15,20 @@ class StatusBar(QWidget):
         super().__init__(parent)
         self.setObjectName("status_bar")
         self.setFixedHeight(28)
-        self.setStyleSheet("""
-            #status_bar {
-                background-color: #fafafa;
-                border-top: 1px solid #e0e0e0;
-            }
-            QLabel {
-                color: #999999;
+
+        self._config = AppConfig()
+        colors = self._config.get_all_colors()
+
+        self.setStyleSheet(f"""
+            #status_bar {{
+                background-color: {colors['bg_secondary']};
+                border-top: 1px solid {colors['border_color']};
+            }}
+            QLabel {{
+                color: {colors['text_secondary']};
                 font-size: 11px;
                 padding: 0 12px;
-            }
+            }}
         """)
 
         layout = QHBoxLayout(self)
@@ -45,3 +51,18 @@ class StatusBar(QWidget):
 
     def update_nodes(self, online: int, total: int):
         self._node_label.setText(f"节点: {online}/{total}")
+
+    def refresh_theme(self):
+        """主题颜色变更后刷新状态栏样式"""
+        colors = self._config.get_all_colors()
+        self.setStyleSheet(f"""
+            #status_bar {{
+                background-color: {colors['bg_secondary']};
+                border-top: 1px solid {colors['border_color']};
+            }}
+            QLabel {{
+                color: {colors['text_secondary']};
+                font-size: 11px;
+                padding: 0 12px;
+            }}
+        """)

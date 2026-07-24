@@ -2,11 +2,11 @@
 BNOS 全链路集成测试脚本
 
 模拟完整数据流：
-  用户输入 → AAA → LLM → AAA → 最终输出节点
-                    │
-                    ├─ reply    → live2d_face（显示+朗读）
-                    ├─ knowledge → logseq_writer（知识归档）
-                    └─ tool_call → grok_hands（工具执行）
+  GUI 文本 → AAA（合并 gui_adapter+user_input）→ LLM → AAA → 最终输出节点
+                                                    │
+                                                    ├─ reply    → live2d_face + GUI
+                                                    ├─ knowledge → logseq_writer
+                                                    └─ tool_call → grok_hands
 
 用法：
   python tests/test_llm_aaa_pipeline.py
@@ -26,7 +26,6 @@ import shutil
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AAA_DIR = os.path.join(PROJECT_ROOT, "nodes", "node_python_aaa_cognition")
 LLM_DIR = os.path.join(PROJECT_ROOT, "nodes", "node_python_llm_infer")
-USER_INPUT_DIR = os.path.join(PROJECT_ROOT, "nodes", "node_python_user_input")
 LIVE2D_DIR = os.path.join(PROJECT_ROOT, "nodes", "node_js_live2d_face")
 LOGSEQ_DIR = os.path.join(PROJECT_ROOT, "nodes", "node_python_logseq_writer")
 
@@ -159,7 +158,7 @@ def test_aaa_build_prompt():
     result = run_main(AAA_DIR, {
         "data_type": "text",
         "content": "你好，我是小明",
-        "source": "text",
+        "source": "gui",
     })
     if result is None:
         print("  [FAIL] AAA main.py 执行失败")
@@ -232,8 +231,7 @@ def test_aaa_parse_llm_output(llm_reply):
     """
     测试 AAA 节点：解析 LLM 节标记回复
 
-    AAA 的 process() 中，解析 LLM 回复走 data_type=parsed 分支，
-    所以这里用 data_type=parsed 传入模拟的 LLM 节标记文本。
+    AAA 的 process() 中，解析 LLM 回复走 data_type=text + source=llm 分支。
     """
     print("\n" + "=" * 60)
     print("[Test 3] AAA: Parse LLM Section-Marked Reply")
@@ -244,8 +242,9 @@ def test_aaa_parse_llm_output(llm_reply):
         return []
 
     result = run_main(AAA_DIR, {
-        "data_type": "parsed",
+        "data_type": "text",
         "content": llm_reply,
+        "source": "llm",
     })
     if result is None:
         print("  [FAIL] AAA main.py 执行失败")
@@ -310,31 +309,6 @@ def test_db_persistence():
             print("  [WARN] 所有表为空")
     except Exception as e:
         print(f"  [WARN] 数据库检查异常: {e}")
-
-
-def test_user_input():
-    """测试用户输入节点：透传 content + source"""
-    print("\n" + "=" * 60)
-    print("[Test 0] User Input: 文本透传")
-    print("=" * 60)
-
-    user_text = os.environ.get("USER_INPUT", "你好，我是小明")
-    result = run_main(USER_INPUT_DIR, {
-        "content": user_text,
-        "source": "text",
-    })
-    if result is None:
-        print("  [WARN] user_input 节点未配置 venv，跳过")
-        return None
-
-    data = result.get("data", {})
-    if data.get("content") == user_text and data.get("source") == "text" and data.get("data_type") == "text":
-        print("  [PASS] user_input 正确透传")
-    else:
-        print(f"  [WARN] user_input 输出异常: {data}")
-        print(f"  完整输出: {json.dumps(result, ensure_ascii=False)[:200]}")
-
-    return {"data_type": "text", "content": user_text, "source": "text"}
 
 
 def test_live2d_face_output(aaa_outputs):
@@ -439,8 +413,9 @@ def main():
 
     use_mock = os.environ.get("USE_MOCK_LLM", "1") == "1"
 
-    # ── Step 0: 用户输入 ──
-    user_input_data = test_user_input()
+    # ── Step 0: 用户输入（直接以 GUI 格式传入 AAA，合并了旧 user_input 节点）──
+    user_text = os.environ.get("USER_INPUT", "你好，我是小明")
+    user_input_data = {"data_type": "text", "content": user_text, "source": "gui"}
 
     # ── Step 1: AAA 构建 prompt ──
     prompt_content = test_aaa_build_prompt()

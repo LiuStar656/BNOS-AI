@@ -1,46 +1,28 @@
 {
   "nodes": {
     "node_python_llm_infer": {
-      "x": -537.4765903124995,
-      "y": -56.150553437500264,
+      "x": 141.0,
+      "y": -516.0,
       "width": 340.0,
-      "height": 457.0,
+      "height": 389.0,
       "style": "detailed",
       "custom_colors": null,
       "is_internal": false
     },
     "node_python_aaa_cognition": {
-      "x": -64.9157909375001,
-      "y": -424.9191800000001,
+      "x": -341.0,
+      "y": -373.0,
       "width": 340.0,
-      "height": 486.0,
+      "height": 298.0,
       "style": "detailed",
       "custom_colors": null,
       "is_internal": false
     },
-    "node_python_gui_bridge": {
-      "x": -1100.669891632812,
-      "y": -282.64482380468735,
-      "width": 353.0,
+    "node_js_live2d_face": {
+      "x": 0.0,
+      "y": 0.0,
+      "width": 340.0,
       "height": 358.0,
-      "style": "detailed",
-      "custom_colors": null,
-      "is_internal": false
-    },
-    "node_python_user_input": {
-      "x": -489.0235562500004,
-      "y": -661.7772749999997,
-      "width": 340.0,
-      "height": 208.0,
-      "style": "detailed",
-      "custom_colors": null,
-      "is_internal": false
-    },
-    "node_python_gui_adapter": {
-      "x": -1098.9975,
-      "y": 136.2175000000001,
-      "width": 340.0,
-      "height": 178.0,
       "style": "detailed",
       "custom_colors": null,
       "is_internal": false
@@ -48,78 +30,28 @@
   },
   "edges": [
     {
-      "source": "node_python_gui_adapter",
-      "target": "node_python_user_input",
-      "source_port": "gui_text",
-      "target_port": "gui_input",
+      "source": "node_python_aaa_cognition",
+      "target": "node_python_llm_infer",
+      "source_port": "prompt",
+      "target_port": "prompt",
       "waypoints": [
         [
-          0.013047155637516714,
-          34.203768867956455,
-          11.742371902376846
+          0.13463353255740798,
+          83.3044982698962,
+          44.42906574394465
         ],
         [
-          0.9076141457763011,
-          -242.19412202379073,
-          -83.1467860852407
+          0.9131802453601762,
+          -53.71972318339101,
+          -28.65051903114187
         ]
       ],
       "edge_key": [
         "STANDALONE_PORT_MAP",
-        "node_python_gui_adapter",
-        "node_python_user_input",
-        "gui_text",
-        "gui_input"
-      ]
-    },
-    {
-      "source": "node_python_gui_adapter",
-      "target": "node_python_gui_bridge",
-      "source_port": "default",
-      "target_port": "gui_cmd",
-      "waypoints": [
-        [
-          0.0,
-          125.5200000000001,
-          0.0
-        ],
-        [
-          0.852407818477472,
-          383.52031306508457,
-          -240.40187994068367
-        ],
-        [
-          1.0,
-          0.0,
-          -169.13517619531257
-        ]
-      ],
-      "edge_key": [
-        "STANDALONE_PORT_MAP",
-        "node_python_gui_adapter",
-        "node_python_gui_bridge",
-        "default",
-        "gui_cmd"
-      ]
-    },
-    {
-      "source": "node_python_user_input",
-      "target": "node_python_aaa_cognition",
-      "source_port": "default",
-      "target_port": "user_input",
-      "waypoints": [
-        [
-          0.4261483557758861,
-          70.64559354133463,
-          -60.87874229352519
-        ]
-      ],
-      "edge_key": [
-        "STANDALONE_PORT_MAP",
-        "node_python_user_input",
         "node_python_aaa_cognition",
-        "default",
-        "user_input"
+        "node_python_llm_infer",
+        "prompt",
+        "prompt"
       ]
     },
     {
@@ -129,14 +61,24 @@
       "target_port": "llm_response",
       "waypoints": [
         [
-          0.02529376889550724,
-          51.629671101579845,
-          14.968058879883586
+          0.0,
+          66.0,
+          0.0
         ],
         [
-          0.9477613454330055,
-          -106.62960372671182,
-          -30.91319686658329
+          0.0,
+          66.0,
+          171.0
+        ],
+        [
+          1.0,
+          -254.0,
+          338.0
+        ],
+        [
+          1.0,
+          -254.0,
+          0.0
         ]
       ],
       "edge_key": [
@@ -149,196 +91,31 @@
     },
     {
       "source": "node_python_aaa_cognition",
-      "target": "node_python_llm_infer",
-      "source_port": "prompt",
-      "target_port": "prompt",
-      "waypoints": [
-        [
-          0.0,
-          96.53829093750005,
-          0.0
-        ],
-        [
-          0.0,
-          96.53829093750005,
-          429.99418000000003
-        ],
-        [
-          0.5214373050838499,
-          18.511749482108485,
-          411.86452106378334
-        ],
-        [
-          0.49168301624779115,
-          -4.505001974747756,
-          -100.23096317904287
-        ],
-        [
-          0.9967122034934993,
-          -5.294220181251433,
-          -117.79013439355171
-        ]
-      ],
-      "edge_key": [
-        "STANDALONE_PORT_MAP",
-        "node_python_aaa_cognition",
-        "node_python_llm_infer",
-        "prompt",
-        "prompt"
-      ]
-    },
-    {
-      "source": "node_python_aaa_cognition",
-      "target": "node_python_gui_adapter",
-      "source_port": "default",
+      "target": "node_js_live2d_face",
+      "source_port": "reply",
       "target_port": "reply",
       "waypoints": [
         [
-          0.0,
-          68.76579093750007,
-          0.0
-        ],
-        [
-          0.011331392104418055,
-          83.89412527432387,
-          592.1934981175922
-        ],
-        [
-          1.0,
-          -165.9599999999998,
-          405.1999999999998
-        ],
-        [
-          1.0,
-          -165.9599999999998,
-          0.0
+          0.06557108315232982,
+          37.37715667390681,
+          -9.901233556001799
         ]
       ],
       "edge_key": [
         "STANDALONE_PORT_MAP",
         "node_python_aaa_cognition",
-        "node_python_gui_adapter",
-        "default",
+        "node_js_live2d_face",
+        "reply",
         "reply"
-      ]
-    },
-    {
-      "source": "node_python_llm_infer",
-      "target": "node_python_gui_bridge",
-      "source_port": "status",
-      "target_port": "llm_infer_status",
-      "waypoints": [
-        [
-          0.0,
-          50.67909031249954,
-          0.0
-        ],
-        [
-          0.0,
-          50.67909031249954,
-          168.95805343750015
-        ],
-        [
-          0.7458859616229334,
-          -332.31375810410157,
-          554.9497649246878
-        ],
-        [
-          1.0,
-          -112.71010836718779,
-          -5.684341886080802e-14
-        ]
-      ],
-      "edge_key": [
-        "STANDALONE_PORT_MAP",
-        "node_python_llm_infer",
-        "node_python_gui_bridge",
-        "status",
-        "llm_infer_status"
-      ]
-    },
-    {
-      "source": "node_python_gui_bridge",
-      "target": "node_python_llm_infer",
-      "source_port": "init_check",
-      "target_port": "init_check",
-      "waypoints": [
-        [
-          0.6110604133266775,
-          1.595229929782704,
-          15.585541691625146
-        ],
-        [
-          0.6214279766736247,
-          -0.9882974072905881,
-          -9.655755673509473
-        ]
-      ],
-      "edge_key": [
-        "STANDALONE_PORT_MAP",
-        "node_python_gui_bridge",
-        "node_python_llm_infer",
-        "init_check",
-        "init_check"
-      ]
-    },
-    {
-      "source": "node_python_gui_bridge",
-      "target": "node_python_user_input",
-      "source_port": "init_check",
-      "target_port": "init_check",
-      "waypoints": [
-        [
-          0.05481358696499954,
-          73.35482834349295,
-          34.594633500027584
-        ],
-        [
-          0.8728677521676577,
-          -170.1359960737235,
-          -80.23728720039617
-        ]
-      ],
-      "edge_key": [
-        "STANDALONE_PORT_MAP",
-        "node_python_gui_bridge",
-        "node_python_user_input",
-        "init_check",
-        "init_check"
-      ]
-    },
-    {
-      "source": "node_python_gui_bridge",
-      "target": "node_python_aaa_cognition",
-      "source_port": "init_check",
-      "target_port": "init_check",
-      "waypoints": [
-        [
-          0.22459433786118804,
-          18.568007288551257,
-          54.86263728615426
-        ],
-        [
-          0.327367451415096,
-          -55.608908860206725,
-          -164.30688276158986
-        ]
-      ],
-      "edge_key": [
-        "STANDALONE_PORT_MAP",
-        "node_python_gui_bridge",
-        "node_python_aaa_cognition",
-        "init_check",
-        "init_check"
       ]
     }
   ],
   "view_state": {
-    "scale": 0.8695652173913044,
-    "scroll_x": -1116,
-    "scroll_y": -644,
-    "center_x": -486.45,
-    "center_y": -272.54999999999995
+    "scale": 1.0000000000000002,
+    "scroll_x": -512,
+    "scroll_y": -274,
+    "center_x": 50.0,
+    "center_y": 133.0
   },
   "canvas_size": {
     "width": 5000,

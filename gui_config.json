@@ -1,0 +1,34 @@
+{
+  "theme": {
+    "mode": "light",
+    "accent_color": "#ffffff",
+    "accent_hover": "#ffffff",
+    "bg_primary": "#f5f5f5",
+    "bg_secondary": "#ffffff",
+    "bg_chat": "#ffffff",
+    "text_primary": "#333333",
+    "text_secondary": "#666666",
+    "border_color": "#d0d0d0",
+    "bubble_user_bg": "#95ec69",
+    "bubble_user_text": "#333333",
+    "bubble_ai_bg": "#81c784",
+    "bubble_ai_text": "#333333",
+    "sidebar_bg": "#ffffff",
+    "sidebar_active": "#e8f0fe",
+    "sidebar_text": "#555555",
+    "sidebar_active_text": "#1a73e8",
+    "toast_info": "#ffffff",
+    "toast_success": "#e8f5e9",
+    "toast_warning": "#fff3e0",
+    "toast_error": "#ffebee",
+    "toast_text": "#333333"
+  },
+  "window": {
+    "geometry": {
+      "x": 789,
+      "y": 174,
+      "width": 900,
+      "height": 680
+    }
+  }
+}

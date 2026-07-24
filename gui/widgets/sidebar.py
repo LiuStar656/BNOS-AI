@@ -5,6 +5,7 @@ from __future__ import annotations
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtWidgets import QButtonGroup, QPushButton, QVBoxLayout, QWidget
 
+from gui.core.config import AppConfig
 from gui.resources.icons.codicon import codicon
 
 
@@ -25,11 +26,15 @@ class Sidebar(QWidget):
         super().__init__(parent)
         self.setFixedWidth(56)
         self.setObjectName("sidebar")
-        self.setStyleSheet("""
-            #sidebar {
-                background-color: #ffffff;
-                border-right: 1px solid #e0e0e0;
-            }
+
+        self._config = AppConfig()
+        colors = self._config.get_all_colors()
+
+        self.setStyleSheet(f"""
+            #sidebar {{
+                background-color: {colors['sidebar_bg']};
+                border-right: 1px solid {colors['border_color']};
+            }}
         """)
 
         self._buttons: dict[str, QPushButton] = {}
@@ -45,7 +50,7 @@ class Sidebar(QWidget):
         self._icon_font = codicon.get_font(20)
 
         for icon_name, page_id, tooltip in self.TABS:
-            btn = self._create_button(icon_name, tooltip)
+            btn = self._create_button(icon_name, tooltip, colors)
             self._buttons[page_id] = btn
             self._group.addButton(btn)
             layout.addWidget(btn)
@@ -54,7 +59,7 @@ class Sidebar(QWidget):
 
         self._group.buttonClicked.connect(self._on_clicked)
 
-    def _create_button(self, icon_name: str, tooltip: str) -> QPushButton:
+    def _create_button(self, icon_name: str, tooltip: str, colors: dict) -> QPushButton:
         btn = QPushButton()
         btn.setToolTip(tooltip)
         btn.setFixedSize(48, 48)
@@ -62,21 +67,21 @@ class Sidebar(QWidget):
         btn.setFont(self._icon_font)
         btn.setText(codicon.get_char(icon_name))
         btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        btn.setStyleSheet("""
-            QPushButton {
+        btn.setStyleSheet(f"""
+            QPushButton {{
                 background-color: transparent;
-                color: #999999;
+                color: {colors['sidebar_text']};
                 border: none;
                 border-radius: 8px;
-            }
-            QPushButton:hover {
-                background-color: #f0f0f0;
-                color: #666666;
-            }
-            QPushButton:checked {
-                background-color: #e8f0fe;
-                color: #1a73e8;
-            }
+            }}
+            QPushButton:hover {{
+                background-color: {colors['bg_chat']};
+                color: {colors['text_secondary']};
+            }}
+            QPushButton:checked {{
+                background-color: {colors['sidebar_active']};
+                color: {colors['sidebar_active_text']};
+            }}
         """)
         return btn
 
@@ -90,3 +95,30 @@ class Sidebar(QWidget):
         btn = self._buttons.get(page_id)
         if btn:
             btn.setChecked(True)
+
+    def refresh_theme(self):
+        """主题颜色变更后刷新侧边栏样式"""
+        colors = self._config.get_all_colors()
+        self.setStyleSheet(f"""
+            #sidebar {{
+                background-color: {colors['sidebar_bg']};
+                border-right: 1px solid {colors['border_color']};
+            }}
+        """)
+        for page_id, btn in self._buttons.items():
+            btn.setStyleSheet(f"""
+                QPushButton {{
+                    background-color: transparent;
+                    color: {colors['sidebar_text']};
+                    border: none;
+                    border-radius: 8px;
+                }}
+                QPushButton:hover {{
+                    background-color: {colors['bg_chat']};
+                    color: {colors['text_secondary']};
+                }}
+                QPushButton:checked {{
+                    background-color: {colors['sidebar_active']};
+                    color: {colors['sidebar_active_text']};
+                }}
+            """)

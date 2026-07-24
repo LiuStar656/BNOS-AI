@@ -1,0 +1,14 @@
+{
+  "updated_at": "2026-07-24T19:49:28",
+  "engine_status": "online",
+  "nodes": {
+    "node_python_llm_infer": {
+      "status": "running",
+      "pid": 11612
+    },
+    "node_python_aaa_cognition": {
+      "status": "running",
+      "pid": 14520
+    }
+  }
+}

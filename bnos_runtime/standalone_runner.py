@@ -105,13 +105,15 @@ class StandaloneRunner:
 
     def start(self) -> tuple[str, subprocess.Popen]:
         """（新接口）非阻塞启动节点进程，立即返回 (node_id, proc)。
-        
-        适用于长时间运行的 event-loop 节点（listener.py）。
+
+        适用于长时间运行的 event-loop 节点（listener.py / listener.js）。
+        支持 Python (.py) 和 JavaScript (.js) 两种入口。
         调用方负责调用 proc.kill() / proc.terminate()。
         """
         node_path = self.project_root / self.defn.path
         self._kill_existing_instance(node_path)
 
+        # 优先尝试 exe_entry
         if self.defn.exe_entry:
             exe_path = node_path / self.defn.exe_entry
             if exe_path.exists():
@@ -123,22 +125,39 @@ class StandaloneRunner:
                 )
                 return self.node_id, proc
 
-        python_exe, entry = self._resolve_entry()
-        proc = subprocess.Popen(
-            [str(python_exe), entry],
-            cwd=str(node_path),
-            stdout=None, stderr=None,  # 继承引擎 stdout/stderr（不捕获，防管道阻塞）
-            env={**os.environ, "BNOS_RUNTIME": "1"},
-        )
+        # 解析入口文件
+        entry = self.defn.entry or "main.py"
+        entry_lower = entry.lower()
+
+        if entry_lower.endswith(".js"):
+            # JavaScript 节点：使用 node 执行
+            proc = subprocess.Popen(
+                ["node", entry],
+                cwd=str(node_path),
+                stdout=None, stderr=None,
+                env={**os.environ, "BNOS_RUNTIME": "1"},
+            )
+        else:
+            # Python 节点：使用解析到的 Python 解释器
+            python_exe = self._resolve_python()
+            proc = subprocess.Popen(
+                [str(python_exe), entry],
+                cwd=str(node_path),
+                stdout=None, stderr=None,  # 继承引擎 stdout/stderr（不捕获，防管道阻塞）
+                env={**os.environ, "BNOS_RUNTIME": "1"},
+            )
         return self.node_id, proc
+
+    def _resolve_python(self) -> Path:
+        """仅解析 Python 解释器路径（不返回入口）。"""
+        node_path = self.project_root / self.defn.path
+        if self.defn.venv:
+            return self._resolve_from_venv_path(self.defn.venv)
+        return resolve_python(node_path)
 
     def _resolve_entry(self) -> tuple[Path, str]:
         """解析 Python 解释器和入口文件。"""
-        node_path = self.project_root / self.defn.path
-        if self.defn.venv:
-            python_exe = self._resolve_from_venv_path(self.defn.venv)
-        else:
-            python_exe = resolve_python(node_path)
+        python_exe = self._resolve_python()
         entry = self.defn.entry or "main.py"
         return python_exe, entry
 
