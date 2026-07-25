@@ -1,7 +1,7 @@
 """
 颜色选择器弹出窗口 — 从 BNOS ColorPickerPopup 适配
 
-替代系统 QColorDialog，与 GUI 保持统一明亮主题。
+替代系统 QColorDialog，继承 FloatingPanel 保持统一明亮主题。
 """
 
 from __future__ import annotations
@@ -9,15 +9,15 @@ from __future__ import annotations
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
-    QDialog,
     QGridLayout,
     QHBoxLayout,
     QLabel,
     QLineEdit,
     QPushButton,
     QVBoxLayout,
-    QWidget,
 )
+
+from gui.widgets.floating_panel import FloatingPanel
 
 # 预设色板（明亮主题适用）
 _PRESET_COLORS = [
@@ -32,42 +32,24 @@ _PRESET_COLORS = [
 ]
 
 
-class ColorPickerPopup(QDialog):
+class ColorPickerPopup(FloatingPanel):
     """颜色选择器弹出窗口"""
 
     color_selected = Signal(QColor)
 
     def __init__(self, current_color: QColor, parent=None):
-        super().__init__(parent)
+        super().__init__(parent, title="选择颜色")
         self._current = QColor(current_color)
         self._result: QColor | None = None
 
-        self.setWindowTitle("选择颜色")
         self.setFixedSize(400, 360)
-        self.setStyleSheet("""
-            QDialog { background-color: #ffffff; }
-            QLabel { color: #333333; font-size: 13px; }
-            QLineEdit {
-                background-color: #ffffff; color: #333333;
-                border: 1px solid #d0d0d0; border-radius: 4px;
-                padding: 4px 8px; font-family: Consolas, monospace;
-            }
-            QPushButton {
-                background-color: #f5f5f5; color: #333333;
-                border: 1px solid #d0d0d0; border-radius: 4px;
-                padding: 6px 16px; font-size: 13px;
-            }
-            QPushButton:hover { background-color: #e8e8e8; }
-            QPushButton#okBtn { background-color: #1a73e8; color: white; border: none; }
-            QPushButton#okBtn:hover { background-color: #1557b0; }
-        """)
-
         self._setup_ui()
 
     def _setup_ui(self):
-        layout = QVBoxLayout(self)
+        # 使用 self.content_layout 添加内容（由 FloatingPanel 提供）
+        layout = self.content_layout
         layout.setSpacing(8)
-        layout.setContentsMargins(16, 12, 16, 12)
+        layout.setContentsMargins(0, 0, 0, 0)
 
         # ─── 预览行 ───
         preview = QHBoxLayout()
@@ -105,7 +87,7 @@ class ColorPickerPopup(QDialog):
         btn_row = QHBoxLayout()
         btn_row.addStretch()
         cancel_btn = QPushButton("取消")
-        cancel_btn.clicked.connect(self.reject)
+        cancel_btn.clicked.connect(lambda: self.close())
         btn_row.addWidget(cancel_btn)
         ok_btn = QPushButton("确定")
         ok_btn.setObjectName("okBtn")

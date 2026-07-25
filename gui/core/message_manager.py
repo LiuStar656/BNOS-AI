@@ -1,4 +1,4 @@
-"""消息收发管理 — 轮询后端产出文件 + 发送状态锁"""
+"""消息收发管理 — 轮询后端产出文件 + 发送状态锁 + request_id 过期回复过滤"""
 
 from __future__ import annotations
 
@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 import time
+import uuid
 from datetime import datetime
 from pathlib import Path
 
@@ -21,6 +22,8 @@ SHARED_DIR.mkdir(parents=True, exist_ok=True)
 
 GUI_INPUT_PATH = str(SHARED_DIR / "gui_input.json")
 GUI_REPLY_PATH = str(SHARED_DIR / "gui_reply.json")
+GUI_CMD_PATH = str(SHARED_DIR / "gui_cmd.json")
+GUI_CMD_RESULT_PATH = str(SHARED_DIR / "gui_cmd_result.json")
 BNOS_STATUS_PATH = str(PROJECT_ROOT / "bnos_status.json")
 
 
@@ -34,6 +37,7 @@ class MessageManager(QObject):
 
     reply_received = Signal(str)
     error_occurred = Signal(str)
+    cmd_result_received = Signal(str, str, str)  # cmd, status, message
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -42,6 +46,12 @@ class MessageManager(QObject):
         self._last_gui_reply_hash: str = ""
         self._poll_timer: QTimer | None = None
         self._send_timer: QTimer | None = None
+
+        # 请求关联：每次发送生成唯一 ID，poll_reply 只接受匹配的回复
+        self._current_request_id: str = ""
+
+        # DB 命令结果轮询追踪
+        self._last_cmd_result_mtime: float = 0
 
         # 启动轮询定时器（每 200ms 检查一次）
         self._start_polling()
@@ -55,6 +65,7 @@ class MessageManager(QObject):
     def _on_poll_tick(self):
         """轮询触发回调"""
         self.poll_reply()
+        self._poll_cmd_result()
         self.poll_status()
 
     def send_text(self, text: str) -> bool:
@@ -68,10 +79,13 @@ class MessageManager(QObject):
 
         self._state.send_state = "sending"
 
+        # 生成请求关联 ID（uuid 前 8 位），用于过滤过期回复
+        self._current_request_id = uuid.uuid4().hex[:8]
         data = {
             "data_type": "text",
             "content": text,
             "source": "gui",
+            "request_id": self._current_request_id,
             "timestamp": datetime.now().isoformat(),
         }
         try:
@@ -85,6 +99,21 @@ class MessageManager(QObject):
         # 启动超时定时器（60 秒自动恢复）
         self._start_timeout()
         return True
+
+    def send_db_command(self, cmd: str, params: dict = None):
+        """发送数据库管理命令到 AAA（独立通道 gui_cmd.json，不走发送状态锁）。"""
+        data = {
+            "data_type": "db_command",
+            "source": "gui",
+            "cmd": cmd,
+            "params": params or {},
+            "timestamp": datetime.now().isoformat(),
+        }
+        try:
+            with open(GUI_CMD_PATH, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            self.error_occurred.emit(f"发送 DB 命令失败: {e}")
 
     def poll_status(self):
         """轮询 bnos_status.json（引擎 NodeMonitor 输出），更新引擎和节点状态"""
@@ -174,6 +203,12 @@ class MessageManager(QObject):
         if isinstance(content, dict) and content.get("data_type") == "reply":
             reply_text = content.get("content", "")
 
+            # request_id 过滤：丢弃与当前发送不匹配的过期回复
+            reply_id = content.get("request_id")
+            if reply_id and self._current_request_id and reply_id != self._current_request_id:
+                print(f"[MessageManager] 丢弃过期回复（期望 {self._current_request_id}，收到 {reply_id}）")
+                return None
+
         if reply_text:
             self._state.send_state = "idle"
             self._cancel_timeout()
@@ -257,3 +292,23 @@ class MessageManager(QObject):
     def _on_timeout(self):
         self._state.send_state = "idle"
         self.error_occurred.emit("发送超时，请重试")
+
+    def _poll_cmd_result(self):
+        """轮询 gui_cmd_result.json，检测 DB 命令执行结果并通过信号发送。"""
+        path = GUI_CMD_RESULT_PATH
+        if not os.path.isfile(path):
+            return
+        try:
+            mtime = os.path.getmtime(path)
+            if mtime <= self._last_cmd_result_mtime:
+                return
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            self._last_cmd_result_mtime = mtime
+            cmd = data.get("cmd", "")
+            status = data.get("status", "")
+            message = data.get("message", "")
+            if cmd and status:
+                self.cmd_result_received.emit(cmd, status, message)
+        except Exception:
+            pass

@@ -1,14 +1,18 @@
-"""设置页 — 主题颜色自定义"""
+"""设置页 — 主题颜色自定义 + 数据库管理"""
 
 from __future__ import annotations
 
-from PySide6.QtCore import Qt
+import os
+
+from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QColor, QPalette
 from PySide6.QtWidgets import (
+    QFileDialog,
     QFormLayout,
     QGroupBox,
     QHBoxLayout,
     QLabel,
+    QMessageBox,
     QPushButton,
     QScrollArea,
     QVBoxLayout,
@@ -141,10 +145,120 @@ class SettingsPage(QWidget):
         btn_layout.addWidget(reset_btn)
         self._form_layout.addLayout(btn_layout)
 
+        # ─── 数据库管理 ───
+        db_group = QGroupBox("数据库管理")
+        db_layout = QVBoxLayout(db_group)
+        db_layout.setSpacing(8)
+
+        btn_style = """
+            QPushButton {
+                background-color: #1a73e8; color: white;
+                border: none; border-radius: 4px;
+                padding: 8px 16px; font-size: 13px;
+            }
+            QPushButton:hover { background-color: #1557b0; }
+        """
+        danger_btn_style = """
+            QPushButton {
+                background-color: #d32f2f; color: white;
+                border: none; border-radius: 4px;
+                padding: 8px 16px; font-size: 13px;
+            }
+            QPushButton:hover { background-color: #b71c1c; }
+        """
+
+        self._backup_btn = QPushButton("备份数据库")
+        self._backup_btn.setStyleSheet(btn_style)
+        self._backup_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._backup_btn.clicked.connect(lambda: self._on_backup())
+        db_layout.addWidget(self._backup_btn)
+
+        self._restore_btn = QPushButton("恢复数据库")
+        self._restore_btn.setStyleSheet(btn_style)
+        self._restore_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._restore_btn.clicked.connect(lambda: self._on_restore())
+        db_layout.addWidget(self._restore_btn)
+
+        self._clear_btn = QPushButton("清空数据库")
+        self._clear_btn.setStyleSheet(danger_btn_style)
+        self._clear_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._clear_btn.clicked.connect(lambda: self._on_clear())
+        db_layout.addWidget(self._clear_btn)
+
+        self._form_layout.addWidget(db_group)
+
         self._form_layout.addStretch()
 
         scroll.setWidget(content)
         layout.addWidget(scroll)
+
+        # 延迟连接 MessageManager 信号（窗口树可能在 init 时未完整构建）
+        QTimer.singleShot(0, self._connect_message_manager)
+
+    # ─── 数据库管理 ──────────────────────────────────
+
+    def _get_manager(self):
+        """获取 MessageManager 实例（按需延迟加载）。"""
+        w = self.window()
+        if w and hasattr(w, "_message_manager"):
+            return w._message_manager
+        return None
+
+    def _connect_message_manager(self):
+        mm = self._get_manager()
+        if mm:
+            mm.cmd_result_received.connect(self._on_db_result)
+
+    def _on_db_result(self, cmd, status, message):
+        if status == "ok":
+            QMessageBox.information(self, "操作成功", message)
+        else:
+            QMessageBox.warning(self, "操作失败", message)
+
+    def _on_backup(self):
+        mm = self._get_manager()
+        if mm:
+            self._backup_btn.setEnabled(False)
+            self._backup_btn.setText("正在备份...")
+            mm.send_db_command("backup")
+            # 5s 保护兜底：结果信号未触发时自动恢复按钮状态
+            QTimer.singleShot(5000, self._restore_backup_btn)
+
+    def _restore_backup_btn(self):
+        self._backup_btn.setEnabled(True)
+        self._backup_btn.setText("备份数据库")
+
+    def _on_restore(self):
+        msg = QMessageBox(self)
+        msg.setWindowTitle("恢复数据库")
+        msg.setText("请选择一个备份文件恢复数据库。\n此操作将覆盖当前数据库，不可撤销。")
+        msg.setIcon(QMessageBox.Icon.Question)
+        msg.setStandardButtons(QMessageBox.StandardButton.Cancel)
+        accept_btn = msg.addButton("选择文件", QMessageBox.ButtonRole.AcceptRole)
+        msg.exec()
+        if msg.clickedButton() != accept_btn:
+            return
+        backup_path, _ = QFileDialog.getOpenFileName(
+            self, "选择备份文件", "", "DB 文件 (*.db);;所有文件 (*)"
+        )
+        if not backup_path:
+            return
+        backup_name = os.path.basename(backup_path)
+        mm = self._get_manager()
+        if mm:
+            mm.send_db_command("restore", {"backup_file": backup_name})
+
+    def _on_clear(self):
+        msg = QMessageBox(self)
+        msg.setWindowTitle("清空数据库")
+        msg.setText("确定要清空所有数据吗？\n\n此操作将删除所有对话记录和记忆数据，但保留数据库表结构。\n此操作不可撤销！")
+        msg.setIcon(QMessageBox.Icon.Warning)
+        msg.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+        msg.setDefaultButton(QMessageBox.StandardButton.No)
+        if msg.exec() == QMessageBox.StandardButton.Yes:
+            mm = self._get_manager()
+            if mm:
+                mm.send_db_command("clear")
 
     # ─── 工具方法 ──────────────────────────────────
 
