@@ -1,19 +1,9 @@
 @echo off
 chcp 65001 >nul
-REM BNOS 一键启动 — 后台启动引擎（所有Python节点）+ 前台 GUI 客户端
+REM BNOS 一键启动 — 引擎由 GUI 客户端内部管理生命周期，此处仅启动 GUI
 cd /d "%~dp0"
 
-echo [BNOS] 启动引擎（所有节点）...
-REM 后台启动引擎，不弹新窗口，日志写入 engine.log
-REM 使用 -m 方式确保引擎内部 from bnos_runtime.xxx 导入正常
-set PYTHONIOENCODING=utf-8
-set PYTHONUNBUFFERED=1
-start /B "" python -m bnos_runtime.engine pipeline.json > engine.log 2>&1
-
-echo [BNOS] 等待节点初始化...
-timeout /t 3 /nobreak >nul
-
-echo [BNOS] 启动 GUI 客户端...
+echo [BNOS] 启动 GUI 客户端（引擎由 GUI 自动管理）...
 gui\venv\Scripts\python gui\main.py
 
 echo [BNOS] GUI 已关闭，停止引擎...
