@@ -1,26 +1,20 @@
-"""聊天页 — 消息列表 + 输入框 + 发送按钮 + 状态锁"""
+"""聊天页 — 消息列表 + ChatInput（WeChat 风格发送框）"""
 
 from __future__ import annotations
 
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QColor, QPalette
-from PySide6.QtWidgets import (
-    QHBoxLayout,
-    QLineEdit,
-    QPushButton,
-    QScrollArea,
-    QVBoxLayout,
-    QWidget,
-)
+from PySide6.QtWidgets import QHBoxLayout, QScrollArea, QSizePolicy, QVBoxLayout, QWidget
 
 from gui.core.config import AppConfig
 from gui.core.message_manager import MessageManager
 from gui.core.state import AppState
 from gui.widgets.chat_bubble import ChatBubble
+from gui.widgets.chat_input import ChatInput
 
 
 class ChatPage(QWidget):
-    """聊天页 — 消息列表 + 输入框 + 发送按钮。"""
+    """聊天页 — 消息列表 + ChatInput 输入栏。"""
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -39,9 +33,20 @@ class ChatPage(QWidget):
             self._msg_mgr.error_occurred.connect(self._on_error)
 
     def _init_ui(self):
-        layout = QVBoxLayout(self)
-        layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(0)
+        # 外层水平布局：左右各 5% 空白，中间 90% 内容区
+        outer = QHBoxLayout(self)
+        outer.setContentsMargins(0, 0, 0, 0)
+        outer.setSpacing(0)
+
+        left_spacer = QWidget()
+        left_spacer.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        outer.addWidget(left_spacer)
+
+        # 中间内容容器
+        inner = QWidget()
+        inner_layout = QVBoxLayout(inner)
+        inner_layout.setContentsMargins(0, 0, 0, 0)
+        inner_layout.setSpacing(0)
 
         colors = self._config.get_all_colors()
 
@@ -63,86 +68,80 @@ class ChatPage(QWidget):
         # 消息列表容器（气泡从下往上堆叠，类似微信）
         self._msg_container = QWidget()
         self._msg_container.setObjectName("msg_container")
-        # 容器背景：与滚动区域一致
         self._msg_container.setStyleSheet(f"""
             #msg_container {{ background-color: {colors['bg_chat']}; }}
         """)
         self._msg_layout = QVBoxLayout(self._msg_container)
         self._msg_layout.setContentsMargins(0, 8, 0, 8)
         self._msg_layout.setSpacing(8)
-        # 弹簧在最底部：气泡总是插入到弹簧之前，实现从下往上堆叠
-        self._msg_layout.addStretch(1)
+        self._msg_layout.addStretch(1)  # 弹簧在最底部
 
         self._scroll_area.setWidget(self._msg_container)
-        layout.addWidget(self._scroll_area, 1)
+        inner_layout.addWidget(self._scroll_area, 1)
 
-        # ─── 输入区域 ──────────────────────────────────
-        input_bar = QWidget()
-        input_bar.setObjectName("input_bar")
-        input_bar.setStyleSheet(f"""
-            #input_bar {{
-                background-color: {colors['bg_secondary']};
-                border-top: 1px solid {colors['border_color']};
-                padding: 12px 16px;
-            }}
-        """)
-        input_layout = QHBoxLayout(input_bar)
-        input_layout.setContentsMargins(0, 0, 0, 0)
-        input_layout.setSpacing(12)
+        # ─── ChatInput（WeChat 风格发送框）───────────
+        self._chat_input = ChatInput()
+        self._chat_input.send_requested.connect(self._send_message)
+        inner_layout.addWidget(self._chat_input)
 
-        self._input_box = QLineEdit()
-        self._input_box.setPlaceholderText("输入消息...")
-        self._input_box.returnPressed.connect(self._send_message)
-        input_layout.addWidget(self._input_box, 1)
+        outer.addWidget(inner)
 
-        self._send_btn = QPushButton("发送")
-        self._send_btn.setFixedWidth(80)
-        self._send_btn.clicked.connect(self._send_message)
-        input_layout.addWidget(self._send_btn)
+        right_spacer = QWidget()
+        right_spacer.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        outer.addWidget(right_spacer)
 
-        layout.addWidget(input_bar)
+        # 比例：左 5 : 内容 90 : 右 5
+        outer.setStretch(0, 5)
+        outer.setStretch(1, 90)
+        outer.setStretch(2, 5)
 
     def _connect_signals(self):
         self._state.on_change("send_state", self._on_send_state_changed)
 
     # ─── 发送 ──────────────────────────────────
 
-    def _send_message(self):
+    def _send_message(self, text: str, attachments: list):
         if not self._msg_mgr:
             return
 
-        text = self._input_box.text().strip()
-        if not text:
-            return
-
-        self._input_box.clear()
         self._append_bubble(text, "user")
-        ok = self._msg_mgr.send_text(text)
+
+        # 如果有附件，在气泡下方显示附件信息
+        for att in attachments:
+            att_text = f"[{'图片' if att['type'] == 'image' else '文件'}] {att['name']}"
+            self._append_bubble(att_text, "user")
+
+        ok = self._msg_mgr.send_text(text, attachments)
         if not ok:
             pass
 
     def _on_send_state_changed(self, state: str):
         if state == "sending":
-            self._input_box.setEnabled(False)
-            self._send_btn.setEnabled(False)
-            self._input_box.setPlaceholderText("发送中...")
+            self._chat_input.set_enabled(False)
         else:
-            self._input_box.setEnabled(True)
-            self._send_btn.setEnabled(True)
-            self._input_box.setPlaceholderText("输入消息...")
-            self._input_box.setFocus()
+            self._chat_input.set_enabled(True)
+            self._chat_input.set_focus()
 
     # ─── 接收回复 ──────────────────────────────
 
     def append_reply(self, text: str):
         """MainWindow 调用此方法添加 AI 回复"""
+        text = self._strip_mood_tag(text)
         self._append_bubble(text, "ai")
 
     def _on_reply(self, text: str):
+        # 过滤情绪标签 <xxx>（如 <开心>），仅保留纯文本
+        text = self._strip_mood_tag(text)
         self._append_bubble(text, "ai")
 
     def _on_error(self, msg: str):
         self._append_bubble(f"[错误] {msg}", "ai")
+
+    @staticmethod
+    def _strip_mood_tag(text: str) -> str:
+        """去除 AAA 注入的情绪标签 <xxx>，保留后续文本"""
+        import re
+        return re.sub(r'^<\w+>', '', text).strip()
 
     # ─── 气泡管理 ──────────────────────────────
 
@@ -187,15 +186,9 @@ class ChatPage(QWidget):
             msg_container.setStyleSheet(f"""
                 #msg_container {{ background-color: {colors['bg_chat']}; }}
             """)
-        input_bar = self.findChild(QWidget, "input_bar")
-        if input_bar:
-            input_bar.setStyleSheet(f"""
-                #input_bar {{
-                    background-color: {colors['bg_secondary']};
-                    border-top: 1px solid {colors['border_color']};
-                    padding: 12px 16px;
-                }}
-            """)
+        # 刷新 ChatInput 样式
+        if self._chat_input:
+            self._chat_input._apply_styles()
         # 刷新滚动区域背景
         self._scroll_area.setStyleSheet(f"""
             QScrollArea#chat_scroll {{ background-color: {colors['bg_chat']}; border: none; }}

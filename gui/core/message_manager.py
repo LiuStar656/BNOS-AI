@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import shutil
 import time
 import uuid
 from datetime import datetime
@@ -25,6 +26,10 @@ GUI_REPLY_PATH = str(SHARED_DIR / "gui_reply.json")
 GUI_CMD_PATH = str(SHARED_DIR / "gui_cmd.json")
 GUI_CMD_RESULT_PATH = str(SHARED_DIR / "gui_cmd_result.json")
 BNOS_STATUS_PATH = str(PROJECT_ROOT / "bnos_status.json")
+
+# 附件缓存目录（GUI 本地缓存，确保路径稳定）
+GUI_DIR = PROJECT_ROOT / "gui"
+ATTACHMENT_CACHE = GUI_DIR / "cache" / "attachments"
 
 
 class MessageManager(QObject):
@@ -68,10 +73,11 @@ class MessageManager(QObject):
         self._poll_cmd_result()
         self.poll_status()
 
-    def send_text(self, text: str) -> bool:
+    def send_text(self, text: str, attachments: list = None) -> bool:
         """发送文本消息到后端。
 
         如果当前状态为 sending 则忽略（发送状态锁）。
+        attachments: 可选附件列表 [{type, name, path}, ...]
         返回 True 表示发送成功，False 表示被状态锁拦截。
         """
         if self._state.send_state == "sending":
@@ -88,6 +94,13 @@ class MessageManager(QObject):
             "request_id": self._current_request_id,
             "timestamp": datetime.now().isoformat(),
         }
+        if attachments:
+            # 将附件拷贝到本地缓存目录，确保路径稳定
+            cached = []
+            for att in attachments:
+                dest = self._cache_attachment(att)
+                cached.append({**att, "path": str(dest)})
+            data["attachments"] = cached
         try:
             with open(GUI_INPUT_PATH, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
@@ -115,60 +128,19 @@ class MessageManager(QObject):
         except Exception as e:
             self.error_occurred.emit(f"发送 DB 命令失败: {e}")
 
-    def poll_status(self):
-        """轮询 bnos_status.json（引擎 NodeMonitor 输出），更新引擎和节点状态"""
-        status_path = PROJECT_ROOT / "bnos_status.json"
-        if not status_path.exists():
-            self._state.engine_status = "offline"
-            self._state.nodes = {}
-            return
-
-        try:
-            with open(status_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        except (json.JSONDecodeError, OSError):
-            return
-
-        # 映射引擎状态
-        raw_engine_status = data.get("engine_status", "offline")
-        if raw_engine_status in ("online", "degraded"):
-            self._state.engine_status = "online"
-        else:
-            self._state.engine_status = "offline"
-
-        # 映射节点状态（简化字段）
-        raw_nodes = data.get("nodes", {})
-        nodes: dict[str, dict] = {}
-        for node_name, node_info in raw_nodes.items():
-            ns = node_info.get("status", "unknown")
-            pid = node_info.get("pid", 0)
-            exit_code = node_info.get("exit_code")
-            if ns == "running":
-                nodes[node_name] = {
-                    "online": True,
-                    "pid": pid,
-                    "detail": f"PID {pid}",
-                }
-            elif ns == "crashed":
-                nodes[node_name] = {
-                    "online": False,
-                    "pid": pid,
-                    "detail": f"exit_code={exit_code}" if exit_code is not None else "",
-                }
-            elif ns == "stopped":
-                nodes[node_name] = {
-                    "online": False,
-                    "pid": pid,
-                    "detail": "正常退出",
-                }
-            else:
-                nodes[node_name] = {
-                    "online": False,
-                    "pid": pid,
-                    "detail": "",
-                }
-
-        self._state.nodes = nodes
+    @staticmethod
+    def _cache_attachment(att: dict) -> Path:
+        """将附件拷贝到本地缓存目录，返回缓存路径。"""
+        ATTACHMENT_CACHE.mkdir(parents=True, exist_ok=True)
+        src = att.get("path", "")
+        name = att.get("name", "unknown")
+        if not src or not os.path.isfile(src):
+            # 源文件不存在，返回空路径占位
+            return Path(src)
+        # 用 uuid 前缀避免同名冲突
+        dest = ATTACHMENT_CACHE / f"{uuid.uuid4().hex[:8]}_{name}"
+        shutil.copy2(src, str(dest))
+        return dest
 
     def poll_reply(self) -> str | None:
         """轮询 shared/gui_reply.json，返回新回复文本或 None"""

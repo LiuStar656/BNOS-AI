@@ -347,33 +347,61 @@ class AttachmentBar(QWidget):
 
 **AAA `_on_text` 处理：**
 
+AAA **不主动读取附件内容**，仅将附件路径信息传递给 LLM，由 LLM 自行决定是否通过 `file_read` 工具读取：
+
 ```python
 def _on_text(self, data, dbp):
     text = data.get("content", "")
     attachments = data.get("attachments", [])
     
-    # 处理附件
-    attachment_context = ""
-    for att in attachments:
-        if att["type"] == "image":
-            # 图片 → base64 编码，拼入视觉上下文
-            b64 = self._image_to_base64(att["path"])
-            attachment_context += f"\n[图片: {att['name']}](data:image/...;base64,{b64})"
-        elif att["type"] == "file":
-            # 文件 → 读取文本内容（或仅传递文件名路径）
-            content = self._read_file_text(att["path"])
-            attachment_context += f"\n[文件: {att['name']}]\n{content[:2000]}"
-    
-    prompt_context = attachment_context + "\n\n" + text
+    # 仅构建附件上下文告知 LLM 路径，不提前读取内容
+    ctx = self._gather_context(text, dbp, attachments)
+    return {
+        "_port": "prompt", "data_type": "prompt", "content": pt.build(ctx),
+        "request_id": data.get("request_id"),
+    }
+```
+
+`_gather_context` 中构建的 `attachment_context` 示例输出：
+```
+用户附带了以下附件（你可通过 file_read("路径") 读取内容）：
+  1. 类型: image | 名称: 截图.png | 路径: C:/cache/.../截图.png
+  2. 类型: file  | 名称: report.pdf | 路径: C:/cache/.../report.pdf
+
+如需查看附件内容，请调用 file_read("路径")。
+若你无法处理（如不支持该文件类型），请在回复中告知用户。
+```
+
+**GUI 侧附件缓存：**
+
+发送前先将附件拷贝到 `gui/cache/attachments/` 目录，保证路径在对话期间稳定可用：
+
+```python
+ATTACHMENT_CACHE = GUI_DIR / "cache" / "attachments"
+
+def send_text(self, text, attachments=None):
     ...
+    if attachments:
+        cached = []
+        for att in attachments:
+            dest = self._cache_attachment(att)
+            cached.append({**att, "path": str(dest)})
+        data["attachments"] = cached
+    ...
+
+def _cache_attachment(self, att):
+    ATTACHMENT_CACHE.mkdir(parents=True, exist_ok=True)
+    dest = ATTACHMENT_CACHE / f"{uuid.uuid4().hex[:8]}_{att['name']}"
+    shutil.copy2(att["path"], str(dest))
+    return dest
 ```
 
 **支持的附件类型：**
 
-| 类型 | GUI 操作 | AAA 处理 |
+| 类型 | GUI 操作 | 传输方式 |
 |------|---------|----------|
-| `image` | 文件选择器选图片；Ctrl+V 粘贴 | base64 编码后送视觉模型 |
-| `file` | 文件选择器选任意文件 | 读取文本内容（限 2000 字符）或仅传文件名 |
+| `image` | 文件选择器选图片；Ctrl+V 粘贴 | 缓存到本地 → 路径传给 AAA → 拼入 prompt → LLM 决定是否 `file_read` 或使用视觉能力 |
+| `file` | 文件选择器选任意文件 | 同上 |
 | `audio`（后续） | 录音按钮 | 预留 |
 
 ### 3.6 设计⑤ — ColorPickerPopup 重写为 FloatingPanel 子类
@@ -457,16 +485,18 @@ MainWindow (FramelessWindowHint)
 8. ✅ **`gui/widgets/color_picker.py`** — 改为继承 `FloatingPanel`，内容 `self.content_layout`，浮动面板明亮风格
 9. ✅ 删除独立 QDialog 的标志和样式（`setWindowTitle`/`setStyleSheet` 移除，由父类提供）
 
-### Phase 3 — WeChat 发送框（待开发）
+### Phase 3 — WeChat 发送框（已完成）
 
-10. **`gui/widgets/chat_input.py`** — 新文件，完整实现
-11. **`gui/pages/chat_page.py`** — 用 `ChatInput` 替换 `QLineEdit + SendButton`
-12. `ChatInput.send_requested` 信号连接到 `MessageManager.send_text`
-13. **`gui/core/message_manager.py`** — `send_text` 支持 `attachments` 参数，写入 `gui_input.json`
+10. ✅ **`gui/widgets/chat_input.py`** — 新文件，完整实现（QTextEdit + 工具栏 + 附件预览）
+11. ✅ **`gui/pages/chat_page.py`** — 用 `ChatInput` 替换 `QLineEdit + SendButton`
+12. ✅ `ChatInput.send_requested` 信号连接到 `MessageManager.send_text`
+13. ✅ **`gui/core/message_manager.py`** — `send_text` 支持 `attachments` 参数，写入 `gui_input.json`
 
-### Phase 4 — AAA 附件处理（可选）
+### Phase 4 — AAA 附件处理（已完成）
 
-14. **`main.py` `_on_text`** — 解析 `attachments` 字段，图片转 base64，文件读取文本
+14. ✅ **`main.py` `_gather_context`** — 解析 `attachments` 字段，构建 attachment_context 告知 LLM 附件路径信息，由 LLM 自行通过 `file_read` 决定是否读取
+15. ✅ **`prompt.py`** — 模板添加 `{attachment_context}` 占位，`file_read` 工具描述强化
+16. ✅ **`message_manager.py`** — `send_text` 支持 `attachments` 参数 + 附件拷贝到 `gui/cache/attachments/` 缓存
 
 ---
 
