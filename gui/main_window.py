@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QEasingCurve, QParallelAnimationGroup, QPoint, QPropertyAnimation, QTimer
 from PySide6.QtGui import QMouseEvent
-from PySide6.QtWidgets import QHBoxLayout, QMainWindow, QStackedWidget, QVBoxLayout, QWidget
+from PySide6.QtWidgets import QApplication, QHBoxLayout, QLabel, QMainWindow, QStackedWidget, QVBoxLayout, QWidget
 
 from gui.core.event_bus import event_bus
 from gui.core.message_manager import MessageManager
@@ -52,6 +52,7 @@ class MainWindow(QMainWindow):
         self._state = AppState()
         self._message_manager: MessageManager | None = None
         self._pages: dict[str, QWidget] = {}
+        self._anim_group: QParallelAnimationGroup | None = None  # 页面滑动动画组
         self._resize_edge = 0  # 当前鼠标所在边缘
 
         self._init_central()
@@ -296,9 +297,113 @@ class MainWindow(QMainWindow):
         self._status_bar.update_nodes(online, total)
 
     def _switch_page(self, page_id: str):
-        page = self._pages.get(page_id)
-        if page:
-            self._stack.setCurrentWidget(page)
+        """切换页面 — 带滑动动画"""
+        target = self._pages.get(page_id)
+        if not target or target == self._stack.currentWidget():
+            return
+
+        # 正在动画中 → 先取消旧动画，再直接跳转
+        if self._anim_group is not None:
+            self._cancel_animation()
+            self._stack.setCurrentWidget(target)
+            return
+
+        # 计算滑动方向（1=左滑，-1=右滑）
+        page_ids = list(self.PAGE_CLASSES.keys())
+        direction = 1
+        current_widget = self._stack.currentWidget()
+        for pid, wid in self._pages.items():
+            if wid is current_widget:
+                current_idx = page_ids.index(pid)
+                target_idx = page_ids.index(page_id)
+                direction = 1 if target_idx > current_idx else -1
+                break
+
+        self._slide_animation(target, direction)
+
+    def _cancel_animation(self):
+        """取消正在播放的动画，清理覆盖层"""
+        if self._anim_group is None:
+            return
+        try:
+            self._anim_group.stop()
+            # 断开所有 finished 连接
+            try:
+                self._anim_group.finished.disconnect()
+            except (RuntimeError, TypeError):
+                pass
+        except RuntimeError:
+            pass
+        # 找到并删除 overlay（通过遍历子控件查找覆盖层 QWidget）
+        for child in self._stack.findChildren(QWidget, "", Qt.FindChildOption.FindDirectChildrenOnly):
+            if child.metaObject().className() == "QWidget" and child is not self._stack.currentWidget():
+                try:
+                    child.deleteLater()
+                except RuntimeError:
+                    pass
+        self._anim_group = None
+
+    def _slide_animation(self, target_page: QWidget, direction: int):
+        """执行页面滑动动画（截图覆盖层方式）"""
+        current_widget = self._stack.currentWidget()
+        stack_size = self._stack.size()
+        w = max(stack_size.width(), 1)
+        h = max(stack_size.height(), 1)
+
+        # 1) 截图当前页面 + 目标页面（关闭栈更新避免闪烁）
+        self._stack.setUpdatesEnabled(False)
+        current_pixmap = current_widget.grab()
+        self._stack.setCurrentWidget(target_page)
+        # 强制渲染确保截图完整
+        QApplication.processEvents()
+        target_pixmap = target_page.grab()
+        self._stack.setCurrentWidget(current_widget)
+        self._stack.setUpdatesEnabled(True)
+
+        # 2) 创建动画覆盖层（作为 QStackedWidget 的子控件，自动覆盖）
+        overlay = QWidget(self._stack)
+        overlay.setGeometry(0, 0, w, h)
+        overlay.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
+        overlay.show()
+        overlay.raise_()
+
+        # 旧页标签（当前位置）
+        old_label = QLabel(overlay)
+        old_label.setPixmap(current_pixmap)
+        old_label.setGeometry(0, 0, w, h)
+
+        # 新页标签（从 off-screen 滑入）
+        new_label = QLabel(overlay)
+        new_label.setPixmap(target_pixmap)
+        new_label.setGeometry(direction * w, 0, w, h)
+
+        # 3) 并行动画组
+        self._anim_group = QParallelAnimationGroup(self)
+
+        # 旧页滑出
+        a1 = QPropertyAnimation(old_label, b"pos")
+        a1.setDuration(280)
+        a1.setStartValue(QPoint(0, 0))
+        a1.setEndValue(QPoint(-direction * w, 0))
+        a1.setEasingCurve(QEasingCurve.OutCubic)
+
+        # 新页滑入
+        a2 = QPropertyAnimation(new_label, b"pos")
+        a2.setDuration(280)
+        a2.setStartValue(QPoint(direction * w, 0))
+        a2.setEndValue(QPoint(0, 0))
+        a2.setEasingCurve(QEasingCurve.OutCubic)
+
+        self._anim_group.addAnimation(a1)
+        self._anim_group.addAnimation(a2)
+        self._anim_group.finished.connect(lambda: self._finish_slide(target_page, overlay))
+        self._anim_group.start()
+
+    def _finish_slide(self, target_page: QWidget, overlay: QWidget):
+        """滑动动画完成 — 切换到实际页面 + 清理覆盖层"""
+        self._stack.setCurrentWidget(target_page)
+        overlay.deleteLater()
+        self._anim_group = None
 
     def _restore_window_geometry(self):
         """从配置恢复窗口位置和尺寸"""

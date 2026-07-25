@@ -7,6 +7,7 @@ import os
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QColor, QPalette
 from PySide6.QtWidgets import (
+    QComboBox,
     QFileDialog,
     QFormLayout,
     QGroupBox,
@@ -43,6 +44,22 @@ class SettingsPage(QWidget):
         self.setPalette(p)
         self.setAutoFillBackground(True)
 
+    def _on_preset_changed(self, index: int):
+        """主题预设选择变更"""
+        preset_id = self._preset_combo.itemData(index)
+        if not preset_id or preset_id == self._config.get_selected_preset():
+            return
+        self._config.apply_preset(preset_id)
+        # 刷新所有颜色按钮
+        colors = self._config.get_all_colors()
+        for child in self.findChildren(QPushButton):
+            key = getattr(child, "_config_key", "")
+            if key and key in colors:
+                child.setStyleSheet(self._btn_style(colors[key]))
+                child.setToolTip(colors[key])
+        # 广播主题变更事件
+        event_bus.publish("theme_changed")
+
     def _init_ui(self):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -68,6 +85,25 @@ class SettingsPage(QWidget):
         self._form_layout = QVBoxLayout(content)
         self._form_layout.setSpacing(12)
         self._form_layout.setContentsMargins(24, 16, 24, 16)
+
+        # ─── 主题预设选择 ───
+        preset_group = QGroupBox("主题预设")
+        preset_layout = QHBoxLayout(preset_group)
+        self._preset_combo = QComboBox()
+        self._preset_combo.setMinimumWidth(200)
+        # 填充预设列表
+        for pid, name in AppConfig.get_preset_list():
+            self._preset_combo.addItem(name, pid)
+        # 选中当前预设
+        current_preset = self._config.get_selected_preset()
+        idx = self._preset_combo.findData(current_preset)
+        if idx >= 0:
+            self._preset_combo.setCurrentIndex(idx)
+        self._preset_combo.currentIndexChanged.connect(self._on_preset_changed)
+        preset_layout.addWidget(QLabel("选择主题："))
+        preset_layout.addWidget(self._preset_combo)
+        preset_layout.addStretch()
+        self._form_layout.addWidget(preset_group)
 
         # ─── 强调色 ───
         accent_group = QGroupBox("强调色")

@@ -182,34 +182,36 @@ class ChatInput(QWidget):
         layout.addWidget(toolbar)
 
     def _apply_styles(self):
+        """应用 DyberPet 风格：
+        - 容器：白底/浅底 + 圆角边框（来自 DPDialogue）
+        - 输入区：透明背景，无内边框，干净字体（来自 BubbleText）
+        - 工具栏：浅分隔线 + 简洁按钮
+        """
         colors = self._config.get_all_colors()
         self.setStyleSheet(f"""
             #chatInput {{
                 background-color: {colors['bg_secondary']};
                 border: 1px solid {colors['border_color']};
-                border-radius: 4px;
+                border-radius: 8px;
             }}
             #chatInputEdit {{
-                background-color: {colors['bg_secondary']};
+                background-color: transparent;
                 color: {colors['text_primary']};
                 border: none;
-                border-bottom: 1px solid {colors['border_color']};
-                padding: 8px 12px;
-                font-size: 13px;
-                font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            }}
-            #chatInputEdit:focus {{
-                border-bottom: 1px solid {colors['accent_color']};
+                padding: 10px 14px;
+                font-size: 14px;
+                font-family: 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
             }}
             #chatInputToolbar {{
-                background-color: {colors['bg_secondary']};
+                background-color: transparent;
+                border-top: 1px solid {colors['border_color']};
             }}
             QPushButton#chatToolBtn {{
                 background: transparent;
                 border: none;
                 color: {colors['text_secondary']};
                 font-size: 18px;
-                padding: 4px 8px;
+                padding: 4px 10px;
                 border-radius: 4px;
             }}
             QPushButton#chatToolBtn:hover {{
@@ -222,7 +224,7 @@ class ChatInput(QWidget):
                 border: none;
                 border-radius: 6px;
                 font-size: 13px;
-                padding: 4px 16px;
+                padding: 4px 18px;
             }}
             QPushButton#chatSendBtn:hover {{
                 background-color: {colors['accent_hover']};

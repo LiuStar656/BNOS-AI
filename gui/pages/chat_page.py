@@ -21,6 +21,7 @@ class ChatPage(QWidget):
         self._state = AppState()
         self._config = AppConfig()
         self._msg_mgr: MessageManager | None = None
+        self._current_ai_bubble: ChatBubble | None = None  # 当前正在 append 的 AI 气泡
 
         self._init_ui()
         self._connect_signals()
@@ -104,6 +105,7 @@ class ChatPage(QWidget):
         if not self._msg_mgr:
             return
 
+        self._current_ai_bubble = None  # 发送新消息时重置当前 AI 气泡
         self._append_bubble(text, "user")
 
         # 如果有附件，在气泡下方显示附件信息
@@ -132,7 +134,13 @@ class ChatPage(QWidget):
     def _on_reply(self, text: str):
         # 过滤情绪标签 <xxx>（如 <开心>），仅保留纯文本
         text = self._strip_mood_tag(text)
-        self._append_bubble(text, "ai")
+        if self._current_ai_bubble:
+            # 流式追加：直接追加到当前气泡
+            self._current_ai_bubble.append_text(text)
+            self._scroll_to_bottom()
+        else:
+            # 新建气泡
+            self._current_ai_bubble = self._append_bubble(text, "ai")
 
     def _on_error(self, msg: str):
         self._append_bubble(f"[错误] {msg}", "ai")
@@ -158,6 +166,7 @@ class ChatPage(QWidget):
 
         # 立即滚动到底部
         self._scroll_to_bottom()
+        return bubble
 
     def _scroll_to_bottom(self):
         """事件队列处理完成后滚动到底部（确保布局已生效）"""
