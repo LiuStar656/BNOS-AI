@@ -1,6 +1,8 @@
-"""Live2D 桌面悬浮窗 — 无边框透明窗口，桌面最底层显示"""
+"""Live2D 桌面悬浮窗 - 无边框透明窗口，普通窗口层级显示"""
 
 from __future__ import annotations
+
+import time
 
 from PySide6.QtCore import Qt, QUrl, QPoint, QRect
 from PySide6.QtGui import QAction, QCloseEvent, QMouseEvent, QWheelEvent
@@ -12,7 +14,7 @@ from gui.core.config import AppConfig
 
 
 class Live2DOverlay(QWidget):
-    """Live2D 桌面悬浮窗。无边框、透明、桌面最底层，不阻挡其他窗口。"""
+    """Live2D 桌面悬浮窗。无边框、透明，普通窗口层级，可被点击置顶也可被其他窗口覆盖。"""
 
     CONFIG_KEY = "live2d_overlay"
     SCALE_KEY = "live2d_model_scale"
@@ -34,6 +36,10 @@ class Live2DOverlay(QWidget):
         self._model_rel_path = model_rel_path
         self._init_done = False
 
+        # 鼠标跟随转发节流（节流到 ~30fps，避免 runJavaScript 调用过频）
+        self._last_focus_time = 0.0
+        self._focus_throttle = 0.033
+
         # 加载保存的模型缩放值
         self._model_scale = AppConfig().get(self.SCALE_KEY, self.DEFAULT_SCALE)
 
@@ -48,12 +54,13 @@ class Live2DOverlay(QWidget):
         self.setWindowTitle("Live2D 桌面")
         self.setWindowFlags(
             Qt.WindowType.FramelessWindowHint
-            | Qt.WindowType.WindowStaysOnBottomHint
             | Qt.WindowType.Tool
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setMinimumSize(200, 300)
         self.resize(400, 600)
+        # 启用鼠标跟踪：悬停（无按键）时也接收 mouseMoveEvent，用于转发鼠标位置给模型
+        self.setMouseTracking(True)
 
     # ─── WebView ────────────────────────────────────
 
@@ -101,6 +108,23 @@ class Live2DOverlay(QWidget):
             and pos.y() >= self.height() - self.RESIZE_MARGIN
         )
 
+    # ─── 鼠标跟随转发 ──────────────────────────────
+
+    def _forward_mouse_focus(self, pos: QPoint):
+        """节流地把鼠标位置转发给前端，触发 Live2D 模型跟随鼠标。
+
+        webview 设了 WA_TransparentForMouseEvents，自身收不到 mousemove，
+        所以由父窗口在悬停时把坐标转发给 JS，JS 在 canvas 上派发合成事件。
+        """
+        now = time.monotonic()
+        if now - self._last_focus_time < self._focus_throttle:
+            return
+        self._last_focus_time = now
+        try:
+            self._web.page().runJavaScript(f"setMouseFocus({pos.x()}, {pos.y()})")
+        except Exception:
+            pass
+
     # ─── 鼠标事件（拖动 + 缩放）────────────────────
 
     def mousePressEvent(self, event: QMouseEvent):
@@ -124,6 +148,8 @@ class Live2DOverlay(QWidget):
 
     def mouseMoveEvent(self, event: QMouseEvent):
         if not (event.buttons() == Qt.MouseButton.LeftButton and self._drag_pos):
+            # 悬停时转发鼠标位置给前端，触发模型跟随（节流）
+            self._forward_mouse_focus(event.position().toPoint())
             # 不按下左键时，悬停到缩放区域切换光标
             if self._in_resize_area(event.position().toPoint()):
                 self.setCursor(Qt.CursorShape.SizeFDiagCursor)

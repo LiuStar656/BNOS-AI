@@ -26,18 +26,19 @@
   },
   "window": {
     "geometry": {
-      "x": 778,
-      "y": 92,
-      "width": 1076,
+      "x": 419,
+      "y": 162,
+      "width": 1191,
       "height": 734
     }
   },
   "live2d_current_model": "feiniu.model3.json",
   "live2d_overlay": {
-    "x": 1728,
-    "y": 520,
+    "x": 1707,
+    "y": 659,
     "w": 400,
     "h": 600
   },
-  "live2d_model_scale": 0.2
+  "live2d_model_scale": 0.25,
+  "tts_enabled": false
 }

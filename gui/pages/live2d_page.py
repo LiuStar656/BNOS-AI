@@ -9,7 +9,8 @@ import sys
 import webbrowser
 from pathlib import Path
 
-from PySide6.QtCore import Qt, QUrl, QTimer, Signal
+from PySide6.QtCore import Qt, QUrl, QTimer, Signal, QEvent, QPoint
+from PySide6.QtGui import QMouseEvent, QWheelEvent
 from PySide6.QtWidgets import (
     QHBoxLayout,
     QLabel,
@@ -21,6 +22,7 @@ from PySide6.QtWidgets import (
     QListWidgetItem,
     QFileDialog,
     QGroupBox,
+    QApplication,
 )
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWebEngineCore import QWebEnginePage, QWebEngineSettings
@@ -46,10 +48,18 @@ class Live2DPage(QWidget):
 
     CONFIG_KEY = "live2d_sidebar_width"
     CURRENT_MODEL_KEY = "live2d_current_model"
+    TTS_ENABLED_KEY = "tts_enabled"
+    TTS_PORT = 8084
 
     @classmethod
     def _server_script_path(cls) -> Path:
         return Path(__file__).resolve().parent.parent / "live2d" / "server.py"
+
+    @classmethod
+    def _tts_script_path(cls) -> Path:
+        """TTS 服务脚本路径（位于 Live2D 节点目录）"""
+        root = Path(__file__).resolve().parent.parent.parent
+        return root / "nodes" / "node_js_live2d_face" / "tts_server.py"
 
     @classmethod
     def _models_dir_path(cls) -> Path:
@@ -62,6 +72,15 @@ class Live2DPage(QWidget):
         self._page_shown = False
         self._preview_loaded = False
         self._current_model_path: str | None = None
+
+        # 模型缩放/拖拽状态（Ctrl+滚轮缩放、Ctrl+左键拖拽，与桌面悬浮窗一致）
+        self._model_scale = AppConfig().get(Live2DOverlay.SCALE_KEY, Live2DOverlay.DEFAULT_SCALE)
+        self._model_drag_pos: QPoint | None = None
+        self._is_model_dragging = False
+
+        # TTS 进程状态（GUI 直接持有，支持运行时热开关）
+        self._tts_proc: subprocess.Popen | None = None
+        self._tts_enabled = AppConfig().get(self.TTS_ENABLED_KEY, True)
 
         self._colors = AppConfig().get_all_colors()
 
@@ -144,8 +163,15 @@ class Live2DPage(QWidget):
         model_group_layout.addLayout(model_btn_layout)
 
         left_layout.addWidget(model_group)
-        
+
         left_layout.addStretch()
+
+        # TTS 语音开关（运行时热开/热关）
+        self._tts_btn = QPushButton()
+        self._tts_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._tts_btn.clicked.connect(self._toggle_tts)
+        self._apply_tts_btn_style()
+        left_layout.addWidget(self._tts_btn)
 
         self._desktop_btn = QPushButton("桌面显示")
         self._desktop_btn.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -196,6 +222,9 @@ class Live2DPage(QWidget):
 
         # 后台预加载预览（服务启动后自动导航）
         QTimer.singleShot(1500, self._load_preview)
+
+        # 应用级事件过滤器：拦截预览 webview 的 Ctrl+滚轮缩放 / Ctrl+左键拖拽
+        QApplication.instance().installEventFilter(self)
 
     def showEvent(self, event):
         """页面变为可见时，若 canvas 是 0x0（后台加载导致），重新加载页面。"""
@@ -253,6 +282,13 @@ class Live2DPage(QWidget):
             # 加载失败，尝试重载
             QTimer.singleShot(2000, lambda: self._web_view.reload())
             return
+        # 应用保存的模型缩放值（与桌面悬浮窗保持一致）
+        if self._model_scale != Live2DOverlay.DEFAULT_SCALE:
+            self._web_view.page().runJavaScript(
+                f"setModelScaleAbsolute({self._model_scale})"
+            )
+        # 同步 TTS 启用状态到前端（控制 renderer.js 是否播放）
+        self._push_tts_flag()
         # 读取当前选中的模型，如果不是默认 feiniu，则加载它
         item = self._model_list.currentItem()
         if item:
@@ -263,8 +299,75 @@ class Live2DPage(QWidget):
                     f'loadModel("{js_path}")'
                 ))
 
+    # ─── 预览页模型缩放/拖拽（Ctrl+滚轮 / Ctrl+左键）──
+
+    def _is_within_webview(self, watched) -> bool:
+        """判断 watched 是否属于预览 webview 的子树"""
+        web = getattr(self, "_web_view", None)
+        if web is None:
+            return False
+        w = watched
+        while w is not None:
+            if w is web:
+                return True
+            w = w.parent()
+        return False
+
+    def _scale_preview_model(self, event: QWheelEvent):
+        """Ctrl+滚轮缩放预览模型，并持久化（与桌面悬浮窗共享配置）"""
+        delta = event.angleDelta().y()
+        step = Live2DOverlay.SCALE_STEP if delta > 0 else -Live2DOverlay.SCALE_STEP
+        self._model_scale = max(
+            Live2DOverlay.SCALE_MIN,
+            min(Live2DOverlay.SCALE_MAX, self._model_scale + step),
+        )
+        self._web_view.page().runJavaScript(
+            f"setModelScaleAbsolute({self._model_scale})"
+        )
+        cfg = AppConfig()
+        cfg.set(Live2DOverlay.SCALE_KEY, self._model_scale)
+        cfg.save()
+
+    def eventFilter(self, watched, event):
+        etype = event.type()
+
+        # 拖拽进行中：全局拦截鼠标移动与释放，保证拖出 webview 也能继续移动
+        if self._is_model_dragging:
+            if etype == QEvent.Type.MouseMove:
+                if self._model_drag_pos is not None:
+                    delta = event.globalPosition().toPoint() - self._model_drag_pos
+                    self._web_view.page().runJavaScript(
+                        f"moveModelPosition({delta.x()}, {delta.y()})"
+                    )
+                    self._model_drag_pos = event.globalPosition().toPoint()
+                return True
+            if etype == QEvent.Type.MouseButtonRelease and event.button() == Qt.MouseButton.LeftButton:
+                self._is_model_dragging = False
+                self._model_drag_pos = None
+                self._web_view.setCursor(Qt.CursorShape.ArrowCursor)
+                return True
+
+        # 非拖拽事件需落在预览 webview 子树内才处理
+        if not self._is_within_webview(watched):
+            return super().eventFilter(watched, event)
+
+        if etype == QEvent.Type.Wheel:
+            if event.modifiers() & Qt.KeyboardModifier.ControlModifier:
+                self._scale_preview_model(event)
+                return True
+        elif etype == QEvent.Type.MouseButtonPress:
+            if event.button() == Qt.MouseButton.LeftButton and (
+                event.modifiers() & Qt.KeyboardModifier.ControlModifier
+            ):
+                self._is_model_dragging = True
+                self._model_drag_pos = event.globalPosition().toPoint()
+                self._web_view.setCursor(Qt.CursorShape.DragMoveCursor)
+                return True
+
+        return super().eventFilter(watched, event)
+
     def _start_server(self):
-        """启动 Live2D HTTP 服务（自动连带启动 TTS 服务）。"""
+        """启动 Live2D HTTP 渲染服务，并按配置决定是否启动 TTS。"""
         # 先尝试清理旧端口占用
         self._kill_port(3000)
         script = self._server_script_path()
@@ -283,6 +386,10 @@ class Live2DPage(QWidget):
             print(f"[Live2D] 渲染服务已启动 PID={self._server_proc.pid}")
         except Exception as e:
             print(f"[Live2D] 启动失败: {e}")
+
+        # 按配置启动 TTS（GUI 直接持有进程，支持热开关）
+        if self._tts_enabled:
+            self._start_tts()
 
     def _kill_port(self, port):
         """强制释放指定端口（杀掉占用进程）"""
@@ -306,11 +413,99 @@ class Live2DPage(QWidget):
             pass
 
     def _stop_server(self):
+        # 先停 TTS（避免孤儿进程），再停渲染服务
+        self._stop_tts()
         if self._server_proc and self._server_proc.poll() is None:
             self._server_proc.kill()
             self._server_proc.wait(timeout=3)
             self._server_proc = None
             print("[Live2D] 渲染服务已停止")
+
+    # ─── TTS 热开关管理 ──────────────────────────────
+
+    def _start_tts(self):
+        """启动 TTS 服务进程（GUI 直接持有句柄，单一拥有者）。"""
+        if self._tts_proc and self._tts_proc.poll() is None:
+            return  # 已在运行
+        script = self._tts_script_path()
+        if not script.exists():
+            print(f"[Live2D] TTS 脚本不存在: {script}")
+            return
+        # 清理 8084 残留占用（可能是上次未正常退出的孤儿进程）
+        self._kill_port(self.TTS_PORT)
+        try:
+            self._tts_proc = subprocess.Popen(
+                [sys.executable, str(script), "--port", str(self.TTS_PORT)],
+                cwd=str(script.parent),
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+                text=True,
+            )
+            print(f"[Live2D] TTS 服务已启动 PID={self._tts_proc.pid}")
+        except Exception as e:
+            print(f"[Live2D] TTS 启动失败: {e}")
+            self._tts_proc = None
+
+    def _stop_tts(self):
+        """停止 TTS 服务进程（用真实 PID，无孤儿）。"""
+        if self._tts_proc and self._tts_proc.poll() is None:
+            try:
+                self._tts_proc.kill()
+                self._tts_proc.wait(timeout=3)
+                print("[Live2D] TTS 服务已停止")
+            except Exception as e:
+                print(f"[Live2D] TTS 停止异常: {e}")
+        self._tts_proc = None
+
+    def _toggle_tts(self):
+        """运行时热开关 TTS：翻转启用状态 -> 持久化 -> 启/停进程 -> 推送前端标志。"""
+        self._tts_enabled = not self._tts_enabled
+        cfg = AppConfig()
+        cfg.set(self.TTS_ENABLED_KEY, self._tts_enabled)
+        cfg.save()
+
+        if self._tts_enabled:
+            self._start_tts()
+        else:
+            self._stop_tts()
+        self._push_tts_flag()
+        self._apply_tts_btn_style()
+
+    def _push_tts_flag(self):
+        """把 TTS 启用状态推送到前端 webview，控制 renderer.js 是否播放。"""
+        js = f"window.TTS_ENABLED = {'true' if self._tts_enabled else 'false'};"
+        # 预览页
+        if self._web_view is not None:
+            self._web_view.page().runJavaScript(js)
+        # 桌面悬浮窗
+        if self._overlay is not None and hasattr(self._overlay, "_web"):
+            self._overlay._web.page().runJavaScript(js)
+
+    def _apply_tts_btn_style(self):
+        """根据 _tts_enabled 更新按钮文本与样式。"""
+        accent = self._colors.get('accent_color', '#1a73e8')
+        on_bg = accent
+        off_bg = self._colors.get('bg_primary', '#555555')
+        if self._tts_enabled:
+            self._tts_btn.setText("语音：开")
+            bg, fg = on_bg, "white"
+        else:
+            self._tts_btn.setText("语音：关")
+            bg, fg = off_bg, self._colors.get('text_primary', 'white')
+        self._tts_btn.setStyleSheet(f"""
+            QPushButton {{
+                background-color: {bg};
+                color: {fg};
+                border: none;
+                border-radius: 8px;
+                padding: 8px 12px;
+                font-size: 13px;
+            }}
+            QPushButton:hover {{
+                background-color: {self._colors.get('select_bg', '#1557b0')};
+            }}
+        """)
 
     # ─── 模型管理 ────────────────────────────────────
 
@@ -396,6 +591,8 @@ class Live2DPage(QWidget):
         self._overlay.destroyed.connect(self._on_overlay_closed)
         self._overlay.show()
         self._desktop_btn.setText("关闭桌面")
+        # overlay 页面加载后同步 TTS 启用状态
+        QTimer.singleShot(800, self._push_tts_flag)
 
     def _on_overlay_closed(self):
         self._overlay = None
