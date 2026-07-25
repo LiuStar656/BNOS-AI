@@ -9,7 +9,7 @@ def get_light_qss():
     colors = config.get_all_colors()
     
     return f"""
-QMainWindow {{ background-color: {colors['bg_primary']}; }}
+QMainWindow {{ background: transparent; }}
 QWidget#centralWidget {{ background-color: {colors['bg_primary']}; border: none; }}
 
 QLabel {{ color: {colors['text_primary']}; }}
@@ -88,7 +88,7 @@ QHeaderView::section {{
     font-size: 11px;
 }}
 
-QDialog {{ background-color: {colors['bg_secondary']}; color: {colors['text_primary']}; }}
+QDialog {{ background: transparent; color: {colors['text_primary']}; }}
 QDialog QLabel {{ color: {colors['text_primary']}; }}
 QMessageBox {{ background-color: {colors['bg_secondary']}; }}
 QMessageBox QLabel {{ color: {colors['text_primary']}; }}

@@ -1,4 +1,4 @@
-"""设置页 — 主题颜色自定义 + 数据库管理"""
+"""设置面板内容组件 — 主题颜色自定义 + 数据库管理（嵌入 FloatingPanel 使用）"""
 
 from __future__ import annotations
 
@@ -15,7 +15,6 @@ from PySide6.QtWidgets import (
     QLabel,
     QMessageBox,
     QPushButton,
-    QScrollArea,
     QVBoxLayout,
     QWidget,
 )
@@ -25,16 +24,23 @@ from gui.core.event_bus import event_bus
 from gui.widgets.color_picker import ColorPickerPopup
 
 
-class SettingsPage(QWidget):
-    """设置页 — 主题颜色自定义"""
+class SettingsPanel(QWidget):
+    """设置面板内容 — 主题颜色自定义 + 数据库管理"""
 
     def __init__(self, parent=None):
         super().__init__(parent)
         self._config = AppConfig()
 
-        self._init_ui()
+        colors = self._config.get_all_colors()
+        p = self.palette()
+        p.setColor(QPalette.Window, QColor(colors['bg_secondary']))
+        self.setPalette(p)
+        self.setAutoFillBackground(True)
 
-        # 监听主题变更，刷新自身背景
+        self._init_ui()
+        self._apply_style_override()
+
+        # 监听主题变更
         event_bus.subscribe("theme_changed", self._on_theme_changed)
 
     def _on_theme_changed(self, _data=None):
@@ -43,58 +49,77 @@ class SettingsPage(QWidget):
         p.setColor(QPalette.Window, QColor(colors['bg_secondary']))
         self.setPalette(p)
         self.setAutoFillBackground(True)
+        self._apply_style_override()
+
+    @staticmethod
+    def _settings_qss() -> str:
+        """设置面板专用样式：所有文字黑色，下拉框白色背景"""
+        return """
+            /* 所有文字标签强制黑色 */
+            QLabel {
+                color: #000000;
+            }
+            QGroupBox {
+                color: #000000;
+                font-weight: bold;
+            }
+            QGroupBox::title {
+                color: #000000;
+            }
+            /* 下拉框白色背景 + 黑色文字 */
+            QComboBox {
+                background-color: #ffffff;
+                color: #000000;
+                border: 1px solid #d0d0d0;
+                border-radius: 4px;
+                padding: 4px 8px;
+            }
+            QComboBox::drop-down {
+                border: none;
+            }
+            QComboBox QAbstractItemView {
+                background-color: #ffffff;
+                color: #000000;
+                selection-background-color: #e8f0fe;
+                selection-color: #000000;
+            }
+            /* 表单布局中的标签 */
+            QFormLayout QLabel {
+                color: #000000;
+            }
+        """
+
+    def _apply_style_override(self):
+        """应用文字颜色覆盖样式，不改动 QPushButton 等带独立样式的控件"""
+        self.setStyleSheet(self._settings_qss())
 
     def _on_preset_changed(self, index: int):
-        """主题预设选择变更"""
         preset_id = self._preset_combo.itemData(index)
         if not preset_id or preset_id == self._config.get_selected_preset():
             return
         self._config.apply_preset(preset_id)
-        # 刷新所有颜色按钮
         colors = self._config.get_all_colors()
         for child in self.findChildren(QPushButton):
             key = getattr(child, "_config_key", "")
             if key and key in colors:
                 child.setStyleSheet(self._btn_style(colors[key]))
                 child.setToolTip(colors[key])
-        # 广播主题变更事件
         event_bus.publish("theme_changed")
 
     def _init_ui(self):
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(12)
+        layout.setContentsMargins(24, 16, 24, 16)
 
-        colors = AppConfig().get_all_colors()
-        p = self.palette()
-        p.setColor(QPalette.Window, QColor(colors['bg_secondary']))
-        self.setPalette(p)
-        self.setAutoFillBackground(True)
-
-        scroll = QScrollArea()
-        scroll.setWidgetResizable(True)
-        scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        scroll.setStyleSheet(f"""
-            QScrollArea {{ background-color: {colors['bg_secondary']}; border: none; }}
-        """)
-
-        content = QWidget()
-        content.setObjectName("settings_content")
-        content.setStyleSheet(f"""
-            #settings_content {{ background-color: {colors['bg_secondary']}; }}
-        """)
-        self._form_layout = QVBoxLayout(content)
-        self._form_layout.setSpacing(12)
-        self._form_layout.setContentsMargins(24, 16, 24, 16)
+        colors = self._config.get_all_colors()
 
         # ─── 主题预设选择 ───
         preset_group = QGroupBox("主题预设")
         preset_layout = QHBoxLayout(preset_group)
         self._preset_combo = QComboBox()
         self._preset_combo.setMinimumWidth(200)
-        # 填充预设列表
         for pid, name in AppConfig.get_preset_list():
             self._preset_combo.addItem(name, pid)
-        # 选中当前预设
         current_preset = self._config.get_selected_preset()
         idx = self._preset_combo.findData(current_preset)
         if idx >= 0:
@@ -103,7 +128,7 @@ class SettingsPage(QWidget):
         preset_layout.addWidget(QLabel("选择主题："))
         preset_layout.addWidget(self._preset_combo)
         preset_layout.addStretch()
-        self._form_layout.addWidget(preset_group)
+        layout.addWidget(preset_group)
 
         # ─── 强调色 ───
         accent_group = QGroupBox("强调色")
@@ -111,11 +136,10 @@ class SettingsPage(QWidget):
         self._accent_btn = self._color_button(self._config.get_theme("accent_color"), "accent_color")
         self._accent_btn.clicked.connect(lambda: self._pick_color("accent_color", self._accent_btn))
         accent_layout.addRow("主色调", self._accent_btn)
-
         accent_hover_btn = self._color_button(self._config.get_theme("accent_hover"), "accent_hover")
         accent_hover_btn.clicked.connect(lambda: self._pick_color("accent_hover", accent_hover_btn))
         accent_layout.addRow("悬停色", accent_hover_btn)
-        self._form_layout.addWidget(accent_group)
+        layout.addWidget(accent_group)
 
         # ─── 聊天区域 ───
         chat_group = QGroupBox("聊天区域")
@@ -123,47 +147,40 @@ class SettingsPage(QWidget):
         self._chat_bg_btn = self._color_button(self._config.get_theme("bg_chat"), "bg_chat")
         self._chat_bg_btn.clicked.connect(lambda: self._pick_color("bg_chat", self._chat_bg_btn))
         chat_layout.addRow("聊天背景", self._chat_bg_btn)
-        self._form_layout.addWidget(chat_group)
+        layout.addWidget(chat_group)
 
         # ─── 气泡颜色 ───
         bubble_group = QGroupBox("消息气泡")
         bubble_layout = QFormLayout(bubble_group)
-
         self._bubble_user_btn = self._color_button(self._config.get_theme("bubble_user_bg"), "bubble_user_bg")
         self._bubble_user_btn.clicked.connect(lambda: self._pick_color("bubble_user_bg", self._bubble_user_btn))
         bubble_layout.addRow("用户气泡", self._bubble_user_btn)
-
         bubble_user_text_btn = self._color_button(self._config.get_theme("bubble_user_text"), "bubble_user_text")
         bubble_user_text_btn.clicked.connect(lambda: self._pick_color("bubble_user_text", bubble_user_text_btn))
         bubble_layout.addRow("用户文字色", bubble_user_text_btn)
-
         self._bubble_ai_btn = self._color_button(self._config.get_theme("bubble_ai_bg"), "bubble_ai_bg")
         self._bubble_ai_btn.clicked.connect(lambda: self._pick_color("bubble_ai_bg", self._bubble_ai_btn))
         bubble_layout.addRow("AI 气泡", self._bubble_ai_btn)
-
         bubble_ai_text_btn = self._color_button(self._config.get_theme("bubble_ai_text"), "bubble_ai_text")
         bubble_ai_text_btn.clicked.connect(lambda: self._pick_color("bubble_ai_text", bubble_ai_text_btn))
         bubble_layout.addRow("AI 文字色", bubble_ai_text_btn)
-        self._form_layout.addWidget(bubble_group)
+        layout.addWidget(bubble_group)
 
         # ─── 侧边栏 ───
         sidebar_group = QGroupBox("侧边栏")
         sidebar_layout = QFormLayout(sidebar_group)
-
         self._sidebar_bg_btn = self._color_button(self._config.get_theme("sidebar_bg"), "sidebar_bg")
         self._sidebar_bg_btn.clicked.connect(lambda: self._pick_color("sidebar_bg", self._sidebar_bg_btn))
         sidebar_layout.addRow("背景色", self._sidebar_bg_btn)
-
         sidebar_active_btn = self._color_button(self._config.get_theme("sidebar_active"), "sidebar_active")
         sidebar_active_btn.clicked.connect(lambda: self._pick_color("sidebar_active", sidebar_active_btn))
         sidebar_layout.addRow("选中高亮", sidebar_active_btn)
-
         sidebar_active_text_btn = self._color_button(self._config.get_theme("sidebar_active_text"), "sidebar_active_text")
         sidebar_active_text_btn.clicked.connect(
             lambda: self._pick_color("sidebar_active_text", sidebar_active_text_btn)
         )
         sidebar_layout.addRow("选中文字色", sidebar_active_text_btn)
-        self._form_layout.addWidget(sidebar_group)
+        layout.addWidget(sidebar_group)
 
         # ─── 操作按钮 ───
         btn_layout = QHBoxLayout()
@@ -179,7 +196,7 @@ class SettingsPage(QWidget):
         reset_btn.clicked.connect(self._reset_defaults)
         btn_layout.addStretch()
         btn_layout.addWidget(reset_btn)
-        self._form_layout.addLayout(btn_layout)
+        layout.addLayout(btn_layout)
 
         # ─── 数据库管理 ───
         db_group = QGroupBox("数据库管理")
@@ -206,38 +223,37 @@ class SettingsPage(QWidget):
         self._backup_btn = QPushButton("备份数据库")
         self._backup_btn.setStyleSheet(btn_style)
         self._backup_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        self._backup_btn.clicked.connect(lambda: self._on_backup())
+        self._backup_btn.clicked.connect(self._on_backup)
         db_layout.addWidget(self._backup_btn)
 
         self._restore_btn = QPushButton("恢复数据库")
         self._restore_btn.setStyleSheet(btn_style)
         self._restore_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        self._restore_btn.clicked.connect(lambda: self._on_restore())
+        self._restore_btn.clicked.connect(self._on_restore)
         db_layout.addWidget(self._restore_btn)
 
         self._clear_btn = QPushButton("清空数据库")
         self._clear_btn.setStyleSheet(danger_btn_style)
         self._clear_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        self._clear_btn.clicked.connect(lambda: self._on_clear())
+        self._clear_btn.clicked.connect(self._on_clear)
         db_layout.addWidget(self._clear_btn)
 
-        self._form_layout.addWidget(db_group)
+        layout.addWidget(db_group)
+        layout.addStretch()
 
-        self._form_layout.addStretch()
-
-        scroll.setWidget(content)
-        layout.addWidget(scroll)
-
-        # 延迟连接 MessageManager 信号（窗口树可能在 init 时未完整构建）
+        # 延迟连接 MessageManager 信号
         QTimer.singleShot(0, self._connect_message_manager)
 
-    # ─── 数据库管理 ──────────────────────────────────
+    # ─── 数据库管理 ──────────────────────────────
 
     def _get_manager(self):
-        """获取 MessageManager 实例（按需延迟加载）。"""
-        w = self.window()
-        if w and hasattr(w, "_message_manager"):
-            return w._message_manager
+        """查找 MainWindow 的 _message_manager"""
+        # self.window() 在 FloatingPanel 中返回的是面板自身，不是 MainWindow
+        # 遍历所有顶级窗口查找 MainWindow
+        from PySide6.QtWidgets import QApplication
+        for w in QApplication.topLevelWidgets():
+            if hasattr(w, "_message_manager") and w._message_manager is not None:
+                return w._message_manager
         return None
 
     def _connect_message_manager(self):
@@ -257,7 +273,6 @@ class SettingsPage(QWidget):
             self._backup_btn.setEnabled(False)
             self._backup_btn.setText("正在备份...")
             mm.send_db_command("backup")
-            # 5s 保护兜底：结果信号未触发时自动恢复按钮状态
             QTimer.singleShot(5000, self._restore_backup_btn)
 
     def _restore_backup_btn(self):
@@ -296,7 +311,7 @@ class SettingsPage(QWidget):
             if mm:
                 mm.send_db_command("clear")
 
-    # ─── 工具方法 ──────────────────────────────────
+    # ─── 工具方法 ──────────────────────────────
 
     def _color_button(self, hex_color: str, config_key: str = "") -> QPushButton:
         btn = QPushButton()
@@ -316,7 +331,6 @@ class SettingsPage(QWidget):
             self._config.save()
             btn.setStyleSheet(self._btn_style(hex_color))
             btn.setToolTip(hex_color)
-            # 广播主题变更事件，让主窗口立即刷新
             event_bus.publish("theme_changed")
 
     def _reset_defaults(self):

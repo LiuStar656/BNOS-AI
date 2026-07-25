@@ -91,6 +91,7 @@ class MessageManager(QObject):
             "data_type": "text",
             "content": text,
             "source": "gui",
+            "conversation_id": self._state.current_conversation_id,
             "request_id": self._current_request_id,
             "timestamp": datetime.now().isoformat(),
         }
@@ -127,6 +128,20 @@ class MessageManager(QObject):
                 json.dump(data, f, ensure_ascii=False, indent=2)
         except Exception as e:
             self.error_occurred.emit(f"发送 DB 命令失败: {e}")
+
+    def send_switch_conversation(self, conv_id: str):
+        """发送对话切换消息到 AAA（走 gui_input.json 主通道）。"""
+        data = {
+            "data_type": "switch_conversation",
+            "conversation_id": conv_id,
+            "source": "gui",
+            "timestamp": datetime.now().isoformat(),
+        }
+        try:
+            with open(GUI_INPUT_PATH, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            self.error_occurred.emit(f"发送对话切换消息失败: {e}")
 
     @staticmethod
     def _cache_attachment(att: dict) -> Path:

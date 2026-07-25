@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from PySide6.QtCore import Qt, Signal
-from PySide6.QtWidgets import QButtonGroup, QPushButton, QVBoxLayout, QWidget
+from PySide6.QtWidgets import QButtonGroup, QMenu, QPushButton, QVBoxLayout, QWidget
 
 from gui.core.config import AppConfig
 from gui.resources.icons.codicon import codicon
@@ -13,13 +13,13 @@ class Sidebar(QWidget):
     """左侧标签栏 — 竖排图标按钮组，点击切换 QStackedWidget 页面。"""
 
     page_changed = Signal(str)
+    settings_clicked = Signal()    # 设置面板
+    node_clicked = Signal()        # 节点管理页
 
     TABS = [
         ("chat",     "chat",     "聊天"),
         ("live2d",   "live2d",   "Live2D"),
-        ("node",     "node",     "节点管理"),
         ("mcp",      "mcp",      "MCP 管理"),
-        ("settings", "settings", "设置"),
     ]
 
     def __init__(self, parent=None):
@@ -57,6 +57,51 @@ class Sidebar(QWidget):
 
         layout.addStretch(1)
 
+        # ─── 底部更多按钮（弹出菜单：设置 / 节点管理）──
+        self._more_btn = QPushButton()
+        self._more_btn.setToolTip("更多")
+        self._more_btn.setFixedSize(48, 48)
+        self._more_btn.setCheckable(False)
+        self._more_btn.setFont(self._icon_font)
+        self._more_btn.setText(codicon.get_char("settings"))
+        self._more_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        colors = self._config.get_all_colors()
+        self._more_btn.setStyleSheet(f"""
+            QPushButton {{
+                background-color: transparent;
+                color: {colors['sidebar_text']};
+                border: none;
+                border-radius: 8px;
+            }}
+            QPushButton:hover {{
+                background-color: {colors['bg_chat']};
+                color: {colors['text_secondary']};
+            }}
+        """)
+        # 弹出菜单
+        self._more_menu = QMenu(self)
+        self._more_menu.setStyleSheet(f"""
+            QMenu {{
+                padding: 4px; border-radius: 6px;
+                background: {colors['bg_secondary']};
+                border: 1px solid {colors['border_color']};
+            }}
+            QMenu::item {{
+                padding: 6px 24px; border-radius: 4px;
+                font-size: 13px; color: {colors['text_primary']};
+            }}
+            QMenu::item:hover {{
+                background: rgba(0,0,0,0.06);
+            }}
+        """)
+        self._settings_action = self._more_menu.addAction("设置")
+        self._node_action = self._more_menu.addAction("节点管理")
+        self._settings_action.triggered.connect(self.settings_clicked.emit)
+        self._node_action.triggered.connect(self.node_clicked.emit)
+
+        self._more_btn.clicked.connect(self._show_more_menu)
+        layout.addWidget(self._more_btn)
+
         self._group.buttonClicked.connect(self._on_clicked)
 
     def _create_button(self, icon_name: str, tooltip: str, colors: dict) -> QPushButton:
@@ -91,6 +136,12 @@ class Sidebar(QWidget):
                 self.page_changed.emit(page_id)
                 return
 
+    def _show_more_menu(self):
+        """在按钮上方弹出更多菜单"""
+        btn_rect = self._more_btn.rect()
+        global_pos = self._more_btn.mapToGlobal(btn_rect.topLeft())
+        self._more_menu.exec(global_pos)
+
     def set_active(self, page_id: str):
         btn = self._buttons.get(page_id)
         if btn:
@@ -120,5 +171,35 @@ class Sidebar(QWidget):
                 QPushButton:checked {{
                     background-color: {colors['sidebar_active']};
                     color: {colors['sidebar_active_text']};
+                }}
+            """)
+        # 刷新底部更多按钮
+        if self._more_btn:
+            self._more_btn.setStyleSheet(f"""
+                QPushButton {{
+                    background-color: transparent;
+                    color: {colors['sidebar_text']};
+                    border: none;
+                    border-radius: 8px;
+                }}
+                QPushButton:hover {{
+                    background-color: {colors['bg_chat']};
+                    color: {colors['text_secondary']};
+                }}
+            """)
+        # 刷新菜单样式
+        if self._more_menu:
+            self._more_menu.setStyleSheet(f"""
+                QMenu {{
+                    padding: 4px; border-radius: 6px;
+                    background: {colors['bg_secondary']};
+                    border: 1px solid {colors['border_color']};
+                }}
+                QMenu::item {{
+                    padding: 6px 24px; border-radius: 4px;
+                    font-size: 13px; color: {colors['text_primary']};
+                }}
+                QMenu::item:hover {{
+                    background: rgba(0,0,0,0.06);
                 }}
             """)

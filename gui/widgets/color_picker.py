@@ -15,6 +15,7 @@ from PySide6.QtWidgets import (
     QLineEdit,
     QPushButton,
     QVBoxLayout,
+    QWidget,
 )
 
 from gui.widgets.floating_panel import FloatingPanel
@@ -42,14 +43,15 @@ class ColorPickerPopup(FloatingPanel):
         self._current = QColor(current_color)
         self._result: QColor | None = None
 
-        self.setFixedSize(400, 360)
+        # 由 _auto_resize 动态调整尺寸，不设固定尺寸
         self._setup_ui()
 
     def _setup_ui(self):
-        # 使用 self.content_layout 添加内容（由 FloatingPanel 提供）
-        layout = self.content_layout
+        """创建内容 widget 并通过 set_content_widget 注入到滚动区"""
+        content = QWidget()
+        layout = QVBoxLayout(content)
         layout.setSpacing(8)
-        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setContentsMargins(4, 4, 4, 4)
 
         # ─── 预览行 ───
         preview = QHBoxLayout()
@@ -95,6 +97,8 @@ class ColorPickerPopup(FloatingPanel):
         ok_btn.clicked.connect(self._on_ok)
         btn_row.addWidget(ok_btn)
         layout.addLayout(btn_row)
+
+        self.set_content_widget(content)
 
     def _make_swatch(self, hex_color: str) -> QLabel:
         swatch = QLabel()

@@ -31,10 +31,11 @@ _STYLE_TEXT = "background: #ffffff; color: #333333; border: 1px solid #d0d0d0; b
 
 
 class ThemedDialogBase(QDialog):
-    """明亮主题对话框基类"""
+    """明亮主题对话框基类 — 不设 Qt 父窗口，避免与 WA_TranslucentBackground 父窗口冲突"""
 
-    def __init__(self, parent=None, title="", width=400, height=200):
-        super().__init__(parent)
+    def __init__(self, parent_window=None, title="", width=400, height=200):
+        super().__init__()
+        self._parent_window = parent_window  # 仅用于居中定位
         self.setWindowFlags(Qt.WindowType.Tool | Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.resize(width, height)
@@ -74,7 +75,7 @@ class ThemedDialogBase(QDialog):
             self.reject()
 
     def center_on_parent(self):
-        parent = self.parent()
+        parent = self._parent_window
         if parent and parent.isVisible():
             pc = parent.mapToGlobal(parent.rect().center())
             self.move(pc.x() - self.width() // 2, pc.y() - self.height() // 2)

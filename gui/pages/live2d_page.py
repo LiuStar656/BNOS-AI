@@ -74,7 +74,10 @@ class Live2DPage(QWidget):
         self._current_model_path: str | None = None
 
         # 模型缩放/拖拽状态（Ctrl+滚轮缩放、Ctrl+左键拖拽，与桌面悬浮窗一致）
-        self._model_scale = AppConfig().get(Live2DOverlay.SCALE_KEY, Live2DOverlay.DEFAULT_SCALE)
+        self._model_scale = AppConfig().get(
+            Live2DOverlay.SCALE_KEY,
+            int(Live2DOverlay.DEFAULT_SCALE * 35) / 100,  # 再缩小50%
+        )
         self._model_drag_pos: QPoint | None = None
         self._is_model_dragging = False
 
@@ -220,20 +223,14 @@ class Live2DPage(QWidget):
         # 扫描模型列表
         self._scan_models()
 
-        # 后台预加载预览（服务启动后自动导航）
-        QTimer.singleShot(1500, self._load_preview)
-
         # 应用级事件过滤器：拦截预览 webview 的 Ctrl+滚轮缩放 / Ctrl+左键拖拽
         QApplication.instance().installEventFilter(self)
 
     def showEvent(self, event):
-        """页面变为可见时，若 canvas 是 0x0（后台加载导致），重新加载页面。"""
+        """每次变为可见时自动重新加载 Live2D 预览，确保不空白。"""
         super().showEvent(event)
-        if self._preview_loaded and not self._page_shown:
-            self._page_shown = True
-            # 首次显示时重新加载页面（让 initRenderer 以正确尺寸运行）
-            print("[Live2D] 页面首次可见，重新加载渲染器...")
-            QTimer.singleShot(100, lambda: self._web_view.reload())
+        self._page_shown = True
+        QTimer.singleShot(200, self._load_preview)
 
     # ─── JS 控制台日志 ──────────────────────────────
 
@@ -631,10 +628,6 @@ class Live2DPage(QWidget):
                 self._splitter.setSizes([w, max(self.width() - w, 400)])
         except Exception:
             pass
-
-    def showEvent(self, event):
-        super().showEvent(event)
-        self._page_shown = True
 
     def resizeEvent(self, event):
         super().resizeEvent(event)

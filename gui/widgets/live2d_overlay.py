@@ -57,6 +57,7 @@ class Live2DOverlay(QWidget):
             | Qt.WindowType.Tool
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+        self.setAutoFillBackground(False)
         self.setMinimumSize(200, 300)
         self.resize(400, 600)
         # 启用鼠标跟踪：悬停（无按键）时也接收 mouseMoveEvent，用于转发鼠标位置给模型

@@ -50,6 +50,7 @@ class NodePage(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self._state = AppState()
+        self._cached_nodes: dict = {}  # 缓存上一次节点数据，避免频繁重建
 
         self._build_ui()
 
@@ -60,7 +61,7 @@ class NodePage(QWidget):
         # 兜底定时器：检测状态文件新鲜度 + 引擎进程存活
         self._stale_timer = QTimer(self)
         self._stale_timer.timeout.connect(self._check_stale)
-        self._stale_timer.start(2000)
+        # 初始不启动，由 MainWindow 在打开面板时启动
 
         # 初始同步 UI
         self._sync_ui()
@@ -78,6 +79,8 @@ class NodePage(QWidget):
         self._status_label.setStyleSheet("font-weight: bold; font-size: 14px;")
         self._start_btn = QPushButton("▶ 启动引擎")
         self._stop_btn = QPushButton("■ 停止引擎")
+        self._start_btn.setMinimumWidth(110)
+        self._stop_btn.setMinimumWidth(110)
         self._start_btn.clicked.connect(self._start_engine)
         self._stop_btn.clicked.connect(self._stop_engine)
         self._stop_btn.setEnabled(False)
@@ -117,7 +120,10 @@ class NodePage(QWidget):
 
     def _on_nodes_changed(self, value: dict):
         if self._state.engine_status == "online":
-            self._render_tree(value)
+            # 只有数据真正变化时才重建树，防止 200ms 轮询导致闪烁
+            if json.dumps(value, sort_keys=True, default=str) != json.dumps(self._cached_nodes, sort_keys=True, default=str):
+                self._cached_nodes = dict(value)
+                self._render_tree(value)
 
     # ── 新鲜度兜底检测 ─────────────────────────────
 
@@ -191,7 +197,8 @@ class NodePage(QWidget):
             item = QTreeWidgetItem([node_name, display_status, detail, ""])
             self._tree.addTopLevelItem(item)
             btn = QPushButton("重启")
-            btn.setFixedWidth(50)
+            btn.setFixedWidth(60)
+            btn.setFixedHeight(26)
             btn.clicked.connect(
                 lambda checked, nid=node_name: self._restart_node(nid)
             )
@@ -200,12 +207,47 @@ class NodePage(QWidget):
 
     # ── 引擎生命周期 ───────────────────────────────
 
+    @staticmethod
+    def _is_engine_running() -> bool:
+        """检查是否存在 bnos_runtime 引擎进程（PowerShell 方式）。"""
+        try:
+            if os.name == "nt":
+                ps_cmd = (
+                    'Get-CimInstance Win32_Process | '
+                    'Where-Object { '
+                    "$_.Name -like '*python*' -and "
+                    "$_.CommandLine -match 'bnos_runtime' "
+                    "} | Measure-Object | Select-Object -ExpandProperty Count"
+                )
+                result = subprocess.run(
+                    ["powershell", "-NoProfile", "-Command", ps_cmd],
+                    capture_output=True, text=True,
+                    creationflags=subprocess.CREATE_NO_WINDOW,
+                )
+                count = int(result.stdout.strip()) if result.stdout.strip().isdigit() else 0
+                return count > 0
+            else:
+                result = subprocess.run(
+                    ["pgrep", "-f", "bnos_runtime"],
+                    capture_output=True, text=True,
+                )
+                return result.returncode == 0
+        except Exception:
+            return False
+
     def _start_engine(self):
         """启动 BNOS 引擎（适配 bnos_runtime）。"""
+        # 防重复：检查是否已有引擎进程在运行
         if self.__class__.engine_proc is not None:
             proc = self.__class__.engine_proc
             if proc.poll() is None:
-                return  # 已在运行
+                print("[NodePage] 引擎已在运行")
+                return
+        if self._is_engine_running():
+            print("[NodePage] 存在其他引擎进程，跳过启动")
+            self._state.engine_status = "online"
+            return
+
         if not os.path.exists(PIPELINE_PATH):
             self._status_label.setText("引擎状态: ● error - pipeline.json 不存在")
             self._status_label.setStyleSheet(
@@ -258,24 +300,72 @@ class NodePage(QWidget):
         t.start()
 
     def _stop_engine(self):
-        """停止 BNOS 引擎。"""
-        proc = self.__class__.engine_proc
-        if proc is None:
-            return
+        """停止 BNOS 引擎 — 用 PowerShell 查找并终止所有 bnos 进程。"""
+        killed = 0
+        my_pid = os.getpid()
         try:
+            # 1) 通过 engine_proc 引用停止（如果是本页启动的）
+            proc = self.__class__.engine_proc
+            if proc is not None and proc.poll() is None:
+                if os.name == "nt":
+                    subprocess.run(
+                        ["taskkill", "/F", "/T", "/PID", str(proc.pid)],
+                        capture_output=True,
+                        creationflags=subprocess.CREATE_NO_WINDOW,
+                    )
+                else:
+                    proc.terminate()
+                    proc.wait(timeout=5)
+                killed += 1
+
+            # 2) 用 PowerShell 匹配 bnos_runtime 相关进程（同 run.bat 清理方式）
+            #    匹配条件：python 进程 + 命令行含 bnos_runtime 或 listener
             if os.name == "nt":
-                subprocess.run(
-                    ["taskkill", "/F", "/T", "/PID", str(proc.pid)],
-                    capture_output=True,
+                ps_cmd = (
+                    'Get-CimInstance Win32_Process | '
+                    'Where-Object { '
+                    "$_.Name -like '*python*' -and "
+                    "( $_.CommandLine -match 'bnos_runtime' -or "
+                    "( $_.CommandLine -match 'listener' -and $_.CommandLine -match 'node_' ) ) "
+                    "} | Select-Object -ExpandProperty ProcessId"
+                )
+                result = subprocess.run(
+                    ["powershell", "-NoProfile", "-Command", ps_cmd],
+                    capture_output=True, text=True,
                     creationflags=subprocess.CREATE_NO_WINDOW,
                 )
-            else:
-                proc.terminate()
-                proc.wait(timeout=5)
+                for line in result.stdout.splitlines():
+                    line = line.strip()
+                    if line.isdigit():
+                        pid = int(line)
+                        if pid and pid != my_pid:
+                            r = subprocess.run(
+                                ["taskkill", "/F", "/PID", line],
+                                capture_output=True, text=True,
+                                creationflags=subprocess.CREATE_NO_WINDOW,
+                            )
+                            if r.returncode == 0:
+                                killed += 1
+                            else:
+                                print(f"[NodePage] taskkill PID {line} 失败: {r.stderr.strip()}")
+
+            # 3) 清理残留状态文件
+            try:
+                if os.path.exists(BNOS_STATUS_PATH):
+                    os.remove(BNOS_STATUS_PATH)
+                    print(f"[NodePage] 已清理 {BNOS_STATUS_PATH}")
+            except OSError as e:
+                print(f"[NodePage] 清理状态文件失败: {e}")
         except Exception as e:
-            print(f"[NodePage] 停止引擎失败: {e}")
+            print(f"[NodePage] 停止引擎时出错: {e}")
+
         self.__class__.engine_proc = None
+        if killed > 0:
+            print(f"[NodePage] 已终止 {killed} 个引擎进程")
+        else:
+            print(f"[NodePage] 未找到运行中的引擎进程")
         self._state.engine_status = "offline"
+        self._sync_ui()
 
     # ── 节点操作 ───────────────────────────────────
 

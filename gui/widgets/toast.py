@@ -125,7 +125,7 @@ class Toast(QFrame):
 
         hbox = QHBoxLayout(container)
         hbox.setContentsMargins(14, 10, 14, 10)
-        hbox.setSizeConstraint(QVBoxLayout.SetMinimumSize)
+        hbox.setSizeConstraint(QHBoxLayout.SetMinimumSize)
         hbox.addWidget(self._label, 0, Qt.AlignVCenter | Qt.AlignLeft)
         spacer = QSpacerItem(10, 20, QSizePolicy.Expanding, QSizePolicy.Fixed)
         hbox.addItem(spacer)

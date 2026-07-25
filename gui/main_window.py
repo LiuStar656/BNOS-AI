@@ -2,20 +2,24 @@
 
 from __future__ import annotations
 
+import ctypes
+
 from PySide6.QtCore import Qt, QEasingCurve, QParallelAnimationGroup, QPoint, QPropertyAnimation, QTimer
-from PySide6.QtGui import QMouseEvent
+from PySide6.QtGui import QMouseEvent, QCursor
 from PySide6.QtWidgets import QApplication, QHBoxLayout, QLabel, QMainWindow, QStackedWidget, QVBoxLayout, QWidget
 
 from gui.core.event_bus import event_bus
 from gui.core.message_manager import MessageManager
 from gui.core.config import AppConfig
 from gui.core.state import AppState
+from gui.dialogs.archive_panel import ArchivePanel
 from gui.pages.chat_page import ChatPage
 from gui.pages.live2d_page import Live2DPage
 from gui.pages.mcp_page import MCPPage
 from gui.pages.node_page import NodePage
-from gui.pages.settings_page import SettingsPage
+from gui.pages.settings_panel import SettingsPanel
 from gui.resources.theme import get_light_qss
+from gui.widgets.floating_panel import FloatingPanel
 from gui.widgets.sidebar import Sidebar
 from gui.widgets.status_bar import StatusBar
 from gui.widgets.title_bar import TitleBar
@@ -29,9 +33,7 @@ class MainWindow(QMainWindow):
     PAGE_CLASSES = {
         "chat":     ChatPage,
         "live2d":   Live2DPage,
-        "node":     NodePage,
         "mcp":      MCPPage,
-        "settings": SettingsPage,
     }
 
     def __init__(self):
@@ -46,11 +48,17 @@ class MainWindow(QMainWindow):
             Qt.WindowType.WindowSystemMenuHint
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+        self.setAutoFillBackground(False)
         self.setStyleSheet(get_light_qss())
 
         self._config = AppConfig()
         self._state = AppState()
         self._message_manager: MessageManager | None = None
+        self._floating_panel: FloatingPanel | None = None
+        self._settings_content: SettingsPanel | None = None
+        self._node_content: NodePage | None = None
+        self._archive_content: ArchivePanel | None = None
+        self._right_side: QWidget | None = None
         self._pages: dict[str, QWidget] = {}
         self._anim_group: QParallelAnimationGroup | None = None  # 页面滑动动画组
         self._resize_edge = 0  # 当前鼠标所在边缘
@@ -69,6 +77,9 @@ class MainWindow(QMainWindow):
         # 启动后发送 init_check
         from PySide6.QtCore import QTimer
         QTimer.singleShot(500, self._on_initialized)
+
+        # 延迟初始化浮动面板
+        self._init_floating_panel()
 
     def _init_central(self):
         # 外层容器（白色圆角背景，模拟窗口内容区）
@@ -103,19 +114,61 @@ class MainWindow(QMainWindow):
         content_layout.addWidget(self._sidebar)
 
         # 右侧内容区（页面栈 + 状态栏）
-        right_side = QWidget()
-        right_layout = QVBoxLayout(right_side)
+        self._right_side = QWidget()
+        right_layout = QVBoxLayout(self._right_side)
         right_layout.setContentsMargins(0, 0, 0, 0)
         right_layout.setSpacing(0)
 
         self._stack = QStackedWidget()
         right_layout.addWidget(self._stack, 1)
 
-        self._status_bar = StatusBar()
-        right_layout.addWidget(self._status_bar)
+        # 暂时隐藏状态栏，专注聊天体验
+        # self._status_bar = StatusBar()
+        # right_layout.addWidget(self._status_bar)
 
-        content_layout.addWidget(right_side, 1)
+        content_layout.addWidget(self._right_side, 1)
         main_layout.addWidget(content, 1)
+
+    def _init_floating_panel(self):
+        """初始化浮动面板（延迟创建，避免 init 时 right_side 尺寸为 0）"""
+        from PySide6.QtCore import QTimer
+        QTimer.singleShot(0, self._do_init_floating_panel)
+
+    def _do_init_floating_panel(self):
+        if self._floating_panel is not None:
+            return
+        try:
+            self._floating_panel = FloatingPanel(self)  # 传入 MainWindow 仅用于定位
+            # 创建内容面板实例
+            self._settings_content = SettingsPanel()
+            self._node_content = NodePage()
+            self._archive_content = ArchivePanel(
+                self._get_conversation_messages()
+            )
+            self._archive_content.restored.connect(self._on_archive_restored)
+            # 关闭浮动面板时暂停节点定时器
+            self._floating_panel.closed.connect(self._on_panel_closed)
+            # 默认显示设置面板
+            self._floating_panel.set_content_widget(self._settings_content)
+        except Exception as e:
+            import traceback
+            print(f"[MainWindow] 初始化浮动面板失败: {e}")
+            traceback.print_exc()
+
+    def _get_conversation_messages(self) -> dict:
+        chat = self._pages.get("chat")
+        if chat and hasattr(chat, "_conversation_messages"):
+            return chat._conversation_messages
+        return {}
+
+    def _on_panel_closed(self):
+        """浮动面板关闭时暂停节点定时器"""
+        self._stop_node_timer()
+
+    def _stop_node_timer(self):
+        """停止节点管理页面的定时器"""
+        if self._node_content and hasattr(self._node_content, "_stale_timer"):
+            self._node_content._stale_timer.stop()
 
     def _init_pages(self):
         for page_id, page_cls in self.PAGE_CLASSES.items():
@@ -125,6 +178,12 @@ class MainWindow(QMainWindow):
 
     def _connect_signals(self):
         self._sidebar.page_changed.connect(self._switch_page)
+        self._sidebar.settings_clicked.connect(self._on_open_settings)
+        self._sidebar.node_clicked.connect(self._on_open_node)
+        # 归档信号在 ConversationList 上（位于 ChatPage 内部）
+        chat_page = self._pages.get("chat")
+        if chat_page and hasattr(chat_page, "_conv_list"):
+            chat_page._conv_list.show_archive_requested.connect(self._on_open_archive)
 
         # 标题栏信号
         self._title_bar.minimize_clicked.connect(self.showMinimized)
@@ -155,8 +214,8 @@ class MainWindow(QMainWindow):
         self.setStyleSheet(get_light_qss())
         # 2. 刷新侧边栏样式
         self._sidebar.refresh_theme()
-        # 3. 刷新状态栏样式
-        self._status_bar.refresh_theme()
+        # 3. 刷新状态栏样式（暂时隐藏）
+        # self._status_bar.refresh_theme()
         # 4. 刷新气泡颜色
         chat_page = self._pages.get("chat")
         if chat_page and hasattr(chat_page, "refresh_bubble_themes"):
@@ -164,6 +223,9 @@ class MainWindow(QMainWindow):
         # 5. 刷新输入栏样式
         if chat_page and hasattr(chat_page, "refresh_input_bar"):
             chat_page.refresh_input_bar()
+        # 6. 刷新浮动面板
+        if self._floating_panel and hasattr(self._floating_panel, "refresh_theme"):
+            self._floating_panel.refresh_theme()
 
     # ─── 启动后初始化 ──────────────────────────
 
@@ -191,6 +253,47 @@ class MainWindow(QMainWindow):
         """窗口尺寸变化后更新标题栏最大化状态（拖拽还原时）"""
         super().resizeEvent(event)
         self._title_bar.set_maximized_state(self.isMaximized())
+
+    # ─── Windows 原生 resize（FramelessWindowHint 时必需） ──
+
+    def nativeEvent(self, eventType, message):
+        """Windows WM_NCHITTEST 响应 — 让系统正确处理无边框窗口的边缘缩放"""
+        if self.isMaximized() or self.isFullScreen():
+            return False, 0
+        if eventType != b"windows_generic_MSG":
+            return False, 0
+
+        try:
+            # 仅处理 WM_NCHITTEST (0x0084)
+            msg = ctypes.wintypes.MSG.from_address(int(message))
+            if msg.message != 0x0084:
+                return False, 0
+
+            cursor_pos = QCursor.pos()
+            x, y = cursor_pos.x(), cursor_pos.y()
+            geo = self.geometry()
+            border = _RESIZE_MARGIN
+
+            left   = x < geo.x() + border
+            right  = x >= geo.x() + geo.width() - border
+            top    = y < geo.y() + border
+            bottom = y >= geo.y() + geo.height() - border
+
+            # 返回 Windows HT* 常量
+            if top and left:       ht = 13  # HTTOPLEFT
+            elif top and right:    ht = 14  # HTTOPRIGHT
+            elif bottom and left:  ht = 16  # HTBOTTOMLEFT
+            elif bottom and right: ht = 17  # HTBOTTOMRIGHT
+            elif top:              ht = 12  # HTTOP
+            elif bottom:           ht = 15  # HTBOTTOM
+            elif left:             ht = 10  # HTLEFT
+            elif right:            ht = 11  # HTRIGHT
+            else:
+                return False, 0
+
+            return True, ctypes.c_longlong(ht).value
+        except Exception:
+            return False, 0
 
     def mousePressEvent(self, event):
         """边缘 resize：检测点击位置是否在边缘区域内"""
@@ -283,18 +386,72 @@ class MainWindow(QMainWindow):
         pass
 
     def _on_engine_status_changed(self, status: str):
-        """引擎状态变化"""
-        self._status_bar.update_engine(status)
+        """引擎状态变化（状态栏已隐藏，暂不处理）"""
+        pass
 
     def _on_current_model_changed(self, model: str):
-        """当前模型变化"""
-        self._status_bar.update_model(model)
+        """当前模型变化（状态栏已隐藏，暂不处理）"""
+        pass
 
     def _on_nodes_changed(self, nodes: dict):
-        """节点状态变化"""
-        online = sum(1 for node in nodes.values() if node.get("online"))
-        total = len(nodes)
-        self._status_bar.update_nodes(online, total)
+        """节点状态变化（状态栏已隐藏，暂不处理）"""
+        pass
+
+    def _on_open_settings(self):
+        """打开设置浮动面板"""
+        self._stop_node_timer()
+        self._ensure_floating_panel()
+        self._floating_panel.set_title("设置")
+        self._floating_panel.set_content_widget(self._settings_content)
+        self._floating_panel.show()
+
+    def _on_open_node(self):
+        """打开节点管理浮动面板"""
+        self._ensure_floating_panel()
+        self._floating_panel.set_title("节点管理")
+        self._floating_panel.set_content_widget(self._node_content)
+        # 启动节点定时器
+        if hasattr(self._node_content, "_stale_timer"):
+            self._node_content._stale_timer.start(2000)
+        # 同步一次 UI
+        if hasattr(self._node_content, "_sync_ui"):
+            self._node_content._sync_ui()
+        self._floating_panel.show()
+
+    def _on_open_archive(self):
+        """打开归档浮动面板"""
+        self._stop_node_timer()
+        self._ensure_floating_panel()
+        self._floating_panel.set_title("归档管理")
+        # 清理旧面板实例，防止内存泄漏
+        if self._archive_content is not None:
+            try:
+                self._archive_content.deleteLater()
+            except RuntimeError:
+                pass
+        # 刷新归档面板数据
+        self._archive_content = ArchivePanel(
+            self._get_conversation_messages()
+        )
+        self._archive_content.restored.connect(self._on_archive_restored)
+        self._floating_panel.set_content_widget(self._archive_content)
+        self._floating_panel.show()
+
+    def _on_archive_restored(self, conv_id: str):
+        """归档对话被恢复 → 切换对话并保存"""
+        self._floating_panel.hide()
+        self._state.current_conversation_id = conv_id
+        self._sidebar.set_active("chat")
+        self._stack.setCurrentWidget(self._pages["chat"])
+        chat = self._pages.get("chat")
+        if chat and hasattr(chat, "_on_conversation_changed"):
+            chat._on_conversation_changed(conv_id)
+
+    def _ensure_floating_panel(self):
+        """确保浮动面板已初始化"""
+        if self._floating_panel is not None:
+            return
+        self._do_init_floating_panel()
 
     def _switch_page(self, page_id: str):
         """切换页面 — 带滑动动画"""
