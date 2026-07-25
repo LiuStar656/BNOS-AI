@@ -384,9 +384,8 @@ class Live2DPage(QWidget):
         except Exception as e:
             print(f"[Live2D] 启动失败: {e}")
 
-        # 按配置启动 TTS（GUI 直接持有进程，支持热开关）
-        if self._tts_enabled:
-            self._start_tts()
+        # TTS 服务随页面启动一次性打开，热开关仅控制前端标志位（window.TTS_ENABLED）
+        self._start_tts()
 
     def _kill_port(self, port):
         """强制释放指定端口（杀掉占用进程）"""
@@ -456,16 +455,12 @@ class Live2DPage(QWidget):
         self._tts_proc = None
 
     def _toggle_tts(self):
-        """运行时热开关 TTS：翻转启用状态 -> 持久化 -> 启/停进程 -> 推送前端标志。"""
+        """运行时热开关 TTS：仅翻转前端标志位（window.TTS_ENABLED），不启停服务进程。"""
         self._tts_enabled = not self._tts_enabled
         cfg = AppConfig()
         cfg.set(self.TTS_ENABLED_KEY, self._tts_enabled)
         cfg.save()
 
-        if self._tts_enabled:
-            self._start_tts()
-        else:
-            self._stop_tts()
         self._push_tts_flag()
         self._apply_tts_btn_style()
 
