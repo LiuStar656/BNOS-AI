@@ -83,12 +83,21 @@ def _start_engine():
 
 def _stop_engine():
     """停止引擎进程"""
-    proc = NodePage.engine_proc
-    if proc is not None:
-        try:
-            print("正在停止引擎...")
+    try:
+        print("正在停止引擎...")
 
-            # 在 Windows 上使用 taskkill 杀死整个进程树
+        # 第1步：使用 process_killer 按 PID 文件清理所有节点 listener 进程
+        try:
+            from bnos_runtime.process_killer import stop_all_node_processes
+            stopped = stop_all_node_processes(_project_root)
+            if stopped:
+                print("  process_killer 已清理节点:", ", ".join(stopped))
+        except Exception as e:
+            print("  process_killer 清理失败:", e)
+
+        # 第2步：杀死引擎主进程（引擎没有 PID 文件，需单独处理）
+        proc = NodePage.engine_proc
+        if proc is not None and proc.poll() is None:
             if os.name == "nt":
                 subprocess.run(
                     ["taskkill", "/F", "/T", "/PID", str(proc.pid)],
@@ -99,12 +108,12 @@ def _stop_engine():
                 os.kill(proc.pid, signal.SIGTERM)
                 proc.wait(timeout=5)
 
-            print("引擎已停止")
+        print("引擎已停止")
 
-        except Exception as e:
-            print("停止引擎失败:", e)
+    except Exception as e:
+        print("停止引擎失败:", e)
 
-        NodePage.engine_proc = None
+    NodePage.engine_proc = None
 
 
 def main():

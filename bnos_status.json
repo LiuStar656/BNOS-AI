@@ -1,18 +1,20 @@
 {
-  "updated_at": "2026-07-26T00:10:40",
-  "engine_status": "online",
+  "updated_at": "2026-07-26T00:11:45",
+  "engine_status": "degraded",
   "nodes": {
     "node_python_aaa_cognition": {
-      "status": "running",
-      "pid": 2076
+      "status": "crashed",
+      "pid": 12700,
+      "exit_code": 4294967295
     },
     "node_python_llm_infer": {
-      "status": "running",
-      "pid": 29224
+      "status": "crashed",
+      "pid": 34208,
+      "exit_code": 4294967295
     },
     "node_js_live2d_face": {
       "status": "running",
-      "pid": 9892
+      "pid": 36860
     }
   }
 }

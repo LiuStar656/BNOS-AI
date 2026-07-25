@@ -104,8 +104,8 @@ def _kill_process_tree(root_pid: int) -> bool:
                 logger.info("已终止进程树 PID=%d", root_pid)
                 return True
             logger.warning(
-                "终止进程树 PID=%d 失败 (exit=%d): %s",
-                root_pid, result.returncode, result.stderr.strip(),
+                "终止进程树 PID=%d 失败 (exit=%d)",
+                root_pid, result.returncode,
             )
             return False
         else:

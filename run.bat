@@ -8,10 +8,7 @@ gui\venv\Scripts\python gui\main.py
 
 echo [BNOS] GUI 已关闭，停止引擎...
 
-REM 用 PowerShell 杀掉所有引擎 + listener 进程树
-powershell -NoProfile -Command "Get-CimInstance Win32_Process | Where-Object { $_.Name -like '*python*' -and ( $_.CommandLine -match 'bnos_runtime.engine' -or ( $_.CommandLine -match 'listener' -and $_.CommandLine -match 'node_' ) ) } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }" >nul 2>&1
-
-REM 再兜底一次：直接杀死残留的 python listener 进程
-powershell -NoProfile -Command "Get-CimInstance Win32_Process | Where-Object { $_.Name -like '*python*' -and $_.CommandLine -match 'listener' -and $_.CommandLine -match 'node_' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }" >nul 2>&1
+REM 使用 process_killer 按 PID 文件清理所有节点进程（兜底）
+gui\venv\Scripts\python -c "import sys; from pathlib import Path; sys.path.insert(0, '.'); from bnos_runtime.process_killer import stop_all_node_processes; stop_all_node_processes(Path('.').resolve()); print('[BNOS] 清理完成')" >nul 2>&1
 
 echo [BNOS] 已退出
