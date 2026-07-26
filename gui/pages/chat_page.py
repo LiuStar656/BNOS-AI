@@ -99,7 +99,7 @@ class ChatPage(QWidget):
         """)
         self._msg_layout = QVBoxLayout(self._msg_container)
         self._msg_layout.setContentsMargins(0, 10, 0, 10)
-        self._msg_layout.setSpacing(12)
+        self._msg_layout.setSpacing(4)
         self._msg_layout.addStretch(1)  # 弹簧在最底部
 
         self._scroll_area.setWidget(self._msg_container)

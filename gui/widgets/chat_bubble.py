@@ -29,7 +29,7 @@ class ChatBubble(QWidget):
 
         # 水平布局：spacer + text_browser 实现左右对齐
         layout = QHBoxLayout(self)
-        layout.setContentsMargins(24, 8, 24, 8)
+        layout.setContentsMargins(24, 4, 24, 4)
         layout.setSpacing(0)
 
         # ─── QTextBrowser ─────────────────────
