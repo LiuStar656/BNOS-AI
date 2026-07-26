@@ -20,6 +20,8 @@ from gui.pages.node_page import NodePage
 from gui.pages.settings_panel import SettingsPanel
 from gui.resources.theme import get_light_qss
 from gui.widgets.floating_panel import FloatingPanel
+from gui.widgets.knowledge_panel import KnowledgePanel
+from gui.widgets.logseq_writer import LogseqWriter
 from gui.widgets.sidebar import Sidebar
 from gui.widgets.status_bar import StatusBar
 from gui.widgets.title_bar import TitleBar
@@ -34,6 +36,7 @@ class MainWindow(QMainWindow):
         "chat":     ChatPage,
         "live2d":   Live2DPage,
         "mcp":      MCPPage,
+        "knowledge": KnowledgePanel,
     }
 
     def __init__(self):
@@ -193,6 +196,9 @@ class MainWindow(QMainWindow):
         # 创建 MessageManager 并连接信号
         self._message_manager = MessageManager(self)
         self._message_manager.error_occurred.connect(self._on_error_occurred)
+
+        # 初始化 LogseqWriter（自动轮询并写入 Logseq 知识条目）
+        self._logseq_writer = LogseqWriter(self)
 
         # 将 MessageManager 传给 ChatPage
         if "chat" in self._pages and hasattr(self._pages["chat"], "set_message_manager"):

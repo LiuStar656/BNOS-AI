@@ -20,6 +20,7 @@ class Sidebar(QWidget):
         ("chat",     "chat",     "聊天"),
         ("live2d",   "live2d",   "Live2D"),
         ("mcp",      "mcp",      "MCP 管理"),
+        ("book",  "knowledge","知识库"),
     ]
 
     def __init__(self, parent=None):

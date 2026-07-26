@@ -18,6 +18,8 @@ class Live2DOverlay(QWidget):
 
     CONFIG_KEY = "live2d_overlay"
     SCALE_KEY = "live2d_model_scale"
+    OFFSET_X_KEY = "live2d_model_offset_x"
+    OFFSET_Y_KEY = "live2d_model_offset_y"
 
     SERVER_PORT = 3000
     RESIZE_MARGIN = 12  # 缩放拖拽区域宽度（像素）
@@ -26,6 +28,8 @@ class Live2DOverlay(QWidget):
     SCALE_MIN = 0.05
     SCALE_MAX = 2.0
     SCALE_STEP = 0.05  # 每格滚轮的缩放增量
+    DEFAULT_OFFSET_X = 0
+    DEFAULT_OFFSET_Y = 0
 
     def __init__(self, model_rel_path: str = ""):
         super().__init__()
@@ -40,8 +44,10 @@ class Live2DOverlay(QWidget):
         self._last_focus_time = 0.0
         self._focus_throttle = 0.033
 
-        # 加载保存的模型缩放值
+        # 加载保存的模型缩放和偏移
         self._model_scale = AppConfig().get(self.SCALE_KEY, self.DEFAULT_SCALE)
+        self._model_offset_x = AppConfig().get(self.OFFSET_X_KEY, self.DEFAULT_OFFSET_X)
+        self._model_offset_y = AppConfig().get(self.OFFSET_Y_KEY, self.DEFAULT_OFFSET_Y)
 
         self._setup_window()
         self._setup_webview()
@@ -59,7 +65,7 @@ class Live2DOverlay(QWidget):
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setAutoFillBackground(False)
         self.setMinimumSize(200, 300)
-        self.resize(400, 600)
+        self.resize(400, 500)  # 默认高度减小，避免模型太靠下
         # 启用鼠标跟踪：悬停（无按键）时也接收 mouseMoveEvent，用于转发鼠标位置给模型
         self.setMouseTracking(True)
 
@@ -86,10 +92,16 @@ class Live2DOverlay(QWidget):
         layout.addWidget(self._web, 1)
 
     def _on_page_loaded(self, ok: bool):
-        """页面加载完成后，应用保存的模型缩放值"""
-        if ok and self._model_scale != self.DEFAULT_SCALE:
+        """页面加载完成后，应用保存的模型缩放和偏移"""
+        if not ok:
+            return
+        if self._model_scale != self.DEFAULT_SCALE:
             self._web.page().runJavaScript(
                 f"setModelScaleAbsolute({self._model_scale})"
+            )
+        if self._model_offset_x != self.DEFAULT_OFFSET_X or self._model_offset_y != self.DEFAULT_OFFSET_Y:
+            self._web.page().runJavaScript(
+                f"setModelPositionAbsolute({self._model_offset_x}, {self._model_offset_y})"
             )
 
     def _load_model(self, model_rel_path: str = ""):
@@ -171,6 +183,8 @@ class Live2DOverlay(QWidget):
                 new_h,
             )
         elif self._is_dragging_model:
+            self._model_offset_x += delta.x()
+            self._model_offset_y += delta.y()
             js = f"moveModelPosition({delta.x()}, {delta.y()})"
             self._web.page().runJavaScript(js)
         elif self._is_dragging:
@@ -245,6 +259,8 @@ class Live2DOverlay(QWidget):
         cfg = AppConfig()
         cfg.set(self.CONFIG_KEY, data)
         cfg.set(self.SCALE_KEY, self._model_scale)
+        cfg.set(self.OFFSET_X_KEY, self._model_offset_x)
+        cfg.set(self.OFFSET_Y_KEY, self._model_offset_y)
         cfg.save()
 
     def _save_model_scale(self):

@@ -1,45 +1,40 @@
 {
   "nodes": {
-    "node_js_live2d_face": {
-      "path": "E:\\杂项\\BNOS_AI_project\\nodes\\node_js_live2d_face",
-      "last_seen": "2026-07-25T23:17:23.892246",
-      "status": "active"
-    },
     "node_python_aaa_cognition": {
       "path": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_aaa_cognition",
-      "last_seen": "2026-07-25T23:17:23.892367",
+      "last_seen": "2026-07-26T16:34:00.475755",
       "status": "active"
     },
     "node_python_asr_input": {
       "path": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_asr_input",
-      "last_seen": "2026-07-25T23:17:23.892466",
+      "last_seen": "2026-07-26T16:34:00.475857",
       "status": "active"
     },
     "node_python_env_input": {
       "path": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_env_input",
-      "last_seen": "2026-07-25T23:17:23.892586",
+      "last_seen": "2026-07-26T16:34:00.475951",
       "status": "active"
     },
     "node_python_llm_infer": {
       "path": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_llm_infer",
-      "last_seen": "2026-07-25T23:17:23.892682",
+      "last_seen": "2026-07-26T16:34:00.476035",
       "status": "active"
     },
-    "node_python_logseq_writer": {
-      "path": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_logseq_writer",
-      "last_seen": "2026-07-25T23:17:23.892774",
+    "node_python_tts": {
+      "path": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_tts",
+      "last_seen": "2026-07-26T16:34:00.476207",
       "status": "active"
     },
     "node_rust_grok_hands": {
       "path": "E:\\杂项\\BNOS_AI_project\\nodes\\node_rust_grok_hands",
-      "last_seen": "2026-07-25T23:17:23.892863",
+      "last_seen": "2026-07-26T16:34:00.476035",
       "status": "active"
     },
     "python_node_demo": {
       "path": "E:\\杂项\\BNOS_AI_project\\nodes\\python_node_demo",
-      "last_seen": "2026-07-25T23:17:23.892954",
+      "last_seen": "2026-07-26T16:34:00.476376",
       "status": "active"
     }
   },
-  "updated_at": "2026-07-25T23:17:23.892966"
+  "updated_at": "2026-07-26T16:34:00.476387"
 }

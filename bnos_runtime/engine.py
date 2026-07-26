@@ -137,6 +137,8 @@ class PipelineRunner:
 
         # 统一清理子进程
         self.process_manager.shutdown()
+        # 兜底：杀死任何残留的节点进程（覆盖非 listener 入口如 TTS main.py）
+        _kill_orphan_node_processes(self.project_root)
         self._p("[BNOS] All child processes terminated.")
         return self.results
 
@@ -236,8 +238,13 @@ class PipelineRunner:
             self._cmd_file_mtime = 0.0
 
 
-def _kill_orphan_listeners(project_root: Path) -> None:
-    """用 PowerShell 杀死项目中所有残留的 listener 进程（兜底清理）。"""
+def _kill_orphan_node_processes(project_root: Path) -> None:
+    """用 PowerShell 杀死项目中所有残留的 Python 节点进程（兜底清理）。
+
+    不依赖 'listener' 关键词匹配，直接扫描命令行中的节点名。
+    能覆盖 TTS 的 main.py、llama-server 子进程等遗漏场景。
+    可在引擎启动前（清理旧进程）和 shutdown 后（兜底扫尾）调用。
+    """
     if os.name != "nt":
         return
     nodes_dir = project_root / "nodes"
@@ -250,7 +257,7 @@ def _kill_orphan_listeners(project_root: Path) -> None:
     name_conditions = " -or ".join(f"($_.CommandLine -match '{n}')" for n in node_names)
     ps_cmd = (
         "Get-CimInstance Win32_Process | Where-Object {{ "
-        "$_.Name -like '*python*' -and $_.CommandLine -match 'listener' -and ({0}) "
+        "$_.Name -like '*python*' -and ({0}) "
         "}} | ForEach-Object {{ Stop-Process -Id $_.ProcessId -Force }}"
     ).format(name_conditions)
     import subprocess
@@ -272,9 +279,9 @@ def main():
         print(f"[ERROR] Pipeline file not found: {pipeline_path}")
         sys.exit(1)
 
-    # 启动前杀死所有残留的 listener 进程（防止重复处理）
-    _kill_orphan_listeners(pipeline_path.parent)
-    print("[BNOS] Orphan listeners cleaned up.")
+    # 启动前杀死所有残留的节点进程（防止重复处理）
+    _kill_orphan_node_processes(pipeline_path.parent)
+    print("[BNOS] Orphan node processes cleaned up.")
 
     runner = PipelineRunner(pipeline_path)
 

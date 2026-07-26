@@ -1,13 +1,15 @@
-"""BNOS AI 伴侣 — 新 GUI 入口
+"""BNOS AI 伴侣 — GUI 入口
 
 数据流：GUI -> gui_input.json -> aaa_cognition (中枢, 合并了旧 gui_adapter+user_input)
                                      <- gui_reply.json <-
 
 启动流程：
 1. 清理旧的输出文件
-2. 启动引擎（拉起所有节点）
-3. 启动 GUI
-4. GUI 关闭时自动清理引擎
+2. 启动 QApplication + 闪屏
+3. 后台启动引擎（拉起所有节点）
+4. 闪屏轮询 bnos_status.json 直至所有节点就绪（超时 60s）
+5. 创建主窗口
+6. GUI 关闭时自动清理引擎
 """
 
 from __future__ import annotations
@@ -19,6 +21,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QApplication
 
 # 将项目根目录加入 sys.path，确保 from gui.xxx 导入可用
@@ -27,7 +30,7 @@ if _project_root not in sys.path:
     sys.path.insert(0, _project_root)
 
 from gui.main_window import MainWindow
-from gui.pages.node_page import NodePage
+from gui.pages.startup_splash import StartupSplash
 
 
 def _cleanup_gui_adapter():
@@ -41,28 +44,25 @@ def _cleanup_gui_adapter():
 
 
 def _start_engine():
-    """启动引擎进程（运行 bnos_runtime/engine.py）"""
+    """启动引擎进程（--serve 事件驱动模式）"""
     pipeline_path = Path(_project_root) / "pipeline.json"
 
-    # 使用系统 Python 启动引擎（非 GUI venv，因为引擎无 GUI 依赖）
-    # 重要：使用 -m 方式启动，确保引擎内部 from bnos_runtime.xxx 导入正常
     python_exe = sys.executable
 
-    # 设置环境变量（解决编码问题）
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "utf-8"
     env["PYTHONUNBUFFERED"] = "1"
-    # 把项目根目录加入 PYTHONPATH，确保 -m bnos_runtime.engine 能正常工作
     env.setdefault("PYTHONPATH", "")
     paths = [p for p in env["PYTHONPATH"].split(os.pathsep) if p]
     if _project_root not in paths:
         paths.insert(0, _project_root)
     env["PYTHONPATH"] = os.pathsep.join(paths)
 
+    from gui.pages.node_page import NodePage
+
     try:
-        # 启动引擎，后台运行（事件驱动模式）
         proc = subprocess.Popen(
-            [python_exe, "-m", "bnos_runtime.engine", str(pipeline_path)],
+            [python_exe, "-m", "bnos_runtime.engine", str(pipeline_path), "--serve"],
             cwd=_project_root,
             env=env,
             stdout=subprocess.PIPE,
@@ -81,12 +81,49 @@ def _start_engine():
         NodePage.engine_proc = None
 
 
+def _sweep_orphan_processes(project_root: str) -> None:
+    """兜底扫尾：杀死任何与 BNOS 节点相关的 Python 残留进程。
+
+    不依赖 PID 文件或 'listener' 关键字匹配，直接用 PowerShell 扫描
+    命令行中包含节点名的所有 Python 进程并强制终止。
+    覆盖 TTS 的 main.py、llama-server 子进程等遗漏场景。
+    """
+    if os.name != "nt":
+        return
+    nodes_dir = Path(project_root) / "nodes"
+    if not nodes_dir.exists():
+        return
+    node_names = [d.name for d in nodes_dir.iterdir() if d.is_dir() and d.name.startswith("node_")]
+    if not node_names:
+        return
+
+    # 构建 PowerShell 匹配条件：节点名 1 -or 节点名 2 ...
+    name_conditions = " -or ".join(f"($_.CommandLine -match '{n}')" for n in node_names)
+    ps_cmd = (
+        "Get-CimInstance Win32_Process | Where-Object {{ "
+        "$_.Name -like '*python*' -and ({0}) "
+        "}} | ForEach-Object {{ Stop-Process -Id $_.ProcessId -Force }}"
+    ).format(name_conditions)
+    try:
+        result = subprocess.run(
+            ["powershell", "-NoProfile", "-Command", ps_cmd],
+            capture_output=True, text=True, timeout=15,
+            creationflags=subprocess.CREATE_NO_WINDOW,
+        )
+        if result.returncode == 0:
+            print("  兜底扫尾完成（已清理残留 Python 进程）")
+        else:
+            print(f"  兜底扫尾: PowerShell 返回 {result.returncode}")
+    except Exception as e:
+        print(f"  兜底扫尾异常: {e}")
+
+
 def _stop_engine():
     """停止引擎进程"""
     try:
         print("正在停止引擎...")
 
-        # 第1步：使用 process_killer 按 PID 文件清理所有节点 listener 进程
+        # 第 1 层：按节点目录清理（PID 文件 + 路径扫描）
         try:
             from bnos_runtime.process_killer import stop_all_node_processes
             stopped = stop_all_node_processes(_project_root)
@@ -95,7 +132,8 @@ def _stop_engine():
         except Exception as e:
             print("  process_killer 清理失败:", e)
 
-        # 第2步：杀死引擎主进程（引擎没有 PID 文件，需单独处理）
+        # 第 2 层：杀死引擎进程及其子进程树
+        from gui.pages.node_page import NodePage
         proc = NodePage.engine_proc
         if proc is not None and proc.poll() is None:
             if os.name == "nt":
@@ -108,34 +146,53 @@ def _stop_engine():
                 os.kill(proc.pid, signal.SIGTERM)
                 proc.wait(timeout=5)
 
+        # 第 3 层：兜底扫尾 — 杀死任何残留的 Python 节点进程
+        # 解决 PID 文件丢失、非 listener 入口进程等遗漏问题
+        _sweep_orphan_processes(_project_root)
+
         print("引擎已停止")
 
     except Exception as e:
         print("停止引擎失败:", e)
 
+    from gui.pages.node_page import NodePage
     NodePage.engine_proc = None
 
 
 def main():
-    # 清理旧文件
     _cleanup_gui_adapter()
 
-    # 启动引擎
-    _start_engine()
-
-    # 注册退出时清理引擎
-    atexit.register(_stop_engine)
-
-    # 启动 GUI
+    # 必须先创建 QApplication 才能使用 QWidget
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
 
-    window = MainWindow()
-    window.show()
+    # 闪屏
+    splash = StartupSplash(_project_root)
+
+    # 启动引擎（非阻塞）
+    _start_engine()
+    atexit.register(_stop_engine)
+
+    # 预设窗口：主窗口创建后再注册退出清理
+    main_window_ref = [None]
+
+    def on_nodes_ready():
+        """所有节点就绪（或超时）→ 创建主窗口"""
+        if main_window_ref[0] is not None:
+            return
+        splash.close()
+        window = MainWindow()
+        main_window_ref[0] = window
+        window.show()
+
+    splash.nodes_ready.connect(on_nodes_ready)
+
+    # 开始闪屏轮询
+    splash.start_waiting()
 
     exit_code = app.exec()
 
-    # 先停止引擎再退出
+    # 窗口关闭后停止引擎
     _stop_engine()
 
     sys.exit(exit_code)

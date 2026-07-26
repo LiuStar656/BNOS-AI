@@ -49,17 +49,10 @@ class Live2DPage(QWidget):
     CONFIG_KEY = "live2d_sidebar_width"
     CURRENT_MODEL_KEY = "live2d_current_model"
     TTS_ENABLED_KEY = "tts_enabled"
-    TTS_PORT = 8084
 
     @classmethod
     def _server_script_path(cls) -> Path:
         return Path(__file__).resolve().parent.parent / "live2d" / "server.py"
-
-    @classmethod
-    def _tts_script_path(cls) -> Path:
-        """TTS 服务脚本路径（位于 Live2D 节点目录）"""
-        root = Path(__file__).resolve().parent.parent.parent
-        return root / "nodes" / "node_js_live2d_face" / "tts_server.py"
 
     @classmethod
     def _models_dir_path(cls) -> Path:
@@ -73,16 +66,23 @@ class Live2DPage(QWidget):
         self._preview_loaded = False
         self._current_model_path: str | None = None
 
-        # 模型缩放/拖拽状态（Ctrl+滚轮缩放、Ctrl+左键拖拽，与桌面悬浮窗一致）
+        # 模型缩放/偏移/拖拽状态
         self._model_scale = AppConfig().get(
             Live2DOverlay.SCALE_KEY,
-            int(Live2DOverlay.DEFAULT_SCALE * 35) / 100,  # 再缩小50%
+            Live2DOverlay.DEFAULT_SCALE,  # 使用和桌面一样的默认值
+        )
+        self._model_offset_x = AppConfig().get(
+            Live2DOverlay.OFFSET_X_KEY,
+            Live2DOverlay.DEFAULT_OFFSET_X,
+        )
+        self._model_offset_y = AppConfig().get(
+            Live2DOverlay.OFFSET_Y_KEY,
+            Live2DOverlay.DEFAULT_OFFSET_Y,
         )
         self._model_drag_pos: QPoint | None = None
         self._is_model_dragging = False
 
-        # TTS 进程状态（GUI 直接持有，支持运行时热开关）
-        self._tts_proc: subprocess.Popen | None = None
+        # TTS 语音开关状态（仅前端标志位，不管理进程）
         self._tts_enabled = AppConfig().get(self.TTS_ENABLED_KEY, True)
 
         self._colors = AppConfig().get_all_colors()
@@ -232,8 +232,6 @@ class Live2DPage(QWidget):
         self._page_shown = True
         QTimer.singleShot(200, self._load_preview)
 
-    # ─── JS 控制台日志 ──────────────────────────────
-
     def _on_js_console(self, level: int, msg: str, line: int, src: str):
         """捕获 JS 控制台输出"""
         levels = {0: "INFO", 1: "WARN", 2: "ERROR"}
@@ -279,10 +277,14 @@ class Live2DPage(QWidget):
             # 加载失败，尝试重载
             QTimer.singleShot(2000, lambda: self._web_view.reload())
             return
-        # 应用保存的模型缩放值（与桌面悬浮窗保持一致）
+        # 应用保存的模型缩放和偏移（与桌面悬浮窗保持一致）
         if self._model_scale != Live2DOverlay.DEFAULT_SCALE:
             self._web_view.page().runJavaScript(
                 f"setModelScaleAbsolute({self._model_scale})"
+            )
+        if self._model_offset_x != Live2DOverlay.DEFAULT_OFFSET_X or self._model_offset_y != Live2DOverlay.DEFAULT_OFFSET_Y:
+            self._web_view.page().runJavaScript(
+                f"setModelPositionAbsolute({self._model_offset_x}, {self._model_offset_y})"
             )
         # 同步 TTS 启用状态到前端（控制 renderer.js 是否播放）
         self._push_tts_flag()
@@ -333,9 +335,16 @@ class Live2DPage(QWidget):
             if etype == QEvent.Type.MouseMove:
                 if self._model_drag_pos is not None:
                     delta = event.globalPosition().toPoint() - self._model_drag_pos
+                    self._model_offset_x += delta.x()
+                    self._model_offset_y += delta.y()
                     self._web_view.page().runJavaScript(
                         f"moveModelPosition({delta.x()}, {delta.y()})"
                     )
+                    # 保存偏移
+                    cfg = AppConfig()
+                    cfg.set(Live2DOverlay.OFFSET_X_KEY, self._model_offset_x)
+                    cfg.set(Live2DOverlay.OFFSET_Y_KEY, self._model_offset_y)
+                    cfg.save()
                     self._model_drag_pos = event.globalPosition().toPoint()
                 return True
             if etype == QEvent.Type.MouseButtonRelease and event.button() == Qt.MouseButton.LeftButton:
@@ -384,9 +393,6 @@ class Live2DPage(QWidget):
         except Exception as e:
             print(f"[Live2D] 启动失败: {e}")
 
-        # TTS 服务随页面启动一次性打开，热开关仅控制前端标志位（window.TTS_ENABLED）
-        self._start_tts()
-
     def _kill_port(self, port):
         """强制释放指定端口（杀掉占用进程）"""
         try:
@@ -409,8 +415,6 @@ class Live2DPage(QWidget):
             pass
 
     def _stop_server(self):
-        # 先停 TTS（避免孤儿进程），再停渲染服务
-        self._stop_tts()
         if self._server_proc and self._server_proc.poll() is None:
             self._server_proc.kill()
             self._server_proc.wait(timeout=3)
@@ -419,50 +423,15 @@ class Live2DPage(QWidget):
 
     # ─── TTS 热开关管理 ──────────────────────────────
 
-    def _start_tts(self):
-        """启动 TTS 服务进程（GUI 直接持有句柄，单一拥有者）。"""
-        if self._tts_proc and self._tts_proc.poll() is None:
-            return  # 已在运行
-        script = self._tts_script_path()
-        if not script.exists():
-            print(f"[Live2D] TTS 脚本不存在: {script}")
-            return
-        # 清理 8084 残留占用（可能是上次未正常退出的孤儿进程）
-        self._kill_port(self.TTS_PORT)
-        try:
-            self._tts_proc = subprocess.Popen(
-                [sys.executable, str(script), "--port", str(self.TTS_PORT)],
-                cwd=str(script.parent),
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
-                text=True,
-            )
-            print(f"[Live2D] TTS 服务已启动 PID={self._tts_proc.pid}")
-        except Exception as e:
-            print(f"[Live2D] TTS 启动失败: {e}")
-            self._tts_proc = None
-
-    def _stop_tts(self):
-        """停止 TTS 服务进程（用真实 PID，无孤儿）。"""
-        if self._tts_proc and self._tts_proc.poll() is None:
-            try:
-                self._tts_proc.kill()
-                self._tts_proc.wait(timeout=3)
-                print("[Live2D] TTS 服务已停止")
-            except Exception as e:
-                print(f"[Live2D] TTS 停止异常: {e}")
-        self._tts_proc = None
-
     def _toggle_tts(self):
         """运行时热开关 TTS：仅翻转前端标志位（window.TTS_ENABLED），不启停服务进程。"""
         self._tts_enabled = not self._tts_enabled
-        cfg = AppConfig()
-        cfg.set(self.TTS_ENABLED_KEY, self._tts_enabled)
-        cfg.save()
 
         self._push_tts_flag()
         self._apply_tts_btn_style()
+        cfg = AppConfig()
+        cfg.set(self.TTS_ENABLED_KEY, self._tts_enabled)
+        cfg.save()
 
     def _push_tts_flag(self):
         """把 TTS 启用状态推送到前端 webview，控制 renderer.js 是否播放。"""

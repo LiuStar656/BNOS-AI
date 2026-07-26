@@ -5,7 +5,7 @@
   "nodes": [
     "node_python_aaa_cognition",
     "node_python_llm_infer",
-    "node_js_live2d_face"
+    "node_python_tts"
   ],
   "edges": [
     {
@@ -15,14 +15,26 @@
       "target_port": "prompt"
     },
     {
+      "from": "node_python_aaa_cognition",
+      "to": "node_python_llm_infer",
+      "source_port": "diary_prompt",
+      "target_port": "diary_prompt"
+    },
+    {
       "from": "node_python_llm_infer",
       "to": "node_python_aaa_cognition",
       "source_port": "default",
       "target_port": "llm_response"
     },
     {
+      "from": "node_python_llm_infer",
+      "to": "node_python_aaa_cognition",
+      "source_port": "diary_response",
+      "target_port": "diary_response"
+    },
+    {
       "from": "node_python_aaa_cognition",
-      "to": "node_js_live2d_face",
+      "to": "node_python_tts",
       "source_port": "reply",
       "target_port": "reply"
     }

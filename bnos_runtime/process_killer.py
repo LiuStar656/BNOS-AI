@@ -241,8 +241,8 @@ def stop_node_process(node_path: str | Path) -> bool:
 def stop_all_node_processes(project_root: str | Path) -> list[str]:
     """停止项目中所有运行中的节点进程。
 
-    遍历 project_root 下的 nodes/ 目录，对每个含有 PID 文件的节点
-    调用 stop_node_process() 进行清理。
+    遍历 project_root 下的 nodes/ 目录，对每个节点目录执行清理。
+    无论是否有 PID 文件，都会尝试路径扫描兜底，确保不遗漏。
 
     Args:
         project_root: BNOS 项目根目录。
@@ -263,9 +263,8 @@ def stop_all_node_processes(project_root: str | Path) -> list[str]:
             continue
         if node_dir.name.startswith("__"):
             continue
-        if _get_pid_file(node_dir) is None:
-            continue
 
+        # 总是执行 stop_node_process，内部会先试 PID 文件，再试路径扫描
         logger.info("正在停止节点: %s", node_dir.name)
         stop_node_process(node_dir)
         stopped.append(node_dir.name)
@@ -275,8 +274,6 @@ def stop_all_node_processes(project_root: str | Path) -> list[str]:
     if composite_dir.is_dir():
         for comp_dir in sorted(composite_dir.iterdir()):
             if not comp_dir.is_dir():
-                continue
-            if _get_pid_file(comp_dir) is None:
                 continue
             logger.info("正在停止复合节点: %s", comp_dir.name)
             stop_node_process(comp_dir)

@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+import json
 import os
+from pathlib import Path
 
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QColor, QPalette
 from PySide6.QtWidgets import (
+    QApplication,
     QComboBox,
     QFileDialog,
     QFormLayout,
@@ -239,10 +242,64 @@ class SettingsPanel(QWidget):
         db_layout.addWidget(self._clear_btn)
 
         layout.addWidget(db_group)
+
+        # ─── Logseq 目录 ───
+        logseq_group = QGroupBox("Logseq 知识库")
+        logseq_layout = QFormLayout(logseq_group)
+        self._logseq_path_label = QLabel(self._get_logseq_path_display())
+        self._logseq_path_label.setStyleSheet("color: #555; font-size: 12px;")
+        self._logseq_browse_btn = QPushButton("浏览...")
+        self._logseq_browse_btn.setStyleSheet(btn_style)
+        self._logseq_browse_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._logseq_browse_btn.clicked.connect(self._on_select_logseq_dir)
+        path_row = QHBoxLayout()
+        path_row.addWidget(self._logseq_path_label, 1)
+        path_row.addWidget(self._logseq_browse_btn)
+        logseq_layout.addRow("Pages 目录", path_row)
+        layout.addWidget(logseq_group)
+
         layout.addStretch()
 
         # 延迟连接 MessageManager 信号
         QTimer.singleShot(0, self._connect_message_manager)
+
+    # ─── Logseq 目录 ────────────────────────────
+
+    def _get_logseq_path_display(self) -> str:
+        """从 gui_config.json 读取 Logseq pages 目录，返回显示文本"""
+        try:
+            cfg_path = Path(__file__).resolve().parent.parent.parent / "gui_config.json"
+            if cfg_path.exists():
+                cfg = json.loads(cfg_path.read_text("utf-8"))
+                path = cfg.get("logseq", {}).get("pages_dir", "")
+                return path if path else "（未设置）"
+        except Exception:
+            pass
+        return "（未设置）"
+
+    def _on_select_logseq_dir(self):
+        """选择 Logseq pages 目录"""
+        dir_path = QFileDialog.getExistingDirectory(
+            self, "选择 Logseq pages 目录（包含 Logseq markdown 文件的位置）"
+        )
+        if not dir_path:
+            return
+
+        # 持久化到 gui_config.json
+        try:
+            cfg_path = Path(__file__).resolve().parent.parent.parent / "gui_config.json"
+            cfg = json.loads(cfg_path.read_text("utf-8")) if cfg_path.exists() else {}
+            cfg.setdefault("logseq", {})["pages_dir"] = dir_path
+            cfg_path.write_text(json.dumps(cfg, indent=2, ensure_ascii=False), encoding="utf-8")
+            self._logseq_path_label.setText(dir_path)
+
+            # 通知已存在的 LogseqWriter 更新路径
+            for w in QApplication.topLevelWidgets():
+                if hasattr(w, "_logseq_writer"):
+                    w._logseq_writer.set_pages_dir(dir_path)
+                    break
+        except Exception as e:
+            QMessageBox.warning(self, "保存失败", f"Logseq 目录配置保存失败: {e}")
 
     # ─── 数据库管理 ──────────────────────────────
 

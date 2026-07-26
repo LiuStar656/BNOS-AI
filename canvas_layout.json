@@ -4,7 +4,7 @@
       "x": 141.0,
       "y": -516.0,
       "width": 340.0,
-      "height": 389.0,
+      "height": 457.0,
       "style": "detailed",
       "custom_colors": null,
       "is_internal": false
@@ -13,22 +13,82 @@
       "x": -341.0,
       "y": -373.0,
       "width": 340.0,
-      "height": 298.0,
+      "height": 336.0,
       "style": "detailed",
       "custom_colors": null,
       "is_internal": false
     },
-    "node_js_live2d_face": {
-      "x": -1.0,
+    "node_python_tts": {
+      "x": 1.0,
       "y": 0.0,
       "width": 340.0,
-      "height": 350.0,
+      "height": 233.0,
       "style": "detailed",
       "custom_colors": null,
       "is_internal": false
     }
   },
   "edges": [
+    {
+      "source": "node_python_aaa_cognition",
+      "target": "node_python_llm_infer",
+      "source_port": "diary_prompt",
+      "target_port": "diary_prompt",
+      "waypoints": [
+        [
+          0.16353992799304762,
+          101.39927303325838,
+          54.78587587767095
+        ],
+        [
+          0.9375801801553253,
+          -38.702012608113876,
+          -20.910639647966036
+        ]
+      ],
+      "edge_key": [
+        "STANDALONE_PORT_MAP",
+        "node_python_aaa_cognition",
+        "node_python_llm_infer",
+        "diary_prompt",
+        "diary_prompt"
+      ]
+    },
+    {
+      "source": "node_python_llm_infer",
+      "target": "node_python_aaa_cognition",
+      "source_port": "diary_response",
+      "target_port": "diary_response",
+      "waypoints": [
+        [
+          0.0,
+          50.0,
+          0.0
+        ],
+        [
+          0.0593697316730074,
+          96.48649989996477,
+          -424.43218776220465
+        ],
+        [
+          1.0,
+          -94.0,
+          -257.0
+        ],
+        [
+          1.0,
+          -94.0,
+          0.0
+        ]
+      ],
+      "edge_key": [
+        "STANDALONE_PORT_MAP",
+        "node_python_llm_infer",
+        "node_python_aaa_cognition",
+        "diary_response",
+        "diary_response"
+      ]
+    },
     {
       "source": "node_python_llm_infer",
       "target": "node_python_aaa_cognition",
@@ -37,22 +97,22 @@
       "waypoints": [
         [
           0.0,
-          66.0,
-          0.0
+          34.0,
+          1.0
         ],
         [
-          0.0,
-          66.0,
-          171.0
-        ],
-        [
-          1.0,
-          -254.0,
-          338.0
+          0.07223824011735001,
+          90.56254201188506,
+          -354.55235197652996
         ],
         [
           1.0,
-          -254.0,
+          -66.0,
+          -169.0
+        ],
+        [
+          1.0,
+          -66.0,
           0.0
         ]
       ],
@@ -66,19 +126,54 @@
     },
     {
       "source": "node_python_aaa_cognition",
+      "target": "node_python_tts",
+      "source_port": "reply",
+      "target_port": "reply",
+      "waypoints": [
+        [
+          0.11633217993079585,
+          36.23038062283737,
+          -13.14553633217993
+        ],
+        [
+          0.7966782006920415,
+          8.336193771626299,
+          -3.024636678200693
+        ],
+        [
+          0.6207612456747404,
+          -46.45121107266436,
+          16.853979238754334
+        ],
+        [
+          0.8240830449826989,
+          -54.787404844290656,
+          19.878615916955027
+        ]
+      ],
+      "edge_key": [
+        "STANDALONE_PORT_MAP",
+        "node_python_aaa_cognition",
+        "node_python_tts",
+        "reply",
+        "reply"
+      ]
+    },
+    {
+      "source": "node_python_aaa_cognition",
       "target": "node_python_llm_infer",
       "source_port": "prompt",
       "target_port": "prompt",
       "waypoints": [
         [
-          0.11661536258858902,
-          68.89261937146539,
-          38.133223566468615
+          0.12957262509843223,
+          76.54735485718376,
+          42.37024840718735
         ],
         [
-          0.8820889111604266,
-          -69.65809292003723,
-          -38.55692605054048
+          0.8950461736702698,
+          -62.00335743431884,
+          -34.31990120982175
         ]
       ],
       "edge_key": [
@@ -88,34 +183,14 @@
         "prompt",
         "prompt"
       ]
-    },
-    {
-      "source": "node_python_aaa_cognition",
-      "target": "node_js_live2d_face",
-      "source_port": "reply",
-      "target_port": "reply",
-      "waypoints": [
-        [
-          0.0625359756598964,
-          36.56109694926404,
-          -9.44293232464436
-        ]
-      ],
-      "edge_key": [
-        "STANDALONE_PORT_MAP",
-        "node_python_aaa_cognition",
-        "node_js_live2d_face",
-        "reply",
-        "reply"
-      ]
     }
   ],
   "view_state": {
     "scale": 1.0,
-    "scroll_x": -595,
-    "scroll_y": -639,
-    "center_x": 98.0,
-    "center_y": -232.0
+    "scroll_x": -559,
+    "scroll_y": -452,
+    "center_x": 134.0,
+    "center_y": -45.0
   },
   "canvas_size": {
     "width": 5000,
