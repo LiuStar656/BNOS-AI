@@ -1,6 +1,6 @@
 # BNOS AI 伴侣 — 总体开发方案
 
-> 日期：2026-07-23 | 版本：v2.0 | 状态：[PLAN]
+> 日期：2026-07-26 | 版本：v2.1 | 状态：[PLAN]
 
 ---
 
@@ -75,24 +75,32 @@
 │              项目运行时（用户侧，不含 BNOS IDE）                │
 │                                                             │
 │  ★ 多源输入层（Phase 1: 仅 text，Phase 2+: 全部接入）         │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐                    │
-│  │ ASR 语音  │ │ 视觉观察  │ │ 环境/系统 │                    │
-│  │asr_input │ │vision_in │ │ env_input│                    │
-│  └────┬─────┘ └────┬─────┘ └────┬─────┘                    │
-│       │ text       │ json       │ json                      │
-│       └────────────┼────────────┘                          │
-│                    ▼                                        │
+│  ┌────────────┐ ┌──────────┐ ┌──────────┐                  │
+│  │ ASR 语音    │ │ 视觉观察  │ │ 环境/系统 │                  │
+│  │asr_input   │ │vision_in │ │ env_input│                  │
+│  └──────┬─────┘ └────┬─────┘ └────┬─────┘                  │
+│         │ voice_seg  │ vision_eve │ env_event               │
+│         └──────┬─────┴────────────┘                        │
+│                ▼                                            │
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │           AAA 认知记忆中枢（统一记忆入口）               │   │
 │  │           (aaa_cognition)                            │   │
 │  │                                                      │   │
-│  │  多输入端口（到达即写 DB，按 source 标签区分来源）:      │   │
-│  │  ├── gui_input    (text)   ← GUI 文本输入(P1)          │   │
-│  │  ├── asr_input    (text)   ← 语音识别文本(P2+)        │   │
-│  │  ├── vision_input (json)   ← 视觉观察数据(P2+)        │   │
-│  │  ├── env_input    (json)   ← 环境/系统信息(P2+)       │   │
-│  │  ├── llm_response (text)   ← LLM 推理结果             │   │
-│  │  └── tool_result  (json)   ← Grok 工具执行结果        │   │
+│  │  ┌──────────────────────────────────────────┐        │   │
+│  │  │  turn_taking 内部组件（事件路由层）         │        │   │
+│  │  │  第1层：规则过滤（零LLM）                  │        │   │
+│  │  │  第2层：观察缓冲区（累积合并）              │        │   │
+│  │  │  第3层：兴趣度评估 → 内部触发 prompt       │        │   │
+│  │  └──────────────────────────────────────────┘        │   │
+│  │                                                      │   │
+│  │  多输入端口:                                         │   │
+│  │  ├── gui_input (text)  ← GUI 文本输入(P1)            │   │
+│  │  │     ↳ 不走turn_taking，直通prompt构建              │   │
+│  │  ├── asr_input  → turn_taking过滤 → prompt构建(P2+)  │   │
+│  │  ├── vision_in  → turn_taking过滤 → prompt构建(P2+)  │   │
+│  │  ├── env_input  → turn_taking过滤 → (仅写DB,P2+)     │   │
+│  │  ├── llm_response (text)  ← LLM 推理结果             │   │
+│  │  └── tool_result  (json)  ← Grok 工具执行结果        │   │
 │  │                                                      │   │
 │  │  内部直接写 DB（到达即写，source 字段标记来源）:         │   │
 │  │  ├── 任何 input 端口到达 → INSERT memory(source=xxx)  │   │
@@ -140,26 +148,29 @@
 
 ```
 ★ 多源输入层（Phase 1: text 由 GUI 直接输入，Phase 2+: 全部接入）
-  ┌──────────┐ ┌──────────┐ ┌──────────┐
-  │asr_input │ │vision_in │ │ env_input│  ...可无限扩展
-  └──────────┘ └────┬─────┘ └────┬─────┘
-                     │ json       │ json
-                     ▼            ▼
+  ┌────────────┐ ┌──────────┐ ┌──────────┐
+  │asr_input   │ │vision_in │ │ env_input│  ...可无限扩展
+  └──────┬─────┘ └────┬─────┘ └────┬─────┘
+         │ voice_seg  │ vision_eve │ env_event
+         └──────┬─────┴────────────┘
+                ▼
 ┌─────────────────────────────────────────────────────┐
 │                  AAA 认知记忆中枢                     │
 │                (aaa_cognition)                      │
 │                                                     │
-│  Input Ports (多端口 + filter 路由):                  │
-│  ┌──────────┬──────────┬──────────┬──────────┐     │
-│  │gui_input │asr_input │vision_in │ env_input│     │
-│  └──────────┴──────────┴──────────┴──────────┘     │
-│  ┌──────────────┬──────────────┐                   │
-│  │ llm_response │ tool_result  │                   │
-│  └──────────────┴──────────────┘                   │
+│  内部 turn_taking 组件:                               │
+│  ├── asr_input   → _quick_filter() → _obs_buffer    │
+│  │                    → 达标 → 构建 prompt           │
+│  ├── vision_in   → _quick_filter() → _obs_buffer    │
+│  │                    → 达标 → 构建 prompt           │
+│  ├── env_input   → 写 DB（不触发 prompt）             │
+│  ├── gui_input   ──→ 直接构建 prompt（不走过滤）      │
+│  ├── llm_response ─→ 解析节标记 + 写 DB               │
+│  └── tool_result  ─→ 写 DB + 重建 prompt             │
 │                                                     │
 │  Output Ports:                                       │
-│  ├── default: prompt / tool_call / reply / knowledge│
-│  └── status: JSON（GUI 状态查询）                    │
+│  ├── default: prompt / tool_call / reply / knowledge │
+│  └── status: JSON（GUI 状态查询）                     │
 └─────┼───────────────────────────────────────────────┘
       │
       ├── data_type: "prompt" ──────→ [LLM 推理节点]
@@ -175,6 +186,10 @@
       │
       └── data_type: "knowledge" ───→ [Logseq 写入节点]
            logseq_writer port: entry (filter: knowledge)
+
+★ 两条路径互不干扰:
+  GUI 打字 → gui_input → AAA 直接构建 prompt（不过滤）
+  ASR/Vision/Env → turn_taking 过滤后决定是否构建 prompt
 ```
 
 ### 2.4 技术栈
@@ -204,9 +219,11 @@
 | `live2d_face` | Live2D 面孔 + TTS | JS + Python | My-Neuro 提取 | P0 |
 | `grok_hands` | Grok 工具执行（纯执行） | Rust | Grok Build 封装 | P1 |
 | `logseq_writer` | Logseq 知识写入 | Python | 新建 | P1 |
-| `asr_input` | 语音识别输入 | Python | 新建（预留） | P2 |
+| `asr_input` | 语音识别输入 | Python | 新建（Phase 2+） | P2 |
 | `vision_input` | 视觉观察输入 | Python | 新建（预留） | P2 |
 | `env_input` | 环境/系统监控输入 | Python | 新建（预留） | P2 |
+
+> **注**：turn_taking 不再作为独立节点，而是嵌入 AAA 内部的组件。AAA 新增 asr_input/vision_in/env_in 端口，内建规则过滤 + 观察缓冲区。详见 §3.5 及 [事件驱动型AI自主行为方案](docs/design/[PLAN]-事件驱动型AI自主行为方案.md)。
 
 ---
 
@@ -241,7 +258,10 @@
 
 | 端口名 | filter (data_type) | 来源节点 | 说明 |
 |--------|-------------------|----------|------|
-| `gui_input` | `text` | GUI 客户端 | 用户原始输入，到达后立即写入 long_term_memory |
+| `gui_input` | `text` | GUI 客户端 | 用户原始输入，到达后立即写入 long_term_memory；直达 prompt 构建，不走 turn_taking |
+| `asr_input` | `voice_segment` | ASR 节点 | 语音事件，到 AAA 后由内部 turn_taking 组件过滤（Phase 2+） |
+| `vision_in` | `vision_event` | Vision 节点 | 视觉事件，到 AAA 后由内部 turn_taking 组件过滤（Phase 2+） |
+| `env_input` | `env_event` | Env 节点 | 环境数据，到达后仅写 DB，不触发 prompt（Phase 2+） |
 | `llm_response` | `text` | llm_infer | LLM 返回的节标记原始文本，AAA 内解析为 13 字段后写 DB |
 | `tool_result` | `json` | grok_hands | Grok 工具执行结果，到达后写入 long_term_memory 作为上下文 |
 
@@ -823,6 +843,136 @@ llm_infer 节点
 
 ---
 
+### 3.5 turn_taking 内部组件（嵌入 AAA）
+
+**来源**：AAA 内部实现，详见 [事件驱动型AI自主行为方案](docs/design/[PLAN]-事件驱动型AI自主行为方案.md)。
+
+**定位**：AI 的**注意力过滤器**，嵌入 AAA 内部的类组件。纯规则 + 缓冲区操作（零 LLM 调用），决定"什么值得让 AI 过脑子"。
+
+**设计理由**：AAA 崩溃等价于整个 AI 崩溃，所以 turn_taking 独立进程无收益。嵌入 AAA 省去一个独立节点（node_config.json / listener.py / 进程管理），且多感官输入共享同一套过滤逻辑。
+
+**职责**：
+- 接收 ASR/Vision/Env 等感官节点的事件流（AAA 对应端口直达）
+- 第1层规则过滤：毫秒级判断是否值得关注（陌生人丢弃、被叫名字放行等）
+- 第2层观察缓冲区：累积合并事件，降低 LLM 调用频率
+- 第3层：缓冲区刷新时直接内部触发 prompt 构建
+- **GUI 打字不经过 turn_taking**（直连 AAA prompt 构建），两条路径互不干扰
+
+**AAA 内部流程**：
+
+```
+asr_input → handle_asr_input()
+  ├─ 写 DB: INSERT INTO memory (source='asr')
+  ├─ turn_taking._quick_filter(voice_seg)
+  │   ├─ DISCARD → 结束（只写日志）
+  │   └─ ATTENTION/PRIORITY → turn_taking._obs_buffer.add()
+  │       ├─ 缓冲区未满 + 未超时 → 结束
+  │       └─ 已满 / 超时 / PRIORITY → _buffer_flush()
+  │           └─ → _build_env_context() 内部构建 prompt
+
+gui_input → handle_gui_input()
+  └─ 直达 _build_context() → 内部构建 prompt（不走 turn_taking）
+```
+
+#### 三层过滤算法
+
+```python
+class TurnTakingFilter:
+    """AAA 内部的事件路由组件"""
+
+    # 第1层：规则过滤
+    @staticmethod
+    def quick_filter(segment: VoiceSegment) -> FilterResult:
+        if segment.speaker_type in ("stranger", "unknown"):
+            return FilterResult.DISCARD   # 陌生人 → 丢弃
+        if any(name in segment.text for name in AI_NAMES):
+            return FilterResult.PRIORITY  # 叫名字 → 最高优先级，跳过缓冲区
+        if segment.emotion in ("ANGRY", "SAD"):
+            return FilterResult.ATTENTION # 强烈情绪 → 关注
+        if segment.text.strip()[-1:] in ("？", "?"):
+            return FilterResult.ATTENTION # 提问 → 关注
+        if time_since_last_ai_output < 3:
+            return FilterResult.NORMAL    # 刚回复过 → 对话持续
+        return FilterResult.DISCARD       # 其他 → 丢弃
+
+    # 第2层：观察缓冲区
+    class ObservationBuffer:
+        def __init__(self, max_events=5, timeout=30.0):
+            self.events = []
+            self.max_events = max_events
+            self.timeout = timeout
+
+        def add(self, event) -> bool:
+            """添加事件。返回 True 表示需要立即刷新"""
+            self.events.append(event)
+            if any(e.importance == "priority" for e in self.events):
+                return True           # PRIORITY 事件 → 立即刷新
+            if len(self.events) >= self.max_events:
+                return True           # 缓冲区满 → 刷新
+            return False
+
+        def should_timeout_flush(self) -> bool:
+            return self.events and (time.time() - self.events[0].ts) >= self.timeout
+```
+
+#### AAA 新增/修改的方法
+
+在 `aaa_cognition/main.py` 中新增：
+
+```python
+class AAACognition:
+    def __init__(self):
+        # ... 原有初始化 ...
+        self._turn_taking = TurnTakingFilter()
+        self._obs_buffer = TurnTakingFilter.ObservationBuffer()
+
+    def handle_asr_input(self, voice_seg: dict, dbp):
+        """ASR 语音输入入口 → 走 turn_taking 过滤"""
+        # 1. 写 DB（不阻塞）
+        db.write_async({"data_type": "voice_input",
+            "content": voice_seg.get("text", "")}, dbp, role="user")
+
+        # 2. turn_taking 规则过滤
+        result = TurnTakingFilter.quick_filter(voice_seg)
+        if result == FilterResult.DISCARD:
+            return  # 不触发任何 AI 行为
+        if result == FilterResult.PRIORITY:
+            return self._build_from_env(dbp)  # 立即触发
+        # ATTENTION / NORMAL → 进缓冲区
+        if self._obs_buffer.add(voice_seg):
+            return self._build_from_env(dbp)
+
+    def handle_gui_input(self, text: str, dbp):
+        """GUI 文本输入 → 直达 prompt 构建"""
+        db.write_async(...)        # 写 DB
+        ctx = self._gather_context(text, dbp)  # 直接构建 prompt
+        return {"data_type": "prompt", "content": pt.build(ctx)}
+
+    def _build_from_env(self, dbp):
+        """缓冲区刷新 → 构建含环境观察的 prompt"""
+        bundle = self._obs_buffer.flush()
+        ctx = self._gather_context(user_text="", dbp=dbp)
+        ctx["env_observation"] = _format_events(bundle)
+        return {"data_type": "prompt", "content": pt.build(ctx)}
+
+    def _has_pending_observation(self) -> bool:
+        """GUI 输入时检查：是否有未触发的事件在观察缓冲区？"""
+        return self._obs_buffer.should_timeout_flush()
+```
+
+#### prompt 模板新增段
+
+```
+### 环境观察（AI 通过 ASR/Vision 自主感知，非用户直接输入）
+{env_observation}
+```
+
+当 `env_observation` 为空时，该段不输出。
+
+**不破坏现有 GUI 打字链路的任何逻辑**。GUI 打字始终走 `handle_gui_input()` → 直接构建 prompt，不受 turn_taking 影响。
+
+---
+
 ### 3.6 Grok 工具执行节点 (`grok_hands`)
 
 **来源**：封装 Grok Build 的 MCP 客户端
@@ -945,23 +1095,97 @@ Grok 仅执行，不吃算力。如果工具结果需要理解和总结，由 AA
 
 ### 3.7 预留扩展输入节点
 
-以下节点 Phase 1 仅预留 node_config, Phase 2+ 逐个接入，均连到 AAA 的对应端口：
+以下节点 Phase 1 仅预留 node_config, Phase 2+ 逐个接入。多源输入均经过 `turn_taking` 节点过滤和缓冲后，以 `context_bundle` 形式发给 AAA 的 `context_bundle` 端口。详见 [事件驱动型AI自主行为方案](docs/design/[PLAN]-事件驱动型AI自主行为方案.md)。
 
 #### ASR 语音输入节点 (`asr_input`) - P2
 
+详细方案见 [asr_input/开发方案.md](nodes/node_python_asr_input/开发方案.md)。
+
+**节点定位**：AI 的"耳朵 + 耳朵主人识别"。自持麦克风，常驻进程，连续进行 VAD 监听 → 录音 → STT → 声纹识别 → 情感/事件检测 → 输出 `voice_segment` 给 `turn_taking` 节点。
+
+**数据流**：
+```
+[麦克风] → VAD (Silero VAD, <1ms)
+  ├─ 无人说话 → 丢弃
+  └─ 有人说话结束 → 缓存音频段
+      ├─ 声纹 (CAm++) → 匹配 speaker_id + speaker_type
+      ├─ STT (SenseVoice) → 文本 + 情感 + 音频事件
+      └─ 输出 voice_segment → turn_taking 节点
+```
+
+**端口定义**：
+
+| 端口名 | filter (data_type) | 方向 | 说明 |
+|--------|-------------------|------|------|
+| `config` | `config_update` | 入 | 运行时热更新配置 |
+| `default` | `voice_segment` | 出 | 结构化语音段数据 → turn_taking |
+
+**输出协议（voice_segment）**：
+```json
+// 熟人说话 → turn_taking 可能触发回复
+{"data_type": "voice_segment", "speaker_id": "zhangsan", "speaker_type": "known",
+ "text": "今天天气怎么样", "emotion": "NEUTRAL", "confidence": 0.87}
+
+// 陌生人 → turn_taking 记录日志，不触发回复
+{"data_type": "voice_segment", "speaker_id": "Speaker_003", "speaker_type": "stranger",
+ "text": "这个 bug 好难修", "emotion": "SAD", "confidence": 0.72}
+
+// 仅音频事件（无语音内容，如猫叫）
+{"data_type": "voice_segment", "speaker_id": "__noise__",
+ "text": "", "emotion": "", "events": ["[猫叫声]"]}
+```
+
+**技术选型对比**（依据 ASR 开发方案的细化调研）：
+
+| 模块 | 选型 | 替代方案 | 选择理由 |
+|------|------|---------|---------|
+| VAD | Silero VAD (PyTorch) | dBFS阈值、webrtcvad | 模型准确，CPU <1ms，支持多阈值 |
+| STT | SenseVoice (sherpa-onnx) | Whisper / Vosk | ~40MB int8, CPU 0.3-0.5x实时, 原生情感输出 |
+| 声纹 | CAm++ (sherpa-onnx) | — | 128维嵌入，余弦相似度匹配 |
+| 音频事件 | Zipformer 分类器 | — | 40+种事件分类（咳嗽/猫叫/门铃等） |
+
+**声纹 ID ↔ 身份绑定**（speaker_bindings 表存于 chatbot.db）：
+
+```
+ASR 输出 {speaker_id: "Speaker_003", text: "我是张三"}
+  ↓
+AAA 检查 speaker_bindings → 无记录 → 自动注册新身份
+  ↓
+LLM 回复解析 → 【用户信息】含 name=张三 → 更新 display_name
+  ↓
+同一 voiceprint_id 出现 ≥5次 → is_known 自动标记为 1（熟人）
+```
+
+**配置文件**：
 ```jsonc
 {
-  "node_name": "asr_input",
+  "node_name": "node_python_asr_input",
   "language": "python",
+  "entry": "listener.py",
+  "output_file": "./output.json",
   "parameters": [
-    {"name": "model_type", "type": "enum", "label": "ASR 引擎", "options": ["faster_whisper", "whisper_cpp", "vosk"], "default": "faster_whisper"},
-    {"name": "model_size", "type": "enum", "label": "模型大小", "options": ["tiny", "base", "small", "medium"], "default": "small"}
+    {"name": "mic_device", "type": "int", "label": "麦克风设备编号", "default": 0, "min": 0, "max": 16},
+    {"name": "vad_threshold", "type": "float", "label": "VAD 灵敏度", "default": 0.5, "min": 0.1, "max": 0.9, "step": 0.1},
+    {"name": "voiceprint_enabled", "type": "bool", "label": "启用声纹识别", "default": true},
+    {"name": "voiceprint_threshold", "type": "float", "label": "声纹匹配阈值", "default": 0.6, "min": 0.4, "max": 0.9, "step": 0.05},
+    {"name": "sound_sense_enabled", "type": "bool", "label": "启用音频事件检测", "default": true}
+  ],
+  "input_ports": [
+    {"name": "config", "label": "配置热更新", "type": "json", "required": false, "source": "node"}
   ],
   "output_ports": [
-    {"name": "default", "label": "识别文本", "type": "default"}
+    {"name": "default", "label": "语音识别结果(voice_segment)", "type": "default"}
   ]
 }
 ```
+
+**关键改动**（对比原主方案占位符 → 细颗粒度方案）：
+- STT 引擎从 faster_whisper/vosk 改为 **SenseVoice (sherpa-onnx)**：更小、更快、原生情感输出
+- 新增 **VAD 模块**：Silero VAD 毫秒级检测，替代旧的无 VAD 直录方案
+- 新增 **声纹识别**：CAm++ 动态注册，区分熟人/陌生人
+- 新增 **音频事件检测**：Zipformer，40+种环境音分类
+- 输出目标从 AAA 改为 **turn_taking**：ASR 只负责转文字和声纹，不决定是否触发回复
+- 参数从 2 个扩展到 **5 个**：mic_device, vad_threshold, voiceprint_enabled, voiceprint_threshold, sound_sense_enabled
 
 #### 视觉观察节点 (`vision_input`) - P2
 
@@ -1011,11 +1235,10 @@ SQLite，单文件 `shared/chatbot.db`，AAA 节点独占写入，其他节点�
 | 写入者 | 写入时机 | 写入的表 |
 |--------|----------|----------|
 | AAA（gui_input 到达时） | 并行 fire-and-forget | `long_term_memory`（source='text', role='user'） |
-| AAA（asr_input 到达时） | 并行 fire-and-forget | `long_term_memory`（source='asr', role='user'） |
-| AAA（vision_input 到达时） | 并行 fire-and-forget | `long_term_memory`（source='vision', role='user'） |
-| AAA（env_input 到达时） | 并行 fire-and-forget | `long_term_memory`（source='env', role='system'） |
+| AAA（asr_input 到达时） | 并行 fire-and-forget + turn_taking 过滤 | `long_term_memory`（source='asr'）；过滤后决定是否触发 prompt |
 | AAA（llm_response 到达时） | 并行 fire-and-forget | `long_term_memory`, `feelings`, `event_summary`, `self_cognition`, `other_cognition`, `user_info`, `self_info` |
 | AAA（tool_result 到达时） | 并行 fire-and-forget | `long_term_memory`（source='grok', role='tool'） |
+| AAA（env_input 到达时） | 仅写 DB（不触发 prompt） | `memory`（source='env', role='system'） |
 
 ### 4.3 表结构（融合 AAA + LN）
 
@@ -1292,7 +1515,40 @@ def inject_emotion_tag(reply_text: str, mood: str) -> str:
 ```
 ```
 
-### 5.4 output.json 协议规范
+### 5.4 ASR 语音事件数据流（Phase 2+，via AAA 内部 turn_taking）
+
+```
+Step 1: 用户说话
+  ASR 节点实时 VAD 监听 → 检测到语音结束 → STT → 声纹识别
+  → 输出 voice_segment 到 output.json
+
+Step 2: AAA 收到 voice_segment（asr_input 端口）
+  ├─ [并行] 写 DB: INSERT INTO memory (source='asr')
+  └─ 进入内部 turn_taking 组件:
+      ├─ _quick_filter()
+      │   ├─ DISCARD → 结束（只写日志）
+      │   ├─ PRIORITY → 跳过缓冲区，直接 _build_from_env()
+      │   └─ ATTENTION/NORMAL → _obs_buffer.add()
+      │       ├─ 缓冲区未满 + 未超时 → 等待
+      │       └─ 满/超时 → _buffer_flush() → _build_from_env()
+
+Step 3: _build_from_env() 构建含环境观察的 prompt
+  ├─ 从DB读取上下文 + 格式化观察事件
+  ├─ prompt 注入段: "### 环境观察\n[张三]今天天气真差啊\n..."
+  └─ 输出 → {"data_type": "prompt", "content": "..."}
+
+Step 4-7: 同 5.1 Step 3-6（LLM 推理 → AAA 解析分发）
+
+Step 8: 下游节点并行消费
+  ├─ live2d_face → 如果 LLM 写了【自然回复】→ 播表情 + TTS 朗读
+  └─ logseq_writer → 如果 LLM 写了【知识条目】→ 写入 Logseq
+
+★ 关键区别：LLM 可以选择不输出【自然回复】（只写【想法】）
+  → AI 听到但不说话，行为更自然
+★ GUI 打字路径完全独立，不受 turn_taking 影响
+```
+
+### 5.5 输出协议规范
 
 AAA 中枢节点单输出端口的所有 data_type：
 
@@ -1449,6 +1705,11 @@ GUI ←── 各节点的 status.json（AAA 汇总或各节点独立输出）
 | 13 | **单输出端口 + data_type 路由** | AAA 输出只有一个端口，通过 data_type 字段区分类型，BNOS port_mappings 自动分发 | 2026-07-23 |
 | 14 | **gui_adapter + user_input 合并到 AAA** | GUI 输入本质是简单的文件写入（gui_input.json），不需要独立节点做中转；AAA 直接监听文件更高效，减少进程间通信和 node_config 维护成本 | 2026-07-24 |
 | 15 | **AAA 内置轻量化会话上下文感知** | 通过 DB 表记录会话状态和时间戳，AAA 内部计算时间间隔并注入 prompt。不依赖跨进程信号，通过超时推断应用生命周期。参考 Lumi_Nox 状态机设计，但实现极简（无独立状态机、无事件总线） | 2026-07-24 |
+| 16 | **turn_taking 不作为独立节点，嵌入 AAA 内部** | 初始方案设计为独立节点，实际分析后确认 AAA 崩溃等价于整个 AI 崩溃，独立进程无收益，且多感官输入共享同一套过滤逻辑。嵌入 AAA 省去 node_config.json、listener.py、进程管理等开销 | 2026-07-26 |
+| 17 | **ASR 选 SenseVoice 替代 Whisper** | SenseVoice (sherpa-onnx) 仅 ~40MB、CPU 实时推理、原生情感输出，比 Whisper 更适合实时语音管道 | 2026-07-26 |
+| 18 | **ASR 输出 voice_segment 到 AAA 的 asr_input 端口** | ASR 只负责转文字+声纹，AAA 内部 turn_taking 组件负责过滤+缓冲，各层职责单一 | 2026-07-26 |
+| 19 | **GUI 打字不走 turn_taking** | 保持两条独立路径：GUI 直连 AAA（低延迟），ASR/Vision/Env 经内部 turn_taking 过滤（自然交互）。互不干扰，各自有独立的质量基线 | 2026-07-26 |
+| 20 | **ASR 自持麦克风常驻进程** | 不走文件轮询，VAD 毫秒级响应，端到端延迟最低。参考 Mewco 的 PyAudio 连续采集方案 | 2026-07-26 |
 
 ---
 
@@ -1463,6 +1724,8 @@ GUI ←── 各节点的 status.json（AAA 汇总或各节点独立输出）
 | 1.7B 模型回复质量不足 | 用户体验差 | 中 | 支持一键切换到云端大模型（Qwen-Max/GPT-4o） |
 | AAA 单点故障 | 整个系统瘫痪 | 低 | 进程级隔离，崩溃自动重启；DB 写入是幂等的 |
 | Grok 工具调用超时 | 对话卡住 | 中 | AAA 设置 max_tool_rounds 限制 + 超时降级为无工具回复 |
+| ASR 环境噪声误触发 | 不必要地消耗 LLM 资源 | 低 | Silero VAD 多阈值可调 + turn_taking 规则过滤（陌生人丢弃）双保险 |
+| turn_taking 缓冲区策略不当 | AI 回复时机不自然 | 低 | 默认参数保守（5条/30秒），支持 GUI 运行时热调整 |
 
 ---
 
@@ -1598,24 +1861,29 @@ GUI 输入 ──→ AAA(合并 gui_adapter+user_input) ──→ llm_infer ─�
 
 ### Phase 5 — 多模态输入（语音 + 环境感知）
 
-**目标**：AI 能听能看能感知。
+**目标**：AI 能听能看能感知，ASR/Vision/Env 事件经 AAA 内部 turn_taking 组件过滤。
 
-**涉及节点**：`asr_input`、`env_input`、`vision_input`（新建）
+**涉及的改动**：`aaa_cognition`（新增 turn_taking 组件 + asr/vision/env 端口）、`asr_input`、`env_input`、`vision_input`（新建）
+
+> turn_taking 不再为独立节点，而是嵌入 AAA 内部。详见 §3.5。
 
 | 步骤 | 内容 | 可验证结果 |
 |------|------|-----------|
-| **5.1** | **asr_input Whisper 集成** — 接入 whisper-main，实时语音识别，输出 text 数据流 | 说话 → ASR 节点输出识别文本 |
-| **5.2** | **env_input psutil 采集** — 每 5s 采集 CPU/内存/进程/网络数据，输出 JSON | 环境数据实时更新到 output.json |
-| **5.3** | **AAA 多输入端口整合** — asr_input 和 env_input 的数据通过 input_ports 进入 AAA，按 filter 分流处理 | 语音输入和环境数据同步影响 AI 回复 |
-| **5.4** | **vision_input 节点创建** — 接入 supervision，实时摄像头检测，输出物体/人脸坐标 | 摄像头画面分析结果输出 |
+| **5.1** | **AAA 新增 turn_taking 组件** — 在 `aaa_cognition/main.py` 中实现 `TurnTakingFilter` 类（第1层规则过滤 + 第2层 ObservationBuffer），新增 `handle_asr_input()` / `_build_from_env()` 方法 | 输入 voice_segment → 内部过滤 → 构建含环境观察的 prompt |
+| **5.2** | **AAA 新增 asr_input/vision_input/env_input 端口** — node_config.json 新增 3 个 input_ports，各自对应 data_type 过滤，AAA 内部新增对应 handler | asr_input 进 AAA → 走 turn_taking 过滤，gui_input 进 AAA → 直达 prompt |
+| **5.3** | **asr_input SenseVoice 集成** — 实现 VAD(Silero) → STT(SenseVoice) → 声纹(CAm++) 全链路，输出 `voice_segment`（含 speaker_id/speaker_type/text/emotion/events） | 说话 → ASR 节点输出结构化 voice_segment |
+| **5.4** | **env_input psutil 采集** — 每 5s 采集 CPU/内存/进程/网络数据，输出 env_event → AAA env_input 端口 → 仅写 DB（不触发 prompt） | 环境数据实时更新到 DB |
+| **5.5** | **vision_input 节点创建** — 接入 supervision，实时摄像头检测，输出物体/人脸坐标 → AAA vision_input 端口 → 走 turn_taking 过滤 | 摄像头画面分析结果输出 |
+| **5.6** | **端到端联调** — 说话 → ASR → AAA turn_taking → prompt → LLM → AAA → AI 回应（或不回应） | AI 能选择性回应语音事件 |
 
 **耗时**：4-6 天
 
 **Phase 5 完成后效果**：
 ```
-麦克风 → asr_input ──┐
-摄像头 → vision ────┼──→ AAA ──→ llm_infer ──→ reply
-环境   → env_input ─┘
+麦克风 → asr_input(SenseVoice) ──→ voice_segment ──→ ┐
+摄像头 → vision_input          ──→ vision_event  ──→ ├──→ AAA(含turn_taking) ──→ LLM ──→ 选择性回应
+环境   → env_input             ──→ env_event     ──→ ┘
+                                                        GUI ───→ AAA（直连，不变）
 ```
 
 ---
@@ -1664,12 +1932,12 @@ Phase 1: 最小对话链路  ◄── 最优先，拿到运行效果
 
 | 节点 | 方案状态 | 实现状态 | 关键缺口 |
 |------|---------|---------|----------|
-| `aaa_cognition` | ✅ [完成](nodes/node_python_aaa_cognition/开发方案.md) | 🟢 核心链路完成并测试通过 | 已合并 gui_adapter + user_input，直接监听 gui_input.json；`process()` 实现完整：上下文拼接、节标记解析、情绪注入、DB 持久化；AAA → LLM → AAA 端到端循环验证成功；**会话上下文感知设计方案已完成，待实现** |
+| `aaa_cognition` | ✅ [完成](nodes/node_python_aaa_cognition/开发方案.md) | 🟢 核心链路完成并测试通过 | 已合并 gui_adapter + user_input，直接监听 gui_input.json；`process()` 实现完整：上下文拼接、节标记解析、情绪注入、DB 持久化；AAA → LLM → AAA 端到端循环验证成功；**会话上下文感知 + turn_taking 内部组件（规则过滤+观察缓冲区）待实现** |
 | `llm_infer` | ✅ [完成](nodes/node_python_llm_infer/开发方案.md) | 🟢 云端 API 后端接入并测试通过 | `process()` + `CloudApiBackend` 完整链路通过 DeepSeek 真实 API 验证；三后端类齐全（http_server/cli_local/cloud） |
 | `live2d_face` | ✅ [完成](nodes/node_js_live2d_face/开发方案.md) | 🟢 核心逻辑完整 | 情绪解析、TTS 集成、init_check 均已实现 |
 | `grok_hands` | ✅ [完成](nodes/node_rust_grok_hands/开发方案.md) | 🟡 基础编译可用，缺 MCP 集成 | 仅 hello-world 级别 |
 | `logseq_writer` | ✅ [完成](nodes/node_python_logseq_writer/开发方案.md) | 🟡 生成 .md 内容但未写磁盘 | 返回文件内容，未实际写入 Logseq 目录 |
-| `asr_input` | ✅ [完成](nodes/node_python_asr_input/开发方案.md) | 🔴 预留状态 | 骨架存在，Whisper 集成未实施 |
+| `asr_input` | ✅ [完成](nodes/node_python_asr_input/开发方案.md) | 🔴 预留，方案已细化 | 详细开发方案已完成（VAD/SenseVoice/CAm++ 等），代码骨架存在但未实现 |
 | `env_input` | ✅ [完成](nodes/node_python_env_input/开发方案.md) | 🔴 预留状态 | 骨架存在，psutil 采集未实施 |
 | `vision_input` | — | 🔴 预留 | Phase 2+，尚未创建节点 |
 
@@ -1713,24 +1981,25 @@ Phase 1 核心：
   ④ aaa_cognition（DB + FAISS 初始化）← 所有上游就绪后启动
 
 Phase 2 扩展（不阻塞核心链路）：
-  ⑦ logseq_writer（Logseq 目录验证）
-  ⑧ grok_hands（MCP 服务器连接）
-  ⑨ asr_input / env_input（预留节点）
+  ⑤ logseq_writer（Logseq 目录验证）
+  ⑥ grok_hands（MCP 服务器连接）
+  ⑦ asr_input / env_input（Phase 2 多模态时启用，事件经 AAA 内部 turn_taking 过滤）
 ```
 
 ### 11.5 开发优先级（按当前实现状态定）
 
 参照各节点方案与实际代码的差距，推荐执行顺序：
 
-| 优先级 | 节点 | 工作量估计 | 前置依赖 |
+| 优先級 | 节点 | 工作量估计 | 前置依赖 |
 |--------|------|-----------|---------|
 | **P0** ✅ | aaa_cognition — `process()` 完成，AAA → LLM → AAA 全链路已测试通过 | — | — |
 | **P0** ✅ | llm_infer — 云端 API 后端接入，AAA + LLM 端到端验证通过 | — | — |
-| **P1** | aaa_cognition — 会话上下文感知实现 | 小 (1天) | DB 结构就绪 |
+| **P1** | aaa_cognition — turn_taking 内部组件（TurnTakingFilter + ObservationBuffer） | 中 (2天) | ASR 输出协议定稿 |
+| **P1** | aaa_cognition — asr/vision/env 输入端口 + 对应 handler | 小 (0.5天) | BNOS 多端口支持 |
 | **P1** | logseq_writer — 实际写磁盘 | 小 (0.5天) | Logseq pages 目录配置 |
 | **P1** | 端到端联调 | 中 (2-3天) | P0 完成 |
+| **P2** | asr_input — SenseVoice 集成（VAD/STT/声纹全链路） | 中 (3-5天) | sherpa-onnx 依赖 |
 | **P2** | grok_hands — MCP 工具执行 | 大 (5-7天) | Rust 编译环境 |
-| **P2** | asr_input — Whisper 集成 | 中 (3-5天) | whisper-main 依赖 |
 | **P2** | env_input — psutil 采集 | 小 (0.5天) | — |
 | **P3** | vision_input — 新建节点 | 大 (5-7天) | supervision 集成 |
 

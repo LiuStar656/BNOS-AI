@@ -1,22 +1,19 @@
 # 事件驱动型 AI 自主行为方案
 
-> 日期：2026-07-26 | 版本：v1.0 | 状态：[PLAN]
+> 日期：2026-07-26 | 版本：v2.0 | 状态：[PLAN]
 
 ## 目录
 
 - [一、背景与问题](#一背景与问题)
 - [二、核心思路](#二核心思路)
 - [三、整体架构](#三整体架构)
-- [四、事件路由层（turn_taking 节点）](#四事件路由层turn_taking-节点)
-  - [4.1 节点定位](#41-节点定位)
-  - [4.2 端口定义](#42-端口定义)
+- [四、事件路由层（AAA 内部 turn_taking 组件）](#四事件路由层aaa-内部-turn_taking-组件)
+  - [4.1 组件定位](#41-组件定位)
+  - [4.2 AAA 内部数据流](#42-aaa-内部数据流)
   - [4.3 三层过滤机制](#43-三层过滤机制)
   - [4.4 观察缓冲区](#44-观察缓冲区)
-  - [4.5 输出协议](#45-输出协议)
-- [五、与现有节点的衔接](#五与现有节点的衔接)
-  - [5.1 ASR → turn_taking](#51-asr--turn_taking)
-  - [5.2 turn_taking → AAA](#52-turn_taking--aaa)
-  - [5.3 AAA 的改动](#53-aaa-的改动)
+  - [4.5 内部触发流程](#45-内部触发流程替代跨节点协议)
+- [五、与现有节点的衔接（已合并到 AAA 内部）](#五与现有节点的衔接已合并到-aaa-内部)
 - [六、Phase 2 多模态扩展入口](#六phase-2-多模态扩展入口)
 - [七、Phase 3 行为学习](#七phase-3-行为学习)
 - [八、实施计划](#八实施计划)
@@ -88,39 +85,56 @@ ASR 事件（15次/分钟）
 ## 三、整体架构
 
 ```
-[声音] ─→ ASR 节点 ──→ voice_segment ──→ turn_taking 节点 ──→ AAA 节点 ──→ LLM
-                                                    │               │
-                                                    │  (过滤/缓冲/   │  (构建 prompt)
-                                                    │   兴趣评估)    │
-[屏幕] ─→ Vision 节点 (Phase 2) ────→ vision_event ─┘               │
-                                                                     │
-[系统] ─→ Env 节点 (Phase 2) ───────→ env_event ────────────────────┘
+[声音] ─→ ASR 节点 ──→ voice_segment ──→ ┐
+                                             │  AAA 节点（内部 turn_taking 组件）
+[屏幕] ─→ Vision 节点 (Phase 2) ──→ vision ─┤
+  ;                                           ├──→ _quick_filter() → _obs_buffer
+[系统] ─→ Env 节点 (Phase 2) ────→ env_event ─┘        │
+                                                         │ 达标 → 内部构建 prompt
+                                                         │
+[GUI] ───────────────────────────────────────────────────┘（直达，不走过滤）
+                                                         │
+                                                         ▼
+                                                       LLM
 ```
 
-**核心新增**：`turn_taking` 节点——事件路由层，决定"什么值得让 LLM 过脑子"。
+**核心改动**：turn_taking 不作为独立节点，而是嵌入 AAA 内部的组件。AAA 崩溃等价于整个 AI 崩溃，独立进程无隔离收益，且多感官输入共享同一套过滤逻辑。
+
+**两条路径互不干扰**：
+- GUI 打字 → `gui_input` → 直达 prompt 构建（过滤延迟零）
+- ASR/Vision/Env → 感官端口 → 内部 turn_taking → 有条件触发 prompt
 
 ---
 
-## 四、事件路由层（turn_taking 节点）
+## 四、事件路由层（AAA 内部 turn_taking 组件）
 
-### 4.1 节点定位
+### 4.1 组件定位
 
-AI 的**注意力过滤器**。不调用 LLM，纯规则 + 向量相似度，决定：
+AI 的**注意力过滤器**，嵌入 `aaa_cognition/main.py` 的 `TurnTakingFilter` 类。不调用 LLM，纯规则 + 缓冲区操作，决定：
 
 1. 这条事件值不值得让 AI 知道？
 2. 如果值得，放到观察缓冲区等处理
-3. 什么时候该把缓冲区的内容发给 AAA？
+3. 什么时候该把缓冲区的内容发给 prompt 构建？
 
-**不决定**"AI 要不要说话"——那是 AAA 收到 prompt 后 LLM 的决定。
+**不决定**"AI 要不要说话"——那是收到 prompt 后 LLM 的决定。
 
-### 4.2 端口定义
+**不占用独立进程**——AAA 崩溃等价于整个 AI 崩溃，独立进程无隔离收益。
 
-| 端口 | data_type | 方向 | 来源/目标 |
-|------|-----------|------|-----------|
-| `voice_input` | `voice_segment` | 入 | ASR 节点 |
-| `vision_input` | `vision_event` | 入 | Vision 节点（Phase 2） |
-| `env_input` | `env_event` | 入 | Env 节点（Phase 2） |
-| `default` | `context_bundle` | 出 | AAA 节点 |
+### 4.2 AAA 内部数据流
+
+```
+asr_input → handle_asr_input()
+  ├─ 写 DB: INSERT INTO memory (source='asr')
+  ├─ turn_taking._quick_filter(voice_seg)
+  │   ├─ DISCARD → 结束（只写日志）
+  │   └─ ATTENTION/PRIORITY → turn_taking._obs_buffer.add()
+  │       ├─ 缓冲区未满 + 未超时 → 结束
+  │       └─ 已满 / 超时 / PRIORITY → _buffer_flush()
+  │           └─ → _build_from_env() 内部构建 prompt
+
+gui_input → handle_gui_input()
+  └─ 直达 _build_context() → 内部构建 prompt（不走 turn_taking）
+```
 
 ### 4.3 三层过滤机制
 
@@ -218,93 +232,57 @@ class ObservationBuffer:
 
 **LLM 输出时自然决定**：想说就说【自然回复】，不想说就只写【想法】（内心活动写 DB 但不播报）。**不增加额外 LLM 调用**。
 
-### 4.5 输出协议
+### 4.5 内部触发流程（替代跨节点协议）
 
-```json
-// turn_taking → AAA 的 context_bundle
-{
-  "data_type": "context_bundle",
-  "source": "turn_taking",
-  "conversation_id": "default",
-  "observation_period": {
-    "start": 1711350000.0,
-    "end": 1711350030.0
-  },
-  "events": [
-    {
-      "type": "voice",
-      "speaker_id": "zhangsan",
-      "speaker_name": "张三",
-      "text": "今天天气真差啊",
-      "emotion": "NEUTRAL",
-      "importance": "normal"
-    },
-    {
-      "type": "voice",
-      "speaker_id": "lisi",
-      "speaker_name": "李四",
-      "text": "对啊，要不要带伞出门",
-      "emotion": "NEUTRAL",
-      "importance": "attention"
-    }
-  ],
-  "trigger_reason": "buffer_timeout"
-}
-```
-
----
-
-## 五、与现有节点的衔接
-
-### 5.1 ASR → turn_taking
-
-ASR 节点输出 `voice_segment` 写入 `output.json`，turn_taking 轮询消费——和 BNOS 标准节点间通信机制一致，不需要额外协议。
-
-### 5.2 turn_taking → AAA
-
-turn_taking 将 `context_bundle` 写入 `output.json`，AAA 新增 `context_bundle` 输入端口接收：
-
-**route_map 新增一条**：
-
-| data_type | 目标端口 | 对应处理 |
-|-----------|---------|---------|
-| `context_bundle` | `context_bundle` | `_on_context_bundle()` |
-
-### 5.3 AAA 的改动
-
-AAA 新增 `_on_context_bundle()` 处理逻辑，其他不变：
+缓冲区刷新后，`TurnTakingFilter` 内部调用 `_build_from_env()` 直接构建 prompt。不再需要跨节点的 context_bundle 协议：
 
 ```python
-def _on_context_bundle(self, data, dbp):
-    """处理 turn_taking 累积的观察事件"""
-    db.ensure(dbp)
-    events = data.get("events", [])
+class TurnTakingFilter:
+    def __init__(self, aaa_instance):
+        self._aaa = aaa_instance           # 持有 AAA 实例引用
+        self._buffer = ObservationBuffer()
 
-    # 1. 所有事件写 DB（不阻塞）
-    for ev in events:
-        db.write_async({
-            "data_type": "env_observation",
-            "speaker_id": ev.get("speaker_id", ""),
-            "content": f"[{ev.get('speaker_name','')}] {ev.get('text','')}",
-            "emotion": ev.get("emotion", ""),
-        }, dbp, role="observation")
+    def on_voice_segment(self, voice_seg: dict, dbp):
+        """ASR 语音事件入口"""
+        result = self.quick_filter(voice_seg)
+        if result == FilterResult.DISCARD:
+            return  # 只写日志，不触发 AI
+        if result == FilterResult.PRIORITY:
+            return self._aaa._build_from_env(dbp)  # 立即触发
+        if self._buffer.add(voice_seg):
+            return self._aaa._build_from_env(dbp)  # 缓冲区满
 
-    # 2. 构建 prompt（与现有 _on_text 共用 _gather_context）
-    #    但现在 user_text 为空，context 中附带观察事件摘要
-    ctx = self._gather_context(
-        user_text="",
-        dbp=dbp,
-        conv_id=self._current_conversation_id,
-    )
-    # 把 turn_taking 的观察注入到 prompt 的"环境信息"部分
-    ctx["env_observation"] = _format_observations(events)
+    def should_timeout_flush(self) -> bool:
+        return self._buffer.should_timeout_flush()
+```
 
-    return {
-        "_port": "prompt",
-        "data_type": "prompt",
-        "content": pt.build(ctx),
-        "request_id": None,  # 非用户直接请求，不关联 request_id
-    }
+AAA 新增方法：
+
+```python
+class AAACognition:
+    def __init__(self):
+        # ... 原有初始化 ...
+        self._turn_taking = TurnTakingFilter(self)
+
+    def handle_asr_input(self, voice_seg: dict, dbp):
+        """ASR 输入端口 → 写 DB → 进入 turn_taking 过滤"""
+        db.write_async({"data_type": "voice_input",
+            "content": voice_seg.get("text", "")}, dbp, role="user")
+        self._turn_taking.on_voice_segment(voice_seg, dbp)
+
+    def handle_gui_input(self, text: str, dbp):
+        """GUI 输入 → 直达 prompt 构建（不走 turn_taking）"""
+        db.write_async(...)
+        ctx = self._gather_context(text, dbp)
+        return {"data_type": "prompt", "content": pt.build(ctx)}
+
+    def _build_from_env(self, dbp):
+        """缓冲区刷新 → 构建含环境观察的 prompt"""
+        bundle = self._turn_taking._buffer.flush()
+        ctx = self._gather_context(user_text="", dbp=dbp)
+        ctx["env_observation"] = _format_events(bundle)
+        prompt = pt.build(ctx)
+        return {"data_type": "prompt", "content": prompt}
 ```
 
 prompt 模板新增一段：
@@ -314,13 +292,27 @@ prompt 模板新增一段：
 {env_observation}
 ```
 
-这样 AAA 的改动最小——只加了一个端口、一个处理方法、prompt 模板加了一段。**不破坏现有 GUI 打字链路的任何逻辑**。
+**不破坏现有 GUI 打字链路的任何逻辑**。GUI 打字始终走 `handle_gui_input()` → 直接构建 prompt，不受 turn_taking 影响。
+
+---
+
+## 五、与现有节点的衔接（已合并到 AAA 内部）
+
+turn_taking 不再作为独立节点，所有衔接逻辑已合并到 AAA 内部：
+
+| 旧方案（独立节点） | 新方案（AAA 内部组件） |
+|-----------------|---------------------|
+| ASR → turn_taking → AAA | ASR → AAA `asr_input` 端口 → `handle_asr_input()` → 内部 TurnTakingFilter |
+| turn_taking 的独立 node_config.json | AAA 的 node_config.json 新增 `asr_input` 端口 |
+| turn_taking 的独立 listener.py | 无，AAA 进程启动时加载 TurnTakingFilter 实例 |
+| turn_taking → AAA 的 context_bundle 协议 | 内部 `TurnTakingFilter._build_from_env()` 方法直调 |
+| Vision/Env 走 turn_taking 独立端口 | AAA 新增 `vision_in` / `env_input` 端口，共享同一 TurnTakingFilter |
 
 ---
 
 ## 六、Phase 2 多模态扩展入口
 
-turn_taking 的过滤逻辑天然支持多模态扩展——只需要新增事件类型和对应的过滤规则：
+turn_taking 的过滤逻辑天然支持多模态扩展——只需要在 AAA 新增对应端口和过滤规则：
 
 ```python
 def quick_filter_v2(event: dict) -> FilterResult:
@@ -359,41 +351,55 @@ bandit_weights = {
 
 ## 八、实施计划
 
-### Phase 1a — 新增 turn_taking 节点
+### Phase 1a — AAA 内部实现 turn_taking 组件
 
 | 任务 | 说明 | 依赖 |
 |------|------|------|
-| 创建 `node_python_turn_taking` | 新节点，事件路由层 | 无 |
-| 实现第1层规则过滤器 | `quick_filter()`，零 LLM | ASR 输出协议定稿 |
-| 实现第2层观察缓冲区 | `ObservationBuffer`，累积合并 | 第1层完成 |
-| 定义 `context_bundle` 输出协议 | 结构化事件数组 | 缓冲区完成 |
-| 注册到 BNOS 路由表 | `port_mappings` 配置 | ASR 节点就绪 |
+| 在 `aaa_cognition/main.py` 中实现 `TurnTakingFilter` 类 | 第1层 `quick_filter()` + 第2层 `ObservationBuffer` | 无 |
+| 实现 `handle_asr_input()` 入口 | ASR 输入端口写 DB + 走 turn_taking 过滤 | TurnTakingFilter 完成 |
+| 实现 `_build_from_env()` | 缓冲区刷新时构建含环境观察的 prompt | AAA 现有 `_gather_context` |
+| prompt 模板增加环境观察段 | 不破坏现有结构，空时自动跳过 | 模板文件 |
+| node_config.json 新增 asr_input 端口 | BNOS 多端口配置 | BNOS 引擎支持 |
+| 写日志：区分 DISCARD 和正常触发 | 有据可查（第1层丢弃率可统计） | 日志基础设施 |
 
-### Phase 1b — 修改 AAA 节点
+> turn_taking **不是独立节点**，不单独启动。AAA 进程启动后自动加载 TurnTakingFilter 组件。
+
+### Phase 1b — ASR 节点配合
 
 | 任务 | 说明 | 依赖 |
 |------|------|------|
-| 新增 `context_bundle` 输入端口 | 接收 turn_taking 输出 | turn_taking 就绪 |
-| 实现 `_on_context_bundle()` | 写 DB + 构建 prompt | AAA 现有代码 |
-| prompt 模板增加环境观察段 | 不破坏现有结构 | 模板文件 |
+| ASR 节点 `voice_segment` 输出中 `speaker_id` / `speaker_type` / `emotion` / `text` 字段实现 | 确保结构化输出 | ASR 节点开发 |
+| ASR → AAA 的 BNOS 连线配置 | `port_mappings` 中 `asr_input` 端口 filter 为 `voice_segment` | BNOS 运行时就绪 |
 
 ### Phase 2 — 多模态扩展
 
 | 任务 | 说明 | 依赖 |
 |------|------|------|
+| AAA 新增 `vision_in` 端口 | 过滤规则扩展，turn_taking 共享 ObservationBuffer | Phase 1 完成 |
+| AAA 新增 `env_input` 端口 | 仅写 DB，不触发 prompt | Phase 1 完成 |
 | Vision 节点开发 | 定时截图 + 画面描述 | Phase 1 完成 |
 | OCR 集成 | 屏幕文字提取 | vision 就绪 |
-| turn_taking 扩展过滤规则 | 新增 vision/ocr/env 类型 | 对应节点就绪 |
 
-### 节点关系图（Phase 1 完成后）
+### 组件关系图（Phase 1 完成后）
 
 ```
-ASR ──→ voice_segment ──→ turn_taking ──→ context_bundle ──→ AAA ──→ prompt ──→ LLM
-                              │                                  │
-GUI ──────────────────────────┴── text ──────────────────────────┤
+ASR ──→ voice_segment ──→ AAA (asr_input)
+                             │
+                             ├── _turn_taking._quick_filter()
+                             │       ├── DISCARD → 结束
+                             │       └── 通过 → _obs_buffer.add()
+                             │               ├── 未满 → 等待
+                             │               └── 满/超时 → _build_from_env()
+                             │
+GUI ──→ text ───────────────┤ (直接构建 prompt，不走 turn_taking)
+                             │
+                             ▼
+                          prompt → LLM
 ```
 
-GUI 打字走 `text` 端口（直连，不经过 turn_taking），ASR 事件走 `context_bundle` 端口（经过 turn_taking 过滤）。**两条路径互不干扰**。
+**两条路径互不干扰**：
+- GUI 打字 → `handle_gui_input()` → 直达 prompt 构建（延迟零）
+- ASR 事件 → `handle_asr_input()` → turn_taking 过滤 → 有条件构建 prompt
 
 ---
 
@@ -407,9 +413,13 @@ GUI 打字走 `text` 端口（直连，不经过 turn_taking），ASR 事件走 
 
 GUI 发消息时附带 `source=gui` 标记，turn_taking 识别到用户在主动输入后，暂停缓冲区的自动刷新，避免 AI 同时说话（语音冲突由 Live2D 的 TTS 队列管理）。
 
-**Q: 为什么要单独一个 turn_taking 节点，不直接在 ASR 里做？**
+**Q: turn_taking 为什么不放在 ASR 节点里？**
 
-职责分离。ASR 只管"把声音转成文字+声纹"，turn_taking 管"什么值得关注"。后续 vision/ocr/env 事件也走 turn_taking，不需要每个感官节点都重复实现过滤逻辑。
+因为职责分离。ASR 只管"把声音转成文字+声纹"，turn_taking 管"什么值得关注"。后续 vision/ocr/env 事件也走 turn_taking，如果 embedding 在 ASR 里，每个感官节点各自实现一套过滤逻辑就重复了。放在 AAA 内部是折中方案——多感官共享过滤逻辑，同时节省一个独立节点的维护开销。
+
+**Q: 为什么不把 turn_taking 做成独立节点？**
+
+最初方案就是独立节点，但分析后发现：AAA 崩溃等价于整个 AI 崩溃，独立进程无隔离收益。嵌入 AAA 省去 node_config.json、listener.py、进程管理等全套节点基础设施成本。详见主方案 §3.5 的设计理由。
 
 **Q: AI 一直监听会不会很耗资源？**
 

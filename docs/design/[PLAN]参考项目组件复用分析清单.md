@@ -1,7 +1,9 @@
 # 参考项目组件复用分析清单
 
-> 分析日期: 2026-07-25
-> 分析对象: `references/mewco_ai_assistant_comm-main`(枫云AI助手), `references/my-neuro-main`(肥牛AI)
+> 分析日期：2026-07-25 | **更新日期：2026-07-26**
+> 分析对象：`references/mewco_ai_assistant_comm-main`(枫云AI助手), `references/my-neuro-main`(肥牛AI)
+> 
+> **本次更新要点**：MemOS 语义检索已完成(集成到 aaa_cognition)、三阶段提示词重构完成、identity_key 多用户隔离上线、TTS 节点已独立、管线架构更新
 
 ---
 
@@ -10,24 +12,27 @@
 ### 1.1 活跃管线节点
 
 ```
-GUI输入 ──→ aaa_cognition(prompt拼接) ──→ llm_infer(LLM推理) ──→ aaa_cognition(解析节标记) ──→ live2d_face(显示+TTS)
-                  ↑                              │                                                      │
-                  └────── 工具结果 ───────────────┘                                                      ↓
-                                                                                                  logseq_writer(知识归档)
+GUI输入 ──→ aaa_cognition(三阶段提示词+MemOS检索) ──→ llm_infer(LLM推理) ──→ aaa_cognition(解析+写库+索引重建)
+                  ↑                                       │                         │
+                  └── identity_key 全链路 ──────────────────┘                         │
+                   (多用户隔离)                                                       ↓
+                                                                              live2d_face(显示+TTS)
+                                                                                    logseq_writer(知识归档)
 ```
 
 ### 1.2 所有节点功能矩阵
 
 | # | 节点名 | 语言 | 功能 | 当前能力 | 短板 |
 |---|--------|------|------|---------|------|
-| 1 | `node_python_aaa_cognition` | Python | 数据中枢 | prompt构建/节标记解析/路由/DB管理 | FAISS用hash伪向量，无真正语义检索 |
+| 1 | `node_python_aaa_cognition` | Python | 数据中枢 | prompt构建(三阶段模板)/MemOS语义检索/节标记解析/路由/DB管理(11表)/identity_key多用户隔离/日记 | 无外部工具路由(Grok未接) |
 | 2 | `node_python_llm_infer` | Python | LLM推理 | 云端API + 本地GGUF推理 | Function Calling原生支持弱，引擎少 |
-| 3 | `node_js_live2d_face` | JS | 角色显示 | Live2D渲染 + 内置TTS | TTS耦合在JS节点，难扩展 |
-| 4 | `node_python_asr_input` | Python | 语音识别 | Whisper文件识别 | 无麦克风录音、无声纹、无音频事件 |
-| 5 | `node_python_env_input` | Python | 环境采集 | CPU/内存/时间 | 功能单一 |
-| 6 | `node_python_logseq_writer` | Python | 知识归档 | 写入Logseq笔记 | 功能单一，运行良好 |
-| 7 | `node_rust_grok_hands` | Rust | 工具执行 | 代码沙箱执行 | 功能单一 |
-| 8 | `python_node_demo` | Python | 模板 | — | — |
+| 3 | `node_js_live2d_face` | JS | 角色显示 | Live2D渲染 | 无内置TTS（已分流到独立 `node_python_tts`） |
+| 4 | `node_python_tts` | Python | 语音合成 | edge-tts 在线合成，情绪标签过滤 | 引擎单一，仅1种在线引擎 |
+| 5 | `node_python_asr_input` | Python | 语音识别 | Whisper文件识别 | 无麦克风录音、无声纹、无音频事件 |
+| 6 | `node_python_env_input` | Python | 环境采集 | CPU/内存/时间 | 功能单一 |
+| 7 | `node_python_logseq_writer` | Python | 知识归档 | 写入Logseq笔记 | 功能单一，运行良好 |
+| 8 | `node_rust_grok_hands` | Rust | 工具执行 | 代码沙箱执行 | 功能单一 |
+| 9 | `python_node_demo` | Python | 模板 | — | — |
 
 ---
 
@@ -50,7 +55,7 @@ mewco 为纯 Python 单体应用，模块可直接提取为独立节点。
 
 **建议**: 增强现有 `node_python_asr_input`，加入 sherpa-onnx 引擎 + 声纹 + 音频事件。
 
-### 2.2 TTS 语音合成 `tts.py` 【新建节点】
+### 2.2 TTS 语音合成 `tts.py` 【增强现有节点：node_python_tts】
 
 **源码**: [references/mewco_ai_assistant_comm-main/tts.py](file:///e:/杂项/BNOS_AI_project/references/mewco_ai_assistant_comm-main/tts.py)
 
@@ -65,7 +70,7 @@ mewco 为纯 Python 单体应用，模块可直接提取为独立节点。
 | 流式播放 | 可选按标点切片流式合成 |
 | 播放控制 | 打断(alt+g)、音量放大、情感变化 |
 
-**建议**: **新建 `node_python_tts`**，统一接口，支持多引擎热切换。
+**建议**: 当前 `node_python_tts` 仅有 edge-tts 基础引擎。参考 mewco 的 11 引擎实现扩展 `node_python_tts`，增加离线引擎和 GPT-SoVITS 等本地引擎支持。
 
 ### 2.3 VLM 多模态视觉 `vlm.py` 【新建节点】
 
@@ -180,7 +185,7 @@ mewco 为纯 Python 单体应用，模块可直接提取为独立节点。
 | 组件 | 源文件 | 操作类型 |
 |------|--------|---------|
 | ASR 语音识别 | [asr.py](file:///e:/杂项/BNOS_AI_project/references/mewco_ai_assistant_comm-main/asr.py) | 补全 asr_input |
-| TTS 语音合成 | [tts.py](file:///e:/杂项/BNOS_AI_project/references/mewco_ai_assistant_comm-main/tts.py) | 新建节点 |
+| TTS 语音合成 | [tts.py](file:///e:/杂项/BNOS_AI_project/references/mewco_ai_assistant_comm-main/tts.py) | 增强现有节点 |
 | VLM 多模态视觉 | [vlm.py](file:///e:/杂项/BNOS_AI_project/references/mewco_ai_assistant_comm-main/vlm.py) | 新建节点 |
 | LLM 多Provider引擎 | [llm.py](file:///e:/杂项/BNOS_AI_project/references/mewco_ai_assistant_comm-main/llm.py) | 补全 llm_infer |
 | Agent 工具集 | [agent.py](file:///e:/杂项/BNOS_AI_project/references/mewco_ai_assistant_comm-main/agent.py) | 注册工具到 grok_hands |
@@ -196,63 +201,44 @@ mewco 为纯 Python 单体应用，模块可直接提取为独立节点。
 
 肥牛AI 架构更复杂，核心价值在插件系统和记忆系统。
 
-### 3.1 MemOS 记忆系统 【新建节点：node_python_memos】
+### 3.1 MemOS 记忆系统 【✅ 已完成 — 集成到 aaa_cognition】
 
-**源码**: [plugins-dlc/memos/memos_system/](file:///e:/杂项/BNOS_AI_project/references/my-neuro-main/plugins-dlc/memos/memos_system/)
+**源码参考**: [plugins-dlc/memos/memos_system/](file:///e:/杂项/BNOS_AI_project/references/my-neuro-main/plugins-dlc/memos/memos_system/)
+
+**实际实现位置**: [nodes/node_python_aaa_cognition/memos.py](file:///e:/杂项/BNOS_AI_project/nodes/node_python_aaa_cognition/memos.py)
 
 > ⚠️ **注意区隔**: 已经通过 `node_python_logseq_writer` 做了**用户可见的知识笔记归档**（面向人）。  
 > MemOS 解决的是**AI内部的语义记忆检索**（面向AI）—— 对话中实时查找相关记忆，与 Logseq 是互补关系，不是替代。
 
-#### 3.1.1 核心价值：向量语义检索
+#### 3.1.1 实现总结
 
-当前 `aaa_cognition` 用 hash 伪向量做 FAISS 检索，语义匹配效果差。MemOS 提供真正的语义嵌入：
+MemOS 已作为内建模块集成到 `aaa_cognition` 内，采用**轻量内嵌方案**（非 Qdrant 独立服务）：
 
-| 组件 | 技术选型 | 说明 | 与 Logseq 的关系 |
-|------|---------|------|-----------------|
-| **向量存储** | Qdrant | 高效语义相似度检索 | 独立，AI内部检索用 |
-| **嵌入模型** | SentenceTransformer / OpenAI API | 双模式支持 | — |
-| **LLM记忆加工** | 异步摘要+重要性评分 | 自动提炼记忆 | 加工结果可写入 Logseq |
-| 知识图谱 | Neo4j/NetworkX | **已有 Logseq，此部分跳过** | ✅ Logseq 已覆盖 |
-| 图像/偏好/工具记忆 | 多类型记忆 | 可选扩展 | — |
+| 组件 | 技术选型 | 与参考方案差异 |
+|------|---------|--------------|
+| **向量编码** | SentenceTransformer (`all-MiniLM-L6-v2`) | 同参考，但无 Qdrant 依赖 |
+| **向量存储** | in-memory `np.ndarray` + `.npz` 持久化 | 轻量化，替换 Qdrant |
+| **检索算法** | numpy 余弦相似度 | 内置计算，无网络开销 |
+| **索引维护** | 增量重建（每次回复后异步追加） | 无感知延迟 |
+| **检索时机** | 两轮交互：LLM 先决定是否需检索，AAA 再执行 | 按需检索，避免每次必查 |
+| **用户隔离** | `_entry_identity_keys` 数组 + identity_key 过滤 | 新增，参考方案无此能力 |
+| **LLM记忆加工** | 异步摘要 + 重要性评分 + decay 机制 | 后添加补全 |
 
-#### 3.1.2 API 服务 `api/memos_api_server.py`
+#### 3.1.2 已实现的能力
 
-**源码**: [api/memos_api_server.py](file:///e:/杂项/BNOS_AI_project/references/my-neuro-main/plugins-dlc/memos/memos_system/api/memos_api_server.py)
+- ✅ 真实语义向量嵌入（替代旧 FAISS hash）
+- ✅ 三个模板（prompt/prompt_retrieval/prompt_tool）按场景分流
+- ✅ 两轮交互：薄 prompt → LLM 判断 → 按需检索 → 第二轮带结果
+- ✅ 按 identity_key 用户隔离检索
+- ✅ 增量索引重建（不阻塞主线程）
+- ✅ 知识图谱索引（`rebuild_knowledge_index`，供 Logseq 关联用）
+- ✅ 去重合并（Jaccard 相似度）+ 重要性/decay 机制
 
-| 特性 | 说明 |
-|------|------|
-| 框架 | FastAPI |
-| 存储层 | 支持内存 + Qdrant 双模式 |
-| 嵌入模式 | 本地 SentenceTransformer + OpenAI 兼容 API |
-| 记忆操作 | 添加/检索/更新/删除 |
-| 记忆加工 | LLM 驱动的记忆摘要与重要性评分 |
+#### 3.1.3 未实现（可后续补）
 
-#### 3.1.4 Token 负担分析（替换而非叠加）
-
-应当用 `memos_top5` **替换**当前 `_gather_context` 中的 `faiss_top5`，而非并列接入。
-
-| 项目 | 当前 `faiss_top5` | `memos_top5`（替换后） |
-|------|:-------:|:----------:|
-| 每条长度 | 原始对话截断 200 字符 | LLM 加工后 15-80 字 |
-| 5 条合计 | ~1000 字符 / **~300 token** | ~250-400 字符 / **~60-100 token** |
-| 检索质量 | MD5 关键词匹配 | 真实语义向量 |
-| prompt 总长 | — | **不变或略减** |
-
-**结论**: MemOS 的记忆加工本身就是压缩过程，用浓缩的关键事实替代原始对话片段。替换后 token 负担从 ~300 降至 ~80，检索质量从关键词匹配升级为语义理解。
-
-#### 3.1.5 建议方案
-
-**只取向量语义检索 + LLM记忆加工**，跳过知识图谱部分（由 Logseq 承载）：
-
-```
-对话 → aaa_cognition → 提取关键信息
-       ↓
-   memos(向量记忆) ↔ Qdrant(语义检索) → 返回相关记忆 → 拼入 prompt
-       ↓
-   LLM记忆加工 → 摘要/重要性评分 → 写入 logseq_writer(持久化归档)
-```
-
-**建议**: **新建 `node_python_memos`**，聚焦向量语义检索 + 记忆加工，替换当前 `faiss_top5` 的伪向量检索（见 3.1.4 Token 分析），P0 优先级。
+- Qdrant / FAISS 硬索引（当前 in-memory 数组重启重建，但增量很快）
+- LLM 驱动的记忆摘要与重要性评分（当前用简单 decay，可升级）
+- 多类型记忆（图像/偏好/工具 — 当前只做文本）
 
 ### 3.2 MCP 协议支持 【补全现有节点：集成进 grok_hands】
 
@@ -340,17 +326,16 @@ mewco 为纯 Python 单体应用，模块可直接提取为独立节点。
 
 ## 四、最终优先级路线图
 
-### P0 - 必须补的核心能力
+### P0 - 必须补的核心能力 ✅ MemOS 已完成
 
-| 优先级 | 建议节点名 | 源项目 | 源文件 | 核心价值 | 操作类型 | 预估工作 |
-|--------|-----------|--------|--------|---------|---------|---------|
-| P0 | **node_python_memos** | my-neuro-main | `plugins-dlc/memos/memos_system/` | 向量语义检索+LLM记忆加工（知识图谱由Logseq覆盖） | 新建节点 | 2-3天 |
+> MemOS 语义检索已作为内建模块集成到 `aaa_cognition` 内（`memos.py`），替代了旧 FAISS hash 伪向量检索。  
+> 详情见 [3.1 MemOS 记忆系统](#31-memos-记忆系统--已完成--集成到-aaa_cognition)。
 
 ### P1 - 增强对话体验
 
 | 优先级 | 建议节点名 | 源项目 | 源文件 | 核心价值 | 操作类型 | 预估工作 |
 |--------|-----------|--------|--------|---------|---------|---------|
-| P1 | **node_python_tts** | mewco | `tts.py` | 独立TTS节点，11种引擎 | 新建节点 | 2天 |
+| P1 | **node_python_tts** | mewco | `tts.py` | 扩展现有节点，从1种引擎增加到11种（含离线引擎） | 增强现有节点 | 1-2天 |
 | P1 | **增强 asr_input** | mewco | `asr.py` | sherpa-onnx+声纹+音频事件 | 补全现有节点 | 1-2天 |
 | P1 | **node_python_vlm** | mewco | `vlm.py` | 屏幕/摄像头/图片理解 | 新建节点 | 1-2天 |
 
@@ -372,23 +357,34 @@ mewco 为纯 Python 单体应用，模块可直接提取为独立节点。
 
 ---
 
-## 五、目标管线架构
+## 五、当前管线架构（更新于 2026-07-26）
 
 ```
                              ┌→ vlm(视觉理解) ──┐
                              │                    │
 ASR(语音) ──→               │                    ↓
-GUI输入 ───→  aaa_cognition ──→ llm_infer ──→ aaa_cognition ──→ live2d_face(显示)
-环境输入 ──→  (多源融合+    ↑    ↑              (解析分发)       TTS(语音合成)
-             意图路由+      │    │                   │
-             上下文构建)    │    └─ memos ────────────┘
-                           │     (向量语义检索)         ↓
-                           │         │            logseq_writer
-                           │         └──→ → → → → → → ↑
-                           │           (记忆加工结果持久化)
-                           │
-                      grok_hands — 注册工具(天气/搜索/HA/Office等)
+GUI输入 ───→  aaa_cognition ──→ llm_infer ──→ aaa_cognition ──→ live2d_face(显示+TTS)
+环境输入 ──→  (三阶段prompt+   ↑      ↑        (解析分发+        TTS(语音合成)
+             MemOS语义检索+    │      │         写库+索引重建)
+             identity_key     │      │              │
+             多用户隔离)      │   memos ─────────────┘
+                              │   (内建于aaa_cognition → 按需检索)
+                              │         │              ↓
+                              │         └──→ → → → → logseq_writer
+                              │           (记忆关联持久化)
+                              │
+                         grok_hands — 待注册工具(天气/搜索/HA等)
 ```
+
+### 相比原计划的关键变更
+
+| 维度 | 原计划 | 当前状态 |
+|------|--------|---------|
+| MemOS | 独立节点 `node_python_memos` + Qdrant | 内建模块 `memos.py` + numpy 余弦相似度 |
+| 提示词 | 单模板混合输出 | 三阶段模板（prompt/prompt_retrieval/prompt_tool） |
+| 用户隔离 | 无 | identity_key 全链路（DB/检索/提示词） |
+| TTS | JS 节点内嵌 | 已有独立 `node_python_tts`（需增强引擎数） |
+| Grok | Rust 基础框架 | 仍为 Rust 框架，工具未注册 |
 
 ---
 
