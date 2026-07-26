@@ -191,17 +191,18 @@ def _kill_all_by_path(node_path: Path) -> int:
 # ══════════════════════════════════════════════
 
 
-def stop_node_process(node_path: str | Path) -> bool:
+def stop_node_process(node_path: str | Path, known_pid: int | None = None) -> bool:
     """停止指定节点的所有进程。
 
     流程：
-    1. 读取 PID 文件获取主进程 PID
+    1. 读取 PID 文件获取主进程 PID（或使用 known_pid）
     2. 用 taskkill /T 或 killpg 终止进程树
     3. 兜底：按路径扫描清理残留进程
     4. 删除 PID 文件
 
     Args:
         node_path: 节点目录的绝对路径。
+        known_pid: 已知的 PID（已读取过则可直接传入，避免重复读取）。
 
     Returns:
         True 表示节点进程已被终止（或已不存在）。
@@ -210,7 +211,12 @@ def stop_node_process(node_path: str | Path) -> bool:
     node_name = node_path.name
 
     # 1. 读取 PID 文件
-    pid = _read_pid(node_path)
+    pid = known_pid if known_pid is not None else _read_pid(node_path)
+
+    if pid is None:
+        logger.info("节点 %s 没有 PID 文件（未启动），直接跳过", node_name)
+        _delete_pid(node_path)
+        return True
     killed = False
 
     if pid is not None:
@@ -224,9 +230,28 @@ def stop_node_process(node_path: str | Path) -> bool:
     if not killed:
         _kill_all_by_path(node_path)
 
-    # 3. 二次确认
+    # 3. 二次确认（快速：仅检查 PID 是否还活着，不用 psutil 全量扫描）
+    #    taskkill /T 成功后，进程树已死，简单查一下 PID 即可
     time.sleep(0.3)
-    remaining = _find_node_processes_by_path(node_path)
+    remaining: list[int] = []
+    if pid is not None:
+        try:
+            # Windows 上用 tasklist 快速检查 PID 是否存在（轻量，<100ms）
+            check = subprocess.run(
+                ["tasklist", "/FI", f"PID eq {pid}", "/NH"],
+                capture_output=True, text=True, timeout=5,
+                creationflags=subprocess.CREATE_NO_WINDOW,
+            )
+            if str(pid) in check.stdout:
+                remaining.append(pid)
+        except Exception:
+            pass
+
+    if remaining:
+        # 快速检查不通过 → 兜底用 psutil 扫描（可能慢，但很少执行到这里）
+        logger.info("快速确认 PID=%d 仍存在，执行兜底扫描...", pid)
+        remaining = _find_node_processes_by_path(node_path)
+
     if remaining:
         logger.warning("节点 %s 仍有 %d 个残留进程: %s", node_name, len(remaining), remaining)
     else:
@@ -264,9 +289,13 @@ def stop_all_node_processes(project_root: str | Path) -> list[str]:
         if node_dir.name.startswith("__"):
             continue
 
-        # 总是执行 stop_node_process，内部会先试 PID 文件，再试路径扫描
+        # 没有 PID 文件 → 从未被引擎启动过 → 跳过（避免 psutil 扫描浪费 30s+）
+        pid = _read_pid(node_dir)
+        if pid is None:
+            continue
+
         logger.info("正在停止节点: %s", node_dir.name)
-        stop_node_process(node_dir)
+        stop_node_process(node_dir, known_pid=pid)
         stopped.append(node_dir.name)
 
     # 也扫描复合节点目录

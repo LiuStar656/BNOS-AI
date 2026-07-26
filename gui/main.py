@@ -146,6 +146,33 @@ def _stop_engine():
                 os.kill(proc.pid, signal.SIGTERM)
                 proc.wait(timeout=5)
 
+        # 第 2.5 层：引擎引用丢失时的兜底 — 按命令行匹配 bnos_runtime 进程
+        if os.name == "nt":
+            ps_cmd = (
+                'Get-CimInstance Win32_Process | '
+                'Where-Object { '
+                "$_.Name -like '*python*' -and "
+                "$_.CommandLine -match 'bnos_runtime' "
+                "} | Select-Object -ExpandProperty ProcessId"
+            )
+            result = subprocess.run(
+                ["powershell", "-NoProfile", "-Command", ps_cmd],
+                capture_output=True, text=True, timeout=15,
+                creationflags=subprocess.CREATE_NO_WINDOW,
+            )
+            for line in result.stdout.splitlines():
+                pid = line.strip()
+                if pid.isdigit():
+                    try:
+                        subprocess.run(
+                            ["taskkill", "/F", "/T", "/PID", pid],
+                            capture_output=True, timeout=5,
+                            creationflags=subprocess.CREATE_NO_WINDOW,
+                        )
+                        print(f"  已终止引擎进程 PID={pid}")
+                    except Exception:
+                        pass
+
         # 第 3 层：兜底扫尾 — 杀死任何残留的 Python 节点进程
         # 解决 PID 文件丢失、非 listener 入口进程等遗漏问题
         _sweep_orphan_processes(_project_root)

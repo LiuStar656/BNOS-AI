@@ -37,3 +37,6 @@ logs/
 # Environment
 .env
 .env.*
+
+# Logseq user data
+logseq_pages/

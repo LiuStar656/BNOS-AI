@@ -606,4 +606,10 @@ class MainWindow(QMainWindow):
         live2d_page = self._pages.get("live2d")
         if live2d_page and hasattr(live2d_page, '_stop_server'):
             live2d_page._stop_server()
+        # 停止引擎和所有节点进程
+        try:
+            from gui.main import _stop_engine
+            _stop_engine()
+        except Exception:
+            pass
         super().closeEvent(event)
