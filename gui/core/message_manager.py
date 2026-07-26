@@ -91,6 +91,7 @@ class MessageManager(QObject):
             "data_type": "text",
             "content": text,
             "source": "gui",
+            "identity_key": "gui:default",
             "conversation_id": self._state.current_conversation_id,
             "request_id": self._current_request_id,
             "timestamp": datetime.now().isoformat(),
@@ -142,6 +143,11 @@ class MessageManager(QObject):
                 json.dump(data, f, ensure_ascii=False, indent=2)
         except Exception as e:
             self.error_occurred.emit(f"发送对话切换消息失败: {e}")
+
+    def cancel_ongoing(self):
+        """取消正在进行的发送（对话切换时调用，不再等待旧回复）。"""
+        self._cancel_timeout()
+        self._current_request_id = ""
 
     @staticmethod
     def _cache_attachment(att: dict) -> Path:

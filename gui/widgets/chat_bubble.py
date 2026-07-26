@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from PySide6.QtCore import Qt, QTimer, QSize
+from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import QHBoxLayout, QSpacerItem, QWidget, QSizePolicy, QTextBrowser
 from PySide6.QtGui import QFontMetrics, QFont, QTextDocument
 
@@ -29,7 +29,7 @@ class ChatBubble(QWidget):
 
         # 水平布局：spacer + text_browser 实现左右对齐
         layout = QHBoxLayout(self)
-        layout.setContentsMargins(24, 4, 24, 4)
+        layout.setContentsMargins(24, 0, 24, 0)
         layout.setSpacing(0)
 
         # ─── QTextBrowser ─────────────────────
@@ -57,8 +57,8 @@ class ChatBubble(QWidget):
         # 应用主题
         self._apply_theme()
 
-        # 初始尺寸
-        QTimer.singleShot(0, lambda: self._adjust_size(True))
+        # 初始尺寸（同步计算，避免布局使用默认尺寸）
+        self._adjust_size(True)
 
         # 对齐
         if role == "user":
@@ -172,19 +172,16 @@ class ChatBubble(QWidget):
 
     # ─── 公共方法 ──────────────────────────────────
 
-    def minimumSizeHint(self):
-        hint = self._browser.sizeHint()
-        return QSize(hint.width() + 48, hint.height() + 16)
-
     def set_text(self, text: str):
         self._text = text
         self._render_content(text)
-        QTimer.singleShot(0, lambda: self._adjust_size(True))
+        self._adjust_size(True)
         self.updateGeometry()
 
     def append_text(self, text: str):
         """流式追加文本 — 宽度自动增长（只增不减）"""
         self._text += text
         self._render_content(self._text)
+        # 延迟调整尺寸，确保文档布局已更新
         QTimer.singleShot(0, lambda: self._adjust_size(True))
         self.updateGeometry()

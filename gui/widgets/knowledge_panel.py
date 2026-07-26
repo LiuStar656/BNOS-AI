@@ -127,10 +127,10 @@ class KnowledgePanel(QWidget):
         self._build_ui()
         self._load_data()
 
-        # 自动刷新（30s）
+        # 自动刷新（10s）
         self._refresh_timer = QTimer(self)
         self._refresh_timer.timeout.connect(self._load_data)
-        self._refresh_timer.start(30000)
+        self._refresh_timer.start(10000)
 
     def _build_ui(self):
         colors = self._config.get_all_colors()
@@ -258,6 +258,21 @@ class KnowledgePanel(QWidget):
             btn.clicked.connect(lambda checked, c=cat: self._filter_by(c))
             filter_layout.addWidget(btn)
             self._filter_btns[cat] = btn
+        # 手动刷新按钮
+        refresh_btn = QPushButton("刷新")
+        refresh_btn.setStyleSheet(f"""
+            QPushButton {{
+                background: transparent; border: 1px solid {colors['accent_color']};
+                border-radius: 12px; padding: 3px 12px;
+                font-size: 11px; color: {colors['accent_color']};
+            }}
+            QPushButton:hover {{
+                background: {colors['accent_color']}; color: white;
+            }}
+        """)
+        refresh_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        refresh_btn.clicked.connect(self._load_data)
+        filter_layout.addWidget(refresh_btn)
         filter_layout.addStretch()
         layout.addLayout(filter_layout)
 

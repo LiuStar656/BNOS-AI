@@ -469,6 +469,9 @@ class MainWindow(QMainWindow):
         if self._anim_group is not None:
             self._cancel_animation()
             self._stack.setCurrentWidget(target)
+            # 切到知识库页面时刷新数据库数据
+            if page_id == "knowledge" and hasattr(target, "_load_data"):
+                target._load_data()
             return
 
         # 计算滑动方向（1=左滑，-1=右滑）
@@ -483,6 +486,10 @@ class MainWindow(QMainWindow):
                 break
 
         self._slide_animation(target, direction)
+
+        # 切到知识库页面时刷新数据库数据
+        if page_id == "knowledge" and hasattr(target, "_load_data"):
+            target._load_data()
 
     def _cancel_animation(self):
         """取消正在播放的动画，清理覆盖层"""

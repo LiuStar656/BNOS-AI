@@ -34,6 +34,7 @@ class ChatPage(QWidget):
         self._current_ai_bubble: ChatBubble | None = None  # 当前正在 append 的 AI 气泡
         self._conversation_messages: dict[str, list[tuple[str, str]]] = {}  # conv_id -> [(role, text)]
         self._prev_conv_id: str = ""  # 切换前记录旧对话 id
+        self._pending_reply_conv_id: str = ""  # 当前发送消息所属对话 id（回复路由用）
 
         # 打字机效果状态
         self._typing_timer: QTimer | None = None
@@ -98,8 +99,8 @@ class ChatPage(QWidget):
             #msg_container {{ background-color: {colors['bg_chat']}; }}
         """)
         self._msg_layout = QVBoxLayout(self._msg_container)
-        self._msg_layout.setContentsMargins(0, 10, 0, 10)
-        self._msg_layout.setSpacing(4)
+        self._msg_layout.setContentsMargins(0, 0, 0, 0)
+        self._msg_layout.setSpacing(8)
         self._msg_layout.addStretch(1)  # 弹簧在最底部
 
         self._scroll_area.setWidget(self._msg_container)
@@ -134,8 +135,10 @@ class ChatPage(QWidget):
         # 用 _prev_conv_id 保存当前消息（state.current 已被覆盖）
         if self._prev_conv_id:
             self._save_current_messages(self._prev_conv_id)
-        # 通知后端切换对话
+        # 重置发送状态锁，使新对话可以立即发送（旧对话的回复不再绑定当前 GUI）
+        self._state.send_state = "idle"
         if self._msg_mgr:
+            self._msg_mgr.cancel_ongoing()
             self._msg_mgr.send_switch_conversation(conv_id)
         # 清除显示
         self.clear_messages()
@@ -279,6 +282,9 @@ class ChatPage(QWidget):
         # 保存用户消息到内存字典
         self._save_current_messages(conv_id)
 
+        # 记录回复目标对话，用于异步回复路由
+        self._pending_reply_conv_id = conv_id
+
         # 如果有附件，在气泡下方显示附件信息
         for att in attachments:
             att_text = f"[{'图片' if att['type'] == 'image' else '文件'}] {att['name']}"
@@ -308,10 +314,21 @@ class ChatPage(QWidget):
         self._start_typing(text)
 
     def _on_reply(self, text: str):
-        """收到 AI 回复 → 去掉情绪标签 → 逐字显示"""
+        """收到 AI 回复 → 去掉情绪标签 → 路由到正确对话"""
         text = self._strip_mood_tag(text)
         if not text:
             return
+
+        # 如果用户已切换到其他对话，将回复直接保存到目标对话缓存
+        target = self._pending_reply_conv_id
+        self._pending_reply_conv_id = ""  # 消费完毕，清空
+        if target and target != self._state.current_conversation_id:
+            msgs = self._conversation_messages.get(target, [])
+            msgs.append(("ai", text))
+            self._conversation_messages[target] = msgs
+            self._save_history()
+            return
+
         self._start_typing(text)
 
     def _start_typing(self, text: str):
