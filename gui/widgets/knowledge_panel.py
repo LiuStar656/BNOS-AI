@@ -33,13 +33,15 @@ _GRAPH_PATH = str(_PROJECT_ROOT / "nodes" / "shared" / "knowledge_graph.json")
 TABLE_LABELS: dict[str, str] = {
     "all":               "全部",
     "event_summary":     "事件摘要",
-    "feelings":          "情感",
+    "feelings":          "想法",
     "fixed_cognition":   "固定认知",
-    "long_term_memory":  "长期记忆",
+    "long_term_memory":  "长期记忆（归档）",
+    "mood_trend":        "情感趋势",
     "other_cognition":   "对用户认知",
+    "retrieval_log":     "检索日志",
     "self_cognition":    "自我认知",
     "self_info":         "自我信息",
-    "user_facts":        "用户信息",
+    "user_facts":        "记忆归档",
     "user_messages":     "对话记录",
 }
 
@@ -50,7 +52,7 @@ def _read_db() -> list[dict]:
     rows = []
     try:
         tables = conn.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name NOT IN ('sqlite_sequence','retrieval_log','mood_trend') ORDER BY name"
+            "SELECT name FROM sqlite_master WHERE type='table' AND name != 'sqlite_sequence' ORDER BY name"
         ).fetchall()
         for (tname,) in tables:
             table_rows = conn.execute(
@@ -65,8 +67,14 @@ def _read_db() -> list[dict]:
                     or record.get("summary")
                     or record.get("mood", "") + ": " + record.get("thought", "")
                     or str(record.get("key", "")) + " = " + str(record.get("value", ""))
+                    or record.get("dominant_mood", "")
+                    or record.get("keywords", "")
                     or ""
                 )
+                if record.get("period"):
+                    content = f"[{record['period']}] {record.get('dominant_mood', '')} ({record.get('avg_mood_value', '')})"
+                if record.get("keywords"):
+                    content = f"{record['keywords']} → {record.get('result_count', 0)} 条结果"
                 if not content or (isinstance(content, str) and not content.strip()):
                     continue
                 rows.append({
@@ -233,9 +241,16 @@ class KnowledgePanel(QWidget):
         filter_layout = QHBoxLayout()
         filter_layout.setSpacing(6)
         self._filter_btns: dict[str, QPushButton] = {}
-        categories = ["all", "event_summary", "feelings", "fixed_cognition",
-                      "long_term_memory", "other_cognition", "self_cognition",
-                      "self_info", "user_facts", "user_messages"]
+        # 从实际数据库读取表名，动态生成筛选按钮
+        try:
+            conn = sqlite3.connect(_DB_PATH)
+            db_tables = [r[0] for r in conn.execute(
+                "SELECT name FROM sqlite_master WHERE type='table' AND name != 'sqlite_sequence' ORDER BY name"
+            ).fetchall()]
+            conn.close()
+        except Exception:
+            db_tables = []
+        categories = ["all"] + db_tables
         for cat in categories:
             btn = QPushButton(TABLE_LABELS.get(cat, cat))
             btn.setCheckable(True)
