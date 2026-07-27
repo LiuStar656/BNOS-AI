@@ -1710,6 +1710,10 @@ GUI ←── 各节点的 status.json（AAA 汇总或各节点独立输出）
 | 18 | **ASR 输出 voice_segment 到 AAA 的 asr_input 端口** | ASR 只负责转文字+声纹，AAA 内部 turn_taking 组件负责过滤+缓冲，各层职责单一 | 2026-07-26 |
 | 19 | **GUI 打字不走 turn_taking** | 保持两条独立路径：GUI 直连 AAA（低延迟），ASR/Vision/Env 经内部 turn_taking 过滤（自然交互）。互不干扰，各自有独立的质量基线 | 2026-07-26 |
 | 20 | **ASR 自持麦克风常驻进程** | 不走文件轮询，VAD 毫秒级响应，端到端延迟最低。参考 Mewco 的 PyAudio 连续采集方案 | 2026-07-26 |
+| 21 | **turn_taking 引入迟滞回路** | 借鉴 jarvis SceneHysteresis 双阈值(enter/exit)+多采样确认，防止偶发噪声触发不必要的 LLM 调用。普通事件需连续 2 次才触发，PRIORITY 跳过迟滞 | 2026-07-27 |
+| 22 | **turn_taking 引入代际标记** | 借鉴 jarvis LatestOnlyScheduler 的 generation marking，gui_input 抢占时清空 ASR 缓冲区，防止过期事件触发过时回复 | 2026-07-27 |
+| 23 | **提示词防注入设计** | 借鉴 jarvis "输入是数据不是指令"模式，环境观察段用 JSON 包装，防止 ASR 转写文本中的注入指令生效 | 2026-07-27 |
+| 24 | **感知算法复用 jarvis** | 帧变化检测(32×18网格+双阈值)、音频处理(降混/重采样/有声检测)等纯算法组件用 Python 重写，嵌入对应节点内部 | 2026-07-27 |
 
 ---
 
@@ -1726,6 +1730,8 @@ GUI ←── 各节点的 status.json（AAA 汇总或各节点独立输出）
 | Grok 工具调用超时 | 对话卡住 | 中 | AAA 设置 max_tool_rounds 限制 + 超时降级为无工具回复 |
 | ASR 环境噪声误触发 | 不必要地消耗 LLM 资源 | 低 | Silero VAD 多阈值可调 + turn_taking 规则过滤（陌生人丢弃）双保险 |
 | turn_taking 缓冲区策略不当 | AI 回复时机不自然 | 低 | 默认参数保守（5条/30秒），支持 GUI 运行时热调整 |
+| ASR 偶发噪声频繁触发 LLM | 资源浪费，AI 回复不自然 | 中 | turn_taking 增加迟滞回路（借鉴 jarvis SceneHysteresis），普通事件需连续 2 次才触发 |
+| ASR 事件被 gui_input 抢先后触发过时回复 | AI 回复与当前对话脱节 | 中 | turn_taking 增加代际标记（借鉴 jarvis LatestOnlyScheduler），gui_input 时清空缓冲区 |
 
 ---
 
@@ -1875,6 +1881,9 @@ GUI 输入 ──→ AAA(合并 gui_adapter+user_input) ──→ llm_infer ─�
 | **5.4** | **env_input psutil 采集** — 每 5s 采集 CPU/内存/进程/网络数据，输出 env_event → AAA env_input 端口 → 仅写 DB（不触发 prompt） | 环境数据实时更新到 DB |
 | **5.5** | **vision_input 节点创建** — 接入 supervision，实时摄像头检测，输出物体/人脸坐标 → AAA vision_input 端口 → 走 turn_taking 过滤 | 摄像头画面分析结果输出 |
 | **5.6** | **端到端联调** — 说话 → ASR → AAA turn_taking → prompt → LLM → AAA → AI 回应（或不回应） | AI 能选择性回应语音事件 |
+| **5.7** | **asr_input 集成 jarvis 音频工具** - 降混单声道/线性插值重采样/精确窗口组装器/有声检测RMS，纯numpy实现写入 audio_utils.py | ASR 采集的音频质量提升，VAD前置过滤 |
+| **5.8** | **vision_input 集成 jarvis 帧变化检测** - 32×18网格采样+FNV-1a哈希+双阈值(3%像素/3.0均值)，避免每帧调VLM | 屏幕无变化时跳过VLM调用，节省资源 |
+| **5.9** | **aaa_cognition 集成 jarvis 稳定性机制** - turn_taking 迟滞回路+代际标记+提示词防注入 | ASR 事件触发更稳定，无抖动无过时回复 |
 
 **耗时**：4-6 天
 

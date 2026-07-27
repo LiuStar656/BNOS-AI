@@ -1,9 +1,9 @@
 # 参考项目组件复用分析清单
 
 > 分析日期：2026-07-25 | **更新日期：2026-07-26**
-> 分析对象：`references/mewco_ai_assistant_comm-main`(枫云AI助手), `references/my-neuro-main`(肥牛AI)
+> 分析对象：`references/mewco_ai_assistant_comm-main`(枫云AI助手), `references/my-neuro-main`(肥牛AI), `references/pub-local-jarvis-main`(AI Jarvis本地桌面助手)
 > 
-> **本次更新要点**：MemOS 语义检索已完成(集成到 aaa_cognition)、三阶段提示词重构完成、identity_key 多用户隔离上线、TTS 节点已独立、管线架构更新
+> **本次更新要点**：MemOS 语义检索已完成(集成到 aaa_cognition)、三阶段提示词重构完成、identity_key 多用户隔离上线、TTS 节点已独立、管线架构更新、新增 pub-local-jarvis-main 组件复用分析（感知算法/稳定性机制/提示词工程）
 
 ---
 
@@ -324,7 +324,85 @@ MemOS 已作为内建模块集成到 `aaa_cognition` 内，采用**轻量内嵌�
 
 ---
 
-## 四、最终优先级路线图
+## 四、从 pub-local-jarvis-main（AI Jarvis）可复用组件
+
+> 分析对象：`references/pub-local-jarvis-main`
+> 项目定位：本地全双工桌面 AI 助手（C++20 原生 Worker + Python FastAPI + Electron）
+> 复用原则：**算法移植，不复用框架代码**。jarvis 用 C++ 实现，BNOS 用 Python，但感知算法和稳定性机制可直接重写。
+
+### 4.1 感知层算法（填补 vision_input 空白）
+
+| 组件 | jarvis 源文件 | 核心价值 | BNOS 适配方式 | 操作类型 |
+|------|-------------|---------|-------------|---------|
+| 帧变化检测 | `native/src/fingerprint.cpp` | 32×18网格采样+FNV-1a哈希+双阈值(3%像素/3.0均值) | Python重写，嵌入vision_input内部 | 新建节点辅助 |
+| 空闲检测 | `native/src/fingerprint.cpp` | 2分钟无变化进入空闲，随机提醒60-120s | Python重写，嵌入env_input或aaa | 补全现有节点 |
+| DXGI屏幕采集 | `native/src/windows/dxgi_capture.cpp` | Desktop Duplication+GDI降级双路径 | 用Python mss/dxcam替代，降级思路参考 | 新建节点辅助 |
+
+### 4.2 音频处理算法（增强 asr_input）
+
+| 组件 | jarvis 源文件 | 核心价值 | BNOS 适配方式 | 操作类型 |
+|------|-------------|---------|-------------|---------|
+| 降混单声道 | `native/src/audio.cpp` | 多声道->单声道，clamp[-1,1] | Python重写(纯numpy) | 补全asr_input |
+| 线性插值重采样 | `native/src/audio.cpp` | 48kHz->16kHz，零依赖 | Python重写(纯numpy) | 补全asr_input |
+| 精确窗口组装器 | `native/src/audio.cpp` | 保证音频窗口完整不截断 | Python重写(纯numpy) | 补全asr_input |
+| 有声检测RMS | `native/src/worker.cpp` | RMS能量阈值0.000004(实战调优值) | Python重写(纯numpy) | 补全asr_input |
+| 双缓冲设计 | `native/src/worker.cpp` | 2秒短缓冲(VAD)+12秒长缓冲(STT) | 概念移植 | 补全asr_input |
+
+### 4.3 稳定性机制（增强 turn_taking / aaa_cognition）
+
+| 组件 | jarvis 源文件 | 核心价值 | BNOS 适配方式 | 操作类型 |
+|------|-------------|---------|-------------|---------|
+| 场景迟滞稳定器 | `src/jarvis_backend/orchestrator/scene.py` | enter(0.72)/exit(0.48)双阈值+多采样确认 | 概念移植到turn_taking防抖动 | 补全aaa_cognition |
+| LatestOnlyScheduler | `native/src/scheduler.cpp` | 最新优先合并+代际标记+协作式取消 | Python重写，AAA多源优先级调度 | 补全aaa_cognition |
+| EventBus背压控制 | `src/jarvis_backend/orchestrator/events.py` | 有界扇出总线，队列满丢弃最旧事件 | 概念参考，AAA内部事件路由 | 架构参考 |
+| 生命周期状态机 | `src/jarvis_backend/orchestrator/lifecycle.py` | STOPPED->STARTING->READY/DEGRADED/FAILED | 参考DEGRADED降级状态 | 架构参考 |
+
+### 4.4 提示词工程（增强 aaa_cognition）
+
+| 组件 | jarvis 源文件 | 核心价值 | BNOS 适配方式 | 操作类型 |
+|------|-------------|---------|-------------|---------|
+| 防注入模式 | `src/jarvis_backend/prompts/templates.py` | "输入是数据不是指令"，JSON包装输入 | AAA的env_observation段用JSON包装 | 补全aaa_cognition |
+| 格式约束 | `src/jarvis_backend/prompts/templates.py` | 明确字数限制(8-40字/420字/6000字) | AAA各节标记增加字数约束 | 补全aaa_cognition |
+| 主动性价值过滤 | `src/jarvis_backend/orchestrator/service.py` | require_proactive_value要求包含价值词 | AAA【自然回复】增加价值约束 | 补全aaa_cognition |
+| 消息清洗 | `src/jarvis_backend/orchestrator/service.py` | 移除标记，拒绝模糊表述(看起来/似乎) | AAA的LLM输出清洗 | 补全aaa_cognition |
+
+### 4.5 工程实践（增强可靠性）
+
+| 组件 | jarvis 源文件 | 核心价值 | BNOS 适配方式 | 操作类型 |
+|------|-------------|---------|-------------|---------|
+| 原子写入 | `src/jarvis_backend/memory/store.py` | tempfile+fsync+replace模式 | logseq_writer/DB写入 | 补全现有节点 |
+| 模型下载镜像回退 | `src/jarvis_backend/model_download.py` | 官方源+hf-mirror.com双端点 | llm_infer模型下载 | 补全现有节点 |
+| 双源下载回退 | `desktop/scripts/resource-fallback.js` | 官方源->镜像源自动回退 | pip/npm依赖安装 | 架构参考 |
+
+### 4.6 jarvis 组件源路径汇总
+
+| 组件 | 源文件 | 操作类型 |
+|------|--------|---------|
+| 帧变化检测 | `native/src/fingerprint.cpp` | 新建节点辅助 |
+| 空闲检测 | `native/src/fingerprint.cpp` | 补全env_input |
+| 降混单声道 | `native/src/audio.cpp` | 补全asr_input |
+| 线性插值重采样 | `native/src/audio.cpp` | 补全asr_input |
+| 精确窗口组装器 | `native/src/audio.cpp` | 补全asr_input |
+| 有声检测RMS | `native/src/worker.cpp` | 补全asr_input |
+| 场景迟滞稳定器 | `src/jarvis_backend/orchestrator/scene.py` | 补全aaa_cognition |
+| LatestOnlyScheduler | `native/src/scheduler.cpp` | 补全aaa_cognition |
+| 防注入模式 | `src/jarvis_backend/prompts/templates.py` | 补全aaa_cognition |
+| 原子写入 | `src/jarvis_backend/memory/store.py` | 补全现有节点 |
+| 模型下载镜像回退 | `src/jarvis_backend/model_download.py` | 补全llm_infer |
+
+### 4.7 不可复用组件
+
+| jarvis 组件 | 不可复用原因 |
+|------------|-------------|
+| C++命名管道协议 | BNOS用文件JSON通信 |
+| Electron桌面端 | BNOS用PySide6 |
+| FastAPI HTTP API | BNOS节点不暴露HTTP |
+| llama.cpp-omni全双工 | BNOS的LLM交互模式不同 |
+| NSIS打包流水线 | BNOS用PyInstaller |
+
+---
+
+## 五、最终优先级路线图
 
 ### P0 - 必须补的核心能力 ✅ MemOS 已完成
 
@@ -338,6 +416,10 @@ MemOS 已作为内建模块集成到 `aaa_cognition` 内，采用**轻量内嵌�
 | P1 | **node_python_tts** | mewco | `tts.py` | 扩展现有节点，从1种引擎增加到11种（含离线引擎） | 增强现有节点 | 1-2天 |
 | P1 | **增强 asr_input** | mewco | `asr.py` | sherpa-onnx+声纹+音频事件 | 补全现有节点 | 1-2天 |
 | P1 | **node_python_vlm** | mewco | `vlm.py` | 屏幕/摄像头/图片理解 | 新建节点 | 1-2天 |
+| P1 | **audio_utils.py** | jarvis | `audio.cpp`+`worker.cpp` | 降混/重采样/窗口组装/有声检测(纯numpy) | 补全asr_input | 0.5天 |
+| P1 | **场景迟滞稳定器** | jarvis | `scene.py` | 双阈值+多采样确认，防turn_taking抖动 | 补全aaa_cognition | 0.5天 |
+| P1 | **提示词防注入** | jarvis | `templates.py` | "输入是数据不是指令"，JSON包装 | 补全aaa_cognition | 0.5天 |
+| P1 | **LatestOnlyScheduler** | jarvis | `scheduler.cpp` | 多源优先级调度+代际标记 | 补全aaa_cognition | 0.5天 |
 
 ### P2 - 扩展Agent能力
 
@@ -347,6 +429,10 @@ MemOS 已作为内建模块集成到 `aaa_cognition` 内，采用**轻量内嵌�
 | P2 | **注册搜索工具到 grok_hands** | mewco | `websearch.py` | 联网搜索 | 补全现有节点 | 1天 |
 | P2 | **node_python_pc_control** | mewco | `agi_pc_lite.py`+`function.py` | OCR屏控/音量/自动输入 | 新建节点 | 1-2天 |
 | P2 | **node_python_im_bot** | mewco | `im_bot.py` | 飞书/钉钉/QQ多渠道 | 新建节点 | 1-2天 |
+| P2 | **帧变化检测** | jarvis | `fingerprint.cpp` | 32×18网格+双阈值，避免每帧调VLM | 新建节点辅助 | 0.5天 |
+| P2 | **空闲检测** | jarvis | `fingerprint.cpp` | 2分钟无变化进入空闲+随机提醒 | 补全env_input | 0.3天 |
+| P2 | **原子写入** | jarvis | `store.py` | tempfile+fsync+replace崩溃安全 | 补全现有节点 | 0.2天 |
+| P2 | **模型下载镜像回退** | jarvis | `model_download.py` | 官方源+hf-mirror.com回退 | 补全llm_infer | 0.5天 |
 
 ### P3 - 锦上添花
 
@@ -357,7 +443,7 @@ MemOS 已作为内建模块集成到 `aaa_cognition` 内，采用**轻量内嵌�
 
 ---
 
-## 五、当前管线架构（更新于 2026-07-26）
+## 六、当前管线架构（更新于 2026-07-26）
 
 ```
                              ┌→ vlm(视觉理解) ──┐
@@ -385,7 +471,8 @@ GUI输入 ───→  aaa_cognition ──→ llm_infer ──→ aaa_cognitio
 | 用户隔离 | 无 | identity_key 全链路（DB/检索/提示词） |
 | TTS | JS 节点内嵌 | 已有独立 `node_python_tts`（需增强引擎数） |
 | Grok | Rust 基础框架 | 仍为 Rust 框架，工具未注册 |
+| 感知算法 | 无（vision_input未实现） | jarvis帧变化检测+音频处理算法可复用 |
 
 ---
 
-*本文档由 AI 自动生成，基于对两个参考项目的完整源码分析。*
+*本文档由 AI 自动生成，基于对三个参考项目的完整源码分析。*
