@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-07-27T23:41:02",
+  "updated_at": "2026-07-28T20:30:14",
   "engine_status": "online",
   "nodes": {
     "node_python_aaa_cognition": {
       "status": "running",
-      "pid": 22496
+      "pid": 28564
     },
     "node_python_llm_infer": {
       "status": "running",
-      "pid": 2568
+      "pid": 22992
     },
     "node_python_tts": {
       "status": "running",
-      "pid": 20396
+      "pid": 25296
     }
   }
 }

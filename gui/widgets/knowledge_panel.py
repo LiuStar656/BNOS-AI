@@ -32,8 +32,9 @@ _GRAPH_PATH = str(_PROJECT_ROOT / "nodes" / "shared" / "knowledge_graph.json")
 # ─── 数据库表分类标签 ─────────────────────────
 TABLE_LABELS: dict[str, str] = {
     "all":               "全部",
+    "diaries":           "日记",
     "event_summary":     "事件摘要",
-    "feelings":          "想法",
+    "feelings":          "情感",
     "fixed_cognition":   "固定认知",
     "long_term_memory":  "长期记忆（归档）",
     "mood_trend":        "情感趋势",
@@ -55,8 +56,10 @@ def _read_db() -> list[dict]:
             "SELECT name FROM sqlite_master WHERE type='table' AND name != 'sqlite_sequence' ORDER BY name"
         ).fetchall()
         for (tname,) in tables:
+            # self_cognition / other_cognition 只显示最新 1 条
+            limit = 1 if tname in ("self_cognition", "other_cognition") else 200
             table_rows = conn.execute(
-                "SELECT * FROM [{}] ORDER BY id DESC LIMIT 200".format(tname)
+                f"SELECT * FROM [{tname}] ORDER BY id DESC LIMIT {limit}"
             ).fetchall()
             cols = [c[1] for c in conn.execute("PRAGMA table_info([{}])".format(tname)).fetchall()]
             for row in table_rows:

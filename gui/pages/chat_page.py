@@ -383,6 +383,9 @@ class ChatPage(QWidget):
         # 插入到 stretch 之前（最新消息在最下面）
         count = self._msg_layout.count()
         self._msg_layout.insertWidget(count - 1, bubble)
+        # 设置对齐：用户右对齐，AI左对齐
+        alignment = Qt.AlignmentFlag.AlignRight if role == "user" else Qt.AlignmentFlag.AlignLeft
+        self._msg_layout.setAlignment(bubble, alignment)
 
         # 强制刷新布局
         self._msg_container.updateGeometry()

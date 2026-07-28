@@ -23,11 +23,10 @@ class ChatBubble(QWidget):
         self._text = text
         self._config = AppConfig()
         self._max_width = 600
-        self._current_width = 0  # 当前实际宽度，流式时只增不减
 
-        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self.setSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
 
-        # 水平布局：spacer + text_browser 实现左右对齐
+        # 水平布局：只有 text_browser
         layout = QHBoxLayout(self)
         layout.setContentsMargins(24, 0, 24, 0)
         layout.setSpacing(0)
@@ -60,13 +59,8 @@ class ChatBubble(QWidget):
         # 初始尺寸（同步计算，避免布局使用默认尺寸）
         self._adjust_size(True)
 
-        # 对齐
-        if role == "user":
-            layout.addItem(QSpacerItem(0, 0, QSizePolicy.Expanding, QSizePolicy.Minimum))
-            layout.addWidget(self._browser)
-        else:
-            layout.addWidget(self._browser)
-            layout.addItem(QSpacerItem(0, 0, QSizePolicy.Expanding, QSizePolicy.Minimum))
+        # 对齐由外层 layout 控制，这里不需要 spacer 了
+        layout.addWidget(self._browser)
 
     # ─── 内容渲染 ──────────────────────────────────
 
@@ -75,6 +69,8 @@ class ChatBubble(QWidget):
         doc = self._browser.document()  # 缓存复用
         # 清除默认 document margin，避免与 QSS padding 叠加
         doc.setDocumentMargin(0)
+        # 设置文档布局宽度 = 最大气泡宽度，使文本在达到最大宽度时自动换行
+        doc.setTextWidth(self._max_width)
 
         # 设置文档默认样式表（影响 Markdown 转换后的 HTML 元素）
         colors = self._config.get_all_colors()
@@ -104,52 +100,42 @@ class ChatBubble(QWidget):
         )
 
     def _adjust_size(self, update_width: bool = True):
-        """根据文档内容调整 QTextBrowser 高度和宽度"""
+        """根据文档内容调整 QTextBrowser 高度和宽度
+
+        宽度策略：
+        - 用 font metrics 测量最宽行的像素宽度，气泡紧贴内容
+        - 达到最大宽度（600px）时换行
+        """
         try:
             doc = self._browser.document()
-            # 高度 = 文档内容高度 + QSS padding 14*2，无额外最小值
+            # 高度 = 文档内容高度 + QSS padding 14*2
             height = int(doc.size().height()) + 28
             self._browser.setFixedHeight(max(height, 10))
 
-            # 宽度：流式追加时只增不减，防止窄栏内容堆叠截断
             if update_width:
-                self._current_width = self._calc_content_width()
-                self._browser.setFixedWidth(self._current_width)
+                fm = self._browser.fontMetrics()
+                padding_h = 36
+
+                # 逐行测量，取最宽行
+                max_line_w = 0
+                for line in self._text.split("\n"):
+                    w = fm.horizontalAdvance(line)
+                    if w > max_line_w:
+                        max_line_w = w
+
+                width = max_line_w + padding_h
+                # 最小宽度 = 3 个字符宽
+                min_width = fm.averageCharWidth() * 3 + padding_h
+                width = max(width, min_width)
+                # 达到最大宽度时换行
+                width = min(width, self._max_width)
+                self._browser.setFixedWidth(width)
         except RuntimeError:
             pass
-
-    def _calc_content_width(self) -> int:
-        """根据当前文本内容估算气泡宽度（只增不减）"""
-        font = QFont("Segoe UI", 14)
-        fm = QFontMetrics(font)
-        # QSS padding left+right = 18+18 = 36px
-        padding_h = 36
-        max_line_w = 0
-        for line in self._text.split("\n"):
-            if line:
-                w = fm.horizontalAdvance(line)
-                if w > max_line_w:
-                    max_line_w = w
-        pw = max_line_w + padding_h
-        # 最小宽度 = 一个字宽 + padding（避免空内容时宽度为 0）
-        min_w = int(fm.averageCharWidth()) + padding_h
-        w = max(pw, min_w)
-        # 只增不减
-        if w > self._current_width:
-            self._current_width = w
-        return min(self._current_width, self._max_width)
 
     def _on_doc_resized(self):
-        """文档尺寸变化时仅更新高度，宽度不变"""
-        try:
-            doc = self._browser.document()
-            height = int(doc.size().height()) + 28  # +QSS padding 14*2
-            self._browser.setFixedHeight(max(height, 10))
-            # 保持已有宽度
-            if self._current_width > 0:
-                self._browser.setFixedWidth(self._current_width)
-        except RuntimeError:
-            pass
+        """文档尺寸变化时更新高度和宽度"""
+        self._adjust_size(update_width=True)
 
     # ─── 主题 ──────────────────────────────────────
 
@@ -179,7 +165,7 @@ class ChatBubble(QWidget):
         self.updateGeometry()
 
     def append_text(self, text: str):
-        """流式追加文本 — 宽度自动增长（只增不减）"""
+        """流式追加文本 — 宽度随内容自动重算"""
         self._text += text
         self._render_content(self._text)
         # 延迟调整尺寸，确保文档布局已更新

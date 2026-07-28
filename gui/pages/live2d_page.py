@@ -235,7 +235,9 @@ class Live2DPage(QWidget):
     def _on_js_console(self, level: int, msg: str, line: int, src: str):
         """捕获 JS 控制台输出"""
         levels = {0: "INFO", 1: "WARN", 2: "ERROR"}
-        print(f"[JS-{levels.get(level, str(level))}] {msg} ({src}:{line})")
+        import sys
+        line_content = f"[JS-{levels.get(level, str(level))}] {msg} ({src}:{line})"
+        print(line_content.encode(sys.stdout.encoding, errors="replace").decode(sys.stdout.encoding, errors="replace"))
 
     # ─── 服务管理 ──────────────────────────────────
 
