@@ -1,0 +1,28 @@
+# 虚拟环境
+venv/
+
+# 运行时文件
+output*.json
+*.pid
+*.tmp
+
+# 日志
+*.log
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python 编译产物
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Nuitka 打包产物
+*.exe
+*.build/
+*.dist/

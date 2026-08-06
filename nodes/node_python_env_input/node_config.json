@@ -1,0 +1,66 @@
+{
+  "entry": "listener.py",
+  "filter": {
+    "init_check": {
+      "cmd": "init_check"
+    }
+  },
+  "input_ports": [
+    {
+      "label": "初始化检测",
+      "name": "init_check",
+      "required": false,
+      "source": "node",
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "listen_upper_file": "",
+  "node_name": "node_python_env_input",
+  "output_file": "./output.json",
+  "output_ports": [
+    {
+      "label": "环境数据",
+      "name": "default",
+      "type": "default"
+    },
+    {
+      "label": "状态反馈",
+      "name": "status",
+      "type": "json"
+    }
+  ],
+  "output_type": "",
+  "parameters": [
+    {
+      "default": 60,
+      "label": "采集间隔(秒)",
+      "name": "poll_interval",
+      "type": "number"
+    },
+    {
+      "default": true,
+      "label": "采集 CPU",
+      "name": "collect_cpu",
+      "type": "boolean"
+    },
+    {
+      "default": true,
+      "label": "采集内存",
+      "name": "collect_memory",
+      "type": "boolean"
+    },
+    {
+      "default": true,
+      "label": "采集时间",
+      "name": "collect_time",
+      "type": "boolean"
+    }
+  ],
+  "port_mappings": {},
+  "python_exe": "",
+  "resource_limit": {
+    "cpu_percent": 10,
+    "memory_mb": 64
+  }
+}

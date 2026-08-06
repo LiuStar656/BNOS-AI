@@ -16,8 +16,26 @@ env/
 *.swp
 *.swo
 
-# Sub-repos — 每个节点独立仓库，不由主仓库跟踪
-nodes/
+# Sub-repos — 节点代码纳入主仓库管理，见下方 nodes/ 规则
+
+# Shared runtime data (not a node repo)
+nodes/shared/
+
+# Node cache / runtime files
+nodes/**/__pycache__/
+nodes/**/*.pyc
+nodes/**/logs/
+nodes/**/*.log
+nodes/**/venv/
+nodes/**/output.json
+nodes/**/.pid
+nodes/**/tts_cache/
+nodes/**/node_error.log
+nodes/**/node_output.log
+nodes/**/*.build/
+nodes/**/*.exe
+nodes/**/target/
+nodes/**/Cargo.lock
 voice/
 audio/
 models/

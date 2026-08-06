@@ -1,0 +1,91 @@
+{
+  "entry": "listener.py",
+  "filter": {
+    "audio_path": {
+      "data_type": "audio_path"
+    },
+    "init_check": {
+      "cmd": "init_check"
+    }
+  },
+  "input_ports": [
+    {
+      "label": "音频路径",
+      "name": "audio_path",
+      "required": false,
+      "source": "node",
+      "type": "string"
+    },
+    {
+      "label": "初始化检测",
+      "name": "init_check",
+      "required": false,
+      "source": "node",
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "listen_upper_file": "",
+  "node_name": "node_python_asr_input",
+  "output_file": "./output.json",
+  "output_ports": [
+    {
+      "label": "识别文本",
+      "name": "default",
+      "type": "default"
+    },
+    {
+      "label": "状态反馈",
+      "name": "status",
+      "type": "json"
+    }
+  ],
+  "output_type": "",
+  "parameters": [
+    {
+      "default": "small",
+      "description": "tiny 最快最差, small 平衡, large 最慢最好",
+      "label": "Whisper 模型大小",
+      "name": "model_size",
+      "options": [
+        "tiny",
+        "base",
+        "small",
+        "medium",
+        "large-v3",
+        "turbo"
+      ],
+      "type": "enum"
+    },
+    {
+      "default": "auto",
+      "label": "推理设备",
+      "name": "device",
+      "options": [
+        "auto",
+        "cuda",
+        "cpu"
+      ],
+      "type": "enum"
+    },
+    {
+      "default": "zh",
+      "label": "语言",
+      "name": "language",
+      "options": [
+        "auto",
+        "zh",
+        "en",
+        "ja",
+        "ko"
+      ],
+      "type": "enum"
+    }
+  ],
+  "port_mappings": {},
+  "python_exe": "",
+  "resource_limit": {
+    "cpu_percent": 80,
+    "memory_mb": 2048
+  }
+}
