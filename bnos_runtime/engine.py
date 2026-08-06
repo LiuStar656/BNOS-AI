@@ -83,7 +83,7 @@ class PipelineRunner:
 
     MAX_RESTART_ATTEMPTS = 3
 
-    def __init__(self, pipeline_path: Path):
+    def __init__(self, pipeline_path: Path, log_dir: Path | None = None):
         self.pipeline_path = Path(pipeline_path)
         self.project_root = self.pipeline_path.parent  # 项目根目录
         self.pipeline: PipelineDef = load_pipeline(pipeline_path)
@@ -93,10 +93,18 @@ class PipelineRunner:
         # 命令文件：GUI 通过此文件发送重启指令
         self._cmd_file = self.project_root / "bnos_cmd.json"
         self._cmd_file_mtime: float = 0.0
+        # 日志目录 (由 GUI 批次管理传入)
+        self._log_dir = Path(log_dir) if log_dir else None
+        self._log_fh = None
+        if self._log_dir:
+            self._log_dir.mkdir(parents=True, exist_ok=True)
+            self._log_fh = open(self._log_dir / "engine.log", "a", encoding="utf-8")
 
     def _p(self, *args, **kwargs):
-        """带自动刷新的 print，确保日志输出到文件时实时可见。"""
+        """同时打印到 stdout 和日志文件。"""
         print(*args, **kwargs, flush=True)
+        if self._log_fh:
+            print(*args, **kwargs, flush=True, file=self._log_fh)
 
     def run(self) -> dict[str, NodeResult]:
         """执行整个管线 — 启动所有节点后等待关闭信号。"""
@@ -140,6 +148,10 @@ class PipelineRunner:
         # 兜底：杀死任何残留的节点进程（覆盖非 listener 入口如 TTS main.py）
         _kill_orphan_node_processes(self.project_root)
         self._p("[BNOS] All child processes terminated.")
+        # 关闭日志文件
+        if self._log_fh:
+            self._log_fh.close()
+            self._log_fh = None
         return self.results
 
     def _start_node(self, node_id: str) -> None:
@@ -151,7 +163,7 @@ class PipelineRunner:
 
         runner = StandaloneRunner(node_id, node_def, self.project_root)
         try:
-            nid, proc = runner.start()
+            nid, proc = runner.start(log_dir=self._log_dir)
             self.process_manager.register(nid, proc)
 
             # 记录启动结果
@@ -269,12 +281,25 @@ def _kill_orphan_node_processes(project_root: Path) -> None:
 
 
 def main():
-    """CLI 入口: python -m bnos_runtime.engine pipeline.json"""
-    if len(sys.argv) < 2:
-        print("Usage: python -m bnos_runtime.engine <pipeline.json>")
+    """CLI 入口: python -m bnos_runtime.engine pipeline.json [--log-dir PATH]"""
+    argv = sys.argv[1:]
+
+    # 解析 --log-dir 参数
+    log_dir = None
+    if "--log-dir" in argv:
+        idx = argv.index("--log-dir")
+        if idx + 1 < len(argv):
+            log_dir = Path(argv[idx + 1])
+            argv.pop(idx + 1)
+            argv.pop(idx)
+
+    if len(argv) < 1:
+        print("Usage:")
+        print("  python -m bnos_runtime.engine <pipeline.json>")
+        print("  python -m bnos_runtime.engine <pipeline.json> --log-dir ./logs")
         sys.exit(1)
 
-    pipeline_path = Path(sys.argv[1])
+    pipeline_path = Path(argv[0])
     if not pipeline_path.exists():
         print(f"[ERROR] Pipeline file not found: {pipeline_path}")
         sys.exit(1)
@@ -283,7 +308,7 @@ def main():
     _kill_orphan_node_processes(pipeline_path.parent)
     print("[BNOS] Orphan node processes cleaned up.")
 
-    runner = PipelineRunner(pipeline_path)
+    runner = PipelineRunner(pipeline_path, log_dir=log_dir)
 
     # 注册信号处理器：优雅关闭所有子进程
     def _signal_handler(sig, frame):

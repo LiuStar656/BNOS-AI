@@ -1,11 +1,11 @@
-# [PLAN] AI 定位信息功能开发方案
+# \[PLAN] AI 定位信息功能开发方案
 
-> 日期：2026-08-07 | 版本：v1.1 | 状态：[PLAN]
+> 日期：2026-08-07 | 版本：v1.1 | 状态：\[PLAN]
 > 设计文档：`[PLAN]-AI定位信息功能设计方案.md`、`[PLAN]-AI世界感知记忆系统设计方案.md`
 > 优先级：Top 1（性价比 11.43，工作量 0.35 天）
 > 架构归属：AAA 认知节点（`nodes/node_python_aaa_cognition/`），与 `memos.py`、`diary.py` 并列
 
----
+***
 
 ## 目录
 
@@ -24,7 +24,7 @@
 - [九、测试方案](#九测试方案)
 - [十、风险与降级策略](#十风险与降级策略)
 
----
+***
 
 ## 一、需求定位
 
@@ -34,16 +34,16 @@
 
 ### 1.2 核心能力矩阵
 
-| 能力层级 | 功能 | 说明 | 优先级 |
-|:--------:|------|------|:------:|
-| **L1 基础** | IP 定位 | 通过公网 IP 获取城市级位置 | P0 |
-| **L1 基础** | 位置存储 | 将定位结果持久化到数据库 | P0 |
-| **L1 基础** | Prompt 注入 | 将位置信息注入 LLM 提示词 | P0 |
-| **L2 增强** | 去重更新 | 位置不变时仅更新时间戳 | P1 |
-| **L2 增强** | 地图可视化 | 在 GUI 中显示 AI 当前位置地图 | P1 |
-| **L2 增强** | 轨迹查询 | 查询历史位置变化记录 | P1 |
-| **L3 扩展** | 逆地理编码 | 将经纬度转为可读地址 | P2 |
-| **L3 扩展** | 天气联动 | 自动获取当前位置天气 | P2 |
+|    能力层级   | 功能        | 说明                  | 优先级 |
+| :-------: | --------- | ------------------- | :-: |
+| **L1 基础** | IP 定位     | 通过公网 IP 获取城市级位置     |  P0 |
+| **L1 基础** | 位置存储      | 将定位结果持久化到数据库        |  P0 |
+| **L1 基础** | Prompt 注入 | 将位置信息注入 LLM 提示词     |  P0 |
+| **L2 增强** | 去重更新      | 位置不变时仅更新时间戳         |  P1 |
+| **L2 增强** | 地图可视化     | 在 GUI 中显示 AI 当前位置地图 |  P1 |
+| **L2 增强** | 轨迹查询      | 查询历史位置变化记录          |  P1 |
+| **L3 扩展** | 逆地理编码     | 将经纬度转为可读地址          |  P2 |
+| **L3 扩展** | 天气联动      | 自动获取当前位置天气          |  P2 |
 
 ### 1.3 用户价值
 
@@ -51,7 +51,7 @@
 - 天气/本地推荐等场景无需用户提供位置
 - GUI 设置页可直观看到 AI 感知的位置
 
----
+***
 
 ## 二、开发架构总览
 
@@ -101,34 +101,35 @@
 
 定位模块归属 AAA 认知节点，与其内部其他模块并列：
 
-| 模块 | 文件路径 | 职责 |
-|------|---------|------|
-| **location.py ★** | `nodes/node_python_aaa_cognition/location.py` | **新增** - 定位获取 + 去重存储 + Prompt 段构建 |
-| memos.py | `nodes/node_python_aaa_cognition/memos.py` | 语义记忆检索 |
-| diary.py | `nodes/node_python_aaa_cognition/diary.py` | 日记功能 |
-| prompt.py | `nodes/node_python_aaa_cognition/prompt.py` | Prompt 模板拼接（修改：增加位置段调用） |
-| db.py | `nodes/node_python_aaa_cognition/db.py` | 数据库操作 |
-| main.py | `nodes/node_python_aaa_cognition/main.py` | 节点主逻辑 |
-| LocationMapWidget | `gui/widgets/location_map_widget.py` | GUI 地图显示组件（新增） |
-| settings_panel.py | `gui/pages/settings_panel.py` | 设置面板（修改：集成地理感知区） |
+| 模块                 | 文件路径                                          | 职责                                |
+| ------------------ | --------------------------------------------- | --------------------------------- |
+| **location.py ★**  | `nodes/node_python_aaa_cognition/location.py` | **新增** - 定位获取 + 去重存储 + Prompt 段构建 |
+| memos.py           | `nodes/node_python_aaa_cognition/memos.py`    | 语义记忆检索                            |
+| diary.py           | `nodes/node_python_aaa_cognition/diary.py`    | 日记功能                              |
+| prompt.py          | `nodes/node_python_aaa_cognition/prompt.py`   | Prompt 模板拼接（修改：增加位置段调用）           |
+| db.py              | `nodes/node_python_aaa_cognition/db.py`       | 数据库操作                             |
+| main.py            | `nodes/node_python_aaa_cognition/main.py`     | 节点主逻辑                             |
+| LocationMapWidget  | `gui/widgets/location_map_widget.py`          | GUI 地图显示组件（新增）                    |
+| settings\_panel.py | `gui/pages/settings_panel.py`                 | 设置面板（修改：集成地理感知区）                  |
 
 ### 2.3 技术选型
 
-| 维度 | 选型 | 理由 |
-|------|------|------|
-| 定位源 | ip-api.com（主）+ ipapi.co + ip.sb（备） | 免费、无需 Key、城市级精度 |
-| 地图显示 | 高德静态地图 API + OSM 兜底 | 有 Key 用高德，无 Key 用 OSM |
-| 数据存储 | 复用 `long_term_memory` 表 | 零表结构变更，通过 entity 区分 |
-| 网络请求 | `urllib.request` | Python 标准库，零新依赖 |
-| GUI 框架 | 现有 PySide6 | 与项目一致 |
+| 维度     | 选型                                 | 理由                    |
+| ------ | ---------------------------------- | --------------------- |
+| 定位源    | ip-api.com（主）+ ipapi.co + ip.sb（备） | 免费、无需 Key、城市级精度       |
+| 地图显示   | 高德静态地图 API + OSM 兜底                | 有 Key 用高德，无 Key 用 OSM |
+| 数据存储   | 复用 `long_term_memory` 表            | 零表结构变更，通过 entity 区分   |
+| 网络请求   | `urllib.request`                   | Python 标准库，零新依赖       |
+| GUI 框架 | 现有 PySide6                         | 与项目一致                 |
 
----
+***
 
 ## 三、模块实现方案
 
 ### 3.1 定位模块（location.py）
 
 #### 文件位置
+
 ```
 nodes/node_python_aaa_cognition/location.py
 ```
@@ -464,13 +465,13 @@ class LocationManager:
 
 定位数据通过 `entity` + `channel` 特殊标记区分，与 AAA 其他记忆共存：
 
-| 字段 | 定位数据值 | 说明 |
-|------|-----------|------|
-| `entity` | `'current_location'` | 固定实体名 |
-| `channel` | `'location'` | 专用 channel |
-| `identity_key` | 现有用户 key | 多用户隔离 |
-| `content` | JSON 字符串 | 完整位置信息 |
-| `status` | `'active'` / `'superseded'` | 最新记录为 active |
+| 字段             | 定位数据值                       | 说明           |
+| -------------- | --------------------------- | ------------ |
+| `entity`       | `'current_location'`        | 固定实体名        |
+| `channel`      | `'location'`                | 专用 channel   |
+| `identity_key` | 现有用户 key                    | 多用户隔离        |
+| `content`      | JSON 字符串                    | 完整位置信息       |
+| `status`       | `'active'` / `'superseded'` | 最新记录为 active |
 
 #### content JSON 结构
 
@@ -894,7 +895,7 @@ class SettingsPanel(QWidget):
         ...
 ```
 
----
+***
 
 ## 四、数据库设计
 
@@ -921,36 +922,36 @@ ON long_term_memory (identity_key, entity, channel, status);
 
 ### 4.2 数据操作
 
-| 操作 | SQL 条件 | 说明 |
-|------|---------|------|
-| 查询最新位置 | `entity='current_location' AND status='active'` | 读操作 |
-| 新增位置 | `INSERT INTO long_term_memory` | 位置变化时写入 |
-| 标记旧记录 | `UPDATE ... SET status='superseded'` | 写入新记录前执行 |
-| 更新时间戳 | `UPDATE ... SET content=json_set(...)` | 位置未变时 touch |
-| 查询历史轨迹 | `ORDER BY created_at DESC LIMIT N` | 读取历史 |
+| 操作     | SQL 条件                                          | 说明          |
+| ------ | ----------------------------------------------- | ----------- |
+| 查询最新位置 | `entity='current_location' AND status='active'` | 读操作         |
+| 新增位置   | `INSERT INTO long_term_memory`                  | 位置变化时写入     |
+| 标记旧记录  | `UPDATE ... SET status='superseded'`            | 写入新记录前执行    |
+| 更新时间戳  | `UPDATE ... SET content=json_set(...)`          | 位置未变时 touch |
+| 查询历史轨迹 | `ORDER BY created_at DESC LIMIT N`              | 读取历史        |
 
----
+***
 
 ## 五、API 接口清单
 
 ### 5.1 LocationManager 公共 API
 
-| 方法 | 参数 | 返回值 | 说明 |
-|------|------|--------|------|
-| `get_location(force_refresh=False)` | force_refresh: bool | `LocationResult` | 获取当前位置 |
-| `get_cached_location()` | - | `Optional[GPSLocation]` | 获取缓存（不触发网络） |
-| `set_enabled(enabled)` | enabled: bool | None | 启用/禁用定位 |
-| `is_enabled()` | - | bool | 查询定位状态 |
-| `get_location_history(limit=20)` | limit: int | `List[dict]` | 查询历史记录 |
-| `clear_location_history()` | - | int | 清除历史，返回条数 |
+| 方法                                  | 参数                   | 返回值                     | 说明          |
+| ----------------------------------- | -------------------- | ----------------------- | ----------- |
+| `get_location(force_refresh=False)` | force\_refresh: bool | `LocationResult`        | 获取当前位置      |
+| `get_cached_location()`             | -                    | `Optional[GPSLocation]` | 获取缓存（不触发网络） |
+| `set_enabled(enabled)`              | enabled: bool        | None                    | 启用/禁用定位     |
+| `is_enabled()`                      | -                    | bool                    | 查询定位状态      |
+| `get_location_history(limit=20)`    | limit: int           | `List[dict]`            | 查询历史记录      |
+| `clear_location_history()`          | -                    | int                     | 清除历史，返回条数   |
 
 ### 5.2 location.py 独立函数
 
-| 函数 | 参数 | 返回值 | 说明 |
-|------|------|--------|------|
+| 函数                                              | 参数            | 返回值 | 说明            |
+| ----------------------------------------------- | ------------- | --- | ------------- |
 | `build_location_section(db_path, identity_key)` | 数据库路径, 用户 key | str | 构建 Prompt 位置段 |
 
-### 5.3 配置项（gui_config.json）
+### 5.3 配置项（gui\_config.json）
 
 ```json
 {
@@ -969,7 +970,7 @@ ON long_term_memory (identity_key, entity, channel, status);
 }
 ```
 
----
+***
 
 ## 六、与现有架构的对接点
 
@@ -1014,42 +1015,42 @@ ON long_term_memory (identity_key, entity, channel, status);
 
 ### 6.2 对接点详细说明
 
-| 对接点 | 文件路径 | 修改类型 | 工作量 |
-|--------|---------|---------|:------:|
-| **定位模块** | `nodes/node_python_aaa_cognition/location.py` | **新建** | 4h |
-| Prompt 集成 | `nodes/node_python_aaa_cognition/prompt.py` | 修改：import + 注入 location_section | 0.5h |
-| 地图组件 | `gui/widgets/location_map_widget.py` | **新建** | 2h |
-| 设置页集成 | `gui/pages/settings_panel.py` | 修改：新增地理感知区 | 2h |
-| 配置扩展 | `gui/core/config.py` | 修改：location 配置读写 | 0.5h |
-| 定时刷新 | `gui/main.py` | 修改：QTimer 定时 | 0.5h |
+| 对接点       | 文件路径                                          | 修改类型                             |  工作量 |
+| --------- | --------------------------------------------- | -------------------------------- | :--: |
+| **定位模块**  | `nodes/node_python_aaa_cognition/location.py` | **新建**                           |  4h  |
+| Prompt 集成 | `nodes/node_python_aaa_cognition/prompt.py`   | 修改：import + 注入 location\_section | 0.5h |
+| 地图组件      | `gui/widgets/location_map_widget.py`          | **新建**                           |  2h  |
+| 设置页集成     | `gui/pages/settings_panel.py`                 | 修改：新增地理感知区                       |  2h  |
+| 配置扩展      | `gui/core/config.py`                          | 修改：location 配置读写                 | 0.5h |
+| 定时刷新      | `gui/main.py`                                 | 修改：QTimer 定时                     | 0.5h |
 
----
+***
 
 ## 七、开发步骤与时间线
 
 ### Day 1：核心模块（4h）
 
-| 序号 | 任务 | 产出 | 验收标准 |
-|:----:|------|------|---------|
-| 1 | 创建 `nodes/node_python_aaa_cognition/location.py` | LocationManager 类 + GPSLocation 类 | 单元测试通过 |
-| 2 | 实现 3 个免费定位源解析 | `_parse_ip_api/ipapi/ip_sb` | mock 测试通过 |
-| 3 | 实现去重存储逻辑 | `_handle_location_update()` | 移动/静止场景测试通过 |
-| 4 | 实现 `build_location_section()` | Prompt 段构建函数 | 返回正确文本 |
+|  序号 | 任务                                               | 产出                                | 验收标准        |
+| :-: | ------------------------------------------------ | --------------------------------- | ----------- |
+|  1  | 创建 `nodes/node_python_aaa_cognition/location.py` | LocationManager 类 + GPSLocation 类 | 单元测试通过      |
+|  2  | 实现 3 个免费定位源解析                                    | `_parse_ip_api/ipapi/ip_sb`       | mock 测试通过   |
+|  3  | 实现去重存储逻辑                                         | `_handle_location_update()`       | 移动/静止场景测试通过 |
+|  4  | 实现 `build_location_section()`                    | Prompt 段构建函数                      | 返回正确文本      |
 
 ### Day 2：集成与 GUI（4h）
 
-| 序号 | 任务 | 产出 | 验收标准 |
-|:----:|------|------|---------|
-| 5 | 修改 `prompt.py` 集成位置段 | import + 模板注入 | Prompt 含位置信息 |
-| 6 | 创建 `LocationMapWidget` | 地图显示组件 | 显示带标记地图 |
-| 7 | 修改 `settings_panel.py` | 地理感知设置区 | UI 正确显示 |
-| 8 | 添加定时刷新 + 配置项 | QTimer + config | 5 分钟自动刷新 |
+|  序号 | 任务                     | 产出              | 验收标准         |
+| :-: | ---------------------- | --------------- | ------------ |
+|  5  | 修改 `prompt.py` 集成位置段   | import + 模板注入   | Prompt 含位置信息 |
+|  6  | 创建 `LocationMapWidget` | 地图显示组件          | 显示带标记地图      |
+|  7  | 修改 `settings_panel.py` | 地理感知设置区         | UI 正确显示      |
+|  8  | 添加定时刷新 + 配置项           | QTimer + config | 5 分钟自动刷新     |
 
 ### 合计：约 1 个工作日（8h）
 
----
+***
 
-## 八、验收标准
+## 八、验收标准\*
 
 ### 8.1 功能验收
 
@@ -1077,7 +1078,7 @@ ON long_term_memory (identity_key, entity, channel, status);
 - [ ] 用户禁用 → Prompt 不含位置
 - [ ] 位置过时 → Prompt 标记"可能已过时"
 
----
+***
 
 ## 九、测试方案
 
@@ -1150,18 +1151,18 @@ class TestLocationIntegration:
         assert widget.pixmap() is not None
 ```
 
----
+***
 
 ## 十、风险与降级策略
 
-| 风险 | 触发条件 | 缓解措施 |
-|------|---------|---------|
-| IP 精度不足 | VPN/代理 | Prompt 中标注精度，禁止编造精确地址 |
-| 服务不可用 | 所有免费源宕机 | 返回缓存，标记 stale |
-| 限流被封 | 短时间大量请求 | 多源轮换 + ≥1s 间隔保护 |
-| 隐私问题 | 用户不希望暴露 | 一键开关，关闭即清除 |
-| 高德 Key 失效 | Key 过期 | 自动降级 OpenStreetMap |
-| 数据库损坏 | 硬件故障 | 不影响主流程，仅丢历史 |
+| 风险        | 触发条件    | 缓解措施                  |
+| --------- | ------- | --------------------- |
+| IP 精度不足   | VPN/代理  | Prompt 中标注精度，禁止编造精确地址 |
+| 服务不可用     | 所有免费源宕机 | 返回缓存，标记 stale         |
+| 限流被封      | 短时间大量请求 | 多源轮换 + ≥1s 间隔保护       |
+| 隐私问题      | 用户不希望暴露 | 一键开关，关闭即清除            |
+| 高德 Key 失效 | Key 过期  | 自动降级 OpenStreetMap    |
+| 数据库损坏     | 硬件故障    | 不影响主流程，仅丢历史           |
 
 ### 降级路径
 
@@ -1173,18 +1174,18 @@ class TestLocationIntegration:
 降级4：用户禁用 → 返回错误 → 不注入 Prompt/GUI
 ```
 
----
+***
 
 ## 附录：免费 API 速查
 
-| 服务 | URL | 精度 | 额度 | 特点 |
-|------|-----|:----:|:----:|------|
-| ip-api.com | `http://ip-api.com/json/` | 5km | 45次/小时 | 快、稳定、支持中文 |
-| ipapi.co | `https://ipapi.co/json/` | 10km | 50000次/天 | 额度大 |
-| ip.sb | `https://api.ip.sb/geoip` | 5km | 无限次 | 无限制、隐私友好 |
-| OpenStreetMap | `https://staticmap.openstreetmap.de/` | - | 1次/秒 | 免费地图 |
+| 服务            | URL                                   |  精度  |    额度    | 特点        |
+| ------------- | ------------------------------------- | :--: | :------: | --------- |
+| ip-api.com    | `http://ip-api.com/json/`             |  5km |  45次/小时  | 快、稳定、支持中文 |
+| ipapi.co      | `https://ipapi.co/json/`              | 10km | 50000次/天 | 额度大       |
+| ip.sb         | `https://api.ip.sb/geoip`             |  5km |    无限次   | 无限制、隐私友好  |
+| OpenStreetMap | `https://staticmap.openstreetmap.de/` |   -  |   1次/秒   | 免费地图      |
 
----
+***
 
-*文档版本：v1.1 | 修正架构归属：定位模块归 AAA 认知节点（`nodes/node_python_aaa_cognition/location.py`），与 `memos.py`、`diary.py` 并列，而非 `bnos_runtime/`（节点编排层）*
+*文档版本：v1.1 | 修正架构归属：定位模块归 AAA 认知节点（`nodes/node_python_aaa_cognition/location.py`），与* *`memos.py`、`diary.py`* *并列，而非* *`bnos_runtime/`（节点编排层）*
 *关联设计文档：`[PLAN]-AI定位信息功能设计方案.md`、`[PLAN]-AI世界感知记忆系统设计方案.md`*

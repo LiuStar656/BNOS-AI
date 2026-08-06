@@ -103,15 +103,26 @@ class StandaloneRunner:
                 duration_ms=duration_ms, success=False,
             )
 
-    def start(self) -> tuple[str, subprocess.Popen]:
+    def start(self, log_dir: Path | None = None) -> tuple[str, subprocess.Popen]:
         """（新接口）非阻塞启动节点进程，立即返回 (node_id, proc)。
 
         适用于长时间运行的 event-loop 节点（listener.py / listener.js）。
         支持 Python (.py) 和 JavaScript (.js) 两种入口。
         调用方负责调用 proc.kill() / proc.terminate()。
+
+        Args:
+            log_dir: 节点日志目录。指定后节点 stdout/stderr 写入
+                    log_dir/nodes/{node_id}.log；不指定则使用默认行为。
         """
         node_path = self.project_root / self.defn.path
         self._kill_existing_instance(node_path)
+
+        # 准备日志文件句柄
+        log_fh = None
+        if log_dir:
+            node_log = Path(log_dir) / "nodes" / f"{self.node_id}.log"
+            node_log.parent.mkdir(parents=True, exist_ok=True)
+            log_fh = open(node_log, "a", encoding="utf-8")
 
         # 优先尝试 exe_entry
         if self.defn.exe_entry:
@@ -120,7 +131,8 @@ class StandaloneRunner:
                 proc = subprocess.Popen(
                     [str(exe_path)],
                     cwd=str(node_path),
-                    stdout=None, stderr=None,
+                    stdout=log_fh if log_fh else None,
+                    stderr=log_fh if log_fh else None,
                     env={**os.environ, "BNOS_RUNTIME": "1"},
                 )
                 return self.node_id, proc
@@ -134,7 +146,8 @@ class StandaloneRunner:
             proc = subprocess.Popen(
                 ["node", entry],
                 cwd=str(node_path),
-                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                stdout=log_fh if log_fh else subprocess.DEVNULL,
+                stderr=log_fh if log_fh else subprocess.DEVNULL,
                 env={**os.environ, "BNOS_RUNTIME": "1", "PYTHONIOENCODING": "utf-8"},
             )
         else:
@@ -143,7 +156,8 @@ class StandaloneRunner:
             proc = subprocess.Popen(
                 [str(python_exe), entry],
                 cwd=str(node_path),
-                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                stdout=log_fh if log_fh else subprocess.DEVNULL,
+                stderr=log_fh if log_fh else subprocess.DEVNULL,
                 env={**os.environ, "BNOS_RUNTIME": "1", "PYTHONIOENCODING": "utf-8"},
             )
         return self.node_id, proc

@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (
 )
 
 from gui.core.config import AppConfig
-from gui.widgets.knowledge_graph import KnowledgeGraph
+from gui.widgets.knowledge_graph import KnowledgeGraph, _node_id_for_entry, LINK_THRESHOLD
 
 
 # ─── 路径 ─────────────────────────────────────────
@@ -131,17 +131,21 @@ class KnowledgePanel(QWidget):
         self.setPalette(p)
         self.setAutoFillBackground(True)
 
-        self._db_entries: list[dict] = []   # 数据库数据（卡片列表）
-        self._graph_entries: list[dict] = []  # 图谱数据（图谱视图）
+        self._db_entries: list[dict] = []
+        self._graph_entries: list[dict] = []
         self._graph_edges: list[dict] = []
+        self._graph_sim_matrix: list[list[float]] | None = None
+
+        # 缓存检测：记录文件 mtime，避免重复加载
+        self._graph_file_mtime: float = 0.0
 
         self._build_ui()
         self._load_data()
 
-        # 自动刷新（10s）
+        # 自动刷新（60s，仅检测 mtime，数据未变时跳过）
         self._refresh_timer = QTimer(self)
-        self._refresh_timer.timeout.connect(self._load_data)
-        self._refresh_timer.start(10000)
+        self._refresh_timer.timeout.connect(self._auto_refresh_check)
+        self._refresh_timer.start(60000)
 
     def _build_ui(self):
         colors = self._config.get_all_colors()
@@ -156,7 +160,7 @@ class KnowledgePanel(QWidget):
         # ─── Tab 栏 ──────────────────────────
         self._tab_bar = QTabBar()
         self._tab_bar.addTab("数据浏览")
-        self._tab_bar.addTab("知识图谱")
+        self._tab_bar.addTab("记忆图谱")
         self._tab_bar.setStyleSheet(f"""
             QTabBar {{
                 background: {bg};
@@ -316,18 +320,20 @@ class KnowledgePanel(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(6)
 
-        # 阈值滑块
-        slider_row = QHBoxLayout()
-        slider_row.setSpacing(8)
-        slider_label = QLabel("相似度阈值:")
-        slider_label.setStyleSheet(f"font-size: 12px; color: {colors['text_primary']}80;")
-        slider_row.addWidget(slider_label)
+        # 控制栏
+        control_row = QHBoxLayout()
+        control_row.setSpacing(12)
 
-        self._threshold_slider = QSlider(Qt.Orientation.Horizontal)
-        self._threshold_slider.setRange(20, 95)
-        self._threshold_slider.setValue(60)
-        self._threshold_slider.setFixedWidth(180)
-        self._threshold_slider.setStyleSheet(f"""
+        # ── 力尺度滑块 (控制力导向布局的力度) ──
+        slider_label = QLabel("力尺度:")
+        slider_label.setStyleSheet(f"font-size: 12px; color: {colors['text_primary']}80;")
+        control_row.addWidget(slider_label)
+
+        self._force_slider = QSlider(Qt.Orientation.Horizontal)
+        self._force_slider.setRange(10, 500)  # 0.10x ~ 5.00x
+        self._force_slider.setValue(100)
+        self._force_slider.setFixedWidth(180)
+        self._force_slider.setStyleSheet(f"""
             QSlider::groove:horizontal {{
                 height: 4px; background: {colors['border_color']};
                 border-radius: 2px;
@@ -342,38 +348,91 @@ class KnowledgePanel(QWidget):
                 border-radius: 2px;
             }}
         """)
-        self._threshold_value = QLabel("0.60")
-        self._threshold_value.setStyleSheet(f"font-size: 12px; color: {colors['text_primary']};")
-        self._threshold_slider.valueChanged.connect(self._on_threshold_changed)
-        slider_row.addWidget(self._threshold_slider)
-        slider_row.addWidget(self._threshold_value)
-        slider_row.addStretch()
+        self._force_value = QLabel("1.00x")
+        self._force_value.setStyleSheet(f"font-size: 12px; color: {colors['text_primary']};")
+        self._force_slider.valueChanged.connect(self._on_force_changed)
+        control_row.addWidget(self._force_slider)
+        control_row.addWidget(self._force_value)
 
-        count_label = QLabel("双击重置视图 | 滚轮缩放 | 拖拽画布/节点")
+        control_row.addStretch()
+
+        count_label = QLabel("双击节点定位 · 双击空白重置 | 滚轮平移 | Ctrl+滚轮缩放 | 空格+左键拖拽 | 拖拽节点松手后自动聚合")
         count_label.setStyleSheet(f"font-size: 11px; color: {colors['text_primary']}60;")
-        slider_row.addWidget(count_label)
+        control_row.addWidget(count_label)
 
-        layout.addLayout(slider_row)
+        layout.addLayout(control_row)
 
         # 图谱组件
         self._graph = KnowledgeGraph()
-        self._graph.node_clicked.connect(self._on_graph_node_clicked)
+        self._graph.node_double_clicked.connect(self._on_graph_node_double_clicked)
+        self._graph.force_scale_changed.connect(self._on_graph_force_scale_changed)
         layout.addWidget(self._graph, 1)
 
     # ─── 数据加载 ─────────────────────────────
 
-    def _load_data(self):
-        """异步加载数据库数据和图谱数据"""
+    def _auto_refresh_check(self):
+        """自动刷新检查：仅检测 mtime，数据未变时跳过"""
+        try:
+            p = Path(_GRAPH_PATH)
+            if p.exists():
+                current_mtime = p.stat().st_mtime
+                if current_mtime != self._graph_file_mtime:
+                    # 文件已更新，重新加载
+                    self._load_data(force=True)
+        except Exception:
+            pass
+
+    def _load_data(self, force: bool = False):
+        """异步加载数据库数据和图谱数据
+
+        Args:
+            force: 强制加载（忽略缓存检测）
+        """
+        # 缓存检测
+        if not force:
+            try:
+                p = Path(_GRAPH_PATH)
+                if p.exists():
+                    current_mtime = p.stat().st_mtime
+                    if current_mtime == self._graph_file_mtime:
+                        # 图谱文件未变，仅更新数据库卡片
+                        self._load_db_only()
+                        return
+            except Exception:
+                pass
+
         def _load():
             self._db_entries = _read_db()
             graph = _read_graph()
             if graph:
                 self._graph_entries = graph["entries"]
                 self._graph_edges = graph["edges"]
+                # 解析相似度矩阵 (扁平化 → 2D)
+                sim_flat = graph.get("sim_matrix")
+                if sim_flat:
+                    n = len(self._graph_entries)
+                    self._graph_sim_matrix = [
+                        [float(sim_flat[i * n + j]) for j in range(n)]
+                        for i in range(n)
+                    ]
+                else:
+                    self._graph_sim_matrix = None
+                try:
+                    p = Path(_GRAPH_PATH)
+                    if p.exists():
+                        self._graph_file_mtime = p.stat().st_mtime
+                except Exception:
+                    pass
 
         threading.Thread(target=_load, daemon=True).start()
-        # 延迟检查，等线程完成
         QTimer.singleShot(300, self._refresh_ui)
+
+    def _load_db_only(self):
+        """仅加载数据库卡片（图谱数据不变时）"""
+        def _load():
+            self._db_entries = _read_db()
+        threading.Thread(target=_load, daemon=True).start()
+        QTimer.singleShot(300, self._refresh_db_ui)
 
     def _refresh_ui(self):
         """刷新 UI（需在主线程调用）"""
@@ -381,13 +440,36 @@ class KnowledgePanel(QWidget):
             self._count_label.setText("暂无数据")
             return
 
-        self._count_label.setText(
-            "{} 条数据 · {} 个图谱节点".format(
-                len(self._db_entries), len(self._graph_entries)
+        # 构建状态信息
+        info_parts = ["{} 条数据".format(len(self._db_entries))]
+        if self._graph_entries:
+            info_parts.append("{} 个图谱节点".format(len(self._graph_entries)))
+            total_edges = sum(
+                1 for e in self._graph_edges
+                if e.get("weight", 0) >= LINK_THRESHOLD
             )
-        )
+            info_parts.append("{} 条边".format(total_edges))
+        self._count_label.setText(" · ".join(info_parts))
+
         self._rebuild_cards()
         self._rebuild_graph()
+
+    def _refresh_db_ui(self):
+        """仅刷新数据库卡片"""
+        if not self._db_entries:
+            self._count_label.setText("暂无数据")
+            return
+
+        info_parts = ["{} 条数据".format(len(self._db_entries))]
+        if self._graph_entries:
+            info_parts.append("{} 个图谱节点".format(len(self._graph_entries)))
+        self._count_label.setText(" · ".join(info_parts))
+
+        self._rebuild_cards()
+
+        # 如果在图谱 Tab，也需要刷新图谱
+        if self._tab_bar.currentIndex() == 1:
+            self._rebuild_graph()
 
     def _rebuild_cards(self):
         """重建数据浏览卡片"""
@@ -416,14 +498,20 @@ class KnowledgePanel(QWidget):
         extra = entry.get("extra", "")
         created_at = entry.get("created_at", "")
         if len(content) > 120:
-            content = content[:120] + "..."
+            display_content = content[:120] + "..."
+        else:
+            display_content = content
 
         card = QWidget()
+        card.setProperty("entry_id", _node_id_for_entry(entry))
         card.setStyleSheet(f"""
             QWidget {{
                 background: {colors['bg_primary']};
                 border: 1px solid {colors['border_color']};
                 border-radius: 6px;
+            }}
+            QWidget#highlight {{
+                border: 2px solid {colors.get('accent_color', '#1a73e8')};
             }}
         """)
         card_layout = QVBoxLayout(card)
@@ -437,7 +525,7 @@ class KnowledgePanel(QWidget):
         """)
         card_layout.addWidget(cat_label)
 
-        content_label = QLabel(content)
+        content_label = QLabel(display_content)
         content_label.setWordWrap(True)
         content_label.setStyleSheet(f"""
             font-size: 12px; color: {colors['text_primary']};
@@ -471,20 +559,60 @@ class KnowledgePanel(QWidget):
     # ─── 图谱交互 ─────────────────────────────
 
     def _rebuild_graph(self):
+        """重建图谱视图"""
         if self._graph_entries and self._graph_edges:
-            threshold = self._threshold_slider.value() / 100.0
-            self._graph.load_data(self._graph_entries, self._graph_edges, threshold)
+            self._graph.load_data(
+                self._graph_entries, self._graph_edges,
+                sim_matrix=self._graph_sim_matrix,
+            )
 
-    def _on_threshold_changed(self, value: int):
-        self._threshold_value.setText(f"{value / 100:.2f}")
-        if self._graph_entries and self._graph_edges:
-            self._graph.load_data(self._graph_entries, self._graph_edges, value / 100.0)
+    def _on_force_changed(self, value: int):
+        """力尺度滑块变化时调整力的大小"""
+        force = value / 100.0
+        self._force_value.setText(f"{force:.2f}x")
+        self._graph.set_force_scale(force)
 
-    def _on_graph_node_clicked(self, entry: dict):
-        """点击图谱节点 → 切回列表视图并选中对应分类"""
+    def _on_graph_force_scale_changed(self, scale: float):
+        """图谱内部（Ctrl+滚轮）改变力尺度时同步滑块"""
+        self._force_value.setText(f"{scale:.2f}x")
+        self._force_slider.blockSignals(True)
+        self._force_slider.setValue(int(scale * 100))
+        self._force_slider.blockSignals(False)
+
+    def _on_graph_node_double_clicked(self, entry: dict):
+        """双击图谱节点 → 定位到数据源卡片位置"""
         table = entry.get("table", "")
         self._filter_by(table)
         self._tab_bar.setCurrentIndex(0)
+
+        # 查找对应卡片并滚动定位
+        target_id = _node_id_for_entry(entry)
+        scroll_area = self._list_view.findChild(QScrollArea)
+        if scroll_area is None:
+            # 遍历列表视图寻找滚动区域
+            for child in self._list_view.findChildren(QScrollArea):
+                scroll_area = child
+                break
+
+        if scroll_area is not None:
+            # 清除之前的高亮
+            for i in range(self._card_layout.count()):
+                item = self._card_layout.itemAt(i)
+                if item and item.widget():
+                    item.widget().setObjectName("")
+
+            # 找到目标卡片
+            for i in range(self._card_layout.count()):
+                item = self._card_layout.itemAt(i)
+                if item and item.widget():
+                    card = item.widget()
+                    if card.property("entry_id") == target_id:
+                        card.setObjectName("highlight")
+                        card.style().unpolish(card)
+                        card.style().polish(card)
+                        # 滚动到该卡片
+                        scroll_area.ensureWidgetVisible(card, 50, 50)
+                        break
 
     # ─── Tab 切换 ─────────────────────────────
 

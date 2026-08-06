@@ -266,7 +266,20 @@ class NodePage(QWidget):
                 paths.insert(0, pr)
             env["PYTHONPATH"] = os.pathsep.join(paths)
 
+            # 获取当前批次的引擎日志目录
+            _engine_log_dir = None
+            try:
+                from gui.core.logger import get_batch_dir
+                _batch = get_batch_dir()
+                if _batch:
+                    _engine_log_dir = _batch / "engine"
+                    _engine_log_dir.mkdir(parents=True, exist_ok=True)
+            except Exception:
+                pass
+
             proc = subprocess.Popen(
+                [python_exe, "-m", "bnos_runtime.engine", PIPELINE_PATH,
+                 "--log-dir", str(_engine_log_dir)] if _engine_log_dir else
                 [python_exe, "-m", "bnos_runtime.engine", PIPELINE_PATH],
                 cwd=str(PROJECT_ROOT),
                 env=env,
@@ -279,7 +292,7 @@ class NodePage(QWidget):
             print(f"[NodePage] 引擎已启动 PID={proc.pid}")
 
             # 后台线程读取引擎输出，防止管道阻塞（与 main.py 一致）
-            self._pipe_engine_output(proc)
+            self._pipe_engine_output(proc, log_dir=_engine_log_dir)
 
             self._state.engine_status = "starting"
         except Exception as e:
@@ -287,15 +300,34 @@ class NodePage(QWidget):
             self._state.engine_status = "error"
 
     @staticmethod
-    def _pipe_engine_output(proc: subprocess.Popen):
-        """后台线程：持续读取引擎的子进程输出并打印到控制台"""
+    def _pipe_engine_output(proc: subprocess.Popen, log_dir: Path | None = None):
+        """后台线程：持续读取引擎的子进程输出，打印到控制台并写入日志文件。
+
+        Args:
+            proc: 引擎子进程。
+            log_dir: 引擎日志目录（可选）。指定时输出追加写入 engine_pipe.log。
+        """
+        # 准备日志文件句柄
+        log_fh = None
+        if log_dir:
+            log_dir = Path(log_dir)
+            log_dir.mkdir(parents=True, exist_ok=True)
+            log_fh = open(log_dir / "engine_pipe.log", "a", encoding="utf-8")
+
         def _reader():
             try:
                 for line in iter(proc.stdout.readline, ""):
                     if line:
                         print(f"[引擎] {line}", end="")
+                        if log_fh:
+                            log_fh.write(line)
+                            log_fh.flush()
             except Exception:
                 pass
+            finally:
+                if log_fh:
+                    log_fh.close()
+
         t = threading.Thread(target=_reader, daemon=True)
         t.start()
 

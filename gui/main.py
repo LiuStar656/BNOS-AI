@@ -43,7 +43,7 @@ def _cleanup_gui_adapter():
             pass
 
 
-def _start_engine():
+def _start_engine(log_dir: Path | None = None):
     """启动引擎进程（--serve 事件驱动模式）"""
     pipeline_path = Path(_project_root) / "pipeline.json"
 
@@ -60,9 +60,14 @@ def _start_engine():
 
     from gui.pages.node_page import NodePage
 
+    # 构建命令行参数
+    cmd = [python_exe, "-m", "bnos_runtime.engine", str(pipeline_path), "--serve"]
+    if log_dir:
+        cmd.extend(["--log-dir", str(log_dir)])
+
     try:
         proc = subprocess.Popen(
-            [python_exe, "-m", "bnos_runtime.engine", str(pipeline_path), "--serve"],
+            cmd,
             cwd=_project_root,
             env=env,
             stdout=subprocess.PIPE,
@@ -74,7 +79,7 @@ def _start_engine():
         print("引擎启动成功，PID:", proc.pid)
 
         # 后台线程读取引擎输出，防止管道阻塞
-        NodePage._pipe_engine_output(proc)
+        NodePage._pipe_engine_output(proc, log_dir=log_dir)
 
     except Exception as e:
         print("引擎启动失败:", e)
@@ -189,6 +194,12 @@ def _stop_engine():
 def main():
     _cleanup_gui_adapter()
 
+    # 初始化 GUI 日志系统（按启动批次隔离）
+    from gui.core.logger import setup_gui_logger, get_logger
+    _batch_dir = setup_gui_logger()
+    _log = get_logger("main")
+    _log.info("BNOS AI 启动 — 批次目录: %s", _batch_dir)
+
     # 必须先创建 QApplication 才能使用 QWidget
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
@@ -196,8 +207,9 @@ def main():
     # 闪屏
     splash = StartupSplash(_project_root)
 
-    # 启动引擎（非阻塞）
-    _start_engine()
+    # 启动引擎（非阻塞），传递批次日志目录
+    _engine_log_dir = _batch_dir / "engine"
+    _start_engine(log_dir=_engine_log_dir)
     atexit.register(_stop_engine)
 
     # 预设窗口：主窗口创建后再注册退出清理
