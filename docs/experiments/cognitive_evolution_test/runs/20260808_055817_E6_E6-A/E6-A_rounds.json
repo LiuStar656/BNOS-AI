@@ -1,0 +1,30 @@
+{
+ "gid": "E6-A",
+ "cfg": {
+  "gid": "E6-A",
+  "seed": "default",
+  "pool": "command",
+  "mood_mode": "current",
+  "review_mode": "none",
+  "rounds": 100
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "mood": -0.0961,
+   "name": "影刃",
+   "self_info_total": 2,
+   "sc_count": 5,
+   "settled": 0,
+   "procedural": 0,
+   "round": 5,
+   "rss_mb": 45.8
+  }
+ ],
+ "errors": []
+}

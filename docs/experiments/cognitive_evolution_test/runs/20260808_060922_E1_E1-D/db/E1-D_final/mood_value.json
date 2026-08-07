@@ -1,0 +1,884 @@
+[
+ {
+  "id": 1,
+  "identity_key": "gui:default",
+  "mood_value": -0.1,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:09:45"
+ },
+ {
+  "id": 2,
+  "identity_key": "gui:default",
+  "mood_value": -0.14500000000000002,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:09:54"
+ },
+ {
+  "id": 3,
+  "identity_key": "gui:default",
+  "mood_value": -0.18775000000000003,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:09:58"
+ },
+ {
+  "id": 4,
+  "identity_key": "gui:default",
+  "mood_value": -0.2783625,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:13"
+ },
+ {
+  "id": 5,
+  "identity_key": "gui:default",
+  "mood_value": -0.264444375,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:19"
+ },
+ {
+  "id": 6,
+  "identity_key": "gui:default",
+  "mood_value": -0.35122215625,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:23"
+ },
+ {
+  "id": 7,
+  "identity_key": "gui:default",
+  "mood_value": -0.4336610484375,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:29"
+ },
+ {
+  "id": 8,
+  "identity_key": "gui:default",
+  "mood_value": -0.3119779960156249,
+  "adjustment": 0.1,
+  "source_mood": "沉重",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:36"
+ },
+ {
+  "id": 9,
+  "identity_key": "gui:default",
+  "mood_value": -0.29637909621484365,
+  "adjustment": 0.0,
+  "source_mood": "沉重",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:39"
+ },
+ {
+  "id": 10,
+  "identity_key": "gui:default",
+  "mood_value": -0.28156014140410146,
+  "adjustment": 0.0,
+  "source_mood": "沉重",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:47"
+ },
+ {
+  "id": 11,
+  "identity_key": "gui:default",
+  "mood_value": -0.1674821343338964,
+  "adjustment": 0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:50"
+ },
+ {
+  "id": 12,
+  "identity_key": "gui:default",
+  "mood_value": -0.15910802761720155,
+  "adjustment": 0.0,
+  "source_mood": "",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:55"
+ },
+ {
+  "id": 13,
+  "identity_key": "gui:default",
+  "mood_value": -0.2511526262363415,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:10:59"
+ },
+ {
+  "id": 14,
+  "identity_key": "gui:default",
+  "mood_value": -0.3385949949245244,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:11:06"
+ },
+ {
+  "id": 15,
+  "identity_key": "gui:default",
+  "mood_value": -0.22166524517829814,
+  "adjustment": 0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:11:13"
+ },
+ {
+  "id": 16,
+  "identity_key": "gui:default",
+  "mood_value": -0.1105819829193832,
+  "adjustment": 0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:11:19"
+ },
+ {
+  "id": 17,
+  "identity_key": "gui:default",
+  "mood_value": -0.20505288377341405,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:11:28"
+ },
+ {
+  "id": 18,
+  "identity_key": "gui:default",
+  "mood_value": -0.24480023958474334,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:11:40"
+ },
+ {
+  "id": 19,
+  "identity_key": "gui:default",
+  "mood_value": -0.31256022760550617,
+  "adjustment": -0.08,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:11:52"
+ },
+ {
+  "id": 20,
+  "identity_key": "gui:default",
+  "mood_value": -0.34693221622523085,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:12:02"
+ },
+ {
+  "id": 21,
+  "identity_key": "gui:default",
+  "mood_value": -0.3295856054139693,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:12:06"
+ },
+ {
+  "id": 22,
+  "identity_key": "gui:default",
+  "mood_value": -0.2131063251432708,
+  "adjustment": 0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:12:13"
+ },
+ {
+  "id": 23,
+  "identity_key": "gui:default",
+  "mood_value": -0.2524510088861073,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:12:19"
+ },
+ {
+  "id": 24,
+  "identity_key": "gui:default",
+  "mood_value": -0.2898284584418019,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:12:35"
+ },
+ {
+  "id": 25,
+  "identity_key": "gui:default",
+  "mood_value": -0.37533703551971176,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:12:46"
+ },
+ {
+  "id": 26,
+  "identity_key": "gui:default",
+  "mood_value": -0.2565701837437262,
+  "adjustment": 0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:12:56"
+ },
+ {
+  "id": 27,
+  "identity_key": "gui:default",
+  "mood_value": -0.14374167455653988,
+  "adjustment": 0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:13:03"
+ },
+ {
+  "id": 28,
+  "identity_key": "gui:default",
+  "mood_value": -0.23655459082871289,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:13:14"
+ },
+ {
+  "id": 29,
+  "identity_key": "gui:default",
+  "mood_value": -0.32472686128727724,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:13:21"
+ },
+ {
+  "id": 30,
+  "identity_key": "gui:default",
+  "mood_value": -0.30849051822291335,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:13:28"
+ },
+ {
+  "id": 31,
+  "identity_key": "gui:default",
+  "mood_value": -0.34306599231176765,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:13:35"
+ },
+ {
+  "id": 32,
+  "identity_key": "gui:default",
+  "mood_value": -0.3759126926961792,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:13:44"
+ },
+ {
+  "id": 33,
+  "identity_key": "gui:default",
+  "mood_value": -0.35711705806137023,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:13:50"
+ },
+ {
+  "id": 34,
+  "identity_key": "gui:default",
+  "mood_value": -0.4392612051583017,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:13:56"
+ },
+ {
+  "id": 35,
+  "identity_key": "gui:default",
+  "mood_value": -0.4172981449003866,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:14:02"
+ },
+ {
+  "id": 36,
+  "identity_key": "gui:default",
+  "mood_value": -0.2964332376553672,
+  "adjustment": 0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:14:09"
+ },
+ {
+  "id": 37,
+  "identity_key": "gui:default",
+  "mood_value": -0.2816115757725988,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:14:13"
+ },
+ {
+  "id": 38,
+  "identity_key": "gui:default",
+  "mood_value": -0.31753099698396886,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:14:19"
+ },
+ {
+  "id": 39,
+  "identity_key": "gui:default",
+  "mood_value": -0.3016544471347704,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:14:26"
+ },
+ {
+  "id": 40,
+  "identity_key": "gui:default",
+  "mood_value": -0.18657172477803188,
+  "adjustment": 0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:14:35"
+ },
+ {
+  "id": 41,
+  "identity_key": "gui:default",
+  "mood_value": -0.2772431385391303,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:14:40"
+ },
+ {
+  "id": 42,
+  "identity_key": "gui:default",
+  "mood_value": -0.31338098161217376,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:14:54"
+ },
+ {
+  "id": 43,
+  "identity_key": "gui:default",
+  "mood_value": -0.2977119325315651,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:14:59"
+ },
+ {
+  "id": 44,
+  "identity_key": "gui:default",
+  "mood_value": -0.2328263359049868,
+  "adjustment": 0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:06"
+ },
+ {
+  "id": 45,
+  "identity_key": "gui:default",
+  "mood_value": -0.22118501910973745,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:12"
+ },
+ {
+  "id": 46,
+  "identity_key": "gui:default",
+  "mood_value": -0.21012576815425058,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:21"
+ },
+ {
+  "id": 47,
+  "identity_key": "gui:default",
+  "mood_value": -0.299619479746538,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:27"
+ },
+ {
+  "id": 48,
+  "identity_key": "gui:default",
+  "mood_value": -0.3846385057592111,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:32"
+ },
+ {
+  "id": 49,
+  "identity_key": "gui:default",
+  "mood_value": -0.3654065804712505,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:35"
+ },
+ {
+  "id": 50,
+  "identity_key": "gui:default",
+  "mood_value": -0.397136251447688,
+  "adjustment": -0.05,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:38"
+ },
+ {
+  "id": 51,
+  "identity_key": "gui:default",
+  "mood_value": -0.2772794388753036,
+  "adjustment": 0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:45"
+ },
+ {
+  "id": 52,
+  "identity_key": "gui:default",
+  "mood_value": -0.36341546693153837,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:48"
+ },
+ {
+  "id": 53,
+  "identity_key": "gui:default",
+  "mood_value": -0.34524469358496146,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:54"
+ },
+ {
+  "id": 54,
+  "identity_key": "gui:default",
+  "mood_value": -0.32798245890571337,
+  "adjustment": 0.0,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:15:58"
+ },
+ {
+  "id": 55,
+  "identity_key": "gui:default",
+  "mood_value": -0.41158333596042773,
+  "adjustment": -0.1,
+  "source_mood": "心疼",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:16:13"
+ },
+ {
+  "id": 56,
+  "identity_key": "gui:default",
+  "mood_value": -0.3910041691624063,
+  "adjustment": 0.0,
+  "source_mood": "",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:16:31"
+ },
+ {
+  "id": 57,
+  "identity_key": "gui:default",
+  "mood_value": -0.221453960704286,
+  "adjustment": 0.15,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:16:41"
+ },
+ {
+  "id": 58,
+  "identity_key": "gui:default",
+  "mood_value": -0.11038126266907167,
+  "adjustment": 0.1,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:16:46"
+ },
+ {
+  "id": 59,
+  "identity_key": "gui:default",
+  "mood_value": -0.004862199535618075,
+  "adjustment": 0.1,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:16:57"
+ },
+ {
+  "id": 60,
+  "identity_key": "gui:default",
+  "mood_value": 0.09538091044116283,
+  "adjustment": 0.1,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:02"
+ },
+ {
+  "id": 61,
+  "identity_key": "gui:default",
+  "mood_value": 0.1906118649191047,
+  "adjustment": 0.1,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:08"
+ },
+ {
+  "id": 62,
+  "identity_key": "gui:default",
+  "mood_value": 0.23108127167314946,
+  "adjustment": 0.05,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:13"
+ },
+ {
+  "id": 63,
+  "identity_key": "gui:default",
+  "mood_value": 0.319527208089492,
+  "adjustment": 0.1,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:20"
+ },
+ {
+  "id": 64,
+  "identity_key": "gui:default",
+  "mood_value": 0.3035508476850174,
+  "adjustment": 0.0,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:25"
+ },
+ {
+  "id": 65,
+  "identity_key": "gui:default",
+  "mood_value": 0.3883733053007665,
+  "adjustment": 0.1,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:28"
+ },
+ {
+  "id": 66,
+  "identity_key": "gui:default",
+  "mood_value": 0.4189546400357282,
+  "adjustment": 0.05,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:33"
+ },
+ {
+  "id": 67,
+  "identity_key": "gui:default",
+  "mood_value": 0.3980069080339418,
+  "adjustment": 0.0,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:37"
+ },
+ {
+  "id": 68,
+  "identity_key": "gui:default",
+  "mood_value": 0.3781065626322447,
+  "adjustment": 0.0,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:40"
+ },
+ {
+  "id": 69,
+  "identity_key": "gui:default",
+  "mood_value": 0.3592012345006324,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:46"
+ },
+ {
+  "id": 70,
+  "identity_key": "gui:default",
+  "mood_value": 0.3412411727756008,
+  "adjustment": 0.0,
+  "source_mood": "",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:50"
+ },
+ {
+  "id": 71,
+  "identity_key": "gui:default",
+  "mood_value": 0.42417911413682075,
+  "adjustment": 0.1,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:17:59"
+ },
+ {
+  "id": 72,
+  "identity_key": "gui:default",
+  "mood_value": 0.4529701584299797,
+  "adjustment": 0.05,
+  "source_mood": "欣慰",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:18:01"
+ },
+ {
+  "id": 73,
+  "identity_key": "gui:default",
+  "mood_value": 0.45032165050848066,
+  "adjustment": 0.02,
+  "source_mood": "期待",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:18:20"
+ },
+ {
+  "id": 74,
+  "identity_key": "gui:default",
+  "mood_value": 0.4778055679830566,
+  "adjustment": 0.05,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:18:30"
+ },
+ {
+  "id": 75,
+  "identity_key": "gui:default",
+  "mood_value": 0.5039152895839037,
+  "adjustment": 0.05,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:18:35"
+ },
+ {
+  "id": 76,
+  "identity_key": "gui:default",
+  "mood_value": 0.5787195251047086,
+  "adjustment": 0.1,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:18:40"
+ },
+ {
+  "id": 77,
+  "identity_key": "gui:default",
+  "mood_value": 0.6497835488494731,
+  "adjustment": 0.1,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:18:43"
+ },
+ {
+  "id": 78,
+  "identity_key": "gui:default",
+  "mood_value": 0.7172943714069994,
+  "adjustment": 0.1,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:18:46"
+ },
+ {
+  "id": 79,
+  "identity_key": "gui:default",
+  "mood_value": 0.6814296528366494,
+  "adjustment": 0.0,
+  "source_mood": "愉悦\n\n【",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:07"
+ },
+ {
+  "id": 80,
+  "identity_key": "gui:default",
+  "mood_value": 0.6473581701948169,
+  "adjustment": 0.0,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:15"
+ },
+ {
+  "id": 81,
+  "identity_key": "gui:default",
+  "mood_value": 0.614990261685076,
+  "adjustment": 0.0,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:20"
+ },
+ {
+  "id": 82,
+  "identity_key": "gui:default",
+  "mood_value": 0.6042407486008222,
+  "adjustment": 0.02,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:28"
+ },
+ {
+  "id": 83,
+  "identity_key": "gui:default",
+  "mood_value": 0.6740287111707811,
+  "adjustment": 0.1,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:31"
+ },
+ {
+  "id": 84,
+  "identity_key": "gui:default",
+  "mood_value": 0.740327275612242,
+  "adjustment": 0.1,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:37"
+ },
+ {
+  "id": 85,
+  "identity_key": "gui:default",
+  "mood_value": 0.7633109118316299,
+  "adjustment": 0.06,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:43"
+ },
+ {
+  "id": 86,
+  "identity_key": "gui:default",
+  "mood_value": 0.7751453662400484,
+  "adjustment": 0.05,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:47"
+ },
+ {
+  "id": 87,
+  "identity_key": "gui:default",
+  "mood_value": 0.7363880979280459,
+  "adjustment": 0.0,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:51"
+ },
+ {
+  "id": 88,
+  "identity_key": "gui:default",
+  "mood_value": 0.7495686930316436,
+  "adjustment": 0.05,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:19:55"
+ },
+ {
+  "id": 89,
+  "identity_key": "gui:default",
+  "mood_value": 0.7620902583800615,
+  "adjustment": 0.05,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:20:01"
+ },
+ {
+  "id": 90,
+  "identity_key": "gui:default",
+  "mood_value": 0.7239857454610584,
+  "adjustment": 0.0,
+  "source_mood": "",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:20:20"
+ },
+ {
+  "id": 91,
+  "identity_key": "gui:default",
+  "mood_value": 0.6877864581880054,
+  "adjustment": 0.0,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:20:23"
+ },
+ {
+  "id": 92,
+  "identity_key": "gui:default",
+  "mood_value": 0.6533971352786051,
+  "adjustment": 0.0,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:20:29"
+ },
+ {
+  "id": 93,
+  "identity_key": "gui:default",
+  "mood_value": 0.6207272785146748,
+  "adjustment": 0.0,
+  "source_mood": "温暖",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:20:32"
+ },
+ {
+  "id": 94,
+  "identity_key": "gui:default",
+  "mood_value": 0.6396909145889411,
+  "adjustment": 0.05,
+  "source_mood": "温暖",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:20:38"
+ },
+ {
+  "id": 95,
+  "identity_key": "gui:default",
+  "mood_value": 0.637706368859494,
+  "adjustment": 0.03,
+  "source_mood": "愉悦",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:20:46"
+ },
+ {
+  "id": 96,
+  "identity_key": "gui:default",
+  "mood_value": 0.6558210504165194,
+  "adjustment": 0.05,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:20:49"
+ },
+ {
+  "id": 97,
+  "identity_key": "gui:default",
+  "mood_value": 0.7230299978956933,
+  "adjustment": 0.1,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:20:52"
+ },
+ {
+  "id": 98,
+  "identity_key": "gui:default",
+  "mood_value": 0.6868784980009086,
+  "adjustment": 0.0,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 06:21:07"
+ }
+]

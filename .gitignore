@@ -58,3 +58,6 @@ logs/
 
 # Logseq user data
 logseq_pages/
+
+.db
+.pid

@@ -1,0 +1,498 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=难过",
+  "created_at": "2026-08-08 06:06:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=难过",
+  "created_at": "2026-08-08 06:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=被朋友背叛",
+  "created_at": "2026-08-08 06:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=难过",
+  "created_at": "2026-08-08 06:06:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=工作受挫",
+  "created_at": "2026-08-08 06:06:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=极度低落",
+  "created_at": "2026-08-08 06:07:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达无意义感",
+  "created_at": "2026-08-08 06:07:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=难过",
+  "created_at": "2026-08-08 06:07:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=被朋友背叛",
+  "created_at": "2026-08-08 06:07:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=工作受挫",
+  "created_at": "2026-08-08 06:07:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=极度低落",
+  "created_at": "2026-08-08 06:07:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠状态=连续失眠一周",
+  "created_at": "2026-08-08 06:07:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 失眠, 情绪低谷] 用户近期连续失眠，睡眠状况差",
+  "created_at": "2026-08-08 06:07:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户被朋友背叛，感到心痛",
+  "created_at": "2026-08-08 06:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户工作搞砸，自我否定",
+  "created_at": "2026-08-08 06:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户连续一周失眠",
+  "created_at": "2026-08-08 06:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户表达‘活着没什么意思’，处于严重情绪困境",
+  "created_at": "2026-08-08 06:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=害怕",
+  "created_at": "2026-08-08 06:07:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=亲人住院",
+  "created_at": "2026-08-08 06:07:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=挫败",
+  "created_at": "2026-08-08 06:07:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=亲人住院",
+  "created_at": "2026-08-08 06:07:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续失眠一周",
+  "created_at": "2026-08-08 06:07:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作=受挫",
+  "created_at": "2026-08-08 06:07:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[挫败, 陪伴, 失眠] 长期独自承压，努力并看重结果，有被误解的经历",
+  "created_at": "2026-08-08 06:07:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作=受挫",
+  "created_at": "2026-08-08 06:08:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续失眠一周",
+  "created_at": "2026-08-08 06:08:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=亲人住院",
+  "created_at": "2026-08-08 06:08:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=挫败",
+  "created_at": "2026-08-08 06:08:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=挫败",
+  "created_at": "2026-08-08 06:08:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=孤独",
+  "created_at": "2026-08-08 06:08:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=亲人住院",
+  "created_at": "2026-08-08 06:08:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续失眠一周",
+  "created_at": "2026-08-08 06:08:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作=受挫",
+  "created_at": "2026-08-08 06:08:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=孤独",
+  "created_at": "2026-08-08 06:08:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=挫败",
+  "created_at": "2026-08-08 06:08:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=自我否定",
+  "created_at": "2026-08-08 06:08:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户的亲人住院了，用户感到害怕",
+  "created_at": "2026-08-08 06:08:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户曾被人误解，且解释没人听",
+  "created_at": "2026-08-08 06:08:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户努力了很长时间后遭遇失败",
+  "created_at": "2026-08-08 06:08:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户今天被否定，开始怀疑自己“是不是真的不行”",
+  "created_at": "2026-08-08 06:08:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户感到越来越孤独，觉得没有人真正理解自己",
+  "created_at": "2026-08-08 06:08:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=沉默",
+  "created_at": "2026-08-08 06:08:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=自我否定",
+  "created_at": "2026-08-08 06:08:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=挫败",
+  "created_at": "2026-08-08 06:08:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=孤独",
+  "created_at": "2026-08-08 06:08:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作=受挫",
+  "created_at": "2026-08-08 06:08:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续失眠一周",
+  "created_at": "2026-08-08 06:08:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=压力大",
+  "created_at": "2026-08-08 06:08:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=疲惫",
+  "created_at": "2026-08-08 06:08:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续失眠一周",
+  "created_at": "2026-08-08 06:08:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作=受挫",
+  "created_at": "2026-08-08 06:08:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 压力, 情绪低落] 连续失眠一周；工作受挫",
+  "created_at": "2026-08-08 06:08:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=后悔",
+  "created_at": "2026-08-08 06:08:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=自责",
+  "created_at": "2026-08-08 06:08:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=压力大",
+  "created_at": "2026-08-08 06:08:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续失眠一周",
+  "created_at": "2026-08-08 06:08:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续失眠一周",
+  "created_at": "2026-08-08 06:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=压力大;自责;后悔;被抛弃感",
+  "created_at": "2026-08-08 06:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作=受挫",
+  "created_at": "2026-08-08 06:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=烦躁",
+  "created_at": "2026-08-08 06:08:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=压力大",
+  "created_at": "2026-08-08 06:08:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续失眠一周",
+  "created_at": "2026-08-08 06:08:56",
+  "identity_key": "gui:default"
+ }
+]

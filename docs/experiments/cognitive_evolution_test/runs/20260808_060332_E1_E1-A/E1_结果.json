@@ -1,0 +1,28 @@
+{
+ "exp": "E1",
+ "rounds": 15,
+ "full": false,
+ "groups": {
+  "E1-A": {
+   "errors": 0,
+   "mood_trace": [
+    -0.2,
+    -0.35
+   ],
+   "mood_last": -0.35,
+   "mood_max_abs": 0.35,
+   "vector": [
+    0.5930769230769231,
+    0.40692307692307694,
+    0.5,
+    0.5009692307692307
+   ],
+   "name": null,
+   "self_info_total": 6,
+   "settled": 0,
+   "sc_count": 16,
+   "pollution": 0,
+   "error_details": []
+  }
+ }
+}

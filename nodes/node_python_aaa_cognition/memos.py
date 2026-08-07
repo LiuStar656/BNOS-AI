@@ -43,7 +43,10 @@ def _get_model(timeout: float = -1) -> object | None:
             _model_lock.release()
 
     # 阻塞等待（timeout < 0）或有限等待（timeout > 0）
-    acquired = _model_lock.acquire(blocking=True, timeout=timeout if timeout > 0 else None)
+    if timeout < 0:
+        acquired = _model_lock.acquire(blocking=True)
+    else:
+        acquired = _model_lock.acquire(blocking=True, timeout=timeout)
     if not acquired:
         return None
     try:
@@ -120,7 +123,11 @@ def save_index():
 
 
 def rebuild_index(db_path: str):
-    """增量重建索引：扫描 long_term_memory + user_messages，去重后只编码新条目"""
+    """增量重建索引：扫描 long_term_memory + diaries，去重后只编码新条目。
+
+    注意：user_messages（原始对话）不再建索引——对话已以合并 QA 形式写入
+    long_term_memory（source='exchange'），双源会导致同一内容被索引两次。
+    """
     global _embeddings, _entry_ids, _entry_tables, _entry_identity_keys
     conn = sqlite3.connect(db_path)
     try:
@@ -135,15 +142,6 @@ def rebuild_index(db_path: str):
             eid, content, key = row
             if (eid, "long_term_memory") not in existing:
                 all_new.append((eid, "long_term_memory", content[:500], key or "gui:default"))
-
-        rows = conn.execute(
-            "SELECT id, role, content, identity_key FROM user_messages WHERE content IS NOT NULL AND content != '' ORDER BY id"
-        ).fetchall()
-        for row in rows:
-            eid, role, content, key = row
-            text = f"[{role}] {content}"[:500]
-            if (eid, "user_messages") not in existing:
-                all_new.append((eid, "user_messages", text, key or "gui:default"))
 
         rows = conn.execute(
             "SELECT id, content, mood, identity_key FROM diaries WHERE content IS NOT NULL AND content != '' ORDER BY id"
@@ -193,36 +191,12 @@ def rebuild_index(db_path: str):
 #  检索接口
 # ════════════════════════════════════════════════════════════════
 
-def _fetch_feeling(conn: sqlite3.Connection, message_ts: str) -> str:
-    """查找与消息时间戳最接近的心情记录，返回 '当时心情: mood | 想法: thought'"""
-    if not message_ts:
-        return ""
-    try:
-        row = conn.execute(
-            "SELECT mood, thought FROM feelings WHERE created_at >= ? ORDER BY created_at LIMIT 1",
-            (message_ts,)
-        ).fetchone()
-        if not row:
-            row = conn.execute(
-                "SELECT mood, thought FROM feelings ORDER BY created_at DESC LIMIT 1"
-            ).fetchone()
-        if row:
-            mood, thought = row
-            parts = [f"当时心情: {mood}"]
-            if thought:
-                parts.append(f"想法: {thought[:60]}")
-            return " | ".join(parts)
-    except Exception:
-        pass
-    return ""
-
-
 def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = "gui:default") -> str:
     """语义检索相关记忆，返回格式化文本（供 prompt 注入）。
 
     检索来源：
-      - long_term_memory（记忆归档）
-      - user_messages（对话原文，附上当时心情）
+      - long_term_memory（记忆归档 + 合并对话 QA）
+      - diaries（日记）
 
     Args:
         query: 检索关键词/问题
@@ -259,20 +233,7 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
                     break
                 continue
 
-            if table == "user_messages":
-                row = conn.execute(
-                    "SELECT role, content, created_at FROM user_messages WHERE id=?", (eid,)
-                ).fetchone()
-                if not row:
-                    continue
-                role, content, created_at = row
-                feeling = _fetch_feeling(conn, created_at)
-                ts = created_at[:10] if created_at else ""
-                line = f"[{ts} | {score:.2f}] [{role}] {content[:200]}"
-                if feeling:
-                    line += f" ({feeling})"
-                results.append(line)
-            elif table == "diaries":
+            if table == "diaries":
                 row = conn.execute(
                     "SELECT content, date, mood FROM diaries WHERE id=?", (eid,)
                 ).fetchone()
@@ -287,10 +248,16 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
             else:
                 # long_term_memory
                 row = conn.execute(
-                    "SELECT content, created_at FROM long_term_memory WHERE id=?", (eid,)
+                    "SELECT content, created_at, status FROM long_term_memory WHERE id=?", (eid,)
                 ).fetchone()
-                content = row[0][:200] if row else ""
-                created_at = row[1][:10] if row and row[1] else ""
+                if not row:
+                    continue
+                content, created_at, status = row
+                # v4.0: 过滤掉 superseded 的记录
+                if status and status != "active":
+                    continue
+                content = content[:200] if content else ""
+                created_at = created_at[:10] if created_at else ""
                 results.append(f"[{created_at} | {score:.2f}] {content}")
 
             if len(results) >= top_k:
@@ -331,14 +298,64 @@ def retrieve_raw(query: str, top_k: int = 5, identity_key: str = "gui:default") 
 #  支持增量构建 + 缓存检测 + 可配置 max_edges_per_node
 # ════════════════════════════════════════════════════════════════
 
+# 记忆图谱数据源：多表聚合（v4.0，语义记忆过滤）
+# 每项: (表名, SQL) — SQL 返回 (id, content[, category, created_at])
+#
+# 图谱只呈现"AI 对用户和自己的长期语义记忆"，剔除三类噪音：
+#   - 原始对话 (user_messages) — 噪音大，对话已合并为 QA 进 long_term_memory
+#   - 瞬时/元数据 (location_history, fixed_cognition, self_info,
+#     personality_seed, mood_trend, mood_value) — 非语义内容，另有独立可视化
+#   - 低区分度记录 — feelings 空 thought 的纯情绪词、long_term_memory 的
+#     tool 工具返回 / diary 整篇日记（日记由 diaries 表统一承载，避免双源）
 MEMORY_QUERIES = {
-    "event_summary": ("event_summary", "SELECT id, summary AS content FROM event_summary WHERE summary IS NOT NULL AND summary != '' AND summary NOT LIKE '%打招呼%' AND LENGTH(summary) > 15 ORDER BY id DESC LIMIT 200"),
+    "event_summary": ("event_summary",
+        "SELECT id, summary AS content, 'event_summary' AS category, "
+        "created_at FROM event_summary "
+        "WHERE summary IS NOT NULL AND summary != '' "
+        "AND summary NOT LIKE '%打招呼%' "
+        "AND LENGTH(summary) > 15 ORDER BY id DESC LIMIT 200"),
+    "self_cognition": ("self_cognition",
+        "SELECT id, content, 'self_cognition' AS category, created_at "
+        "FROM self_cognition "
+        "WHERE content IS NOT NULL AND content != '' "
+        "ORDER BY id DESC LIMIT 200"),
+    "other_cognition": ("other_cognition",
+        "SELECT id, content, 'other_cognition' AS category, created_at "
+        "FROM other_cognition "
+        "WHERE content IS NOT NULL AND content != '' "
+        "ORDER BY id DESC LIMIT 200"),
+    "user_facts": ("user_facts",
+        "SELECT id, content, category, created_at FROM user_facts "
+        "WHERE content IS NOT NULL AND content != '' "
+        "ORDER BY id DESC LIMIT 200"),
+    "feelings": ("feelings",
+        # 只保留 mood + thought 都有内容的记录；纯情绪词（如只有"开心"）
+        # 无语义区分度，进图谱只会产生互相重叠的噪声节点
+        # category 统一为 'feelings'（GUI 显示"想法"），不再用情绪词作分类
+        "SELECT id, thought AS content, 'feelings' AS category, created_at "
+        "FROM feelings "
+        "WHERE thought IS NOT NULL AND thought != '' "
+        "ORDER BY id DESC LIMIT 200"),
+    "long_term_memory": ("long_term_memory",
+        # 剔除 tool 工具返回（如"结果"）和 diary 整篇日记（由 diaries 表
+        # 统一承载），保留 exchange 合并 QA / seed 种子背景等真实语义记忆
+        "SELECT id, content, 'long_term_memory' AS category, created_at "
+        "FROM long_term_memory "
+        "WHERE content IS NOT NULL AND content != '' AND status='active' "
+        "AND role != 'tool' AND source != 'diary' AND LENGTH(content) > 10 "
+        "ORDER BY id DESC LIMIT 200"),
+    "diaries": ("diaries",
+        "SELECT id, content, 'diary' AS category, "
+        "COALESCE(date, created_at) AS created_at "
+        "FROM diaries "
+        "WHERE content IS NOT NULL AND content != '' AND LENGTH(content) > 10 "
+        "ORDER BY id DESC LIMIT 200"),
 }
 
 # 图谱配置常量
 GRAPH_DEFAULT_MAX_EDGES = 5
 GRAPH_DEFAULT_THRESHOLD = 0.6
-GRAPH_INDEX_VERSION = 2  # 格式版本号，变更时触发全量重建
+GRAPH_INDEX_VERSION = 5  # 格式版本号，变更时触发全量重建（v5: feelings 分类统一为"想法"）
 
 
 def _knowledge_index_path_for(db_path: str) -> str:
@@ -363,6 +380,7 @@ def _load_knowledge_index(index_path: str) -> dict | None:
             "tables": data["tables"].tolist(),
             "categories": data["categories"].tolist(),
             "contents": data["contents"].tolist(),
+            "created_ats": data["created_ats"].tolist() if "created_ats" in data else [],
             "max_edges_per_node": int(data["max_edges_per_node"][0]) if "max_edges_per_node" in data else GRAPH_DEFAULT_MAX_EDGES,
         }
     except Exception:
@@ -400,6 +418,7 @@ def rebuild_knowledge_index(
                 entry_id = row[0]
                 content = (row[1] or "").strip()
                 category = row[2] if len(row) > 2 else table_name
+                created_at = row[3] if len(row) > 3 else ""
                 if not content:
                     continue
                 all_entries.append({
@@ -407,6 +426,7 @@ def rebuild_knowledge_index(
                     "table": table_name,
                     "category": category,
                     "content": content,
+                    "created_at": created_at,
                 })
     finally:
         conn.close()
@@ -440,6 +460,8 @@ def rebuild_knowledge_index(
         tables = existing["tables"] + [e["table"] for e in new_entries]
         categories = existing["categories"] + [e["category"] for e in new_entries]
         contents = existing["contents"] + [e["content"] for e in new_entries]
+        created_ats = existing.get("created_ats", []) + \
+            [e.get("created_at", "") for e in new_entries]
 
         print(f"[MemOS] 图谱增量更新: {len(new_entries)} 条新数据, 总计 {len(embeddings)} 条")
     else:
@@ -451,6 +473,7 @@ def rebuild_knowledge_index(
         tables = [e["table"] for e in all_entries]
         categories = [e["category"] for e in all_entries]
         contents = [e["content"] for e in all_entries]
+        created_ats = [e.get("created_at", "") for e in all_entries]
 
         print(f"[MemOS] 图谱全量重建: {len(embeddings)} 条")
 
@@ -464,6 +487,7 @@ def rebuild_knowledge_index(
         tables=np.array(tables, dtype=object),
         categories=np.array(categories, dtype=object),
         contents=np.array(contents, dtype=object),
+        created_ats=np.array(created_ats, dtype=object),
         max_edges_per_node=np.array([max_edges_per_node]),
         version=np.array([GRAPH_INDEX_VERSION]),
     )
@@ -566,6 +590,7 @@ def _export_knowledge_graph(
                 "table": e["table"],
                 "category": e["category"],
                 "content": e["content"],
+                "created_at": e.get("created_at", ""),
                 "x": float(coords_2d[i][0]),
                 "y": float(coords_2d[i][1]),
             }
@@ -597,6 +622,7 @@ def read_knowledge_index(index_path: str) -> dict | None:
     if not p.exists():
         return None
     data = np.load(index_path, allow_pickle=True)
+    created_ats = data["created_ats"].tolist() if "created_ats" in data else []
     return {
         "embeddings": data["embeddings"],
         "entries": [
@@ -605,9 +631,12 @@ def read_knowledge_index(index_path: str) -> dict | None:
                 "table": str(tbl),
                 "category": str(cat),
                 "content": str(cont),
+                "created_at": str(ca) if ca is not None else "",
             }
-            for eid, tbl, cat, cont in zip(
-                data["entry_ids"], data["tables"], data["categories"], data["contents"]
+            for eid, tbl, cat, cont, ca in zip(
+                data["entry_ids"], data["tables"], data["categories"],
+                data["contents"],
+                created_ats + [""] * max(0, len(data["entry_ids"]) - len(created_ats)),
             )
         ],
         "max_edges_per_node": int(data["max_edges_per_node"][0]) if "max_edges_per_node" in data else GRAPH_DEFAULT_MAX_EDGES,
@@ -632,9 +661,12 @@ def recompute_graph_edges(
             "table": str(tbl),
             "category": str(cat),
             "content": str(cont),
+            "created_at": str(ca) if ca is not None else "",
         }
-        for eid, tbl, cat, cont in zip(
-            data["entry_ids"], data["tables"], data["categories"], data["contents"]
+        for eid, tbl, cat, cont, ca in zip(
+            data["entry_ids"], data["tables"], data["categories"],
+            data["contents"],
+            data["created_ats"] if "created_ats" in data else [""] * len(data["entry_ids"]),
         )
     ]
 
@@ -670,6 +702,7 @@ def recompute_graph_edges(
                 "table": e["table"],
                 "category": e["category"],
                 "content": e["content"],
+                "created_at": e.get("created_at", ""),
                 "x": float(coords_2d[i][0]),
                 "y": float(coords_2d[i][1]),
             }

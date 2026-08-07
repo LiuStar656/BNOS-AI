@@ -85,9 +85,14 @@ class MyNode:
         except Exception as e:
             return {"_port": "default", "data_type": "text", "content": "", "error": f"{type(e).__name__}: {e}", "request_id": rid}
 
+        # 认知反思 prompt → review_response 端口，走独立通道回 AAA
+        if data.get("source") == "review":
+            output_port, output_source = "review_response", "review"
         # 日记 prompt → diary_response 端口，走独立通道回 AAA
-        output_port = "diary_response" if data.get("source") == "diary" else "default"
-        output_source = "diary" if data.get("source") == "diary" else "llm"
+        elif data.get("source") == "diary":
+            output_port, output_source = "diary_response", "diary"
+        else:
+            output_port, output_source = "default", "llm"
         return {"_port": output_port, "data_type": "parsed", "content": result_text, "source": output_source, "request_id": rid}
 
     # ── init_check ────────────────────────────────────────────

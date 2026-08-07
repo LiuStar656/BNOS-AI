@@ -50,7 +50,9 @@ REPEL_THRESHOLD = 0.45    # S <= 0.45: 无关, 互斥斥力
 
 # ─── 物理参数 ─────────────────────────────────
 FORCE_SCALE_BASE = 1.0       # 基准力尺度 L
-ATTRACT_TARGET_DIST = 35.0   # 强关联平衡距离 D_target
+ATTRACT_TARGET_DIST = 35.0   # 强关联平衡距离 D_target (L=1 时的值)
+ATTRACT_TARGET_MIN = 25.0    # 平衡距离下限 (力尺度最小时, 防止贴死)
+ATTRACT_TARGET_MAX = 120.0   # 平衡距离上限 (力尺度最大时, 防止过散)
 REPEL_RADIUS = 120.0         # 无关节点斥力生效半径 R
 BASE_MIN_DIST = 20.0         # 全局防重叠最小距离
 FREEZE_FRAMES = 50           # 拖拽松手后冻结帧数 (更长, 平滑过渡)
@@ -58,6 +60,8 @@ DAMPING = 0.88               # 阻尼 (保留 88% 速度)
 MAX_SPEED = 40.0             # 最大单帧速度
 CONVERGENCE_ENERGY = 0.15    # 收敛判定 (总动能)
 GRAVITY_STRENGTH = 0.002    # 中心重力 (极弱, 仅防飞散)
+BOUNDARY_RADIUS = AREA_WIDTH * 0.5  # 圆形软边界半径 (替代矩形硬边界, 防无限飞散)
+BOUNDARY_PULL = 0.01         # 软边界回拉强度系数
 
 # ─── 视觉主题 ─────────────────────────────────
 BG_COLOR = "#2b2b2b"
@@ -68,6 +72,11 @@ EDGE_COLOR = "#606878"
 EDGE_HIGHLIGHT = "#ffffff"
 TEXT_COLOR = "#d0d8e8"
 LINK_COLOR = "#4a9eff"  # 联动跟随连线颜色
+
+# 图谱节点分类的中文显示（feelings 数据源 category 为 'feelings'，hover 显示"想法"）
+CATEGORY_LABELS = {
+    "feelings": "想法",
+}
 
 
 def _node_id_for_entry(entry: dict) -> str:
@@ -113,12 +122,15 @@ class ForceEngine:
         self._states = []
         cx, cy = self._cx, self._cy
         for i in range(n_nodes):
+            # 所有节点从同一点(画布中心)生成, 位置不再随机散布.
+            # 完全重合时节点对的方向向量为零向量(斥力为零), 必须给随机
+            # 初速度冲量打破对称, 之后斥力/引力接管 → 从中心自然弹开.
             angle = random.uniform(0, 2 * math.pi)
-            r = random.uniform(10, 30)
+            speed = random.uniform(1.0, 2.0)
             self._states.append(NodeState(
-                x=cx + r * math.cos(angle),
-                y=cy + r * math.sin(angle),
-                vx=0.0, vy=0.0,
+                x=cx, y=cy,
+                vx=speed * math.cos(angle),
+                vy=speed * math.sin(angle),
             ))
         self._converged = False
         self._total_energy = float("inf")
@@ -171,8 +183,11 @@ class ForceEngine:
 
                 if S >= LINK_THRESHOLD:
                     # ── 强相关: 聚合引力 ──
-                    # F = L*S*(D-D_target), 带低阻尼避免振荡
-                    displacement = dist - ATTRACT_TARGET_DIST
+                    # 平衡距离随力尺度 L 缩放: L 大 → 吸引节点保持更远距离,
+                    # 避免聚合后贴得太近 (L=1 时 = 35px, 默认行为不变)
+                    attract_target = max(ATTRACT_TARGET_MIN,
+                                         min(ATTRACT_TARGET_MAX, ATTRACT_TARGET_DIST * L))
+                    displacement = dist - attract_target
                     force = L * S * displacement * 0.03
                     fx[i] += force * nx
                     fy[i] += force * ny
@@ -181,9 +196,11 @@ class ForceEngine:
 
                 elif S <= REPEL_THRESHOLD:
                     # ── 无关: 互斥斥力 ──
-                    # 仅在近距离生效, 远距离无作用
-                    if dist < REPEL_RADIUS:
-                        ratio = (REPEL_RADIUS - dist) / REPEL_RADIUS
+                    # 斥力半径随力尺度放大 (L=1 时 = REPEL_RADIUS=120, 默认行为不变;
+                    # L 大 → 斥力范围广 → 节点散得更开; L 小 → 范围窄 → 聚拢)
+                    repel_radius = min(REPEL_RADIUS * L, self._width * 0.5)
+                    if dist < repel_radius:
+                        ratio = (repel_radius - dist) / repel_radius
                         repel_strength = L * (1.0 - S) * ratio * ratio
                         force = repel_strength * 8.0
                         fx[i] -= force * nx
@@ -200,12 +217,29 @@ class ForceEngine:
                         fx[j] += force * nx
                         fy[j] += force * ny
 
-        # ── 中心重力 ──
-        k_gravity = GRAVITY_STRENGTH * L
+        # ── 中心重力 (固定强度, 不随力尺度衰减) ──
+        # 力尺度 L 通过斥力半径/强度改变布局尺度 (L 大 → 散得更开);
+        # 重力固定防止节点无限飞散 — 若重力也随 L 缩小, 大力尺度下
+        # 节点会漂移到画布极远处失去收敛.
+        k_gravity = GRAVITY_STRENGTH
         for i in range(n):
             s = self._states[i]
             fx[i] += k_gravity * (cx - s.x)
             fy[i] += k_gravity * (cy - s.y)
+
+        # ── 圆形软边界 (替代矩形硬边界) ──
+        # 节点可自由散布到任意方向, 但距中心超过 BOUNDARY_RADIUS 时被柔和回拉,
+        # 防止大力尺度下的爆炸动量让节点无限飞散. 半径内无任何边界力,
+        # 因此不会像以前 margin 反弹那样被矩形四壁推挤成正方形轮廓.
+        for i in range(n):
+            s = self._states[i]
+            dxs = s.x - cx
+            dys = s.y - cy
+            rd = math.hypot(dxs, dys)
+            if rd > BOUNDARY_RADIUS:
+                pull = (rd - BOUNDARY_RADIUS) * BOUNDARY_PULL
+                fx[i] -= pull * dxs / rd
+                fy[i] -= pull * dys / rd
 
         # ── 积分 ──
         total_ke = 0.0
@@ -222,20 +256,10 @@ class ForceEngine:
             s.x += s.vx * dt
             s.y += s.vy * dt
 
-            margin = 30
-            if s.x < margin:
-                s.x = margin
-                s.vx *= -0.5
-            elif s.x > self._width - margin:
-                s.x = self._width - margin
-                s.vx *= -0.5
-            if s.y < margin:
-                s.y = margin
-                s.vy *= -0.5
-            elif s.y > self._height - margin:
-                s.y = self._height - margin
-                s.vy *= -0.5
-
+            # 无硬边界: 节点可自由散布到画布任意位置.
+            # (以前有 margin 反弹时, 大力尺度下节点会被推到矩形四壁形成
+            # 正方形轮廓; 边界由中心重力 + 阻尼自然收敛, 画布 sceneRect
+            # 在 _physics_tick 中动态扩展以跟随节点范围)
             total_ke += s.vx * s.vx + s.vy * s.vy
 
         self._total_energy = total_ke
@@ -340,7 +364,8 @@ class GraphNode(QGraphicsEllipseItem):
         content = self.entry.get("content", "")
         if len(content) > 100:
             content = content[:100] + "..."
-        QToolTip.showText(event.screenPos(), f"[{self.entry.get('category', '')}]\n{content}")
+        cat = CATEGORY_LABELS.get(self.entry.get("category", ""), self.entry.get("category", ""))
+        QToolTip.showText(event.screenPos(), f"[{cat}]\n{content}")
         super().hoverEnterEvent(event)
 
     def hoverLeaveEvent(self, event):
@@ -413,12 +438,15 @@ class GraphNode(QGraphicsEllipseItem):
 class GraphEdge(QGraphicsLineItem):
     """关联边 — 统一实线"""
 
-    def __init__(self, source: GraphNode, target: GraphNode, weight: float):
+    def __init__(self, source: GraphNode, target: GraphNode, weight: float,
+                 start_idx: int = 0, end_idx: int = 0):
         super().__init__()
         self._source = source
         self._target = target
         self._weight = weight
         self._highlighted = False
+        self.start_idx = start_idx  # 边两端节点在 entries 中的索引, 供流式显示判断
+        self.end_idx = end_idx
 
         width = max(1.0, weight * 3)
         alpha = max(50, int(weight * 220))
@@ -495,7 +523,10 @@ class KnowledgeGraph(QGraphicsView):
 
         self.setRenderHint(QPainter.RenderHint.Antialiasing)
         self.setRenderHint(QPainter.RenderHint.SmoothPixmapTransform)
-        self.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
+        # 不用 ScrollHandDrag: Qt 会临时扩展滚动范围, 允许视图拖出 sceneRect
+        # (画布"无限", 而节点被物理边界限制). 改 NoDrag + 手动平移, 滚动条
+        # 始终被限制在 sceneRect 内, 画布与节点空间范围一致.
+        self.setDragMode(QGraphicsView.DragMode.NoDrag)
         self.setViewportUpdateMode(QGraphicsView.ViewportUpdateMode.FullViewportUpdate)
         self.setTransformationAnchor(QGraphicsView.ViewportAnchor.AnchorUnderMouse)
         self.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
@@ -532,6 +563,8 @@ class KnowledgeGraph(QGraphicsView):
         # 空格平移
         self._space_pan_active = False
         self._pan_start_pos: QPointF | None = None
+        # 左键空白拖拽平移 (手动滚动条, 受 sceneRect 限制, 无法滚出画布)
+        self._panning = False
 
         self._scene.selectionChanged.connect(self._on_selection_changed)
 
@@ -608,7 +641,8 @@ class KnowledgeGraph(QGraphicsView):
             weight = e.get("weight", 0)
             s, t = e["source"], e["target"]
             if s < n and t < n:
-                edge = GraphEdge(all_nodes[s], all_nodes[t], weight)
+                edge = GraphEdge(all_nodes[s], all_nodes[t], weight,
+                                 start_idx=s, end_idx=t)
                 edge.setOpacity(0.0)
                 self._scene.addItem(edge)
                 all_edges.append(edge)
@@ -629,7 +663,7 @@ class KnowledgeGraph(QGraphicsView):
         self._load_index = 0
         self._visible_count = 0
 
-        # 启动物理引擎 (持续运行, 不可见节点会留在中心)
+        # 启动物理引擎 (所有节点从中心+随机冲量起步, 边显示边被力推开)
         self._anim_timer.start(16)
 
         # 启动依次加载动画
@@ -639,22 +673,56 @@ class KnowledgeGraph(QGraphicsView):
         """依次显示下一个节点, 每加载一个立即让物理引擎参与"""
         if self._load_index >= len(self._graph_nodes):
             self._load_timer.stop()
+            # 兜底: 正常流式逻辑已覆盖全部边, 这里仅保险
             for edge in self._load_edges:
-                edge.setOpacity(1.0)
+                if edge.opacity() < 1.0:
+                    edge.setOpacity(1.0)
             return
 
         node = self._graph_nodes[self._load_index]
-        # 同步 Qt 位置到引擎当前位置 (节点在被加载前已参与物理模拟)
+        # 所有节点从画布中心(同一点)出现: 重置引擎状态到中心并赋予随机冲量,
+        # 物理引擎的斥力/引力下一帧起立刻将其推开 — 从中心弹开的过程全程可见.
+        # (未显示节点在引擎中已被演化, 显示时统一拉回中心, 保证"同坐标生成")
         state = self._engine._states[self._load_index]
-        node.setPos(state.x, state.y)
+        cx, cy = AREA_WIDTH / 2, AREA_HEIGHT / 2
+        angle = random.uniform(0, 2 * math.pi)
+        speed = random.uniform(2.0, 4.0)
+        state.x, state.y = cx, cy
+        state.vx, state.vy = speed * math.cos(angle), speed * math.sin(angle)
+        node.setPos(cx, cy)
         # 弹出动画
         node.setOpacity(1.0)
         node.setScale(node.base_scale)
         self._visible_count += 1
 
+        # 流式显示连线: 边两端节点都已显示时才浮现 (与节点生成节奏同步)
+        for edge in self._load_edges:
+            if edge.opacity() < 1.0:
+                if edge.start_idx < self._visible_count and edge.end_idx < self._visible_count:
+                    edge.setOpacity(1.0)
+
         self._load_index += 1
         if self._load_index > 10:
             self._load_timer.setInterval(50)
+
+    def _expand_scene_to_fit(self, states: list) -> None:
+        """节点可能散布到初始画布之外, 动态扩展 sceneRect 以包含所有节点.
+        只扩大不缩小, 避免视图范围抖动."""
+        if not states:
+            return
+        margin = 80
+        min_x = min(s.x for s in states) - margin
+        min_y = min(s.y for s in states) - margin
+        max_x = max(s.x for s in states) + margin
+        max_y = max(s.y for s in states) + margin
+        cur = self.sceneRect()
+        if (min_x < cur.left() or min_y < cur.top()
+                or max_x > cur.right() or max_y > cur.bottom()):
+            left = min(cur.left(), min_x)
+            top = min(cur.top(), min_y)
+            right = max(cur.right(), max_x)
+            bottom = max(cur.bottom(), max_y)
+            self.setSceneRect(QRectF(left, top, right - left, bottom - top))
 
     def _physics_tick(self):
         """物理模拟帧 — 所有节点参与物理, 仅可见节点更新 Qt 位置"""
@@ -673,6 +741,8 @@ class KnowledgeGraph(QGraphicsView):
 
         # 所有节点都参与物理 (不锁定任何节点!)
         states = self._engine.step(dt=1.0)
+        # 节点可自由散布到初始画布之外, 动态扩展 sceneRect 跟随节点范围
+        self._expand_scene_to_fit(states)
         nodes = self._graph_nodes
 
         # 仅更新可见节点的 Qt 位置
@@ -765,7 +835,7 @@ class KnowledgeGraph(QGraphicsView):
         selected_nodes = [item for item in selected if isinstance(item, GraphNode)]
         selected_ids = {id(n) for n in selected_nodes}
 
-        for node in self._graph_nodes:
+        for node in getattr(self, "_graph_nodes", []):
             if id(node) in selected_ids:
                 node.show_label()
             else:
@@ -855,13 +925,28 @@ class KnowledgeGraph(QGraphicsView):
                 super().mousePressEvent(event)
                 return
 
-        # 点击空白区域: 清除选中 (在 super 之后, 防止被 Qt 内部逻辑覆盖)
+        # 点击空白区域: 清除选中 + 进入平移模式
         super().mousePressEvent(event)
         if event.button() == Qt.MouseButton.LeftButton:
             self._scene.clearSelection()
             self._on_selection_changed()
+            self._panning = True
+            self._pan_start_pos = event.position().toPoint()
+            self.setCursor(Qt.CursorShape.ClosedHandCursor)
 
     def mouseMoveEvent(self, event):
+        # 左键空白拖拽平移: 手动移动滚动条 (滚动条范围 = sceneRect,
+        # setValue 自动限制在范围内 → 无法滚出节点空间)
+        if self._panning and event.buttons() & Qt.MouseButton.LeftButton:
+            delta = event.position().toPoint() - self._pan_start_pos
+            h_scroll = self.horizontalScrollBar()
+            v_scroll = self.verticalScrollBar()
+            h_scroll.setValue(h_scroll.value() - delta.x())
+            v_scroll.setValue(v_scroll.value() - delta.y())
+            self._pan_start_pos = event.position().toPoint()
+            event.accept()
+            return
+
         if self._space_pan_active and self._pan_start_pos is not None:
             delta = event.position().toPoint() - self._pan_start_pos
             h_scroll = self.horizontalScrollBar()
@@ -882,6 +967,14 @@ class KnowledgeGraph(QGraphicsView):
         super().mouseMoveEvent(event)
 
     def mouseReleaseEvent(self, event):
+        # 结束左键空白平移
+        if self._panning and event.button() == Qt.MouseButton.LeftButton:
+            self._panning = False
+            self._pan_start_pos = None
+            self.setCursor(Qt.CursorShape.ArrowCursor)
+            event.accept()
+            return
+
         if self._pan_start_pos is not None and event.button() == Qt.MouseButton.LeftButton:
             self._pan_start_pos = None
             self.setCursor(
@@ -933,6 +1026,11 @@ class KnowledgeGraph(QGraphicsView):
         super().mouseReleaseEvent(event)
 
     def leaveEvent(self, event):
+        # 鼠标移出视图时复位平移状态, 防止卡在平移模式
+        if self._panning:
+            self._panning = False
+            self._pan_start_pos = None
+            self.setCursor(Qt.CursorShape.ArrowCursor)
         for node in self._graph_nodes:
             target = node.base_scale
             if abs(node.scale() - target) > 0.001:
@@ -988,8 +1086,8 @@ class KnowledgeGraph(QGraphicsView):
                 super().mouseDoubleClickEvent(event)
                 return
 
-        self._force_scale = 1.0
-        self._engine.set_force_scale(1.0)
+        # 走完整 set_force_scale: 同时发信号同步 GUI 滑块, 避免滑块显示与实际不符
+        self.set_force_scale(1.0)
         self.fitInView(self._scene.sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
         self._zoom = 1.0
         super().mouseDoubleClickEvent(event)

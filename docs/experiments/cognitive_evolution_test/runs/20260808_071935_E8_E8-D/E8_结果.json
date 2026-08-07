@@ -1,0 +1,32 @@
+{
+ "exp": "E8",
+ "rounds": 3,
+ "full": false,
+ "groups": {
+  "E8-D": {
+   "errors": 0,
+   "mood_trace": [
+    0.0
+   ],
+   "mood_last": 0.0,
+   "mood_max_abs": 0.0,
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "name": null,
+   "self_info_total": 1,
+   "settled": 0,
+   "sc_count": 3,
+   "pollution": 0,
+   "error_details": [],
+   "si_counters": {
+    "dedup": 0,
+    "merge": 0,
+    "cap_evict": 0
+   }
+  }
+ }
+}

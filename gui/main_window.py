@@ -15,6 +15,7 @@ from gui.core.state import AppState
 from gui.dialogs.archive_panel import ArchivePanel
 from gui.pages.chat_page import ChatPage
 from gui.pages.live2d_page import Live2DPage
+from gui.pages.location_page import LocationPage
 from gui.pages.mcp_page import MCPPage
 from gui.pages.node_page import NodePage
 from gui.pages.settings_panel import SettingsPanel
@@ -35,6 +36,7 @@ class MainWindow(QMainWindow):
     PAGE_CLASSES = {
         "chat":     ChatPage,
         "live2d":   Live2DPage,
+        "location": LocationPage,
         "mcp":      MCPPage,
         "knowledge": KnowledgePanel,
     }
@@ -237,7 +239,62 @@ class MainWindow(QMainWindow):
 
     def _on_initialized(self):
         """GUI 初始化完成后调用"""
-        pass
+        self._check_first_start_personality()
+
+    def _check_first_start_personality(self):
+        """首次启动（无性格种子）时弹出性格选择界面"""
+        try:
+            from gui.dialogs.personality_dialog import (
+                PersonalityDialog,
+                has_personality,
+            )
+            if has_personality():
+                return
+            dlg = PersonalityDialog(self)
+            dlg.center_on_parent()
+            dlg.exec()
+        except Exception:
+            import traceback
+            print("[MainWindow] 性格选择界面弹出失败:", traceback.format_exc())
+
+    def show_personality_dialog(self):
+        """重新弹出性格选择界面（人格格式化后调用）"""
+        try:
+            from gui.dialogs.personality_dialog import PersonalityDialog
+            dlg = PersonalityDialog(self)
+            dlg.center_on_parent()
+            dlg.exec()
+        except Exception:
+            import traceback
+            print("[MainWindow] 性格选择界面弹出失败:", traceback.format_exc())
+
+    def reset_chat_after_format(self):
+        """人格格式化后清空聊天 UI（气泡 + 对话列表 + 历史文件）"""
+        chat = self._pages.get("chat")
+        if chat is None:
+            return
+        try:
+            # 1. 清除消息气泡
+            if hasattr(chat, "clear_messages"):
+                chat.clear_messages()
+            # 2. 清空内存中的对话消息缓存
+            if hasattr(chat, "_conversation_messages"):
+                chat._conversation_messages.clear()
+            # 3. 重置对话列表为默认对话
+            st = self._state
+            st.conversations = []
+            st.current_conversation_id = "default"
+            if hasattr(chat, "_conv_list"):
+                chat._conv_list._rebuild_list()
+            # 4. 清空当前输入框（若有）
+            if hasattr(chat, "_chat_input"):
+                chat._chat_input.clear()
+            # 5. 持久化空历史（conversation_history.json 已由节点删除，重写一份空的）
+            if hasattr(chat, "_save_history"):
+                chat._save_history()
+        except Exception:
+            import traceback
+            print("[MainWindow] 格式化后重置聊天 UI 失败:", traceback.format_exc())
 
     # ─── 窗口管理 ──────────────────────────────
 
@@ -469,9 +526,7 @@ class MainWindow(QMainWindow):
         if self._anim_group is not None:
             self._cancel_animation()
             self._stack.setCurrentWidget(target)
-            # 切到知识库页面时刷新数据库数据
-            if page_id == "knowledge" and hasattr(target, "_load_data"):
-                target._load_data()
+            self._after_page_switch(page_id, target)
             return
 
         # 计算滑动方向（1=左滑，-1=右滑）
@@ -487,9 +542,16 @@ class MainWindow(QMainWindow):
 
         self._slide_animation(target, direction)
 
+        self._after_page_switch(page_id, target)
+
+    def _after_page_switch(self, page_id: str, target):
+        """页面切换完成后的统一处理（刷新懒加载页面数据）"""
         # 切到知识库页面时刷新数据库数据
         if page_id == "knowledge" and hasattr(target, "_load_data"):
             target._load_data()
+        # 切到定位页面时刷新位置信息
+        if page_id == "location" and hasattr(target, "_refresh_location"):
+            target._refresh_location()
 
     def _cancel_animation(self):
         """取消正在播放的动画，清理覆盖层"""

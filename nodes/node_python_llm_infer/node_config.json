@@ -19,6 +19,13 @@
       "required": false,
       "source": "node",
       "type": "string"
+    },
+    {
+      "label": "认知反思Prompt输入",
+      "name": "review_prompt",
+      "required": false,
+      "source": "node",
+      "type": "string"
     }
   ],
   "language": "python",
@@ -27,7 +34,8 @@
   "node_name": "node_python_llm_infer",
   "out_connections": {
     "default": "node_python_aaa_cognition|llm_response",
-    "diary_response": "node_python_aaa_cognition|diary_response"
+    "diary_response": "node_python_aaa_cognition|diary_response",
+    "review_response": "node_python_aaa_cognition|review_response"
   },
   "output_file": "./output.json",
   "output_ports": [
@@ -41,6 +49,12 @@
       "label": "日记推理结果",
       "name": "diary_response",
       "output_file": "./output_diary_response.json",
+      "type": "default"
+    },
+    {
+      "label": "认知反思推理结果",
+      "name": "review_response",
+      "output_file": "./output_review_response.json",
       "type": "default"
     }
   ],
@@ -126,7 +140,8 @@
   ],
   "port_mappings": {
     "diary_prompt": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_aaa_cognition\\output_diary_prompt.json",
-    "prompt": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_aaa_cognition\\output_prompt.json"
+    "prompt": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_aaa_cognition\\output_prompt.json",
+    "review_prompt": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_aaa_cognition\\output_review_prompt.json"
   },
   "python_exe": "",
   "resource_limit": {

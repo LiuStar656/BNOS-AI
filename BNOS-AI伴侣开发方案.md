@@ -1099,9 +1099,9 @@ Grok 仅执行，不吃算力。如果工具结果需要理解和总结，由 AA
 
 #### ASR 语音输入节点 (`asr_input`) - P2
 
-详细方案见 [asr_input/开发方案.md](nodes/node_python_asr_input/开发方案.md)。
+详细方案见 [ASR 语音输入节点开发方案](docs/design/[PLAN]-ASR语音输入节点开发方案.md)。
 
-**节点定位**：AI 的"耳朵 + 耳朵主人识别"。自持麦克风，常驻进程，连续进行 VAD 监听 → 录音 → STT → 声纹识别 → 情感/事件检测 → 输出 `voice_segment` 给 `turn_taking` 节点。
+**节点定位**：AI 的"耳朵 + 耳朵主人识别"。自持麦克风，常驻进程，连续进行 VAD 监听 → 录音 → STT → 声纹识别 → 情感/事件检测 → 输出 `voice_segment` 给 AAA 内部 turn_taking 组件。
 
 **数据流**：
 ```
@@ -1946,7 +1946,7 @@ Phase 1: 最小对话链路  ◄── 最优先，拿到运行效果
 | `live2d_face` | ✅ [完成](nodes/node_js_live2d_face/开发方案.md) | 🟢 核心逻辑完整 | 情绪解析、TTS 集成、init_check 均已实现 |
 | `grok_hands` | ✅ [完成](nodes/node_rust_grok_hands/开发方案.md) | 🟡 基础编译可用，缺 MCP 集成 | 仅 hello-world 级别 |
 | `logseq_writer` | ✅ [完成](nodes/node_python_logseq_writer/开发方案.md) | 🟡 生成 .md 内容但未写磁盘 | 返回文件内容，未实际写入 Logseq 目录 |
-| `asr_input` | ✅ [完成](nodes/node_python_asr_input/开发方案.md) | 🔴 预留，方案已细化 | 详细开发方案已完成（VAD/SenseVoice/CAm++ 等），代码骨架存在但未实现 |
+| `asr_input` | ✅ [完成](docs/design/[PLAN]-ASR语音输入节点开发方案.md) | 🔴 预留，方案已细化 | 详细开发方案已完成（VAD/SenseVoice/CAm++ 等），代码骨架存在但未实现 |
 | `env_input` | ✅ [完成](nodes/node_python_env_input/开发方案.md) | 🔴 预留状态 | 骨架存在，psutil 采集未实施 |
 | `vision_input` | — | 🔴 预留 | Phase 2+，尚未创建节点 |
 
@@ -1963,7 +1963,7 @@ Phase 1: 最小对话链路  ◄── 最优先，拿到运行效果
 | Live2D 面孔 | [live2d_face/开发方案.md](nodes/node_js_live2d_face/开发方案.md) | [live2d_face/](nodes/node_js_live2d_face/) |
 | Grok 工具 | [grok_hands/开发方案.md](nodes/node_rust_grok_hands/开发方案.md) | [grok_hands/](nodes/node_rust_grok_hands/) |
 | Logseq 写入 | [logseq_writer/开发方案.md](nodes/node_python_logseq_writer/开发方案.md) | [logseq_writer/](nodes/node_python_logseq_writer/) |
-| ASR 语音输入 | [asr_input/开发方案.md](nodes/node_python_asr_input/开发方案.md) | [asr_input/](nodes/node_python_asr_input/) |
+| ASR 语音输入 | [ASR 语音输入节点开发方案](docs/design/[PLAN]-ASR语音输入节点开发方案.md) | [asr_input/](nodes/node_python_asr_input/) |
 | 环境监控 | [env_input/开发方案.md](nodes/node_python_env_input/开发方案.md) | [env_input/](nodes/node_python_env_input/) |
 
 ### 11.3 node_config.json 规范差异修正

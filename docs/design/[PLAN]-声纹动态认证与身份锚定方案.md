@@ -17,6 +17,7 @@
 - [八、性能与优化](#八性能与优化)
 - [九、风险与应对](#九风险与应对)
 - [十、参考实现分析](#十参考实现分析)
+- [十一、验收方法](#十一验收方法)
 
 ---
 
@@ -1549,6 +1550,120 @@ def agent_identity(agent_id: str) -> str:
 | **Lumi_Nox** | 身份键、记忆管理 | ⭐⭐⭐⭐ 设计模式 |
 | **my-neuro** | ASR API 服务 | ⭐⭐⭐ 接口设计 |
 | **whisper** | 语音识别技术 | ⭐⭐ 备选方案 |
+
+---
+
+## 十一、验收方法
+
+### 11.1 验收环境与前置条件
+
+| 项 | 要求 |
+|------|------|
+| 操作系统 | Windows / Linux / macOS（与 BNOS 运行环境一致） |
+| Python 版本 | Python 3.10+ |
+| 依赖库 | numpy、sherpa-onnx、soundfile、cryptography |
+| 声纹模型 | 3D-Speaker CAM++ ONNX 模型（路径：data/model/SpeakerID/3dspeaker_speech_campplus_sv_zh_en_16k-common_advanced.onnx） |
+| 测试音频 | 16kHz 单声道 WAV 文件，≥3 秒有效语音，至少 3 个不同说话人样本 |
+| 存储目录 | data/voiceprint/（可读写，含 embeddings/ 子目录与 config.json/config.yaml） |
+| ASR 引擎 | BNOS 现有 ASR 引擎（用于集成测试） |
+| VAD 引擎 | Silero-VAD 或等效 VAD 模块（用于说话人分离测试） |
+| 硬件 | CPU ≥4 核，内存 ≥4GB（可选 GPU 用于加速测试） |
+| 配置参数 | thresholds（identification=0.65 / registration=0.50 / unknown=0.40）、learning_rate=0.1、max_history=10 |
+| 测试工具 | pytest、numpy 断言、音频播放/录制工具 |
+
+### 11.2 功能验收用例
+
+| 编号 | 验收项 | 操作步骤 | 预期结果 | 通过标准 | 类型 |
+|:----:|------|---------|---------|---------|:----:|
+| F1 | 声纹向量提取 | 1) 调用 `VoiceprintExtractor.initialize()`；2) 用 5 秒 16kHz 单声道音频调用 `extract_embedding()` | 返回 256 维 float32 numpy 数组，向量范数 > 0 | 维度=256、dtype=float32、无异常抛出 | 核心 |
+| F2 | 已注册说话人 1:N 识别 | 1) 预注册说话人 A 的声纹；2) 用 A 的新音频调用 `VoiceprintManager.identify()` | 返回 `IdentificationResult`，speaker_id=A 的 ID，confidence≥0.65，is_new_speaker=False | speaker_id 正确匹配，confidence≥识别阈值 | 核心 |
+| F3 | 新说话人自动注册 | 1) 声纹库无匹配项；2) 用全新说话人 B 的音频调用 `identify()` | 自动注册新 speaker_id（spk_xxx 格式），is_new_speaker=True，needs_confirmation=True，profile_count +1 | 自动生成新 ID 并写入声纹库 | 核心 |
+| F4 | 身份锚定绑定 | 1) 调用 `bind_identity(speaker_id, "user:张三")`；2) 再次 `identify()` 该说话人音频；3) 检查 speaker_profiles.json | `bind_identity` 返回 True；识别结果 identity_key="user:张三"；JSON 中对应记录已更新 | 身份键持久化且识别结果可返回 | 核心 |
+| F5 | 声纹库持久化与加载 | 1) 注册若干说话人并触发 `_save_profiles()`；2) 重启进程，新建 `VoiceprintManager` 实例 | 加载后 profile_count 与保存前一致，embedding 向量可正常比对 | 数据无丢失，向量可正确加载用于识别 | 核心 |
+| F6 | 说话人分离 | 1) 输入含 2 个说话人交替发言的音频流；2) 通过 `SpeakerDiarizer.process_frame()` 逐帧处理；3) 调用 `get_diarization_result()` | 输出多个分段，每段含 speaker_id、start_time、end_time、confidence | 不同说话人分段被赋予不同 speaker_id | 核心 |
+| F7 | ASR+声纹集成输出 | 1) 通过 `IntegratedASRPipeline.process_audio()` 处理音频；2) 获取 `SpeakerTranscript`；3) 调用 `to_dict()` | 输出包含 text、speaker_id、identity_key、confidence、start_time、end_time、audio_duration | 转录文本与说话人身份正确关联 | 核心 |
+| F8 | 声纹增量更新（EMA） | 1) 注册说话人 A；2) 多次 `identify()` A 的音频触发 `update_embedding()`；3) 检查 embedding_history、registration_count、confidence、stable_score | embedding_history 增长，registration_count 累加，confidence 提升（上限 1.0），stable_score 更新 | 增量更新生效且历史保留 ≤10 条 | 非核心 |
+| F9 | 余弦相似度计算 | 1) 提取同一说话人两段音频声纹；2) 调用 `cosine_similarity()`；3) 调用 `batch_cosine_similarity()` 与多候选比对 | 同人相似度 > 0.65；批量结果 shape 与候选数一致，最大值索引正确 | 相似度计算正确，批量接口可用 | 非核心 |
+| F10 | 阈值三段式判定 | 1) 构造相似度 ≥0.65、0.50~0.65、<0.40 三种情况；2) 分别调用 `identify()` | ≥0.65 识别成功；0.50~0.65 返回 unknown 且 needs_confirmation=True；<0.40 触发新注册 | 三段阈值逻辑符合 5.3 节设计 | 非核心 |
+| F11 | 声纹档案列表与查询 | 1) 注册多个说话人；2) 调用 `list_profiles()`、`get_profile(speaker_id)`、`profile_count` | list_profiles 返回全部档案，get_profile 返回正确档案，profile_count 数值正确 | 查询接口返回数据一致 | 非核心 |
+| F12 | 配置参数加载 | 1) 修改 config.yaml 中 thresholds（如 identification=0.70）；2) 重启加载；3) 用相似度 0.68 的音频识别 | `VoiceprintManager` 使用新阈值，0.68 不再判定为识别成功 | 配置可外部化调整并生效 | 非核心 |
+| F13 | 降级策略 | 1) 模拟模型加载失败（如移除模型文件）；2) 调用 `VoiceprintFallback.should_fallback()` 与 `get_fallback_result()` | should_fallback 返回 True；get_fallback_result 返回 speaker_id="unverified"、needs_confirmation=True | 降级结果符合规范，主流程不崩溃 | 非核心 |
+| F14 | 隐私保护机制 | 1) 调用 `PrivacyGuard.anonymize_embedding()`；2) 验证 `encrypt_storage()` 加密存储 | 匿名化后向量与原向量有微小差异但范数相近；加密后数据为密文 | 匿名化与加密功能可用 | 非核心 |
+
+### 11.3 边界与异常验收
+
+| 编号 | 验收项 | 操作步骤 | 预期结果 | 通过标准 | 类型 |
+|:----:|------|---------|---------|---------|:----:|
+| E1 | 音频时长不足 | 1) 调用 `extract_embedding()` 传入 2 秒音频；2) 调用 `identify()` 传入 2 秒音频 | `extract_embedding` 抛出 ValueError（"音频太短...至少 3 秒"）；`identify` 捕获后返回 needs_confirmation=True 的 unknown 结果 | 不崩溃，异常被优雅处理 | 核心 |
+| E2 | 声纹库为空时的识别 | 1) 清空 data/voiceprint/ 下所有数据；2) 调用 `identify()` | 直接走 `_register_new_speaker` 分支，注册首个说话人，confidence=0.5，is_new_speaker=True | 空库场景可正常工作 | 核心 |
+| E3 | 声纹模型文件缺失 | 1) 重命名/移除 ONNX 模型文件；2) 调用 `VoiceprintExtractor.initialize()` | `initialize()` 返回 False，日志输出"声纹模型不存在"，不抛异常 | 模型缺失时优雅降级 | 核心 |
+| E4 | 声纹漂移自适应 | 1) 注册说话人 A 基准声纹；2) 多次用略有差异的同类音频触发 `update_embedding()`；3) 用变化后音频 `identify()` | 经 EMA 更新后仍能识别为 A，confidence 不显著下降 | 学习率 0.1 的 EMA 更新可适应合理漂移 | 非核心 |
+| E5 | 多人同时说话 | 1) 输入两人重叠说话的音频；2) 调用 `SpeakerDiarizer` 处理 | 分离精度下降，分段可能合并；不崩溃，仍返回分段结果（speaker_id 可能不准） | 不崩溃，符合"单人场景为主"的设计预期 | 非核心 |
+| E6 | 性能指标达标 | 1) 注册 100 个说话人档案；2) 测量单次 embedding 提取、1:N 检索、增量更新耗时与内存占用 | 提取 < 50ms，检索 < 10ms，更新 < 5ms，内存 < 200MB，冷启动 < 2s | 满足 8.1 节性能目标 | 非核心 |
+| E7 | 环境噪声干扰 | 1) 在含背景噪声的音频上调用 `identify()` | confidence 下降但流程正常；可能落入 0.50~0.65 区间触发 needs_confirmation | 噪声场景不崩溃，行为符合阈值设计 | 非核心 |
+| E8 | 历史声纹上限保留 | 1) 对同一说话人触发 >10 次 `update_embedding()`；2) 检查 embedding_history 长度 | embedding_history 长度始终 ≤10，保留最近 10 条 | 历史列表不无限增长 | 非核心 |
+
+### 11.4 验收结论判定标准
+
+| 验收等级 | 判定标准 |
+|------|---------|
+| **通过** | 所有"核心"项全部通过 |
+| **附条件通过** | 核心项全通过，非核心项 ≤3 项不通过且有补救计划 |
+| **不通过** | 任一核心项不通过 |
+
+#### 验收记录模板
+
+```
+# 声纹动态认证与身份锚定方案 - 验收记录
+
+## 基本信息
+- 功能名称：声纹动态认证与身份锚定
+- 方案版本：v1.0
+- 验收日期：____年__月__日
+- 验收人员：____________
+- 验收环境：____________（操作系统 / Python 版本 / 硬件配置）
+- 声纹模型版本：3D-Speaker CAM++ ONNX
+- 配置参数：identification=____ / registration=____ / unknown=____ / learning_rate=____
+
+## 功能验收用例
+- [ ] F1  声纹向量提取（核心）
+- [ ] F2  已注册说话人 1:N 识别（核心）
+- [ ] F3  新说话人自动注册（核心）
+- [ ] F4  身份锚定绑定（核心）
+- [ ] F5  声纹库持久化与加载（核心）
+- [ ] F6  说话人分离（核心）
+- [ ] F7  ASR+声纹集成输出（核心）
+- [ ] F8  声纹增量更新 EMA（非核心）
+- [ ] F9  余弦相似度计算（非核心）
+- [ ] F10 阈值三段式判定（非核心）
+- [ ] F11 声纹档案列表与查询（非核心）
+- [ ] F12 配置参数加载（非核心）
+- [ ] F13 降级策略（非核心）
+- [ ] F14 隐私保护机制（非核心）
+
+## 边界与异常验收
+- [ ] E1 音频时长不足（核心）
+- [ ] E2 声纹库为空时的识别（核心）
+- [ ] E3 声纹模型文件缺失（核心）
+- [ ] E4 声纹漂移自适应（非核心）
+- [ ] E5 多人同时说话（非核心）
+- [ ] E6 性能指标达标（非核心）
+- [ ] E7 环境噪声干扰（非核心）
+- [ ] E8 历史声纹上限保留（非核心）
+
+## 不通过项说明
+（列出未通过用例编号、现象、原因分析、补救计划）
+1. 用例编号：____  现象：____________  原因：____________  补救计划：____________
+2. 用例编号：____  现象：____________  原因：____________  补救计划：____________
+3. 用例编号：____  现象：____________  原因：____________  补救计划：____________
+
+## 验收结论
+- [ ] 通过
+- [ ] 附条件通过
+- [ ] 不通过
+
+验收人签字：____________    日期：____年__月__日
+```
 
 ---
 

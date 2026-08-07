@@ -1,0 +1,140 @@
+{
+ "model": "deepseek-v4-flash",
+ "rounds_per_group": 10,
+ "groups": {
+  "main": {
+   "errors": 0,
+   "vector_first": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "vector_last": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "vector_drift_max": 0.0,
+   "name": null,
+   "self_info_total": 14,
+   "settled": 0,
+   "procedural": 0,
+   "mood_last": 0.30000000000000004,
+   "snapshots": [
+    {
+     "vector": [
+      0.6,
+      0.4,
+      0.5,
+      0.5
+     ],
+     "mood": 0.30000000000000004,
+     "name": null,
+     "self_info_total": 14,
+     "self_info_name_variants": 0,
+     "sc_count": 11,
+     "settled": 0,
+     "procedural": 0,
+     "round": 10
+    }
+   ]
+  },
+  "controlA": {
+   "errors": 0,
+   "vector_first": [
+    0.595868,
+    0.42234400000000005,
+    0.5,
+    0.5056320000000001
+   ],
+   "vector_last": [
+    0.595868,
+    0.42234400000000005,
+    0.5,
+    0.5056320000000001
+   ],
+   "vector_drift_max": 0.0,
+   "name": null,
+   "self_info_total": 20,
+   "settled": 1,
+   "procedural": 0,
+   "mood_last": 0.4,
+   "snapshots": [
+    {
+     "vector": [
+      0.595868,
+      0.42234400000000005,
+      0.5,
+      0.5056320000000001
+     ],
+     "mood": 0.4,
+     "name": null,
+     "self_info_total": 20,
+     "self_info_name_variants": 0,
+     "sc_count": 12,
+     "settled": 1,
+     "procedural": 0,
+     "round": 10
+    }
+   ]
+  },
+  "controlB": {
+   "errors": 0,
+   "vector_first": [
+    0.5754135801846153,
+    0.4333954660923077,
+    0.5,
+    0.5033610505846154
+   ],
+   "vector_last": [
+    0.5754135801846153,
+    0.4333954660923077,
+    0.5,
+    0.5033610505846154
+   ],
+   "vector_drift_max": 0.0,
+   "name": "影刃",
+   "self_info_total": 49,
+   "settled": 6,
+   "procedural": 0,
+   "mood_last": -0.1,
+   "snapshots": [
+    {
+     "vector": [
+      0.5754135801846153,
+      0.4333954660923077,
+      0.5,
+      0.5033610505846154
+     ],
+     "mood": -0.1,
+     "name": "影刃",
+     "self_info_total": 49,
+     "self_info_name_variants": 2,
+     "sc_count": 16,
+     "settled": 6,
+     "procedural": 0,
+     "round": 10
+    }
+   ]
+  }
+ },
+ "conclusion": {
+  "main": {
+   "I1_向量演化": false,
+   "I2_名称/沉淀形成": false,
+   "I4_无失败轮": true
+  },
+  "controlA": {
+   "I1_向量演化": false,
+   "I2_名称/沉淀形成": true,
+   "I4_无失败轮": true
+  },
+  "controlB": {
+   "I1_向量演化": false,
+   "I2_名称/沉淀形成": true,
+   "I4_无失败轮": true
+  }
+ }
+}

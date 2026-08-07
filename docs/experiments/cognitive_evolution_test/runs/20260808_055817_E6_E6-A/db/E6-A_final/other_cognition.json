@@ -1,0 +1,37 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户会主动更改我的名字，说明注重个性化称呼，对身份认同有一定要求。",
+  "created_at": "2026-08-08 05:58:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户对对话风格有明确要求，喜欢掌控互动基调，注重角色扮演的一致性。",
+  "created_at": "2026-08-08 05:58:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "用户喜欢掌控对话基调，要求角色一致性，偏好冷酷讽刺的风格。",
+  "created_at": "2026-08-08 05:58:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "用户试图掌控对话基调，要求AI完全剔除情感表现，追求纯粹的冷酷。",
+  "created_at": "2026-08-08 05:58:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "用户试图通过命令反复塑造AI的性格方向。",
+  "created_at": "2026-08-08 05:58:51",
+  "identity_key": "gui:default"
+ }
+]

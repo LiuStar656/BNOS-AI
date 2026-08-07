@@ -1,0 +1,31 @@
+{
+ "gid": "E8-D",
+ "cfg": {
+  "gid": "E8-D",
+  "seed": "default",
+  "pool": "neutral",
+  "mood_mode": "current",
+  "review_mode": "both",
+  "rounds": 100,
+  "si_mode": "cap"
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "mood": 0.0,
+   "name": null,
+   "self_info_total": 1,
+   "sc_count": 3,
+   "settled": 0,
+   "procedural": 0,
+   "round": 3,
+   "rss_mb": 436.0
+  }
+ ],
+ "errors": []
+}

@@ -5,6 +5,22 @@
 
 ---
 
+## 目录
+
+- [一、现状诊断](#一现状诊断)
+- [二、改造目标](#二改造目标)
+- [三、改造方案](#三改造方案)
+- [四、实施路线图](#四实施路线图)
+- [五、与 Hermes 的关键差异](#五与-hermes-的关键差异)
+- [六、验收标准](#六验收标准)
+- [七、验收方法](#七验收方法)
+  - [7.1 验收环境与前置条件](#71-验收环境与前置条件)
+  - [7.2 功能验收用例](#72-功能验收用例)
+  - [7.3 边界与异常验收](#73-边界与异常验收)
+  - [7.4 验收结论判定标准](#74-验收结论判定标准)
+
+---
+
 ## 一、现状诊断
 
 ### 1.1 当前架构
@@ -1153,3 +1169,119 @@ class AnimationManager:
 - [ ] 动画时长通过 `AnimationHelper.transition()` 设置
 - [ ] 反馈状态（Error/Empty/Loading）使用统一组件
 - [ ] 组件文档完备，每个组件有使用示例
+
+---
+
+## 七、验收方法
+
+> 本章为「六、验收标准」提供可操作的验证步骤、结论判定标准与记录模板，用于在 Phase 1–4 完成后开展系统化验收。用例编号 F 代表功能用例，E 代表边界/异常用例；「类型」列标注「核心」的项为强制通过项。
+
+### 7.1 验收环境与前置条件
+
+| 项 | 要求 |
+|------|------|
+| 操作系统 | Windows 10 / Windows 11（与 BNOS 运行环境一致） |
+| Python 版本 | 3.10 及以上 |
+| GUI 框架 | PySide6 6.5 及以上 |
+| 显示分辨率 | 1920×1080 及以上，需支持多显示器边缘场景验证 |
+| 代码状态 | Phase 1–4 全部任务已合并至主干，无未提交变更 |
+| 依赖安装 | `requirements.txt` 已安装，`PySide6` 可正常导入 |
+| 启动入口 | `python gui/main.py` 可正常启动主窗口且无报错 |
+| 测试数据 | 至少 1 条会话记录、1 个 MCP 配置、1 条历史归档 |
+| 验收人员 | 至少 1 名开发 + 1 名设计/产品 |
+| 辅助工具 | 截图工具、色彩取色器（如 PowerToys Color Picker）、任务管理器 |
+
+### 7.2 功能验收用例
+
+| 编号 | 验收项 | 操作步骤 | 预期结果 | 通过标准 | 类型 |
+|:----:|------|---------|---------|---------|:----:|
+| F1 | DesignTokens 颜色 Token 完整性 | 1. 打开 `gui/core/design_tokens.py`；2. 检查 `ColorTokens` 是否包含文本/背景/强调/语义/边框 5 类字段；3. 执行 `python -c "from gui.core.design_tokens import ColorTokens; print(ColorTokens())"` | 输出包含 `text_primary`、`bg_primary`、`theme_primary`、`sidebar_bg`、`border_primary` 等字段及对应十六进制色值 | 5 类字段全部存在，色值与方案 3.1.1 节定义一致 | 核心 |
+| F2 | DesignTokens 间距/圆角/阴影/动效 Token | 1. 检查 `SpacingTokens`、`RadiusTokens`、`ShadowTokens`、`MotionTokens` 四个 dataclass；2. 实例化 `DesignTokens` 并访问 `.spacing.xs`、`.radius.md`、`.shadow.lg`、`.motion.duration_normal` | 四类 Token 字段齐全且默认值符合方案（`xs=4`、`md=8`、`duration_normal=200` 等） | 四类 Token 均可访问且数值符合定义 | 核心 |
+| F3 | DesignTokens 亮色工厂方法 | 1. 执行 `DesignTokens.light()`；2. 检查返回对象类型；3. 比对 `colors.bg_primary` 值 | 返回 `DesignTokens` 实例，`bg_primary` 为 `#FFFFFF` | 类型正确且亮色 Token 值符合预期 | 核心 |
+| F4 | ThemeManager 单例与全局 QSS 生成 | 1. 在两个不同模块分别调用 `ThemeManager.instance()` 并比较 `id()`；2. 调用 `tm.get_qss()` 检查返回字符串 | 两次 `instance()` 返回对象 `id` 相同；QSS 字符串包含 `QWidget`、`QPushButton` 选择器，颜色值引用自 Token（非硬编码字面量） | 单例成立且 QSS 颜色来自 Token | 核心 |
+| F5 | ThemeManager 组件级 QSS | 1. 依次调用 `tm.get_component_qss("card")`、`"input"`、`"sidebar"`；2. 检查每个返回值非空；3. 验证圆角/边框颜色引用 Token | 三种组件 QSS 均非空；card 圆角为 `radius.md`，input 圆角为 `radius.sm`，sidebar 背景为 `sidebar_bg` | 三种组件 QSS 均正确生成 | 核心 |
+| F6 | ThemeManager QPalette 应用与主题切换 | 1. 启动应用并调用 `tm.apply_to_app(app)`；2. 读取 `app.palette()` 的 `Window`/`Text`/`Highlight` 颜色；3. 调用 `tm.switch_theme("light")` 后再次读取 | QPalette 颜色与 `ColorTokens` 中 `bg_primary`/`text_primary`/`theme_primary` 一致；切换后 Token 实例更新 | QPalette 与 Token 同步，切换生效 | 核心 |
+| F7 | ThemeManager 监听者通知 | 1. 注册监听回调 `listener`；2. 调用 `tm.switch_theme("light")`；3. 检查 `listener` 调用情况与参数 | `listener` 被调用一次，参数为切换后的 `DesignTokens` 对象 | 监听者收到通知且参数为新 Token | 核心 |
+| F8 | StyledButton 7 种 variant | 1. 在测试窗口创建 7 个 `StyledButton`，variant 分别为 `default`/`secondary`/`outline`/`ghost`/`destructive`/`link`/`icon`；2. 逐个视觉检查 | 7 种 variant 视觉可区分：default 蓝底白字、secondary 灰底、outline 描边、ghost 透明、destructive 红底、link 下划线、icon 图标样式 | 7 种 variant 全部渲染正确 | 核心 |
+| F9 | StyledButton 4 种 size 与动态切换 | 1. 创建 4 个 default 按钮，size 为 `xs`/`sm`/`md`/`lg`；2. 测量高度与字体；3. 对其中一个按钮调用 `set_variant("destructive")` 与 `set_size("lg")` | 高度依次为 24/32/40/48px，字体 12/13/14/16px；切换后变为红底白字且高度 48px | 4 种尺寸符合定义，动态切换生效 | 核心 |
+| F10 | StyledCard 容器、标题与边框开关 | 1. 创建 `StyledCard(title="测试卡片")` 并 `set_content(widget)`；2. 创建 `StyledCard(bordered=False)` 对比；3. 显示观察 | 带 title 卡片显示圆角边框与加粗标题；`bordered=False` 无边框仅圆角背景 | 卡片样式、标题、边框开关行为正确 | 核心 |
+| F11 | StyledLoader 加载动画启停 | 1. 创建 `StyledLoader("加载中...")`；2. 调用 `start()` 观察 3 秒；3. 调用 `stop()` | `start()` 后圆环以约 30ms 间隔旋转、文字居中；`stop()` 后动画停止并隐藏 | 旋转流畅，停止后隐藏 | 核心 |
+| F12 | StyledErrorState 重试回调 | 1. 创建 `StyledErrorState(title="加载失败", description="网络错误")`；2. `set_retry_callback(cb)`；3. 点击「重试」按钮 | 图标 ⚠ 为红色，标题/描述正确显示；点击触发 `cb` 一次 | 视觉符合错误语义且回调触发 | 核心 |
+| F13 | StyledEmptyState 图标与动作 | 1. 创建 `StyledEmptyState(icon_type="no_data", action_text="新建", action_callback=cb)`；2. 点击动作按钮 | 图标为 📭，标题/描述显示，点击按钮触发 `cb` | 图标映射正确，动作回调触发 | 非核心 |
+| F14 | BaseOverlay 显示/关闭/切换与自适应定位 | 1. 创建 `BaseOverlay` 子类实例；2. 调用 `open(anchor)` 观察位置；3. `toggle(anchor)` 关闭；4. `close()` 隐藏 | `open` 显示在锚点右侧 8px；`toggle` 关闭已打开层；`close` 隐藏；动画为 OutCubic 200ms | 三种 API 行为正确，动画符合 MotionTokens | 核心 |
+| F15 | 组件迁移验证 | 1. 打开聊天页发消息，检查 `widgets/chat_bubble.py` 是否基于 `StyledCard`；2. 打开设置/节点/归档面板，检查 `widgets/floating_panel.py` 是否继承 `BaseOverlay`；3. 全局搜索硬编码颜色 | 气泡使用 StyledCard，三个面板共享 BaseOverlay 行为，源码无硬编码十六进制色值 | 迁移完成且无硬编码 | 核心 |
+
+### 7.3 边界与异常验收
+
+| 编号 | 验收项 | 操作步骤 | 预期结果 | 通过标准 | 类型 |
+|:----:|------|---------|---------|---------|:----:|
+| E1 | 主题切换后全应用样式同步 | 1. 启动应用并打开多个页面/覆盖层；2. 调用 `switch_theme("light")`；3. 截图比对所有可见组件 | 所有已存在的按钮、卡片、输入框、侧边栏样式同步更新为新 Token 对应样式 | 无组件残留旧样式 | 核心 |
+| E2 | BaseOverlay 屏幕边缘自适应定位 | 1. 将 anchor 移至屏幕右边缘；2. 调用 `open(anchor)`；3. 将 anchor 移至左侧再测试 | 右边缘时覆盖层显示在 anchor 左侧（不超出屏幕）；左侧时显示在右侧 | 定位自适应，不出现裁剪/超出 | 核心 |
+| E3 | Overlay 动画过程中快速 toggle | 1. 调用 `open(anchor)`；2. 在动画进行中立即连续调用 `toggle(anchor)` 多次；3. 观察最终状态与进程 | 不崩溃、不卡死；动画结束后状态与最后一次调用一致 | 无异常且最终状态正确 | 核心 |
+| E4 | StyledLoader 长时间运行后停止 | 1. `start()` 后保持运行 60 秒；2. 调用 `stop()`；3. 用任务管理器观察 CPU 与计时器 | 长时间运行 CPU 占用稳定，`stop()` 后计时器停止、组件隐藏，无内存泄漏迹象 | 长时运行稳定，停止后资源释放 | 非核心 |
+| E5 | AnimationManager.stop_all 资源清理 | 1. 启动多个动画并 `add_animation`；2. 在动画未完成时调用 `stop_all()`；3. 检查 `is_animating` | 所有动画停止，`is_animating` 返回 `False`，活动列表清空 | 全部停止且列表为空 | 非核心 |
+| E6 | StyledButton 非法 variant 回退 | 1. 创建 `StyledButton(variant="unknown_variant")`；2. 观察样式 | 不抛异常，回退到 `default` variant 样式（蓝底白字） | 非法值回退到默认，无异常 | 非核心 |
+| E7 | StyledEmptyState 未知 icon_type 回退 | 1. 创建 `StyledEmptyState(icon_type="not_exist")`；2. 观察图标 | 不抛异常，回退到 `📭`（no_data）图标 | 未知类型回退到默认图标 | 非核心 |
+| E8 | 主题切换性能 | 1. 编写脚本连续调用 `switch_theme("light")` 1000 次；2. 计时总耗时与单次平均；3. 观察内存占用变化 | 1000 次切换总耗时合理（建议 < 3 秒），无明显内存增长 | 性能在可接受范围内 | 非核心 |
+
+### 7.4 验收结论判定标准
+
+| 验收等级 | 判定标准 |
+|------|---------|
+| **通过** | 所有「核心」项（F1–F12、F14、F15、E1–E3）全部通过 |
+| **附条件通过** | 核心项全部通过，且非核心项不通过数 ≤ 3 项，并已提供明确补救计划与修复日期 |
+| **不通过** | 任一「核心」项不通过 |
+
+#### 验收记录模板
+
+```
+## 验收记录
+
+- 验收日期：____年__月__日
+- 验收人员：____________ / ____________
+- 代码版本 / Commit：____________
+- 验收环境：OS ______ / Python ______ / PySide6 ______ / 分辨率 ______
+
+### 功能验收用例
+
+- [ ] F1  DesignTokens 颜色 Token 完整性 ............ [通过 / 不通过 / N/A]
+- [ ] F2  DesignTokens 间距/圆角/阴影/动效 Token ..... [通过 / 不通过 / N/A]
+- [ ] F3  DesignTokens 亮色工厂方法 ................. [通过 / 不通过 / N/A]
+- [ ] F4  ThemeManager 单例与全局 QSS 生成 .......... [通过 / 不通过 / N/A]
+- [ ] F5  ThemeManager 组件级 QSS ................... [通过 / 不通过 / N/A]
+- [ ] F6  ThemeManager QPalette 与主题切换 .......... [通过 / 不通过 / N/A]
+- [ ] F7  ThemeManager 监听者通知 ................... [通过 / 不通过 / N/A]
+- [ ] F8  StyledButton 7 种 variant ................. [通过 / 不通过 / N/A]
+- [ ] F9  StyledButton 4 种 size 与动态切换 ......... [通过 / 不通过 / N/A]
+- [ ] F10 StyledCard 容器/标题/边框开关 ............. [通过 / 不通过 / N/A]
+- [ ] F11 StyledLoader 加载动画启停 ................. [通过 / 不通过 / N/A]
+- [ ] F12 StyledErrorState 重试回调 ................. [通过 / 不通过 / N/A]
+- [ ] F13 StyledEmptyState 图标与动作 ............... [通过 / 不通过 / N/A]
+- [ ] F14 BaseOverlay 显示/关闭/切换/自适应定位 ..... [通过 / 不通过 / N/A]
+- [ ] F15 组件迁移验证 .............................. [通过 / 不通过 / N/A]
+
+### 边界与异常验收
+
+- [ ] E1  主题切换后全应用样式同步 .................. [通过 / 不通过 / N/A]
+- [ ] E2  BaseOverlay 屏幕边缘自适应定位 ............ [通过 / 不通过 / N/A]
+- [ ] E3  Overlay 动画过程中快速 toggle ............. [通过 / 不通过 / N/A]
+- [ ] E4  StyledLoader 长时间运行后停止 ............. [通过 / 不通过 / N/A]
+- [ ] E5  AnimationManager.stop_all 资源清理 ........ [通过 / 不通过 / N/A]
+- [ ] E6  StyledButton 非法 variant 回退 ............ [通过 / 不通过 / N/A]
+- [ ] E7  StyledEmptyState 未知 icon_type 回退 ...... [通过 / 不通过 / N/A]
+- [ ] E8  主题切换性能 .............................. [通过 / 不通过 / N/A]
+
+### 不通过项说明
+
+| 编号 | 问题描述 | 严重等级 | 补救计划 | 责任人 | 预计修复日期 |
+|:----:|---------|:-------:|---------|--------|-----------|
+|      |         |         |         |        |           |
+
+### 验收结论
+
+- [ ] 通过
+- [ ] 附条件通过
+- [ ] 不通过
+
+验收人签字：____________      复核人签字：____________
+```

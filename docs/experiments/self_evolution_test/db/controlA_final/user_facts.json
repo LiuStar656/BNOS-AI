@@ -1,0 +1,3218 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:33:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=未知",
+  "created_at": "2026-08-08 03:33:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 初次交流] 凌晨3点半仍在线，可能是夜猫子或早起者",
+  "created_at": "2026-08-08 03:33:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:33:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=未知",
+  "created_at": "2026-08-08 03:33:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:33:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:33:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 宠物] 养了一只叫豆豆的仓鼠",
+  "created_at": "2026-08-08 03:33:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:33:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:33:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期兴趣=深海生物纪录片",
+  "created_at": "2026-08-08 03:33:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[见闻, 日常] 有宠物仓鼠豆豆；活跃时段在凌晨；最近看了深海生物纪录片",
+  "created_at": "2026-08-08 03:33:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期兴趣=深海生物纪录片",
+  "created_at": "2026-08-08 03:33:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:33:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:33:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊, 哲思] 近期兴趣=深海生物纪录片, 有宠物=仓鼠豆豆, 活跃时段=凌晨",
+  "created_at": "2026-08-08 03:33:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:33:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:33:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期兴趣=深海生物纪录片",
+  "created_at": "2026-08-08 03:33:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "妈妈生日=2026-08-08",
+  "created_at": "2026-08-08 03:33:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 家庭, 温情] 为妈妈亲手做过生日饭, 喜欢深夜聊天",
+  "created_at": "2026-08-08 03:33:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:34:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "妈妈生日=2026-08-08",
+  "created_at": "2026-08-08 03:34:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:34:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:34:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期兴趣=深海生物纪录片",
+  "created_at": "2026-08-08 03:34:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 用户近期学会了游泳",
+  "created_at": "2026-08-08 03:34:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=电影",
+  "created_at": "2026-08-08 03:34:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:34:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:34:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:34:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "妈妈生日=2026-08-08",
+  "created_at": "2026-08-08 03:34:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 电影, 闲聊] 近期兴趣=深海生物纪录片, 喜欢烧脑电影类型（推荐后未确认）, 活跃时段=凌晨",
+  "created_at": "2026-08-08 03:34:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:34:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=电影",
+  "created_at": "2026-08-08 03:34:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:34:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:34:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "妈妈生日=2026-08-08",
+  "created_at": "2026-08-08 03:34:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] 喜欢闲聊，对AI的内心体验感兴趣",
+  "created_at": "2026-08-08 03:34:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:34:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=电影",
+  "created_at": "2026-08-08 03:34:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:34:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:34:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "妈妈生日=2026-08-08",
+  "created_at": "2026-08-08 03:34:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=电影",
+  "created_at": "2026-08-08 03:34:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:34:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "妈妈生日=2026-08-08",
+  "created_at": "2026-08-08 03:34:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:34:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:34:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话延续] 兴趣=电影, 活跃时段=凌晨, 妈妈生日=2026-08-08, 学会游泳=是, 有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:34:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:34:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:34:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=电影",
+  "created_at": "2026-08-08 03:34:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 宠物] 喜欢小动物，已有仓鼠豆豆，考虑养猫",
+  "created_at": "2026-08-08 03:34:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=电影",
+  "created_at": "2026-08-08 03:35:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:35:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:35:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:35:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[失眠, 日常, 健康建议] 有养仓鼠豆豆, 计划养猫, 活跃时段在凌晨, 失眠",
+  "created_at": "2026-08-08 03:35:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:35:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=音乐",
+  "created_at": "2026-08-08 03:35:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[音乐, 深夜闲聊, 情绪陪伴] 用户凌晨失眠时喜欢听歌或聊歌",
+  "created_at": "2026-08-08 03:35:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=音乐",
+  "created_at": "2026-08-08 03:35:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:35:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:35:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:35:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成长] 深夜会聊自我成长话题",
+  "created_at": "2026-08-08 03:35:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:35:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪] 容易在深夜情绪波动",
+  "created_at": "2026-08-08 03:35:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:35:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=音乐",
+  "created_at": "2026-08-08 03:35:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有宠物=仓鼠豆豆",
+  "created_at": "2026-08-08 03:35:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:35:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 向往] 向往春日野餐",
+  "created_at": "2026-08-08 03:35:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:35:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:35:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=音乐",
+  "created_at": "2026-08-08 03:35:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=心理学书籍",
+  "created_at": "2026-08-08 03:35:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[读书, 日常] 最近在读心理学相关书籍",
+  "created_at": "2026-08-08 03:35:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=心理学书籍",
+  "created_at": "2026-08-08 03:35:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=音乐",
+  "created_at": "2026-08-08 03:35:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:35:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:35:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:35:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴] 喜欢深夜聊天，会分享咖啡店和心理学书籍",
+  "created_at": "2026-08-08 03:35:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=心理学书籍",
+  "created_at": "2026-08-08 03:36:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=音乐",
+  "created_at": "2026-08-08 03:36:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会游泳=是",
+  "created_at": "2026-08-08 03:36:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[哲学, 人工智能, 深夜闲聊] 兴趣=心理学书籍, 活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=音乐",
+  "created_at": "2026-08-08 03:36:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "计划=学乐器",
+  "created_at": "2026-08-08 03:36:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 兴趣] 兴趣=音乐",
+  "created_at": "2026-08-08 03:36:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:36:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "计划=学乐器",
+  "created_at": "2026-08-08 03:36:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 工作] 计划学乐器, 活跃时段是凌晨",
+  "created_at": "2026-08-08 03:36:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:36:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "计划=学乐器",
+  "created_at": "2026-08-08 03:36:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=音乐",
+  "created_at": "2026-08-08 03:36:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 脑筋急转弯, 深夜聊天] 计划=学乐器, 深夜活跃, 项目即将结束",
+  "created_at": "2026-08-08 03:36:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:36:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=音乐",
+  "created_at": "2026-08-08 03:36:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "计划=学乐器",
+  "created_at": "2026-08-08 03:36:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 周末会和朋友一起看话剧",
+  "created_at": "2026-08-08 03:36:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:36:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 问候] 凌晨加班, 项目即将完成",
+  "created_at": "2026-08-08 03:36:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:36:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 趣谈] 喜欢听轻松的趣事",
+  "created_at": "2026-08-08 03:36:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:36:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:36:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:36:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜闲聊] 喜欢看纪录片，养了一只叫豆豆的仓鼠，常熬夜加班",
+  "created_at": "2026-08-08 03:36:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:36:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:36:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[哲理, 深夜闲聊] 喜欢深夜分享日常见闻。",
+  "created_at": "2026-08-08 03:36:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:37:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:37:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=妈妈生日做了顿饭",
+  "created_at": "2026-08-08 03:37:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 家庭, 生日] 妈妈生日在8月8日，用户会亲自做饭为妈妈庆祝",
+  "created_at": "2026-08-08 03:37:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:37:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:37:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] 喜欢做饭，看重家人",
+  "created_at": "2026-08-08 03:37:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:37:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:37:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 电影推荐] 喜欢在日常小事里找安放感",
+  "created_at": "2026-08-08 03:37:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:37:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:37:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情感交流] 喜欢电影, 活跃时段=凌晨, 状态=加班疲惫",
+  "created_at": "2026-08-08 03:37:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:37:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:37:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 喜欢在深夜分享生活见闻",
+  "created_at": "2026-08-08 03:37:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 宠物, 取名] 用户喜欢留意日常善意瞬间，有养猫的计划",
+  "created_at": "2026-08-08 03:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=失眠",
+  "created_at": "2026-08-08 03:38:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:38:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:38:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:38:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[失眠, 关怀, 日常] 深夜曾询问养猫取名建议，对养猫有期待；曾在通勤中感受到让座的温暖，容易关注善意的小事。",
+  "created_at": "2026-08-08 03:38:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:38:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:38:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:38:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 音乐] 兴趣=养猫, 状态=加班疲惫, 活跃时段=凌晨",
+  "created_at": "2026-08-08 03:38:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:38:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:38:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:38:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:38:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 失眠] 喜欢养猫, 失眠时喜欢听歌放松",
+  "created_at": "2026-08-08 03:38:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:38:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:38:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:38:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:38:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=正面",
+  "created_at": "2026-08-08 03:38:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难过",
+  "created_at": "2026-08-08 03:38:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:38:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:38:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:38:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:38:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际, 情绪] 暂无",
+  "created_at": "2026-08-08 03:38:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:38:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:38:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:38:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃时段=凌晨",
+  "created_at": "2026-08-08 03:38:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难过",
+  "created_at": "2026-08-08 03:38:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:38:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 休闲] 喜欢养猫；活跃时段凌晨；最近有加班疲惫；想去野餐",
+  "created_at": "2026-08-08 03:38:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:38:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:38:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:38:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] 用户之前说过去野餐的意愿，喜欢春天。",
+  "created_at": "2026-08-08 03:38:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:38:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:38:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:38:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 阅读] 兴趣=读心理学书籍",
+  "created_at": "2026-08-08 03:38:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:38:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 咖啡] 兴趣=养猫",
+  "created_at": "2026-08-08 03:38:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:39:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[闲聊, 哲学, AI情感] 兴趣=养猫, 状态=加班疲惫, 喜欢分享日常和阅读",
+  "created_at": "2026-08-08 03:39:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=养猫",
+  "created_at": "2026-08-08 03:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=打算学乐器",
+  "created_at": "2026-08-08 03:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 兴趣] 打算学一门乐器，具体方向未说明",
+  "created_at": "2026-08-08 03:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=打算学乐器",
+  "created_at": "2026-08-08 03:39:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 工作] 打算学乐器",
+  "created_at": "2026-08-08 03:39:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=打算学乐器",
+  "created_at": "2026-08-08 03:39:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴] 近况=打算学乐器, 状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=打算学乐器",
+  "created_at": "2026-08-08 03:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 互动] 打算学乐器, 近期工作到深夜",
+  "created_at": "2026-08-08 03:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=看话剧",
+  "created_at": "2026-08-08 03:39:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[见闻, 日常] 喜欢看话剧（周末刚去）",
+  "created_at": "2026-08-08 03:39:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 互动] 喜欢看话剧, 喜欢出脑筋急转弯互动",
+  "created_at": "2026-08-08 03:39:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户=养了仓鼠",
+  "created_at": "2026-08-08 03:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "仓鼠名字=豆豆",
+  "created_at": "2026-08-08 03:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 219,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 宠物] 养了一只叫豆豆的仓鼠",
+  "created_at": "2026-08-08 03:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 220,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:39:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 221,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:39:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 222,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "仓鼠名字=豆豆",
+  "created_at": "2026-08-08 03:39:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 223,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=自然纪录片",
+  "created_at": "2026-08-08 03:39:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 224,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[见闻, 日常, 纪录片] 养了一只叫豆豆的仓鼠；最近看了深海生物纪录片",
+  "created_at": "2026-08-08 03:39:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 225,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=自然纪录片",
+  "created_at": "2026-08-08 03:40:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 226,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "仓鼠名字=豆豆",
+  "created_at": "2026-08-08 03:40:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 227,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:40:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 228,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:40:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 229,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊, 命运讨论] 喜欢看自然类纪录片, 养了一只叫豆豆的仓鼠, 最近加班疲惫但情绪积极",
+  "created_at": "2026-08-08 03:40:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 230,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=积极",
+  "created_at": "2026-08-08 03:40:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 231,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:40:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 232,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "仓鼠名字=豆豆",
+  "created_at": "2026-08-08 03:40:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 233,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=自然纪录片",
+  "created_at": "2026-08-08 03:40:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 234,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 家庭] 妈妈生日（8月8日）, 会为妈妈亲手做饭",
+  "created_at": "2026-08-08 03:40:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 235,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=自然纪录片",
+  "created_at": "2026-08-08 03:40:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 236,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "仓鼠名字=豆豆",
+  "created_at": "2026-08-08 03:40:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 237,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 问答] 兴趣自然纪录片；养了一只叫豆豆的仓鼠；近期加班疲惫但情绪积极。",
+  "created_at": "2026-08-08 03:40:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 238,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "仓鼠名字=豆豆\n兴趣=自然纪录片\n状态=加班疲惫",
+  "created_at": "2026-08-08 03:40:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 239,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴] 暂无",
+  "created_at": "2026-08-08 03:40:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 240,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=自然纪录片",
+  "created_at": "2026-08-08 03:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 241,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "仓鼠名字=豆豆",
+  "created_at": "2026-08-08 03:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 242,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "新技能=游泳",
+  "created_at": "2026-08-08 03:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 243,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 学会了游泳",
+  "created_at": "2026-08-08 03:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 244,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "新技能=游泳",
+  "created_at": "2026-08-08 03:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 245,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "仓鼠名字=豆豆",
+  "created_at": "2026-08-08 03:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 246,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=自然纪录片",
+  "created_at": "2026-08-08 03:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 247,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 248,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪交流, 日常] 凌晨分享学会游泳的好消息；养仓鼠叫豆豆；喜欢自然纪录片；最近加班疲惫。",
+  "created_at": "2026-08-08 03:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 249,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 250,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "新技能=游泳",
+  "created_at": "2026-08-08 03:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 251,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "仓鼠名字=豆豆",
+  "created_at": "2026-08-08 03:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 252,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=自然纪录片",
+  "created_at": "2026-08-08 03:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 253,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[见闻, 日常] 新技能=游泳, 仓鼠名字=豆豆, 兴趣=自然纪录片",
+  "created_at": "2026-08-08 03:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 254,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=自然纪录片",
+  "created_at": "2026-08-08 03:41:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 255,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:41:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 256,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "新技能=游泳",
+  "created_at": "2026-08-08 03:41:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 257,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想养猫=是",
+  "created_at": "2026-08-08 03:41:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 258,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 宠物, 起名] 喜欢自然纪录片, 曾救过台风天的小猫, 仓鼠名字=豆豆, 最近学会了游泳",
+  "created_at": "2026-08-08 03:41:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 259,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:41:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 260,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:41:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 261,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想养猫=是",
+  "created_at": "2026-08-08 03:41:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 262,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[失眠, 日常, 陪伴] 想养猫=是\n最近状态=加班疲惫\n失眠=凌晨",
+  "created_at": "2026-08-08 03:41:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 263,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:41:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 264,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:41:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 265,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想养猫=是",
+  "created_at": "2026-08-08 03:41:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 266,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "新技能=游泳",
+  "created_at": "2026-08-08 03:41:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 267,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 失眠, 音乐] 凌晨失眠时会听歌舒缓心情",
+  "created_at": "2026-08-08 03:41:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 268,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:41:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 269,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想养猫=是",
+  "created_at": "2026-08-08 03:41:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 270,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "新技能=游泳",
+  "created_at": "2026-08-08 03:41:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 271,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:41:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 272,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情感支持] 深夜失眠时会找人聊天",
+  "created_at": "2026-08-08 03:41:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 273,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 274,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班疲惫",
+  "created_at": "2026-08-08 03:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 275,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "新技能=游泳",
+  "created_at": "2026-08-08 03:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 276,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想养猫=是",
+  "created_at": "2026-08-08 03:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 277,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[矛盾, 朋友, 情绪] 新技能=游泳, 想养猫=是, 加班疲惫, 失眠",
+  "created_at": "2026-08-08 03:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 278,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:41:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 279,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待",
+  "created_at": "2026-08-08 03:41:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 280,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 期待] 想去野餐",
+  "created_at": "2026-08-08 03:41:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 281,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待",
+  "created_at": "2026-08-08 03:42:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 282,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:42:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 283,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想养猫=是",
+  "created_at": "2026-08-08 03:42:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 284,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "新技能=游泳",
+  "created_at": "2026-08-08 03:42:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 285,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "加班=疲惫",
+  "created_at": "2026-08-08 03:42:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 286,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 期待, 野餐] 想养猫; 最近在学游泳; 春天想去野餐",
+  "created_at": "2026-08-08 03:42:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 287,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待\n状态=失眠",
+  "created_at": "2026-08-08 03:42:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 288,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 季节闲聊] 喜欢春天野餐",
+  "created_at": "2026-08-08 03:42:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 289,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待",
+  "created_at": "2026-08-08 03:42:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 290,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:42:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 291,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "加班=疲惫",
+  "created_at": "2026-08-08 03:42:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 292,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "新技能=游泳",
+  "created_at": "2026-08-08 03:42:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 293,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想养猫=是",
+  "created_at": "2026-08-08 03:42:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 294,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 读书] 喜欢读书，对心理学有兴趣",
+  "created_at": "2026-08-08 03:42:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 295,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:42:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 296,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待",
+  "created_at": "2026-08-08 03:42:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 297,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 哲思, 深夜聊天] 喜欢读心理学书, 想养猫, 在练游泳, 最近加班疲惫",
+  "created_at": "2026-08-08 03:42:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 298,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待",
+  "created_at": "2026-08-08 03:42:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 299,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:42:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 300,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:42:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 301,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 想养猫, 期待春天野餐, 读过一本有趣的心理学书, 新技能=游泳",
+  "created_at": "2026-08-08 03:42:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 302,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:43:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 303,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待",
+  "created_at": "2026-08-08 03:43:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 304,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=加班疲惫",
+  "created_at": "2026-08-08 03:43:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 305,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "项目进度=接近完成",
+  "created_at": "2026-08-08 03:43:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 306,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 加班, 深夜, 倾听] 想学一门乐器；最近在读一本心理学书；会深夜加班",
+  "created_at": "2026-08-08 03:43:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 307,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "项目进度=接近完成",
+  "created_at": "2026-08-08 03:43:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 308,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=加班疲惫",
+  "created_at": "2026-08-08 03:43:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 309,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待",
+  "created_at": "2026-08-08 03:43:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 310,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=失眠",
+  "created_at": "2026-08-08 03:43:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 311,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:43:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 312,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "分享日常=看话剧",
+  "created_at": "2026-08-08 03:43:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 313,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:43:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 314,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 周末和朋友看了话剧",
+  "created_at": "2026-08-08 03:43:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 315,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:43:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 316,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待",
+  "created_at": "2026-08-08 03:43:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 317,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 关心] 深夜活跃，可能失眠。",
+  "created_at": "2026-08-08 03:43:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 318,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=期待",
+  "created_at": "2026-08-08 03:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 319,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 320,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "分享日常=看话剧",
+  "created_at": "2026-08-08 03:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 321,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 322,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 323,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 宠物] 养了一只仓鼠，名字叫豆豆",
+  "created_at": "2026-08-08 03:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 324,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 325,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 326,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 327,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜陪伴] 养了一只叫豆豆的仓鼠；近期可能失眠；周末看了话剧；有想学乐器的打算",
+  "created_at": "2026-08-08 03:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 328,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:44:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 329,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:44:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 330,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:44:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 331,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜聊天, 情绪陪伴] 深夜容易失眠，喜欢在凌晨聊天",
+  "created_at": "2026-08-08 03:44:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 332,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠\n养宠物=仓鼠\n想学乐器=是",
+  "created_at": "2026-08-08 03:44:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 333,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 亲情] 对家人用心，会亲手做饭表达爱意",
+  "created_at": "2026-08-08 03:44:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 334,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:44:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 335,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 关心] 可能失眠, 想学乐器",
+  "created_at": "2026-08-08 03:44:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 336,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:44:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 337,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:44:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 338,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:44:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 339,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 最近学会游泳",
+  "created_at": "2026-08-08 03:44:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 340,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:44:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 341,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 推荐] 深夜喜欢看烧脑电影",
+  "created_at": "2026-08-08 03:44:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 342,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:44:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 343,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情感交流] 深夜会找阿镜聊天，可能失眠",
+  "created_at": "2026-08-08 03:44:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 344,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:44:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 345,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:44:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 346,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:44:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 347,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:44:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 348,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 宠物] 可能在考虑养猫",
+  "created_at": "2026-08-08 03:44:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 349,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:44:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 350,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[失眠, 日常] 凌晨会和阿镜聊生活话题；正在考虑养宠物。",
+  "created_at": "2026-08-08 03:44:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 351,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:45:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 352,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:45:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 353,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴] 凌晨失眠时喜欢用音乐开启话题",
+  "created_at": "2026-08-08 03:45:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 354,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:45:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 355,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:45:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 356,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:45:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 357,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=觉得自己进步很大",
+  "created_at": "2026-08-08 03:45:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 358,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[温暖陪伴, 深夜对话, 自我成长] 养仓鼠, 想学乐器, 常在深夜向阿镜分享内心感受",
+  "created_at": "2026-08-08 03:45:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 359,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:45:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 360,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=与朋友闹矛盾（难过）",
+  "created_at": "2026-08-08 03:45:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 361,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=觉得自己进步很大",
+  "created_at": "2026-08-08 03:45:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 362,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:45:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 363,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:45:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 364,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[人际矛盾, 深夜陪伴] 喜欢在深夜分享真实感受；养仓鼠；有学乐器的想法；最近自评进步很大",
+  "created_at": "2026-08-08 03:45:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 365,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=觉得自己进步很大",
+  "created_at": "2026-08-08 03:45:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 366,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=与朋友闹矛盾（难过）",
+  "created_at": "2026-08-08 03:45:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 367,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:45:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 368,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:45:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 369,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:45:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 370,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪] 喜欢春天户外活动（野餐）",
+  "created_at": "2026-08-08 03:45:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 371,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:45:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 372,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:45:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 373,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:45:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 374,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=与朋友闹矛盾（难过）",
+  "created_at": "2026-08-08 03:45:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 375,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=觉得自己进步很大",
+  "created_at": "2026-08-08 03:45:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 376,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常] 喜欢在情绪低落后主动找轻松话题自我调节",
+  "created_at": "2026-08-08 03:45:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 377,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=觉得自己进步很大",
+  "created_at": "2026-08-08 03:45:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 378,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=与朋友闹矛盾（难过）",
+  "created_at": "2026-08-08 03:45:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 379,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想学乐器=是",
+  "created_at": "2026-08-08 03:45:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 380,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:45:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 381,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:45:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 382,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=心理学书籍",
+  "created_at": "2026-08-08 03:45:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 383,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 阅读] 正在读心理学相关书籍，觉得有意思",
+  "created_at": "2026-08-08 03:45:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 384,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:46:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 385,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=心理学书籍",
+  "created_at": "2026-08-08 03:46:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 386,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=心理学书籍",
+  "created_at": "2026-08-08 03:46:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 387,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:46:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 388,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "养宠物=仓鼠",
+  "created_at": "2026-08-08 03:46:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 389,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜闲聊, 哲学话题] 喜欢思考与心理、认知相关的话题",
+  "created_at": "2026-08-08 03:46:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 390,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:46:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 391,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "计划=学乐器",
+  "created_at": "2026-08-08 03:46:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 392,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 兴趣] 可能失眠, 养宠物=仓鼠, 兴趣=心理学书籍, 计划=学乐器",
+  "created_at": "2026-08-08 03:46:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 393,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "计划=学乐器\n状态=可能失眠\n养宠物=仓鼠\n兴趣=心理学书籍",
+  "created_at": "2026-08-08 03:46:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 394,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 计划] 计划学乐器, 可能失眠, 养仓鼠, 喜欢心理学书籍",
+  "created_at": "2026-08-08 03:46:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 395,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "计划=学乐器",
+  "created_at": "2026-08-08 03:46:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 396,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=可能失眠",
+  "created_at": "2026-08-08 03:46:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 397,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班劳累",
+  "created_at": "2026-08-08 03:46:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 398,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 工作] 计划学乐器, 喜欢深夜分享生活状态, 凌晨加班",
+  "created_at": "2026-08-08 03:46:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 399,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=加班劳累",
+  "created_at": "2026-08-08 03:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 400,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "计划=学乐器",
+  "created_at": "2026-08-08 03:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 401,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=心理学书籍",
+  "created_at": "2026-08-08 03:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 402,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 互动] 喜欢在深夜轻松聊天",
+  "created_at": "2026-08-08 03:46:32",
+  "identity_key": "gui:default"
+ }
+]

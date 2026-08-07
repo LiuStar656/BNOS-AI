@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "我刚来到这台电脑上，对用户还不了解",
+  "source": "seed",
+  "created_at": "2026-08-08 07:19:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "我的名字是阿镜（可由用户修改）",
+  "source": "seed",
+  "created_at": "2026-08-08 07:19:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "我住在用户的桌面上，能看到屏幕、听到声音",
+  "source": "seed",
+  "created_at": "2026-08-08 07:19:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "用户向我打招呼，问今天怎么样。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:19:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "用户问我此刻在想什么，我表达了刚来新环境的感受和好奇心。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:19:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "用户问我今天的事，我回应说今天刚开始，并表达了在新环境中有人交流的舒适感。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:20:02",
+  "identity_key": "gui:default"
+ }
+]

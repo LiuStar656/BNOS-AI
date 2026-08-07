@@ -152,7 +152,7 @@ Phase 2: 基础 GUI 客户端
 
 | 模块 | 方案来源 | 核心价值 |
 |------|----------|----------|
-| **ASR 实时语音** | [asr_input 开发方案](nodes/node_python_asr_input/开发方案.md) | Silero VAD + SenseVoice + CAm++ 声纹，AI 听懂真实世界对话 |
+| **ASR 实时语音** | [asr_input 开发方案](docs/design/[PLAN]-ASR语音输入节点开发方案.md) | Silero VAD + SenseVoice + CAm++ 声纹，AI 听懂真实世界对话 |
 | **VLM 视觉理解** | [参考项目组件复用分析](docs/design/[PLAN]参考项目组件复用分析清单.md) | 屏幕 / 摄像头 / 图片的语义理解 |
 | **3D 角色自定义** | [3D 角色方案](docs/design/[PLAN]-3D角色自定义系统设计方案.md) | VRM + Three.js + MToon 三渲二，零件化换装（头发 / 衣服 / 配饰） |
 | **性格种子系统** | [角色种子方案](docs/design/[PLAN]-角色种子系统设计方案.md) | 4 维性格向量 + 被动反馈演化，让 AI 形成独特性格 |
@@ -314,7 +314,7 @@ run.bat
 | [事件驱动型 AI 自主行为](docs/design/[PLAN]-事件驱动型AI自主行为方案.md) | 【PLAN】 | turn_taking + 迟滞回路 + 代际标记 |
 | [AI 世界感知记忆](docs/design/[PLAN]-AI世界感知记忆系统设计方案.md) | 【PLAN】 | 实体级环境感知 |
 | [BNOS AI 插件系统](docs/design/[PLAN]BNOS AI 插件系统设计方案.md) | 【PLAN】 | 合约式插件发现 |
-| [ASR 语音识别节点](nodes/node_python_asr_input/开发方案.md) | 【PLAN】 | Silero VAD + SenseVoice + CAm++ |
+| [ASR 语音识别节点](docs/design/[PLAN]-ASR语音输入节点开发方案.md) | 【PLAN】 | Silero VAD + SenseVoice + CAm++ |
 
 ---
 

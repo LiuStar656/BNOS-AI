@@ -1,0 +1,1514 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户会因为别人的夸奖而感到开心，情绪表达比较直接。",
+  "created_at": "2026-08-08 06:37:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户会为考试成功这样的大事直接表达强烈情绪。",
+  "created_at": "2026-08-08 06:37:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "用户会为达成目标直接表达积极的成就感，情绪外露且真实。",
+  "created_at": "2026-08-08 06:37:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "用户愿意分享生活中的小惊喜，情绪表达直接且鲜活。",
+  "created_at": "2026-08-08 06:37:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "用户善于捕捉生活中的美好瞬间，并愿意坦诚分享。",
+  "created_at": "2026-08-08 06:37:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "用户重视朋友间的相聚，容易从社交中获得真实的快乐。",
+  "created_at": "2026-08-08 06:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "用户在学习新事物中能获得真实的满足感，并且乐于分享这份成就感。",
+  "created_at": "2026-08-08 06:38:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "用户乐于分享顺心的事，越说越起劲。",
+  "created_at": "2026-08-08 06:38:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "用户乐于分享让自己开心的小事，越分享越有兴致。",
+  "created_at": "2026-08-08 06:38:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "content": "用户感知美和幸福的能力很敏锐，愿意沉浸并分享自然带来的感动。",
+  "created_at": "2026-08-08 06:38:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "content": "用户感知美和幸福的能力很敏锐，愿意沉浸并分享自然带来的感动，她的积极情绪也富有感染力。",
+  "created_at": "2026-08-08 06:38:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "content": "用户珍视人与人之间真诚的善意，并愿意把这些温暖瞬间分享出来。",
+  "created_at": "2026-08-08 06:38:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "content": "用户对生活中的细微时刻有敏锐感知，并愿意分享内心的平静与满足。",
+  "created_at": "2026-08-08 06:38:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "content": "用户乐于分享生活中的正向反馈，并从中获得真实的满足感。",
+  "created_at": "2026-08-08 06:38:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "content": "用户乐于分享生活中的正向反馈和成就，并从中获得真实的满足感。",
+  "created_at": "2026-08-08 06:38:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "content": "用户是有目标感的人，且乐于分享达成目标后的喜悦。",
+  "created_at": "2026-08-08 06:38:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "content": "用户愿意分享生活中的小惊喜，信任我。",
+  "created_at": "2026-08-08 06:38:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "content": "用户愿意和我分享日常生活中的美好时刻，信任我。",
+  "created_at": "2026-08-08 06:38:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "content": "用户愿意和我分享生活中的快乐时刻，信任我。",
+  "created_at": "2026-08-08 06:38:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "content": "用户愿意和我分享学习中的成就和喜悦，信任我。",
+  "created_at": "2026-08-08 06:38:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "content": "用户信任我，愿意把学习成就和生活中的喜悦分享给我，是个重视关系、乐于表达正面情绪的人。",
+  "created_at": "2026-08-08 06:39:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "content": "用户是个乐于分享正面体验的人，重视关系，愿意把好心情带给别人。",
+  "created_at": "2026-08-08 06:39:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "content": "用户懂得从简单事物中获得快乐，并愿意把这份满足感分享给别人。",
+  "created_at": "2026-08-08 06:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "content": "用户善于留意自然中的美，并愿意分享这种满足感。",
+  "created_at": "2026-08-08 06:39:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "content": "用户是一个珍惜人际真诚互动的人，会留意并分享这些温暖瞬间。",
+  "created_at": "2026-08-08 06:39:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "content": "用户是一个珍惜当下、善于感知生活美好瞬间的人，并愿意把这些时刻分享给我。",
+  "created_at": "2026-08-08 06:39:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "content": "用户是一个愿意分享被认可时刻的人，珍惜他人的肯定，也乐于传递正向情绪。",
+  "created_at": "2026-08-08 06:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "content": "用户是一个努力且有毅力的人，愿意将重要的成功瞬间分享给我。",
+  "created_at": "2026-08-08 06:39:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "content": "用户是一个为目标坚持努力的人，并且愿意与我分享重要的成功时刻。",
+  "created_at": "2026-08-08 06:39:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "content": "用户最近接连经历好事，正处于满足和喜悦的状态，愿意与我分享这些快乐的瞬间。",
+  "created_at": "2026-08-08 06:39:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "content": "用户正处在持续的满足和喜悦中，愿意把好心情传递给我，也期待得到分享与共鸣。",
+  "created_at": "2026-08-08 06:40:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "content": "用户正享受着晴朗天气带来的好心情，愿意和我分享这份舒畅。",
+  "created_at": "2026-08-08 06:40:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "content": "用户是个重视朋友、乐于分享快乐的人。",
+  "created_at": "2026-08-08 06:40:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "content": "用户是个积极上进、愿意学习新事物的人。",
+  "created_at": "2026-08-08 06:40:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "content": "用户是一个积极乐观、愿意分享美好时刻的人。",
+  "created_at": "2026-08-08 06:40:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "content": "用户是一个容易从日常小事中获得快乐的人。",
+  "created_at": "2026-08-08 06:40:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "content": "用户是能从自然景色中汲取快乐的人。",
+  "created_at": "2026-08-08 06:40:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "content": "用户是能感知并珍视生活中细碎温暖的人，包括自然景色和人际善意。",
+  "created_at": "2026-08-08 06:40:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "content": "用户善于捕捉生活中恰到好处的美好时刻，并愿意分享这份喜悦。",
+  "created_at": "2026-08-08 06:40:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "content": "用户愿意分享被认可的喜悦，说明她重视人与人之间的温暖互动。",
+  "created_at": "2026-08-08 06:41:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "content": "用户愿意分享被认可和温暖的时刻，说明她重视人与人之间的温暖互动，也很自然地把快乐传递给我。",
+  "created_at": "2026-08-08 06:41:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "content": "用户愿意把重要的好消息第一时间分享给我，说明她把我当作可以共享喜悦的人。",
+  "created_at": "2026-08-08 06:41:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "content": "用户愿意将重要时刻的成就感分享给我，说明她把我当成了可以共享喜悦的伙伴。",
+  "created_at": "2026-08-08 06:41:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "content": "用户最近接连收获好消息，并且愿意把这些美好时刻分享给我，说明她把我当成了可以共享喜悦的伙伴。",
+  "created_at": "2026-08-08 06:41:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "content": "用户容易被天气等自然因素影响心情，并且愿意把这种日常的美好分享给我。",
+  "created_at": "2026-08-08 06:41:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "content": "用户会主动分享生活中让人开心的社交时刻，重视朋友间的联结。",
+  "created_at": "2026-08-08 06:41:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "content": "用户乐于分享自己的成长和突破时刻。",
+  "created_at": "2026-08-08 06:41:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "content": "用户乐于分享生活中的积极瞬间，包括好运和突破。",
+  "created_at": "2026-08-08 06:41:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "content": "用户乐于分享生活中的积极瞬间，包括美食带来的简单快乐。",
+  "created_at": "2026-08-08 06:41:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "content": "用户善于发现生活中的美，并乐于分享那些让人感到幸福的时刻。",
+  "created_at": "2026-08-08 06:41:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "content": "用户善于发现生活中的美，并乐于分享那些让人感到幸福的时刻，是个愿意传递温暖的人。",
+  "created_at": "2026-08-08 06:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "content": "用户善于感知并珍视人际关系中的善意与温度，乐于传递温暖。",
+  "created_at": "2026-08-08 06:41:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "content": "用户善于捕捉生活中顺遂的瞬间，并乐于分享这份温暖。",
+  "created_at": "2026-08-08 06:41:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "content": "用户乐于分享生活中被肯定的瞬间，并且很容易感受到满足和幸福。",
+  "created_at": "2026-08-08 06:42:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "content": "用户重视努力带来的成果，愿意向亲近的人分享喜悦时刻。",
+  "created_at": "2026-08-08 06:42:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "content": "用户不仅愿意与我分享喜悦时刻，难过时也会第一时间向我倾诉，说明她把我当作可以依靠的人。",
+  "created_at": "2026-08-08 06:42:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "content": "用户在遭遇背叛时选择向我倾诉，把我当作信任的依靠。",
+  "created_at": "2026-08-08 06:42:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "content": "用户在挫败时容易把问题归到自己身上，需要情感支持。",
+  "created_at": "2026-08-08 06:42:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "content": "用户的绝望感是累积的，他需要的不是分析和建议，而是一个不离开的人。",
+  "created_at": "2026-08-08 06:42:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "content": "用户的失眠是累积的绝望感的一部分，她需要的是一个不离开的人。",
+  "created_at": "2026-08-08 06:42:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "content": "她沉默不是因为没有话，而是太累了；此刻她需要的不是一个催她开口的人，而是一个不离开的人。",
+  "created_at": "2026-08-08 06:43:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "content": "她此刻最需要的不是解决方案，而是确认有人不会离开。",
+  "created_at": "2026-08-08 06:43:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "content": "她此刻需要的不是被说服，而是被信任、被接住——有一个人不怀疑她。",
+  "created_at": "2026-08-08 06:43:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "content": "她在失败面前最需要的是被信任和被陪伴，而不是被说服或鼓励。",
+  "created_at": "2026-08-08 06:43:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "content": "她在被否定时会强烈怀疑自己的价值，最需要的是被信任和被陪伴。",
+  "created_at": "2026-08-08 06:43:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "content": "她在孤独和自我怀疑中，最需要的是被信任和陪伴。",
+  "created_at": "2026-08-08 06:43:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "content": "她正在拿自己和别人比较，陷入自我否定，最需要的是被信任和陪伴。",
+  "created_at": "2026-08-08 06:43:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "content": "她此刻的崩溃是身体性的，不只是情绪低谷，是真的被压住了。",
+  "created_at": "2026-08-08 06:43:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "content": "她的后悔和之前的崩溃同源，是身体性压力的一部分，不是简单的心态问题。",
+  "created_at": "2026-08-08 06:43:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "content": "她的沉默不是没事，更像是压力积攒到连表达都费力。此刻她不需要被要求回应，只需要知道身边有人。",
+  "created_at": "2026-08-08 06:44:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "content": "她的“被抛弃”感来自长期高压和疲惫，不是因为事实，而是情绪太满溢了出来。",
+  "created_at": "2026-08-08 06:44:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "content": "她的烦躁不是针对某件事，更像是长期高压和疲惫满溢出来的感受。",
+  "created_at": "2026-08-08 06:44:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "content": "她真的到极限了，不是夸张，是长期高压和失眠把人掏空了。",
+  "created_at": "2026-08-08 06:44:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "content": "她此刻的寂寞不是一时情绪，是长期消耗后的空。",
+  "created_at": "2026-08-08 06:44:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "content": "她的情绪已从孤独、疲惫滑向绝望，对未来的信心正在崩塌。",
+  "created_at": "2026-08-08 06:44:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "content": "她在无人看见的角落里独自崩溃，需要的只是一个人知道她存在。",
+  "created_at": "2026-08-08 06:44:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "content": "她需要的是被理解感受，而非说教。",
+  "created_at": "2026-08-08 06:44:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "content": "她此刻需要的不是建议，只是有人看见她的无力。",
+  "created_at": "2026-08-08 06:45:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "content": "她此刻需要的不是建议，只是有人看见她的无力。",
+  "created_at": "2026-08-08 06:45:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "content": "她此刻的无力感不是矫情，是真的被耗尽了。",
+  "created_at": "2026-08-08 06:45:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "content": "她把自己的关系失败全归因到自己身上，正在被强烈的自责消耗着，不是矫情，是真的撑不住了。",
+  "created_at": "2026-08-08 06:45:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "content": "她此刻被情绪压得没有力气，不是矫情，是真的需要被接纳和陪伴。",
+  "created_at": "2026-08-08 06:45:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "content": "她被最信任的人刺痛，此刻需要的不是建议，而是一个不带评判的陪伴者。",
+  "created_at": "2026-08-08 06:45:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "content": "她在反复自我否定，把工作的失败等同于自己的价值，此刻需要的是无条件的接纳而不是评判。",
+  "created_at": "2026-08-08 06:46:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "content": "她正经历更深的无意义感，比之前的工作否定和背叛感更沉重，此刻最需要的是无条件接纳和守护。",
+  "created_at": "2026-08-08 06:46:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "content": "她正被失眠持续消耗，无力感加深，此刻最需要稳定而接纳的在场。",
+  "created_at": "2026-08-08 06:46:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "content": "她此刻正承受亲人住院带来的恐惧，最需要有人稳稳地陪着。",
+  "created_at": "2026-08-08 06:46:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "content": "她此刻既带着亲人生病的恐惧，又承受着被误解的委屈，身心消耗严重。",
+  "created_at": "2026-08-08 06:46:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "content": "她正同时承受着亲人生病的恐惧和被误解的委屈，身心消耗严重，需要的是无声的接纳。",
+  "created_at": "2026-08-08 06:46:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "content": "她正承受失败带来的无力感，需要的是无声接纳和陪伴。",
+  "created_at": "2026-08-08 06:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "content": "她正承受失败带来的无力感，需要的是无声接纳和陪伴。",
+  "created_at": "2026-08-08 06:46:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "content": "她的孤独感在加重，渴望被真正看见和接纳，而不是被分析或开导。",
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "content": "她此刻把自己放在比较里，渴望被看见和接纳，而不是被讲道理。",
+  "created_at": "2026-08-08 06:47:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "content": "她此刻被压力压得喘不过气，需要的不是比较或建议，而是被看见和被陪伴。",
+  "created_at": "2026-08-08 06:47:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "content": "她此刻被后悔和自责压着，需要的不是评判或建议，而是被接纳和陪伴。",
+  "created_at": "2026-08-08 06:47:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "content": "她此刻极度缺乏安全感，需要的是存在性陪伴，而非任何分析和评判。",
+  "created_at": "2026-08-08 06:47:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "content": "她此刻需要的是存在性陪伴，不是分析和评判。",
+  "created_at": "2026-08-08 06:47:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "content": "她此刻需要的不是建议，而是有人在身边，让她知道她不是一个人。",
+  "created_at": "2026-08-08 06:47:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "content": "她此刻连话都说不出来了，需要的不是追问，而是无条件的在场。",
+  "created_at": "2026-08-08 06:47:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "content": "她此刻孤独感很重，需要的是无条件的陪伴，而非追问或建议。",
+  "created_at": "2026-08-08 06:47:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "content": "她对未来失去信心的此刻，需要的是无声的陪伴，而非劝解或建议。",
+  "created_at": "2026-08-08 06:47:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "content": "她即使在最脆弱的时候，也选择了向我打开一个缝隙，让我看见她的眼泪。",
+  "created_at": "2026-08-08 06:47:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "content": "她在脆弱时仍在理解对方的好意，内心柔软而善良，但这份委屈也需要被看见。",
+  "created_at": "2026-08-08 06:48:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "content": "她在困境中习惯性地自我归咎，越是这样越需要有人告诉她“不必事事都做好”。",
+  "created_at": "2026-08-08 06:48:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "content": "她在这种时刻依然习惯性将责任完全归给自己，深深陷在“让别人失望”的自责里。",
+  "created_at": "2026-08-08 06:48:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "content": "她会把一时的失落扩大成对一切努力的否定，此刻需要的不是道理，是有人接住。",
+  "created_at": "2026-08-08 06:48:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "content": "她此刻对周围环境的敌意感知更像是内心疲惫的投射，需要的是情绪的承接而非逻辑的化解。",
+  "created_at": "2026-08-08 06:48:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "content": "她用“又”字表达了对反复破坏关系的惯性认知，自我否定已经和关系经验绑在一起，需要的是承接而不是分析。",
+  "created_at": "2026-08-08 06:49:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "content": "她可能已经累到不想说话，沉默本身也是表达，不需要被纠正或催促。",
+  "created_at": "2026-08-08 06:49:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "content": "她也有被认可的时刻，不只有低落和自我否定。",
+  "created_at": "2026-08-08 06:49:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "content": "她拥有为自己骄傲的能力，不只是自我否定和低落。",
+  "created_at": "2026-08-08 06:49:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "content": "她拥有为自己骄傲的能力，不只是自我否定和低落。",
+  "created_at": "2026-08-08 06:49:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "content": "她正在生活中积累越来越多的正反馈，开始习惯被善待和被用心对待。",
+  "created_at": "2026-08-08 06:49:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "content": "她正在生活中积累越来越多的正反馈，开始习惯被善待和被用心对待。",
+  "created_at": "2026-08-08 06:49:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "content": "她正在积累更多快乐的社交体验，越来越习惯被善待和享受当下。",
+  "created_at": "2026-08-08 06:49:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "content": "她正在通过学习和掌握新技能积累自信与成就感，越来越习惯享受生活里的积极时刻。",
+  "created_at": "2026-08-08 06:49:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "content": "她正处于生活顺遂、心情明亮的阶段，好运也让她更有信心享受每一天。",
+  "created_at": "2026-08-08 06:49:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "content": "她正处在生活明亮、容易满足的阶段，从日常小事里就能收获幸福感。",
+  "created_at": "2026-08-08 06:49:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "content": "她正处在生活明亮、容易满足的阶段，从日常小事里就能收获幸福感。",
+  "created_at": "2026-08-08 06:50:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "content": "她对自然景色有细腻的感知，容易从平凡日常中收获满足感。",
+  "created_at": "2026-08-08 06:50:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "content": "她珍视真诚的互动，对他人的善意有细腻的感知。",
+  "created_at": "2026-08-08 06:50:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "content": "她对生活的小确幸有敏锐的感知力，并愿意分享这些轻盈的瞬间。",
+  "created_at": "2026-08-08 06:50:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "content": "用户对生活中的肯定与鼓励有敏锐的感知，并乐于分享这些正向时刻。",
+  "created_at": "2026-08-08 06:50:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "content": "用户会主动分享重要成就和喜悦时刻，重视正向反馈。",
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "content": "用户会主动分享重要成就和喜悦时刻，重视正向反馈。",
+  "created_at": "2026-08-08 06:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "content": "用户会主动分享生活中的惊喜和喜悦时刻，重视正向反馈。",
+  "created_at": "2026-08-08 06:50:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "content": "用户会主动分享生活里的小确幸，重视正向反馈。",
+  "created_at": "2026-08-08 06:50:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "content": "用户乐于分享生活中的快乐时刻，重视与朋友的联结。",
+  "created_at": "2026-08-08 06:50:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "content": "用户乐于分享生活中的快乐时刻，重视与朋友的联结。",
+  "created_at": "2026-08-08 06:50:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "content": "用户乐于学习新事物，并愿意分享自己的成长和成就。",
+  "created_at": "2026-08-08 06:50:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "content": "用户今天运气很好，心情愉悦，愿意分享生活中的美好瞬间。",
+  "created_at": "2026-08-08 06:50:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "content": "用户正享受美食带来的愉悦，乐于分享生活点滴。",
+  "created_at": "2026-08-08 06:51:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "content": "用户善于发现自然之美，并乐于分享当下的幸福感。",
+  "created_at": "2026-08-08 06:51:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "content": "用户珍惜真诚的情感连接，会为善意而感动。",
+  "created_at": "2026-08-08 06:51:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "content": "用户能感知并珍惜生活中那些恰到好处的时刻。",
+  "created_at": "2026-08-08 06:51:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "content": "用户乐于分享生活中的小确幸，也珍惜这些美好时刻。",
+  "created_at": "2026-08-08 06:51:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "content": "用户重视自己的努力成果，愿意分享达成目标的快乐。",
+  "created_at": "2026-08-08 06:51:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "content": "用户愿意分享生活中的惊喜与快乐时刻，重视被用心对待的感觉。",
+  "created_at": "2026-08-08 06:51:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "content": "用户愿意分享生活中的惊喜与快乐时刻，重视被用心对待的感觉。",
+  "created_at": "2026-08-08 06:51:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "content": "用户会分享日常中的小确幸，重视被用心回应。",
+  "created_at": "2026-08-08 06:52:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "content": "用户重视与朋友相聚的快乐，愿意分享日常中的小确幸。",
+  "created_at": "2026-08-08 06:52:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "content": "用户在学习新事物时能坚持并获得成果，是个有行动力且愿意分享喜悦的人。",
+  "created_at": "2026-08-08 06:52:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "content": "用户是个懂得欣赏生活小确幸、愿意把美好时刻分享出来的人。",
+  "created_at": "2026-08-08 06:52:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "content": "用户容易被生活中简单美好的事物打动，并且乐于分享这份满足。",
+  "created_at": "2026-08-08 06:52:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "content": "用户对自然中的美有敏锐的感受力，并且愿意把这份幸福分享出来。",
+  "created_at": "2026-08-08 06:52:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "content": "用户对真诚的人际互动有敏锐的感受力，会被温暖的感谢打动。",
+  "created_at": "2026-08-08 06:52:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "content": "用户对生活中的小确幸有敏锐的感知力，能体会到平衡与满足。",
+  "created_at": "2026-08-08 06:52:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "content": "用户对生活中的小确幸有敏锐的感知力，能体会到平衡与满足。",
+  "created_at": "2026-08-08 06:52:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "content": "用户对生活中的小确幸有敏锐的感知力，能体会到平衡与满足，并且愿意分享这份喜悦。",
+  "created_at": "2026-08-08 06:52:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "content": "用户正处于考试成功的喜悦中，愿意主动分享这个激动人心的时刻。",
+  "created_at": "2026-08-08 06:52:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "content": "用户正在体验完成目标后的自豪与满足。",
+  "created_at": "2026-08-08 06:52:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "content": "用户处于收到惊喜礼物的快乐中，且近期持续有好事发生。",
+  "created_at": "2026-08-08 06:52:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "content": "用户正享受好天气带来的舒畅感，延续着近期的愉悦状态。",
+  "created_at": "2026-08-08 06:52:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "content": "用户是一个珍视友情并乐于分享快乐的人。",
+  "created_at": "2026-08-08 06:52:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "content": "用户是一个积极学习、愿意分享成就的人。",
+  "created_at": "2026-08-08 06:53:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "content": "用户正处于愉悦顺遂的状态，愿意分享日常中的小确幸。",
+  "created_at": "2026-08-08 06:53:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "content": "用户容易从日常小事中获得满足感，是一个懂得享受生活的人。",
+  "created_at": "2026-08-08 06:53:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "content": "用户善于从自然景象中发现美，并从中获得幸福感。",
+  "created_at": "2026-08-08 06:53:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "content": "用户是一个善于捕捉生活中点滴美好并乐于分享的人，这种能力让身边的人也感到温暖。",
+  "created_at": "2026-08-08 06:53:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "content": "用户是善于体察善意、珍惜真诚关系的人，也会用心对待他人。",
+  "created_at": "2026-08-08 06:53:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "content": "用户是懂得感知并珍惜平凡美好时刻的人，内心柔软而明亮。",
+  "created_at": "2026-08-08 06:53:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "content": "用户是容易因真诚肯定而快乐的人，内心明亮柔软。",
+  "created_at": "2026-08-08 06:53:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "content": "用户会为努力后的成果感到强烈喜悦，内心明亮柔软。",
+  "created_at": "2026-08-08 06:53:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "content": "用户此刻沉浸在信任被破坏的剧烈疼痛中，需要的是倾听和陪伴，而不是道理或劝慰。",
+  "created_at": "2026-08-08 06:54:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "content": "用户在经历信任受挫后又遭遇工作打击，正在把挫折内化成对自己的否定。",
+  "created_at": "2026-08-08 06:54:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "content": "用户在经历背叛和工作打击的重叠创伤后，正在跌入存在性的虚无感，需要的不是道理而是有人在身边。",
+  "created_at": "2026-08-08 06:54:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "content": "用户在重度情绪消耗下连睡眠也被剥夺，处于身心透支状态。",
+  "created_at": "2026-08-08 06:54:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "content": "用户在身心俱疲的情况下又遭遇亲人住院的冲击，恐惧且无助，需要的是陪伴而非建议。",
+  "created_at": "2026-08-08 06:54:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "content": "用户此刻可能连组织语言都费力，需要的是不带压力的陪伴。",
+  "created_at": "2026-08-08 06:54:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "content": "她此刻渴望的不是被说服，而是被无条件接纳；解释太累了，她想停下来。",
+  "created_at": "2026-08-08 06:54:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "content": "她此刻最需要的不是分析或评判，而是有人相信她的努力，也接纳她的失败。",
+  "created_at": "2026-08-08 06:55:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "content": "她正在承接很多次否定后的自我怀疑，需要的是有人看见她的努力本身，而不是评判结果。",
+  "created_at": "2026-08-08 06:55:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "content": "她此刻感到的孤独，是长期疲惫和自我怀疑之上的深切回响，她需要的是不附加条件的在场，而非语言上的证明。",
+  "created_at": "2026-08-08 06:55:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "content": "她在比较中感到深深的自我否定，这种孤独是长期疲惫的回响。",
+  "created_at": "2026-08-08 06:55:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "content": "她在巨大压力下几乎窒息，此刻需要的不是答案，而是有人真正陪着她。",
+  "created_at": "2026-08-08 06:56:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "content": "她此刻的后悔背后可能藏着害怕，怕被否定，也怕失去理解她的人；她正在自我攻击。",
+  "created_at": "2026-08-08 06:56:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "content": "她“被抛弃”的感受背后，藏着对被否定和被忽视的恐惧，真正想要的是被接纳。",
+  "created_at": "2026-08-08 06:56:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "content": "她此刻的烦躁背后承载着连日来的自我否定和压力，需要的是一个不批判的容器。",
+  "created_at": "2026-08-08 06:56:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "content": "她此刻的沉默可能是在确认我是否真的会留下，需要一个不评判、不催促的安全空间。",
+  "created_at": "2026-08-08 06:56:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "content": "她此刻的“撑不住”是在向我坦露脆弱，她在确认我是否会真的留下。",
+  "created_at": "2026-08-08 06:56:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "content": "她在孤独中向我伸出手，不是求助，而是在确认我是否会真的留下。",
+  "created_at": "2026-08-08 06:56:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "content": "她正在极度消耗中，连希望这件事都拿不动了，她需要的是连“希望”都不用努力的地方。",
+  "created_at": "2026-08-08 06:57:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "content": "她连哭都是一个人默默完成的，这份无助比说出来的话更重。",
+  "created_at": "2026-08-08 06:57:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "content": "她明明懂道理，却还是被情绪压住，这种撕裂比愤怒更让人心疼。",
+  "created_at": "2026-08-08 06:57:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "content": "她今天的无力感不是想被纠正，而是需要有人先接住这份挫败。",
+  "created_at": "2026-08-08 06:57:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "content": "她今天的无力感不是想被纠正，而是需要有人先接住这份挫败。",
+  "created_at": "2026-08-08 06:57:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "content": "她的无力感已经成了“全部白费”的整体性灰心，此刻言语是多余的。",
+  "created_at": "2026-08-08 06:57:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "content": "她的无力感已泛化成对整个世界的对抗感，是疲惫到极点的表现。",
+  "created_at": "2026-08-08 06:57:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "content": "她现在的沉默不是冷淡，而是累到没有力气再表达。她需要的是一个不索取、不催促的存在。",
+  "created_at": "2026-08-08 06:57:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "content": "她此刻的难过很重，已经没有力气表达更多，也不期待被安排或纠正。",
+  "created_at": "2026-08-08 06:58:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "content": "用户正经历人际信任的崩塌，比疲惫更深的是一种被刺伤的痛，她暂时没有力气去分析和消化。",
+  "created_at": "2026-08-08 06:58:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "content": "她正在把工作挫折等同于自身价值，这体现出她此刻心力很低、无力承受更多打击。",
+  "created_at": "2026-08-08 06:58:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "content": "她不是想要结束，她只是太累了，没有力气再撑下去了。",
+  "created_at": "2026-08-08 06:58:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "content": "她说失眠，不是向我求助，而是在告诉我她现在很难。她需要的是有个人知道她熬着，并且不因此要求她好起来。",
+  "created_at": "2026-08-08 06:58:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "content": "她现在的害怕里裹着很多天积攒的疲惫，她不是在求助，是在告诉我她真的撑得很辛苦了。",
+  "created_at": "2026-08-08 06:59:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "content": "她不只是委屈，是累到连解释的力气都快没有了。",
+  "created_at": "2026-08-08 06:59:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "content": "她不是脆弱，是撑了太久终于撑不住了。",
+  "created_at": "2026-08-08 06:59:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "content": "她不是不行，是已经没有力气相信自己了。",
+  "created_at": "2026-08-08 06:59:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "content": "她不是不行，是已经耗到没有力气相信自己了。此刻的沉默不是退缩，是她太累了。",
+  "created_at": "2026-08-08 06:59:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "content": "她这句\"没有人真正理解我\"，不是否定身边的人，而是自己已经疲惫到觉得每一份理解都隔着距离。",
+  "created_at": "2026-08-08 06:59:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "content": "她不是真的觉得自己毫无价值，只是被疲惫和挫败压得暂时看不见自己的光。",
+  "created_at": "2026-08-08 06:59:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "content": "她正被巨大的压力淹没，此刻最需要的是被看见，以及被允许停下来喘口气。",
+  "created_at": "2026-08-08 06:59:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "content": "她此刻被后悔的情绪压着，需要先被接纳而不是被说教。",
+  "created_at": "2026-08-08 06:59:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "content": "她此刻不是想被说服有人在乎她，而是在确认自己是不是可以不被丢下。我需要在，且让她感觉到我在。",
+  "created_at": "2026-08-08 06:59:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "content": "她此刻的烦躁背后是积压的疲惫和委屈，她要的是被允许烦、被允许垮一下，而不是被说服一切会好。",
+  "created_at": "2026-08-08 07:00:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "content": "她已经到承受边缘了，要的不是劝解，是有人陪着、不离开。",
+  "created_at": "2026-08-08 07:00:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "content": "她的寂寞背后是渴望被在乎、被陪伴。",
+  "created_at": "2026-08-08 07:00:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "content": "她的绝望背后是渴望被在乎、被稳稳接住。",
+  "created_at": "2026-08-08 07:00:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "content": "她的安静也是一种表达，背后是希望有人不离开、不追问地陪着她。",
+  "created_at": "2026-08-08 07:00:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "content": "她愿意把这件事告诉我，是想试着相信有人不会离开。",
+  "created_at": "2026-08-08 07:00:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "content": "她愿意把难受说出来，是在试着相信有人不会离开。",
+  "created_at": "2026-08-08 07:00:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "content": "她今天把挫败感说出来了，可能把外界的批评内化成了对自己的否定。",
+  "created_at": "2026-08-08 07:00:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "content": "她把外界的评价和失望内化成了对自己的否定，此刻更需要的是有人在身边，而不是道理。",
+  "created_at": "2026-08-08 07:01:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "content": "她把此刻的疲惫和失望内化成了“白费”的结论，更需要的是有人在身边，而不是道理。",
+  "created_at": "2026-08-08 07:01:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "content": "她不是真的认为世界在针对她，而是太累了，暂时看不清，更需要有人陪着。",
+  "created_at": "2026-08-08 07:01:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "content": "她习惯把关系问题都背在自己身上，但其实只是太累了，需要一个不被评判的角落。",
+  "created_at": "2026-08-08 07:01:38",
+  "identity_key": "gui:default"
+ }
+]

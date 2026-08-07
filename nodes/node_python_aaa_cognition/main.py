@@ -24,6 +24,8 @@ import prompt_tool as ptoo
 import parser as psr
 import memos
 import diary
+import personality as prs
+from perception_capabilities import PerceptionCapabilities
 
 
 # ════════════════════════════════════════════════════════════════
@@ -47,8 +49,19 @@ class MyNode:
         self._current_conversation_id = "default"
         # 缓存第一轮的用户输入上下文（供第二轮检索/反思使用）
         self._pending_contexts: dict[str, dict] = {}
+        # v5.1 角色种子：按 identity_key 缓存的性格演化实例
+        self._evolutions: dict[str, prs.PersonalityEvolution] = {}
+        # v2.0 认知演化增强：最近一次观测风格缓存（供 _on_text 反馈使用）
+        self._last_observed_style: dict | None = None
+        # v2.0 认知演化增强：打断事件标志（用户打断 TTS → negative 反馈）
+        self._interrupt_flag = False
+        # v3.1 认知反思：review 触发计数器 + 后台线程引用
+        self._review_counter = 0
+        self._review_threads: list = []
         # 启动时预加载 MemOS 语义模型到内存
         memos.preload()
+        # v4.0: 感知能力声明系统
+        self._perception = PerceptionCapabilities()
 
     # ── 框架入口 ──────────────────────────────────────────────
     def process(self, data):
@@ -64,6 +77,14 @@ class MyNode:
         # 日记 LLM 响应（data_type: "parsed", source: "diary"）
         if data_type in ("text", "parsed") and source == "diary":
             return self._on_diary_response(data, dbp)
+
+        # 认知反思 LLM 响应（data_type: "parsed", source: "review"，v3.1 Background Review）
+        if data_type in ("text", "parsed") and source == "review":
+            return self._on_review_response(data, dbp)
+
+        # 打断事件信号（用户打断 TTS → 下一轮 negative 反馈，v2.0 真实反馈接入）
+        if data_type == "interrupt":
+            return self._on_interrupt(data)
 
         # LLM 响应（data_type: "text"/"parsed", source: "llm"）
         if data_type in ("text", "parsed") and source == "llm":
@@ -89,13 +110,22 @@ class MyNode:
         # 首次连接 DB 时加载 MemOS 索引
         if memos._embeddings is None:
             memos.load_index(dbp)
-
         conv_id = data.get("conversation_id") or data.get("_session_id", "default")
         identity_key = data.get("identity_key", _IDENTITY_KEY_DEFAULT)
         self._current_conversation_id = conv_id
 
         # 写用户输入到 DB（去重 + importance）
         db.write_async(data, dbp, role="user")
+
+        # ── v2.0 认知演化增强：真实反馈信号 ─────────────
+        # 打断（用户打断 TTS）或显式否定句 → negative；普通继续对话 → positive
+        if self._interrupt_flag:
+            reaction = "negative"
+            self._interrupt_flag = False
+        else:
+            reaction = ("negative" if prs.detect_negative_reaction(data.get("content", ""))
+                        else "positive")
+        self._observe_user_reaction(dbp, identity_key, reaction=reaction)
 
         # Diary 检测：次日首条对话触发写前一天日记
         today = datetime.now().strftime("%Y-%m-%d")
@@ -169,6 +199,18 @@ class MyNode:
         # ① 直接回复 — 正常写库 + 输出
         db.write_parsed_async(parsed, dbp, conversation_id=conv_id, user_input=user_text, identity_key=identity_key)
 
+        # ── v2.0 认知演化增强：观测本次回复风格 → 触发性格演化 ──
+        # 演化输入源改为"本次回复实际表现的风格"（修复 v1.0 自己看自己）
+        self._last_observed_style = prs.estimate_style_from_reply(parsed)
+        self._process_mood_and_evolution(parsed, dbp, conv_id, identity_key,
+                                         reaction="neutral",
+                                         style=self._last_observed_style)
+
+        # ── v3.1 认知反思：每 5 轮后台 Review 沉淀持久认知 ──
+        self._review_counter += 1
+        if self._review_counter % 5 == 0:
+            self._trigger_background_review(dbp, conv_id, identity_key)
+
         # ── 自我反思触发器 ──────────────────────────────────
         conn = sqlite3.connect(dbp)
         try:
@@ -224,17 +266,19 @@ class MyNode:
                 "content": psr.inject_mood_tag(parsed["自然回复"], parsed.get("心情", "")),
                 "request_id": rid,
             })
-        if parsed.get("记忆归档"):
+        # v4.0: 支持【记忆归档】（旧）和【用户记忆】+【环境记忆】（新）
+        archive_content = parsed.get("记忆归档") or parsed.get("用户记忆") or parsed.get("环境记忆")
+        if archive_content:
             outputs.append({
                 "_port": "default", "data_type": "knowledge",
-                "content": parsed["记忆归档"],
+                "content": archive_content,
                 "tags": parsed.get("归档标签", ""),
                 "request_id": rid,
             })
             # ── Logseq 输出：记忆归档 + 向量关联 ────────────
             logseq_related = []
             try:
-                raw_results = memos.retrieve_raw(parsed["记忆归档"], top_k=5, identity_key=identity_key)
+                raw_results = memos.retrieve_raw(archive_content, top_k=5, identity_key=identity_key)
                 if raw_results:
                     conn = sqlite3.connect(dbp)
                     try:
@@ -255,7 +299,7 @@ class MyNode:
                 pass
             outputs.append({
                 "_port": "logseq", "data_type": "knowledge_logseq",
-                "content": parsed["记忆归档"],
+                "content": archive_content,
                 "tags": parsed.get("归档标签", ""),
                 "related": logseq_related,
                 "request_id": rid,
@@ -391,6 +435,17 @@ class MyNode:
             )
 
         now = datetime.now()
+
+        # v5.1 角色种子系统：读取性格向量 + 情绪值并构建注入段
+        seed = db.get_personality(dbp, identity_key)
+        personality_section = prs.build_personality_section(
+            {"warmth": seed["warmth"], "playfulness": seed["playfulness"],
+             "directness": seed["directness"], "curiosity": seed["curiosity"]},
+            seed.get("style_description", ""),
+        )
+        mood_value = db.get_current_mood(dbp, identity_key)
+        mood_section = prs.build_mood_section(mood_value)
+
         return {
             "identity_key": identity_key,
             "fixed_cognition": fixed_context,
@@ -402,6 +457,12 @@ class MyNode:
             "memos_top5": memos_top5,
             "attachment_context": attachment_context,
             "reflection_prompt": reflection_override or "",
+            "perception": self._perception.get_perception_text(),
+            # v1.3 定位信息：传 db_path 让 prompt.py 自动查询并注入位置段
+            "db_path": dbp,
+            # v5.1 角色种子：性格段 + 情绪段
+            "personality": personality_section,
+            "mood": mood_section,
         }
 
     # ── 对话切换 ────────────────────────────────────────────
@@ -414,7 +475,142 @@ class MyNode:
             "status": "ok", "conversation_id": conv_id,
         }
 
-    # ── DB 管理命令（clear / backup / restore）───────────
+    # ── v5.1 角色种子：情绪处理 + 性格演化 ────────────────────
+    def _get_evolution(self, dbp, identity_key):
+        """按 identity_key 懒加载 PersonalityEvolution 实例"""
+        evo = self._evolutions.get(identity_key)
+        if evo is None:
+            seed = db.get_personality(dbp, identity_key)
+            evo = prs.PersonalityEvolution({
+                "warmth": seed["warmth"], "playfulness": seed["playfulness"],
+                "directness": seed["directness"], "curiosity": seed["curiosity"],
+            })
+            self._evolutions[identity_key] = evo
+        return evo
+
+    def _persist_evolution(self, dbp, identity_key, evo):
+        """演化发生微调后写回 DB（保留原风格描述与预设名）"""
+        if not evo.vector_changed:
+            return
+        seed = db.get_personality(dbp, identity_key)
+        db.save_personality(
+            dbp, evo.vector,
+            style_description=seed.get("style_description", ""),
+            preset_name=seed.get("preset_name", "默认"),
+            identity_key=identity_key,
+        )
+
+    def _process_mood_and_evolution(self, parsed, dbp, conv_id, identity_key,
+                                    reaction: str = "neutral", style: dict | None = None):
+        """处理【情绪调整】标签 → 累加写 mood_value → 触发性格演化
+
+        v2.0：style 为本次回复的观测风格（演化输入源），不传时回退到观测函数推导。
+        """
+        try:
+            raw = parsed.get("情绪调整", "0.0")
+            adjustment = prs.parse_mood_adjustment(raw)
+            current_mood = db.get_current_mood(dbp, identity_key)
+            new_mood = prs.compute_new_mood(current_mood, adjustment)
+            db.save_mood_value(dbp, new_mood, adjustment,
+                               source_mood=parsed.get("心情", ""),
+                               conversation_id=conv_id, identity_key=identity_key)
+
+            evo = self._get_evolution(dbp, identity_key)
+            if style is None:
+                style = prs.estimate_style_from_reply(parsed)
+            evo.observe_feedback(style, reaction, mood=new_mood)
+            self._persist_evolution(dbp, identity_key, evo)
+        except Exception:
+            pass
+
+    def _observe_user_reaction(self, dbp, identity_key, reaction: str):
+        """采集用户自然行为作为反馈信号（positive/negative）
+
+        v2.0：风格取最近一次观测（_on_parsed 缓存），未观测到用默认值（不引发演化）。
+        """
+        try:
+            mood_value = db.get_current_mood(dbp, identity_key)
+            evo = self._get_evolution(dbp, identity_key)
+            style = self._last_observed_style or prs.get_default_style()
+            evo.observe_feedback(style, reaction, mood=mood_value)
+            self._persist_evolution(dbp, identity_key, evo)
+        except Exception:
+            pass
+
+    # ── v2.0 打断事件（用户打断 TTS → negative 反馈信号源）──────
+    def _on_interrupt(self, data):
+        """接收打断信号并记录标志，下一轮用户输入合并为 negative 反馈"""
+        self._interrupt_flag = True
+        return {"_port": "default", "status": "ok", "message": "interrupt recorded"}
+
+    # ── v3.1 认知反思（Background Review）────────────────────────
+    def _get_recent_conversation(self, dbp, conv_id, identity_key, limit=10):
+        """取最近 N 条 user/assistant 消息（升序），供 review 提炼"""
+        conn = sqlite3.connect(dbp)
+        try:
+            rows = conn.execute(
+                "SELECT role, content FROM user_messages "
+                "WHERE conversation_id=? AND identity_key=? AND role IN ('user','assistant') "
+                "ORDER BY id DESC LIMIT ?", (conv_id, identity_key, limit)).fetchall()
+            return [{"role": r[0], "content": r[1]} for r in reversed(rows)]
+        finally:
+            conn.close()
+
+    def _trigger_background_review(self, dbp, conv_id, identity_key):
+        """每 5 轮触发一次后台 Review（线程内完成，不阻塞主流程）"""
+        try:
+            conversation = self._get_recent_conversation(dbp, conv_id, identity_key)
+            if not conversation:
+                return
+            thr = threading.Thread(
+                target=self._run_background_review,
+                args=(conversation, dbp, identity_key), daemon=True)
+            self._review_threads.append(thr)
+            thr.start()
+        except Exception:
+            pass
+
+    def _run_background_review(self, conversation, dbp, identity_key):
+        """后台线程：构建 review prompt → LLM 调用 → 解析 → 持久化。
+
+        线程内严禁调用 memos / 语义模型（并发 native 崩溃 0xC0000005）。
+        LLM 调用走 review.llm_call：有注入钩子则同步；否则写文件走节点间通道，
+        回执由 _on_review_response 处理。
+        """
+        try:
+            import review
+            review.run_review(conversation, dbp, identity_key)
+        except Exception:
+            pass
+
+    def _on_review_response(self, data, dbp):
+        """处理 review 回执（data_type=parsed, source=review）→ 解析 + 持久化"""
+        try:
+            import review
+            content = data.get("content", "")
+            identity_key = data.get("identity_key", _IDENTITY_KEY_DEFAULT)
+            if not content:
+                return {"_port": "default", "status": "noop"}
+            insights = review.parse_review_result(content)
+            for ins in insights:
+                review.persist_insight(ins, dbp, identity_key)
+            return {"_port": "default", "status": "ok",
+                    "message": f"review processed {len(insights)} insights"}
+        except Exception:
+            return {"_port": "default", "status": "error"}
+
+    # ── DB 管理命令（clear / format / backup / restore）───
+    def _clear_conversation_history(self):
+        """清空 GUI 对话历史 JSON（人格格式化用，见方案 §10.5）"""
+        try:
+            # main.py 位于 nodes/node_python_aaa_cognition/，项目根向上两级
+            root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            path = os.path.join(root, "gui", "pages", "conversation_history.json")
+            if os.path.isfile(path):
+                os.remove(path)
+        except Exception:
+            pass
+
     def _on_db_command(self, data, dbp):
         cmd = data.get("cmd", "")
         db_dir = os.path.dirname(dbp)
@@ -423,7 +619,8 @@ class MyNode:
         if not os.path.isfile(dbp):
             return {"data_type": "db_result", "cmd": cmd, "status": "error", "message": "数据库文件不存在"}
 
-        if cmd == "clear":
+        if cmd == "format":
+            # 人格格式化 = 彻底清空数据库（含固定认知）+ 重置性格（清空数据库与格式化合并为一个功能）
             try:
                 conn = sqlite3.connect(dbp)
                 # 查询所有用户表（排除系统表，以 sqlite_ 开头的是系统表）
@@ -436,9 +633,16 @@ class MyNode:
                     total += conn.total_changes
                 conn.commit()
                 conn.close()
+                # personality_seed 重置为默认种子（mood_value 已被上面清空）
+                db.reset_personality_seed(dbp)
+                # 清空 GUI 对话历史 JSON，避免 UI 残留旧对话
+                self._clear_conversation_history()
                 return {
                     "data_type": "db_result", "cmd": cmd, "status": "ok",
-                    "message": f"已清空 {len(tables)} 张用户表，影响 {total} 行",
+                    "message": (
+                        f"人格格式化完成：已清空全部 {len(tables)} 张表，"
+                        f"影响 {total} 行，性格已重置为默认"
+                    ),
                 }
             except Exception as e:
                 return {"data_type": "db_result", "cmd": cmd, "status": "error", "message": str(e)}

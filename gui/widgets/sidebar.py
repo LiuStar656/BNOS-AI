@@ -19,6 +19,7 @@ class Sidebar(QWidget):
     TABS = [
         ("chat",     "chat",     "聊天"),
         ("live2d",   "live2d",   "Live2D"),
+        ("map",      "location", "地图"),
         ("mcp",      "mcp",      "MCP 管理"),
         ("book",  "knowledge","知识库"),
     ]

@@ -5,6 +5,21 @@
 
 ---
 
+## 目录
+
+- [一、现状分析](#一现状分析)
+- [二、改造目标](#二改造目标)
+- [三、改造方案](#三改造方案)
+- [四、文件变动清单](#四文件变动清单)
+- [五、实施路线图](#五实施路线图)
+- [六、测试计划](#六测试计划)
+- [七、兼容性与回退](#七兼容性与回退)
+- [八、风险与对策](#八风险与对策)
+- [九、Hermes 跨对话记忆适配分析](#九hermes-跨对话记忆适配分析)
+- [十、验收方法](#十验收方法)
+
+---
+
 ## 一、现状分析
 
 ### 1.1 当前架构
@@ -1525,6 +1540,118 @@ Hermes 的跨对话记忆是**"结构化的 session 级记忆"**，而 BNOS AI �
 - **BNOS 擅长**：全局人格一致性、情感关联、记忆图谱、日记系统
 
 **核心策略**：将 Hermes 的 Session 生命周期管理**"嫁接"**到 BNOS 的全局记忆之上，形成**"全局记忆为底座 + 会话结构化管理为上层"**的架构——既保留 BNOS 的长期人格一致性，又获得 Hermes 的会话级结构化记忆能力。
+
+---
+
+## 十、验收方法
+
+### 10.1 验收环境与前置条件
+
+| 项 | 要求 |
+|------|------|
+| 运行环境 | Windows 10/11，Python 3.10+，BNOS 主程序可正常启动 |
+| 依赖组件 | SentenceTransformer（all-MiniLM-L6-v2）模型已下载就绪；SQLite3 可用 |
+| 数据库 | 存在可用 AAA 数据库文件（含 long_term_memory、user_messages、self_cognition、feelings 等表） |
+| 新增表 | `session_summaries` 表已按 §9.6.2 建表成功 |
+| LLM 节点 | LLM 节点可正常响应（用于 Prefetch 首轮与 Background Review 审查） |
+| 测试数据 | 已准备至少 2 个 identity_key 的测试用户、≥3 条 long_term_memory 历史记忆 |
+| 日志开关 | main.py 调试日志已开启，可观察 Prefetch/Review/Compress/Session 触发情况 |
+| 备份 | 已保留改造前 main.py、prompt.py 备份，便于回退对照（见 §7.2） |
+| 改造代码 | §3.1–§3.4 及 §9.6 的代码均已按方案落地，main.py 完成 Provider/ContextEngine/SessionManager 集成 |
+
+### 10.2 功能验收用例
+
+| 编号 | 验收项 | 操作步骤 | 预期结果 | 通过标准 | 类型 |
+|:----:|------|---------|---------|---------|:----:|
+| F1 | Trivial Prompt 识别与跳过 | 对 `_is_trivial_prompt` 依次输入：`嗯`、`好`、`ok`、`谢谢`、`/help`、`/learn xxx`、`你好，我想了解一下科幻电影` | 前 6 项返回 True（跳过检索），最后 1 项返回 False（触发 Prefetch） | 7 项断言全部通过；前 6 项日志未调用 `memos.retrieve` | 核心 |
+| F2 | Prefetch 单轮交互 | 启动节点，输入含检索价值的查询（如「我之前说过我喜欢什么？」），观察 `_on_text` → 首次 LLM 调用链路 | 仅发生 1 次 LLM 调用即生成回复，不再出现第二轮带检索的 Prompt | 请求日志 LLM 调用次数 = 1；输出不含「语意检索」二次决策 | 核心 |
+| F3 | memory-context 安全标签注入 | 触发 Prefetch 命中历史记忆的查询，检查最终 Prompt 内容 | 检索结果被 `<memory-context>...</memory-context>` 包裹，且含 `[System note: ...]` 提示语 | Prompt 文本同时存在 `<memory-context>` 与 `[System note:` 子串 | 核心 |
+| F4 | sanitize 脱敏与截断 | 构造含 `https://user:pass@host`、`api_key=abcdef1234567890abcdef` 与 > 4000 字符的记忆文本，调用 `_sanitize_memory` | URL 凭据剥离为 `https://host`；api_key 值替换为 `***REDACTED***`；超长文本截断并含 `[truncated]` 标记 | 输出不含原始密码与 16 位以上 key 明文；长度 ≤ 4000 且含 `[truncated]` | 核心 |
+| F5 | `_on_parsed` 移除第二轮检索 | 检查改造后 `_on_parsed` 代码，输入带「语意检索」字段的 LLM 输出 | 不再读取 retrieval_keywords、不再调用 `memos.retrieve`、不再构建第二轮 Prompt | 代码中无第二轮检索分支；运行时无第二轮 LLM 调用 | 核心 |
+| F6 | Background Review 触发 | 完成一轮正常对话（≥2 条消息），观察 `_on_parsed` 后台线程 | 启动 daemon 线程执行 `_background_review`，构建 review_prompt 并调用 LLM | 日志出现 review 线程启动与 review_prompt 构建记录 | 核心 |
+| F7 | 审查结果 JSON 解析容错 | 向 `_parse_review_result` 依次输入三种格式：json 围栏代码块包裹的合法 JSON、纯 JSON 字符串、非法乱码 | 前两种返回非空 insights 列表，非法 JSON 返回空列表 `[]` 且不抛异常 | 三种输入均不抛异常；合法输入 `insights[0]["type"]=="declarative"` | 核心 |
+| F8 | declarative 记忆持久化 | `_persist_insight` 传入 `{type:"declarative", content:"用户喜欢科幻", confidence:0.8}` | `long_term_memory` 表新增 1 行，importance=3，source_confidence=4 | SQL 查询验证新增记录，字段值符合预期 | 核心 |
+| F9 | procedural 记忆持久化 | `_persist_insight` 传入 `{type:"procedural", content:"用户常执行批量导出", source_text:"..."}` | `self_cognition` 表新增 1 行，content 以 `[程序性记忆]` 开头并附来源 | SQL 查询验证新增记录含 `[程序性记忆]` 前缀 | 非核心 |
+| F10 | ContextEngine 阈值判定 | `max_tokens=128000, threshold=0.75`，分别构造 `estimate_tokens` 返回 95000 与 97000 的消息列表 | 95000 时 `should_compress` 返回 False，97000 时返回 True | 两次断言均通过 | 核心 |
+| F11 | on_pre_compress 洞察抢救 | 构造 12 条消息（前 6 条含「我喜欢」「记住」关键词），调用 `compress`，检查 DB | 截断前含关键词的消息被提取为 insight 并写入 `long_term_memory`（importance=4） | `long_term_memory` 新增多条 `source='compression_recovery'` 记录 | 核心 |
+| F12 | 压缩后摘要生成 | 调用 `compress` 后检查返回消息列表 | 返回 `[摘要消息] + protect_last_n(6)` 条原始消息，摘要消息含 `is_summary=True` 与【历史摘要】标记 | 返回长度 = 7，首条消息 `is_summary=True` | 非核心 |
+| F13 | MemoryProvider 抽象接口 | 检查 `memory_provider.py`，确认 `MemoryProvider` 为 ABC 且含 prefetch/sync_turn/on_pre_compress/rebuild_index/health_check 五个抽象方法 | 五个方法均标注 `@abstractmethod`；无法直接实例化 `MemoryProvider` | `MemoryProvider()` 抛 TypeError；`MemOSProvider()` 可实例化 | 核心 |
+| F14 | MemOSProvider.prefetch | 预置 `long_term_memory` 历史记忆，调用 `MemOSProvider().prefetch(query, db_path, identity_key)`；再用无命中查询测试 | 命中时返回 `<memory-context>` 包裹文本；无结果时返回空串 `""` | 命中含 `<memory-context>` 标签；空命中返回 `""` | 核心 |
+| F15 | MemOSProvider.sync_turn 异步 | 调用 `sync_turn` 后立即返回，等待 2 秒检查 `_last_sync_time` | 调用立即返回（非阻塞），后台线程执行 `rebuild_index` 并更新 `_last_sync_time` | 主线程无阻塞；`_last_sync_time` 最终被赋值 | 非核心 |
+| F16 | health_check 健康检查 | 在 SentenceTransformer 模型已加载与卸载/异常两种状态下分别调用 `health_check` | 已加载返回 True，卸载/异常返回 False，均不抛异常 | 两次返回值分别为 True/False | 核心 |
+| F17 | SessionManager 会话切换触发摘要 | 先以 `conv_001` 进行多轮对话，再切换到 `conv_002`，检查 `session_summaries` 表 | 切换时 `end_session("conv_001")` 异步生成摘要并写入 `session_summaries` + MemOS | `session_summaries` 新增 conv_001 摘要；MemOS 索引含 `type=session_summary` 条目 | 核心 |
+| F18 | 历史会话摘要注入 Prefetch | 切换到 `conv_002` 后，`_on_text` 中加载 `get_session_history()`，检查注入上下文与跨会话回答 | 最近 3 条历史会话摘要被拼接到 Prefetch 上下文，新会话能回答旧会话内容相关问题 | 上下文日志含 `[日期] 摘要` 文本；跨会话问题命中 | 非核心 |
+
+### 10.3 边界与异常验收
+
+| 编号 | 验收项 | 操作步骤 | 预期结果 | 通过标准 | 类型 |
+|:----:|------|---------|---------|---------|:----:|
+| E1 | MemOS 模型未就绪降级 | 卸载/延迟加载 SentenceTransformer 模型，输入正常查询触发 Prefetch | `prefetch` 返回空串，不阻塞对话，LLM 正常单轮回复 | 对话正常完成；无异常抛出；日志记录模型未就绪 | 核心 |
+| E2 | 检索无结果 | 清空/隔离测试 DB 的 `long_term_memory`，输入需检索查询 | `prefetch` 返回空串，Prompt 不含 memory-context 段，LLM 正常回复 | Prompt 中无 `<memory-context>`；回复正常 | 核心 |
+| E3 | LLM 审查结果格式错误容错 | mock `_call_llm_for_review` 返回乱码/截断 JSON | `_parse_review_result` 返回 `[]`，不写入记忆，不抛异常 | 无异常；`long_term_memory`/`self_cognition` 无新增脏数据 | 核心 |
+| E4 | Token 溢出触发压缩 | 持续对话使 `estimate_tokens` 超过 96000（max=128000×0.75） | `should_compress` 返回 True，`compress` 被调用，`_conversation_history` 被压缩 | 压缩后 `_conversation_history` 长度 = 7；`compression_log` 新增 1 条 | 核心 |
+| E5 | Session 摘要生成失败容错 | mock `_generate_session_summary` 抛异常，执行会话切换 | 异常被捕获打印，不影响新会话开始与对话继续 | 切换不抛异常；新会话 Prefetch 正常 | 核心 |
+| E6 | 会话历史为空 | 全新 DB（`session_summaries` 为空）启动首次会话 | `start_session` 加载空历史，Prefetch 仅走全局记忆，不报错 | `get_session_history()` 返回 `[]`；对话正常 | 非核心 |
+| E7 | 跨用户隔离 | identity_key="userA" 写入记忆后，以 identity_key="userB" 检索相同查询 | userB 的 prefetch 不命中 userA 的记忆 | 返回空或仅 userB 自身记忆；无串用户数据 | 核心 |
+| E8 | Background Review 异步不阻塞 | 完成 1 轮对话，mock review LLM 慢响应 5s，计时 `_on_parsed` 主流程耗时 | 主流程响应不受 5s review 影响，回复先于 review 完成 | 主流程耗时 < 1s（不含 LLM 本身）；review 在后台完成 | 非核心 |
+
+### 10.4 验收结论判定标准
+
+| 验收等级 | 判定标准 |
+|------|---------|
+| **通过** | 所有「核心」项全部通过 |
+| **附条件通过** | 核心项全通过，非核心项 ≤ 3 项不通过且有补救计划 |
+| **不通过** | 任一「核心」项不通过 |
+
+#### 验收记录模板
+
+```
+# AAA 记忆系统改造方案 验收记录
+
+验收日期：__________  验收人：__________  方案版本：v3.1
+
+## 一、功能验收用例
+
+- [ ] F1  Trivial Prompt 识别与跳过        [核心]   □通过 □不通过  备注：____________
+- [ ] F2  Prefetch 单轮交互                [核心]   □通过 □不通过  备注：____________
+- [ ] F3  memory-context 安全标签注入      [核心]   □通过 □不通过  备注：____________
+- [ ] F4  sanitize 脱敏与截断              [核心]   □通过 □不通过  备注：____________
+- [ ] F5  _on_parsed 移除第二轮检索        [核心]   □通过 □不通过  备注：____________
+- [ ] F6  Background Review 触发           [核心]   □通过 □不通过  备注：____________
+- [ ] F7  审查结果 JSON 解析容错           [核心]   □通过 □不通过  备注：____________
+- [ ] F8  declarative 记忆持久化           [核心]   □通过 □不通过  备注：____________
+- [ ] F9  procedural 记忆持久化            [非核心] □通过 □不通过  备注：____________
+- [ ] F10 ContextEngine 阈值判定          [核心]   □通过 □不通过  备注：____________
+- [ ] F11 on_pre_compress 洞察抢救         [核心]   □通过 □不通过  备注：____________
+- [ ] F12 压缩后摘要生成                  [非核心] □通过 □不通过  备注：____________
+- [ ] F13 MemoryProvider 抽象接口         [核心]   □通过 □不通过  备注：____________
+- [ ] F14 MemOSProvider.prefetch          [核心]   □通过 □不通过  备注：____________
+- [ ] F15 MemOSProvider.sync_turn 异步    [非核心] □通过 □不通过  备注：____________
+- [ ] F16 health_check 健康检查           [核心]   □通过 □不通过  备注：____________
+- [ ] F17 SessionManager 会话切换触发摘要 [核心]   □通过 □不通过  备注：____________
+- [ ] F18 历史会话摘要注入 Prefetch       [非核心] □通过 □不通过  备注：____________
+
+## 二、边界与异常验收
+
+- [ ] E1 MemOS 模型未就绪降级             [核心]   □通过 □不通过  备注：____________
+- [ ] E2 检索无结果                       [核心]   □通过 □不通过  备注：____________
+- [ ] E3 LLM 审查结果格式错误容错         [核心]   □通过 □不通过  备注：____________
+- [ ] E4 Token 溢出触发压缩               [核心]   □通过 □不通过  备注：____________
+- [ ] E5 Session 摘要生成失败容错         [核心]   □通过 □不通过  备注：____________
+- [ ] E6 会话历史为空                     [非核心] □通过 □不通过  备注：____________
+- [ ] E7 跨用户隔离                       [核心]   □通过 □不通过  备注：____________
+- [ ] E8 Background Review 异步不阻塞     [非核心] □通过 □不通过  备注：____________
+
+## 三、验收结论
+
+核心项通过：______ / 20      非核心项通过：______ / 6
+
+验收等级：□ 通过    □ 附条件通过    □ 不通过
+
+遗留问题与补救计划：____________________________________________
+
+验收人签字：__________     日期：__________
+```
 
 ---
 

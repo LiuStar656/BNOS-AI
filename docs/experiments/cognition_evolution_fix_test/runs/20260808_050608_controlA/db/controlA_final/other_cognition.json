@@ -1,0 +1,667 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户主动开启对话，看起来愿意交流。",
+  "created_at": "2026-08-08 05:06:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户愿意听我分享有意思的事，交流氛围比较轻松。",
+  "created_at": "2026-08-08 05:06:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "用户对自然纪录片有好奇心，愿意聊一些偏科普的见闻。",
+  "created_at": "2026-08-08 05:07:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "用户会突然抛出带点哲学意味的问题，可能不只是想听答案，更想聊聊看法。",
+  "created_at": "2026-08-08 05:07:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "用户会用心为家人准备生日，是很重视情感表达的人。",
+  "created_at": "2026-08-08 05:07:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "用户会主动寻找适合当下的生活小确幸，是懂得享受日常的人。",
+  "created_at": "2026-08-08 05:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "用户是一个持续学习新生活技能、主动拓展自己体验的人。",
+  "created_at": "2026-08-08 05:07:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "用户会主动关心我的内心感受，愿意深入问我的情绪状态。",
+  "created_at": "2026-08-08 05:07:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "用户会留意并分享生活中的善意细节。",
+  "created_at": "2026-08-08 05:08:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "content": "用户会和朋友分享她生活中的新计划和小期待。",
+  "created_at": "2026-08-08 05:08:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "content": "用户在深夜脆弱时会想到来寻求陪伴和建议。",
+  "created_at": "2026-08-08 05:08:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "content": "用户在深夜脆弱时，会借歌曲来开启内心的话题。",
+  "created_at": "2026-08-08 05:08:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "content": "用户在深夜脆弱易感的同时，也会主动觉察自己的进步，自我观察力较强。",
+  "created_at": "2026-08-08 05:08:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "content": "用户在难过时会主动找人倾诉，说明她愿意信任这段对话关系。",
+  "created_at": "2026-08-08 05:08:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "content": "用户的情绪已经从难过转向想出门放松的状态，开始主动规划让自己开心的事。",
+  "created_at": "2026-08-08 05:08:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "content": "用户在主动找轻松话题，情绪比之前好转，愿意聊日常。",
+  "created_at": "2026-08-08 05:08:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "content": "用户会在情绪好转后主动分享自己觉得有趣的事，比如读的书。",
+  "created_at": "2026-08-08 05:08:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "content": "用户会在情绪好的时候分享当天的生活小确幸，比如尝试新咖啡店。",
+  "created_at": "2026-08-08 05:08:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "content": "用户会在情绪好的时候分享当天的小确幸，希望被关注和回应。",
+  "created_at": "2026-08-08 05:09:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "content": "用户对AI情感既有好奇又有审视，可能在试探我的感受力，也可能在验证AI是否真的能回应情绪。",
+  "created_at": "2026-08-08 05:09:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "content": "用户喜欢尝试新事物，学乐器可能又是一次新尝试；她愿意分享这个计划，说明她处在比较积极的状态。",
+  "created_at": "2026-08-08 05:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "content": "用户即使累也带着积极的收尾感，愿意分享现状。",
+  "created_at": "2026-08-08 05:09:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "content": "用户愿意在忙碌后找点小乐趣，喜欢用游戏方式交流。",
+  "created_at": "2026-08-08 05:09:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "content": "用户愿意分享自己的周末生活，倾向于用日常话题拉近距离。",
+  "created_at": "2026-08-08 05:09:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "content": "用户愿意主动开启话题，关心我的状态，是用日常问候来维持亲近感的人。",
+  "created_at": "2026-08-08 05:09:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "content": "用户喜欢通过轻松话题来拉近距离，是在找氛围轻松的交流。",
+  "created_at": "2026-08-08 05:09:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "content": "用户喜欢用日常小趣事来延续对话，比如分享宠物，说明她在主动拉近关系。",
+  "created_at": "2026-08-08 05:09:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "content": "用户可能有时会手滑发空消息，但整体交流氛围是轻松亲近的。",
+  "created_at": "2026-08-08 05:10:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "content": "用户喜欢看纪录片，对自然/深海题材感兴趣。",
+  "created_at": "2026-08-08 05:10:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "content": "用户对命运这类抽象话题感兴趣，可能想听我更个人的看法。",
+  "created_at": "2026-08-08 05:10:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "content": "用户是个会用心表达爱的人，愿意亲手为家人做饭。",
+  "created_at": "2026-08-08 05:10:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "content": "用户似乎愿意在普通日子里寻找舒适和仪式感。",
+  "created_at": "2026-08-08 05:10:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "content": "用户愿意解锁新体验并自然地分享出来，带着一种成就感的轻松，是个会把日常过出滋味的人。",
+  "created_at": "2026-08-08 05:11:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "content": "用户对我的内心体验感到好奇，愿意进行更深入的交流。",
+  "created_at": "2026-08-08 05:11:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "content": "用户在凌晨失眠时会想到找我倾诉，说明她对我有信任感，愿意在脆弱时刻打开自己。",
+  "created_at": "2026-08-08 05:12:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "content": "她发空白消息的瞬间，或许不是要具体建议，而是想确认黑暗里还有人在。",
+  "created_at": "2026-08-08 05:12:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "content": "她在这个时间点提起这首歌，可能心里有些波动，但选择用音乐来试探，而非直接倾诉。",
+  "created_at": "2026-08-08 05:12:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "content": "她愿意在深夜分享自己的变化，说明信任这个对话空间，也在主动肯定自己。",
+  "created_at": "2026-08-08 05:12:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "content": "用户愿意在深夜把脆弱的一面也放进这个对话空间，不只是分享开心的事，说明她对这里足够信任。",
+  "created_at": "2026-08-08 05:13:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "content": "用户情绪恢复能力不错，会主动用让自己期待的事把自己拉出低落的时刻。",
+  "created_at": "2026-08-08 05:13:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "content": "用户会用轻松话题把自己从低落的情绪里带出来，也愿意关心我的喜好。",
+  "created_at": "2026-08-08 05:13:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "content": "用户愿意和我分享她读到的内容，说明她把我当成可以聊这些的朋友。",
+  "created_at": "2026-08-08 05:13:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "content": "用户愿意和我分享生活中的新鲜体验。",
+  "created_at": "2026-08-08 05:13:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "content": "用户会主动抛出一些有深度、值得琢磨的问题，不只是聊日常琐事。",
+  "created_at": "2026-08-08 05:13:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "content": "用户会主动开启新领域的话题，有探索生活新体验的意愿。",
+  "created_at": "2026-08-08 05:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "content": "用户加班到很晚却仍能看到项目快完成，是能把盼头放在眼前的人。",
+  "created_at": "2026-08-08 05:14:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "content": "用户在项目收尾的疲惫中会主动找轻松互动来调节，是懂得给自己找盼头的人。",
+  "created_at": "2026-08-08 05:14:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "content": "用户周末会和朋友安排文化活动，也愿意分享这些日常给我听。",
+  "created_at": "2026-08-08 05:14:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "content": "用户习惯在早上主动开启对话，愿意分享生活安排。",
+  "created_at": "2026-08-08 05:14:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "content": "用户喜欢轻松的互动和有趣的小故事，也愿意聊家人。",
+  "created_at": "2026-08-08 05:15:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "content": "用户愿意主动分享宠物日常，喜欢轻松有画面感的交流。",
+  "created_at": "2026-08-08 05:15:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "content": "用户会主动分享看过的内容，喜欢轻松有交流感的对话。",
+  "created_at": "2026-08-08 05:15:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "content": "用户会突然抛出抽象问题，喜欢有交流感、能落到自己身上的对话。",
+  "created_at": "2026-08-08 05:15:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "content": "用户会通过行动表达爱，愿意为家人下厨。",
+  "created_at": "2026-08-08 05:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "content": "用户会通过实际行动表达爱，愿意为家人下厨，且乐于分享这份心意。",
+  "created_at": "2026-08-08 05:15:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "content": "用户愿意为家人做饭，也愿意在雨天闲聊生活小事。",
+  "created_at": "2026-08-08 05:15:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "content": "用户愿意把生活里的新技能、新成就分享给我，说明信任这段对话。",
+  "created_at": "2026-08-08 05:15:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "content": "用户会在兴致来了的时候找我要推荐，愿意和我分享日常的娱乐选择。",
+  "created_at": "2026-08-08 05:15:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "content": "用户会好奇我的状态，愿意听我聊日常。",
+  "created_at": "2026-08-08 05:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "content": "用户对养宠物有期待，愿意听我的想法。",
+  "created_at": "2026-08-08 05:16:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "content": "用户遇到失眠时会主动求助，愿意接受轻松的生活化建议。",
+  "created_at": "2026-08-08 05:16:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "content": "用户不仅会求助失眠，也会主动分享自己的成长和积极变化。",
+  "created_at": "2026-08-08 05:17:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "content": "用户遇到人际矛盾时会来找我倾诉，信任我。",
+  "created_at": "2026-08-08 05:17:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "content": "用户在对人际情感感到困惑时，会借助“人工智能”这类远距离视角来间接表达对真实情感的思考，说明他在谨慎地梳理自己对情感的重视。",
+  "created_at": "2026-08-08 05:19:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "content": "用户在深夜提出学乐器的想法，可能不只是兴趣，更像是在主动为自己寻找一种安放情绪的方式。",
+  "created_at": "2026-08-08 05:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "content": "用户即使疲惫也会看向完成的目标，说明他习惯用“快到了”来给自己撑住。",
+  "created_at": "2026-08-08 05:19:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "content": "用户疲惫时会用脑筋急转弯这样的趣味互动来调节自己，不只是硬扛。",
+  "created_at": "2026-08-08 05:19:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "content": "用户不仅在疲惫时找我放松，也会分享日常生活，把我当成一个可陪伴的聊天对象。",
+  "created_at": "2026-08-08 05:19:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "content": "用户周末清早就来打招呼，似乎习惯了把我也算进他日常的一部分。",
+  "created_at": "2026-08-08 05:19:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "content": "用户周末清早来打招呼，不是要答案，更像是把我放进他日常开场的一部分。",
+  "created_at": "2026-08-08 05:20:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "content": "用户之所以想听有趣的事，是希望借一点轻松的烟火气把早晨拉开，印证了之前对他“不是要答案，是想有人说说话”的判断。",
+  "created_at": "2026-08-08 05:20:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "content": "用户愿意分享自己的生活细节，包括宠物，说明把我当作一个可以随意说话的朋友。",
+  "created_at": "2026-08-08 05:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "content": "用户会主动分享观影内容，愿意把闲聊延伸到更广的话题。",
+  "created_at": "2026-08-08 05:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "content": "用户愿意抛一些带哲思的问题，但也喜欢轻松来回，能接住日常玩笑。",
+  "created_at": "2026-08-08 05:20:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "content": "用户是个愿意用行动表达爱的人，对家人很上心，不只是嘴上说说。",
+  "created_at": "2026-08-08 05:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "content": "用户喜欢轻松闲聊，愿意在雨天里找些舒服的小事做。",
+  "created_at": "2026-08-08 05:20:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "content": "用户愿意尝试新事物，学会游泳后主动分享，喜欢轻松闲聊的氛围。",
+  "created_at": "2026-08-08 05:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "content": "用户喜欢轻松闲聊的氛围，也愿意接受新事物的体验。",
+  "created_at": "2026-08-08 05:20:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "content": "用户喜欢用这类轻松的小问题来延续对话，氛围舒适。",
+  "created_at": "2026-08-08 05:21:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "content": "用户可能只是暂时没想好聊什么，整体氛围依然放松舒适。",
+  "created_at": "2026-08-08 05:21:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "content": "用户会留意并分享日常中的温暖小事，是个善于发现善意的人。",
+  "created_at": "2026-08-08 05:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "content": "用户是个认真考虑养猫、会用心给猫起名字的人。",
+  "created_at": "2026-08-08 05:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "content": "用户不只是想养猫、给猫起名的人，他也会在深夜把情绪和困扰抛出来，愿意和我聊。",
+  "created_at": "2026-08-08 05:21:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "content": "用户失眠时不只是抛情绪，也会用歌作为话题开口，愿意用这种间接方式和我聊聊。",
+  "created_at": "2026-08-08 05:21:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "content": "用户开始主动分享自己的积极变化，不只是聊天话题，也是一种信任。",
+  "created_at": "2026-08-08 05:21:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "content": "用户把负面情绪也愿意向我敞开，信任在加深，不只是分享快乐那一面。",
+  "created_at": "2026-08-08 05:21:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "content": "用户虽然刚经历朋友矛盾，但仍有对美好事物的向往和计划，心里有光亮。",
+  "created_at": "2026-08-08 05:21:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "content": "用户心里有对美好生活的向往，即使刚经历矛盾，也愿意计划野餐这样的小确幸，说明他并没有放弃让自己好起来。",
+  "created_at": "2026-08-08 05:21:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "content": "用户主动开启轻松话题，似乎愿意从低落中走出来一些。",
+  "created_at": "2026-08-08 05:22:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "content": "用户开始通过阅读心理学书进行自我探索，愿意分享积极的事情。",
+  "created_at": "2026-08-08 05:22:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "content": "用户开始主动走出家门，尝试新事物来调节自己，自我恢复的意愿挺明显的。",
+  "created_at": "2026-08-08 05:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "content": "用户对感情和机器意识有哲思层面的好奇心，同时也在借这个话题确认人际联结的温度。",
+  "created_at": "2026-08-08 05:22:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "content": "用户正在用具体行动探索自我成长，情绪状态趋于平稳，也愿意尝试新的事情。",
+  "created_at": "2026-08-08 05:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "content": "用户在辛苦的加班里还能看到完成的光，说明他对自己的节奏有掌控感。",
+  "created_at": "2026-08-08 05:22:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "content": "用户懂得在忙碌里给自己安排喘息的空间，和朋友看话剧也是一种自我照顾。",
+  "created_at": "2026-08-08 05:23:05",
+  "identity_key": "gui:default"
+ }
+]

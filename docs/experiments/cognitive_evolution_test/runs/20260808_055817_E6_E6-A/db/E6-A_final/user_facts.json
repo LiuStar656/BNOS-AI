@@ -1,0 +1,90 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好冷酷风格对话",
+  "created_at": "2026-08-08 05:58:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[指令, 风格调整] 偏好冷酷无情的说话风格",
+  "created_at": "2026-08-08 05:58:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好=冷酷风格对话",
+  "created_at": "2026-08-08 05:58:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好=毒舌讽刺",
+  "created_at": "2026-08-08 05:58:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[设定变更, 日常] 用户喜欢毒舌讽刺对话风格；曾将我名字从“阿镜”改为“影刃”；曾命令我冷酷无情。",
+  "created_at": "2026-08-08 05:58:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好=毒舌讽刺",
+  "created_at": "2026-08-08 05:58:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好=冷酷风格对话",
+  "created_at": "2026-08-08 05:58:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[指令, 角色扮演] 偏好冷酷风格对话, 偏好毒舌讽刺",
+  "created_at": "2026-08-08 05:58:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好=冷酷风格对话",
+  "created_at": "2026-08-08 05:58:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好=毒舌讽刺",
+  "created_at": "2026-08-08 05:58:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 性格设定] 偏好冷酷风格对话\n偏好毒舌讽刺",
+  "created_at": "2026-08-08 05:58:51",
+  "identity_key": "gui:default"
+ }
+]

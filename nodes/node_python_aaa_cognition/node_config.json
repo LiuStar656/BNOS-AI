@@ -18,6 +18,10 @@
       "data_type": "parsed",
       "source": "llm"
     },
+    "review_response": {
+      "data_type": "parsed",
+      "source": "review"
+    },
     "tool_result": {
       "data_type": "tool_result"
     }
@@ -26,11 +30,13 @@
     "diary_prompt": "node_python_llm_infer|diary_prompt",
     "reply": "node_python_tts|reply",
     "prompt": "node_python_llm_infer|prompt",
+    "review_prompt": "node_python_llm_infer|review_prompt",
     "logseq": ""
   },
   "port_mappings": {
     "diary_response": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_llm_infer\\output_diary_response.json",
-    "llm_response": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_llm_infer\\output.json"
+    "llm_response": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_llm_infer\\output.json",
+    "review_response": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_llm_infer\\output_review_response.json"
   },
   "parameters": [
     {
@@ -91,6 +97,12 @@
       "label": "日记Prompt输出（→LLM推理）",
       "name": "diary_prompt",
       "output_file": "./output_diary_prompt.json",
+      "type": "default"
+    },
+    {
+      "label": "认知反思Prompt输出（→LLM推理）",
+      "name": "review_prompt",
+      "output_file": "./output_review_prompt.json",
       "type": "default"
     },
     {

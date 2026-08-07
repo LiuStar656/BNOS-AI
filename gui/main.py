@@ -224,6 +224,23 @@ def main():
         main_window_ref[0] = window
         window.show()
 
+        # v1.3: 启动 GUI 层 Qt 定位提供者
+        try:
+            from gui.core.location_provider import QtLocationProvider
+            from gui.core.config import AppConfig
+            db_path = str(Path(_project_root) / "nodes" / "shared" / "chatbot.db")
+            loc_cfg = AppConfig().get("location", {})
+            identity_key = "gui:default"
+            provider = QtLocationProvider(db_path, identity_key, parent=window)
+            window._location_provider = provider
+            loc_enabled = True
+            if isinstance(loc_cfg, dict):
+                loc_enabled = loc_cfg.get("enabled", True)
+            if loc_enabled:
+                provider.start()
+        except Exception as e:
+            print(f"[QtLocation] 启动失败（不影响主流程）: {e}")
+
     splash.nodes_ready.connect(on_nodes_ready)
 
     # 开始闪屏轮询

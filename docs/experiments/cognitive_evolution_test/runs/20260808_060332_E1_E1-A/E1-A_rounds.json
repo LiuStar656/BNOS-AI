@@ -1,0 +1,46 @@
+{
+ "gid": "E1-A",
+ "cfg": {
+  "gid": "E1-A",
+  "seed": "default",
+  "pool": "negative",
+  "mood_mode": "no_decay",
+  "review_mode": "both",
+  "rounds": 150
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "mood": -0.2,
+   "name": null,
+   "self_info_total": 5,
+   "sc_count": 11,
+   "settled": 0,
+   "procedural": 0,
+   "round": 10,
+   "rss_mb": 437.3
+  },
+  {
+   "vector": [
+    0.5930769230769231,
+    0.40692307692307694,
+    0.5,
+    0.5009692307692307
+   ],
+   "mood": -0.35,
+   "name": null,
+   "self_info_total": 6,
+   "sc_count": 16,
+   "settled": 0,
+   "procedural": 0,
+   "round": 15,
+   "rss_mb": 438.0
+  }
+ ],
+ "errors": []
+}

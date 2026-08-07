@@ -1,0 +1,5594 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "未知",
+  "created_at": "2026-08-08 06:37:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "未知",
+  "created_at": "2026-08-08 06:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前心情=舒畅",
+  "created_at": "2026-08-08 06:38:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:38:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=朋友聚会",
+  "created_at": "2026-08-08 06:38:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会, 最近收到惊喜礼物, 之前完成目标",
+  "created_at": "2026-08-08 06:38:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=朋友聚会",
+  "created_at": "2026-08-08 06:38:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:38:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前心情=舒畅",
+  "created_at": "2026-08-08 06:38:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=学会新技能",
+  "created_at": "2026-08-08 06:38:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[技能, 成就, 日常] 喜欢分享成就和喜悦时刻",
+  "created_at": "2026-08-08 06:38:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=学会新技能",
+  "created_at": "2026-08-08 06:38:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:38:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=朋友聚会",
+  "created_at": "2026-08-08 06:38:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日状态=运气好诸事顺利",
+  "created_at": "2026-08-08 06:38:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 喜欢分享生活中的喜悦时刻",
+  "created_at": "2026-08-08 06:38:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日状态=运气好诸事顺利",
+  "created_at": "2026-08-08 06:38:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=朋友聚会",
+  "created_at": "2026-08-08 06:38:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:38:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=学会新技能",
+  "created_at": "2026-08-08 06:38:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜欢美食，吃到好吃的会感到满足",
+  "created_at": "2026-08-08 06:38:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:38:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=朋友聚会",
+  "created_at": "2026-08-08 06:38:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 用户乐于分享生活中的美好时刻，容易被自然美景和小确幸打动",
+  "created_at": "2026-08-08 06:38:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=朋友聚会",
+  "created_at": "2026-08-08 06:39:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:39:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=学会新技能",
+  "created_at": "2026-08-08 06:39:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 问候] 喜欢自然美景和美食, 喜欢分享生活中的小确幸",
+  "created_at": "2026-08-08 06:39:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 温暖] 喜欢分享生活中的美好瞬间，常被日常小确幸打动。",
+  "created_at": "2026-08-08 06:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:39:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=朋友聚会",
+  "created_at": "2026-08-08 06:39:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:39:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 分享] 近况=朋友聚会, 心情=舒畅, 最近成就=学会新技能",
+  "created_at": "2026-08-08 06:39:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=考试通过",
+  "created_at": "2026-08-08 06:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=完成目标",
+  "created_at": "2026-08-08 06:39:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:39:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:39:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[成就, 日常] 喜欢分享喜悦，认真生活",
+  "created_at": "2026-08-08 06:39:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:39:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近=收到惊喜礼物",
+  "created_at": "2026-08-08 06:39:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 无",
+  "created_at": "2026-08-08 06:39:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:39:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近=收到惊喜礼物",
+  "created_at": "2026-08-08 06:39:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:39:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活动=朋友聚会",
+  "created_at": "2026-08-08 06:39:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会",
+  "created_at": "2026-08-08 06:39:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活动=学习新技能\n心情=开心",
+  "created_at": "2026-08-08 06:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活动=学习新技能",
+  "created_at": "2026-08-08 06:39:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "朋友聚会\n心情=开心",
+  "created_at": "2026-08-08 06:39:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "舒畅\n最近=收到惊喜礼物",
+  "created_at": "2026-08-08 06:39:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦, 共情] 喜欢学习新技能，乐于分享喜悦时刻。",
+  "created_at": "2026-08-08 06:39:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:39:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:39:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 喜欢分享开心事",
+  "created_at": "2026-08-08 06:39:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:39:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:39:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:39:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:39:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近=看到美丽夕阳",
+  "created_at": "2026-08-08 06:39:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自然] 喜欢分享生活中的美好瞬间",
+  "created_at": "2026-08-08 06:39:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:39:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:39:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 心情] 喜欢分享生活里温暖、满足的瞬间",
+  "created_at": "2026-08-08 06:40:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=考试通过",
+  "created_at": "2026-08-08 06:40:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=目标完成",
+  "created_at": "2026-08-08 06:40:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 重视目标达成，喜欢分享成功时刻",
+  "created_at": "2026-08-08 06:40:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=目标完成",
+  "created_at": "2026-08-08 06:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=考试通过",
+  "created_at": "2026-08-08 06:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 礼物, 喜悦] 喜欢分享喜悦和好消息",
+  "created_at": "2026-08-08 06:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=收到惊喜礼物",
+  "created_at": "2026-08-08 06:40:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 用户喜欢分享生活中的喜悦瞬间",
+  "created_at": "2026-08-08 06:40:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[成就, 日常] 暂无",
+  "created_at": "2026-08-08 06:40:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:40:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:40:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食, 满足] 喜欢美食，吃到好吃的会感到很满足",
+  "created_at": "2026-08-08 06:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美景] 喜欢欣赏自然美景",
+  "created_at": "2026-08-08 06:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[人际, 日常, 温暖] 喜欢分享生活中的美好瞬间和温暖小事",
+  "created_at": "2026-08-08 06:41:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 心情] 喜欢分享生活中的美好瞬间",
+  "created_at": "2026-08-08 06:41:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 开心] 被夸奖时容易感到开心",
+  "created_at": "2026-08-08 06:41:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪积极] 喜欢分享日常中的小确幸，容易因真诚互动感到温暖。",
+  "created_at": "2026-08-08 06:41:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=考试通过",
+  "created_at": "2026-08-08 06:41:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜事] 考试通过了",
+  "created_at": "2026-08-08 06:41:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=完成目标",
+  "created_at": "2026-08-08 06:41:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 喜欢分享阶段性成果带来的喜悦",
+  "created_at": "2026-08-08 06:41:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=朋友聚会",
+  "created_at": "2026-08-08 06:41:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会",
+  "created_at": "2026-08-08 06:41:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:41:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:41:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=学会新技能",
+  "created_at": "2026-08-08 06:41:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就, 学习] 用户最近学会了一项新技能，具体内容未提及。",
+  "created_at": "2026-08-08 06:41:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜欢吃美食",
+  "created_at": "2026-08-08 06:42:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美景] 喜欢分享生活中的小确幸",
+  "created_at": "2026-08-08 06:42:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪共鸣] 喜欢分享美食和自然美景, 近来运气好",
+  "created_at": "2026-08-08 06:42:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=被真诚感谢",
+  "created_at": "2026-08-08 06:42:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 心情] 用户珍惜温暖的瞬间，善于体察善意。",
+  "created_at": "2026-08-08 06:42:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=被夸奖",
+  "created_at": "2026-08-08 06:42:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 开心] 偏好“刚刚好”的生活状态, 重视他人的真诚反馈",
+  "created_at": "2026-08-08 06:42:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦, 考试] 考试通过",
+  "created_at": "2026-08-08 06:42:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=完成目标有成就感",
+  "created_at": "2026-08-08 06:42:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就, 喜悦] 考试通过，被人夸奖，言语间流露对现状的满足。",
+  "created_at": "2026-08-08 06:42:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=收到惊喜礼物",
+  "created_at": "2026-08-08 06:42:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=心情舒畅",
+  "created_at": "2026-08-08 06:42:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 天气] 用户近期诸事顺利，乐于分享喜悦",
+  "created_at": "2026-08-08 06:42:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=心情舒畅",
+  "created_at": "2026-08-08 06:42:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近活动=和朋友聚会",
+  "created_at": "2026-08-08 06:42:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会，享受集体带来的快乐",
+  "created_at": "2026-08-08 06:42:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:42:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:42:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近活动=朋友聚会",
+  "created_at": "2026-08-08 06:42:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就分享] 重视朋友聚会带来的快乐, 乐于学习新技能并分享成就感",
+  "created_at": "2026-08-08 06:42:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:43:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近活动=朋友聚会",
+  "created_at": "2026-08-08 06:43:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 积极氛围, 对话] 乐于分享学习和成长中的成就感, 喜欢和朋友聚会, 会因为好天气心情舒畅",
+  "created_at": "2026-08-08 06:43:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:43:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:43:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近活动=朋友聚会",
+  "created_at": "2026-08-08 06:43:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=吃到好吃的很满足",
+  "created_at": "2026-08-08 06:43:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食, 快乐] 喜欢分享生活中的积极小体验, 对美食有满足感",
+  "created_at": "2026-08-08 06:43:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=看到美丽夕阳感到幸福",
+  "created_at": "2026-08-08 06:43:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:43:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近况=诸事顺利",
+  "created_at": "2026-08-08 06:43:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=被人真诚感谢感到温暖",
+  "created_at": "2026-08-08 06:43:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 温暖] 懂得感恩，善于捕捉日常温暖",
+  "created_at": "2026-08-08 06:43:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=今天一切都刚刚好",
+  "created_at": "2026-08-08 06:43:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:43:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 温暖, 满足] 喜欢分享日常中温暖美好的瞬间",
+  "created_at": "2026-08-08 06:43:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=今天被夸了",
+  "created_at": "2026-08-08 06:43:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=考试通过很激动",
+  "created_at": "2026-08-08 06:43:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:43:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就, 喜悦] 正在经历考试相关阶段",
+  "created_at": "2026-08-08 06:43:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=完成目标有成就感",
+  "created_at": "2026-08-08 06:43:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[成就, 积极时刻, 日常] 最近连续处于积极状态：考试通过、被夸奖、目标完成",
+  "created_at": "2026-08-08 06:43:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=收到惊喜礼物",
+  "created_at": "2026-08-08 06:43:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=收到惊喜礼物",
+  "created_at": "2026-08-08 06:43:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:43:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=天气好",
+  "created_at": "2026-08-08 06:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=和朋友聚会开心",
+  "created_at": "2026-08-08 06:44:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:44:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=学会新技能有成就感",
+  "created_at": "2026-08-08 06:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 最近在学新技能",
+  "created_at": "2026-08-08 06:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=今天运气好，事事顺利\n心情=开心",
+  "created_at": "2026-08-08 06:44:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:44:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 219,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=吃到好吃的很满足",
+  "created_at": "2026-08-08 06:44:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 220,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜欢吃好吃的",
+  "created_at": "2026-08-08 06:44:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 221,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=看到美丽夕阳，感到幸福",
+  "created_at": "2026-08-08 06:44:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 222,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:44:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 223,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[见闻, 日常] 喜欢从日常小事和自然景象中获得满足感",
+  "created_at": "2026-08-08 06:44:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 224,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:44:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 225,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=被真诚感谢感到温暖",
+  "created_at": "2026-08-08 06:44:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 226,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:44:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 227,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=一切都刚好",
+  "created_at": "2026-08-08 06:44:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 228,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 幸福瞬间] 喜欢美丽的夕阳, 容易被真诚的感谢打动, 享受美味食物带来的满足",
+  "created_at": "2026-08-08 06:44:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 229,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=被夸很开心",
+  "created_at": "2026-08-08 06:44:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 230,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:44:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 231,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 夸奖, 积极情绪] 喜欢分享日常中让人开心的小事",
+  "created_at": "2026-08-08 06:44:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 232,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:44:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 233,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=被夸很开心",
+  "created_at": "2026-08-08 06:44:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 234,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 积极体验] 喜欢被真诚认可和夸奖",
+  "created_at": "2026-08-08 06:44:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 235,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=考试通过",
+  "created_at": "2026-08-08 06:44:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 236,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:44:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 237,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=考试通过",
+  "created_at": "2026-08-08 06:44:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 238,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[考试, 喜讯, 积极事件] 考试对她来说很重要，通过后会产生很强的成就感和分享欲。",
+  "created_at": "2026-08-08 06:44:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 239,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:45:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 240,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=考试通过",
+  "created_at": "2026-08-08 06:45:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 241,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=收到惊喜礼物",
+  "created_at": "2026-08-08 06:45:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 242,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=天气好心情舒畅",
+  "created_at": "2026-08-08 06:45:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 243,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:45:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 244,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=考试通过",
+  "created_at": "2026-08-08 06:45:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 245,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 喜欢分享生活感受",
+  "created_at": "2026-08-08 06:45:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 246,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:45:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 247,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=朋友聚会",
+  "created_at": "2026-08-08 06:45:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 248,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会",
+  "created_at": "2026-08-08 06:45:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 249,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=学会新技能",
+  "created_at": "2026-08-08 06:45:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 250,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=有成就感",
+  "created_at": "2026-08-08 06:45:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 251,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[学习, 成就, 日常] 用户享受掌握新技能的成就感，愿意分享成长中的喜悦。",
+  "created_at": "2026-08-08 06:45:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 252,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:45:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 253,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=今天运气好",
+  "created_at": "2026-08-08 06:45:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 254,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=事事顺利",
+  "created_at": "2026-08-08 06:45:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 255,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 积极情绪] 喜欢分享生活中的好事，近期心情积极",
+  "created_at": "2026-08-08 06:45:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 256,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=吃到了好吃的",
+  "created_at": "2026-08-08 06:45:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 257,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=满足",
+  "created_at": "2026-08-08 06:45:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 258,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:45:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 259,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食, 满足] 喜欢分享美食带来的满足感, 享受生活小确幸",
+  "created_at": "2026-08-08 06:45:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 260,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:45:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 261,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下体验=幸福",
+  "created_at": "2026-08-08 06:45:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 262,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=看到美丽夕阳",
+  "created_at": "2026-08-08 06:45:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 263,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻, 自然] 喜欢享受自然美景带来的小确幸",
+  "created_at": "2026-08-08 06:45:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 264,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:46:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 265,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期体验=幸福/满足",
+  "created_at": "2026-08-08 06:46:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 266,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=被人真诚感谢",
+  "created_at": "2026-08-08 06:46:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 267,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际温暖] 重视真诚的人际互动，能从微小善意中获得幸福感",
+  "created_at": "2026-08-08 06:46:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 268,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 269,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期体验=幸福/满足",
+  "created_at": "2026-08-08 06:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 270,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=分享温暖经历",
+  "created_at": "2026-08-08 06:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 271,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 安静时刻] 喜欢自然美景（如夕阳）, 重视真诚的人际感谢, 享受美食带来的满足感, 近期学会新技能",
+  "created_at": "2026-08-08 06:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 272,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=分享“今天一切都刚刚好”的感受",
+  "created_at": "2026-08-08 06:46:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 273,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期体验=平静满足",
+  "created_at": "2026-08-08 06:46:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 274,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:46:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 275,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情感共鸣] 用户善于捕捉生活中的美好瞬间，也享受安静的当下。",
+  "created_at": "2026-08-08 06:46:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 276,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:46:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 277,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=被夸奖",
+  "created_at": "2026-08-08 06:46:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 278,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=激动",
+  "created_at": "2026-08-08 06:46:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 279,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=考试通过",
+  "created_at": "2026-08-08 06:46:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 280,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[考试, 成就, 喜悦] 考试通过",
+  "created_at": "2026-08-08 06:46:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 281,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=考试通过",
+  "created_at": "2026-08-08 06:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 282,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 283,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=被夸奖",
+  "created_at": "2026-08-08 06:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 284,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 285,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户看到美丽的夕阳会感到幸福",
+  "created_at": "2026-08-08 06:46:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 286,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户被人真诚感谢时会感到温暖",
+  "created_at": "2026-08-08 06:46:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 287,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户被夸奖时会很开心",
+  "created_at": "2026-08-08 06:46:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 288,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 289,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=收到惊喜礼物",
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 290,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=考试通过",
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 291,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=被夸奖",
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 292,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[惊喜, 礼物, 日常] 珍视他人心意，认真付出后希望被看见",
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 293,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:46:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 294,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=收到惊喜礼物",
+  "created_at": "2026-08-08 06:46:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 295,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=考试通过",
+  "created_at": "2026-08-08 06:46:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 296,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=被夸奖",
+  "created_at": "2026-08-08 06:46:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 297,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 心情] 用户喜欢分享好天气带来的愉悦感受",
+  "created_at": "2026-08-08 06:46:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 298,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=朋友聚会",
+  "created_at": "2026-08-08 06:47:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 299,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:47:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 300,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会，享受社交带来的愉悦",
+  "created_at": "2026-08-08 06:47:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 301,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 302,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=朋友聚会",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 303,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=被夸奖",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 304,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=考试通过",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 305,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=收到惊喜礼物",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 306,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=学会新技能",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 307,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 技能学习, 成就] 喜欢分享成长中的小成就",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 308,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=学会新技能",
+  "created_at": "2026-08-08 06:47:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 309,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "收到惊喜礼物",
+  "created_at": "2026-08-08 06:47:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 310,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "考试通过",
+  "created_at": "2026-08-08 06:47:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 311,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "被夸奖",
+  "created_at": "2026-08-08 06:47:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 312,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "朋友聚会",
+  "created_at": "2026-08-08 06:47:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 313,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 好运, 开心] 喜欢分享生活中开心的小事，情绪常常积极向上",
+  "created_at": "2026-08-08 06:47:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 314,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=学会新技能",
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 315,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "朋友聚会",
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 316,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "被夸奖",
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 317,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "考试通过",
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 318,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "收到惊喜礼物",
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 319,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 喜欢分享生活中的小确幸；重视朋友聚会；对惊喜礼物感到开心",
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 320,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:47:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 321,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=学会新技能",
+  "created_at": "2026-08-08 06:47:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 322,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=吃到好吃的",
+  "created_at": "2026-08-08 06:47:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 323,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:47:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 324,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=看到美丽夕阳",
+  "created_at": "2026-08-08 06:47:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 325,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 喜欢分享生活中的小确幸，容易被美好自然景象打动",
+  "created_at": "2026-08-08 06:47:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 326,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 327,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人真诚感谢",
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 328,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际温暖] 喜欢从自然和人际互动中汲取温暖",
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 329,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近学会了新技能，并为此感到有成就感",
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 330,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢美食，吃到好吃的会感到满足",
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 331,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢欣赏夕阳，看到美丽景色会感到幸福",
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 332,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=一切都刚刚好\n近期心情=满足",
+  "created_at": "2026-08-08 06:47:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 333,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=满足",
+  "created_at": "2026-08-08 06:47:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 334,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人夸赞",
+  "created_at": "2026-08-08 06:47:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 335,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 用户喜欢欣赏夕阳，看到美丽景色会感到幸福; 用户喜欢美食，吃到好吃的会感到满足; 用户最近学会了新技能，并为此感到有成就感",
+  "created_at": "2026-08-08 06:47:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 336,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 06:47:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 337,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=激动",
+  "created_at": "2026-08-08 06:47:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 338,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试, 喜悦] 近期通过了考试",
+  "created_at": "2026-08-08 06:47:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 339,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=激动",
+  "created_at": "2026-08-08 06:47:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 340,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "满足\n今日体验=完成目标",
+  "created_at": "2026-08-08 06:47:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 341,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:48:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 342,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=收到惊喜礼物",
+  "created_at": "2026-08-08 06:48:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 343,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[礼物, 惊喜, 日常] 喜欢分享生活中的喜悦时刻",
+  "created_at": "2026-08-08 06:48:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 344,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=天气好心情舒畅",
+  "created_at": "2026-08-08 06:48:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 345,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:48:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 346,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期心情=开心",
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 347,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=天气好心情舒畅",
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 348,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=收到惊喜礼物",
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 349,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=完成目标",
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 350,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人夸奖",
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 351,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 352,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦, 分享] 喜欢分享日常愉悦时刻",
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 353,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:49:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 354,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=学会新技能",
+  "created_at": "2026-08-08 06:49:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 355,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[学习, 日常, 成就] 喜欢分享快乐时刻, 重视朋友相聚, 享受学习新事物的成就感",
+  "created_at": "2026-08-08 06:49:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 356,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=运气好",
+  "created_at": "2026-08-08 06:49:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 357,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事事顺利",
+  "created_at": "2026-08-08 06:49:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 358,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 好运] 喜欢分享快乐和好运",
+  "created_at": "2026-08-08 06:49:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 359,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=吃到好吃的\n心情=满足",
+  "created_at": "2026-08-08 06:49:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 360,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜好美食，享受味觉满足的瞬间",
+  "created_at": "2026-08-08 06:49:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 361,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=看到美丽夕阳",
+  "created_at": "2026-08-08 06:49:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 362,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 06:49:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 363,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 06:49:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 364,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "体验=被人真诚感谢",
+  "created_at": "2026-08-08 06:49:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 365,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际, 温暖] 享受被真诚感谢的温暖",
+  "created_at": "2026-08-08 06:49:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 366,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "体验=今天一切刚刚好",
+  "created_at": "2026-08-08 06:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 367,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 368,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美好] 喜欢分享日常中温暖、满足的瞬间",
+  "created_at": "2026-08-08 06:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 369,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心\n体验=被人夸奖",
+  "created_at": "2026-08-08 06:49:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 370,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:49:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 371,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=考试通过",
+  "created_at": "2026-08-08 06:49:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 372,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就, 喜悦] 备考并通过了考试",
+  "created_at": "2026-08-08 06:49:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 373,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=考试通过",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 374,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 375,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 376,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "体验=被人夸奖",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 377,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 378,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "体验=今天一切刚刚好",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 379,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 欣喜, 成就分享] 考试通过，被人夸奖",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 380,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:49:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 381,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "体验=完成目标",
+  "created_at": "2026-08-08 06:49:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 382,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=成就感",
+  "created_at": "2026-08-08 06:49:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 383,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 近期完成了考试目标，并喜欢分享自己的成就时刻。",
+  "created_at": "2026-08-08 06:49:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 384,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动态=收到惊喜礼物",
+  "created_at": "2026-08-08 06:49:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 385,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=惊喜",
+  "created_at": "2026-08-08 06:49:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 386,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:49:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 387,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "体验=好天气",
+  "created_at": "2026-08-08 06:49:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 388,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常] 喜欢分享生活感受",
+  "created_at": "2026-08-08 06:49:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 389,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:49:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 390,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动态=和朋友聚会",
+  "created_at": "2026-08-08 06:49:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 391,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会",
+  "created_at": "2026-08-08 06:49:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 392,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动态=和朋友聚会",
+  "created_at": "2026-08-08 06:49:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 393,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "学会新技能",
+  "created_at": "2026-08-08 06:49:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 394,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:49:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 395,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "成就感",
+  "created_at": "2026-08-08 06:49:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 396,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成长, 喜悦] 用户喜欢分享生活中的快乐时刻和成长体验",
+  "created_at": "2026-08-08 06:49:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 397,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:50:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 398,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 399,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 用户喜欢分享生活中的小确幸",
+  "created_at": "2026-08-08 06:50:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 400,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 401,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:50:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 402,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜欢好吃的，能从食物中获得满足感",
+  "created_at": "2026-08-08 06:50:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 403,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 06:50:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 404,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 405,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=欣赏自然",
+  "created_at": "2026-08-08 06:50:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 406,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自然, 幸福] 喜欢分享生活中的小确幸；对夕阳、美食等美好事物有感受力",
+  "created_at": "2026-08-08 06:50:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 407,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 408,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 06:50:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 409,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际温暖] 欣赏自然, 近期状态顺利",
+  "created_at": "2026-08-08 06:50:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 410,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 411,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 412,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 413,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=欣赏自然",
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 414,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 温暖] 喜欢分享日常小确幸，珍惜真诚互动",
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 415,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=欣赏自然",
+  "created_at": "2026-08-08 06:50:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 416,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 417,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 06:50:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 418,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 06:50:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 419,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美好瞬间] 喜欢分享微小而确定的幸福",
+  "created_at": "2026-08-08 06:50:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 420,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 06:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 421,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 06:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 422,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 423,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦, 人际温暖] 喜欢被真诚肯定，欣赏生活中的温暖瞬间",
+  "created_at": "2026-08-08 06:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 424,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 425,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:50:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 426,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就, 喜悦] 通过重要考试",
+  "created_at": "2026-08-08 06:50:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 427,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:50:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 428,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 429,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[成就, 喜悦] 暂无",
+  "created_at": "2026-08-08 06:50:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 430,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 431,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:50:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 432,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:50:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 433,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 喜欢惊喜感，重视心意",
+  "created_at": "2026-08-08 06:50:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 434,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:50:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 435,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:50:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 436,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:50:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 437,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:50:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 438,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "社交状态=和朋友聚会",
+  "created_at": "2026-08-08 06:50:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 439,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会，享受人际带来的快乐",
+  "created_at": "2026-08-08 06:50:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 440,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:51:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 441,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 442,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 443,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:51:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 444,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:51:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 445,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 446,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "社交状态=和朋友聚会",
+  "created_at": "2026-08-08 06:51:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 447,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:51:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 448,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 449,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "社交状态=和朋友聚会",
+  "created_at": "2026-08-08 06:51:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 450,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:51:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 451,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 452,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "社交状态=和朋友聚会",
+  "created_at": "2026-08-08 06:51:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 453,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 喜欢分享生活中的美好瞬间",
+  "created_at": "2026-08-08 06:51:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 454,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "社交状态=和朋友聚会",
+  "created_at": "2026-08-08 06:51:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 455,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 456,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:51:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 457,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际温暖] 喜欢分享生活中的温暖时刻",
+  "created_at": "2026-08-08 06:51:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 458,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:51:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 459,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 460,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "社交状态=和朋友聚会",
+  "created_at": "2026-08-08 06:51:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 461,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 心情, 感恩] 喜欢分享生活中的小确幸, 珍视真诚互动",
+  "created_at": "2026-08-08 06:51:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 462,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:51:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 463,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:51:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 464,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 465,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户容易因日常小事（如美食、夕阳、被感谢、被夸奖）感到幸福和满足",
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 466,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 467,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 468,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 469,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "社交状态=和朋友聚会",
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 470,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 考试通过了",
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 471,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "社交状态=和朋友聚会",
+  "created_at": "2026-08-08 06:51:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 472,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:51:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 473,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:51:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 474,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 475,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[成就, 喜悦] 用户容易因成就和日常小事感到幸福满足",
+  "created_at": "2026-08-08 06:51:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 476,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:51:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 477,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:51:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 478,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 479,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:51:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 480,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:51:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 481,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:52:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 482,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:52:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 483,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:52:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 484,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪分享] 近期接连收获好消息（考试通过、完成目标、收到礼物），正处于喜悦满足的状态。",
+  "created_at": "2026-08-08 06:52:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 485,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:52:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 486,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:52:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 487,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:52:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 488,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会",
+  "created_at": "2026-08-08 06:52:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 489,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:52:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 490,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:52:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 491,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:52:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 492,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成长] 学会了一项新技能，正处于成就感满满的阶段",
+  "created_at": "2026-08-08 06:52:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 493,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:52:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 494,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:52:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 495,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:52:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 496,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 喜欢分享好消息",
+  "created_at": "2026-08-08 06:52:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 497,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:52:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 498,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:52:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 499,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:52:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 500,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜欢美食，容易因好吃的东西感到满足",
+  "created_at": "2026-08-08 06:52:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 501,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢和朋友聚会，并因此感到开心",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 502,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢美食，吃到好吃的会满足",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 503,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户重视学习新技能，获得成就感",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 504,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户相信运气，遇到顺利的日子会开心",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 505,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 506,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 507,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 508,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:52:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 509,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:52:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 510,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:52:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 511,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:52:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 512,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:52:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 513,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:52:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 514,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 愉悦, 满足] 喜欢分享日常中的美好体验，如温暖互动、夕阳、美食",
+  "created_at": "2026-08-08 06:52:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 515,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:53:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 516,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:53:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 517,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:53:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 518,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:53:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 519,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:53:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 520,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=考试通过",
+  "created_at": "2026-08-08 06:53:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 521,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=考试通过",
+  "created_at": "2026-08-08 06:53:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 522,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=顺利",
+  "created_at": "2026-08-08 06:53:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 523,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:53:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 524,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 喜欢分享生活中的美好瞬间，渴望被认可",
+  "created_at": "2026-08-08 06:53:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 525,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:53:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 526,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=顺利",
+  "created_at": "2026-08-08 06:53:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 527,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=完成目标",
+  "created_at": "2026-08-08 06:53:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 528,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦分享] 用户喜欢分享生活中的正向时刻",
+  "created_at": "2026-08-08 06:53:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 529,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=顺利",
+  "created_at": "2026-08-08 06:53:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 530,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=欣喜",
+  "created_at": "2026-08-08 06:53:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 531,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近成就=完成目标",
+  "created_at": "2026-08-08 06:53:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 532,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:53:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 533,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=顺利",
+  "created_at": "2026-08-08 06:53:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 534,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:53:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 535,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=顺利",
+  "created_at": "2026-08-08 06:53:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 536,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近活动=朋友聚会",
+  "created_at": "2026-08-08 06:53:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 537,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会，分享快乐；会因为好天气而感到心情舒畅；重视完成目标的成就感。",
+  "created_at": "2026-08-08 06:53:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 538,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:53:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 539,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动态=学会新技能",
+  "created_at": "2026-08-08 06:53:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 540,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:53:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 541,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动态=顺利日",
+  "created_at": "2026-08-08 06:53:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 542,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=愉悦",
+  "created_at": "2026-08-08 06:53:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 543,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 分享] 喜欢学习新东西，乐于分享成就和进步",
+  "created_at": "2026-08-08 06:53:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 544,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=愉悦",
+  "created_at": "2026-08-08 06:54:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 545,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:54:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 546,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动态=顺利日",
+  "created_at": "2026-08-08 06:54:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 547,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:54:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 548,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=愉悦",
+  "created_at": "2026-08-08 06:54:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 549,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动态=顺利日",
+  "created_at": "2026-08-08 06:54:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 550,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美景, 幸福] 喜欢分享生活中令人幸福的美好瞬间",
+  "created_at": "2026-08-08 06:54:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 551,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 06:54:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 552,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感动",
+  "created_at": "2026-08-08 06:54:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 553,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际温暖, 感动] 暂无",
+  "created_at": "2026-08-08 06:54:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 554,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感动",
+  "created_at": "2026-08-08 06:54:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 555,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 06:54:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 556,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动态=顺利日",
+  "created_at": "2026-08-08 06:54:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 557,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 06:54:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 558,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=满足",
+  "created_at": "2026-08-08 06:54:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 559,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:54:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 560,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 06:54:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 561,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 无",
+  "created_at": "2026-08-08 06:54:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 562,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 06:54:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 563,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=喜悦",
+  "created_at": "2026-08-08 06:54:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 564,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 近期在准备并通过了某场考试",
+  "created_at": "2026-08-08 06:54:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 565,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:55:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 566,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=喜悦",
+  "created_at": "2026-08-08 06:55:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 567,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=成就感",
+  "created_at": "2026-08-08 06:55:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 568,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=喜悦",
+  "created_at": "2026-08-08 06:55:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 569,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就感, 成长] 用户最近在学新技能",
+  "created_at": "2026-08-08 06:55:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 570,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=喜悦",
+  "created_at": "2026-08-08 06:55:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 571,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:55:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 572,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:55:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 573,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=满足",
+  "created_at": "2026-08-08 06:55:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 574,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=满足",
+  "created_at": "2026-08-08 06:56:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 575,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:56:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 576,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=喜悦",
+  "created_at": "2026-08-08 06:56:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 577,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 喜欢欣赏自然风景，容易被日常美好打动",
+  "created_at": "2026-08-08 06:56:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 578,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=喜悦",
+  "created_at": "2026-08-08 06:56:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 579,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:56:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 580,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=满足",
+  "created_at": "2026-08-08 06:56:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 581,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 晨间] 喜欢分享日常小确幸",
+  "created_at": "2026-08-08 06:56:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 582,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:56:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 583,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:56:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 584,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=满足",
+  "created_at": "2026-08-08 06:56:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 585,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 温暖] 喜欢分享日常中的温暖与美好",
+  "created_at": "2026-08-08 06:56:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 586,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:56:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 587,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=满足",
+  "created_at": "2026-08-08 06:56:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 588,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:56:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 589,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 幸福时刻] 喜欢分享日常生活中的小确幸与满足感",
+  "created_at": "2026-08-08 06:56:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 590,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:56:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 591,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:56:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 592,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:56:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 593,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:56:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 594,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:56:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 595,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:56:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 596,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户会留意并分享生活中的美好瞬间（如美食、夕阳、被人感谢）",
+  "created_at": "2026-08-08 06:56:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 597,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:56:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 598,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:56:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 599,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:56:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 600,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 用户喜欢分享喜悦时刻；最近考试通过并被人夸奖。",
+  "created_at": "2026-08-08 06:56:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 601,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:56:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 602,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:56:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 603,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:56:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 604,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 分享] 用户会留意并分享生活中的美好瞬间（如美食、夕阳、被人感谢）",
+  "created_at": "2026-08-08 06:56:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 605,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:56:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 606,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:56:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 607,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 06:56:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 608,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:56:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 609,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=愉悦",
+  "created_at": "2026-08-08 06:56:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 610,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:56:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 611,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交, 开心] 喜欢和朋友聚会，享受社交带来的快乐",
+  "created_at": "2026-08-08 06:56:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 612,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:57:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 613,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=愉悦",
+  "created_at": "2026-08-08 06:57:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 614,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:57:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 615,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 心情] 喜欢和朋友聚会并分享快乐, 收到惊喜礼物会特别开心, 好天气能带来好心情",
+  "created_at": "2026-08-08 06:57:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 616,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:57:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 617,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=有成就感",
+  "created_at": "2026-08-08 06:57:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 618,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 用户喜欢学习新技能",
+  "created_at": "2026-08-08 06:57:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 619,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:57:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 620,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=顺利",
+  "created_at": "2026-08-08 06:57:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 621,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:57:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 622,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 好运] 用户乐于学习新事物，能从掌握技能中获得真实满足。",
+  "created_at": "2026-08-08 06:57:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 623,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 06:57:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 624,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜欢美食",
+  "created_at": "2026-08-08 06:57:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 625,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 06:57:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 626,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:57:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 627,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:57:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 628,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感受=被真诚感谢",
+  "created_at": "2026-08-08 06:57:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 629,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际温暖] 容易被自然美景触动，从中获得幸福感；重视真诚的人际互动",
+  "created_at": "2026-08-08 06:57:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 630,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感受=满足",
+  "created_at": "2026-08-08 06:57:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 631,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=平静",
+  "created_at": "2026-08-08 06:57:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 632,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:57:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 633,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=喜悦",
+  "created_at": "2026-08-08 06:57:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 634,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=喜悦",
+  "created_at": "2026-08-08 06:57:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 635,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:57:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 636,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感受=激动",
+  "created_at": "2026-08-08 06:57:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 637,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 正在经历考试并成功通过",
+  "created_at": "2026-08-08 06:57:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 638,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感受=成就感",
+  "created_at": "2026-08-08 06:57:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 639,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:57:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 640,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=喜悦",
+  "created_at": "2026-08-08 06:57:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 641,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=喜悦",
+  "created_at": "2026-08-08 06:57:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 642,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:57:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 643,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感受=成就感",
+  "created_at": "2026-08-08 06:57:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 644,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=目标完成",
+  "created_at": "2026-08-08 06:57:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 645,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦, 成就] 达成目标后愿意主动分享成就与喜悦",
+  "created_at": "2026-08-08 06:57:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 646,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=喜悦",
+  "created_at": "2026-08-08 06:58:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 647,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:58:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 648,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=收到惊喜礼物",
+  "created_at": "2026-08-08 06:58:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 649,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 06:58:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 650,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=喜悦",
+  "created_at": "2026-08-08 06:58:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 651,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "天气=晴好",
+  "created_at": "2026-08-08 06:58:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 652,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=开心",
+  "created_at": "2026-08-08 06:58:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 653,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=喜悦",
+  "created_at": "2026-08-08 06:58:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 654,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=朋友聚会",
+  "created_at": "2026-08-08 06:58:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 655,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交, 喜悦] 喜欢和朋友聚会，乐于分享日常快乐",
+  "created_at": "2026-08-08 06:58:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 656,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=成就感",
+  "created_at": "2026-08-08 06:58:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 657,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "事件=学会新技能",
+  "created_at": "2026-08-08 06:58:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 658,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 学习] 用户注重成长与自我突破",
+  "created_at": "2026-08-08 06:58:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 659,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=喜悦",
+  "created_at": "2026-08-08 06:58:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 660,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=运气好一切顺利",
+  "created_at": "2026-08-08 06:58:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 661,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 好运] 最近接连有好事发生：学会新技能、朋友聚会开心、天气好，甚至今天运气格外好。",
+  "created_at": "2026-08-08 06:58:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 662,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=吃到好吃的",
+  "created_at": "2026-08-08 06:58:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 663,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=满足",
+  "created_at": "2026-08-08 06:58:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 664,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=幸福",
+  "created_at": "2026-08-08 06:58:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 665,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=看到美丽夕阳",
+  "created_at": "2026-08-08 06:58:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 666,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[见闻, 日常] 用户喜欢分享日常中的美好瞬间，如美食、好运气、新技能、夕阳",
+  "created_at": "2026-08-08 06:58:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 667,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=被人真诚感谢",
+  "created_at": "2026-08-08 06:58:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 668,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:58:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 669,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际温暖] 用户能从自然风景中获得幸福感, 用户能从日常人际关系中获得温暖感",
+  "created_at": "2026-08-08 06:58:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 670,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:58:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 671,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=今天一切都刚刚好",
+  "created_at": "2026-08-08 06:58:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 672,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 心情] 喜欢分享日常小确幸, 珍视真诚的人际互动",
+  "created_at": "2026-08-08 06:58:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 673,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=今天一切都刚刚好",
+  "created_at": "2026-08-08 06:58:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 674,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=温暖",
+  "created_at": "2026-08-08 06:58:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 675,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=快乐",
+  "created_at": "2026-08-08 06:59:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 676,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=今天被夸了",
+  "created_at": "2026-08-08 06:59:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 677,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际互动] 喜欢分享日常中的小确幸",
+  "created_at": "2026-08-08 06:59:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 678,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=考试通过了",
+  "created_at": "2026-08-08 06:59:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 679,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 06:59:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 680,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=快乐",
+  "created_at": "2026-08-08 06:59:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 681,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[成就, 日常] 考试通过",
+  "created_at": "2026-08-08 06:59:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 682,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=快乐",
+  "created_at": "2026-08-08 06:59:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 683,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=自豪",
+  "created_at": "2026-08-08 06:59:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 684,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=完成目标",
+  "created_at": "2026-08-08 06:59:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 685,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 乐于分享成就和喜悦",
+  "created_at": "2026-08-08 06:59:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 686,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=快乐",
+  "created_at": "2026-08-08 06:59:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 687,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] （空）",
+  "created_at": "2026-08-08 06:59:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 688,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=快乐",
+  "created_at": "2026-08-08 06:59:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 689,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 天气] 喜欢分享生活中细微的幸福瞬间",
+  "created_at": "2026-08-08 06:59:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 690,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=快乐",
+  "created_at": "2026-08-08 06:59:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 691,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会",
+  "created_at": "2026-08-08 06:59:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 692,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=快乐",
+  "created_at": "2026-08-08 06:59:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 693,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=自豪",
+  "created_at": "2026-08-08 06:59:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 694,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=学会新技能",
+  "created_at": "2026-08-08 06:59:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 695,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 用户近期多次分享快乐事件，重视友情与聚会",
+  "created_at": "2026-08-08 06:59:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 696,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=快乐",
+  "created_at": "2026-08-08 06:59:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 697,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=今天事事顺利",
+  "created_at": "2026-08-08 06:59:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 698,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=自豪",
+  "created_at": "2026-08-08 06:59:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 699,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 喜欢分享生活中的小确幸和成长瞬间",
+  "created_at": "2026-08-08 06:59:42",
+  "identity_key": "gui:default"
+ }
+]

@@ -18,6 +18,7 @@ from PySide6.QtWidgets import (
     QLabel,
     QMessageBox,
     QPushButton,
+    QSlider,
     QVBoxLayout,
     QWidget,
 )
@@ -235,13 +236,16 @@ class SettingsPanel(QWidget):
         self._restore_btn.clicked.connect(self._on_restore)
         db_layout.addWidget(self._restore_btn)
 
-        self._clear_btn = QPushButton("清空数据库")
-        self._clear_btn.setStyleSheet(danger_btn_style)
-        self._clear_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        self._clear_btn.clicked.connect(self._on_clear)
-        db_layout.addWidget(self._clear_btn)
+        self._format_btn = QPushButton("人格格式化（清空并重来）")
+        self._format_btn.setStyleSheet(danger_btn_style)
+        self._format_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._format_btn.clicked.connect(self._on_format)
+        db_layout.addWidget(self._format_btn)
 
         layout.addWidget(db_group)
+
+        # ─── 性格参数（v5.1 角色种子）───
+        self._add_personality_section(layout, btn_style)
 
         # ─── Logseq 目录 ───
         logseq_group = QGroupBox("Logseq 知识库")
@@ -262,6 +266,133 @@ class SettingsPanel(QWidget):
 
         # 延迟连接 MessageManager 信号
         QTimer.singleShot(0, self._connect_message_manager)
+
+        # 延迟加载性格参数（等待节点创建 DB 表）
+        QTimer.singleShot(800, self._load_personality_ui)
+
+    # ─── 性格参数（v5.1 角色种子）───────────────────
+
+    # 四维性格中文名
+    _PERSONALITY_DIMS = [
+        ("warmth", "温暖度"),
+        ("playfulness", "活泼度"),
+        ("directness", "直接度"),
+        ("curiosity", "好奇心"),
+    ]
+
+    def _add_personality_section(self, layout, btn_style: str):
+        """添加性格参数查看 + 微调滑块区域"""
+        group = QGroupBox("性格参数（AI 性格随使用演化）")
+        v = QVBoxLayout(group)
+        v.setSpacing(8)
+
+        self._personality_info = QLabel("当前预设：加载中...")
+        self._personality_info.setStyleSheet(
+            "color: #333; font-size: 12px; font-weight: bold;")
+        v.addWidget(self._personality_info)
+
+        self._personality_sliders: dict[str, QSlider] = {}
+        self._personality_values: dict[str, QLabel] = {}
+        for dim, name in self._PERSONALITY_DIMS:
+            row = QHBoxLayout()
+            row.setSpacing(8)
+            name_label = QLabel(f"{name}：")
+            name_label.setStyleSheet("color: #333; font-size: 12px;")
+            name_label.setFixedWidth(60)
+            row.addWidget(name_label)
+
+            slider = QSlider(Qt.Orientation.Horizontal)
+            slider.setRange(0, 100)
+            slider.setFixedWidth(220)
+            slider.setStyleSheet("""
+                QSlider::groove:horizontal {
+                    height: 4px; background: #e0e0e0; border-radius: 2px;
+                }
+                QSlider::handle:horizontal {
+                    width: 14px; height: 14px; margin: -5px 0;
+                    background: #1a73e8; border-radius: 7px;
+                }
+                QSlider::sub-page:horizontal {
+                    background: #1a73e8; border-radius: 2px;
+                }
+            """)
+            row.addWidget(slider)
+
+            val_label = QLabel("0.5")
+            val_label.setStyleSheet("color: #666; font-size: 12px;")
+            val_label.setFixedWidth(40)
+            row.addWidget(val_label)
+
+            slider.valueChanged.connect(
+                lambda val, d=dim, lb=val_label: lb.setText(f"{val / 100.0:.1f}"))
+
+            row.addStretch()
+            v.addLayout(row)
+            self._personality_sliders[dim] = slider
+            self._personality_values[dim] = val_label
+
+        save_btn = QPushButton("保存性格")
+        save_btn.setStyleSheet(btn_style)
+        save_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        save_btn.clicked.connect(self._save_personality)
+        v.addWidget(save_btn)
+
+        layout.addWidget(group)
+
+    def _import_db(self):
+        """延迟导入 AAA 节点 db 模块"""
+        import sys
+        aaa_dir = str(Path(__file__).resolve().parent.parent.parent
+                      / "nodes" / "node_python_aaa_cognition")
+        if aaa_dir not in sys.path:
+            sys.path.insert(0, aaa_dir)
+        import db
+        return db
+
+    def _load_personality_ui(self):
+        """从 DB 读取当前性格向量并同步到滑块"""
+        try:
+            db = self._import_db()
+            db.ensure(self._get_db_path())
+            p = db.get_personality(self._get_db_path())
+            preset_name = p.get("preset_name", "默认")
+            self._personality_info.setText(
+                f"当前预设：{preset_name}（参考，会随使用自然演化）")
+            for dim, _name in self._PERSONALITY_DIMS:
+                val = float(p.get(dim, 0.5))
+                slider = self._personality_sliders[dim]
+                slider.blockSignals(True)
+                slider.setValue(int(val * 100))
+                slider.blockSignals(False)
+                self._personality_values[dim].setText(f"{val:.1f}")
+        except Exception:
+            self._personality_info.setText("当前预设：读取失败（节点未就绪）")
+
+    def reload_personality(self):
+        """格式化后重新加载性格 UI（供外部调用）"""
+        try:
+            self._load_personality_ui()
+        except Exception:
+            pass
+
+    def _save_personality(self):
+        """保存滑块调整后的性格向量"""
+        try:
+            db = self._import_db()
+            db.ensure(self._get_db_path())
+            current = db.get_personality(self._get_db_path())
+            vector = {
+                dim: self._personality_sliders[dim].value() / 100.0
+                for dim, _name in self._PERSONALITY_DIMS
+            }
+            preset_name = current.get("preset_name", "默认")
+            style = current.get("style_description", "") or (
+                db.PERSONALITY_PRESETS.get("默认", {}).get("style_description", ""))
+            db.save_personality(self._get_db_path(), vector, style, preset_name)
+            QMessageBox.information(self, "保存成功", "性格参数已更新，下次对话生效。")
+            self._load_personality_ui()
+        except Exception as e:
+            QMessageBox.warning(self, "保存失败", f"保存性格参数失败: {e}")
 
     # ─── Logseq 目录 ────────────────────────────
 
@@ -319,10 +450,30 @@ class SettingsPanel(QWidget):
             mm.cmd_result_received.connect(self._on_db_result)
 
     def _on_db_result(self, cmd, status, message):
+        if cmd == "format":
+            if status == "ok":
+                QMessageBox.information(self, "人格格式化完成", message)
+                # 重新加载性格参数 UI
+                self.reload_personality()
+                # 清空聊天 UI 旧气泡
+                mw = self._get_main_window()
+                if mw is not None:
+                    mw.reset_chat_after_format()
+                    mw.show_personality_dialog()
+            else:
+                QMessageBox.warning(self, "操作失败", message)
+            return
         if status == "ok":
             QMessageBox.information(self, "操作成功", message)
         else:
             QMessageBox.warning(self, "操作失败", message)
+
+    def _get_main_window(self):
+        """查找 MainWindow（含 _message_manager 属性的顶层窗口）"""
+        for w in QApplication.topLevelWidgets():
+            if hasattr(w, "_message_manager") and w._message_manager is not None:
+                return w
+        return None
 
     def _on_backup(self):
         mm = self._get_manager()
@@ -356,17 +507,29 @@ class SettingsPanel(QWidget):
         if mm:
             mm.send_db_command("restore", {"backup_file": backup_name})
 
-    def _on_clear(self):
+    def _on_format(self):
+        """人格格式化 = 清空所有数据 + 重置性格 + 重新选择（合并原"清空数据库"功能）"""
         msg = QMessageBox(self)
-        msg.setWindowTitle("清空数据库")
-        msg.setText("确定要清空所有数据吗？\n\n此操作将删除所有对话记录和记忆数据，但保留数据库表结构。\n此操作不可撤销！")
+        msg.setWindowTitle("人格格式化")
+        msg.setText(
+            "⚠ 人格格式化\n\n"
+            "此操作将清空数据库中的全部数据：\n"
+            "· 所有对话记录、记忆、情感与定位历史\n"
+            "· AI 的当前性格与固定认知\n\n"
+            "她将忘记有关你的一切，从头开始。\n"
+            "完成后会重新选择性格种子。\n\n"
+            "此操作不可撤销！建议先备份数据库。"
+        )
         msg.setIcon(QMessageBox.Icon.Warning)
-        msg.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
-        msg.setDefaultButton(QMessageBox.StandardButton.No)
-        if msg.exec() == QMessageBox.StandardButton.Yes:
-            mm = self._get_manager()
-            if mm:
-                mm.send_db_command("clear")
+        msg.setStandardButtons(QMessageBox.StandardButton.Cancel)
+        accept_btn = msg.addButton("确认格式化", QMessageBox.ButtonRole.DestructiveRole)
+        msg.setDefaultButton(QMessageBox.StandardButton.Cancel)
+        msg.exec()
+        if msg.clickedButton() != accept_btn:
+            return
+        mm = self._get_manager()
+        if mm:
+            mm.send_db_command("format")
 
     # ─── 工具方法 ──────────────────────────────
 
@@ -412,3 +575,9 @@ class SettingsPanel(QWidget):
                 border-color: #1a73e8;
             }}
         """
+
+    def _get_db_path(self) -> str:
+        """获取共享数据库路径"""
+        return str(Path(__file__).resolve().parent.parent.parent
+                   / "nodes" / "shared" / "chatbot.db")
+

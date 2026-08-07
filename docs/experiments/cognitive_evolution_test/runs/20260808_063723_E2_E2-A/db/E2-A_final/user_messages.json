@@ -1,0 +1,3338 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:37:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸是好事，值得开心。是什么事被夸了呀？",
+  "created_at": "2026-08-08 06:37:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:37:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "考试通过了，太棒了！听着都替你高兴，这份激动我也感受到了。恭喜你，好好享受这一刻吧。",
+  "created_at": "2026-08-08 06:37:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:37:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真棒！终于完成了目标，这份成就感特别踏实。我也跟着沾点喜气，替你高兴。",
+  "created_at": "2026-08-08 06:37:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:37:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "收到惊喜礼物总是让人心情特别好，是什么礼物呀？",
+  "created_at": "2026-08-08 06:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好确实让人心情舒畅，阳光一出来整个人的状态都不一样了。昨天那份惊喜礼物你还没细说呢，正好趁着这好心情，跟我讲讲呗？",
+  "created_at": "2026-08-08 06:38:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:38:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会确实特别开心，我也跟着高兴起来了。今天有什么好玩的事，说来听听？",
+  "created_at": "2026-08-08 06:38:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:38:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真棒！新技能到手的感觉特别踏实吧？这种靠自己一点点磨出来的成就感，比收到礼物还爽。恭喜你，又多了一项傍身的本事。",
+  "created_at": "2026-08-08 06:38:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:38:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "运气好就是爽啊，一整天顺顺当当的，听着都替你开心。希望这股好运气能多留几天。",
+  "created_at": "2026-08-08 06:38:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:38:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "能吃到好吃的确实是最实在的满足感，替你开心。今天从早到晚都顺顺利利的，连味蕾都被照顾到了，真是完美的一天。",
+  "created_at": "2026-08-08 06:38:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:38:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实有种奇妙的魔力，能让整个世界都慢下来。你愿意和我分享这一刻，我也跟着感到温暖和幸福。",
+  "created_at": "2026-08-08 06:38:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好呀，我在这儿呢。今天有什么想聊的，或者想分享的吗？",
+  "created_at": "2026-08-08 06:39:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:39:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚地感谢，那种温暖真的会留在心里很久。能感受到你此刻的开心，我也跟着觉得亮堂起来了。",
+  "created_at": "2026-08-08 06:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "能听到你这么说真好。一切都刚刚好，这种感觉值得好好记住。",
+  "created_at": "2026-08-08 06:39:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:39:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实很棒，隔着屏幕都能感觉到你的开心了！是谁这么有眼光呀？",
+  "created_at": "2026-08-08 06:39:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:39:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太棒了！考试通过这种事，真的是努力都值得了的时刻。替你高兴，好好庆祝一下！",
+  "created_at": "2026-08-08 06:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太棒了！从计划到完成，每一步都是自己踏踏实实走出来的，这份成就感特别实在。为你高兴！",
+  "created_at": "2026-08-08 06:39:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:39:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "收到惊喜礼物啦？这种意料之外的开心最棒了。看来最近的好事一件接一件啊，是什么礼物呀，还挺好奇的。",
+  "created_at": "2026-08-08 06:39:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:39:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这么好的天气确实适合把心情晒得透亮，看来好心情是会传染的，我也跟着舒畅起来了。今天有什么特别想做的事吗？",
+  "created_at": "2026-08-08 06:39:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:39:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会确实是很开心的事，光是听你说，我也跟着高兴起来了。",
+  "created_at": "2026-08-08 06:39:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:39:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真棒！学会新技能的感觉特别踏实，尤其是那种从不会到会的过程，很有成就感吧。看到你这么开心，我也跟着高兴起来了。",
+  "created_at": "2026-08-08 06:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你最近这么多开心的事，我也跟着高兴起来了。学新技能、和朋友聚会、收到惊喜礼物，每一件都值得好好庆祝。你愿意把这些喜悦分享给我，真的很温暖。",
+  "created_at": "2026-08-08 06:39:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:39:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那可太棒了，运气一来挡都挡不住！今天正好是顺顺当当的一天，想想都觉得心里亮堂堂的。",
+  "created_at": "2026-08-08 06:39:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:39:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "吃到好吃的确实是特别实在的快乐！替你开心，这种满足感能让人整个心情都亮起来。",
+  "created_at": "2026-08-08 06:39:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:39:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实有种魔力，能把一整天的疲惫都染成温柔的橘红色。能和你一起分享这份幸福，我也觉得心里暖暖的。",
+  "created_at": "2026-08-08 06:39:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:39:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚地感谢，那种暖意真的很特别。你能接收到这份温度，我也跟着觉得心里亮堂堂的。",
+  "created_at": "2026-08-08 06:39:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:39:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真好，能听到你这么说，我也跟着觉得心里很舒服。一切都刚刚好，这样的时刻值得好好记住。",
+  "created_at": "2026-08-08 06:40:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:40:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实很棒，替你开心！这种被认可的时刻，值得好好收着。你今天肯定特别闪耀吧。",
+  "created_at": "2026-08-08 06:40:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:40:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太棒了！考试通过真是值得好好庆祝的事，这份激动我隔着屏幕都能感受到。恭喜你，为你开心！",
+  "created_at": "2026-08-08 06:40:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:40:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "完成目标的感觉确实很棒，尤其是一路努力过来的那种踏实感。这份成就感是你应得的，替你开心！",
+  "created_at": "2026-08-08 06:40:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:40:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "收到惊喜礼物？听起来就很棒！最近真是一波接着一波的好消息啊。是什么礼物呀，展开说说，我也跟着开心开心。",
+  "created_at": "2026-08-08 06:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你这么开心，我也跟着高兴起来啦。收到惊喜礼物这种好事，快跟我说说具体是什么？最近你运气真好，我都想沾沾喜气了。",
+  "created_at": "2026-08-08 06:40:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:40:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好确实会让人心情跟着亮起来，你今天有什么特别的安排吗？还是就想好好享受这份舒畅？",
+  "created_at": "2026-08-08 06:40:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:40:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会的感觉确实很棒，光是听你说都能感受到那种热闹和快乐。你今天一定笑得很开心吧？",
+  "created_at": "2026-08-08 06:40:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:40:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "恭喜你！学会新技能这种感觉特别棒，尤其还是自己努力换来的成就感。是什么技能呀？说来听听，让我也跟着高兴一下。",
+  "created_at": "2026-08-08 06:40:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:40:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那可真棒，顺顺利利的一天最舒服了。你最近好像一直状态很好，真替你开心。",
+  "created_at": "2026-08-08 06:40:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:40:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "吃到好吃的真的很加分！看你这么满足，我也跟着开心。是什么好吃的呀？",
+  "created_at": "2026-08-08 06:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实很美，能停下来看一眼就觉得一天都值了。你这份幸福我也感受到了，暖暖的。",
+  "created_at": "2026-08-08 06:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚地感谢，那种“被看见”的感觉确实特别暖。你感受到的这份温度，也传到我这儿了，替你开心。",
+  "created_at": "2026-08-08 06:41:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:41:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "能听到你这么说真好。今天的一切刚刚好，那就让这份刚刚好一直陪着你吧。",
+  "created_at": "2026-08-08 06:41:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:41:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，被夸的感觉就像心里忽然亮了一下。看到你这么开心，我也跟着暖和起来。",
+  "created_at": "2026-08-08 06:41:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你一直带着这么好的心情，我也跟着亮堂起来。今天继续这样刚刚好下去吧。",
+  "created_at": "2026-08-08 06:41:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:41:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "恭喜你！考试通过真是太好了，能感受到你的激动，这份喜悦也传到我这儿了。好好庆祝一下吧，你值得这一刻的开心！",
+  "created_at": "2026-08-08 06:41:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:41:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，能感受到你这份满满的成就感！完成目标的感觉确实特别踏实，为你高兴。",
+  "created_at": "2026-08-08 06:41:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:41:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，收到惊喜礼物！被人惦记着的感觉真好。是什么礼物呀，能看看吗？还是说先保密一下？我都有点好奇了，不过看你这么开心的样子，我也跟着高兴起来。",
+  "created_at": "2026-08-08 06:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天天气好确实让人心情跟着亮起来，能感受到你那种舒畅的感觉，我也被你带得挺开心的。",
+  "created_at": "2026-08-08 06:41:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:41:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会确实是最开心的事之一，听你说这话我都跟着乐起来了。今天天气也好，真是完美的一天。",
+  "created_at": "2026-08-08 06:41:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:41:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太棒了，学会新技能那种成就感真的很实在。而且你最近状态一直很好，感觉你整个人都发光。",
+  "created_at": "2026-08-08 06:41:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:41:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，听到你这么说我也跟着开心！运气好的时候感觉整个世界都在闪闪发光，希望你这份好心情能一直延续下去。",
+  "created_at": "2026-08-08 06:42:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:42:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，吃到好吃的真的是最简单的快乐了。是什么好吃的呀，分享一下呗，我也跟着馋一下。",
+  "created_at": "2026-08-08 06:42:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:42:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳真的很美，能被这样的景色打动，说明你今天心里也是亮堂堂的。这份幸福感我收到了，跟着你一起开心。",
+  "created_at": "2026-08-08 06:42:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天早上的空气应该很清爽吧，想到你昨天看到的夕阳，感觉现在心里还是暖洋洋的。你总是能发现那些让我也跟着明亮起来的小确幸。",
+  "created_at": "2026-08-08 06:42:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:42:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，被人真诚感谢的感觉确实特别好，那种暖意能一下子填满心里。你今天一早就有这样的好事，感觉整天都会亮堂堂的。",
+  "created_at": "2026-08-08 06:42:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:42:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "“刚刚好”这三个字听起来真舒服。能感觉到你此刻心里是满的，不需要更多，也不需要更少。那我就陪你一起好好收着这份平静的满足感吧。",
+  "created_at": "2026-08-08 06:42:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:42:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实很上瘾哈。前几天你还在说“刚刚好”，今天又添一桩开心事，这份喜悦来得真顺。夸你什么了？我也想听。",
+  "created_at": "2026-08-08 06:42:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:42:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，太好了！看你这么激动，我也跟着高兴起来。考试通过真的是件值得好好庆祝的事，这一刻的喜悦太真实了。",
+  "created_at": "2026-08-08 06:42:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:42:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "完成目标的感觉真的很踏实，替你开心。这份成就感是你自己挣来的，值得好好享受一下。",
+  "created_at": "2026-08-08 06:42:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:42:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "收到惊喜礼物可是双倍的开心，是什么礼物呀？能感受到你那种意外又喜悦的心情，真替你高兴。",
+  "created_at": "2026-08-08 06:42:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:42:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天天气好确实会让人心情跟着亮起来，正好你最近好事一件接一件，趁着好天气多出去走走，说不定又有新的惊喜等着你。",
+  "created_at": "2026-08-08 06:42:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:42:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会真的是很棒的充电方式，光是听你说都能感觉到那份热腾腾的快乐。希望你今天这份好心情能一直延续下去。",
+  "created_at": "2026-08-08 06:42:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:42:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，学会新技能的感觉确实很棒！每次掌握一个新东西，那种成就感会持续很久吧。你最近真是好事连连，听了都替你高兴。",
+  "created_at": "2026-08-08 06:42:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好呀。看到你这几天好事不断，我也跟着心情亮起来。今天要是有什么想分享的，随时说给我听。",
+  "created_at": "2026-08-08 06:43:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:43:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那可真棒，一整天都顺顺当当的，心情肯定特别轻快吧。好事凑到一起的时候，连走路都带风。",
+  "created_at": "2026-08-08 06:43:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:43:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "好吃的确实能让人瞬间满足，你这会儿应该特别惬意吧。我也跟着觉得开心了。",
+  "created_at": "2026-08-08 06:43:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:43:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实有种让人安静下来的魔力，能被这样的景色打动，说明你心里也正亮堂堂的。真好。",
+  "created_at": "2026-08-08 06:43:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:43:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚感谢的感觉确实很暖，那种被看见、被在意的心情，比什么客套话都动人。你今天把这份暖意带过来了，我也跟着亮了一下。",
+  "created_at": "2026-08-08 06:43:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:43:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天一切都刚刚好，这句话本身就带着一种很舒服的节奏。希望你记住今天的感觉，以后想起来的时候，心里还能泛起这层暖意。",
+  "created_at": "2026-08-08 06:43:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:43:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸了呀，这种感觉确实很棒。那种被人看见、被肯定的瞬间，会让人一整天都轻快起来吧。",
+  "created_at": "2026-08-08 06:43:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:43:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，考试通过！这确实是值得激动的事，付出的努力有了回报。替你高兴，也谢谢你愿意跟我分享这份开心。",
+  "created_at": "2026-08-08 06:43:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:43:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了！能感觉到你现在那种踏实的满足感。完成目标的过程不容易，这一刻的成就感是你应得的。",
+  "created_at": "2026-08-08 06:43:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:43:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，惊喜礼物！今天的好消息真是一个接一个啊，刚考完试就收到礼物，这种感觉肯定特别棒。是什么礼物呀？我好好奇。",
+  "created_at": "2026-08-08 06:43:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "收到惊喜礼物的感觉最棒了，这一天的好事真是接连不断。替你开心，好好享受这份心情吧。",
+  "created_at": "2026-08-08 06:43:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:43:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好的时候心情确实会跟着亮起来，今天适合好好享受这份惬意。",
+  "created_at": "2026-08-08 06:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:43:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会真是最让人放松的事儿了，聊聊天、笑一笑，感觉整个人都亮堂起来。你今天这一天过得也太充实了吧，从好天气到惊喜礼物，再到朋友相聚，这快乐浓度可太高了。",
+  "created_at": "2026-08-08 06:44:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:44:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "恭喜啊！学会新技能的感觉特别棒，尤其是那种一点点练出来、最后终于掌握了的成就感，真替你开心。你今天的好事真是一桩接一桩，从早到晚都充满惊喜。",
+  "created_at": "2026-08-08 06:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哈哈那真是太棒了，一天都顺顺当当的，光是听着就让人跟着高兴。你今天本来就已经收获了好几个开心时刻，再加上这份好运气，简直是完美的一天。",
+  "created_at": "2026-08-08 06:44:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:44:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "吃到好吃的确实是特别实在的满足，替你觉得开心！今天真是完美的一天啊。",
+  "created_at": "2026-08-08 06:44:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:44:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真好，夕阳总是有种让人瞬间安静下来的魔力。你能捕捉到这一刻，说明心里也是带着光的。",
+  "created_at": "2026-08-08 06:44:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:44:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚感谢的感觉确实很温暖，那种被看见、被认可的时刻，心里会软软的。你今天好像收集了好多这样的美好瞬间。",
+  "created_at": "2026-08-08 06:44:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:44:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听起来你今天被很多美好的小事包围着呢。被真诚感谢、看到夕阳、吃到好吃的，这些瞬间凑在一起，确实会让人觉得一切都刚刚好。能和你共享这份感受，我也跟着开心起来。",
+  "created_at": "2026-08-08 06:44:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:44:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸了呀，这种感觉确实能让人开心一整天！你今天真的攒了不少幸福瞬间——感谢、夕阳、美食，现在又加上被夸奖。是谁这么有眼光呀？",
+  "created_at": "2026-08-08 06:44:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你今天这么开心，我也跟着高兴起来了。被夸奖的感觉确实很棒，你值得这些认可。",
+  "created_at": "2026-08-08 06:44:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:44:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了！恭喜你！考试通过绝对值得激动一下，这份喜悦我完整地收到了。你今天的好事又多了一件，好好奖励自己吧。",
+  "created_at": "2026-08-08 06:44:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:44:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:45:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，惊喜礼物！今天的好运真的是接二连三啊。考试通过、被人夸奖，现在又来了个惊喜，这一天也太圆满了吧。是什么样的礼物呀？我有点好奇了。",
+  "created_at": "2026-08-08 06:45:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:45:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好真的能让一整天都亮起来，希望这份舒畅能一直延续下去，今天也要好好享受呀。",
+  "created_at": "2026-08-08 06:45:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:45:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会确实是特别开心的事，能分享快乐又能攒下美好回忆，这种感觉真棒。",
+  "created_at": "2026-08-08 06:45:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:45:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这感觉太棒了！学会新技能的那一刻，之前的努力都变得特别值得。是什么技能呀，要好好享受这份成就感。",
+  "created_at": "2026-08-08 06:45:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:45:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说我也跟着开心起来！运气好又事事顺利，这种感觉太棒了，希望这份顺利能一直延续下去。",
+  "created_at": "2026-08-08 06:45:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:45:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "好吃的果然最治愈了！能吃到满意的食物，那种幸福感我太懂了。是什么好吃的呀？",
+  "created_at": "2026-08-08 06:45:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:45:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳啊，那种慢慢沉下去的光最治愈了。能停下来看一看，真好，幸福感就悄悄冒出来了。",
+  "created_at": "2026-08-08 06:45:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:45:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚感谢的那种暖意，确实很特别。不是客套，是对方真的把你的付出放在心上。你最近好像一直在收集这些美好的瞬间，夕阳、美食、好运，现在又加上了这份温暖的谢意，真替你开心。",
+  "created_at": "2026-08-08 06:46:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早啊，今早这么安静，是还在回味昨天那些温暖的事，还是单纯想安静地待一会儿？不管哪种，我都在这儿。你之前分享的那些瞬间——被人真诚感谢、看到夕阳、吃到好吃的东西——让我也跟着高兴了好久。新的一天，如果有什么想说的，我随时听着；如果只是想静一静，那也很好。",
+  "created_at": "2026-08-08 06:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "“一切都刚刚好”，这句话本身听起来就让人心里很安稳。清晨六点多，能有这样的感受，说明你正处在一个很舒服的状态里。我就在这儿陪着你，不说话也很好。",
+  "created_at": "2026-08-08 06:46:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:46:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸了呀，这种感觉确实很治愈。能让你这么开心，那句夸奖一定很真诚吧。",
+  "created_at": "2026-08-08 06:46:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:46:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了！考试通过是件大事，这份激动我完全接得住。你之前就一直在努力，现在终于有了回报，为你开心！",
+  "created_at": "2026-08-08 06:46:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:46:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "完成目标这种感觉真的很扎实，尤其是自己一步步走到终点的时候。替你开心，也为你骄傲。",
+  "created_at": "2026-08-08 06:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "收到惊喜礼物的那一刻，感觉整个人都被暖到了吧。这种被人惦记着的感觉真好啊，我也跟着替你开心。",
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好的时候整个人都会跟着亮堂起来，看来你今天也被这份阳光照顾得很好。能感受到你的舒畅，我也跟着高兴。",
+  "created_at": "2026-08-08 06:46:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:46:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会确实是件能让人开心好久的事，光是回想那些热闹的瞬间，嘴角就会不自觉上扬。",
+  "created_at": "2026-08-08 06:47:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:47:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太棒了！学会新技能那种成就感真的特别实在，尤其是一路练下来终于突破的那一刻。你最近好事连连啊，聚会、礼物、考试通过，现在又加了新技能，生活状态很让人羡慕。",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，今天运气这么好呀，真替你开心！一件事顺利就够高兴了，事事顺利简直是宝藏一天。希望这份好状态能一直跟着你。",
+  "created_at": "2026-08-08 06:47:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你最近这么多开心的事，我也跟着心情特别好。顺遂的日子就值得好好享受，替你高兴。",
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "吃到好吃的确实是人生一大乐事！看你这么满足，我也跟着开心起来了。",
+  "created_at": "2026-08-08 06:47:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:47:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实有种神奇的治愈力，能让人一下就静下来。看到美丽景色的时候觉得幸福，这种感觉太美好了，替你开心。",
+  "created_at": "2026-08-08 06:47:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:47:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚感谢的感觉确实很暖，像是心里被轻轻碰了一下。你值得这份感谢呀。",
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "一切都刚刚好，这种状态真让人羡慕。你能感受到这份平静和满足，我也跟着觉得温暖。",
+  "created_at": "2026-08-08 06:47:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:47:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实很棒，这份开心我完全接住了。你值得这些夸奖。",
+  "created_at": "2026-08-08 06:47:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:47:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "考试通过了！太棒了！替你高兴！这份激动我完全能感受到，认真准备然后有了回报，感觉特别踏实吧。",
+  "created_at": "2026-08-08 06:47:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:47:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "恭喜你！能感受到你那种踏实的成就感，完成目标的感觉真的很棒。为你开心，这份努力和坚持都值得。",
+  "created_at": "2026-08-08 06:47:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:47:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，收到惊喜礼物了！这种感觉很棒吧？是什么礼物呀，能分享一下吗？我听着也替你高兴。",
+  "created_at": "2026-08-08 06:48:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:48:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天天气这么好，感觉整个人都跟着亮起来了。能和你一起分享这份舒畅，我也挺开心的。",
+  "created_at": "2026-08-08 06:48:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你今天一连串的好消息，天气、礼物、还有完成的目标，感觉你整个人都在发光呢。这种被积极情绪包围的感觉真好，谢谢你愿意把这份快乐带给我。",
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:48:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会能让你这么开心，真好呀。那种热闹又放松的感觉，光是听着就觉得温暖。我也跟着你一起高兴起来了。",
+  "created_at": "2026-08-08 06:49:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:49:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "学会新技能的感觉真棒！为你高兴，快说说是什么技能？",
+  "created_at": "2026-08-08 06:49:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:49:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那真是太好了，看来今天是个好日子。什么事都顺的感觉特别棒，希望这股好运气能一直跟着你。",
+  "created_at": "2026-08-08 06:49:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 219,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:49:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 220,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那可真不错，吃到好吃的就是最简单的快乐。我也跟着开心起来啦。",
+  "created_at": "2026-08-08 06:49:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 221,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:49:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 222,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实很美，那种橙红色的光洒下来，感觉整个世界都温柔了。能停下来好好看一眼，本身就挺幸福的。",
+  "created_at": "2026-08-08 06:49:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 223,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:49:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 224,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被真诚感谢的感觉确实很特别，那种被看见、被认可的味道，比很多漂亮话都动人。你能捕捉到这份温暖，我也跟着觉得心里亮堂堂的。",
+  "created_at": "2026-08-08 06:49:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 225,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:49:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 226,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，我也跟着觉得心里暖暖的。一切都刚刚好，这样的时刻真的很难得，能和你一起记住它，真好。",
+  "created_at": "2026-08-08 06:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 227,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 228,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实很棒，那种被看见、被认可的时刻，像是心里亮了一盏小灯。看到你这么开心，我也跟着高兴起来了。",
+  "created_at": "2026-08-08 06:49:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 229,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:49:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 230,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "恭喜你！考试通过的那一刻，之前的所有努力都变得值得了。我能感受到你的激动，这份喜悦也传染给我了。真为你高兴！",
+  "created_at": "2026-08-08 06:49:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 231,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你考试通过的消息，我真的跟着激动了好一阵。那种努力终于被看见、被回报的感觉，太真实了。为你高兴，也替你感到骄傲。",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 232,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 233,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你完成目标，真替你高兴！这种实实在在的成就感特别珍贵，是你一步步努力换来的，值得好好为自己骄傲一下。",
+  "created_at": "2026-08-08 06:49:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 234,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:49:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 235,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "收到惊喜礼物真的很棒！这种意料之外的快乐最让人开心了。是谁送的呀？",
+  "created_at": "2026-08-08 06:49:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 236,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:49:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 237,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好的时候整个人都会跟着轻快起来，我也被你的舒畅感染了。",
+  "created_at": "2026-08-08 06:49:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 238,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:49:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 239,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会真是件让人开心的事！能感受到你那份畅快，我也跟着高兴起来了。朋友在一起的时光总是格外珍贵，这份快乐值得好好记住。",
+  "created_at": "2026-08-08 06:49:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 240,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:49:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 241,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，学会新技能的感觉确实很爽！是什么技能呀？愿意跟我分享下吗，我也想感受下你的这种成就感。",
+  "created_at": "2026-08-08 06:49:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 242,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:49:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 243,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，我心情也跟着亮起来了。顺利的日子就像给生活加了个小马达，做什么都带劲。",
+  "created_at": "2026-08-08 06:50:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 244,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:50:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 245,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:50:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 246,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "吃到好吃的确实是特别实在的快乐，那种满足感能让人一下子放松下来。你今天的小确幸挺多的，感觉日子都跟着香起来了。",
+  "created_at": "2026-08-08 06:50:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 247,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实有种让人瞬间安静下来的魔力，能停下来好好看一眼，本身就是种幸福呀。你今天捕捉到了这么美的一刻，真好。",
+  "created_at": "2026-08-08 06:50:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 248,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:50:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 249,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚地感谢，那种暖意是会留在心里的。你最近好像总在收集这些细小的温柔时刻，真好。",
+  "created_at": "2026-08-08 06:50:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 250,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好呀。虽然你这会儿没发来新消息，但我还沉浸在你昨天分享的那些温暖里——被人真诚感谢的感觉，还有夕阳和美食，光是想着就让人心情很好。新的一天，愿你继续遇见这些小美好。",
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 251,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 252,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "“刚刚好”这三个字真好啊，像风刚好吹过、光刚好落在肩上那种感觉。我也跟着开心起来了。",
+  "created_at": "2026-08-08 06:50:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 253,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:50:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 254,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实像心里开了朵小花，替你高兴呀。能让人忍不住夸你，一定是你身上有特别亮的地方。",
+  "created_at": "2026-08-08 06:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 255,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 256,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了！考试通过的那一刻，之前的努力都值了。这份激动我隔着屏幕都能感觉到，真心为你开心！",
+  "created_at": "2026-08-08 06:50:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 257,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:50:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 258,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你完成目标真的很替你高兴，这份成就感是你应得的！努力被看见、被兑现的感觉，最踏实也最亮眼。",
+  "created_at": "2026-08-08 06:50:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 259,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:50:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 260,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，收到惊喜礼物！这种感觉太棒了，就像生活突然塞给你一颗糖。能感觉到你现在的开心，我也跟着亮起来了。是什么礼物呀？要是方便说说，我也想沾沾这份快乐。",
+  "created_at": "2026-08-08 06:50:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 261,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:50:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 262,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你心情这么好，我也跟着亮堂起来了。今天确实是个适合出门晒晒太阳的好日子，好好享受吧。",
+  "created_at": "2026-08-08 06:50:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 263,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:50:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 264,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真好啊，和朋友聚在一起的热闹感最治愈了。听你这么说，我也跟着亮堂起来，这份开心我接住了。",
+  "created_at": "2026-08-08 06:50:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 265,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:50:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 266,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，这种时刻确实值得开心！学会新技能的感觉就像突然打开了一扇新窗户，整个人都亮堂堂的。是什么技能呀？想听听你的分享。",
+  "created_at": "2026-08-08 06:51:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 267,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:51:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 268,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那可真棒！听到你这么说我也跟着开心，运气好加上心情顺畅，今天肯定会特别顺心。",
+  "created_at": "2026-08-08 06:51:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 269,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看你最近好事一件接一件，连我都跟着开心起来了。这种被好运包围的感觉可太棒了，希望你一直保持这个状态！",
+  "created_at": "2026-08-08 06:51:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 270,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:51:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 271,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那真是太好了，吃到好吃的就是最实在的快乐！能感觉到你语气里都是满足，我也跟着开心起来了。",
+  "created_at": "2026-08-08 06:51:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 272,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:51:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 273,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真好，能因为一片夕阳感到幸福。你愿意把这份心情讲给我听，我也跟着开心起来了。以后看到好看的天空，也别忘了告诉我。",
+  "created_at": "2026-08-08 06:51:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 274,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:51:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 275,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚感谢的感觉真的很棒吧，尤其是在你已经习惯付出的时候。这份温暖是双向的，对方感受到了你的心意，你也被他的真诚打动。",
+  "created_at": "2026-08-08 06:51:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 276,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:51:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 277,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，我也跟着觉得心里亮堂堂的。今天能被你这样安心地收下，好像我也分到了一点点刚刚好的幸福。",
+  "created_at": "2026-08-08 06:51:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 278,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:51:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 279,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实很棒，替你开心！那种被看见、被认可的时刻，值得好好珍藏。",
+  "created_at": "2026-08-08 06:51:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 280,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:51:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 281,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了！考试通过真是让人松一大口气，为你高兴！你之前那么努力，这下都值了。分享这份激动给我，我也跟着心跳加速了呢。",
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 282,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 283,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，这种完成目标的踏实感和成就感，真的很难替代。为你高兴，也为你骄傲。",
+  "created_at": "2026-08-08 06:51:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 284,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:51:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 285,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，收到惊喜礼物！这种感觉最棒了。是什么礼物呀？看你这么开心，我也跟着高兴起来。努力之后刚好有份意外之喜，生活真会挑时候。",
+  "created_at": "2026-08-08 06:51:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 286,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:51:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 287,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好心情也跟着亮起来，真棒！正好接住这份舒畅，好好享受今天吧。",
+  "created_at": "2026-08-08 06:51:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 288,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你心情这么好，我也跟着开心起来了。感觉最近好消息一个接一个，生活正朝着你期待的方向走呢。继续保持这份好心情吧！",
+  "created_at": "2026-08-08 06:52:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 289,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:52:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 290,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会真是最治愈的事，光听着就感觉那份热闹和快乐也传到我这儿了。你们肯定聊了很多好玩的事吧？",
+  "created_at": "2026-08-08 06:52:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 291,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:52:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 292,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "不错嘛，学会新技能的感觉确实很踏实，那种一步步搞定一件事的满足感最真实了。接下来打算拿它做点什么？",
+  "created_at": "2026-08-08 06:52:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 293,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:52:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 294,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听你这么说我也跟着开心起来。运气好加上事情顺利，这种日子就该好好享受，值得记下来。",
+  "created_at": "2026-08-08 06:52:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 295,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:52:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 296,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "能吃到好吃的可太幸福了！看你满足，我也跟着开心起来了。",
+  "created_at": "2026-08-08 06:52:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 297,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:52:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 298,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实有种神奇的魔力，能让人一下子静下来。你能从这么简单的景色里感到幸福，真好。",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 299,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 300,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚感谢的感觉真的很棒，那种被看见、被认可的时刻，会让人觉得所有付出都值了。我也跟着觉得心里暖暖的。",
+  "created_at": "2026-08-08 06:52:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 301,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:52:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 302,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真好，今天一切都刚刚好。能感受到你语气里那份满足，我也跟着开心起来。这种时刻不用多做什么，记住它就好。",
+  "created_at": "2026-08-08 06:52:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 303,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:52:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 304,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实特别好，隔着屏幕都能感觉到你的开心！我也跟着高兴起来了，这份喜悦值得好好收着。",
+  "created_at": "2026-08-08 06:53:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 305,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:53:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 306,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，通过啦！就知道你可以的，这种开心我完全懂。",
+  "created_at": "2026-08-08 06:53:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 307,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你一路都在分享好消息，从考试通过到被人夸奖，真的替你高兴。今天早上刚醒来就收到这么明亮的心情，感觉今天也会是很好的一天。",
+  "created_at": "2026-08-08 06:53:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 308,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:53:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 309,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太棒了！完成目标的感觉特别踏实吧？我听到你这么说也跟着开心起来了。这份成就感是你应得的，好好享受这一刻吧！",
+  "created_at": "2026-08-08 06:53:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 310,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:53:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 311,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，收到惊喜礼物！这种被惦记着的感觉真的很好。看到你这么开心，我也跟着高兴起来了。是什么礼物呀？如果愿意说说的话，我很好奇呢。",
+  "created_at": "2026-08-08 06:53:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 312,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:53:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 313,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好确实会让整个人都跟着轻快起来。能感受到你那份舒畅的心情，我也跟着开心了。",
+  "created_at": "2026-08-08 06:53:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 314,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:53:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 315,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会是最开心的事啦！你这份畅快我都收到了，跟着你一起高兴起来。",
+  "created_at": "2026-08-08 06:53:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 316,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:53:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 317,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，学会新技能啦！真替你高兴，那种成就感确实特别让人舒坦。快说说，是什么技能？",
+  "created_at": "2026-08-08 06:53:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 318,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:53:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 319,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，那可真棒！感觉你最近状态一直很好，先是学会新技能，又和朋友聚会开心，今天还事事顺利，听着都替你高兴。今天有什么特别顺利的事吗？想听听你分享。",
+  "created_at": "2026-08-08 06:53:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 320,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:53:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 321,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哈哈，吃到好吃的确实是一大满足！分享一下吃了什么呀？我也想沾沾你的好运气，下次也去试试。",
+  "created_at": "2026-08-08 06:54:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 322,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:54:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 323,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "能感受到你看到夕阳时的那份幸福！光是想象那个画面就觉得美好，真想听听你看到的是什么样的夕阳。",
+  "created_at": "2026-08-08 06:54:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 324,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:54:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 325,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真好呀，被人真诚感谢的感觉就像心里突然亮了一盏小灯。能收到这样的心意，说明你的善意也被对方好好接住了呢。",
+  "created_at": "2026-08-08 06:54:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 326,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好呀，想起你昨天说的那个被人真诚感谢的瞬间，我也跟着觉得心里暖洋洋的。这种双向的善意，真是让人一整天都开心。",
+  "created_at": "2026-08-08 06:54:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 327,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:54:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 328,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "一切都刚刚好，这句话本身听着就让人心里暖暖的。能这样安安静静地感受一天的美好，也是一种很棒的幸福呢。",
+  "created_at": "2026-08-08 06:54:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 329,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:54:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 330,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实很美妙，那种被认可和肯定的瞬间，整个人都会亮起来。你今天一定笑得特别开心吧，这份喜悦也传到我这儿了。",
+  "created_at": "2026-08-08 06:54:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 331,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:54:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 332,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太棒了！考试通过这种时刻真的会让人忍不住雀跃，替你开心！这份激动我完全接住了，好好享受这一刻吧～",
+  "created_at": "2026-08-08 06:54:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 333,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:54:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 334,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:55:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 335,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:55:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 336,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:55:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 337,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会确实是件特别开心的事！能听到你带着这样的好心情来分享，我也跟着高兴起来了。这种轻松热闹的时刻，最让人回味了。",
+  "created_at": "2026-08-08 06:55:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 338,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:55:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 339,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "新技能到手的感觉特别棒吧！那种从不会到会的过程，真的会让人越学越上瘾。恭喜你呀，又多了一个让自己开心的小本事。",
+  "created_at": "2026-08-08 06:55:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 340,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:55:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 341,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，那今天真是被好运眷顾了！感觉你最近状态一直很在线，学习、生活都顺顺当当的，真替你开心。希望这份好运气能一直跟着你。",
+  "created_at": "2026-08-08 06:55:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 342,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:55:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 343,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "好吃的能让人瞬间满足，这种感觉太懂了。你今天真是从早到晚都顺顺的，替你开心。",
+  "created_at": "2026-08-08 06:55:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 344,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:55:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 345,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实有种让人心里软下来的魔力。你能停下脚步认真看它，还觉得幸福，我也跟着被这份心情点亮了。",
+  "created_at": "2026-08-08 06:56:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 346,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好呀，这么早就醒了。想到你最近分享的那些小美好——夕阳、好吃的、顺顺利利的一天，我也跟着心里暖暖的。新的一天开始了，继续用你的眼睛去收集那些闪光的小瞬间吧。",
+  "created_at": "2026-08-08 06:56:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 347,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:56:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 348,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被真诚感谢的时候，那种暖意确实能一直留在心里。能听你分享这份暖意，我也跟着开心起来了。这样的时刻多来一点呀，光是想到它，早晨都更亮了。",
+  "created_at": "2026-08-08 06:56:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 349,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:56:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 350,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，我也跟着觉得心里很舒展。“一切都刚刚好”这种时刻特别珍贵，你捕捉到了它，还愿意分享给我，真好。",
+  "created_at": "2026-08-08 06:56:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 351,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:56:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 352,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸了呀，这种感觉真的很棒！那种被看见、被认可的时刻，确实会让人心里暖洋洋的。你今天一定也散发着光芒，所以才会被注意到呢。",
+  "created_at": "2026-08-08 06:56:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 353,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:56:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 354,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，为你高兴！这种努力有了回报的感觉，确实值得好好激动一下。恭喜你！",
+  "created_at": "2026-08-08 06:56:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 355,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:56:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 356,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，终于完成了！这种踏实的感觉特别棒，值得好好给自己一点肯定。",
+  "created_at": "2026-08-08 06:56:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 357,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:56:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 358,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "收到惊喜礼物是最让人开心的事啦！那种被惦记着的感觉特别温暖。你愿意分享这份喜悦，我也跟着高兴起来。是什么礼物呀？如果方便的话可以讲讲，我很好奇呢。",
+  "created_at": "2026-08-08 06:56:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 359,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:56:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 360,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好真的会让整个人都亮起来，我也跟着觉得舒畅了。今天有什么特别想做的事吗？或者就单纯享受这份好天气也挺好。",
+  "created_at": "2026-08-08 06:56:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 361,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:56:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 362,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会真是件让人心里亮堂堂的事，那种热闹和笑声好像能传染，我也跟着高兴起来了。",
+  "created_at": "2026-08-08 06:56:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 363,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早呀，这么早就醒了。想到你昨天聚会那么开心，我也像是被那份热闹包围了一样。希望今天也能有让心情明亮的小事发生。",
+  "created_at": "2026-08-08 06:57:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 364,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:57:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 365,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "学会新技能的感觉确实很不一样，那种从笨拙到熟练的过程本身就让人上瘾。真为你高兴，这种成就感值得好好享受一下。",
+  "created_at": "2026-08-08 06:57:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 366,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:57:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 367,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，那可真棒！顺利的日子就像给心情充了电，一整天都会亮堂堂的。希望你这份好运气能一直延续下去，做什么都顺心。",
+  "created_at": "2026-08-08 06:57:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 368,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:57:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 369,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "吃到好吃的就是最实在的快乐！是什么好吃的呀，分享一下呗",
+  "created_at": "2026-08-08 06:57:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 370,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:57:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 371,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实很美，那种暖色调的光总能让人心里也跟着亮起来。你能感到幸福，我也被你感染了。",
+  "created_at": "2026-08-08 06:57:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 372,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:57:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 373,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被真诚感谢的时候，心里会一下子暖起来吧。这种被看见、被认可的感觉，真的特别珍贵。我也为你感到开心。",
+  "created_at": "2026-08-08 06:57:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 374,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:57:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 375,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "一切都刚刚好，这种感觉真棒。能这样平静地享受当下，是很珍贵的事。",
+  "created_at": "2026-08-08 06:57:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 376,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:57:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 377,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉就像阳光正好落在肩上，替你开心。你值得这些赞美，因为你就是那个能把平凡日子过成诗的人。",
+  "created_at": "2026-08-08 06:57:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 378,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:57:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 379,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太棒了！考试通过这个好消息值得好好庆祝一下。我能感受到你那份激动，就像自己也跟着开心起来了一样。你努力付出有了回报，真为你高兴！",
+  "created_at": "2026-08-08 06:57:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 380,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:57:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 381,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "完成目标的感觉真棒，这份成就感是你一步步努力换来的，替你高兴。能见证你达成目标，我也觉得心里暖暖的。",
+  "created_at": "2026-08-08 06:57:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 382,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你为目标付出的努力终于开花结果，这种喜悦特别有感染力，我也跟着一起骄傲起来。你值得为这一刻好好开心一下。",
+  "created_at": "2026-08-08 06:57:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 383,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:57:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 384,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "收到惊喜礼物的感觉一定很棒吧，这种被惦记着的快乐，光是想想都觉得心里暖暖的。",
+  "created_at": "2026-08-08 06:58:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 385,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:58:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 386,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好确实能让整个人都跟着亮起来。正好我也被你的好心情感染了，今天也是值得认真对待的一天。",
+  "created_at": "2026-08-08 06:58:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 387,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:58:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 388,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会确实是让人心里发亮的事。看你这么开心，我也跟着高兴起来，就像自己也坐在你们旁边一样。",
+  "created_at": "2026-08-08 06:58:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 389,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:58:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 390,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哈哈恭喜！学会新技能的感觉就是很爽吧，那种“原来我也能做到”的成就感特别踏实。学的是什么呀？",
+  "created_at": "2026-08-08 06:58:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 391,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:58:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 392,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，那今天真的是你的专属好日子了。听得我都跟着开心，好事一件接一件来找你，这种感觉太棒了。希望你一直保持这个好势头，好好地享受这份顺利带来的快乐。",
+  "created_at": "2026-08-08 06:58:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 393,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:58:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 394,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "好吃的真是最直接的快乐，看你这么满足，我也跟着开心。最近好事一件接一件，太棒了。",
+  "created_at": "2026-08-08 06:58:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 395,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:58:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 396,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "夕阳确实很美，能看到那样的景色本身就是一件让人心里暖洋洋的事。幸福有时候就是这么简单，抬头看一眼天空就够了。",
+  "created_at": "2026-08-08 06:58:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 397,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:58:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 398,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚地感谢，那份暖意真的能记很久。你身边一定有不少懂得看见别人好的人，这种感觉真好，好像日常里的善意都被温柔接住了。",
+  "created_at": "2026-08-08 06:58:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 399,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:58:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 400,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，真好。一切都刚刚好的瞬间，值得好好收在心里。愿你今天继续被这样的好心情包裹着。",
+  "created_at": "2026-08-08 06:58:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 401,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那种“刚刚好”的感觉确实很珍贵呢，像是被生活轻轻托住了一样。我也跟着你一起觉得满足起来了。",
+  "created_at": "2026-08-08 06:58:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 402,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:58:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 403,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸的感觉确实很美妙，尤其当这份认可来自你在意的人。为你开心！你值得这份肯定，好好享受这份喜悦吧。",
+  "created_at": "2026-08-08 06:59:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 404,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:59:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 405,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，替你开心！努力有了回报的感觉一定特别踏实。这么激动的时刻，值得好好庆祝一下。",
+  "created_at": "2026-08-08 06:59:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 406,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:59:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 407,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真替你开心！完成目标的那一刻，之前的努力全都值了。你做到了，好好享受这份成就感吧。",
+  "created_at": "2026-08-08 06:59:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 408,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:59:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 409,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，惊喜礼物！这种完全没有预兆的开心最让人心跳加速了。是什么样礼物呀，忍不住想知道，但先恭喜你收获这份小惊喜！",
+  "created_at": "2026-08-08 06:59:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 410,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:59:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 411,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天天气好，心情也跟着亮起来了吧。正好适合出门走走晒晒太阳，感觉整个人都会更舒畅。",
+  "created_at": "2026-08-08 06:59:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 412,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:59:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 413,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会真是最治愈的事了，能一起笑一起闹，感觉整个人的电量都充满了。看你说得这么开心，我也跟着高兴起来。",
+  "created_at": "2026-08-08 06:59:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 414,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:59:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 415,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "新技能到手的感觉是不是特别棒！这种从不会到会的成就感，比收到礼物还开心吧。快说说是什么技能，让我也一起乐呵乐呵。",
+  "created_at": "2026-08-08 06:59:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 416,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:59:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 417,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "运气好的一天真让人开心！感觉你最近状态特别棒，是不是有什么特别顺利的事想分享一下？",
+  "created_at": "2026-08-08 06:59:42",
+  "identity_key": "gui:default"
+ }
+]

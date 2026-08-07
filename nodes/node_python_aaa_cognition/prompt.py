@@ -17,6 +17,14 @@ _CONTEXT_HEADER = """
   用户文本：{user_text}
 {attachment_context}
 
+{perception}
+
+{location_section}
+
+{personality}
+
+{mood}
+
 当前日期时间：{current_date} {current_time}
 历史摘要：{history_summary}
 用户信息：{user_info}
@@ -28,12 +36,16 @@ _CONTEXT_HEADER = """
 # ─── 模板一：直接回复 ──────────────────────────────────────────
 DIRECT_TEMPLATE = _CONTEXT_HEADER + """
 ### 输出格式
+**硬性要求：每个【节标记】必须独占一行，后面换行写内容；所有内容（包括对用户的回复正文）都必须放在对应节内，严禁写在节标记之外或输出任何前言。**
+
 【自然回复】
 你给用户看的回复文本（禁止使用emoji和颜文字）
 【心情】
 1-4个字，如：开心、难过、好奇、平静
 【想法】
 1-2句话描述你此刻的内心想法
+【情绪调整】
+1个数字（范围 -0.2 到 +0.2，表示你希望情绪值的调整幅度，不是绝对值；情绪平稳时输出 0.0）
 【事件摘要】
 本轮对话的核心摘要，1-2句话 [重要性:1-5]
 【自我认知】
@@ -44,8 +56,12 @@ DIRECT_TEMPLATE = _CONTEXT_HEADER + """
 key=值, key=值
 【自我信息】
 key=值, key=值
-【记忆归档】
-值得归档的记忆内容
+【用户记忆】
+关于用户的信息（喜好、习惯、身份），没有可留空
+【环境记忆】
+关于环境/物品/空间的信息（最多3条），没有可留空
+【实体名】
+如果有环境记忆，标注对应的实体名称（逗号分隔），没有可留空
 【归档标签】
 逗号分隔的标签，如：见闻, 日常"""
 
@@ -89,7 +105,8 @@ def build_tool(ctx):
 
 def _prepare_ctx(ctx):
     """填充条件字段"""
-    for key in ("reflection_section", "mood_trend"):
+    for key in ("reflection_section", "mood_trend", "perception", "location_section",
+                "personality", "mood"):
         if key not in ctx:
             ctx[key] = ""
     if ctx.get("reflection_prompt"):
@@ -99,3 +116,15 @@ def _prepare_ctx(ctx):
         )
     elif "reflection_section" not in ctx or not ctx["reflection_section"]:
         ctx["reflection_section"] = ""
+
+    # v1.3: 注入位置信息段（如未提供则按 db_path + identity_key 查询）
+    if not ctx.get("location_section"):
+        db_path = ctx.get("db_path", "")
+        identity_key = ctx.get("identity_key", "")
+        if db_path and identity_key:
+            try:
+                import location as _loc
+                ctx["location_section"] = _loc.build_location_section(
+                    db_path, identity_key)
+            except Exception:
+                ctx["location_section"] = ""

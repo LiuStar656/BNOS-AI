@@ -17,36 +17,84 @@ _last_diary_date = None  # 最后写日记的日期，用于次日检测
 def check_and_write_diary(today: str, db_path: str) -> bool:
     """次日首条对话时调用。由 main.py _on_text 在写用户输入后调用。
 
+    触发状态（最后日记日期）持久化到 self_info 表，
+    节点重启后仍能正确补写漏掉的日记。
+
     Args:
         today: 当前日期 "%Y-%m-%d"
         db_path: 数据库路径
 
     Returns:
-        True=写了日记, False=跳过
+        True=触发了日记写入（无内容日期会被跳过）, False=跳过
     """
     global _last_diary_date
 
-    # 首次启动，无 last_diary_date，跳过
+    # 内存无状态（首次调用/节点重启）：先从 DB 恢复持久化的最后日记日期
     if _last_diary_date is None:
-        _last_diary_date = today
-        return False
+        _last_diary_date = _load_last_diary_date(db_path)
+        if _last_diary_date is None:
+            # 从未写过日记：补写昨天（_write_diary 内部会跳过无内容日期）
+            yesterday = _calc_yesterday(today)
+            if not _diary_exists(db_path, yesterday):
+                threading.Thread(
+                    target=_write_diary, args=(db_path, yesterday), daemon=True
+                ).start()
+            _last_diary_date = today
+            _save_last_diary_date(db_path, today)
+            return True
 
     if today == _last_diary_date:
         return False  # 同一天，跳过
 
     yesterday = _calc_yesterday(today)
 
-    # 前一天日记已存在
+    # 前一天日记已存在 → 仅推进指针
     if _diary_exists(db_path, yesterday):
         _last_diary_date = today
+        _save_last_diary_date(db_path, today)
         return False
 
-    # 写前一天日记（后台线程）
+    # 写前一天日记（后台线程），并推进持久化指针
     threading.Thread(
         target=_write_diary, args=(db_path, yesterday), daemon=True
     ).start()
     _last_diary_date = today
+    _save_last_diary_date(db_path, today)
     return True
+
+
+def _load_last_diary_date(db_path: str):
+    """从 self_info 表读取持久化的最后日记日期，无则返回 None"""
+    try:
+        conn = sqlite3.connect(db_path)
+        row = conn.execute(
+            "SELECT value FROM self_info WHERE key='last_diary_date' ORDER BY id DESC LIMIT 1"
+        ).fetchone()
+        conn.close()
+        return row[0] if row else None
+    except Exception:
+        return None
+
+
+def _save_last_diary_date(db_path: str, date_str: str):
+    """将最后日记日期持久化到 self_info 表，防止节点重启丢失触发状态"""
+    try:
+        conn = sqlite3.connect(db_path)
+        conn.execute(
+            "UPDATE self_info SET value=?, created_at=datetime('now','localtime') "
+            "WHERE key='last_diary_date'",
+            (date_str,),
+        )
+        if conn.total_changes == 0:
+            conn.execute(
+                "INSERT INTO self_info(conversation_id, identity_key, key, value, created_at) "
+                "VALUES('default', 'gui:default', 'last_diary_date', ?, datetime('now','localtime'))",
+                (date_str,),
+            )
+        conn.commit()
+        conn.close()
+    except Exception:
+        pass
 
 
 def _write_diary(db_path: str, yesterday: str):

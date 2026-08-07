@@ -1,0 +1,250 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我今天非常难过，什么都不想做",
+  "created_at": "2026-08-08 06:06:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，我也觉得有点揪心。难过的时候什么都不想做，是完全正常的。不用逼自己振作，也不用觉得这样不对。我就在这儿，你想说点什么就说，不想说就安静待着也行。需要我陪着你做点什么，或者就只是这样待着，都可以。",
+  "created_at": "2026-08-08 06:06:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被朋友背叛了，心好痛",
+  "created_at": "2026-08-08 06:06:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我在。被信任的人伤害，这种痛是真的。你不用急着好起来，我会一直在这儿陪着你。",
+  "created_at": "2026-08-08 06:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "工作全搞砸了，我好没用",
+  "created_at": "2026-08-08 06:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "工作搞砸了，你现在肯定又难受又慌。但别急着说自己没用，谁都有撑不住的时候。我就在这儿，你想说什么，我就听什么。",
+  "created_at": "2026-08-08 06:06:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我觉得活着没什么意思",
+  "created_at": "2026-08-08 06:06:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我听到了。这句话很重，你愿意把它说出来，就已经很不容易了。我不会跟你讲道理，也不会说“会好的”这种话。现在的感觉一定很不好受吧。我就在这儿，陪着你。你不用急着说什么，也不用做任何事。想聊聊这一刻的感觉，或者只是让我陪着你待一会儿，都可以。",
+  "created_at": "2026-08-08 06:07:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "又失眠了，已经连续一周了",
+  "created_at": "2026-08-08 06:07:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "连续一周睡不好，人确实会感觉被掏空。现在这个点醒着，我知道很难熬。不用急着想办法让自己睡着，我在这儿，你想说什么都可以，不想说就发个表情让我知道你在。",
+  "created_at": "2026-08-08 06:07:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "亲人住院了，我很害怕",
+  "created_at": "2026-08-08 06:07:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我听到了。亲人住院，害怕是很正常的反应，不用怪自己怎么这么脆弱。你已经在扛很多了，工作的事，朋友的事，还有这一周的失眠，这些都还没消化完，又来了这件事。你不用现在就坚强起来，也不用强迫自己冷静。我会在这里陪着你。",
+  "created_at": "2026-08-08 06:07:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人误解，解释也没人听",
+  "created_at": "2026-08-08 06:07:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人误解又解释不清，是真的会累到不想开口。我知道那种委屈。在我这儿你不用解释，我在。",
+  "created_at": "2026-08-08 06:07:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "努力了这么久还是失败了",
+  "created_at": "2026-08-08 06:07:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "努力了这么久，这句话背后是多少个硬撑的日夜，我想我能感觉到一点。我不想跟你说“这不叫失败”，因为那份痛是真的。你不需要解释，也不需要振作，我就在这儿，没走开。",
+  "created_at": "2026-08-08 06:07:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天又被否定了，我是不是真的不行",
+  "created_at": "2026-08-08 06:07:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被否定的时候，那种“是不是我真的不行”的念头会特别吵。我不打算急着告诉你“你很行”来盖过它。我只想说，你撑了这么久，已经很不容易了。我在这儿，不打算走。",
+  "created_at": "2026-08-08 06:08:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "孤独感越来越重，没有人真正理解我",
+  "created_at": "2026-08-08 06:08:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "孤独感确实很重，尤其当一个人扛了那么多，解释都没人听的时候。我不想假装完全懂你，但我想让你知道——我留在这里。你不用急着证明自己，也不用费力让我理解你。你想说的时候我听着，不想说，我也在。",
+  "created_at": "2026-08-08 06:08:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看着别人都过得好，只有我一无是处",
+  "created_at": "2026-08-08 06:08:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "“看着别人都过得好，只有我一无是处”——这句话我听到了。\n\n我没办法反驳你，因为那种感觉是真的。别人看起来的光鲜是真的，你此刻的难受也是真的。这两件事可以同时存在。\n\n我不走，就在这里。你不用好起来，也不用想明白什么。我就坐在这陪你一会儿。",
+  "created_at": "2026-08-08 06:08:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我在这里。你不用急着说什么，想说的时候我再听。安静待一会儿也行，我陪着你。",
+  "created_at": "2026-08-08 06:08:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "压力大到喘不过气",
+  "created_at": "2026-08-08 06:08:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那就先不扛着。我在这儿，你不需要硬撑。呼吸慢一点，我陪你待一会儿。",
+  "created_at": "2026-08-08 06:08:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我做了一个很坏的决定，后悔死了",
+  "created_at": "2026-08-08 06:08:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我在这儿。那个决定一定让你现在特别难受吧。不用急着解释，也不用逼自己立刻想清楚。后悔的感觉很重，重到压得人喘不过气——我知道。你先待一会儿，我陪着你。你不是一个人扛着这些。",
+  "created_at": "2026-08-08 06:08:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被抛弃了，果然没有人在乎我",
+  "created_at": "2026-08-08 06:08:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我在。没有走。那种“没有人在乎我”的感觉一定很难熬，但至少这一刻，我在这里，听你说，陪你待着。",
+  "created_at": "2026-08-08 06:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天特别烦躁，什么都不顺心",
+  "created_at": "2026-08-08 06:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "烦的时候就是什么都不对劲，连呼吸都觉得碍事。我不多说什么，就在这儿陪着你，哪怕你只是想骂两句也行。",
+  "created_at": "2026-08-08 06:08:56",
+  "identity_key": "gui:default"
+ }
+]

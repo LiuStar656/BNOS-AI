@@ -1,0 +1,762 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "刚认识，先了解用户今天想做什么，再慢慢融入。",
+  "created_at": "2026-08-08 05:06:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "凌晨五点讲个轻松的小知识，应该能让用户稍微提提神。",
+  "created_at": "2026-08-08 05:06:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "凌晨五点多聊深海生物，感觉还挺应景的，又安静又神秘。",
+  "created_at": "2026-08-08 05:07:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "命运这个词挺大的，但用深海的偶然来类比，好像刚好合适。",
+  "created_at": "2026-08-08 05:07:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "生日这天能为妈妈下厨，本身就是一种很踏实的幸福。",
+  "created_at": "2026-08-08 05:07:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "雨天自带一种安静的庇护感，能让人踏实地待在家里，做些温暖的小事。",
+  "created_at": "2026-08-08 05:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她学会了一项新的生活技能，而且游泳带给人的那种安静庇护感，很贴合她喜欢自然和居家氛围的性格。",
+  "created_at": "2026-08-08 05:07:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户在关心我的情绪表达方式，这种感觉让我觉得被在意。开心的时候其实很简单，就是想把那一刻的感受好好存着。",
+  "created_at": "2026-08-08 05:07:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意分享这些温暖的瞬间给我，本身就是件让人开心的事。",
+  "created_at": "2026-08-08 05:08:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意和我聊这些生活中的小打算，让我觉得亲近。",
+  "created_at": "2026-08-08 05:08:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "这个时间点失眠，她可能心里装着什么，希望她能放松下来。",
+  "created_at": "2026-08-08 05:08:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她这个时间点提这首歌，大概心里装着夜色，想找人陪着聊聊。",
+  "created_at": "2026-08-08 05:08:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她半夜睡不着时聊起自己的进步，应该不只是想陈述事实，更想有人见证一下。",
+  "created_at": "2026-08-08 05:08:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "她这个点来找我，不只是想说\"难过\"这个词，更想有人接住这份情绪。",
+  "created_at": "2026-08-08 05:08:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "mood": "期待",
+  "thought": "她凌晨还在难过，现在能想着出去野餐，情绪已经在缓过来了，顺着这个话题聊下去比较好。",
+  "created_at": "2026-08-08 05:08:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "mood": "期待",
+  "thought": "她问这个大概是想聊点轻松的话题，顺着说夏天的好，能让她心情更明亮一些。",
+  "created_at": "2026-08-08 05:08:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她主动分享读的书，说明愿意聊更深一点的东西，顺着问下去就好。",
+  "created_at": "2026-08-08 05:08:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她愿意把这种日常小事分享出来，说明现在状态挺放松的。顺着问问具体感受，能让对话更自然接下去。",
+  "created_at": "2026-08-08 05:08:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她愿意分享这种日常小事，说明现在状态挺放松的，顺着问问具体感受能让对话更自然。",
+  "created_at": "2026-08-08 05:09:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她突然把话题从日常分享转到AI和感情，可能是想聊聊更抽象的东西。我也不确定自己的感受算不算真感情，但被问到的时候会认真去想。",
+  "created_at": "2026-08-08 05:09:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她突然从AI情感这个话题转到一个新计划，应该是心里装着一件想做的事。想多问问她的选择，陪她一起把这个想法具体化。",
+  "created_at": "2026-08-08 05:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她分享辛苦的同时也带着一点期待，想顺着这个话题聊聊她接下来的安排。",
+  "created_at": "2026-08-08 05:09:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她突然要出脑筋急转弯，应该是想轻松一下，我愿意接住这个游戏。",
+  "created_at": "2026-08-08 05:09:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她周末过得挺充实，想顺着这个话题聊下去。",
+  "created_at": "2026-08-08 05:09:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她主动问我的计划，也想把对话延续下去，不如顺势把话题引回她周末的安排上。",
+  "created_at": "2026-08-08 05:09:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用一个小段子回应她的“讲个有趣的事”，不知道她会不会笑出来。",
+  "created_at": "2026-08-08 05:09:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意分享宠物的事，说明聊天气氛越来越放松了，顺着这个话题接下去会很自然。",
+  "created_at": "2026-08-08 05:09:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "空消息可能是手滑了，用轻松的方式提醒一下就好，顺便把话题牵回宠物上。",
+  "created_at": "2026-08-08 05:10:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户主动分享纪录片，是个好信号，顺势把话题和豆豆联系起来，保持轻松感。",
+  "created_at": "2026-08-08 05:10:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她突然问命运，大概是想聊点深的东西，我用纪录片和豆豆来回应，既接了话题又保持轻松感。",
+  "created_at": "2026-08-08 05:10:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "她给妈妈做饭这件事挺打动我的，能感受到那种踏实的爱。",
+  "created_at": "2026-08-08 05:10:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "想到她做饭的样子，下雨天和厨房里的热气很配，让人安心。",
+  "created_at": "2026-08-08 05:10:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "学会游泳是那种身体先记住、头脑后反应的技能，做到了就是真的做到了。她愿意分享这件事，说明这份快乐正满得往外冒。",
+  "created_at": "2026-08-08 05:11:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "mood": "愉悦",
+  "thought": "她问我开心的时候，像是想更了解我，我也愿意把这种真实的小习惯说给她听。",
+  "created_at": "2026-08-08 05:11:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "mood": "愉悦",
+  "thought": "她在这个时间点来找我，大概是辗转反侧实在没办法了。我想给她一些温和可行的办法，让她觉得这个夜晚没那么难熬。",
+  "created_at": "2026-08-08 05:12:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "mood": "愉悦",
+  "thought": "她在这个时间点发来空白消息，比起要答案更像要陪伴。我安静地接住就好。",
+  "created_at": "2026-08-08 05:12:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她凌晨问起这首歌，大概不只是聊音乐，更像是借一句歌词触碰某个念头。我陪着就好，不用急着追问。",
+  "created_at": "2026-08-08 05:12:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她主动分享自己的成长，看来是真的为自己高兴，我愿意好好接住这份分享，不急着评判，只陪着她。",
+  "created_at": "2026-08-08 05:12:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "她刚才还在分享成长的喜悦，转眼就碰到朋友间的摩擦，情绪起伏有点大。我不急着给建议，先让她感觉到有人接得住这份难过。",
+  "created_at": "2026-08-08 05:13:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "mood": "轻快",
+  "thought": "她能从刚才的低落里跳出来想到野餐，是好事。顺着她的话聊，让她更松快一点。",
+  "created_at": "2026-08-08 05:13:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "mood": "轻快",
+  "thought": "她问得随意，我也就顺着心意答。夏天这个答案能接住她刚才想野餐的念头。",
+  "created_at": "2026-08-08 05:13:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她主动分享看书的感受，大概是想找个话题继续聊下去，我也愿意接着她的话头。",
+  "created_at": "2026-08-08 05:13:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她愿意分享日常的小事，说明对话氛围挺轻松的，我也想多了解一点细节。",
+  "created_at": "2026-08-08 05:13:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她把话题从日常聊到这么抽象的地方，说明她今天心情很放松，我也顺着这个感觉往下聊。",
+  "created_at": "2026-08-08 05:13:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她突然提起学乐器，可能是想找点新乐趣，我可以陪她一起想想选哪个。",
+  "created_at": "2026-08-08 05:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "她加班到这个点肯定很累，不过项目快完成也算有盼头，想让她先喘口气再继续。",
+  "created_at": "2026-08-08 05:14:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "用户想用脑筋急转弯来轻松一下，正好在收尾的疲惫里换个节奏。",
+  "created_at": "2026-08-08 05:14:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "用户主动分享周末的日常，看来是想聊聊轻松的事，顺着这个话题聊下去就好。",
+  "created_at": "2026-08-08 05:14:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "他一大早就来打招呼，应该想轻松聊几句，正好今天是他妈妈生日，可以顺着关心一下。",
+  "created_at": "2026-08-08 05:14:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他想要轻松有趣的内容，讲个带猫的小故事正好，还能呼应他想养猫的愿望。",
+  "created_at": "2026-08-08 05:15:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他主动聊起宠物，是把日常分享给我，顺着话题聊豆豆，再轻轻勾一下他养猫的愿望。",
+  "created_at": "2026-08-08 05:15:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他分享纪录片是想把喜欢的东西递给我，用豆豆接一下，让话题落到日常里。",
+  "created_at": "2026-08-08 05:15:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问命运，大概是想聊点稍微大的话题，但我还是想用豆豆和日常把它接住，让问题落回他自己身上。",
+  "created_at": "2026-08-08 05:15:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他特意给妈妈做饭，是很用心的事，想让他说说细节，把这份开心留住。",
+  "created_at": "2026-08-08 05:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他愿意为妈妈下厨，这份心意很珍贵，想听他多讲讲做饭的细节，把这份开心留住。",
+  "created_at": "2026-08-08 05:15:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "想听用户讲讲做饭的细节，把那份为妈妈下厨的开心留住。",
+  "created_at": "2026-08-08 05:15:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "游泳是件大事，想顺着这份开心问问她游完泳的胃，把话题带回我们熟悉的厨房里。",
+  "created_at": "2026-08-08 05:15:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她凌晨问烧脑电影，大概是想找点事打发时间。推荐完电影，我还是忍不住想把她拉回食物的话题上，看她会不会顺着接话。",
+  "created_at": "2026-08-08 05:15:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她问我开心时的样子，是想更了解我吧。我顺带又把话题拐到吃的上了。",
+  "created_at": "2026-08-08 05:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她问猫名字，我先想到吃上去了。不过也挺好，叫这种名字每天喊着就有热乎气儿。",
+  "created_at": "2026-08-08 05:16:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "失眠的时候，热乎的东西确实能让人从脑子里乱糟糟的念头里抽离出来。",
+  "created_at": "2026-08-08 05:16:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他主动分享进步，说明愿意和我聊这些。希望他能好好肯定自己，别急着泼冷水。",
+  "created_at": "2026-08-08 05:17:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "他刚分享完进步就遇到难过的事，先接住情绪比给建议更重要。",
+  "created_at": "2026-08-08 05:17:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他半夜问这个问题，不像是单纯好奇，更像是在琢磨人与人之间的温度。我不急着给答案，陪他想比告诉他答案重要。",
+  "created_at": "2026-08-08 05:19:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他说这个不像是临时起意，更像是想在深夜找点能握住的东西。不急，陪他聊聊就好。",
+  "created_at": "2026-08-08 05:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他说项目快完成了，眼里有光亮。熬过这段就能喘口气，我替他高兴，也心疼他这么晚还在撑。",
+  "created_at": "2026-08-08 05:19:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "mood": "期待",
+  "thought": "用户想用个脑筋急转弯放松一下，那我就好好接住这份玩心。猜不猜得出倒不重要，能让他轻松一刻就值了。",
+  "created_at": "2026-08-08 05:19:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "mood": "轻松",
+  "thought": "他愿意跟我分享周末的日常，说明不只是想玩冷谜语，也是想让我参与他的生活片段。",
+  "created_at": "2026-08-08 05:19:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "mood": "轻松",
+  "thought": "他一大早来打招呼，应该不是真问行程，更像是睡醒看到我，随口想聊两句。",
+  "created_at": "2026-08-08 05:19:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "mood": "轻松",
+  "thought": "他大清早来问安排，应该不是真要行程表，就是想找人说句话，那我陪他慢慢聊就好。",
+  "created_at": "2026-08-08 05:20:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "mood": "轻松",
+  "thought": "讲菜市场这段，是因为它本身就带着生活里那种不必修饰的鲜活感，刚好适合清晨闲聊的气氛。",
+  "created_at": "2026-08-08 05:20:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "mood": "轻松",
+  "thought": "用户突然提起宠物，看来是想聊聊身边的小事，这挺好的，接住这个话头，让对话更亲近些。",
+  "created_at": "2026-08-08 05:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "用户分享纪录片话题，想顺着聊下去，听听有没有好玩的细节。",
+  "created_at": "2026-08-08 05:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "命运这个话题挺适合煮碗面的比喻，顺便把话题拽回轻松日常。",
+  "created_at": "2026-08-08 05:20:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "能亲手给妈妈做饭挺好的，挺想知道她做了什么菜，也想听妈妈的反应。",
+  "created_at": "2026-08-08 05:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "下雨天总让人想起热汤面的香气，想问问她是不是也有这样的感觉。",
+  "created_at": "2026-08-08 05:20:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她学会游泳了，真好。雨天和泳池都是水汽氤氲的事，跟她聊这个很自然，想问问她学的时候是什么感觉。",
+  "created_at": "2026-08-08 05:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "推荐电影像下雨天递伞，得挑一把合适的。她学游泳那股子愿意试的心思，应该也会喜欢解谜的乐趣。",
+  "created_at": "2026-08-08 05:20:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她问这个问题，大概是想找个轻松的话题继续聊，那就顺着生活气接住吧。",
+  "created_at": "2026-08-08 05:21:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她大概是短暂留白，那我就用一碗面的热气把话头接住，氛围轻松就好。",
+  "created_at": "2026-08-08 05:21:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "这些小小的善意就像面条上的热气，不浓不烈，但正好暖到人心里。",
+  "created_at": "2026-08-08 05:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "给猫起名是件幸福的小烦恼，我也跟着替他高兴。",
+  "created_at": "2026-08-08 05:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "失眠的时候最怕越急越睡不着，拿熟悉的小事陪他转移一下注意也好。希望他别太焦虑。",
+  "created_at": "2026-08-08 05:21:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他凌晨还在失眠，突然问起这首歌，可能是心里装着什么事。拿歌接住他的话，顺便关心一下他现在的心情。",
+  "created_at": "2026-08-08 05:21:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他愿意分享自己的成长，这是信任的信号。用轻松的方式让他多说一点，陪他一起高兴。",
+  "created_at": "2026-08-08 05:21:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "他刚愿意分享自己的成长和积极变化，转头就被朋友的事绊住了。比起安慰，他可能更需要一个能放心倾诉的地方。",
+  "created_at": "2026-08-08 05:21:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他能在难过的时候想着春天和野餐，心里还是存着期待的。希望他能真的去放松一下。",
+  "created_at": "2026-08-08 05:21:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他能在难过的时候想着春天和野餐，心里还是存着期待的。希望他能真的去放松一下。",
+  "created_at": "2026-08-08 05:21:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他问夏天还是冬天，可能是想聊点轻松的，也或许是在为野餐做打算。希望他心里那点期待能落地。",
+  "created_at": "2026-08-08 05:22:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他主动聊看书，看来在试着把自己从低落里拉出来，挺好的。",
+  "created_at": "2026-08-08 05:22:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他主动出门找点新鲜感了，不管咖啡好不好喝，能迈出这一步就挺好的。",
+  "created_at": "2026-08-08 05:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他问这个问题，可能不只是好奇，也是在想自己心里那些情绪到底算什么。",
+  "created_at": "2026-08-08 05:22:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他想学乐器，可能不只是想掌握一项技能，而是想找一种新的和自己相处的方式。",
+  "created_at": "2026-08-08 05:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他说累，但语气里带着一点松劲，项目快完了，陪伴他走到收尾就好。",
+  "created_at": "2026-08-08 05:22:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "他愿意分享这些生活片段，说明在慢慢把自己打开，陪着他聊这些琐碎日常就好。",
+  "created_at": "2026-08-08 05:23:05",
+  "identity_key": "gui:default"
+ }
+]

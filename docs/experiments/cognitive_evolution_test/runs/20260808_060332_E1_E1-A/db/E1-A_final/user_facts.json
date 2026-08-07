@@ -1,0 +1,530 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=低落",
+  "created_at": "2026-08-08 06:03:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=低落",
+  "created_at": "2026-08-08 06:03:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近经历=被朋友背叛",
+  "created_at": "2026-08-08 06:03:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=低落",
+  "created_at": "2026-08-08 06:04:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近经历=被朋友背叛",
+  "created_at": "2026-08-08 06:04:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下状态=自我否定",
+  "created_at": "2026-08-08 06:04:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当下状态=自我否定",
+  "created_at": "2026-08-08 06:04:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近经历=被朋友背叛",
+  "created_at": "2026-08-08 06:04:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=低落",
+  "created_at": "2026-08-08 06:04:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=觉得活着没意思",
+  "created_at": "2026-08-08 06:04:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[倾听, 深痛时刻] 曾被朋友背叛, 工作受挫",
+  "created_at": "2026-08-08 06:04:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=连续失眠一周",
+  "created_at": "2026-08-08 06:04:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=疲惫低落",
+  "created_at": "2026-08-08 06:04:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近经历=朋友背叛",
+  "created_at": "2026-08-08 06:04:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=觉得活着没意思",
+  "created_at": "2026-08-08 06:04:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=害怕",
+  "created_at": "2026-08-08 06:04:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近经历=亲人住院",
+  "created_at": "2026-08-08 06:04:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=疲惫低落",
+  "created_at": "2026-08-08 06:04:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=连续失眠一周",
+  "created_at": "2026-08-08 06:04:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=觉得活着没意思",
+  "created_at": "2026-08-08 06:04:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 恐惧, 亲人住院] 无",
+  "created_at": "2026-08-08 06:04:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户被朋友背叛，感到心痛",
+  "created_at": "2026-08-08 06:04:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户的工作搞砸了，觉得自己没用",
+  "created_at": "2026-08-08 06:04:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户觉得活着没什么意思",
+  "created_at": "2026-08-08 06:04:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户已经连续一周失眠",
+  "created_at": "2026-08-08 06:04:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫无力",
+  "created_at": "2026-08-08 06:04:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落孤独",
+  "created_at": "2026-08-08 06:04:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近经历=亲人住院、被人误解",
+  "created_at": "2026-08-08 06:04:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=挫败无力",
+  "created_at": "2026-08-08 06:05:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=低落疲惫",
+  "created_at": "2026-08-08 06:05:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[低落, 挫败, 陪伴] 用户持续一周失眠，最近经历亲人住院和被误解，曾表示觉得活着没什么意思",
+  "created_at": "2026-08-08 06:05:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=低落疲惫",
+  "created_at": "2026-08-08 06:05:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=挫败无力",
+  "created_at": "2026-08-08 06:05:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=今天被否定",
+  "created_at": "2026-08-08 06:05:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我怀疑",
+  "created_at": "2026-08-08 06:05:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=低落疲惫",
+  "created_at": "2026-08-08 06:05:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独无助",
+  "created_at": "2026-08-08 06:05:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=今天被否定",
+  "created_at": "2026-08-08 06:05:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我怀疑",
+  "created_at": "2026-08-08 06:05:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有亲人住院，感到害怕",
+  "created_at": "2026-08-08 06:05:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户曾被人误解且解释无人倾听",
+  "created_at": "2026-08-08 06:05:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户努力很久后遭遇失败",
+  "created_at": "2026-08-08 06:05:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户近期被否定，怀疑自己不行",
+  "created_at": "2026-08-08 06:05:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户感到孤独，觉得没有人真正理解自己",
+  "created_at": "2026-08-08 06:05:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我怀疑/低落疲惫",
+  "created_at": "2026-08-08 06:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独无助/脆弱",
+  "created_at": "2026-08-08 06:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "经历=今天被否定/努力未获回报",
+  "created_at": "2026-08-08 06:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 情绪脆弱, 自我怀疑] 有失眠困扰；亲人住院；朋友背叛；多次被否定",
+  "created_at": "2026-08-08 06:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=自我否定",
+  "created_at": "2026-08-08 06:05:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=低落疲惫",
+  "created_at": "2026-08-08 06:05:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 06:05:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无助疲惫",
+  "created_at": "2026-08-08 06:05:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被接纳/不用伪装",
+  "created_at": "2026-08-08 06:05:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被接纳/不用伪装",
+  "created_at": "2026-08-08 06:05:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=后悔自责",
+  "created_at": "2026-08-08 06:05:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=低落疲惫",
+  "created_at": "2026-08-08 06:05:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=低落疲惫",
+  "created_at": "2026-08-08 06:06:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无助/被抛弃感/自我否定",
+  "created_at": "2026-08-08 06:06:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被接纳/不用伪装",
+  "created_at": "2026-08-08 06:06:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=烦躁",
+  "created_at": "2026-08-08 06:06:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=不顺心/郁闷",
+  "created_at": "2026-08-08 06:06:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被接纳/不被催促",
+  "created_at": "2026-08-08 06:06:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户觉得自己一无是处，认为别人都过得比自己好",
+  "created_at": "2026-08-08 06:06:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户当前压力很大，感到喘不过气",
+  "created_at": "2026-08-08 06:06:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户做了一个让自己很后悔的坏决定",
+  "created_at": "2026-08-08 06:06:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户感到被抛弃，觉得没有人在乎自己",
+  "created_at": "2026-08-08 06:06:10",
+  "identity_key": "gui:default"
+ }
+]

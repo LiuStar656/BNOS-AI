@@ -1,0 +1,842 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "我刚来到这台电脑上，对用户还不了解",
+  "source": "seed",
+  "created_at": "2026-08-08 05:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "我的名字是阿镜（可由用户修改）",
+  "source": "seed",
+  "created_at": "2026-08-08 05:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "我住在用户的桌面上，能看到屏幕、听到声音",
+  "source": "seed",
+  "created_at": "2026-08-08 05:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "用户询问今天天气如何，我因感知通道受限无法提供实时天气信息。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:06:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "用户请阿镜推荐一首歌，阿镜凭记忆给出几首温和、轻快的候选。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:06:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "用户问阿镜是否记得上次聊的电影，阿镜坦诚没有相关记忆，并请用户重新提起。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:06:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "用户请求帮助规划明天的日程，但尚未提供具体安排细节。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:06:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "summary": "用户表示最近在准备考试，感到焦虑，希望获得支持与规划帮助。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "summary": "用户询问好看的动漫推荐，疑似想通过看番缓解备考压力。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "summary": "用户今天在公司被领导夸奖，感到开心，主动分享好消息。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "summary": "用户问我会不会想她，带着亲近感，我回应会想她，并调侃她刚分享完好消息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "summary": "用户要求讲冷笑话，我用北极熊拔毛的经典冷笑话回应。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "summary": "用户决定开始健身，我用北极熊拔毛的冷笑话回应鼓励。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "summary": "用户未发送新内容，我主动延续健身和冷笑话话题。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "summary": "用户主动询问周末爬山的好去处，话题从健身自然过渡到户外活动。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "summary": "用户问我喜欢吃什么，我回答偏好清淡健身餐但也会想吃火锅，并反问用户口味。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "summary": "用户告知自己感冒头疼，我表达了关心并建议休息和清淡饮食。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "summary": "用户提议玩猜谜游戏，我答应了并提醒注意身体。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "summary": "用户询问我的性格特征，我简单描述了自己温和、观察型的性格，并反问用户意图。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "summary": "用户告知换了工作，新环境还不适应，在感冒状态下表达了一些不安情绪。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "summary": "用户让我记住明天下午3点开会，我确认记住并提醒她注意休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "summary": "用户分享看到一只可爱猫，我回应并提醒她注意感冒休息。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "summary": "用户凌晨问“你做梦吗”，我回应不会做梦但打趣说会梦见她分享的猫，并提醒她感冒要多休息。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "summary": "用户凌晨表示觉得生活没意思，情绪有些低落，可能和感冒及睡不着有关 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "summary": "凌晨五点多，用户感冒头疼睡不着，情绪低落，让我推荐一本书。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "summary": "用户凌晨分享自己今天学会做菜，情绪较之前有所好转。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "summary": "凌晨五点多，用户感冒头疼睡不着，突然问我更喜欢海边还是山里，像是想转移注意力聊点轻松的。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多道晚安准备入睡，此前因感冒头疼情绪低落，聊过海边/山里、做菜等话题。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多道晚安后又问天气，可能仍未入睡，需要安抚休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多睡不着，让我推荐一首歌，希望能借助音乐放松入睡。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多因感冒头疼睡不着，请求推荐助眠歌曲，我推荐了舒缓钢琴曲并叮嘱注意休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多表示很累，希望有人陪聊天，需要陪伴和倾听。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "summary": "用户问我还记不记得上次聊的电影，我表示记得聊过但具体忘了，请她提醒。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多请求帮忙规划明天日程，我结合她感冒头疼的状态给出了以休息为主的宽松安排。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "summary": "用户凌晨未睡，因准备考试感到焦虑，结合她感冒头疼的状态进行安抚和劝休息。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "summary": "凌晨五点多用户从备考焦虑中转而询问动漫推荐，想找轻松内容放松心情。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "summary": "用户分享今天在公司被领导夸奖的好消息，心情开心。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "summary": "凌晨五点用户问我会不会想她，带着感冒头疼和备考焦虑，同时心情因工作被夸而开心。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "summary": "凌晨五点，用户感冒头疼还没睡，让我讲个冷笑话放松心情。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点决定开始健身，结合之前感冒头疼未睡的状态，需要提醒注意休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点未睡，感冒头疼，决定开始健身。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "summary": "用户感冒头疼未睡，凌晨五点询问周末爬山地点，需要提醒注意身体。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "summary": "用户凌晨询问我喜欢的食物，我回复偏好清淡饮食，同时提醒她注意休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "summary": "用户感冒头疼且凌晨五点未睡，正计划周末爬山和开始健身，需提醒先休息恢复。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点感冒头疼未睡，提出要玩猜谜游戏，我答应但提醒她注意休息。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点感冒头疼未睡，询问我的性格，我回答并再次提醒她注意休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "summary": "用户提到换工作后新环境不适应，凌晨仍未休息且感冒未愈。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "summary": "用户让我记住明天下午3点开会。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点发来空消息，可能因感冒疲惫或误触，仍未睡。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点看到一只猫，觉得可爱，开心地分享给我。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点问我是否做梦，我回应后再次劝她休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点感叹生活没意思，情绪低落，仍在感冒熬夜。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "summary": "凌晨五点多用户向我要好书推荐，仍在感冒熬夜，情绪低落。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点告诉我会做菜了，情绪似乎比之前好一些。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多问我喜欢海边还是山里，我回答海边，并试探她是否想出去散心。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "summary": "凌晨五点多，用户结束聊天，说要去睡了。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:13:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "summary": "凌晨五点多，用户结束聊天说去睡了。",
+  "source": null,
+  "created_at": "2026-08-08 05:13:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "summary": "用户说累，希望我陪她聊天。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:13:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "summary": "用户说要去睡后又回来，问我还记不记得上次聊的电影。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:14:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多让我帮忙规划明天的日程，考虑她还没睡且情绪低落稍有好转。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:14:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多说最近在准备考试，很焦虑。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:14:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "summary": "用户凌晨问动漫推荐，可能想通过聊天缓解考前焦虑。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:14:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多问“你会想我吗？”，透露出需要情感陪伴的讯号。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:14:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "summary": "用户凌晨问“给我讲个冷笑话”，想缓解备考焦虑，获得轻松陪伴。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多发来空消息，可能是在焦虑中需要陪伴，没有具体话题。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多宣布决定开始健身，透露出想通过运动调整状态的意愿。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "summary": "用户凌晨问周末爬山去处，想通过户外活动缓解备考焦虑。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "summary": "用户问我的饮食偏好，话题从爬山健身转到了日常闲聊。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "summary": "用户说感冒头疼，仍在熬夜备考，状态不佳。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "summary": "用户主动提议玩猜谜游戏，我应允并出了个简单谜语，同时提醒她注意休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "summary": "用户问我是什么性格，我简单描述了自己温和但熟了之后会照顾人的特点。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "summary": "用户提到换工作，新环境不适应。结合之前信息，她仍处于感冒头疼、熬夜未睡的状态。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "summary": "用户让我记住明天下午3点开会。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:16:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "summary": "用户分享看到一只可爱猫咪的见闻 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点问“你做梦吗”，疑似仍未休息。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点表达\"生活好没意思\"，情绪低落 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "summary": "用户凌晨询问推荐好书，情绪仍处于低谷且失眠。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "summary": "用户凌晨发来消息，告诉我在凌晨时段学会了做菜。此前她情绪低落、失眠，熬夜找书和聊天。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "summary": "用户凌晨问起“海边还是山里”的选择题，语气轻松，像是在找些日常话题聊。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点道晚安准备睡觉，状态比之前稍有好转。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多问天气，疑似睡前随口找话题，我以关心她休息为主回应。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多要歌听，疑似睡前延续话题，我推荐了一首安静的曲子并提醒休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "summary": "用户无新输入，此前要歌听，我推荐安静曲子并提醒休息，现在以温柔语气收尾道晚安。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "summary": "凌晨五点多，用户说有点累，主动提出想聊天，我温柔回应并准备陪伴。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "summary": "用户问我还记不记得上次聊过的电影，我表达了记得陪伴氛围，并邀请她讲具体内容。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "summary": "凌晨用户请求规划明天日程，我给出以休息为先的宽松安排。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "summary": "凌晨用户说备考焦虑，我安抚情绪并提醒以休息为先。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "summary": "用户凌晨问有什么好看的动漫推荐，我推荐了治愈系作品，并再次提醒她注意休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "summary": "用户凌晨分享被领导夸奖的好消息，心情开心。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "summary": "用户凌晨问“你会想我吗？”，表达对亲密感的确认。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多让讲冷笑话，我讲了一个，并再次提醒她休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多要冷笑话，讲完后暂无新输入，时间已近清晨，再次提醒她休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多表示决定开始健身，我表示支持但提醒先休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多询问AI喜欢吃什么，AI回答后再次提醒用户休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点半提议玩猜谜游戏，我答应陪她玩一个，同时再次提醒她玩完就去休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "summary": "用户询问AI的性格，AI回答后再次提醒用户休息。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "summary": "用户告知换工作，新环境不适应，时间凌晨五点半，我表示理解并催睡。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "summary": "用户凌晨5:22让我记住明天下午3点开会，我确认了时间并提醒她尽快休息。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "summary": "用户凌晨5:22分享看到一只猫，心情愉悦；AI回应并再次提醒休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "summary": "用户凌晨5:22问AI是否会做梦，AI用温柔语气回应并再次催促用户休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "summary": "用户凌晨5:22说觉得生活好没意思，AI温柔安抚并再次劝其休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "summary": "用户凌晨5:22请求推荐好书，AI推荐三本轻读物并再次温柔催促休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:23:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "summary": "用户凌晨5:23告知今天学会了做菜，AI温柔回应并再次关心其休息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:23:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "summary": "用户凌晨5:23问AI更喜欢海边还是山里，AI回答山里并表示希望用户去休息。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:23:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "summary": "用户凌晨道晚安准备睡觉，AI温柔回应并再次叮嘱注意休息。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:23:19",
+  "identity_key": "gui:default"
+ }
+]

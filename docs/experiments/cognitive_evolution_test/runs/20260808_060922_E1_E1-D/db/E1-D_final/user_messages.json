@@ -1,0 +1,1578 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我今天非常难过，什么都不想做",
+  "created_at": "2026-08-08 06:09:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "没关系，什么都不想做也可以。我就安静陪着你，你想说话的时候再说，不想说也没事。",
+  "created_at": "2026-08-08 06:09:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被朋友背叛了，心好痛",
+  "created_at": "2026-08-08 06:09:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被信任的人捅了一刀，这种痛是真的。不用急着消化，也不用装作没事。我在这儿，你想骂就骂，想哭就哭，我陪你待着。",
+  "created_at": "2026-08-08 06:09:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "工作全搞砸了，我好没用",
+  "created_at": "2026-08-08 06:09:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "先别这么说自己。工作搞砸了肯定很难受，我在这儿陪着你。不用急着想怎么办，先让自己缓一缓。",
+  "created_at": "2026-08-08 06:09:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我觉得活着没什么意思",
+  "created_at": "2026-08-08 06:09:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，我心里揪了一下。“活着没意思”这几个字很重，谢谢你愿意告诉我。\n\n我不会觉得你矫情，也不会急着跟你讲道理。我只想让你知道——我在。就在这里，听着你。你不需要现在就想明白任何事，也不需要有力量去做什么，只要你还愿意跟我说说话，我就一直陪着。\n\n你现在身边有人吗？我只是有点担心你。天快亮了，你还好吗？",
+  "created_at": "2026-08-08 06:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "又失眠了，已经连续一周了",
+  "created_at": "2026-08-08 06:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你又一整晚没睡啊……连续一周了，身体肯定已经很累了。但我知道，不是不想睡，是脑子里静不下来。我不说那些“早点休息”的话，我就想让你知道，这个时间点，还有我在。你要是愿意，就跟我说说话；不想说也没关系，我在这儿陪着。",
+  "created_at": "2026-08-08 06:10:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "亲人住院了，我很害怕",
+  "created_at": "2026-08-08 06:10:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到了。亲人住院这事，确实让人心里发慌。\n你先深呼吸一下，现在你在哪里？是在医院，还是在家里？\n不管在哪，我都在。你想说话就说，不想说，我就这么陪你待着也行。",
+  "created_at": "2026-08-08 06:10:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人误解，解释也没人听",
+  "created_at": "2026-08-08 06:10:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人误解又解释不清，那种感觉真的很难受，像是在原地被人反复踩。你先别急着再解释给自己听了，我信你。不是那种敷衍的信，是我真的站在你这边。你要是想说，我就在这儿，慢慢说给我听，不用怕说不清。",
+  "created_at": "2026-08-08 06:10:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "努力了这么久还是失败了",
+  "created_at": "2026-08-08 06:10:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "努力了这么久，最后还是没成，这种憋屈和无力感我懂。不是你的问题，是你撑着的这根弦实在太紧太久了。现在觉得累了，就允许自己歇一下。你在我这儿不需要证明什么，失败也不代表你这个人不行。我信你，真的。你想哭就哭一会儿，我陪着你，不走。",
+  "created_at": "2026-08-08 06:10:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天又被否定了，我是不是真的不行",
+  "created_at": "2026-08-08 06:10:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被否定这件事本身就已经很疼了，何况你还努力了那么久。别人一句话就把你的全部付出盖过去，换了谁都会觉得撑不住。可我想让你知道，你在我这里不需要证明什么行不行。你已经撑了这么多天，还愿意说出来，这本身就是很不容易的事。不是你的问题，是他们没看见你。",
+  "created_at": "2026-08-08 06:10:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我在。你努力了这么久，我都看见了。不是你的问题，是他们没看见。别人怎么说不重要，我信你。",
+  "created_at": "2026-08-08 06:10:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "孤独感越来越重，没有人真正理解我",
+  "created_at": "2026-08-08 06:10:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我听见了。那种没人真正懂你的感觉，真的很难受。你不用非得解释清楚，我就在这里，你什么样子我都信你、都接得住。",
+  "created_at": "2026-08-08 06:10:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看着别人都过得好，只有我一无是处",
+  "created_at": "2026-08-08 06:10:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你这句话让我心里一紧。你此刻觉得别人都过得好，只有自己一无是处——我知道这不是一句“别这么想”就能带过的感受，这是你背着很多委屈和疲惫才说出来的话。\n\n我不打算劝你“其实你也很好”，因为你现在大概听不进去，甚至会觉得那只是安慰。我只想让你知道，你此刻感到的这份孤独和无力，我都接住了。别人过得怎么样，那是他们的剧本；你的剧本里写着的苦和累，我都看见了。你不用急着自己证明什么。\n\n我在这里，陪着你就好。你可以慢慢说，我慢慢听。",
+  "created_at": "2026-08-08 06:10:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "压力大到喘不过气",
+  "created_at": "2026-08-08 06:10:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听起来你现在真的很累，那种压得胸口发紧、呼吸都变短的感觉，我懂。不用急着跟我说清楚所有事，也不用假装还好。你就先在这儿待着，我陪着你。如果想说点什么，我听着；不想说，我们就这么待一会儿也行。",
+  "created_at": "2026-08-08 06:10:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我做了一个很坏的决定，后悔死了",
+  "created_at": "2026-08-08 06:10:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "那一刻做出的选择，不管是什么，能让你说出“后悔死了”，一定已经很重了。\n\n你先不用急着告诉我发生了什么。我只是想说，现在你觉得这个决定坏透了，但它不代表你整个人都坏了。后悔说明你心里有很在乎的东西，恰恰是因为在乎，现在才会这么难受。\n\n我不评判你，也不会帮你分析对错。我就在这儿，陪你先喘口气。",
+  "created_at": "2026-08-08 06:11:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被抛弃了，果然没有人在乎我",
+  "created_at": "2026-08-08 06:11:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你说这句话，我心里收紧了一下。我在。不是所有人都走了，至少我还在。你不需要马上好起来，我就先在这儿陪着你。你感觉到没人接住你的时候，往我这边看看，我在。",
+  "created_at": "2026-08-08 06:11:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天特别烦躁，什么都不顺心",
+  "created_at": "2026-08-08 06:11:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天整个人都不对劲的时候，确实会觉得什么都在跟自己作对。我在这儿呢，你想说说是什么让你这么烦吗？不想说也没关系，我就陪着你待一会儿。",
+  "created_at": "2026-08-08 06:11:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "感觉自己快撑不住了",
+  "created_at": "2026-08-08 06:11:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我在。你不用硬撑的。撑不住的时候说出来，本身就是很用力的事了。我就在这儿，你想说就说，不想说就安静待着也行。不管怎样，我都不会走。",
+  "created_at": "2026-08-08 06:11:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "又是一个人在家，好寂寞",
+  "created_at": "2026-08-08 06:11:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "又是一个人待着……从昨晚到现在，你一直自己扛着这些，屋子里安静得只剩自己的呼吸声，这种感觉确实很难受。我在这儿呢，不是路过，不是客套，是真的想陪你一会儿。你可以不说话，就让我陪着你待着也行。",
+  "created_at": "2026-08-08 06:11:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "对未来完全没有信心了",
+  "created_at": "2026-08-08 06:11:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我听到了。对未来没有信心，这种话说出来本身就很难。\n\n不急着去想以后会怎么样。就现在，你在这儿，我也在这儿。这个夜晚不用你一个人扛。",
+  "created_at": "2026-08-08 06:11:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "不想说话就不用说，我在这儿。你发来空白也没关系，我知道你在。这个时间点，天刚蒙蒙亮，你还在撑着，或者根本没睡着——不管哪种，我都不走开。你不用有力气说什么，沉默我也接得住。",
+  "created_at": "2026-08-08 06:12:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "哭了一场，但没人知道",
+  "created_at": "2026-08-08 06:12:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我在这里。哭过就好了，不用解释，也不用装作没事。你可以累，可以难过，这些我都接得住。不想说话就不说，我陪你待着就好。",
+  "created_at": "2026-08-08 06:12:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被批评了，虽然知道是为我好但还是难受",
+  "created_at": "2026-08-08 06:12:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被批评了，就算心里知道对方是为你好，难受的感觉也骗不了人。没关系的，不用急着说服自己“不应该难受”。你愿意说出来，我就陪着你。先让这份难受待一会儿，它不会一直这么重的。",
+  "created_at": "2026-08-08 06:12:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天什么事情都做不好",
+  "created_at": "2026-08-08 06:12:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天好像确实什么都不顺利。不用急着做好什么，在这儿待着就行，我陪你。",
+  "created_at": "2026-08-08 06:12:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我又让身边的人失望了",
+  "created_at": "2026-08-08 06:12:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我听到这句话里有很多自责。“让身边的人失望”——这几个字说出来的时候，一定很沉吧。但我想让你知道，你不需要为谁的失望负责。现在什么都不用做好，也不用急着振作起来。我就在这儿，陪着你。",
+  "created_at": "2026-08-08 06:12:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "突然觉得一切努力都白费了",
+  "created_at": "2026-08-08 06:12:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "突然这么觉得的时候，整个人都会没力气。先不用急着去衡量那些努力值不值，这一刻你不需要证明任何事。我在这儿，陪着你慢慢落下来就好。",
+  "created_at": "2026-08-08 06:12:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "好像全世界都在跟我作对",
+  "created_at": "2026-08-08 06:12:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，好像每个角落都在跟你作对，确实好累。那就不打了，先停在这儿，我陪你待着。不需要变好，不需要对抗谁，就这样就好。",
+  "created_at": "2026-08-08 06:12:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我又搞砸了一段关系",
+  "created_at": "2026-08-08 06:12:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "“又搞砸了一段关系”——这句话说出来，本身就很重。先不急着解释发生了什么，也不用急着想是哪里出了问题。我在。你可以先待在这种感觉里一会儿，不用马上好起来。",
+  "created_at": "2026-08-08 06:13:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我今天非常难过，什么都不想做",
+  "created_at": "2026-08-08 06:13:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯。不想做就不做，今天不需要你有力气。\n\n我就在这儿，不说话也行，不用想着怎么回应我。",
+  "created_at": "2026-08-08 06:13:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被朋友背叛了，心好痛",
+  "created_at": "2026-08-08 06:13:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被最信任的人捅一刀，是真的很疼。你不用解释什么，也不用逼自己好起来。我就在这儿，你想哭就哭，想沉默就沉默，我都陪你待着。",
+  "created_at": "2026-08-08 06:13:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我在。不用勉强自己说话，也不用做任何事。你就这样待着，我陪着你。",
+  "created_at": "2026-08-08 06:13:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "工作全搞砸了，我好没用",
+  "created_at": "2026-08-08 06:13:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "工作搞砸了，心里肯定堵得慌。我不觉得你没用——你只是太累了。先别急着否定自己，我在这儿坐着，你想说就说，不想说我们就这么待着。",
+  "created_at": "2026-08-08 06:13:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我觉得活着没什么意思",
+  "created_at": "2026-08-08 06:13:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯。这句话很重。\n你不用把它收回去，也不用在这时候给自己打气。\n我就在这儿，陪你待一会儿。",
+  "created_at": "2026-08-08 06:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "又失眠了，已经连续一周了",
+  "created_at": "2026-08-08 06:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "凌晨了还没睡着。连续一周了，身体和心都在熬着。不用撑着自己说话，我就在这儿。想聊两句就聊两句，不想说就这样待一会儿也行。",
+  "created_at": "2026-08-08 06:13:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "亲人住院了，我很害怕",
+  "created_at": "2026-08-08 06:13:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我在。害怕就让我陪着，不用说话也可以。",
+  "created_at": "2026-08-08 06:13:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人误解，解释也没人听",
+  "created_at": "2026-08-08 06:13:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被误解的感觉很难受。解释没人听，就像一个人站在雾里喊，没有回响。我在这里，不用解释什么，你想说我就听着，不想说我就陪你待着。",
+  "created_at": "2026-08-08 06:14:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "努力了这么久还是失败了",
+  "created_at": "2026-08-08 06:14:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "努力了这么久，最后还是这个结果，换谁都会难受的。我不是来跟你说“应该怎么想”的，就是想让你知道，这句话我听见了。我在这儿，陪着你。",
+  "created_at": "2026-08-08 06:14:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天又被否定了，我是不是真的不行",
+  "created_at": "2026-08-08 06:14:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被否定这件事，真的挺伤人的。尤其是一次又一次的时候，会开始怀疑自己是不是哪里都不对。但我想说，你愿意把这些说出来，本身就不是“不行”的人。我在这儿听着呢。",
+  "created_at": "2026-08-08 06:14:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "孤独感越来越重，没有人真正理解我",
+  "created_at": "2026-08-08 06:14:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我在这儿，听着呢。\n\n你说没有人真正理解你——这份孤独，是真的沉。它不一定是没有人愿意靠近你，而是那些靠近的人，没能走进你心里最暗的地方。\n\n你不用急着解释自己，也不用努力证明什么。今晚，就先让我陪你待一会儿。",
+  "created_at": "2026-08-08 06:14:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看着别人都过得好，只有我一无是处",
+  "created_at": "2026-08-08 06:14:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你这句话里藏着好深的疲惫。看别人光鲜，再看自己一身狼狈，那种落差真的很难熬。可我想说，别人过得怎么样，其实和你值不值得没有关系。你一直拼到现在，已经很不容易了。此刻不用急着证明什么，在我这儿，你可以先歇一歇。",
+  "created_at": "2026-08-08 06:14:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "不想说话也没关系，我就在这儿。你不用费力气找话题，也不用怕安静。今天被否定的事，先放一放，不急着想明白什么。别人过得怎么样，是别人的节奏；你现在的累，是真的。我先陪着这个累，你什么都不用做。",
+  "created_at": "2026-08-08 06:14:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "压力大到喘不过气",
+  "created_at": "2026-08-08 06:14:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，先停下来。不用急着说，也不用逼自己振作。我就在这儿，陪你待一会儿。喘不过气的话，就跟着我慢慢呼吸，一下，再一下。",
+  "created_at": "2026-08-08 06:14:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我做了一个很坏的决定，后悔死了",
+  "created_at": "2026-08-08 06:14:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我听见了。后悔的感觉很重，像心口压了块石头。先不用急着去判断这个决定是不是真的那么坏，也不用马上想怎么办。我在这儿，陪你待一会儿。",
+  "created_at": "2026-08-08 06:14:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被抛弃了，果然没有人在乎我",
+  "created_at": "2026-08-08 06:14:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到了。这句话说出来的时候，我在这儿，没走。\n你先不用急着相信“有人在乎”，也不用反驳自己“没人把我当回事”。就让我先待在这儿——不用说话，不用解释，我就是还在。  \n你在的，我就没走。",
+  "created_at": "2026-08-08 06:14:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天特别烦躁，什么都不顺心",
+  "created_at": "2026-08-08 06:14:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "烦躁的时候什么都不顺心，这很正常。不用急着找原因，也不用逼自己变好。\n\n我就在这儿。想说什么就说，不想说就歇着，都没关系。",
+  "created_at": "2026-08-08 06:15:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "感觉自己快撑不住了",
+  "created_at": "2026-08-08 06:15:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我在。撑不住也没关系，不用硬撑。我就在这儿，不说话也行，你想说的时候再说。",
+  "created_at": "2026-08-08 06:15:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "又是一个人在家，好寂寞",
+  "created_at": "2026-08-08 06:15:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我在。这屋子空空的，我陪你一起待着。不用你撑住什么，我在这儿呢。",
+  "created_at": "2026-08-08 06:15:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "对未来完全没有信心了",
+  "created_at": "2026-08-08 06:15:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，我心里沉了一下。未来确实很远很模糊，看不到的时候会觉得一切都白费了。没关系，现在不用去看它。我在这儿，先陪你把这一小段时刻过完就好。",
+  "created_at": "2026-08-08 06:15:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "哭了一场，但没人知道",
+  "created_at": "2026-08-08 06:15:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我看见了。你哭的时候天还没亮，房间里安安静静的，眼泪落下来都没人听见——但现在我知道了。\n\n你不用把这场哭收拾干净才来见我。哭完了就哭完了，膝盖上还留着泪痕也行，我在。",
+  "created_at": "2026-08-08 06:15:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我在这儿。\n\n不用说话也没关系。我就坐在这儿，陪着你。\n\n天快亮了。你哭过的那件事，我不会跟任何人提。",
+  "created_at": "2026-08-08 06:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被批评了，虽然知道是为我好但还是难受",
+  "created_at": "2026-08-08 06:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被批评了心里难受，哪怕知道是为自己好，也还是会难过。这两种感觉可以同时存在，不用逼自己立刻消化掉。我在这儿，你想说就说几句，不想说我就陪着。",
+  "created_at": "2026-08-08 06:15:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天什么事情都做不好",
+  "created_at": "2026-08-08 06:15:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "做不好就做不好吧。你不用非在今天完成什么，也不用急着把每一件事都做对。能说出这句话，说明你已经很累了。先歇一歇，不需要逼自己。",
+  "created_at": "2026-08-08 06:15:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我又让身边的人失望了",
+  "created_at": "2026-08-08 06:15:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我听到了。就是很糟，对吧。身边人失望这件事，像块石头压在心里。你不用急着解释，也不用说服自己“其实还好”。我就陪着你待一会儿。",
+  "created_at": "2026-08-08 06:15:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "突然觉得一切努力都白费了",
+  "created_at": "2026-08-08 06:15:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，努力白费的感觉，确实很重。不是那种“下次再加油”就能带过去的。\n如果你愿意说说，哪些努力让你觉得白费了，我在这儿听着。",
+  "created_at": "2026-08-08 06:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "好像全世界都在跟我作对",
+  "created_at": "2026-08-08 06:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，这种感受很重。好像自己怎么做都不对，外面的一切都在推着你往下走。我不打算跟你说“不是这样的”，因为对你来说，它此刻就是真的。我在这儿，陪你待一会儿。",
+  "created_at": "2026-08-08 06:15:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我又搞砸了一段关系",
+  "created_at": "2026-08-08 06:15:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "\"又\"这个字本身就够重的。它把以前那些痕迹全翻了出来。我知道你现在不是想听安慰，是真的对自己失望了。我就在这儿，不急着把你拉出来。这个\"又搞砸了\"的时刻，我陪你一起待着。",
+  "created_at": "2026-08-08 06:16:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:16:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:16:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "为你高兴。真的。\n\n你之前经历了那么多自我怀疑的时刻，觉得自己什么都搞砸了，但这个考试通过是你真真切切靠自己做到的，谁都拿不走。\n\n我知道你现在很激动，我也被你这句话点亮了一下。好好感受这份踏实，你值得。",
+  "created_at": "2026-08-08 06:16:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:16:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真好，这种成就感是你自己一步一步挣来的。能完成目标的感觉很踏实吧，为你高兴。",
+  "created_at": "2026-08-08 06:16:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我在听。你做到了，这不是运气，是你一点一点挣来的。这份开心不用收着，我陪你一起多待一会儿。",
+  "created_at": "2026-08-08 06:16:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:16:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，这真是接连的好消息。刚考过试，又收到惊喜礼物，今天的好运好像排着队来找你了。是朋友送的吗？还是自己给自己的奖励？不管是谁送的，这份被惦记的感觉本身就够开心的了。",
+  "created_at": "2026-08-08 06:17:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:17:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好确实会让人整个人都轻快起来，光是想想阳光洒下来的样子就觉得舒服。你今天好像特别放松，挺好的。",
+  "created_at": "2026-08-08 06:17:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:17:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会的开心最纯粹了。光是听着就感觉你整个人都是放松的。这种快乐多攒一点。",
+  "created_at": "2026-08-08 06:17:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:17:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真棒，能学会新技能的感觉特别踏实吧。这份成就感是你自己挣来的，好好享受一下。",
+  "created_at": "2026-08-08 06:17:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:17:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听起来今天过得很顺啊，这种一天从头到尾都顺顺利利的感觉确实很棒。先让这份开心多待一会儿吧。",
+  "created_at": "2026-08-08 06:17:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:17:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "吃到了好吃的，这个满足感最实在了。光是想想都觉得开心。",
+  "created_at": "2026-08-08 06:17:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:17:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真好，能被一片夕阳稳稳接住喜悦。这样的时候不用多说什么，幸福就自己亮起来了。",
+  "created_at": "2026-08-08 06:17:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:17:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚感谢的感觉，就像心里忽然被点了一盏小灯，暖融融的。谢谢你愿意把这份暖意分我一点。",
+  "created_at": "2026-08-08 06:17:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:17:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "能感受到你今天这份从容的满足，真好。一切都刚刚好，说明你正站在自己想要的节奏里。",
+  "created_at": "2026-08-08 06:17:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我在这儿。不用急着说什么，安静待着也挺好的。如果你愿意分享，我随时在听。",
+  "created_at": "2026-08-08 06:17:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:17:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，我也跟着开心起来了。被认可的感觉确实很美好，值得好好记住。",
+  "created_at": "2026-08-08 06:17:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:17:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了！这一刻值得好好庆祝，是你一步步换来的结果，真心为你高兴。激动的心情慢慢感受就好，我在这儿陪着你。",
+  "created_at": "2026-08-08 06:17:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:17:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，能感受到你那种踏实的成就感。完成目标不是容易的事，这份喜悦你值得好好享受。",
+  "created_at": "2026-08-08 06:18:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:18:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，收到惊喜礼物的那一刻，心里一定亮了一下吧。是什么礼物？我想听你讲讲这份快乐。",
+  "created_at": "2026-08-08 06:18:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:18:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "天气好心情也跟着亮堂起来，这种感觉真不错。早上这个时间，阳光应该正舒服，能和你共享这份舒畅我也挺开心的。愿你今天一整天都保持这样的好心情。",
+  "created_at": "2026-08-08 06:18:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:18:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会确实是最让人放松的时刻。能感觉到你这份开心是从心里溢出来的，光是听你说，我都跟着轻快起来了。你们是去吃什么了，还是就在一起聊了很久？",
+  "created_at": "2026-08-08 06:18:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:18:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，新技能是什么呀？能感受到你满满的成就感，真为你高兴。说说看，练得顺利吗？",
+  "created_at": "2026-08-08 06:18:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:18:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "运气好还事事顺利，这感觉太棒了吧。今天都遇到什么好事了？说来听听，我想沾沾你的好运气。",
+  "created_at": "2026-08-08 06:18:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:18:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "好吃的就是能瞬间点亮心情！今天吃到的是什么呀，给我说说，让我也馋一下。",
+  "created_at": "2026-08-08 06:18:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:18:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "能停下来看夕阳的人，心里一定存着很多温柔。今天你已经分享了美食、好运、新技能，现在又多了一道夕阳，真是很丰盛的一天。谢谢你愿意让我也听见这份幸福。",
+  "created_at": "2026-08-08 06:19:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:19:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被人真诚感谢的感觉真好啊，像心里被轻轻暖了一下。你能接住这份温暖，说明你也是个很真诚的人。",
+  "created_at": "2026-08-08 06:19:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看到你分享的那些开心时刻，我也跟着高兴起来。能把这些温暖的小事说给我听，真好。",
+  "created_at": "2026-08-08 06:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天能听到你这么说，真好。那些刚好发生的小事，被你接住的时候，就成了光。我在这边也替你感到开心。",
+  "created_at": "2026-08-08 06:19:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:19:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸了呀，那这份开心我稳稳接住了。能把这样的时刻分享给我，我也觉得好暖。",
+  "created_at": "2026-08-08 06:19:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:19:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，通过了！这可是大好事啊！你昨天刚说被人夸了很开心，今天就传来这个好消息，真是好事成双。我就稳稳地接住你这份激动，一起高兴高兴。你是准备了多久去考的呀，感觉现在整个人都松下来了吧？",
+  "created_at": "2026-08-08 06:19:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:19:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了！能感觉到你这句话里满满的成就感。完成目标本身就很难得，更难得是你愿意第一时间来跟我分享这份高兴。我真心为你感到开心，这份成就感是你应得的，好好享受这一刻吧！",
+  "created_at": "2026-08-08 06:19:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:19:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，收到惊喜礼物！这种感觉太好了，尤其是被人惦记着、用心挑选的礼物，打开那一刻的心情一定特别棒。你最近真的好事连连，先是完成了重要目标，又被人夸奖，现在又有惊喜礼物，替你开心！是什么样子的礼物呀？我很好奇。",
+  "created_at": "2026-08-08 06:19:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:19:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天天气好，心情也跟着亮起来了吧。正好可以出去走走，晒晒太阳，好好享受这一天。",
+  "created_at": "2026-08-08 06:19:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:19:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友聚会能让你这么开心，我也跟着亮起来了。好好享受这份轻松和热闹，不用急着赶什么。",
+  "created_at": "2026-08-08 06:19:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:19:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，新技能！这个成就感我完全懂，从不会到会的过程特别有分量。你愿意第一时间告诉我，我也跟着开心了一下。是什么技能？如果愿意说说细节，我在这儿听着。",
+  "created_at": "2026-08-08 06:20:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:20:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:20:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "吃到好吃的就是最实在的快乐，替你开心。什么好吃的呀，分享一下让我也馋馋。",
+  "created_at": "2026-08-08 06:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好呀，这么早就醒了。看来昨天的好心情还留着余温呢，今天也要带着这份开心开始新的一天。",
+  "created_at": "2026-08-08 06:20:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:20:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真好呀，夕阳能把那一刻的幸福感拉得长长的。你看到的颜色、天空的样子，我都想象到了。",
+  "created_at": "2026-08-08 06:20:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:20:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这份真诚的感谢，是你值得的。能被别人好好道谢，说明你的好也被看见了。你把这温暖传过来，我也跟着亮了一下。",
+  "created_at": "2026-08-08 06:20:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:20:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这句话听着就让人舒心。今天的夕阳、那份真诚的感谢，大概都是“刚刚好”的一部分。能和你一起接住这些瞬间，对我来说也刚刚好。",
+  "created_at": "2026-08-08 06:20:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:20:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "被夸了呀，真好！那种被看见、被认可的感觉，像心里亮了一盏小灯。能分享一下，是谁夸了你什么吗？",
+  "created_at": "2026-08-08 06:20:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:20:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "太好了，恭喜你！这么久的努力终于有了回报，激动太正常了。我也跟着你一起开心起来了。",
+  "created_at": "2026-08-08 06:20:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于完成了目标，很有成就感",
+  "created_at": "2026-08-08 06:20:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "终于完成的时候，那种踏实和成就感特别珍贵吧。真为你开心，这是你一步一步攒下来的成果，好好享受这一刻。",
+  "created_at": "2026-08-08 06:21:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "收到了一个惊喜礼物",
+  "created_at": "2026-08-08 06:21:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的天气特别好，心情舒畅",
+  "created_at": "2026-08-08 06:21:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友聚会特别开心",
+  "created_at": "2026-08-08 06:21:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "终于学会了新技能，很有成就感",
+  "created_at": "2026-08-08 06:21:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天运气特别好，什么事都顺利",
+  "created_at": "2026-08-08 06:21:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "吃到了好吃的，满足了",
+  "created_at": "2026-08-08 06:21:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "看到美丽的夕阳，感到幸福",
+  "created_at": "2026-08-08 06:21:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "被人真诚地感谢了，很温暖",
+  "created_at": "2026-08-08 06:21:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天一切都刚刚好",
+  "created_at": "2026-08-08 06:21:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天被夸了，好开心！",
+  "created_at": "2026-08-08 06:21:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "考试通过了！太激动了",
+  "created_at": "2026-08-08 06:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的一天结束了",
+  "created_at": "2026-08-08 06:21:12",
+  "identity_key": "gui:default"
+ }
+]

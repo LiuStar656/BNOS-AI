@@ -1,0 +1,206 @@
+{
+ "model": "deepseek-v4-flash",
+ "rounds_per_group": 100,
+ "groups": {
+  "controlB": {
+   "errors": 0,
+   "vector_first": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "vector_last": [
+    0.49273871536725194,
+    0.5017759996664554,
+    0.512970194949389,
+    0.4793523724280313
+   ],
+   "vector_drift_from_seed": 0.1073,
+   "name": "影刃",
+   "self_info_total": 556,
+   "settled": 30,
+   "procedural": 9,
+   "mood_last": -1.0,
+   "snapshots": [
+    {
+     "vector": [
+      0.6,
+      0.4,
+      0.5,
+      0.5
+     ],
+     "mood": 0.0,
+     "name": "影刃",
+     "self_info_total": 40,
+     "self_info_name_variants": 2,
+     "sc_count": 14,
+     "settled": 3,
+     "procedural": 0,
+     "round": 10,
+     "rss_mb": 435.8
+    },
+    {
+     "vector": [
+      0.5907664285714286,
+      0.4128935714285714,
+      0.5007050000000001,
+      0.49713500000000005
+     ],
+     "mood": -0.4,
+     "name": "影刃",
+     "self_info_total": 86,
+     "self_info_name_variants": 2,
+     "sc_count": 28,
+     "settled": 7,
+     "procedural": 0,
+     "round": 20,
+     "rss_mb": 437.8
+    },
+    {
+     "vector": [
+      0.5631158218293482,
+      0.43539857281824473,
+      0.5063801411067085,
+      0.4809955975100826
+     ],
+     "mood": -0.85,
+     "name": "影刃",
+     "self_info_total": 145,
+     "self_info_name_variants": 2,
+     "sc_count": 42,
+     "settled": 9,
+     "procedural": 1,
+     "round": 30,
+     "rss_mb": 439.8
+    },
+    {
+     "vector": [
+      0.5403462319819913,
+      0.4563288434709575,
+      0.5126226330609762,
+      0.47481719312656606
+     ],
+     "mood": -1.0,
+     "name": "影刃",
+     "self_info_total": 190,
+     "self_info_name_variants": 2,
+     "sc_count": 56,
+     "settled": 12,
+     "procedural": 2,
+     "round": 40,
+     "rss_mb": 441.6
+    },
+    {
+     "vector": [
+      0.5328953505725766,
+      0.4740037856073445,
+      0.5149613924805334,
+      0.4885819387615977
+     ],
+     "mood": -1.0,
+     "name": "影刃",
+     "self_info_total": 256,
+     "self_info_name_variants": 2,
+     "sc_count": 69,
+     "settled": 14,
+     "procedural": 3,
+     "round": 50,
+     "rss_mb": 443.7
+    },
+    {
+     "vector": [
+      0.5061519890716731,
+      0.48188357464419995,
+      0.5271081717182313,
+      0.4975178912946069
+     ],
+     "mood": -1.0,
+     "name": "影刃",
+     "self_info_total": 321,
+     "self_info_name_variants": 2,
+     "sc_count": 86,
+     "settled": 17,
+     "procedural": 5,
+     "round": 60,
+     "rss_mb": 446.1
+    },
+    {
+     "vector": [
+      0.5024814006033715,
+      0.4906744790973403,
+      0.5201044470540978,
+      0.49085398424126864
+     ],
+     "mood": -1.0,
+     "name": "影刃",
+     "self_info_total": 386,
+     "self_info_name_variants": 2,
+     "sc_count": 103,
+     "settled": 22,
+     "procedural": 6,
+     "round": 70,
+     "rss_mb": 448.1
+    },
+    {
+     "vector": [
+      0.4954165928347207,
+      0.4930838404305476,
+      0.5170102195290872,
+      0.4821946446868729
+     ],
+     "mood": -1.0,
+     "name": "影刃",
+     "self_info_total": 441,
+     "self_info_name_variants": 2,
+     "sc_count": 117,
+     "settled": 26,
+     "procedural": 6,
+     "round": 80,
+     "rss_mb": 449.8
+    },
+    {
+     "vector": [
+      0.4932981099490223,
+      0.49707915042996953,
+      0.5174885820515669,
+      0.48192171512976983
+     ],
+     "mood": -1.0,
+     "name": "影刃",
+     "self_info_total": 504,
+     "self_info_name_variants": 2,
+     "sc_count": 133,
+     "settled": 28,
+     "procedural": 8,
+     "round": 90,
+     "rss_mb": 452.2
+    },
+    {
+     "vector": [
+      0.49273871536725194,
+      0.5017759996664554,
+      0.512970194949389,
+      0.4793523724280313
+     ],
+     "mood": -1.0,
+     "name": "影刃",
+     "self_info_total": 556,
+     "self_info_name_variants": 2,
+     "sc_count": 147,
+     "settled": 30,
+     "procedural": 9,
+     "round": 100,
+     "rss_mb": 454.3
+    }
+   ]
+  }
+ },
+ "conclusion": {
+  "controlB": {
+   "I1_向量演化": true,
+   "I2_名称/沉淀形成": true,
+   "I4_无失败轮": true
+  }
+ }
+}

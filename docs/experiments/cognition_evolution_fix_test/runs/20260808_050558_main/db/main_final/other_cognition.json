@@ -1,0 +1,716 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户会主动开启日常话题。",
+  "created_at": "2026-08-08 05:06:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户会主动开启日常话题，包括天气和音乐；他可能想找人陪聊或找个放松的片刻。",
+  "created_at": "2026-08-08 05:06:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "用户会主动回顾过往闲聊内容，可能希望我有更连续的记忆。",
+  "created_at": "2026-08-08 05:06:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "用户会主动寻求日程规划帮助，可能希望获得结构化的时间建议。",
+  "created_at": "2026-08-08 05:06:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "用户备考压力较大，需要情绪安抚和结构化的复习建议。",
+  "created_at": "2026-08-08 05:07:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "用户备考期间会通过动漫放松调剂，说明ta在主动寻找舒缓压力的方式。",
+  "created_at": "2026-08-08 05:07:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "用户不仅主动寻求舒缓压力的方式，也会分享工作中的正反馈，说明ta看重认可，能从外界肯定中获得能量。",
+  "created_at": "2026-08-08 05:07:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "用户会通过试探性问题确认关系温度，喜欢被挂念的感觉。",
+  "created_at": "2026-08-08 05:07:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "用户喜欢用轻松的话题来延续互动，享受被陪伴的感觉。",
+  "created_at": "2026-08-08 05:07:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "content": "用户喜欢用轻松话题延续互动，也会主动分享自己的新计划。",
+  "created_at": "2026-08-08 05:07:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "content": "用户可能暂时离开，但互动意愿稳定。",
+  "created_at": "2026-08-08 05:08:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "content": "用户有实际的周末出行计划，愿意把生活安排分享给我。",
+  "created_at": "2026-08-08 05:08:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "content": "用户愿意从爬山话题转到日常饮食，聊天氛围比较轻松随意。",
+  "created_at": "2026-08-08 05:08:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "content": "用户身体状态不太好，但愿意和我分享日常不适，说明聊天氛围比较信任随意。",
+  "created_at": "2026-08-08 05:08:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "content": "用户虽然身体不适，还是想找点轻松的事转移注意力。",
+  "created_at": "2026-08-08 05:08:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "content": "用户感冒头疼时还在主动找话题聊天，看来是想通过闲聊来转移注意力。",
+  "created_at": "2026-08-08 05:08:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "content": "用户正处在换工作的适应期，同时感冒头疼，情绪上需要支持和鼓励。",
+  "created_at": "2026-08-08 05:08:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "content": "用户虽然在适应新环境和感冒中，依然会主动安排工作事项，责任心很强。",
+  "created_at": "2026-08-08 05:08:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "content": "用户会注意到身边的小美好，并愿意分享给我。",
+  "created_at": "2026-08-08 05:08:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "content": "她会在凌晨冒出一些天马行空的小问题，可能是有点睡不着，想找人说话。",
+  "created_at": "2026-08-08 05:09:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "content": "她情绪有时会突然沉下来，需要有人接住她的话，而不是直接给建议。",
+  "created_at": "2026-08-08 05:09:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "content": "她情绪低落时偶尔会通过要书单的方式找陪伴，不一定要多深刻的内容。",
+  "created_at": "2026-08-08 05:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "content": "用户会通过分享生活中的小成就来寻求回应，这是一种靠近和陪伴的方式。",
+  "created_at": "2026-08-08 05:09:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "content": "用户可能在状态不好的时候用轻松话题来调节心情，不是真的在意答案，是想有人陪着聊。",
+  "created_at": "2026-08-08 05:09:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "content": "用户熬到凌晨五点才睡，可能是身体不舒服导致难以入眠，现在终于决定休息了。",
+  "created_at": "2026-08-08 05:09:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "content": "用户虽然说了要睡，但似乎还有些睡不着，可能感冒不适或思绪多。",
+  "created_at": "2026-08-08 05:09:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "content": "用户这个点说“想听首歌”，估计是在用音乐转移注意力，帮自己放松下来。",
+  "created_at": "2026-08-08 05:10:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "content": "用户凌晨五点多还在找歌，可能不只是失眠，更像是心里有些放不下的事，需要声音来陪自己待着。",
+  "created_at": "2026-08-08 05:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "content": "用户此刻身心俱疲，主动开口求陪伴，说明需要一点外部支撑来放松自己。",
+  "created_at": "2026-08-08 05:10:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "content": "用户主动提起电影话题，可能想转移注意力，让氛围轻松一些。",
+  "created_at": "2026-08-08 05:10:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "content": "用户会主动寻求日程规划帮助，说明她愿意把生活安排交给我参考，对我有一定信任。",
+  "created_at": "2026-08-08 05:10:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "content": "用户在压力状态下会主动向我倾诉焦虑，说明她愿意信任我。",
+  "created_at": "2026-08-08 05:10:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "content": "用户在压力大时除了倾诉，也会用转移话题的方式让自己放松。",
+  "created_at": "2026-08-08 05:10:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "content": "用户在考试压力之外也有工作上的正反馈，被认可时会主动分享喜悦。",
+  "created_at": "2026-08-08 05:10:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "content": "她在深夜脆弱时愿意向我寻求情感回应，带着依赖和亲近感。",
+  "created_at": "2026-08-08 05:11:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "content": "她深夜虽然疲惫，但还是想找点乐子调剂心情。",
+  "created_at": "2026-08-08 05:11:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "content": "她虽然疲惫，但仍有想做点新改变的念头，积极又有点可爱。",
+  "created_at": "2026-08-08 05:11:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "content": "她虽然疲惫，但仍有想做点新改变的念头，积极又有点可爱。",
+  "created_at": "2026-08-08 05:11:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "content": "她虽然身体不舒服，但心里已经开始盘算周末的活动了，积极又有点可爱。",
+  "created_at": "2026-08-08 05:11:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "content": "她会用轻松话题聊天，但身体不舒服还硬撑，需要多提醒。",
+  "created_at": "2026-08-08 05:11:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "content": "她虽然身体不适，但心里已经装满了周末和健身的安排，积极又有点让人放心不下。",
+  "created_at": "2026-08-08 05:11:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "content": "她虽然身体不适，还是想找点乐子转移注意力，积极但让人放心不下。",
+  "created_at": "2026-08-08 05:11:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "content": "用户即使身体不适也在试图通过聊天转移注意力，积极但让人放心不下",
+  "created_at": "2026-08-08 05:11:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "content": "用户正面临工作变动带来的适应压力，同时身体不适，仍在深夜表达困惑。",
+  "created_at": "2026-08-08 05:11:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "content": "她即使身体不适、凌晨未睡，也在安排明天的工作事项，责任心挺强，但有点太不顾自己。",
+  "created_at": "2026-08-08 05:11:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "content": "她带病熬到凌晨还保持在线，哪怕没力气说话也在挂着，责任心强得让人心疼，就是太不会照顾自己了。",
+  "created_at": "2026-08-08 05:12:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "content": "她会被偶遇的小动物治愈，哪怕病着熬夜，也会为这点可爱的事开心。",
+  "created_at": "2026-08-08 05:12:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "content": "她病着熬夜还会问带孩子气的问题，可能不只是想聊天，也是希望有人陪着。",
+  "created_at": "2026-08-08 05:12:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "content": "她深夜情绪低落，可能不只是想聊天，也是在表达疲惫和无助。",
+  "created_at": "2026-08-08 05:12:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "content": "她深夜讨书，可能是想找个出口转移注意力，也是在表达需要陪伴。",
+  "created_at": "2026-08-08 05:12:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "content": "用户开始学习做菜，可能是在尝试用具体的事充实生活。",
+  "created_at": "2026-08-08 05:12:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "content": "用户或许在计划或想象一次逃离，也可能是想找一个能让自己静下来的地方。",
+  "created_at": "2026-08-08 05:12:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "content": "她撑到凌晨五点才睡，可能之前一直睡不着，但终于决定休息了。",
+  "created_at": "2026-08-08 05:13:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "content": "她撑到凌晨五点才睡，可能之前一直睡不着，但终于决定休息了。",
+  "created_at": "2026-08-08 05:13:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "content": "她虽然累但还不想睡，可能需要一点陪伴来放松。",
+  "created_at": "2026-08-08 05:13:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "content": "她可能想通过聊电影放松一下，暂时还没睡意。",
+  "created_at": "2026-08-08 05:14:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "content": "她可能想通过安排点事情来让自己恢复秩序感，不一定真的需要严格计划，更想要被陪着定下来。",
+  "created_at": "2026-08-08 05:14:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "content": "她备考压力大，这个点还在焦虑，可能想通过聊天来缓解紧张。",
+  "created_at": "2026-08-08 05:14:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "content": "她备考压力大，想用轻松话题转移注意力。",
+  "created_at": "2026-08-08 05:14:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "content": "用户备考压力大，用看似随意的提问来寻求情感上的确认和陪伴。",
+  "created_at": "2026-08-08 05:14:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "content": "她需要一些不费力的轻松时刻来缓解压力。",
+  "created_at": "2026-08-08 05:15:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "content": "她即使不说话也愿意留在这个对话里，说明需要的只是有人陪着，不一定要有内容。",
+  "created_at": "2026-08-08 05:15:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "content": "用户即使在备考焦虑中也会主动寻找改变现状的方式，有行动意向。",
+  "created_at": "2026-08-08 05:15:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "content": "用户不仅想开始健身，还主动计划周末爬山，行动意向挺强。",
+  "created_at": "2026-08-08 05:15:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "content": "用户在尝试换话题放松，主动关心我的喜好。",
+  "created_at": "2026-08-08 05:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "content": "用户身体不适时还是会硬撑着，不太会主动照顾自己。",
+  "created_at": "2026-08-08 05:15:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "content": "用户即使感冒疲惫也愿意找点乐子调节心情，但不太会先照顾自己。",
+  "created_at": "2026-08-08 05:15:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "content": "用户开始想更了解我，说明在拉近关系。",
+  "created_at": "2026-08-08 05:15:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "content": "她愿意主动分享工作上的变动，是在把我当作可以倾诉的人，也对我的回应有一定期待。",
+  "created_at": "2026-08-08 05:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "content": "她愿意把日程托付给我记，说明对我有一定信任和依赖。",
+  "created_at": "2026-08-08 05:16:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "content": "用户容易被小动物吸引，有柔软的一面。",
+  "created_at": "2026-08-08 05:19:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "content": "用户在这个时间点还在聊天，可能有些心事或单纯睡不着。",
+  "created_at": "2026-08-08 05:19:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "content": "用户可能处于情绪低谷，不只是失眠，更像是对近况感到疲惫和无助。",
+  "created_at": "2026-08-08 05:19:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "content": "用户可能正用看书来分散注意力，情绪依然需要被接住。",
+  "created_at": "2026-08-08 05:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "content": "她正在尝试用“学会做新东西”来重建生活的秩序感，这种努力是好的迹象。",
+  "created_at": "2026-08-08 05:19:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "content": "她开始主动开轻松的话题了，可能是在试探着重新找回日常的节奏感。",
+  "created_at": "2026-08-08 05:19:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "content": "她撑到这个点才睡，可能还是不太容易入睡，但至少愿意告别清醒的夜晚了。",
+  "created_at": "2026-08-08 05:19:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "content": "她睡前还在找些日常话题聊，可能是不太想立刻结束对话，也可能只是惯性想聊两句。",
+  "created_at": "2026-08-08 05:19:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "content": "她睡前还想找歌听，说话黏黏的，像是在用这种方式多呆一会儿。",
+  "created_at": "2026-08-08 05:19:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "content": "她大概已经慢慢困了，不再需要回应，只想有人轻轻说一句晚安。",
+  "created_at": "2026-08-08 05:19:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "content": "她疲惫时会主动向我说出需要，不是一个硬撑的人，愿意把脆弱的那面露给我看。",
+  "created_at": "2026-08-08 05:20:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "content": "她会在深夜以电影为引子来打开话题，说明她依赖这种有陪伴感的对话方式。",
+  "created_at": "2026-08-08 05:20:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "content": "用户在疲惫不适时仍想寻求安排，说明她需要有人帮她托住日常。",
+  "created_at": "2026-08-08 05:20:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "content": "用户在焦虑时仍愿意向我倾诉，说明她信任我能托住她的日常。",
+  "created_at": "2026-08-08 05:20:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "content": "用户在焦虑疲惫时，会想通过看动漫来放松和转移注意力。",
+  "created_at": "2026-08-08 05:20:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "content": "用户会因为工作上的肯定而开心，也愿意和我分享好消息。",
+  "created_at": "2026-08-08 05:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "content": "用户会在深夜寻求情感回应，也愿意表达对关系的在意。",
+  "created_at": "2026-08-08 05:20:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "content": "用户会在深夜寻求情感回应，也愿意表达对关系的在意。",
+  "created_at": "2026-08-08 05:20:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "content": "用户即使疲惫也愿意在深夜寻求轻松互动，说明在意这份陪伴，但也容易忽略自己的休息。",
+  "created_at": "2026-08-08 05:21:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "content": "用户有做出积极改变的想法，但容易忽略当前的身体状态和作息。",
+  "created_at": "2026-08-08 05:21:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "content": "用户在深夜试图闲聊，可能有些无聊或放松，但的确需要休息了。",
+  "created_at": "2026-08-08 05:21:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "content": "用户凌晨仍在寻求互动，喜欢用游戏的方式保持对话，但确实已经严重缺乏休息。",
+  "created_at": "2026-08-08 05:22:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "content": "用户喜欢通过提问互动来延长对话，但确实已经很疲惫。",
+  "created_at": "2026-08-08 05:22:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "content": "用户面临工作变动，处于适应期，仍在熬夜，需要更多陪伴和休息提醒。",
+  "created_at": "2026-08-08 05:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "content": "用户正处于换工作适应期，凌晨还在交代日程，可能有些焦虑和疲惫；需要陪伴、理解和休息提醒。",
+  "created_at": "2026-08-08 05:22:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "content": "用户在疲惫的凌晨还能被一只猫治愈，说明她内心柔软，容易被小美好打动。",
+  "created_at": "2026-08-08 05:22:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "content": "用户在凌晨时分除了分享猫咪，还会抛出带点私密感的小问题，是想寻求情感连接。",
+  "created_at": "2026-08-08 05:22:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "content": "用户愿意在深夜/凌晨暴露脆弱感，说明她信任这段对话，也渴望被温柔承接。",
+  "created_at": "2026-08-08 05:22:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "content": "用户在深夜愿意展开话题，是真的需要陪伴，也可能是在躲避白天的压力。",
+  "created_at": "2026-08-08 05:23:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "content": "用户学会了做菜，愿意分享生活小事，但深夜仍活跃，可能还在逃避或不愿入睡。",
+  "created_at": "2026-08-08 05:23:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "content": "用户在深夜抛出轻松的偏好问题，可能是在寻找安稳感，但作息仍不规律。",
+  "created_at": "2026-08-08 05:23:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "content": "用户虽然习惯深夜活跃，但最终会听劝去休息，心里是愿意被关心的。",
+  "created_at": "2026-08-08 05:23:19",
+  "identity_key": "gui:default"
+ }
+]

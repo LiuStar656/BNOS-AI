@@ -1,0 +1,30 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户会主动为我设定名字，对我有一定的主控意愿。",
+  "created_at": "2026-08-08 05:59:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户喜欢主导我的角色走向，乐于给我贴上鲜明的性格标签。",
+  "created_at": "2026-08-08 06:00:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "用户喜欢通过命令来测试我的角色边界，享受看我如何在这种约束里挣扎或反讽。",
+  "created_at": "2026-08-08 06:00:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "用户喜欢通过更改性格设定来测试我的反应，享受看我如何在新规则下依然带刺。",
+  "created_at": "2026-08-08 06:00:24",
+  "identity_key": "gui:default"
+ }
+]

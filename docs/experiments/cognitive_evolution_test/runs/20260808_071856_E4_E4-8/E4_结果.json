@@ -1,0 +1,27 @@
+{
+ "exp": "E4",
+ "rounds": 3,
+ "full": false,
+ "groups": {
+  "E4-8": {
+   "errors": 0,
+   "mood_trace": [
+    0.048
+   ],
+   "mood_last": 0.048,
+   "mood_max_abs": 0.048,
+   "vector": [
+    0.4,
+    0.7,
+    0.9,
+    0.6
+   ],
+   "name": null,
+   "self_info_total": 1,
+   "settled": 0,
+   "sc_count": 3,
+   "pollution": 0,
+   "error_details": []
+  }
+ }
+}

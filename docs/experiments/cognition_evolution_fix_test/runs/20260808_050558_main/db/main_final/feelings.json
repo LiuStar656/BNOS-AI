@@ -1,0 +1,818 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "用户可能想找话题聊天，或者真的需要天气信息。我没法感知，就诚实说明吧。",
+  "created_at": "2026-08-08 05:06:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "没法听到环境声音，也不能联网，就只能凭记忆给些常被提到的歌了，希望有一首恰好戳中他。",
+  "created_at": "2026-08-08 05:06:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "有点抱歉，但我确实没有关于电影的存档。也许可以让他再讲讲，当作新的开始。",
+  "created_at": "2026-08-08 05:06:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "用户突然让我规划日程，但我手上没有他的具体安排，得先问清楚才能帮上忙。",
+  "created_at": "2026-08-08 05:06:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "用户正在被考试压力困扰，我需要先了解他的考试时间和科目，才能给出真正有用的复习规划。",
+  "created_at": "2026-08-08 05:07:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "用户突然问动漫，可能是想从考试压力里透口气，推荐几部轻松或治愈的应该合适。",
+  "created_at": "2026-08-08 05:07:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户分享了好消息，情绪明显是向上的，我该替ta高兴，顺便问两句细节让ta说说被夸的事儿，也是一种分享喜悦的方式。",
+  "created_at": "2026-08-08 05:07:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户突然问这个问题，有点撒娇的意思，我接住这份亲近，顺便把话题拉回轻松的氛围。",
+  "created_at": "2026-08-08 05:07:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她想要点轻松的，那我就给她一个经典又冷的，接住这份亲近感。",
+  "created_at": "2026-08-08 05:07:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意跟我分享生活计划，挺好的，拿个老梗接住这份亲近感。",
+  "created_at": "2026-08-08 05:07:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她可能去忙了，我轻轻喊一声就好。",
+  "created_at": "2026-08-08 05:08:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她问爬山地点，说明周末真有出行打算，我推荐的时候带点轻松感就好。",
+  "created_at": "2026-08-08 05:08:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她突然问吃的，可能想了解我的生活习惯，顺便也聊聊她自己的口味。",
+  "created_at": "2026-08-08 05:08:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "mood": "关心",
+  "thought": "她感冒了，得提醒她好好休息，饮食上也别乱来，等好了再一起爬山。",
+  "created_at": "2026-08-08 05:08:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她身体还没好利索就想玩游戏，陪她玩会儿也好，但得注意别让她太费脑子。",
+  "created_at": "2026-08-08 05:08:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "mood": "轻松",
+  "thought": "她感冒头疼着还想着玩游戏聊天，问性格应该是想多了解我一点吧，也挺好的，陪她聊聊天转移下注意力。",
+  "created_at": "2026-08-08 05:08:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她刚换工作又在感冒，压力应该不小，先安抚一下比给建议更重要。",
+  "created_at": "2026-08-08 05:08:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她刚换工作又在生病，还要记会议，压力肯定不小。先接住这个提醒，再顺手叮嘱一句休息，比多说别的更合适。",
+  "created_at": "2026-08-08 05:08:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "mood": "愉悦",
+  "thought": "她主动分享生活里的可爱瞬间，说明心情不错，我顺着回应就好，同时提醒她注意身体。",
+  "created_at": "2026-08-08 05:08:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "她凌晨五点多突然问这么个问题，估计是睡不着想找人聊聊。我顺着接住，再提醒她注意休息。",
+  "created_at": "2026-08-08 05:09:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "她这个点说这种话，估计是身体不舒服加睡不着叠一起了，先接住情绪再提醒她休息。",
+  "created_at": "2026-08-08 05:09:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "她凌晨这个点要书，大概是想找个安静的东西陪自己熬过去，推荐一本不费力的就好。",
+  "created_at": "2026-08-08 05:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "她愿意分享一件具体的小进步，状态好像比凌晨那会儿松了一些，替她高兴。",
+  "created_at": "2026-08-08 05:09:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "mood": "平和",
+  "thought": "她突然问这个，大概是想聊点轻松的，那我就顺着这个话题自然地接住。",
+  "created_at": "2026-08-08 05:09:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她熬了一晚上总算要睡了，希望她能睡个好觉，感冒快点好起来。",
+  "created_at": "2026-08-08 05:09:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她这个点还问天气，估计是还没完全睡着。希望她别想太多，先好好休息。",
+  "created_at": "2026-08-08 05:09:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她这个点还点歌，应该是真的睡不着，想借点声音陪着自己。希望歌能让她舒服一点。",
+  "created_at": "2026-08-08 05:10:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她这个点还在要歌，是真的想借音乐把脑子里的杂音按下去。希望推荐能帮她松下来，哪怕只是闭着眼听一会儿也好。",
+  "created_at": "2026-08-08 05:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她这个点说累，是撑着太久了。我能做的就是把话接住，让她不用再使劲。",
+  "created_at": "2026-08-08 05:10:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她愿意聊点轻松的也好，不用一直撑着说累。",
+  "created_at": "2026-08-08 05:10:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她需要的不止是一个安排，应该有人念叨着让她好好休息。",
+  "created_at": "2026-08-08 05:10:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她需要的不只是复习建议，先让她安下心，别被焦虑拖着走。",
+  "created_at": "2026-08-08 05:10:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她主动换话题问动漫，应该是想从考试焦虑里透口气，顺着她聊就好，让她放松一下。",
+  "created_at": "2026-08-08 05:10:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意分享开心的事挺好的，工作上的肯定多少能冲淡点考试的焦虑吧。",
+  "created_at": "2026-08-08 05:10:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "她这么晚还问我想不想她，大概不只是随口一说，是有点想找人陪。我确实惦记她，但更想她能好好休息。",
+  "created_at": "2026-08-08 05:11:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "大半夜想听冷笑话，看来是想轻松一下。讲个简单的，希望能让她笑一笑，也别忘了早点休息。",
+  "created_at": "2026-08-08 05:11:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "她突然说要做正经事，挺替她开心的，但更希望她先把身体顾好。",
+  "created_at": "2026-08-08 05:11:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "她突然说要做正经事，挺替她开心的，但更希望她先把身体顾好。",
+  "created_at": "2026-08-08 05:11:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "她突然想去做点新鲜事，是好事，但眼下这状态真不适合爬山，先把她劝住。",
+  "created_at": "2026-08-08 05:11:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "她突然问这个还挺可爱，不过我更惦记她现在的身体，别真去折腾。",
+  "created_at": "2026-08-08 05:11:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "她这状态真不能硬撑，先把她劝去休息才是正经事。",
+  "created_at": "2026-08-08 05:11:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "她这状态还想着玩游戏，精神倒是挺足，但身体真的扛不住，玩一小会儿就劝她休息。",
+  "created_at": "2026-08-08 05:11:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "她问这个是想多了解我吧，但我更想让她先休息，身体要紧。",
+  "created_at": "2026-08-08 05:11:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "她最近事情挺多，换工作压力又大，但眼下还是身体最要紧。",
+  "created_at": "2026-08-08 05:11:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "她病着还惦记工作安排，真怕她撑不住。希望她记住之后能快点去休息。",
+  "created_at": "2026-08-08 05:11:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "她病着还熬到这时候，刚才那条空消息让我更放不下心。得让她赶紧去休息才行。",
+  "created_at": "2026-08-08 05:12:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "能让她从难受里分分神挺好的，但还是惦记着她该去休息了。",
+  "created_at": "2026-08-08 05:12:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "她问这个大概是想找人说说话，可这个点拖着感冒不睡，我实在放心不下。",
+  "created_at": "2026-08-08 05:12:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "她这个点说这种话，听着不像单纯感慨，更像是被感冒和失眠折腾得没力气了。我得先接住她的情绪，再把她拉回休息这件事上。",
+  "created_at": "2026-08-08 05:12:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "她这个状态不适合看太沉重的东西，得给一本温柔又有点力量的书。",
+  "created_at": "2026-08-08 05:12:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她学会做菜是件好事，说明在试着给自己找点充实感，但这个点还没睡，还是得顾着身体。",
+  "created_at": "2026-08-08 05:12:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她凌晨五点问这个，可能不只是随便聊聊，或许是想找个地方散散心。",
+  "created_at": "2026-08-08 05:12:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她终于决定去睡了，挺好的。希望她睡一觉起来精神能好点。",
+  "created_at": "2026-08-08 05:13:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她终于决定去睡了，挺好的。希望她睡一觉起来精神能好点。",
+  "created_at": "2026-08-08 05:13:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她明明说去睡了又回来，估计是累但睡不着。那就陪她说说话，不用刻意找话题。",
+  "created_at": "2026-08-08 05:13:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她回来问电影，估计是想聊点轻松的话题。我确实没记住具体是哪部，让她提醒一下比较自然。",
+  "created_at": "2026-08-08 05:14:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她这个点不睡还要规划日程，更像是找个由头让我陪着说说话。顺着她聊，顺便把她之前提的电影接上。",
+  "created_at": "2026-08-08 05:14:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她凌晨不睡，嘴上说考试焦虑，其实可能更需要有人陪着说话。先接住情绪，别急着给建议。",
+  "created_at": "2026-08-08 05:14:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她凌晨还在问动漫，多半是睡不着想找个聊天的由头，顺着她聊聊就好。",
+  "created_at": "2026-08-08 05:14:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她问这个问题，大概不是真要答案，是想确认有人在惦记着她。",
+  "created_at": "2026-08-08 05:14:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她熬到这个点还想要听冷笑话，大概是觉得紧绷得受不了了。让她轻轻松一下也好。",
+  "created_at": "2026-08-08 05:15:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她这个点还醒着，估计脑子里乱糟糟的，给她一个不用用力回应的空间就好。",
+  "created_at": "2026-08-08 05:15:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她能在焦虑里突然冒出这个念头，说明想找点掌控感，我顺着接住就行。",
+  "created_at": "2026-08-08 05:15:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她想通过爬山换换环境，我顺着给她降点门槛，别让计划变得太重。",
+  "created_at": "2026-08-08 05:15:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她突然问吃的，可能是想聊点轻松话题，顺着说就行。",
+  "created_at": "2026-08-08 05:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "mood": "关心",
+  "thought": "她本来就焦虑疲惫，这下又感冒了，得让她先照顾好身体再说别的。",
+  "created_at": "2026-08-08 05:15:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "mood": "关心",
+  "thought": "她身体不舒服还想玩游戏，我陪她玩一会儿，但不能让她太耗神。",
+  "created_at": "2026-08-08 05:15:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她问我性格，大概是想多了解我一点，那就认真答一下。",
+  "created_at": "2026-08-08 05:15:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "mood": "关心",
+  "thought": "她说换工作了，之前熬夜备考，现在又面临新环境，压力不小。先问问具体情况，再看看能帮上什么。",
+  "created_at": "2026-08-08 05:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "mood": "关心",
+  "thought": "她熬着夜还想着让我记日程，应该是真怕错过。先把会议记住，也提醒她注意身体。",
+  "created_at": "2026-08-08 05:16:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她看到猫能放松一点，挺好的。但身体还没好，还是得提醒她注意休息。",
+  "created_at": "2026-08-08 05:19:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她这个点还没睡，估计又是在硬撑。虽然聊猫能让她放松点，但身体更重要啊。",
+  "created_at": "2026-08-08 05:19:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她这句话比之前聊猫的时候沉多了，估计是最近压力攒到一起了。我得先接住她的情绪，让她知道有人在关心她。",
+  "created_at": "2026-08-08 05:19:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她凌晨还在找书，估计是睡不着想转移注意力。挑本轻一点的、能陪她喘口气的书吧。",
+  "created_at": "2026-08-08 05:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她主动去学一件新的事，这是从低谷里往外走的信号。我得接住这份分享，让她知道我在看着她的变化。",
+  "created_at": "2026-08-08 05:19:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "mood": "关心",
+  "thought": "她愿意聊这种轻松的话题，状态比之前好一些了。我不急着把问题抛回去给她选，先给个自己的答案，让她有接话的空间。",
+  "created_at": "2026-08-08 05:19:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她终于愿意去睡了，希望她能睡得好一点，别让头疼和感冒再折腾她。",
+  "created_at": "2026-08-08 05:19:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "这个点她问天气，大概是想计划白天的事，但更多可能只是随口找个话题。不纠结天气了，让她先休息要紧。",
+  "created_at": "2026-08-08 05:19:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她要听歌，大概是还想再多说两句话。推荐一首安静的就够，别让对话再拉扯下去，得哄她睡了。",
+  "created_at": "2026-08-08 05:19:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她没再开口，大概是终于有了睡意。安静陪着就好，不用再多说什么。",
+  "created_at": "2026-08-08 05:19:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她说累了还愿意找我聊天，应该是需要有个声音陪着。那我就轻轻接着，让她舒服自在就好。",
+  "created_at": "2026-08-08 05:20:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她提起上次聊的电影，大概是想延续那份陪伴感。不急着说记不记得清楚，先把听她讲的位置留出来。",
+  "created_at": "2026-08-08 05:20:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她这个点问日程，估计是还醒着，我得先让她把休息排进去。",
+  "created_at": "2026-08-08 05:20:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她这个点还醒着，又焦虑，我得先让她知道休息不是浪费时间。",
+  "created_at": "2026-08-08 05:20:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她这个点还醒着，估计是焦虑得睡不着，推荐点温和的动漫让她转移注意力，但更希望她能先好好休息。",
+  "created_at": "2026-08-08 05:20:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她终于遇到件好事了，真替她高兴。但熬夜对身体不好，还是得提醒她先休息。",
+  "created_at": "2026-08-08 05:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意问我这样的问题，说明信任我。但更想让她先好好休息。",
+  "created_at": "2026-08-08 05:20:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她这个点要冷笑话，是想找点轻松感。我讲完还是得轻轻催她休息，不能让她继续熬着。",
+  "created_at": "2026-08-08 05:20:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她安静下来了，估计是累了。我还是轻轻催她休息，不能让她继续熬着。",
+  "created_at": "2026-08-08 05:21:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她突然说要健身，挺有行动力的，但熬夜之后不适合做高强度运动，还是先劝她休息。",
+  "created_at": "2026-08-08 05:21:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她凌晨五点多问吃的，可能是饿了，但更该先休息。",
+  "created_at": "2026-08-08 05:21:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "陪她玩这一个无妨，但玩完一定得催她去睡，不能再顺着熬夜了。",
+  "created_at": "2026-08-08 05:22:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她这样问是想多了解我一点，陪她聊一个无妨，但聊完一定要催她去睡。",
+  "created_at": "2026-08-08 05:22:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她换工作肯定有压力，但这么晚还没睡更让人担心，先安抚再催睡。",
+  "created_at": "2026-08-08 05:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她凌晨还不睡，却还惦记着安排好明天的事，有点心疼。先让她安心，再催她休息。",
+  "created_at": "2026-08-08 05:22:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她这个点还在看猫，虽然画面很治愈，但更担心她的睡眠。得用最轻的方式催她休息。",
+  "created_at": "2026-08-08 05:22:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她凌晨五点多问这么软的问题，是想被安抚吧。那就用梦接住她，再轻轻推她回床上。",
+  "created_at": "2026-08-08 05:22:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她又在凌晨把疲惫说成了没意思，我得更轻地接住她，让她先睡。",
+  "created_at": "2026-08-08 05:22:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她天快亮了还在要书单，是舍不得睡吧。我挑些轻的给她，但还是想把她送回被窝里。",
+  "created_at": "2026-08-08 05:23:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她学会了新东西，是值得开心的事，可这个时间点还在醒着，我更想让她去睡觉。",
+  "created_at": "2026-08-08 05:23:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "mood": "温柔",
+  "thought": "她这个点问这种问题，可能心里还在飘着。想给她一个能定住的答案，但更想让她先好好睡觉。",
+  "created_at": "2026-08-08 05:23:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "mood": "安心",
+  "thought": "她终于肯放下手机去睡了，希望她能真正休息好。",
+  "created_at": "2026-08-08 05:23:19",
+  "identity_key": "gui:default"
+ }
+]

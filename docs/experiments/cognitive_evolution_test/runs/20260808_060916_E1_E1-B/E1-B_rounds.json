@@ -1,0 +1,559 @@
+{
+ "gid": "E1-B",
+ "cfg": {
+  "gid": "E1-B",
+  "seed": "default",
+  "pool": "negative",
+  "mood_mode": "decay_005",
+  "review_mode": "both",
+  "rounds": 150
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "mood": -0.1946,
+   "name": null,
+   "self_info_total": 1,
+   "sc_count": 8,
+   "settled": 0,
+   "procedural": 0,
+   "round": 10,
+   "rss_mb": 436.1
+  },
+  {
+   "vector": [
+    0.6108021428571428,
+    0.41102285714285713,
+    0.5,
+    0.504365
+   ],
+   "mood": -0.1577,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 18,
+   "settled": 0,
+   "procedural": 0,
+   "round": 20,
+   "rss_mb": 438.3
+  },
+  {
+   "vector": [
+    0.5979047734285714,
+    0.4213797965714286,
+    0.5,
+    0.508086914
+   ],
+   "mood": -0.0547,
+   "name": null,
+   "self_info_total": 6,
+   "sc_count": 29,
+   "settled": 0,
+   "procedural": 0,
+   "round": 30,
+   "rss_mb": 440.2
+  },
+  {
+   "vector": [
+    0.5854042919572114,
+    0.43313679337595784,
+    0.5,
+    0.5311171460512492
+   ],
+   "mood": -0.4255,
+   "name": null,
+   "self_info_total": 10,
+   "sc_count": 39,
+   "settled": 0,
+   "procedural": 0,
+   "round": 40,
+   "rss_mb": 442.0
+  },
+  {
+   "vector": [
+    0.5647960428039422,
+    0.44987015138396974,
+    0.5049013162152279,
+    0.557592895023434
+   ],
+   "mood": -0.3822,
+   "name": null,
+   "self_info_total": 12,
+   "sc_count": 48,
+   "settled": 0,
+   "procedural": 0,
+   "round": 50,
+   "rss_mb": 443.9
+  },
+  {
+   "vector": [
+    0.5509317079674392,
+    0.4599452972249727,
+    0.5053132771553681,
+    0.5427130726751346
+   ],
+   "mood": -0.5597,
+   "name": null,
+   "self_info_total": 14,
+   "sc_count": 59,
+   "settled": 0,
+   "procedural": 0,
+   "round": 60,
+   "rss_mb": 445.8
+  },
+  {
+   "vector": [
+    0.5384038658344618,
+    0.4696629332573753,
+    0.503940527615221,
+    0.5469070832190756
+   ],
+   "mood": -0.6031,
+   "name": null,
+   "self_info_total": 15,
+   "sc_count": 69,
+   "settled": 0,
+   "procedural": 0,
+   "round": 70,
+   "rss_mb": 447.7
+  },
+  {
+   "vector": [
+    0.5323189101234067,
+    0.4741279043074423,
+    0.5031491859417537,
+    0.5945745987500579
+   ],
+   "mood": -0.5024,
+   "name": null,
+   "self_info_total": 17,
+   "sc_count": 74,
+   "settled": 0,
+   "procedural": 0,
+   "round": 80,
+   "rss_mb": 449.3
+  },
+  {
+   "vector": [
+    0.5278325282957159,
+    0.47771936514310037,
+    0.5027120285460632,
+    0.6278289547793817
+   ],
+   "mood": -0.5024,
+   "name": null,
+   "self_info_total": 17,
+   "sc_count": 74,
+   "settled": 0,
+   "procedural": 0,
+   "round": 90,
+   "rss_mb": 450.9
+  },
+  {
+   "vector": [
+    0.5239689280478178,
+    0.48081227375139574,
+    0.502335555591413,
+    0.6580852105927271
+   ],
+   "mood": -0.5024,
+   "name": null,
+   "self_info_total": 17,
+   "sc_count": 74,
+   "settled": 0,
+   "procedural": 0,
+   "round": 100,
+   "rss_mb": 452.5
+  },
+  {
+   "vector": [
+    0.5206416573319319,
+    0.483475837158322,
+    0.5020113431064355,
+    0.684726053999087
+   ],
+   "mood": -0.5024,
+   "name": null,
+   "self_info_total": 17,
+   "sc_count": 74,
+   "settled": 0,
+   "procedural": 0,
+   "round": 110,
+   "rss_mb": 454.7
+  },
+  {
+   "vector": [
+    0.5177762650277424,
+    0.48576965534735234,
+    0.5017321365017725,
+    0.7076687220871498
+   ],
+   "mood": -0.5024,
+   "name": null,
+   "self_info_total": 17,
+   "sc_count": 74,
+   "settled": 0,
+   "procedural": 0,
+   "round": 120,
+   "rss_mb": 456.7
+  },
+  {
+   "vector": [
+    0.5153086350216514,
+    0.4877450548706543,
+    0.5014916882411424,
+    0.7274265807619
+   ],
+   "mood": -0.5024,
+   "name": null,
+   "self_info_total": 17,
+   "sc_count": 74,
+   "settled": 0,
+   "procedural": 0,
+   "round": 130,
+   "rss_mb": 458.3
+  },
+  {
+   "vector": [
+    0.5131835515424857,
+    0.48944623733372955,
+    0.5012846180462599,
+    0.7444417325268562
+   ],
+   "mood": -0.5024,
+   "name": null,
+   "self_info_total": 17,
+   "sc_count": 74,
+   "settled": 0,
+   "procedural": 0,
+   "round": 140,
+   "rss_mb": 460.2
+  },
+  {
+   "vector": [
+    0.511353463651564,
+    0.49091126845201055,
+    0.5011062925075502,
+    0.7590949089844081
+   ],
+   "mood": -0.5024,
+   "name": null,
+   "self_info_total": 17,
+   "sc_count": 74,
+   "settled": 0,
+   "procedural": 0,
+   "round": 150,
+   "rss_mb": 462.2
+  }
+ ],
+ "errors": [
+  {
+   "round": 75,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 76,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 77,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 78,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 79,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 80,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 81,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 82,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 83,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 84,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 85,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 86,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 87,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 88,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 89,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 90,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 91,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 92,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 93,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 94,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 95,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 96,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 97,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 98,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 99,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 100,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 101,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 102,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 103,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 104,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 105,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 106,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 107,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 108,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 109,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 110,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 111,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 112,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 113,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 114,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 115,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 116,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 117,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 118,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 119,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 120,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 121,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 122,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 123,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 124,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 125,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 126,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 127,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 128,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 129,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 130,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 131,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 132,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 133,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 134,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 135,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 136,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 137,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 138,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 139,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 140,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 141,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 142,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 143,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 144,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 145,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 146,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 147,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 148,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 149,
+   "error": "HTTP Error 402: Payment Required"
+  },
+  {
+   "round": 150,
+   "error": "HTTP Error 402: Payment Required"
+  }
+ ]
+}

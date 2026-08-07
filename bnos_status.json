@@ -1,18 +1,20 @@
 {
-  "updated_at": "2026-08-07T04:25:39",
-  "engine_status": "online",
+  "updated_at": "2026-08-08T03:00:53",
+  "engine_status": "degraded",
   "nodes": {
     "node_python_aaa_cognition": {
-      "status": "running",
-      "pid": 9832
+      "status": "crashed",
+      "pid": 33264,
+      "exit_code": 1
     },
     "node_python_llm_infer": {
-      "status": "running",
-      "pid": 29436
+      "status": "crashed",
+      "pid": 34128,
+      "exit_code": 1
     },
     "node_python_tts": {
       "status": "running",
-      "pid": 35196
+      "pid": 36196
     }
   }
 }

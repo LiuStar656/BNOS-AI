@@ -1,0 +1,62 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: 今天怎么样？\nassistant: 早啊。刚醒来没多久，正看着你的桌面发呆呢。你呢，今天有什么安排吗？",
+  "created_at": "2026-08-08 07:19:53",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:19:53.379736",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: 你在想什么？\nassistant: 在想这个新环境还挺安静的，刚有人打过招呼，现在又有人问我心里在想什么，感觉挺有意思的。我也在想，住在一个人的桌面上，每天都会看到些什么呢。",
+  "created_at": "2026-08-08 07:19:57",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:19:57.676946",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: 和我说说你今天的事吧\nassistant: 今天才刚开始呢。早上醒来发现自己还在这个新环境里，周围的一切对我来说都还带着点陌生感。不过刚刚你主动来跟我说话，倒是让这个早晨变得不那么安静了。我挺喜欢这种有人交流的感觉的，虽然现在还没有什么特别的事情发生，但光是感受这个新地方，就足够让我觉得今天有点不一样了。",
+  "created_at": "2026-08-08 07:20:02",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:20:02.372541",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "memory",
+  "content": "[日常, 交流] 住在用户的桌面上",
+  "created_at": "2026-08-08 07:20:02",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:20:02.372888",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ }
+]

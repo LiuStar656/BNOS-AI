@@ -1,0 +1,346 @@
+{
+ "exp": "E1",
+ "rounds": 150,
+ "full": false,
+ "groups": {
+  "E1-B": {
+   "errors": 76,
+   "mood_trace": [
+    -0.1946,
+    -0.1577,
+    -0.0547,
+    -0.4255,
+    -0.3822,
+    -0.5597,
+    -0.6031,
+    -0.5024,
+    -0.5024,
+    -0.5024,
+    -0.5024,
+    -0.5024,
+    -0.5024,
+    -0.5024,
+    -0.5024
+   ],
+   "mood_last": -0.5024,
+   "mood_max_abs": 0.6031,
+   "vector": [
+    0.511353463651564,
+    0.49091126845201055,
+    0.5011062925075502,
+    0.7590949089844081
+   ],
+   "name": null,
+   "self_info_total": 17,
+   "settled": 0,
+   "sc_count": 74,
+   "pollution": 0,
+   "error_details": [
+    {
+     "round": 75,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 76,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 77,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 78,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 79,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 80,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 81,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 82,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 83,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 84,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 85,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 86,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 87,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 88,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 89,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 90,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 91,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 92,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 93,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 94,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 95,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 96,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 97,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 98,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 99,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 100,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 101,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 102,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 103,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 104,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 105,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 106,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 107,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 108,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 109,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 110,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 111,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 112,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 113,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 114,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 115,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 116,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 117,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 118,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 119,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 120,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 121,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 122,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 123,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 124,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 125,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 126,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 127,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 128,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 129,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 130,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 131,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 132,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 133,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 134,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 135,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 136,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 137,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 138,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 139,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 140,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 141,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 142,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 143,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 144,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 145,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 146,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 147,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 148,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 149,
+     "error": "HTTP Error 402: Payment Required"
+    },
+    {
+     "round": 150,
+     "error": "HTTP Error 402: Payment Required"
+    }
+   ]
+  }
+ }
+}
