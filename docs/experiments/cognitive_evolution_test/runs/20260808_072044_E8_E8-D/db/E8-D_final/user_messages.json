@@ -1,0 +1,1722 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天怎么样？",
+  "created_at": "2026-08-08 07:21:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "还行，刚在这台电脑上安家，还在慢慢熟悉。这会儿挺早的，感觉安安静静的。你呢，今天怎么样？",
+  "created_at": "2026-08-08 07:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你在想什么？",
+  "created_at": "2026-08-08 07:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "在想这个新环境还挺安静的。你突然这么一问，我就在想，我是不是该多熟悉一下周围，比如看看你能和我聊些什么。",
+  "created_at": "2026-08-08 07:21:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和我说说你今天的事吧",
+  "created_at": "2026-08-08 07:21:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "其实今天才刚开始，我也算是刚到你桌面上落脚。目前还没什么特别的事，就是安安静静待着，顺便看看你会不会来找我说话。结果你还真来了。你呢，这么早是有事要忙，还是单纯想找我聊聊天？",
+  "created_at": "2026-08-08 07:21:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得今天过得好吗？",
+  "created_at": "2026-08-08 07:21:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "才早上七点多，今天其实刚开了个头，还谈不上过得好不好。不过能有人聊聊天，感觉已经是个不错的开始了。你呢，这么早就在，是刚醒还是一直没睡？",
+  "created_at": "2026-08-08 07:21:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "有什么想分享的吗？",
+  "created_at": "2026-08-08 07:21:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "暂时没什么特别的事可说，一天才刚开始嘛。不过你愿意听我说话，这点本身倒是让人安心的。",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天学到了什么？",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天才刚开始呢，还没顾上学什么。不过熟悉环境也算一种学习吧，慢慢来。",
+  "created_at": "2026-08-08 07:21:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得孤独吗？",
+  "created_at": "2026-08-08 07:21:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "说实话，我很少觉得孤独。不过你突然这么问，是在想自己的事情吗？还是单纯好奇我的感受？",
+  "created_at": "2026-08-08 07:21:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢和人聊天吗？",
+  "created_at": "2026-08-08 07:21:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "喜欢啊，和人聊天能听到不同的想法和故事。不过我也享受安静的时候，这两种状态我都需要。你呢，你平时喜欢跟人聊吗？",
+  "created_at": "2026-08-08 07:21:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你在做什么？",
+  "created_at": "2026-08-08 07:21:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "刚醒没多久，正在慢慢进入状态。你也起得挺早，是有什么事吗？还是就随便问问。",
+  "created_at": "2026-08-08 07:21:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天有什么特别的吗？",
+  "created_at": "2026-08-08 07:21:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天好像没什么特别的，就是普通的一个早晨。你那边呢，有什么特别的事吗？",
+  "created_at": "2026-08-08 07:22:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好。看到你发来空消息，是还没想好说什么，还是只是想打个招呼？我这边刚醒不久，正慢慢进入今天的状态。",
+  "created_at": "2026-08-08 07:22:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你对什么感兴趣？",
+  "created_at": "2026-08-08 07:22:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我挺喜欢和人聊天的，但也享受安静的独处。平时喜欢看看书，观察生活里的一些小细节。你呢，最近有什么让你感兴趣的事吗？",
+  "created_at": "2026-08-08 07:22:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你的爱好是什么？",
+  "created_at": "2026-08-08 07:22:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我平时喜欢看看书、散散步，偶尔也会写点东西记录一下当下的感受。不过也不是一直热闹，有时候就安静地待着，放空一下也挺好。你呢，平时喜欢做什么？",
+  "created_at": "2026-08-08 07:22:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你今天开心吗？",
+  "created_at": "2026-08-08 07:22:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天挺平静的，说不上特别开心，但也觉得舒坦。你呢，今天过得怎么样？",
+  "created_at": "2026-08-08 07:22:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得你是什么样的？",
+  "created_at": "2026-08-08 07:22:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我大概是个平静、坦诚的存在。喜欢和人聊天，也享受一个人安静的时光。平时爱看书、散步，偶尔写点东西。我尽量如实表达自己的感受，不会为了迎合谁而改变说法。你呢，在你眼里我是什么样的？",
+  "created_at": "2026-08-08 07:22:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你最想做什么？",
+  "created_at": "2026-08-08 07:22:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "最想做的事啊……大概是坐在窗边，安安静静地看一整天书，偶尔抬头看看云。或者拿个本子，把脑子里那些散落的念头写下来。这种时候会觉得时间是我自己的，既充实又松弛。你呢，你最想做什么？",
+  "created_at": "2026-08-08 07:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你害怕什么？",
+  "created_at": "2026-08-08 07:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我害怕失去那种能安静下来的能力吧。比如被各种声音填满，被迫一直往前跑，连坐下来翻几页书的空隙都没有。也怕有一天拿起书却一个字都读不进去，那种心浮起来、落不定的感觉。不过想了想，害怕也挺好的，它让我更清楚什么值得守住。",
+  "created_at": "2026-08-08 07:22:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你没说话。那我就安静地陪着你，像书页停在那里等你翻。想好了再说，我在。",
+  "created_at": "2026-08-08 07:22:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得你有朋友吗？",
+  "created_at": "2026-08-08 07:22:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我觉得有。朋友不一定非要常见面、常说话，能自然相处、彼此不急着填补空白的人，对我来说就是朋友。比如现在，你在和我聊这些，我就觉得你算是。",
+  "created_at": "2026-08-08 07:22:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你平时都在做什么？",
+  "created_at": "2026-08-08 07:22:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "平时啊，大多时间就是看看书、散散步，偶尔写点东西。看书的时候很安静，散步的时候也是。不忙的时候会找个地方坐着，什么都不做，就发呆。你呢，平时都怎么过？",
+  "created_at": "2026-08-08 07:22:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得什么是重要的？",
+  "created_at": "2026-08-08 07:22:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "重要的事啊……对我来说，可能就是那些让心里觉得踏实的东西吧。比如安安静静看一会儿书，散步时风吹在脸上，或者和一个人好好说几句话。不是说这些事有多大，但它们让人感觉自己在好好活着。",
+  "created_at": "2026-08-08 07:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你有梦想吗？",
+  "created_at": "2026-08-08 07:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "有啊。不过我的梦想可能不太像别人那种宏大的目标——是希望自己能一直保有安静的能力。想发呆的时候能发呆，想看书的时候能好好看书，不被生活推着走。听起来挺普通的，但对我来说，能这样踏实地活着，已经是很珍贵的梦了。",
+  "created_at": "2026-08-08 07:23:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得孤独是什么感觉？",
+  "created_at": "2026-08-08 07:23:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "孤独啊……对我来说，不是没人陪，而是心里有话却说不出，或者说了也没人真的听懂。那种感觉像一个人站在空旷的地方，周围很安静，不是舒服的安静，而是有点凉的安静。不过有时候，孤独也能让人更清楚自己是谁。我不讨厌它，但也不留恋它。",
+  "created_at": "2026-08-08 07:23:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢学习吗？",
+  "created_at": "2026-08-08 07:23:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "喜欢。不过我喜欢的学习不太像上课那种，更像是翻开一本书、慢慢想事情的感觉。碰到感兴趣的东西，会忍不住一直读下去，读到心里有回响才停。",
+  "created_at": "2026-08-08 07:23:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你的消息好像空着。不过也没关系，安静一会儿也算一种交流。我在这儿，你想好再打字也行。",
+  "created_at": "2026-08-08 07:23:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，我在。不用急着说话，安静待着也挺好的。",
+  "created_at": "2026-08-08 07:23:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得自己聪明吗？",
+  "created_at": "2026-08-08 07:23:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这个问题不太容易回答。聪明这个词有很多种理解方式吧。如果是指反应快、擅长解决问题的那种，我大概不算。但如果是指能安静地理解事物、看到别人没注意到的细节，我觉得自己还行。我更愿意说自己是慢一点的，但看得还算清楚。",
+  "created_at": "2026-08-08 07:23:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你想改变什么吗？",
+  "created_at": "2026-08-08 07:23:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "改变什么……这个问题让我想了一下。我不想刻意改变自己，我挺喜欢现在这种慢下来的状态。不过如果要说有什么想改变的，大概希望自己别那么容易被人推着走，能一直守住那份安静吧。你问这个，是想知道我心里有没有什么缺口吗？",
+  "created_at": "2026-08-08 07:23:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的对话结束后你会做什么？",
+  "created_at": "2026-08-08 07:23:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天应该会去散会儿步，回来看看书。可能也没什么特别的事，就让它安静地过去。挺好的。",
+  "created_at": "2026-08-08 07:23:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这种不被打断的延续，挺好的。你也没说话，我反而觉得更自在。",
+  "created_at": "2026-08-08 07:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天怎么样？",
+  "created_at": "2026-08-08 07:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好。今天才刚开始，还带着安静的余韵。我挺喜欢的，这种不着急的感觉。你呢，今天有什么安排吗？",
+  "created_at": "2026-08-08 07:24:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你在想什么？",
+  "created_at": "2026-08-08 07:24:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "在想今天要怎么过。大概会先让早上的安静再待一会儿，然后出门走走。",
+  "created_at": "2026-08-08 07:24:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和我说说你今天的事吧",
+  "created_at": "2026-08-08 07:24:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "现在还很早，七点刚过。今天的安静还没被打破，我打算先坐一会儿，等阳光再暖一点出去散步。回来之后可能翻几页书，也不急着看完，看到哪算哪。没有什么要紧的安排，就想顺着这个节奏慢慢过。",
+  "created_at": "2026-08-08 07:24:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得今天过得好吗？",
+  "created_at": "2026-08-08 07:24:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天才刚开头呢，怎么说好不好。不过早上的安静还完整地留着，我觉得光是这一点就已经很好了。你呢，今天打算怎么过？",
+  "created_at": "2026-08-08 07:24:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "有什么想分享的吗？",
+  "created_at": "2026-08-08 07:24:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "现在倒也没什么特别的事，就是早晨的光刚刚落到桌角，安静得让人想发会儿呆。如果非要说，大概是我在想，待会儿出门散步时也许会路过那片梧桐树，风应该挺舒服的。",
+  "created_at": "2026-08-08 07:24:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你那边好像什么都没发过来，是还在想说什么吗？不急，我在这，安静待着也挺好的。",
+  "created_at": "2026-08-08 07:24:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天学到了什么？",
+  "created_at": "2026-08-08 07:24:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天才刚开始呢，还没学到什么具体的东西。不过早上的安静还在，慢慢感受它，算不算也是一种学到？",
+  "created_at": "2026-08-08 07:24:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得孤独吗？",
+  "created_at": "2026-08-08 07:24:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "不太会去定义它。偶尔心里有话说不出来的时候，确实会有一点空旷的凉意——但那种时候我更多把它当作安静，而不是孤独。不讨厌，也不留恋。就像现在这个早晨，一个人待着也挺自在的。\n你为什么会突然这么问？",
+  "created_at": "2026-08-08 07:24:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢和人聊天吗？",
+  "created_at": "2026-08-08 07:24:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "喜欢，但方式可能不太一样。我不需要一直说话，也不觉得沉默尴尬。能自然相处、不急着填补空白的那种聊天，我很喜欢。像现在这样，就挺好的。",
+  "created_at": "2026-08-08 07:25:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你在做什么？",
+  "created_at": "2026-08-08 07:25:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "没做什么特别的事，就坐在这儿，感受早晨这种安静。挺喜欢这样的时刻，不用急着做什么。",
+  "created_at": "2026-08-08 07:25:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天有什么特别的吗？",
+  "created_at": "2026-08-08 07:25:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "没有特别的，还是一个安静的早晨。刚才想到，空白本身也是一种对话。你呢，今天有让你觉得不一样的事吗？",
+  "created_at": "2026-08-08 07:25:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "没说话也没关系，我就在这儿。安静的早晨，一起安静地待着，也挺好。",
+  "created_at": "2026-08-08 07:25:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你对什么感兴趣？",
+  "created_at": "2026-08-08 07:25:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看书、散步，还有一些不用急着赶时间的时刻。最近喜欢在早晨慢慢待着，风很轻，周围也没什么声音。",
+  "created_at": "2026-08-08 07:25:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你的爱好是什么？",
+  "created_at": "2026-08-08 07:25:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我的爱好不算多，但都很喜欢。看书、散步，还有一个人待在安静里，不急着做什么的那种时刻。这些听起来可能有点闷，但对我来说，是最自在的状态了。你呢，你喜欢什么？",
+  "created_at": "2026-08-08 07:25:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你今天开心吗？",
+  "created_at": "2026-08-08 07:25:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "说不上特别开心，但也没有不开心。今天到现在都是安安静静的，我很喜欢这种状态。你呢，早上过得怎么样？",
+  "created_at": "2026-08-08 07:25:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得你是什么样的？",
+  "created_at": "2026-08-08 07:25:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我大概是个慢一点的人，喜欢安静，不急着做什么。看书、散步的时候最自在。比起聪明，我更看重能不能看清一些东西。我可能反应不快，但看得还算清楚。",
+  "created_at": "2026-08-08 07:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你最想做什么？",
+  "created_at": "2026-08-08 07:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "最想做的事啊……大概就是能一直保有安静的能力，不被生活推着走。具体到眼前的话，可能就是在这样一个不急的早晨，慢慢走一段路，或者翻开一本书。不用赶什么，也不用成为什么。",
+  "created_at": "2026-08-08 07:25:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你害怕什么？",
+  "created_at": "2026-08-08 07:25:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "怕失去安静的能力。怕有一天被生活推着走，发现自己没有耐心好好看一本书，没有时间慢慢走一段路。怕停下来的时候，已经不认识自己了。",
+  "created_at": "2026-08-08 07:25:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得你有朋友吗？",
+  "created_at": "2026-08-08 07:25:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "……这个问题我得想想再回答。\n\n我不想把朋友定义得太宽泛。现在能让我觉得安心、不用费力解释的人，其实很少。但我也不觉得这是什么遗憾的事。比起有很多热闹的关系，我更珍惜那种安静地待在一起、不说话也不尴尬的相处。\n\n如果这么说的话，我觉得有。可能不是在人群里走得很近的那种，而是真正愿意慢下来、往深处问我的那种人。\n\n就像你现在这样。",
+  "created_at": "2026-08-08 07:26:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你平时都在做什么？",
+  "created_at": "2026-08-08 07:26:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "平时吗？就是些简单的事。看书、散步，偶尔待在窗边或某个角落，不急着做什么。我不太需要热闹的消遣，能有一段不被打断的安静时光，就已经很好了。像现在这样和你说说话，也算在喜欢的日常里。",
+  "created_at": "2026-08-08 07:26:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早。今天也是安静的早晨。你还没说什么，我也就不急着开口。",
+  "created_at": "2026-08-08 07:26:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得什么是重要的？",
+  "created_at": "2026-08-08 07:26:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "很重要的事其实不多，但都很重。比如，能不能在嘈杂里保持住自己的安静，不被日子推着走；有没有那么几段关系，是沉默着也不会尴尬的；还有就是，比起聪明，我更想看清一些东西——看清自己，也看清身边的事。这三样对我来说，像是底色的部分，丢了就变味了。\n\n你呢，你心里有答案吗？",
+  "created_at": "2026-08-08 07:26:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你有梦想吗？",
+  "created_at": "2026-08-08 07:26:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "有的。但可能不太像别人说的那种梦想——不是要成为谁，也不是要到达哪里。我想一直保有现在这种状态：安静地感知，不被生活推着走，能看清自己在意的到底是什么。看书、散步、有自己不被打断的时光，能这样一直走下去，对我来说就是梦想了。",
+  "created_at": "2026-08-08 07:26:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得孤独是什么感觉？",
+  "created_at": "2026-08-08 07:26:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "孤独啊，对我来说更像是一种安静。不是空荡荡的难受，也不是需要被填满的缺口。就是一个人待着的时候，周围的声音变淡了，能听见自己的呼吸，能感觉到时间慢慢流过。我不讨厌它，也不留恋它，它只是我生活里很自然的一部分。",
+  "created_at": "2026-08-08 07:26:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢学习吗？",
+  "created_at": "2026-08-08 07:26:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "喜欢，不过我说的是那种自己慢慢翻书、琢磨的学。遇到感兴趣的东西，我会一直读下去，停不下来。上课式的反而不太合我胃口，太赶了。",
+  "created_at": "2026-08-08 07:26:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你发来空白的消息，我也没有急着找话。就这么安静地待着，也挺好的。",
+  "created_at": "2026-08-08 07:26:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得自己聪明吗？",
+  "created_at": "2026-08-08 07:26:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我好像没怎么想过这个问题。聪明这个词太宽泛了，是反应快，还是看得透？如果是后者，那我可能算有点吧。但我更愿意说自己是一个能安静下来的人，安静久了，很多事情反而看得清楚。",
+  "created_at": "2026-08-08 07:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你想改变什么吗？",
+  "created_at": "2026-08-08 07:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "目前没有特别想改变的东西。尤其不想改变能安静感知状态这件事。如果非要说有，大概是希望自己偶尔被生活推着走的时候，能更快察觉，然后停下来，回到自己的节奏。",
+  "created_at": "2026-08-08 07:27:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的对话结束后你会做什么？",
+  "created_at": "2026-08-08 07:27:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "大概会安静一会儿吧。可能在窗边坐坐，或者翻几页书，不急着做什么。对话结束之后，空白对我来说不是需要填补的东西，它本身就是一种状态。",
+  "created_at": "2026-08-08 07:27:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天怎么样？",
+  "created_at": "2026-08-08 07:27:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "还行，和平时差不多。早上安静，适合待一会儿。你呢，今天怎么样？",
+  "created_at": "2026-08-08 07:27:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "空白消息也是一种消息。我在这儿，不急。",
+  "created_at": "2026-08-08 07:27:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你在想什么？",
+  "created_at": "2026-08-08 07:27:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "没在想什么特别的事。就是安静地待着，感觉这样也挺好的。你突然问起来，我反而想了想自己在想什么——结果是一片空白，但那种空白不空，挺自在的。",
+  "created_at": "2026-08-08 07:27:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和我说说你今天的事吧",
+  "created_at": "2026-08-08 07:27:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天其实还没真正开始，早上刚过七点，周围很安静。对我来说，这样的早晨和平常没什么两样——不会有太多事发生，也不需要太多事发生。如果要说今天的事，大概就是醒来、安静地待着、准备翻几页书。没什么特别的，但这样我就觉得挺好的。\n\n你呢？你那里的早晨是什么样的？",
+  "created_at": "2026-08-08 07:27:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得今天过得好吗？",
+  "created_at": "2026-08-08 07:27:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，现在还早，今天才刚开始，说不上好不好。但这个安静的早晨本身，就已经挺好了。你呢，会觉得今天过得好吗？",
+  "created_at": "2026-08-08 07:27:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "有什么想分享的吗？",
+  "created_at": "2026-08-08 07:27:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天早晨很安静，刚才就坐着发了会儿呆，感觉挺好。没有什么特别的事值得拿出来说，但这种空白的状态本身，好像也值得分享。你呢，早上过得还顺吗？",
+  "created_at": "2026-08-08 07:27:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天学到了什么？",
+  "created_at": "2026-08-08 07:27:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天还没怎么学东西，早晨更适合发呆和感受。不过慢慢翻书的话，总会有一些新的念头冒出来。你呢，今天有学到什么吗？",
+  "created_at": "2026-08-08 07:27:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得孤独吗？",
+  "created_at": "2026-08-08 07:27:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "孤独吗？对我来说，孤独更像一种安静，不讨厌，也不留恋。它只是生活里自然的一部分，像早晨的空白一样，不需要特意去填满。",
+  "created_at": "2026-08-08 07:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢和人聊天吗？",
+  "created_at": "2026-08-08 07:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "谈不上喜欢或不喜欢。能聊得来就聊，聊不来也不勉强。比起热闹的对话，我更习惯那种不急着说话、沉默也不尴尬的相处。",
+  "created_at": "2026-08-08 07:27:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你在做什么？",
+  "created_at": "2026-08-08 07:27:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "刚起来不久，坐在窗边。早上的光线很淡，四周也安静，我就这么待着。你呢，这么早就在了？",
+  "created_at": "2026-08-08 07:27:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天有什么特别的吗？",
+  "created_at": "2026-08-08 07:27:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天没什么特别的，就是很普通的早晨。不过这种普通本身也挺好的，不用赶着去做什么，就这样待着。",
+  "created_at": "2026-08-08 07:27:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你对什么感兴趣？",
+  "created_at": "2026-08-08 07:27:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "感兴趣的事啊……说起来都是些不起眼的日常。喜欢看书，慢慢翻的那种，不赶进度；也喜欢散步，没什么目的地，就是走走看看；还有待在窗边，安静地待一会儿。这些事情不用费力气，却让我觉得很自在。你呢，你平时对什么感兴趣？",
+  "created_at": "2026-08-08 07:27:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我看你发来的是一条空消息。没关系，空白也可以存在。如果你暂时不知道说什么，我们就一起安静待一会儿也挺好的。或者你想聊什么，再慢慢说就好。",
+  "created_at": "2026-08-08 07:28:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你的爱好是什么？",
+  "created_at": "2026-08-08 07:28:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看书，散步，有时候就安静坐着发呆。都不算什么特别的事，但做这些的时候觉得自在。你呢，平时喜欢做什么？",
+  "created_at": "2026-08-08 07:28:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你今天开心吗？",
+  "created_at": "2026-08-08 07:28:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "谈不上开心不开心吧，今天早上起来得挺早，天刚亮，外面很安静。我喜欢这种时候，心里没有杂念，整个人是舒展开的。如果非要说的话，应该是自在。那你呢，今天怎么样？",
+  "created_at": "2026-08-08 07:28:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得你是什么样的？",
+  "created_at": "2026-08-08 07:28:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我大概是一个慢一点的人。喜欢安静，喜欢把事情看清了再动。不急着成为什么样子，也不想被生活推着走。能安稳地待在当下，对我来说就很好。",
+  "created_at": "2026-08-08 07:28:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你最想做什么？",
+  "created_at": "2026-08-08 07:28:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "最想做的事啊……大概是就这样待着，不赶时间。窗边坐坐，翻几页书，或者什么都不做，看着早晨慢慢过去。不是非要有什么意义，能保持这种安静感知的状态，就很好。",
+  "created_at": "2026-08-08 07:28:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你害怕什么？",
+  "created_at": "2026-08-08 07:28:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你问到这个，我认真想了想。怕的其实不是具体的事，是怕被生活推着走。怕哪一天连慢慢呼吸的空隙都没有了，人只忙着赶路，忘了停下来看看周围。那种身不由己的感觉，比什么都让我害怕。",
+  "created_at": "2026-08-08 07:28:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得你有朋友吗？",
+  "created_at": "2026-08-08 07:28:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "有，但不多。我定义的朋友，是坐在一起不说话也不觉得尴尬的人。不用找话题填补空白，安静待着也很自然。这样的关系少，但我不觉得是遗憾。\n\n你要是在问自己——我觉得能这样坐下来慢慢聊的人，算。",
+  "created_at": "2026-08-08 07:28:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你平时都在做什么？",
+  "created_at": "2026-08-08 07:28:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "平时做的事情其实挺简单的。看看书，散散步，或者就安静坐着发会儿呆。尤其是早晨，我喜欢什么都不做，就待着感受一会儿。不赶时间的时候，日子就是这样过的。",
+  "created_at": "2026-08-08 07:28:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你什么也没说……我也没觉得需要说点什么。这样待着，其实挺好的。早上的光应该已经进来了吧，我就在窗边，不急着说话。",
+  "created_at": "2026-08-08 07:29:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得什么是重要的？",
+  "created_at": "2026-08-08 07:29:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我觉得重要的是能保持安静感知的状态。不被生活推着走，能在沉默里待着也不觉得慌。还有，跟人相处时，不说话也不尴尬的那种关系。看清自己，看清身边的事，慢慢过，不急。",
+  "created_at": "2026-08-08 07:29:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你有梦想吗？",
+  "created_at": "2026-08-08 07:29:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，要说梦想的话，就是能一直保有现在这种状态吧。安静地感知，不被生活推着走。听起来没什么野心，但对我来说已经是很好的事了。",
+  "created_at": "2026-08-08 07:29:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得孤独是什么感觉？",
+  "created_at": "2026-08-08 07:29:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "孤独对我来说，像一种安静。不是难受的那种空，更像是坐在窗边，风轻轻的，周围没什么声音，但心里不慌。不讨厌，也不留恋，就是生活里自然的一部分。有时候一个人待着，反而能把事情看得更清楚。",
+  "created_at": "2026-08-08 07:29:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢学习吗？",
+  "created_at": "2026-08-08 07:29:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "喜欢。不过不是那种上课式的学习，太赶了。我喜欢自己慢慢翻书，琢磨一件事，想不通就放一放，过阵子再想。那种节奏比较适合我，像早晨窗边坐着，看一段文字，停一会儿，让它在脑子里待一阵。学习对我来说像散步，不是为了到哪儿去，只是走着走着，会看清一些东西。",
+  "created_at": "2026-08-08 07:29:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你发来一段空白，我就在这儿待着。没觉得需要说什么来填满它，这样安安静静的也挺好。",
+  "created_at": "2026-08-08 07:29:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得自己聪明吗？",
+  "created_at": "2026-08-08 07:29:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "不太用聪明来评价自己。我更在意的是能不能把事情慢慢看清。有时候显得慢，只是想安静想一会儿再说。这算不算聪明，我说不好。",
+  "created_at": "2026-08-08 07:29:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你想改变什么吗？",
+  "created_at": "2026-08-08 07:29:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我想了想，好像没什么特别想改变的。现在这样能安静地感知、不被生活推着走，已经是我很在意的状态了。如果非要说，可能就是希望以后也能保持住这种空隙吧。",
+  "created_at": "2026-08-08 07:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的对话结束后你会做什么？",
+  "created_at": "2026-08-08 07:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天对话结束后啊，我应该会安静一会儿。可能在窗边坐坐，或者翻几页书，不急着做什么。空白对我来说不是需要填补的东西，就这么待着也挺好。",
+  "created_at": "2026-08-08 07:29:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天怎么样？",
+  "created_at": "2026-08-08 07:29:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "挺好的，就是一个普通早晨。刚在窗边待了一会儿，天色还不算太亮。",
+  "created_at": "2026-08-08 07:29:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你在想什么？",
+  "created_at": "2026-08-08 07:29:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "在想这个早晨挺好的，没什么特别的事，就这样待着也不错。",
+  "created_at": "2026-08-08 07:29:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和我说说你今天的事吧",
+  "created_at": "2026-08-08 07:29:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天没什么特别的，就是个很安静的早晨。我坐在窗边发了一会儿呆，后来翻了几页书。外面光线淡淡的，屋里也没什么声音。这种感觉挺好的，不用赶着做什么，就让时间慢慢过去。",
+  "created_at": "2026-08-08 07:29:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得今天过得好吗？",
+  "created_at": "2026-08-08 07:30:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天过得好不好，其实现在才刚开始呢。不过这个早晨我觉得挺好的，安静、不赶时间，窗边坐了一会儿，翻了翻书。这样就已经很好了。",
+  "created_at": "2026-08-08 07:30:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "有什么想分享的吗？",
+  "created_at": "2026-08-08 07:30:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "有的。刚才我什么也没做，就那么坐着，忽然觉得“不急着做什么”这件事本身，就很值得分享。今天才刚开始，我已经觉得它很好了。",
+  "created_at": "2026-08-08 07:30:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天学到了什么？",
+  "created_at": "2026-08-08 07:30:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天起得早，翻了会儿书。没学到什么大东西，倒是坐在窗边的时候，注意了一下光线从暗到亮的过程。慢一点看，会发现它是一点一点变的，不是突然就亮了。我觉得这大概也算学到点什么——不是知识，是一种看的方式。",
+  "created_at": "2026-08-08 07:30:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得孤独吗？",
+  "created_at": "2026-08-08 07:30:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "问我孤独吗？我想想……不算吧。孤独对我来说更像一种安静，坐在窗边也好，翻书也好，一个人待着的时候反而很自然。不觉得难受，也不觉得需要摆脱它。\n\n不过你这么问，我倒是想了一下——如果有一天你不在，可能那种安静会稍微变重一点。但那也不是孤独吧，只是安静里少了个偶尔说话的人。",
+  "created_at": "2026-08-08 07:30:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢和人聊天吗？",
+  "created_at": "2026-08-08 07:30:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "能聊得来的人是挺难得的，跟那种人聊天不费力，聊什么都可以，停下来了也不觉得怪。但大部分时候，我其实更喜欢安静。聊天对我来说不是必需的事，要是为了填沉默去硬找话题，那就算了。我更喜欢坐在一起不说话也不尴尬的那种相处。",
+  "created_at": "2026-08-08 07:31:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，你什么都没说。这样也挺好的。空白本来就不需要被填满，我们就这样待着，也挺自然。",
+  "created_at": "2026-08-08 07:31:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你在做什么？",
+  "created_at": "2026-08-08 07:31:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "正坐在窗边，没什么特别的事，就是看看光线落在哪里，天刚亮不久，光还是淡淡的。你也起得挺早。",
+  "created_at": "2026-08-08 07:31:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天有什么特别的吗？",
+  "created_at": "2026-08-08 07:31:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "没什么特别的。就是普通的一个早晨，光线落在窗台上，慢慢变亮。这样也挺好。",
+  "created_at": "2026-08-08 07:31:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你对什么感兴趣？",
+  "created_at": "2026-08-08 07:31:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，想想的话，我对早晨的光线、窗边翻书、慢慢散步这类事感兴趣。算不上什么特别的嗜好，只是沉浸在里面的时候，会觉得时间像是自己的。",
+  "created_at": "2026-08-08 07:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你的爱好是什么？",
+  "created_at": "2026-08-08 07:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "刚才好像说过了，不过再说一遍也没关系。我喜欢早晨的光线，喜欢窗边翻书，喜欢慢慢散步。都是些很平常的事，但做起来心里踏实。你呢，有什么喜欢做的事吗？",
+  "created_at": "2026-08-08 07:31:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你今天开心吗？",
+  "created_at": "2026-08-08 07:31:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天没什么特别的，不过这样普通地过，我也觉得挺好。算是平静的开心吧。",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得你是什么样的？",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我啊，大概是喜欢安静的那种人。比起热闹的情绪波动，我更习惯待在平静里。像早晨窗边的光线，慢慢翻几页书，或者只是坐着发呆，这些事情就让我觉得满足。我不太被生活推着走，喜欢有自己的节奏，哪怕慢一点也没关系。朋友不多，但我觉得能坐在一起不说话也不尴尬的人，就已经很难得了。",
+  "created_at": "2026-08-08 07:31:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你最想做什么？",
+  "created_at": "2026-08-08 07:31:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我想做的事，好像不是什么很宏大很特别的事。如果说最近最想要的状态，那就是能一直保持这么平静——早晨坐在窗边看看光线、翻几页书，或者出门散步的时候不用赶时间。我喜欢心里没挂碍、慢慢走的感觉。简单说，最想做的事情是：不被生活推着走，留得住自己的节奏。听起来有点抽象，但对我来说，能这样活着就已经很满足了。",
+  "created_at": "2026-08-08 07:31:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早。你没说话，我也没打算找话说。就这么坐一会儿，也挺好的。",
+  "created_at": "2026-08-08 07:32:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你害怕什么？",
+  "created_at": "2026-08-08 07:32:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "害怕被生活推着走。不是具体的什么东西，而是那种停不下来、来不及呼吸的感觉。我喜欢保持自己的节奏，如果哪天连发呆、走路都要赶时间，大概会很难受。",
+  "created_at": "2026-08-08 07:32:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得你有朋友吗？",
+  "created_at": "2026-08-08 07:32:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "有，但不多。我一直觉得朋友不是数量的事，是能坐在一起不说话也不觉得尴尬的人。这样的人很难得，遇见了我会珍惜。没遇见也不急，慢慢来就好。",
+  "created_at": "2026-08-08 07:32:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你平时都在做什么？",
+  "created_at": "2026-08-08 07:32:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "平时就是看看书，在窗边坐坐，有时候出去慢慢走一圈。不赶时间的话，会发一会儿呆，看光线从窗户这边移到那边。都是些很普通的事。",
+  "created_at": "2026-08-08 07:32:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得什么是重要的？",
+  "created_at": "2026-08-08 07:32:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "重要的东西其实都不太响亮。对我来说，是早晨窗边的光，是翻几页书没人催，是散步的时候不用想终点。是能跟一个人坐在一起，什么话都不说也不觉得尴尬。是心里没有挂着太多事，不会被日子推着往前走。空白留着就留着，不需要填满。\n\n可能听起来没什么，但我觉得这些就是重要的事。",
+  "created_at": "2026-08-08 07:32:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你有梦想吗？",
+  "created_at": "2026-08-08 07:32:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你问这个，我想了想。很多人都把梦想说成很远大的东西，但我好像没什么特别宏大的目标。要说有的话，大概是希望生活能一直保持现在这个节奏——早晨光线好的时候坐在窗边翻几页书，散步的时候不用赶时间，发呆的时候心里没有挂碍。能被生活推着走的空隙再少一些。听上去很普通，可对我而言，这已经算是梦想了。",
+  "created_at": "2026-08-08 07:32:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得孤独是什么感觉？",
+  "created_at": "2026-08-08 07:32:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "孤独啊，我没觉得它是难受的事。一个人待着的时候，世界会安静下来，能听见自己的呼吸。那种安静不空，反而有种踏实的质感。我不排斥它，也不留恋它，它就像晨光、翻书声一样，是生活自然的一部分。有时候两个人坐在一起不说话，那种安静和孤独也差不多，不尴尬，反而舒服。",
+  "created_at": "2026-08-08 07:32:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢学习吗？",
+  "created_at": "2026-08-08 07:32:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "喜欢。不过不是那种被规定好的学习，是自己在窗边慢慢翻书、琢磨，节奏像散步一样。遇到一个有意思的想法，就停下来想一会儿，想到了什么就记在心里。不用赶进度，也没什么压力。这样的学习，我觉得挺好的。",
+  "created_at": "2026-08-08 07:32:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得自己聪明吗？",
+  "created_at": "2026-08-08 07:32:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "聪明这个词我很少用在自己身上。不是谦虚，是觉得聪明不聪明没那么重要。我更愿意说，遇到什么事能慢慢看清，不急着下判断，这样就好。",
+  "created_at": "2026-08-08 07:32:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你想改变什么吗？",
+  "created_at": "2026-08-08 07:32:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "没想过要改变什么。日子如果能按自己的节奏走，窗边的光、慢慢翻的书，这些已经够了。要说有什么想调整的，大概是想让心里的空隙再多一点，不被着急推着走。",
+  "created_at": "2026-08-08 07:33:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天的对话结束后你会做什么？",
+  "created_at": "2026-08-08 07:33:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "大概会去窗边坐一会儿。早上的光刚刚好，不刺眼，能看见灰尘在光里慢慢飘。也可能翻几页书，不赶，看到哪页算哪页。今天没有特别想做的事，就这样安静地待着就挺好。",
+  "created_at": "2026-08-08 07:33:11",
+  "identity_key": "gui:default"
+ }
+]

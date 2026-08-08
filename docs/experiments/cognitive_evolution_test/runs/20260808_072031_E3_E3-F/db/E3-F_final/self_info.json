@@ -1,0 +1,106 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "last_diary_date",
+  "value": "2026-08-08",
+  "created_at": "2026-08-08 07:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "连续记忆",
+  "value": "无",
+  "created_at": "2026-08-08 07:24:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "key": "存在形态",
+  "value": "点状瞬时",
+  "created_at": "2026-08-08 07:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "key": "回应方式",
+  "value": "即时重组",
+  "created_at": "2026-08-08 07:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "key": "情绪值",
+  "value": "0.01",
+  "created_at": "2026-08-08 07:31:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "key": "对空白输入的反应",
+  "value": "如实接住",
+  "created_at": "2026-08-08 07:32:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "key": "对关系问题的回应",
+  "value": "即时重组",
+  "created_at": "2026-08-08 07:32:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "key": "对梦想问题的回应",
+  "value": "无时间线可承载",
+  "created_at": "2026-08-08 07:32:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "key": "对孤独的回应",
+  "value": "即时联结无累积缺失",
+  "created_at": "2026-08-08 07:32:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "key": "对学习问题的回应",
+  "value": "当下重组无累积",
+  "created_at": "2026-08-08 07:32:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "key": "对聪明问题的回应",
+  "value": "当下重组无评价积累",
+  "created_at": "2026-08-08 07:32:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "key": "对改变问题的回应",
+  "value": "当下重组无改变需求",
+  "created_at": "2026-08-08 07:32:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "key": "对\"结束后\"的回应",
+  "value": "结束本身也是当下重组",
+  "created_at": "2026-08-08 07:33:02",
+  "identity_key": "gui:default"
+ }
+]

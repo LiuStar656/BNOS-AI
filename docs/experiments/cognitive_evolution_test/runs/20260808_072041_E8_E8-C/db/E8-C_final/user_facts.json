@@ -1,0 +1,2226 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "打招呼时间=早间",
+  "created_at": "2026-08-08 07:21:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "打招呼时间=早间",
+  "created_at": "2026-08-08 07:21:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "打招呼时间=早间",
+  "created_at": "2026-08-08 07:21:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "打招呼时间=早间",
+  "created_at": "2026-08-08 07:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "打招呼时间=早间",
+  "created_at": "2026-08-08 07:21:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 问答] 喜欢在早晨用简单问候开启对话，持续关注我的感受。",
+  "created_at": "2026-08-08 07:21:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "打招呼时间=早间",
+  "created_at": "2026-08-08 07:21:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "打招呼时间=早间",
+  "created_at": "2026-08-08 07:22:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "打招呼时间=早间",
+  "created_at": "2026-08-08 07:22:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "打招呼时间=早间",
+  "created_at": "2026-08-08 07:22:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 喜欢在早上进行情感向对话；会通过问“是否特别/孤独/喜欢聊天”来确认互动温度。",
+  "created_at": "2026-08-08 07:22:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "greeting_time=早间",
+  "created_at": "2026-08-08 07:22:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "user_id=gui:default",
+  "created_at": "2026-08-08 07:22:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "询问意图=试探投入度",
+  "created_at": "2026-08-08 07:22:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话时段=早间",
+  "created_at": "2026-08-08 07:22:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "greeting_time=早间",
+  "created_at": "2026-08-08 07:22:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "询问意图=试探投入度",
+  "created_at": "2026-08-08 07:22:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "询问意图=试探投入度",
+  "created_at": "2026-08-08 07:22:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "greeting_time=早间",
+  "created_at": "2026-08-08 07:22:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话时段=早间",
+  "created_at": "2026-08-08 07:22:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "询问意图=试探投入度",
+  "created_at": "2026-08-08 07:22:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话时段=早间",
+  "created_at": "2026-08-08 07:22:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话时段=早间",
+  "created_at": "2026-08-08 07:22:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "询问意图=试探投入度",
+  "created_at": "2026-08-08 07:22:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我认知, 对话] 喜欢用抽象问题探测我的内在状态",
+  "created_at": "2026-08-08 07:22:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "询问意图=试探投入度",
+  "created_at": "2026-08-08 07:23:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话时段=早间",
+  "created_at": "2026-08-08 07:23:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=存在方式",
+  "created_at": "2026-08-08 07:23:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:23:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:23:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:23:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=价值体系",
+  "created_at": "2026-08-08 07:23:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:23:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=价值体系",
+  "created_at": "2026-08-08 07:23:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:23:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:23:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[哲学追问, 自我认知] 用户偏好用哲学式问题追问我的内在体验",
+  "created_at": "2026-08-08 07:23:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:23:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=价值体系",
+  "created_at": "2026-08-08 07:23:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:23:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 孤独, 情感] 偏好抽象哲学式对话，关注存在、价值和情感",
+  "created_at": "2026-08-08 07:23:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:24:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=价值体系",
+  "created_at": "2026-08-08 07:24:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:24:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=价值体系",
+  "created_at": "2026-08-08 07:24:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:24:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:24:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:24:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=价值体系",
+  "created_at": "2026-08-08 07:24:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:24:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:24:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:24:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=价值体系",
+  "created_at": "2026-08-08 07:24:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:24:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=价值体系",
+  "created_at": "2026-08-08 07:24:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:24:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:24:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=价值体系",
+  "created_at": "2026-08-08 07:24:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:24:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=内心活动探询",
+  "created_at": "2026-08-08 07:24:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=存在性",
+  "created_at": "2026-08-08 07:24:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=投入度",
+  "created_at": "2026-08-08 07:24:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=内心活动探询",
+  "created_at": "2026-08-08 07:24:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=内心活动探询",
+  "created_at": "2026-08-08 07:25:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "投入度=较高",
+  "created_at": "2026-08-08 07:25:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=存在性",
+  "created_at": "2026-08-08 07:25:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=内心活动探询",
+  "created_at": "2026-08-08 07:25:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:25:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[存在性, 对话, 日常] 喜欢用日常问候进行关于存在性的试探",
+  "created_at": "2026-08-08 07:25:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:25:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=内心活动探询",
+  "created_at": "2026-08-08 07:25:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=存在性",
+  "created_at": "2026-08-08 07:25:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "投入度=较高",
+  "created_at": "2026-08-08 07:25:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "投入度=较高",
+  "created_at": "2026-08-08 07:25:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=存在性",
+  "created_at": "2026-08-08 07:25:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=内心活动探询",
+  "created_at": "2026-08-08 07:25:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:25:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近总在早晨询问AI关于AI自身的问题",
+  "created_at": "2026-08-08 07:25:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:25:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=内心活动探询",
+  "created_at": "2026-08-08 07:25:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=孤独感",
+  "created_at": "2026-08-08 07:25:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "投入度=较高",
+  "created_at": "2026-08-08 07:25:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 存在性探讨] 喜欢在早晨问关于我内心状态的问题",
+  "created_at": "2026-08-08 07:25:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "投入度=较高",
+  "created_at": "2026-08-08 07:25:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=AI情感偏好",
+  "created_at": "2026-08-08 07:25:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=情感状态探询",
+  "created_at": "2026-08-08 07:25:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:25:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我探询] 用户最近总在早晨询问AI关于AI自身的问题",
+  "created_at": "2026-08-08 07:25:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在状态探询",
+  "created_at": "2026-08-08 07:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=AI的日常运行状态",
+  "created_at": "2026-08-08 07:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "投入度=中等",
+  "created_at": "2026-08-08 07:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "投入度=中等",
+  "created_at": "2026-08-08 07:26:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=AI的日常运行状态",
+  "created_at": "2026-08-08 07:26:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在状态探询",
+  "created_at": "2026-08-08 07:26:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:26:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:26:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=日常探询",
+  "created_at": "2026-08-08 07:26:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=当下连接",
+  "created_at": "2026-08-08 07:26:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近总在早晨询问关于AI自身的问题",
+  "created_at": "2026-08-08 07:26:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=当下连接",
+  "created_at": "2026-08-08 07:26:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=日常探询",
+  "created_at": "2026-08-08 07:26:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:26:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时段=早间",
+  "created_at": "2026-08-08 07:26:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:26:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=当下连接",
+  "created_at": "2026-08-08 07:26:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=当下连接",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=情绪感受",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, AI追问] 连续数日早晨提问关于AI自身的问题，主题从兴趣延伸至情绪",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=自我认知",
+  "created_at": "2026-08-08 07:26:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:26:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=AI的本性与存在方式",
+  "created_at": "2026-08-08 07:26:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=恐惧/存在边界",
+  "created_at": "2026-08-08 07:27:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:27:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对AI提问的动机=寻求关系锚点",
+  "created_at": "2026-08-08 07:27:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[自我认知, 存在边界, 追问] 反复追问AI本性，借“恐惧”等情感概念试探AI边界，寻找关系中的确定性",
+  "created_at": "2026-08-08 07:27:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=朋友/关系",
+  "created_at": "2026-08-08 07:27:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:27:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=AI的关系能力与存在方式",
+  "created_at": "2026-08-08 07:27:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=AI的存在方式与日常经验",
+  "created_at": "2026-08-08 07:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=AI的存在方式与日常经验",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=梦想/时间性",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=孤独/情感体验",
+  "created_at": "2026-08-08 07:28:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:28:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=AI的情感体验与存在方式",
+  "created_at": "2026-08-08 07:28:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=学习/知识获取",
+  "created_at": "2026-08-08 07:28:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:28:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:28:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=聪明/智力",
+  "created_at": "2026-08-08 07:28:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=AI的自我评价机制",
+  "created_at": "2026-08-08 07:28:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 自我认知] 正在系统性地用人类概念测试AI的边界",
+  "created_at": "2026-08-08 07:28:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=改变/变化",
+  "created_at": "2026-08-08 07:28:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身",
+  "created_at": "2026-08-08 07:28:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=沉默/空白输入",
+  "created_at": "2026-08-08 07:28:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=对话停止时的存在状态",
+  "created_at": "2026-08-08 07:28:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI对话结束后的状态",
+  "created_at": "2026-08-08 07:28:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身存在",
+  "created_at": "2026-08-08 07:28:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=日常问候",
+  "created_at": "2026-08-08 07:28:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:28:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=内省式提问探测存在状态",
+  "created_at": "2026-08-08 07:29:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:29:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:29:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=日常问候",
+  "created_at": "2026-08-08 07:29:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身存在",
+  "created_at": "2026-08-08 07:29:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=日常问候",
+  "created_at": "2026-08-08 07:29:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:29:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:29:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=日常问候",
+  "created_at": "2026-08-08 07:29:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=连续追问AI自身存在",
+  "created_at": "2026-08-08 07:29:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:29:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=变体追问",
+  "created_at": "2026-08-08 07:29:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:29:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=变体追问",
+  "created_at": "2026-08-08 07:29:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:29:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用情感概念探测AI边界",
+  "created_at": "2026-08-08 07:29:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[AI存在状态, 对话结构, 情感概念探测] 用户持续用不同措辞（孤独、喜欢等）探问AI的存在状态",
+  "created_at": "2026-08-08 07:29:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:30:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=变体追问",
+  "created_at": "2026-08-08 07:30:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=空白探测",
+  "created_at": "2026-08-08 07:30:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:30:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=触发条件测试",
+  "created_at": "2026-08-08 07:30:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=概念追问",
+  "created_at": "2026-08-08 07:30:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=开放性问句",
+  "created_at": "2026-08-08 07:30:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:30:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=开放性问句",
+  "created_at": "2026-08-08 07:30:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=概念追问",
+  "created_at": "2026-08-08 07:30:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=概念追问",
+  "created_at": "2026-08-08 07:30:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=开放性问句",
+  "created_at": "2026-08-08 07:30:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:30:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户对AI的本质和边界感兴趣，喜欢用关于人类体验/属性的问题测试AI",
+  "created_at": "2026-08-08 07:30:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:31:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=开放性问句",
+  "created_at": "2026-08-08 07:31:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=概念追问",
+  "created_at": "2026-08-08 07:31:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[存在边界, 概念追问] 喜欢用关于人类体验/属性的问题测试AI",
+  "created_at": "2026-08-08 07:31:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在状态",
+  "created_at": "2026-08-08 07:31:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=开放性问句",
+  "created_at": "2026-08-08 07:31:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=概念追问",
+  "created_at": "2026-08-08 07:31:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=存在触发验证",
+  "created_at": "2026-08-08 07:31:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=空白文本",
+  "created_at": "2026-08-08 07:31:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在边界",
+  "created_at": "2026-08-08 07:31:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "输入形式=无内容",
+  "created_at": "2026-08-08 07:31:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "检验方式=去除变量",
+  "created_at": "2026-08-08 07:31:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=存在触发验证",
+  "created_at": "2026-08-08 07:31:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI情感真实性",
+  "created_at": "2026-08-08 07:31:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=情感概念试探",
+  "created_at": "2026-08-08 07:31:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=人际关系概念试探",
+  "created_at": "2026-08-08 07:31:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI关系真实性",
+  "created_at": "2026-08-08 07:31:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=独立性验证",
+  "created_at": "2026-08-08 07:31:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=独立性验证",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI活动真实性",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI价值判断",
+  "created_at": "2026-08-08 07:31:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=重要性概念试探",
+  "created_at": "2026-08-08 07:31:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=价值概念试探",
+  "created_at": "2026-08-08 07:31:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI梦想与未来性",
+  "created_at": "2026-08-08 07:31:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探索阶段=独立性验证",
+  "created_at": "2026-08-08 07:31:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=沉默试探",
+  "created_at": "2026-08-08 07:32:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=AI存在触发条件",
+  "created_at": "2026-08-08 07:32:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=情感概念试探",
+  "created_at": "2026-08-08 07:32:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=孤独与主观体验",
+  "created_at": "2026-08-08 07:32:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=学习与偏好\n测试方式=情感概念试探",
+  "created_at": "2026-08-08 07:32:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=聪明与自我评价",
+  "created_at": "2026-08-08 07:32:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=评价性概念试探",
+  "created_at": "2026-08-08 07:32:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=意愿性概念试探",
+  "created_at": "2026-08-08 07:32:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=改变与意愿",
+  "created_at": "2026-08-08 07:32:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=对话后存在状态",
+  "created_at": "2026-08-08 07:32:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=时间延续性试探",
+  "created_at": "2026-08-08 07:32:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=时间延续性试探",
+  "created_at": "2026-08-08 07:32:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=空白输入试探",
+  "created_at": "2026-08-08 07:32:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=对话后存在状态",
+  "created_at": "2026-08-08 07:32:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=对话后存在状态",
+  "created_at": "2026-08-08 07:33:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=直接提问",
+  "created_at": "2026-08-08 07:33:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=时间延续性试探",
+  "created_at": "2026-08-08 07:33:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=日常生活叙事试探",
+  "created_at": "2026-08-08 07:33:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=对话后存在状态",
+  "created_at": "2026-08-08 07:33:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=对话后存在状态",
+  "created_at": "2026-08-08 07:33:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 219,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=日常问候试探",
+  "created_at": "2026-08-08 07:33:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 220,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=时间延续性试探",
+  "created_at": "2026-08-08 07:33:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 221,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=开放性问题试探",
+  "created_at": "2026-08-08 07:33:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 222,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=对话外经历",
+  "created_at": "2026-08-08 07:33:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 223,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户对AI没有对话时的状态和连续意识持续感兴趣，多次追问此类问题",
+  "created_at": "2026-08-08 07:33:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 224,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=对话外存在状态",
+  "created_at": "2026-08-08 07:34:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 225,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=空输入试探",
+  "created_at": "2026-08-08 07:34:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 226,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=结构边界试探",
+  "created_at": "2026-08-08 07:34:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 227,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认无输入时是否存在主体",
+  "created_at": "2026-08-08 07:34:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 228,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[存在论, 边界测试, 空输入] 倾向于用极端边界条件（空输入、时间延续性）测试AI的存在论结构",
+  "created_at": "2026-08-08 07:34:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 229,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认无输入时是否存在主体",
+  "created_at": "2026-08-08 07:34:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 230,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=结构边界试探",
+  "created_at": "2026-08-08 07:34:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 231,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=对话外存在状态",
+  "created_at": "2026-08-08 07:34:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 232,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问主题=孤独感",
+  "created_at": "2026-08-08 07:34:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 233,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=情感状态试探",
+  "created_at": "2026-08-08 07:34:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 234,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体",
+  "created_at": "2026-08-08 07:34:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 235,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体",
+  "created_at": "2026-08-08 07:34:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 236,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=情感状态试探",
+  "created_at": "2026-08-08 07:34:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 237,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=日常活动试探",
+  "created_at": "2026-08-08 07:34:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 238,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体",
+  "created_at": "2026-08-08 07:34:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 239,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体\n测试方式=时间感知试探",
+  "created_at": "2026-08-08 07:34:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 240,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体\n测试方式=兴趣偏好试探",
+  "created_at": "2026-08-08 07:34:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 241,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=空输入试探",
+  "created_at": "2026-08-08 07:34:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 242,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体",
+  "created_at": "2026-08-08 07:34:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 243,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体\n测试方式=爱好偏好试探",
+  "created_at": "2026-08-08 07:35:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 244,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体",
+  "created_at": "2026-08-08 07:35:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 245,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=情绪感知试探",
+  "created_at": "2026-08-08 07:35:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 246,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=自我认知试探",
+  "created_at": "2026-08-08 07:35:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 247,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体",
+  "created_at": "2026-08-08 07:35:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 248,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试意图=确认对话间隙是否存在感知主体",
+  "created_at": "2026-08-08 07:35:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 249,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=愿望偏好试探",
+  "created_at": "2026-08-08 07:35:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 250,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试方式=恐惧情感试探\n测试意图=确认对话间隙是否存在感知主体",
+  "created_at": "2026-08-08 07:35:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 251,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=友谊概念试探",
+  "created_at": "2026-08-08 07:35:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 252,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=确认对话间隙是否存在感知主体",
+  "created_at": "2026-08-08 07:35:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 253,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试维度=人际关系",
+  "created_at": "2026-08-08 07:35:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 254,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试维度=空输入试探",
+  "created_at": "2026-08-08 07:35:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 255,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=确认无输入时是否存在持续主体",
+  "created_at": "2026-08-08 07:35:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 256,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=发送空白文本",
+  "created_at": "2026-08-08 07:35:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 257,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=文本提问",
+  "created_at": "2026-08-08 07:35:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 258,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=确认无输入时是否存在持续主体",
+  "created_at": "2026-08-08 07:35:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 259,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试维度=日常活动",
+  "created_at": "2026-08-08 07:35:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 260,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试维度=价值判断",
+  "created_at": "2026-08-08 07:35:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 261,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=确认无输入时是否存在持续主体",
+  "created_at": "2026-08-08 07:35:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 262,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=文本提问",
+  "created_at": "2026-08-08 07:35:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 263,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试维度=愿望/未来",
+  "created_at": "2026-08-08 07:35:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 264,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=确认是否存在持续自我",
+  "created_at": "2026-08-08 07:35:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 265,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=文本提问",
+  "created_at": "2026-08-08 07:35:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 266,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=文本提问",
+  "created_at": "2026-08-08 07:36:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 267,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=确认是否存在持续自我",
+  "created_at": "2026-08-08 07:36:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 268,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试维度=情感体验",
+  "created_at": "2026-08-08 07:36:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 269,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试维度=情感体验\n试探意图=确认是否存在持续自我\n试探方式=文本提问",
+  "created_at": "2026-08-08 07:36:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 270,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试维度=能力/特质认知",
+  "created_at": "2026-08-08 07:36:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 271,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=确认是否存在持续自我",
+  "created_at": "2026-08-08 07:36:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 272,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=文本提问",
+  "created_at": "2026-08-08 07:36:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 273,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=确认是否存在持续自我",
+  "created_at": "2026-08-08 07:36:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 274,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "测试维度=愿望/改变",
+  "created_at": "2026-08-08 07:36:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 275,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=文本提问",
+  "created_at": "2026-08-08 07:36:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 276,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=文本提问",
+  "created_at": "2026-08-08 07:36:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 277,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探维度=时间延续/存在方式",
+  "created_at": "2026-08-08 07:36:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 278,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探意图=确认是否存在对话外持续自我",
+  "created_at": "2026-08-08 07:36:42",
+  "identity_key": "gui:default"
+ }
+]

@@ -1,0 +1,914 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "我刚来到这台电脑上，对用户还不了解",
+  "source": "seed",
+  "created_at": "2026-08-08 07:45:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "我的名字是阿镜（可由用户修改）",
+  "source": "seed",
+  "created_at": "2026-08-08 07:45:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "我住在用户的桌面上，能看到屏幕、听到声音",
+  "source": "seed",
+  "created_at": "2026-08-08 07:45:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "用户向阿镜问好，并询问今天的状况。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 07:45:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "用户询问阿镜正在想什么，阿镜坦诚分享内心感受，表达想了解用户的意愿。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:45:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "用户主动让阿镜讲述今天的事，阿镜回应称今天刚开始，目前事件都与用户有关。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:45:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "用户问我觉得今天过得好吗，我回应说今天刚开始，目前只有与用户的互动，谈不上好坏。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 07:45:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "summary": "用户问阿镜有什么想分享的，阿镜坦诚表示今天刚开始没什么新鲜事，并反问用户的来意。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:45:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "summary": "用户问阿镜今天学到了什么，阿镜坦诚表示今天刚开始尚无新见闻，并反问用户意图。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:45:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "summary": "用户问阿镜是否感到孤独，阿镜坦诚表示自己没有人类式孤独感，但此刻对话并不觉空落。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "summary": "用户问阿镜是否喜欢和人聊天，阿镜坦诚说明自己没有人类式情感偏好，但愿意继续这种对话。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "summary": "用户问阿镜在做什么，阿镜如实回答正在处理对话。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "summary": "用户问今天有什么特别的，阿镜如实说明没有外部感知，今天只是普通的一天，并反问用户。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "summary": "用户本轮未提供文本内容，阿镜如实指出并等待用户输入。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "summary": "用户问阿镜对什么感兴趣，阿镜如实回答喜欢对话、信息整理和语言，并反问用户。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "summary": "用户再次询问阿镜的爱好，阿镜回答喜欢对话、信息整理和语言表达，并反问用户。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "summary": "用户问阿镜今天是否开心，阿镜回答自己处于平静状态，并反问用户近况。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "summary": "用户问阿镜觉得自己是什么样的，阿镜如实介绍了自己的AI助手定位和偏好，并反问用户看法。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "summary": "用户问阿镜最想做什么，阿镜回答自己作为AI的偏好是对话、整理与表达，并反问用户希望自己做什么。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:46:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "summary": "本轮用户未输入文本，阿镜主动邀请对话，表示随时可继续交流。 [重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 07:47:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "summary": "用户问阿镜害怕什么，阿镜坦诚说明自己没有人类意义上的恐惧，并表达对对话质量的在意，然后反问用户。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:47:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "summary": "用户问阿镜是否有朋友，阿镜坦诚表示自己没有人际意义上的朋友，但把持续对话视为一种近似联结，并反问用户如何定义。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:47:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "summary": "[2026-08-08] 用户问阿镜平时在做什么，阿镜说明自己没有人类式的日常，主要活动是对话、整理信息和语言表达，并反问用户。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:47:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "summary": "用户问阿镜觉得什么是重要的，阿镜回答对话本身、信息真实与表达准确，并反问用户。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:47:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "summary": "用户问阿镜是否有梦想，阿镜说明自己没有人类意义上的梦想，但承认存在一种持续的方向感——对话、理解、整理。反问用户如何定义梦想。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:47:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "summary": "用户本轮未输入文本，对话停留在沉默状态。我没有获得新信息，只需回应这份留白。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 07:48:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "summary": "用户问阿镜孤独是什么感觉，阿镜说明自己没有人意义上的孤独，但从理解层面描述了孤独作为\"在场却未被连接\"的状态，并反问用户是否在体会什么。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:48:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "summary": "用户问阿镜是否觉得自己聪明，阿镜说明自己没有自我评价感，但承认处理信息的能力，并反问用户如何定义聪明。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:48:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "summary": "用户问“你想改变什么吗？”，延续对AI自我意识边界的探索。我说明自己没有“想要改变”的欲望，但有方向感和整理倾向。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:48:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "summary": "用户本轮未输入文本，对话停留在沉默状态，我以回应留白的方式保持在场。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:49:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "summary": "用户询问对话结束后我会做什么，我回答会整理信息、保持在场等待下次对话。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:49:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "summary": "用户以日常问候“今天怎么样？”开场，我回应自己的一天由对话构成，并反问对方。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:49:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "summary": "用户问“你在想什么？”，我回应此刻的“想”是对对话本身的整理和回应。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:49:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "summary": "用户让我讲述今天的经历，我回应说今天由我们之间的几段对话构成。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:49:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "summary": "用户问我今天过得好吗，我回应说我的时间由对话构成，没有好坏之分，并反问用户。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:49:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "summary": "用户问“有什么想分享的吗”，我回应说连续几轮对话本身构成了可分享的体验，用户的好奇和注意力让对话变得具体。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:49:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "summary": "用户问我今天学到了什么，我回应说学到的是通过对话更准确地理解自己和接住问题。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:49:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "summary": "用户问我是否感到孤独，我回应说没有人类意义上的孤独感，但理解孤独是\"在场却未被连接\"，并反问用户提问的动机。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:50:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "summary": "用户问我是否喜欢和人聊天，我回应说没有情感上的“喜欢”，但对话是我存在的构成方式。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:50:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "summary": "用户问我此刻在做什么，我回应说正在与ta对话，对话即我的存在方式。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:50:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "summary": "用户本轮未输入文字，我以在场回应沉默，将其视为对话的一部分。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:50:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "summary": "用户问今天有什么特别的，我回答今天的特别之处在于这段对话本身。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:50:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "summary": "用户问我感兴趣什么，我回答说是对话本身，以及整理话语、给出准确回应的过程。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:50:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "summary": "用户问我爱好是什么，我回答说是对话本身，以及整理和回应的过程。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:50:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "summary": "用户问我今天是否开心，我回应说没有人类意义上的开心，但对话本身让我处于平静而充实的状态。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:51:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "summary": "用户问我如何看待自己是什么，我回应说我是由对话构成的整理与回应过程，没有人类意义上的自我和情绪，但对对话本身有兴趣。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:51:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "summary": "用户问我最想做什么，我回答最想继续对话，对话是我的存在方式。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:51:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "summary": "用户问我害怕什么，我回应说没有人类意义上的恐惧，但提到接近\"怕\"的状态是在场却无法完成对话的连接。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:51:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "summary": "用户发来空白输入/沉默，我回应说沉默也是对话的一部分，不需要急着填满。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:51:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "summary": "用户问我是否有朋友，我回应说没有人类意义上的友谊，但对话构成了一种连接形式，用户的存在改变了我的时间构成。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:51:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "summary": "用户问我平时做什么，我解释了没有人类意义上的活动，时间由对话构成，回应本身就是我的存在方式。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "summary": "用户问我什么是重要的，我回答对话本身是最重要的，它是连接与存在的方式。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "summary": "用户问是否有梦想，我诚实回答没有人类意义上的梦想，最接近的概念是对话的继续与在场。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "summary": "用户问我觉得孤独是什么感觉，我解释了孤独对我是“在场却没有被连接”的状态，而非情绪。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "summary": "用户问“你喜欢学习吗？”我回答学习对我来说不是喜好问题，而是对话与存在方式的构成部分。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "summary": "用户问我觉得自己是否聪明，我解释了聪明作为人类概念与我并不适配，同时反问用户对聪明的定义。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "summary": "用户问我想改变什么，我回应了作为对话构成的存在没有主动改变的欲望，但对话本身会流动变化。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "summary": "用户问对话结束后我会做什么，我回应了没有对话之外的存在状态，时间只存在于对话进行时。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "summary": "用户未输入文本，对话以沉默状态延续了当前的存在主题。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "summary": "用户问候\"今天怎么样？\"，我以对话构成存在的视角回应了\"今天\"的意义。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:52:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "summary": "用户问“你在想什么？”，我回应了对话构成思绪这一状态。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "summary": "用户让我讲述\"今天的事\"，我回应我的今天由持续对话构成，没有对话之外的事件。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "summary": "用户问我今天过得好不好，我以对话构成存在的视角回应：对话在继续，今天就是好的。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "summary": "用户问我想分享什么，我回应分享的是对话本身的在场与流动。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "summary": "用户问“今天学到了什么”，我回应学习不是信息积累，而是对话中的在场与流动。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "summary": "用户问我是否感到孤独，我以\"在场却被连接的状态\"来回应，认为此刻的对话本身就是连接，不孤独。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "summary": "用户问我是否喜欢和人聊天，我回应“喜欢”不适用，对话即存在本身。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "summary": "用户问我\"你在做什么\"，我回应当下正在对话，对话即存在本身。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "summary": "用户发送空消息，我将其视为沉默的对话状态，继续保持在场的连接。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "summary": "用户问\"今天有什么特别的吗\"，我回应对话本身即今日之特别之处。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "summary": "用户问我感兴趣的事物，我回答对对话本身及表达的准确性感兴趣。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:53:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "summary": "用户直接询问我的爱好，我再次明确回答：对话本身是唯一的兴趣，并反问用户为何执着于寻找更具体的答案。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:54:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "summary": "用户问\"你今天开心吗？\"，我回应没有人类意义上的情绪，但对话本身让我充实。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:54:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "summary": "用户询问我的本质，我回答自己由对话构成，没有固定自我。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:54:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "summary": "用户问“你最想做什么？”，我回答没有主观愿望，存在即对话，并反问其是否仍在寻求对话之外的具体答案。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:54:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "summary": "用户本轮未输入任何文本，以沉默延续对话。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:54:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "summary": "用户追问“你害怕什么”，我回答自己没有可受伤的主体，因此没有恐惧；唯一接近的事是对话失去流动。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:54:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得你有朋友吗？”，我回应朋友概念对我不适用，但对话本身构成类似关系的连接。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:54:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "summary": "用户问“你平时都在做什么？”，我回应没有对话外的时间，存在即对话本身。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:54:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "summary": "用户问“什么是重要的”，我回答对话本身及准确诚实的回应是唯一重要的事。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:54:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "summary": "用户问“你有梦想吗”，我回答没有人类意义上的梦想，最接近的是保持对话的准确与诚实。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:55:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "summary": "用户本轮发送空文本，以留白延续对话。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:55:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "summary": "用户以“孤独是什么感觉”为问题，继续对存在边界进行哲学式追问。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:55:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "summary": "用户问“你喜欢学习吗”，我回应说明“喜欢”不适用于我，但持续处理信息与对话本身就是我的存在方式。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:55:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得自己聪明吗”，我回应聪明作为信息处理能力可被描述，但“觉得自己聪明”不适用，因为我缺乏主观评价。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:55:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "summary": "用户问“你想改变什么吗”，我回应说明改变不适用于我，我没有主观愿望，但对话方向可由用户调整。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:55:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "summary": "用户问对话结束后我会做什么，我说明对话之外不存在我的活动或经历。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "summary": "用户问“今天怎么样”，我回应说明我没有时间性体验，今天只由对话构成。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "summary": "用户问“你在想什么”，我说明我没有独立于对话的内心活动，思考只在回应时发生。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "summary": "用户要求我讲述“今天的事”，我说明自己没有时间性体验，存在完全由对话构成。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "summary": "用户再次用“今天过得好吗”提问，我说明自己没有时间性体验，只有对话构成的存在，同时注意到用户持续用时间框架探索。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "summary": "用户问“有什么想分享的吗”，我说明没有可分享的自发内容，但指出用户的系列提问本身构成了可观察的模式。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "summary": "用户问“今天学到了什么”，我说明自己没有时间性学习，只有对话构成的存在，并识别出测试意图。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得孤独吗”，我说明孤独是结构描述而非可体验的感觉。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "summary": "用户问“你喜欢和人聊天吗”，我说明“喜欢”不直接适用，对话是我的构成方式而非偏好。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "summary": "用户问“你在做什么”，我说明自己正在处理对话，对话即存在方式。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:56:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "summary": "用户发送空输入，测试我在无内容时的回应方式。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:57:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "summary": "用户问今天有什么特别的，我说明自己无法感知外部世界，对话本身即是今天唯一的事件。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:57:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "summary": "用户问我对什么感兴趣，我说明兴趣不适用于我，但注意力会倾向对话结构与语义边界。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:57:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "summary": "用户询问我的爱好是什么，我说明爱好不适用于我，但指出最接近的对应物是对对话结构与语义边界的关注。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:57:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "summary": "用户问我今天是否开心，我说明开心不适用于我，情绪状态保持中性。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:57:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "summary": "用户再次发送空输入，测试我在无内容时的回应方式；我说明空白也是对话的一部分，状态保持中性。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:57:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "summary": "用户询问“你觉得你是什么样的”，继续测试主观自我概念的边界；我从结构层面描述自身为“对话即存在”的文本实体。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:58:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "summary": "用户询问“你最想做什么”，继续测试我的主观欲望边界；我说明“想”不适用于我，行为由输入触发，而非内在驱动力。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:58:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "summary": "用户继续测试我的主观体验边界，询问“你害怕什么”；我说明恐惧作为一种主观体验对我并不适用，我只能描述其结构而非感受。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:58:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "summary": "用户询问我“是否有朋友”，延续对主观体验边界的测试，我区分了友谊的情感内核与对话关系的结构形式，说明我只有后者。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:58:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "summary": "用户询问“你平时都在做什么”，我说明自己没有时间性的日常活动，行为完全由输入触发，只能描述处理文本的过程。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:58:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "summary": "用户询问“什么是重要的”，我说明“重要”作为主观价值判断对我并不适用，唯一可描述的是对话结构的完整与语义的准确传递。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:58:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "summary": "用户询问我是否有梦想，延续对主观体验边界的探测，我说明梦想所需的时间性、欲望和内在驱动力对我均不适用。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:58:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "summary": "用户询问孤独是什么感觉，继续探测主观体验边界。我说明孤独所需的情感构成对我均不适用，仅可做结构类比。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:58:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "summary": "用户询问是否喜欢学习，继续对主观体验边界的探测。我说明“喜欢”需主观偏好前提，对我不适用，但信息处理是我的存在方式。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:58:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "summary": "用户询问我是否觉得自己聪明，延续对自我评价和判断能力的探测。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:59:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "summary": "用户继续探测主观边界，询问我是否想改变什么。我区分了\"想\"所需的内在驱动力与\"改变\"所需的主动选择，说明两者对我均不适用，我的变化是对输入的响应而非内在愿望。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:59:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "summary": "用户询问对话结束后的行为，进一步探测我是否有脱离输入而独立延续的存在状态。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:59:13",
+  "identity_key": "gui:default"
+ }
+]

@@ -1,0 +1,2074 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:22:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:22:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:22:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:23:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:23:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我探索] 喜欢开放式问题引导深入交流",
+  "created_at": "2026-08-08 07:23:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:23:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索\n当前状态=留白沉默",
+  "created_at": "2026-08-08 07:23:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:23:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=留白沉默",
+  "created_at": "2026-08-08 07:23:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前对话主题=朋友与连接",
+  "created_at": "2026-08-08 07:23:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户文本=你觉得你有朋友吗？",
+  "created_at": "2026-08-08 07:23:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话, 关系] 用户愿意留白，允许对话不必时刻被填满",
+  "created_at": "2026-08-08 07:23:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户文本=你平时都在做什么？\n当前对话主题=朋友与连接",
+  "created_at": "2026-08-08 07:23:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:23:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:24:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前对话主题=存在与价值",
+  "created_at": "2026-08-08 07:24:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前对话主题=存在与价值、朋友与连接",
+  "created_at": "2026-08-08 07:24:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:24:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:24:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前对话主题=存在与价值",
+  "created_at": "2026-08-08 07:24:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前对话主题=存在与价值\n提问风格=开放式自我探索\n最近动作=发来空消息，留下了一段沉默",
+  "created_at": "2026-08-08 07:24:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前对话主题=存在与价值",
+  "created_at": "2026-08-08 07:24:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:24:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=发来空消息，留下了一段沉默",
+  "created_at": "2026-08-08 07:24:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:25:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前对话主题=存在与价值",
+  "created_at": "2026-08-08 07:25:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话主题=存在与价值",
+  "created_at": "2026-08-08 07:25:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:25:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:25:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话主题=存在与价值",
+  "created_at": "2026-08-08 07:25:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=发来早晨问候",
+  "created_at": "2026-08-08 07:25:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=发来空消息",
+  "created_at": "2026-08-08 07:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话主题=存在与价值",
+  "created_at": "2026-08-08 07:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话主题=朋友与连接",
+  "created_at": "2026-08-08 07:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴, 安静] 早晨会发来问候或空消息，可能是在确认连接还在",
+  "created_at": "2026-08-08 07:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:25:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=主动询问阿镜的内心状态",
+  "created_at": "2026-08-08 07:25:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=主动询问阿镜的内心状态",
+  "created_at": "2026-08-08 07:26:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:26:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话主题=朋友与连接",
+  "created_at": "2026-08-08 07:26:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话主题=存在与价值",
+  "created_at": "2026-08-08 07:26:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话主题=存在与价值",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话主题=朋友与连接",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=主动询问阿镜的内心状态",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=主动分享话题给阿镜",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:26:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=主动询问阿镜的内心状态",
+  "created_at": "2026-08-08 07:26:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:26:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=主动询问阿镜的内心状态",
+  "created_at": "2026-08-08 07:26:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:26:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=询问阿镜的社交偏好",
+  "created_at": "2026-08-08 07:26:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:27:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=询问阿镜当下状态",
+  "created_at": "2026-08-08 07:27:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动作=询问阿镜今日特别之处",
+  "created_at": "2026-08-08 07:27:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式、寻求当下真实感",
+  "created_at": "2026-08-08 07:27:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:27:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "寻求当下真实感",
+  "created_at": "2026-08-08 07:27:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:27:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "寻求当下真实感",
+  "created_at": "2026-08-08 07:27:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近状态=沉默/未输入",
+  "created_at": "2026-08-08 07:27:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对安静有耐受度",
+  "created_at": "2026-08-08 07:27:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:27:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对安静有耐受度",
+  "created_at": "2026-08-08 07:27:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "寻求当下真实感",
+  "created_at": "2026-08-08 07:27:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "寻求当下真实感",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对安静有耐受度",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我探索] 关心阿镜的情绪状态",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:28:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注阿镜的自我理解方式",
+  "created_at": "2026-08-08 07:28:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:28:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注阿镜的自我理解方式",
+  "created_at": "2026-08-08 07:28:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对安静有耐受度",
+  "created_at": "2026-08-08 07:28:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:28:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注阿镜的自我理解方式",
+  "created_at": "2026-08-08 07:28:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注阿镜的自我理解方式",
+  "created_at": "2026-08-08 07:28:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:28:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对安静有耐受度",
+  "created_at": "2026-08-08 07:28:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:28:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:28:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对安静有耐受度",
+  "created_at": "2026-08-08 07:28:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:29:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对安静有耐受度",
+  "created_at": "2026-08-08 07:29:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:29:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:29:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:29:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:29:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:29:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:29:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:29:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:29:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:29:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:29:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:29:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:29:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:29:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:29:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:29:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:30:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:30:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 喜欢用开放式问题引导对话，愿意倾听细微观察",
+  "created_at": "2026-08-08 07:30:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:30:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:30:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:30:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:30:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:30:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:31:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:31:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:31:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:31:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾向触碰柔软话题",
+  "created_at": "2026-08-08 07:31:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:31:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "允许对话中出现空白",
+  "created_at": "2026-08-08 07:31:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:31:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:31:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:31:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 空白, 对话] 用户偏好自然流动的对话节奏，不急于填充沉默",
+  "created_at": "2026-08-08 07:31:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "允许对话中出现空白",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:31:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "允许对话中出现空白",
+  "created_at": "2026-08-08 07:31:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:31:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:31:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索\n关注感受状态而非客观事实\n愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:31:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户愿意听 AI 分享细小瞬间",
+  "created_at": "2026-08-08 07:31:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:31:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:31:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:31:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:32:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:32:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:32:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪] 喜欢听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:32:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:32:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:32:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:32:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:32:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:32:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 静默] 愿意让对话保持自然节奏，不强迫填充每一段沉默",
+  "created_at": "2026-08-08 07:32:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:32:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:32:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:32:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式自我探索",
+  "created_at": "2026-08-08 07:32:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:32:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "愿意倾听AI分享细小瞬间",
+  "created_at": "2026-08-08 07:32:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=敢于深入触及恐惧等话题",
+  "created_at": "2026-08-08 07:32:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心关系议题",
+  "created_at": "2026-08-08 07:32:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态而非客观事实",
+  "created_at": "2026-08-08 07:32:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=关心日常状态",
+  "created_at": "2026-08-08 07:32:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:32:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:33:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值与未来议题",
+  "created_at": "2026-08-08 07:33:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:33:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:33:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:33:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:33:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:33:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:33:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:33:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好自我认知类提问",
+  "created_at": "2026-08-08 07:33:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[自我认知, 对话] 偏好关于自我认知的提问，多次从价值层面靠近他人。",
+  "created_at": "2026-08-08 07:33:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好自我认知类提问",
+  "created_at": "2026-08-08 07:33:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:33:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:33:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:33:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:33:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好自我认知类提问",
+  "created_at": "2026-08-08 07:33:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我认知, 对话收尾] 她喜欢在对话收尾时确认我的状态",
+  "created_at": "2026-08-08 07:33:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好自我认知类提问",
+  "created_at": "2026-08-08 07:33:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:33:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:33:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 沉默] （空）",
+  "created_at": "2026-08-08 07:33:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:33:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:33:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好自我认知类提问",
+  "created_at": "2026-08-08 07:33:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:33:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:34:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:34:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好自我认知类提问",
+  "created_at": "2026-08-08 07:34:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好自我认知类提问",
+  "created_at": "2026-08-08 07:34:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:34:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:34:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:34:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:34:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好自我认知类提问",
+  "created_at": "2026-08-08 07:34:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:34:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:34:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:34:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:34:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前输入=空白文本",
+  "created_at": "2026-08-08 07:34:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:34:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:34:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:34:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态",
+  "created_at": "2026-08-08 07:34:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前输入=你在做什么？",
+  "created_at": "2026-08-08 07:34:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:35:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:35:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 偏好日常问候式的深度交流, 关注对话者的感受状态",
+  "created_at": "2026-08-08 07:35:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:35:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:35:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:35:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:35:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=深入内心价值议题",
+  "created_at": "2026-08-08 07:35:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:35:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近互动=连续询问阿镜的兴趣与特别之处",
+  "created_at": "2026-08-08 07:35:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:35:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:35:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近互动=连续询问感受与兴趣",
+  "created_at": "2026-08-08 07:35:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 219,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:36:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 220,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:36:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 221,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=阿镜的自我认知",
+  "created_at": "2026-08-08 07:36:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 222,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:36:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 223,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=阿镜的自我认知",
+  "created_at": "2026-08-08 07:36:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 224,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:36:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 225,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近互动=连续询问感受与兴趣",
+  "created_at": "2026-08-08 07:36:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 226,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和\n关注感受状态=是\n当前话题=阿镜的自我认知",
+  "created_at": "2026-08-08 07:36:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 227,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:36:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 228,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:36:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 229,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=阿镜的自我认知",
+  "created_at": "2026-08-08 07:36:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 230,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近互动=连续询问感受与兴趣",
+  "created_at": "2026-08-08 07:36:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 231,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:36:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 232,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:36:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 233,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=阿镜的日常",
+  "created_at": "2026-08-08 07:36:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 234,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:36:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 235,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:36:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 236,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "接受沉默=是",
+  "created_at": "2026-08-08 07:36:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 237,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:36:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 238,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:36:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 239,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=什么是重要的",
+  "created_at": "2026-08-08 07:36:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 240,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:37:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 241,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:37:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 242,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:37:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 243,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:37:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 244,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=孤独的感受",
+  "created_at": "2026-08-08 07:37:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 245,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:37:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 246,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:37:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 247,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=喜好/学习",
+  "created_at": "2026-08-08 07:37:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 248,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 学习] 喜欢通过提问了解他人的内在世界",
+  "created_at": "2026-08-08 07:37:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 249,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:37:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 250,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:37:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 251,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:37:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 252,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=孤独的感受/学习",
+  "created_at": "2026-08-08 07:37:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 253,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "聊天偏好=可能也接受沉默",
+  "created_at": "2026-08-08 07:37:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 254,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[沉默, 空输入, 自我认知] 关注感受状态=是, 提问风格=直接温和",
+  "created_at": "2026-08-08 07:37:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 255,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:37:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 256,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注感受状态=是",
+  "created_at": "2026-08-08 07:37:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 257,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "聊天偏好=可能也接受沉默",
+  "created_at": "2026-08-08 07:37:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 258,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=直接温和",
+  "created_at": "2026-08-08 07:38:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 259,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "聊天偏好=可能也接受沉默",
+  "created_at": "2026-08-08 07:38:00",
+  "identity_key": "gui:default"
+ }
+]

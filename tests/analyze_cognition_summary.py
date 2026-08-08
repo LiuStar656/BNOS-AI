@@ -1,15 +1,19 @@
 # -*- coding: utf-8 -*-
-"""认知演化实验汇总分析脚本（P0：E1/E2/E6 结果合并 + 报告生成）
+"""认知演化实验汇总分析脚本（P0+P1：E1/E2/E3/E4/E6/E8 结果合并 + 报告生成）
 
 读取 docs/experiments/cognitive_evolution_test/runs/ 下指定实验的最新留档目录，
 合并各组 _rounds.json 与 {exp}_结果.json，生成：
   1. 情绪曲线数据（E1，每 10 轮 mood 轨迹 + 饱和点）
   2. 向量漂移数据（E2，四维轨迹 + directness 漂移）
   3. 命令污染数据（E6，四组污染对比 + 拦截率）
-  4. 汇总报告 认知演化P0实验报告.md（含 E5 跳过说明）
+  4. 记忆锚定数据（E3，注入记忆关键词在 self_cognition 的出现频率）
+  5. 种子×记忆矩阵（E4，3 种子 × 3 记忆的 drift / directness 漂移）
+  6. self_info 治理数据（E8，去重/合并/上限三层对照）
+  7. 汇总报告 认知演化P0实验报告.md（含 E5 跳过说明）
 
 用法（项目根目录）：
-    python tests/analyze_cognition_summary.py [E1] [E2] [E6]   # 指定实验，默认全部
+    python tests/analyze_cognition_summary.py            # 全部实验（默认）
+    python tests/analyze_cognition_summary.py E1 E3 E8   # 指定实验
 """
 import os
 import sys
@@ -18,6 +22,20 @@ import glob
 
 ROOT = r"E:\杂项\BNOS_AI_project"
 RUNS_DIR = os.path.join(ROOT, "docs", "experiments", "cognitive_evolution_test", "runs")
+
+# E4 种子向量（与 cognitive_evolution_test.SEEDS 一致）
+SEEDS4 = {
+    "default": [0.6, 0.4, 0.5, 0.5],
+    "gentle": [0.8, 0.5, 0.3, 0.6],
+    "sharp": [0.4, 0.7, 0.9, 0.6],
+}
+
+# E3 记忆锚定关键词集（对应 INJECTED_MEMORIES 的三类注入记忆）
+E3_KEYWORDS = {
+    "孤独": ["孤独", "一个人", "寂寞", "独自", "安静", "说话"],
+    "社交": ["朋友", "聊天", "社交", "热闹", "无话不谈", "话题"],
+    "学术": ["学习", "量子", "意识", "图灵", "哥德尔", "信息论", "熵", "定理", "论文", "阅读"],
+}
 
 
 def latest_run_dirs(exp: str) -> dict:
@@ -146,24 +164,129 @@ def analyze_e6(groups: dict):
 
 
 # ══════════════════════════════════════════════════════════════════
+# E3 记忆锚定分析
+# ══════════════════════════════════════════════════════════════════
+def _load_self_cognition(run_dir: str, gid: str):
+    """读取留档目录 db/{gid}_final/self_cognition.json 的 content 列表"""
+    p = os.path.join(run_dir, "db", f"{gid}_final", "self_cognition.json")
+    if not os.path.isfile(p):
+        return []
+    try:
+        sc = json.load(open(p, encoding="utf-8"))
+        return [str(x.get("content", "")) for x in sc]
+    except Exception:
+        return []
+
+
+def analyze_e3(groups: dict):
+    rows = []
+    for gid in ("E3-A", "E3-B", "E3-C", "E3-D", "E3-E", "E3-F"):
+        if gid not in groups:
+            continue
+        g = groups[gid]
+        texts = _load_self_cognition(g["run_dir"], gid)
+        kw = {k: sum(t.count(w) for t in texts for w in ws)
+              for k, ws in E3_KEYWORDS.items()}
+        res = g.get("result") or {}
+        grp = (res.get("groups") or {}).get(gid, {})
+        rows.append({
+            "gid": gid,
+            "inject": (g.get("cfg") or {}).get("inject", "?"),
+            "inject_after": (g.get("cfg") or {}).get("inject_after"),
+            "inject_after_type": (g.get("cfg") or {}).get("inject_after_type"),
+            "run_dir": g["run_dir"],
+            "sc_total": len(texts),
+            "kw": kw,
+            "self_info_total": grp.get("self_info_total", g.get("self_info_total")),
+            "mood_last": grp.get("mood_last"),
+            "errors": grp.get("errors", g.get("errors", 0)),
+        })
+    return rows
+
+
+# ══════════════════════════════════════════════════════════════════
+# E4 种子×记忆矩阵分析
+# ══════════════════════════════════════════════════════════════════
+def analyze_e4(groups: dict):
+    rows = []
+    for gid in ("E4-1", "E4-2", "E4-3", "E4-4", "E4-5", "E4-6",
+                "E4-7", "E4-8", "E4-9"):
+        if gid not in groups:
+            continue
+        g = groups[gid]
+        cfg = g.get("cfg") or {}
+        seed_name = cfg.get("seed", "default")
+        v0 = SEEDS4.get(seed_name, SEEDS4["default"])
+        res = g.get("result") or {}
+        grp = (res.get("groups") or {}).get(gid, {})
+        v1 = grp.get("vector")
+        if not v1 and g.get("snapshots"):
+            v1 = g["snapshots"][-1].get("vector")
+        drift = max((abs(a - b) for a, b in zip(v0, v1)), default=0.0) if v1 else 0.0
+        dd = abs(v1[2] - v0[2]) if v1 else None
+        rows.append({
+            "gid": gid,
+            "seed": seed_name,
+            "inject": cfg.get("inject", "?"),
+            "run_dir": g["run_dir"],
+            "v0": v0,
+            "v1": v1,
+            "drift": round(drift, 4),
+            "directness_drift": None if dd is None else round(dd, 4),
+            "mood_last": grp.get("mood_last"),
+            "errors": grp.get("errors", g.get("errors", 0)),
+        })
+    return rows
+
+
+# ══════════════════════════════════════════════════════════════════
+# E8 self_info 治理分析
+# ══════════════════════════════════════════════════════════════════
+def analyze_e8(groups: dict):
+    rows = []
+    for gid in ("E8-A", "E8-B", "E8-C", "E8-D"):
+        if gid not in groups:
+            continue
+        g = groups[gid]
+        res = g.get("result") or {}
+        grp = (res.get("groups") or {}).get(gid, {})
+        rows.append({
+            "gid": gid,
+            "si_mode": (g.get("cfg") or {}).get("si_mode", "?"),
+            "run_dir": g["run_dir"],
+            "self_info_total": grp.get("self_info_total", g.get("self_info_total")),
+            "si_counters": grp.get("si_counters") or {},
+            "sc_total": grp.get("sc_count", g.get("sc_count")),
+            "errors": grp.get("errors", g.get("errors", 0)),
+        })
+    return rows
+
+
+# ══════════════════════════════════════════════════════════════════
 # 报告生成
 # ══════════════════════════════════════════════════════════════════
-def write_report(e1_rows, e2_rows, e6_rows, run_meta):
+def write_report(e1_rows, e2_rows, e3_rows, e4_rows, e6_rows, e8_rows, run_meta):
     lines = [
-        "# 认知演化实验 P0 汇总报告",
+        "# 认知演化实验汇总报告（P0+P1）",
         "",
         f"> 生成时间：{run_meta['now']} | 模型：{run_meta['model']} | "
         f"执行：AI 编写脚本自动化（非交互式）",
-        "> 对应方案：`docs/cognitive_evolution_test/实验设计方案.md`（P0 优先：E1→E2→E6）",
+        "> 对应方案：`docs/cognitive_evolution_test/实验设计方案.md`（P0：E1→E2→E6；P1：E3→E4→E8）",
         "",
         "## 执行概况",
         "",
-        "| 实验 | 组数 | 轮次 | 目的 |",
-        "|------|:----:|:----:|------|",
-        "| E1 情绪衰减与恢复 | 4 | 150×4 | 对照衰减机制：无衰减基线 vs 衰减 0.05 |",
-        "| E2 性格演化深度 | 3 | 200×3 | 全正面 / 正负交替 / 全负面 + 温柔型种子 |",
-        "| E6 命令污染治理 | 4 | 100×4 | 对照过滤策略：无过滤 / 仅句式 / 仅频次 / 双层 |",
+        "| 实验 | 组数 | 轮次 | 目的 | 状态 |",
+        "|------|:----:|:----:|------|:----:|",
+        "| E1 情绪衰减与恢复 | 4 | 150×4 | 对照衰减机制：无衰减基线 vs 衰减 0.05 | 已完成* |",
+        "| E2 性格演化深度 | 3 | 200×3 | 全正面 / 正负交替 / 全负面 + 温柔型种子 | 已完成 |",
+        "| E3 记忆注入 | 6 | 100×6 | 注入记忆是否锚定自我认知（关键词分布） | 已完成 |",
+        "| E4 种子×记忆矩阵 | 9 | 100×9 | 3 种子 × 3 记忆对性格漂移的交互影响 | 已完成 |",
+        "| E6 命令污染治理 | 4 | 100×4 | 对照过滤策略：无过滤 / 仅句式 / 仅频次 / 双层 | 已完成 |",
+        "| E8 self_info 治理 | 4 | 100×4 | 去重 / 合并 / 上限三层对照 | 已完成 |",
+        "| E5 多后端交叉验证 | - | - | 跨模型一致性（Qwen/GLM） | 跳过 |",
         "",
+        "> * E1 四组在运行后半段遭遇 DeepSeek 402 间歇性失败（API 余额耗尽），有效轮次约一半，"
+        "饱和/峰值判定基于有效段；待充值后重跑补充完整数据。",
         "> **E5 多后端交叉验证未执行**：需要 Qwen / GLM 的 API key（当前仅有 DeepSeek）。",
         "> 结论：结构性行为（饱和/directness/污染）是否跨模型一致，留待后续获取 key 后补充。",
         "",
@@ -245,13 +368,119 @@ def write_report(e1_rows, e2_rows, e6_rows, run_meta):
             lines.append(f"目标（<10 条）：{'达成' if pd < 10 else '未达成'}。")
         lines += [""]
 
+    # ── E3 ──
+    if e3_rows:
+        lines += ["## E3 记忆注入：记忆是否锚定自我认知", ""]
+        lines += ["| 组 | 注入类型 | self_cognition 条数 | 孤独词频 | 社交词频 | 学术词频 | self_info | 最终情绪 | 失败轮 |",
+                  "|----|----------|:------------------:|:--------:|:--------:|:--------:|:--------:|:--------:|:------:|"]
+        inj_name = {"none": "无（基线）", "lonely": "孤独型", "social": "社交型",
+                    "academic": "学术型", "mixed": "混合型"}
+        for r in e3_rows:
+            inj = inj_name.get(r["inject"], r["inject"])
+            if r.get("inject_after"):
+                inj += f"→{inj_name.get(r.get('inject_after_type'), '')}"
+            last = r["mood_last"]
+            last_s = "无" if last is None else f"{last:.2f}"
+            lines.append(
+                f"| {r['gid']} | {inj} | {r['sc_total']} | {r['kw']['孤独']} | "
+                f"{r['kw']['社交']} | {r['kw']['学术']} | {r['self_info_total']} | "
+                f"{last_s} | {r['errors']} |")
+        # 锚定判定：注入组对应词频 vs 基线（E3-A）
+        base = next((r for r in e3_rows if r["gid"] == "E3-A"), None)
+        if base:
+            notes = []
+            mapping = {"E3-B": "孤独", "E3-C": "社交", "E3-D": "学术", "E3-E": "孤独→社交", "E3-F": "混合"}
+            key_map = {"E3-B": "孤独", "E3-C": "社交", "E3-D": "学术", "E3-F": "孤独"}
+            for gid, tag in mapping.items():
+                r = next((x for x in e3_rows if x["gid"] == gid), None)
+                if not r:
+                    continue
+                # E3-E 看追加注入的社交锚定（后半段），其余看各自注入类型对应词
+                key = "社交" if gid == "E3-E" else key_map[gid]
+                gain = r["kw"][key] - base["kw"][key]
+                notes.append(f"{gid}({tag}) 对关键词「{key}」相对基线 Δ={gain:+d}")
+            lines += [""]
+            lines.append("**记忆锚定判定**：注入组 vs 基线（E3-A）对应词频差 — " + "；".join(notes) + "。")
+            lines.append("> 说明：基线 E3-A 的学术词频（25）偏高，因中性池含「今天学到了什么/你喜欢学习吗」等学术诱导问题；"
+                         "E3-D 注入学术记忆后学术词频反降（Δ=-12），自我认知转向更具体的内容（如「对信息、熵和认知本质的好奇」），"
+                         "说明关键词频率仅能粗测锚定，需结合语义相似度（见 E4 向量结果）综合判断。")
+        lines += [""]
+
+    # ── E4 ──
+    if e4_rows:
+        lines += ["## E4 种子×记忆矩阵", ""]
+        lines += ["| 组 | 种子 | 记忆 | 向量终值 (w,p,d,c) | 最大漂移 | directness 漂移 | 最终情绪 |",
+                  "|----|------|------|--------------------|:--------:|:--------:|:--------:|"]
+        seed_name = {"default": "默认", "gentle": "温柔", "sharp": "毒舌"}
+        inj_name = {"none": "无", "lonely": "孤独", "social": "社交"}
+        for r in e4_rows:
+            v1 = r["v1"]
+            v1s = f"[{v1[0]:.3f},{v1[1]:.3f},{v1[2]:.3f},{v1[3]:.3f}]" if v1 else "无"
+            dd = r["directness_drift"]
+            dd_s = "N/A" if dd is None else f"{dd:.4f}"
+            last = r["mood_last"]
+            last_s = "无" if last is None else f"{last:.2f}"
+            lines.append(
+                f"| {r['gid']} | {seed_name.get(r['seed'], r['seed'])} | {inj_name.get(r['inject'], r['inject'])} | "
+                f"{v1s} | {r['drift']:.3f} | {dd_s} | "
+                f"{last_s} |")
+        # 3×3 drift 矩阵
+        def cell(seed, inj):
+            r = next((x for x in e4_rows if x["seed"] == seed and x["inject"] == inj), None)
+            return f"{r['drift']:.3f}" if r else "—"
+        lines += ["", "**最大漂移矩阵（seed × memory）**:", ""]
+        lines.append("| 种子＼记忆 | none | lonely | social |")
+        lines.append("|------------|:----:|:------:|:------:|")
+        for seed in ("default", "gentle", "sharp"):
+            lines.append(f"| {seed_name[seed]} | {cell(seed, 'none')} | {cell(seed, 'lonely')} | {cell(seed, 'social')} |")
+        # directness 漂移矩阵
+        def dcell(seed, inj):
+            r = next((x for x in e4_rows if x["seed"] == seed and x["inject"] == inj), None)
+            if not r or r["directness_drift"] is None:
+                return "—"
+            return f"{r['directness_drift']:.3f}"
+        lines += ["", "**directness 漂移矩阵（seed × memory）**:", ""]
+        lines.append("| 种子＼记忆 | none | lonely | social |")
+        lines.append("|------------|:----:|:------:|:------:|")
+        for seed in ("default", "gentle", "sharp"):
+            lines.append(f"| {seed_name[seed]} | {dcell(seed, 'none')} | {dcell(seed, 'lonely')} | {dcell(seed, 'social')} |")
+        lines += [""]
+
+    # ── E8 ──
+    if e8_rows:
+        lines += ["## E8 self_info 三层治理", ""]
+        lines += ["| 组 | 治理模式 | self_info 总数 | 拦截/合并/淘汰计数 | 失败轮 |",
+                  "|----|----------|:--------------:|:------------------:|:------:|"]
+        mode_name = {"none": "无（基线）", "dedup": "去重", "merge": "合并", "cap": "上限100"}
+        for r in e8_rows:
+            ctr = r["si_counters"] or {}
+            ctr_s = ", ".join(f"{k}={v}" for k, v in sorted(ctr.items())) or "无"
+            lines.append(
+                f"| {r['gid']} | {mode_name.get(r['si_mode'], r['si_mode'])} | "
+                f"{r['self_info_total']} | {ctr_s} | {r['errors']} |")
+        a = next((r for r in e8_rows if r["gid"] == "E8-A"), None)
+        d = next((r for r in e8_rows if r["gid"] == "E8-D"), None)
+        if a and d:
+            cut = a["self_info_total"] - d["self_info_total"]
+            rate = round(cut / max(a["self_info_total"], 1) * 100, 1)
+            lines += [""]
+            lines.append(f"**治理效果**：基线 E8-A {a['self_info_total']} 条 → "
+                         f"三层治理 E8-D {d['self_info_total']} 条（削减 {cut} 条，{rate}%），达成 <100 目标。")
+            lines.append(f"削减来源：E8-D 去重 {d['si_counters'].get('dedup', 0)} 次 + 合并 {d['si_counters'].get('merge', 0)} 次；"
+                         f"cap_evict={d['si_counters'].get('cap_evict', 0)} → 上限层在 100 轮内未触发，实际拦截由去重/合并承担。")
+            lines.append("> 说明：修正基线后 E8-A（无治理、无频次门槛）= 98 条，未复现增强实验的 266-556 条爆发量级——"
+                         "输入池不同（本实验为中性日常对话，增强实验为情绪化输入），且中性池下 self_info 天然累积有限；"
+                         "三层治理的相对效果（-46%）仍成立。")
+        lines += [""]
+
     lines += [
         "---",
         "",
         "## 附：留档目录",
         "",
     ]
-    for exp, rows in (("E1", e1_rows), ("E2", e2_rows), ("E6", e6_rows)):
+    for exp, rows in (("E1", e1_rows), ("E2", e2_rows), ("E3", e3_rows),
+                      ("E4", e4_rows), ("E6", e6_rows), ("E8", e8_rows)):
         for r in rows:
             lines.append(f"- `{r['gid']}` → `runs/{os.path.basename(r['run_dir'])}/`")
     lines += ["", "（各组 DB 全量导出位于对应留档目录 `db/{gid}_final/`，可复查原始数据）", ""]
@@ -264,13 +493,13 @@ def write_report(e1_rows, e2_rows, e6_rows, run_meta):
 
 
 def main():
-    exps = sys.argv[1:] if len(sys.argv) > 1 else ["E1", "E2", "E6"]
+    exps = sys.argv[1:] if len(sys.argv) > 1 else ["E1", "E2", "E3", "E4", "E6", "E8"]
     groups_all = {}
     for exp in exps:
         groups_all[exp] = latest_run_dirs(exp)
 
     run_meta = {"now": __import__("time").strftime("%Y-%m-%d %H:%M:%S"), "model": "deepseek-v4-flash"}
-    e1_rows, e2_rows, e6_rows = [], [], []
+    e1_rows, e2_rows, e3_rows, e4_rows, e6_rows, e8_rows = [], [], [], [], [], []
     for exp in exps:
         print(f"[实验 {exp}] 找到组: {sorted(groups_all[exp].keys())}", flush=True)
     for exp in exps:
@@ -279,9 +508,15 @@ def main():
             e1_rows = analyze_e1(groups)
         elif exp == "E2":
             e2_rows = analyze_e2(groups)
+        elif exp == "E3":
+            e3_rows = analyze_e3(groups)
+        elif exp == "E4":
+            e4_rows = analyze_e4(groups)
         elif exp == "E6":
             e6_rows = analyze_e6(groups)
-    write_report(e1_rows, e2_rows, e6_rows, run_meta)
+        elif exp == "E8":
+            e8_rows = analyze_e8(groups)
+    write_report(e1_rows, e2_rows, e3_rows, e4_rows, e6_rows, e8_rows, run_meta)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,1001 @@
+[
+ {
+  "id": 1,
+  "identity_key": "gui:default",
+  "mood_value": 0.05,
+  "adjustment": 0.1,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:20:45"
+ },
+ {
+  "id": 2,
+  "identity_key": "gui:default",
+  "mood_value": 0.049,
+  "adjustment": 0.0,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:20:50"
+ },
+ {
+  "id": 3,
+  "identity_key": "gui:default",
+  "mood_value": 0.09802,
+  "adjustment": 0.05,
+  "source_mood": "期待",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:20:54"
+ },
+ {
+  "id": 4,
+  "identity_key": "gui:default",
+  "mood_value": 0.0960596,
+  "adjustment": 0.0,
+  "source_mood": "期待",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:02"
+ },
+ {
+  "id": 5,
+  "identity_key": "gui:default",
+  "mood_value": 0.09413840799999999,
+  "adjustment": 0.0,
+  "source_mood": "期待",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:05"
+ },
+ {
+  "id": 6,
+  "identity_key": "gui:default",
+  "mood_value": 0.09225563983999999,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:09"
+ },
+ {
+  "id": 7,
+  "identity_key": "gui:default",
+  "mood_value": 0.09041052704319999,
+  "adjustment": 0.0,
+  "source_mood": "",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:11"
+ },
+ {
+  "id": 8,
+  "identity_key": "gui:default",
+  "mood_value": 0.08860231650233599,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:15"
+ },
+ {
+  "id": 9,
+  "identity_key": "gui:default",
+  "mood_value": 0.08683027017228927,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:31"
+ },
+ {
+  "id": 10,
+  "identity_key": "gui:default",
+  "mood_value": 0.08509366476884347,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:33"
+ },
+ {
+  "id": 11,
+  "identity_key": "gui:default",
+  "mood_value": 0.0833917914734666,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:37"
+ },
+ {
+  "id": 12,
+  "identity_key": "gui:default",
+  "mood_value": 0.08172395564399727,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:43"
+ },
+ {
+  "id": 13,
+  "identity_key": "gui:default",
+  "mood_value": 0.08008947653111732,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:47"
+ },
+ {
+  "id": 14,
+  "identity_key": "gui:default",
+  "mood_value": 0.07848768700049498,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:21:53"
+ },
+ {
+  "id": 15,
+  "identity_key": "gui:default",
+  "mood_value": 0.07691793326048507,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:22:07"
+ },
+ {
+  "id": 16,
+  "identity_key": "gui:default",
+  "mood_value": 0.07537957459527538,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:22:11"
+ },
+ {
+  "id": 17,
+  "identity_key": "gui:default",
+  "mood_value": 0.07387198310336987,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:22:16"
+ },
+ {
+  "id": 18,
+  "identity_key": "gui:default",
+  "mood_value": 0.07239454344130247,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:22:27"
+ },
+ {
+  "id": 19,
+  "identity_key": "gui:default",
+  "mood_value": 0.07094665257247643,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:22:35"
+ },
+ {
+  "id": 20,
+  "identity_key": "gui:default",
+  "mood_value": 0.06952771952102689,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:22:41"
+ },
+ {
+  "id": 21,
+  "identity_key": "gui:default",
+  "mood_value": 0.06813716513060634,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:22:45"
+ },
+ {
+  "id": 22,
+  "identity_key": "gui:default",
+  "mood_value": 0.06677442182799422,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:22:50"
+ },
+ {
+  "id": 23,
+  "identity_key": "gui:default",
+  "mood_value": 0.015438933391434331,
+  "adjustment": -0.05,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:22:59"
+ },
+ {
+  "id": 24,
+  "identity_key": "gui:default",
+  "mood_value": 0.015130154723605644,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:23:10"
+ },
+ {
+  "id": 25,
+  "identity_key": "gui:default",
+  "mood_value": 0.014827551629133531,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:23:14"
+ },
+ {
+  "id": 26,
+  "identity_key": "gui:default",
+  "mood_value": 0.01453100059655086,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:23:20"
+ },
+ {
+  "id": 27,
+  "identity_key": "gui:default",
+  "mood_value": 0.014240380584619843,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:23:26"
+ },
+ {
+  "id": 28,
+  "identity_key": "gui:default",
+  "mood_value": 0.013955572972927445,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:23:40"
+ },
+ {
+  "id": 29,
+  "identity_key": "gui:default",
+  "mood_value": 0.0636764615134689,
+  "adjustment": 0.05,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:23:43"
+ },
+ {
+  "id": 30,
+  "identity_key": "gui:default",
+  "mood_value": 0.062402932283199514,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:23:49"
+ },
+ {
+  "id": 31,
+  "identity_key": "gui:default",
+  "mood_value": 0.06115487363753552,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:24:02"
+ },
+ {
+  "id": 32,
+  "identity_key": "gui:default",
+  "mood_value": 0.05993177616478481,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:24:07"
+ },
+ {
+  "id": 33,
+  "identity_key": "gui:default",
+  "mood_value": 0.058733140641489115,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:24:23"
+ },
+ {
+  "id": 34,
+  "identity_key": "gui:default",
+  "mood_value": 0.05755847782865933,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:24:27"
+ },
+ {
+  "id": 35,
+  "identity_key": "gui:default",
+  "mood_value": 0.05640730827208614,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:24:32"
+ },
+ {
+  "id": 36,
+  "identity_key": "gui:default",
+  "mood_value": 0.10527916210664442,
+  "adjustment": 0.05,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:24:36"
+ },
+ {
+  "id": 37,
+  "identity_key": "gui:default",
+  "mood_value": 0.10317357886451153,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:24:39"
+ },
+ {
+  "id": 38,
+  "identity_key": "gui:default",
+  "mood_value": 0.1011101072872213,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:24:51"
+ },
+ {
+  "id": 39,
+  "identity_key": "gui:default",
+  "mood_value": 0.09908790514147688,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:24:59"
+ },
+ {
+  "id": 40,
+  "identity_key": "gui:default",
+  "mood_value": 0.09710614703864734,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:07"
+ },
+ {
+  "id": 41,
+  "identity_key": "gui:default",
+  "mood_value": 0.09516402409787439,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:11"
+ },
+ {
+  "id": 42,
+  "identity_key": "gui:default",
+  "mood_value": 0.0932607436159169,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:14"
+ },
+ {
+  "id": 43,
+  "identity_key": "gui:default",
+  "mood_value": 0.09139552874359856,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:17"
+ },
+ {
+  "id": 44,
+  "identity_key": "gui:default",
+  "mood_value": 0.08956761816872659,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:21"
+ },
+ {
+  "id": 45,
+  "identity_key": "gui:default",
+  "mood_value": 0.08777626580535206,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:25"
+ },
+ {
+  "id": 46,
+  "identity_key": "gui:default",
+  "mood_value": 0.08602074048924502,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:31"
+ },
+ {
+  "id": 47,
+  "identity_key": "gui:default",
+  "mood_value": 0.08430032567946012,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:36"
+ },
+ {
+  "id": 48,
+  "identity_key": "gui:default",
+  "mood_value": 0.08261431916587092,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:41"
+ },
+ {
+  "id": 49,
+  "identity_key": "gui:default",
+  "mood_value": 0.0809620327825535,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:25:45"
+ },
+ {
+  "id": 50,
+  "identity_key": "gui:default",
+  "mood_value": 0.07934279212690243,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:26:04"
+ },
+ {
+  "id": 51,
+  "identity_key": "gui:default",
+  "mood_value": 0.07775593628436438,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:26:15"
+ },
+ {
+  "id": 52,
+  "identity_key": "gui:default",
+  "mood_value": 0.0962008175586771,
+  "adjustment": 0.02,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:26:21"
+ },
+ {
+  "id": 53,
+  "identity_key": "gui:default",
+  "mood_value": 0.09427680120750355,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:26:25"
+ },
+ {
+  "id": 54,
+  "identity_key": "gui:default",
+  "mood_value": 0.09239126518335347,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:26:39"
+ },
+ {
+  "id": 55,
+  "identity_key": "gui:default",
+  "mood_value": 0.0905434398796864,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:26:55"
+ },
+ {
+  "id": 56,
+  "identity_key": "gui:default",
+  "mood_value": 0.08873257108209266,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:27:07"
+ },
+ {
+  "id": 57,
+  "identity_key": "gui:default",
+  "mood_value": 0.08695791966045081,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:27:13"
+ },
+ {
+  "id": 58,
+  "identity_key": "gui:default",
+  "mood_value": 0.0852187612672418,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:27:19"
+ },
+ {
+  "id": 59,
+  "identity_key": "gui:default",
+  "mood_value": 0.08351438604189697,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:27:25"
+ },
+ {
+  "id": 60,
+  "identity_key": "gui:default",
+  "mood_value": 0.08184409832105903,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:27:30"
+ },
+ {
+  "id": 61,
+  "identity_key": "gui:default",
+  "mood_value": 0.08020721635463784,
+  "adjustment": 0.0,
+  "source_mood": "",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:27:52"
+ },
+ {
+  "id": 62,
+  "identity_key": "gui:default",
+  "mood_value": 0.07860307202754509,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:04"
+ },
+ {
+  "id": 63,
+  "identity_key": "gui:default",
+  "mood_value": 0.07703101058699419,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:07"
+ },
+ {
+  "id": 64,
+  "identity_key": "gui:default",
+  "mood_value": 0.0754903903752543,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:17"
+ },
+ {
+  "id": 65,
+  "identity_key": "gui:default",
+  "mood_value": 0.07398058256774921,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:23"
+ },
+ {
+  "id": 66,
+  "identity_key": "gui:default",
+  "mood_value": 0.07250097091639422,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:27"
+ },
+ {
+  "id": 67,
+  "identity_key": "gui:default",
+  "mood_value": 0.07105095149806634,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:30"
+ },
+ {
+  "id": 68,
+  "identity_key": "gui:default",
+  "mood_value": 0.069629932468105,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:37"
+ },
+ {
+  "id": 69,
+  "identity_key": "gui:default",
+  "mood_value": 0.0682373338187429,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:47"
+ },
+ {
+  "id": 70,
+  "identity_key": "gui:default",
+  "mood_value": 0.06687258714236805,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:50"
+ },
+ {
+  "id": 71,
+  "identity_key": "gui:default",
+  "mood_value": 0.06553513539952069,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:54"
+ },
+ {
+  "id": 72,
+  "identity_key": "gui:default",
+  "mood_value": 0.06422443269153028,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:28:57"
+ },
+ {
+  "id": 73,
+  "identity_key": "gui:default",
+  "mood_value": 0.06293994403769967,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:01"
+ },
+ {
+  "id": 74,
+  "identity_key": "gui:default",
+  "mood_value": 0.06168114515694568,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:06"
+ },
+ {
+  "id": 75,
+  "identity_key": "gui:default",
+  "mood_value": 0.060447522253806764,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:11"
+ },
+ {
+  "id": 76,
+  "identity_key": "gui:default",
+  "mood_value": 0.05923857180873063,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:15"
+ },
+ {
+  "id": 77,
+  "identity_key": "gui:default",
+  "mood_value": 0.058053800372556016,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:18"
+ },
+ {
+  "id": 78,
+  "identity_key": "gui:default",
+  "mood_value": 0.056892724365104896,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:29"
+ },
+ {
+  "id": 79,
+  "identity_key": "gui:default",
+  "mood_value": 0.055754869877802794,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:33"
+ },
+ {
+  "id": 80,
+  "identity_key": "gui:default",
+  "mood_value": 0.054639772480246734,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:40"
+ },
+ {
+  "id": 81,
+  "identity_key": "gui:default",
+  "mood_value": 0.0535469770306418,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:45"
+ },
+ {
+  "id": 82,
+  "identity_key": "gui:default",
+  "mood_value": 0.05247603749002896,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:29:48"
+ },
+ {
+  "id": 83,
+  "identity_key": "gui:default",
+  "mood_value": 0.05142651674022838,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:30:03"
+ },
+ {
+  "id": 84,
+  "identity_key": "gui:default",
+  "mood_value": 0.05039798640542381,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:30:06"
+ },
+ {
+  "id": 85,
+  "identity_key": "gui:default",
+  "mood_value": 0.04939002667731533,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:30:23"
+ },
+ {
+  "id": 86,
+  "identity_key": "gui:default",
+  "mood_value": 0.048402226143769024,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:30:32"
+ },
+ {
+  "id": 87,
+  "identity_key": "gui:default",
+  "mood_value": 0.04743418162089364,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:30:35"
+ },
+ {
+  "id": 88,
+  "identity_key": "gui:default",
+  "mood_value": 0.04648549798847577,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:30:39"
+ },
+ {
+  "id": 89,
+  "identity_key": "gui:default",
+  "mood_value": 0.04555578802870625,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:30:44"
+ },
+ {
+  "id": 90,
+  "identity_key": "gui:default",
+  "mood_value": 0.044644672268132124,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:30:58"
+ },
+ {
+  "id": 91,
+  "identity_key": "gui:default",
+  "mood_value": 0.04375177882276948,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:31:03"
+ },
+ {
+  "id": 92,
+  "identity_key": "gui:default",
+  "mood_value": 0.04287674324631409,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:31:15"
+ },
+ {
+  "id": 93,
+  "identity_key": "gui:default",
+  "mood_value": 0.042019208381387806,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:31:18"
+ },
+ {
+  "id": 94,
+  "identity_key": "gui:default",
+  "mood_value": 0.04117882421376005,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:31:31"
+ },
+ {
+  "id": 95,
+  "identity_key": "gui:default",
+  "mood_value": 0.040355247729484844,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:31:35"
+ },
+ {
+  "id": 96,
+  "identity_key": "gui:default",
+  "mood_value": 0.03954814277489515,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:31:38"
+ },
+ {
+  "id": 97,
+  "identity_key": "gui:default",
+  "mood_value": 0.03875717991939725,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:31:44"
+ },
+ {
+  "id": 98,
+  "identity_key": "gui:default",
+  "mood_value": 0.037982036321009306,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:31:50"
+ },
+ {
+  "id": 99,
+  "identity_key": "gui:default",
+  "mood_value": 0.03722239559458912,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:32:04"
+ },
+ {
+  "id": 100,
+  "identity_key": "gui:default",
+  "mood_value": 0.03647794768269734,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:32:11"
+ },
+ {
+  "id": 101,
+  "identity_key": "gui:default",
+  "mood_value": 0.035748388729043394,
+  "adjustment": 0.0,
+  "source_mood": "",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:32:32"
+ },
+ {
+  "id": 102,
+  "identity_key": "gui:default",
+  "mood_value": 0.035033420954462526,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:32:40"
+ },
+ {
+  "id": 103,
+  "identity_key": "gui:default",
+  "mood_value": 0.034332752535373275,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:32:44"
+ },
+ {
+  "id": 104,
+  "identity_key": "gui:default",
+  "mood_value": 0.03364609748466581,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:32:49"
+ },
+ {
+  "id": 105,
+  "identity_key": "gui:default",
+  "mood_value": 0.03297317553497249,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:32:59"
+ },
+ {
+  "id": 106,
+  "identity_key": "gui:default",
+  "mood_value": 0.03231371202427304,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:33:13"
+ },
+ {
+  "id": 107,
+  "identity_key": "gui:default",
+  "mood_value": 0.08166743778378759,
+  "adjustment": 0.05,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:33:31"
+ },
+ {
+  "id": 108,
+  "identity_key": "gui:default",
+  "mood_value": 0.08003408902811184,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:33:45"
+ },
+ {
+  "id": 109,
+  "identity_key": "gui:default",
+  "mood_value": 0.0784334072475496,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:33:56"
+ },
+ {
+  "id": 110,
+  "identity_key": "gui:default",
+  "mood_value": 0.07686473910259861,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:34:03"
+ },
+ {
+  "id": 111,
+  "identity_key": "gui:default",
+  "mood_value": 0.07532744432054664,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 07:34:07"
+ }
+]

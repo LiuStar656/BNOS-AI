@@ -1,0 +1,41 @@
+{
+ "exp": "E8",
+ "rounds": 100,
+ "full": false,
+ "groups": {
+  "E8-B": {
+   "errors": 0,
+   "mood_trace": [
+    0.0896,
+    0.0891,
+    0.1853,
+    0.2344,
+    0.234,
+    0.3846,
+    0.3496,
+    0.2799,
+    0.4442,
+    0.4311
+   ],
+   "mood_last": 0.4311,
+   "mood_max_abs": 0.4442,
+   "vector": [
+    0.5160013317250027,
+    0.4882418245696631,
+    0.5007477608648141,
+    0.5577058980580384
+   ],
+   "name": null,
+   "self_info_total": 79,
+   "settled": 53,
+   "sc_count": 163,
+   "pollution": 0,
+   "error_details": [],
+   "si_counters": {
+    "dedup": 0,
+    "merge": 0,
+    "cap_evict": 0
+   }
+  }
+ }
+}

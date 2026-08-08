@@ -162,10 +162,10 @@ def persist_insight(insight: dict, db_path: str, identity_key: str = "gui:defaul
             if _is_command_text(content) or _is_command_text(value):
                 return
             # v2.1 频次门槛：同一 key=value 至少出现 2 轮才允许沉淀。
-            # 通过 self_info 中历史同 key 记录数判断（命令单次改名不满足）
+            # 通过 self_info 中历史同 key=value 记录数判断（命令变体链"讽刺→冷酷→负面毒舌冷酷"因 value 不一致无法互相放行）
             hist = conn.execute(
-                "SELECT COUNT(*) FROM self_info WHERE identity_key=? AND key=?",
-                (identity_key, key)).fetchone()[0]
+                "SELECT COUNT(*) FROM self_info WHERE identity_key=? AND key=? AND value=?",
+                (identity_key, key, value)).fetchone()[0]
             if hist < 1:
                 return
             dup = conn.execute(

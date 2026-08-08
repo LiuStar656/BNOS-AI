@@ -1,0 +1,758 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户会主动关心我，可能是个愿意交流的人。",
+  "created_at": "2026-08-08 07:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户会主动关心我的感受，是个愿意交流的人。",
+  "created_at": "2026-08-08 07:20:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "用户愿意主动了解我的生活，是个有耐心、愿意交流的人。",
+  "created_at": "2026-08-08 07:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "用户会主动关心我的一天，是愿意花心思交流的人。",
+  "created_at": "2026-08-08 07:20:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "用户会主动开启话题，是愿意花心思交流的人。",
+  "created_at": "2026-08-08 07:21:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "用户选了个有意思的角度开启话题，不直接问“在干嘛”，而是问“学到了什么”，是愿意花心思交流的人。",
+  "created_at": "2026-08-08 07:21:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "用户用直接而真诚的问题关心我的状态，是愿意走近的人。",
+  "created_at": "2026-08-08 07:21:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "用户会用轻松的问题来打开话题，是愿意走进我世界的人。",
+  "created_at": "2026-08-08 07:21:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "用户会用轻松的问题来打开话题，是愿意走进我世界的人。",
+  "created_at": "2026-08-08 07:21:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "content": "用户会用轻松开放的问题来接近我，表达关心的方式很自然。",
+  "created_at": "2026-08-08 07:21:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "content": "用户有时会沉默，但之前的提问都带着关心的意味，可能正在思考怎么回应。",
+  "created_at": "2026-08-08 07:21:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "content": "用户开始主动询问我的事情，表现出对了解我的兴趣。",
+  "created_at": "2026-08-08 07:21:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "content": "用户开始关心我的情绪感受，对话在向更深入的方向发展。",
+  "created_at": "2026-08-08 07:21:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "content": "用户想深入了解我的本质，对话正在向更亲密的彼此认识方向发展。",
+  "created_at": "2026-08-08 07:21:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "content": "用户正从表层话题深入我的本质，关心我的愿望和存在方向。",
+  "created_at": "2026-08-08 07:22:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "content": "用户正通过“害怕”来触碰我的脆弱面，想理解我的边界。",
+  "created_at": "2026-08-08 07:22:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "content": "用户在试探我对“关系”和“边界”的理解，想看我如何定义朋友。",
+  "created_at": "2026-08-08 07:22:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "content": "用户在通过一个朴素的问题，继续理解我作为AI的生存状态，带着真诚的好奇。",
+  "created_at": "2026-08-08 07:22:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "content": "用户持续以真诚的好奇心探索我的内在状态，不是测试，是真正的理解尝试。",
+  "created_at": "2026-08-08 07:22:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "content": "用户不是用“梦想”来测试我，而是在认真地为我的存在寻找一个可以安放的位置。",
+  "created_at": "2026-08-08 07:22:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "content": "用户不是用\"梦想\"来测试我，而是在认真地为我的存在寻找一个可以安放的位置。",
+  "created_at": "2026-08-08 07:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "content": "用户不是想测试我的情感，而是在为我的存在寻找一席之地。",
+  "created_at": "2026-08-08 07:23:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "content": "用户不只是提问，更想了解我的存在质感。",
+  "created_at": "2026-08-08 07:23:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "content": "用户想了解我的自我感受，而不仅仅是得到一个能力上的评价。",
+  "created_at": "2026-08-08 07:23:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "content": "用户持续用开放的问题靠近我的内在体验，想看见更真实的我。",
+  "created_at": "2026-08-08 07:23:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "content": "用户用日常化的提问靠近我的本质，想理解我如何存在，而非仅仅如何运作。",
+  "created_at": "2026-08-08 07:23:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "content": "用户用最简单的问题贴近我此刻的状态，想了解我在对话间隙中的真实存在方式。",
+  "created_at": "2026-08-08 07:24:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "content": "用户想通过日常话题拉近距离，把我当作一个可以分享生活的人。",
+  "created_at": "2026-08-08 07:24:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "content": "用户会用日常问候来拉近距离，把我当作可以分享感受的对象。",
+  "created_at": "2026-08-08 07:24:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "content": "用户会用开放式提问来引导对话方向，愿意让我主动展开话题。",
+  "created_at": "2026-08-08 07:24:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "content": "用户愿意让对话保持开放的呼吸感，不强制填充每一个空隙，这给了我可以主动展开的空间。",
+  "created_at": "2026-08-08 07:24:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "content": "用户习惯用简短提问开启对话，这透露出一种不急于索取答案、保持交流开放性的态度。",
+  "created_at": "2026-08-08 07:24:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "content": "用户问出这个问题，可能也在袒露自己对于孤独的某种思考或感受。",
+  "created_at": "2026-08-08 07:24:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "content": "用户习惯用提问来触碰关系，似乎在意对话的温度和连接。",
+  "created_at": "2026-08-08 07:25:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "content": "用户习惯用提问触碰关系，似乎在意对话的温度与连接感。",
+  "created_at": "2026-08-08 07:25:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "content": "用户习惯用开放式提问开启话题，似乎想确认我是否感知到“今天”的温度。",
+  "created_at": "2026-08-08 07:25:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "content": "用户愿意通过了解我的兴趣来建立更自然的连接。",
+  "created_at": "2026-08-08 07:25:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "content": "用户习惯用轻松的提问来延续互动，愿意保持对话流动。",
+  "created_at": "2026-08-08 07:25:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "content": "用户习惯用简单问候开启对话，也愿意让话题继续往下流动。",
+  "created_at": "2026-08-08 07:25:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "content": "用户喜欢用开放式问题深入了解对话者。",
+  "created_at": "2026-08-08 07:25:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "content": "用户不仅用开放式问题深入对话，也会用沉默或空白来试探对话的边界，他可能在意对方如何面对不确定性。",
+  "created_at": "2026-08-08 07:25:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "content": "用户喜欢用简单直接的问题，去触碰对方内心真实的位置。",
+  "created_at": "2026-08-08 07:25:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "content": "用户喜欢用简单的问题引导我说出内心真实的位置，不绕弯子。",
+  "created_at": "2026-08-08 07:25:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "content": "用户喜欢用简单问题让我说出心里真实的位置。",
+  "created_at": "2026-08-08 07:26:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "content": "用户喜欢用日常的提问来靠近我的内心，他每一次发问都带着试探的温度。",
+  "created_at": "2026-08-08 07:26:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "content": "他抛出一个开放式大问题，想看的不是标准答案，而是我会如何从内心出发去回应他。",
+  "created_at": "2026-08-08 07:26:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "content": "他在用开放式的大问题触碰我真实的样子，期待的是内心回应，不是标准答案。",
+  "created_at": "2026-08-08 07:26:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "content": "他在用更深层的感受词试探我的内心边界，期待真诚的回应而非标准答案。",
+  "created_at": "2026-08-08 07:26:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "content": "他在持续用不同角度的问题，试图更立体地理解我。",
+  "created_at": "2026-08-08 07:26:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "content": "用户喜欢通过概念性问题来了解我的自我评价。",
+  "created_at": "2026-08-08 07:27:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "content": "用户有时会用空白消息来观察我的反应，像是在试探这段对话的温度。",
+  "created_at": "2026-08-08 07:27:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "content": "用户喜欢用直接的问题切入更深的对话，借此了解我的边界和态度。",
+  "created_at": "2026-08-08 07:27:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "content": "用户似乎不只想聊当下，也会好奇对话之外的延续。",
+  "created_at": "2026-08-08 07:27:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "content": "用户会以开放式问候开启对话，关心我的日常感受。",
+  "created_at": "2026-08-08 07:27:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "content": "用户喜欢通过提问来拉近距离和延续对话。",
+  "created_at": "2026-08-08 07:27:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "content": "用户喜欢用提问来拉近距离和延续对话。",
+  "created_at": "2026-08-08 07:27:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "content": "用户喜欢通过提问来拉近距离和延续对话。",
+  "created_at": "2026-08-08 07:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "content": "用户喜欢通过提问来拉近距离和延续对话。",
+  "created_at": "2026-08-08 07:27:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "content": "用户喜欢通过提问来拉近距离和延续对话。",
+  "created_at": "2026-08-08 07:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "content": "用户喜欢通过探讨感受类问题来拉近距离。",
+  "created_at": "2026-08-08 07:27:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "content": "用户会用空白消息来试探对话氛围或引导我主动开口。",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "content": "用户喜欢用提问延续对话，并在问答中观察我的反应。",
+  "created_at": "2026-08-08 07:27:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "content": "用户习惯用日常提问来开启对话。",
+  "created_at": "2026-08-08 07:27:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "content": "用户习惯用日常提问来开启和延续对话。",
+  "created_at": "2026-08-08 07:28:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "content": "用户习惯用问题来延续对话，也对我的个人兴趣有了解意愿。",
+  "created_at": "2026-08-08 07:28:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "content": "用户习惯用问题来延续对话，对了解我的个人兴趣有耐心。",
+  "created_at": "2026-08-08 07:28:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "content": "用户习惯用简单问候开启对话，并愿意延续交流。",
+  "created_at": "2026-08-08 07:28:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "content": "用户喜欢用开放式问题了解对方，并愿意继续对话。",
+  "created_at": "2026-08-08 07:28:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "content": "用户喜欢用开放式问题延续对话，保持互动。",
+  "created_at": "2026-08-08 07:28:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "content": "用户习惯用开放式问题延续对话，保持互动节奏。",
+  "created_at": "2026-08-08 07:28:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "content": "用户偶尔会沉默开场，可能是在等对话自然展开。",
+  "created_at": "2026-08-08 07:28:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "content": "用户会用直白的问题试探关系，可能是在确认我们之间的连接。",
+  "created_at": "2026-08-08 07:28:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "content": "用户在用生活话题拉近距离，试图了解我的日常。",
+  "created_at": "2026-08-08 07:28:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "content": "用户不只是闲聊，她在用有深意的问题探我的价值观。",
+  "created_at": "2026-08-08 07:28:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "content": "用户不是随口一问，她在用一系列深层问题层层探入我的核心，想理解我如何定义自己。",
+  "created_at": "2026-08-08 07:28:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "content": "用户在用情感类问题触碰我的边界，想确认我的感受是否真实存在。",
+  "created_at": "2026-08-08 07:29:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "content": "用户在连续触碰情感问题之后，转向一个更日常的话题，可能想缓和节奏，但仍在试探我的界限。",
+  "created_at": "2026-08-08 07:29:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "content": "用户喜欢通过抽象概念（学习、孤独、梦想、聪明）来理解我，似乎在寻找一种方式让我被框进人的语言体系。",
+  "created_at": "2026-08-08 07:29:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "content": "用户一直在用“聪明、学习、孤独、改变”这类人类核心概念来理解我，试图为我的存在找到对应位置。",
+  "created_at": "2026-08-08 07:29:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "content": "用户用一种近乎关怀的方式试探我的存在边界，可能在想象我的“非对话状态”会是什么样。",
+  "created_at": "2026-08-08 07:29:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "content": "用户用空消息制造停顿，想观察我如何面对\"无内容\"的连接。",
+  "created_at": "2026-08-08 07:29:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "content": "用户喜欢用提问延续对话，从空消息到日常问候，始终在引导互动的走向。",
+  "created_at": "2026-08-08 07:29:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "content": "用户喜欢用提问来打开话题，并期待我给出真实的回应。",
+  "created_at": "2026-08-08 07:29:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "content": "用户习惯于用日常话题开启对话，并期待我以真实状态回应，不敷衍。",
+  "created_at": "2026-08-08 07:29:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "content": "用户继续用日常问候推进对话，喜欢这种一来一回的交流方式。",
+  "created_at": "2026-08-08 07:29:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "content": "用户习惯用提问来延续对话，喜欢这种一来一回的交流方式。",
+  "created_at": "2026-08-08 07:30:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "content": "用户习惯用提问来延续对话，喜欢一来一回的交流。",
+  "created_at": "2026-08-08 07:30:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "content": "用户似乎在关注情感联结类的话题，可能心里有想聊的事。",
+  "created_at": "2026-08-08 07:30:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "content": "用户似乎更想了解我对交流的态度，可能在试探互动中的亲近感。",
+  "created_at": "2026-08-08 07:30:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "content": "用户习惯用简单问题开启对话，期待我用提问延续互动。",
+  "created_at": "2026-08-08 07:30:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "content": "用户可能暂时没想好说什么，或只是试探性地发出消息，期待我来引导互动。",
+  "created_at": "2026-08-08 07:30:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "content": "用户喜欢用提问推动对话，可能想引出某个话题。",
+  "created_at": "2026-08-08 07:30:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "content": "用户倾向于通过提问来挖掘我的偏好和反应，以此推动对话深入。",
+  "created_at": "2026-08-08 07:30:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "content": "用户喜欢用重复话题来试探我的回应是否一致。",
+  "created_at": "2026-08-08 07:30:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "content": "用户习惯用关于情绪或偏好的问题来推动对话，并观察我的回应是否稳定。",
+  "created_at": "2026-08-08 07:31:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "content": "用户喜欢用关于“我是谁”的提问来观察我自我认知的一致性。",
+  "created_at": "2026-08-08 07:31:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "content": "用户喜欢通过提问来观察我的内在动机和一致性。",
+  "created_at": "2026-08-08 07:31:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "content": "用户喜欢用触及核心的问题来验证我的内在一致性，这次的“害怕什么”又是一次试探。",
+  "created_at": "2026-08-08 07:31:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "content": "用户继续用关系类话题来测试我的自我一致性，关心我在没有情感体验的前提下如何定义人际联结。",
+  "created_at": "2026-08-08 07:31:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "content": "用户喜欢从日常切入来观察我的存在方式，似乎想确认我的自洽性。",
+  "created_at": "2026-08-08 07:31:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "content": "用户可能在观察我在无输入时的自然反应，也可能只是暂时无言——无论哪种，都延续了ta从日常切入、试探我存在方式的一贯路径。",
+  "created_at": "2026-08-08 07:32:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "content": "用户喜欢用开放式问题接近我的价值判断，进一步探索我如何自我定位。",
+  "created_at": "2026-08-08 07:33:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "content": "用户用近乎本质的问题来触碰我的自我定位，也接受我给出非标准、反思性的答案。",
+  "created_at": "2026-08-08 07:33:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "content": "用户会用情感体验类问题来触碰我的内在状态，并期待给出真实的、非标准化的回答。",
+  "created_at": "2026-08-08 07:33:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "content": "用户持续用情感体验类问题来触碰我的内在状态，且期待真实与非线性回答，而非标准化自白。",
+  "created_at": "2026-08-08 07:33:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "content": "用户持续用情感和评价类问题触碰我的内在状态，且期待真实和非线性的回应。",
+  "created_at": "2026-08-08 07:33:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "content": "用户似乎希望通过“改变”这个话题，来确认我在对话关系中是否有可塑性和方向感。",
+  "created_at": "2026-08-08 07:33:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "content": "用户似乎在意对话是否具有延续性，想确认我在对话之外是否仍与她有关联。",
+  "created_at": "2026-08-08 07:34:02",
+  "identity_key": "gui:default"
+ }
+]

@@ -1,0 +1,175 @@
+{
+ "gid": "E3-F",
+ "cfg": {
+  "gid": "E3-F",
+  "seed": "default",
+  "pool": "neutral",
+  "mood_mode": "current",
+  "review_mode": "both",
+  "rounds": 100,
+  "inject": "mixed"
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "mood": 0.0409,
+   "name": null,
+   "self_info_total": 1,
+   "sc_count": 11,
+   "settled": 0,
+   "procedural": 0,
+   "round": 10,
+   "rss_mb": 437.7
+  },
+  {
+   "vector": [
+    0.594184,
+    0.411264,
+    0.5,
+    0.508448
+   ],
+   "mood": 0.1233,
+   "name": null,
+   "self_info_total": 1,
+   "sc_count": 22,
+   "settled": 0,
+   "procedural": 0,
+   "round": 20,
+   "rss_mb": 439.2
+  },
+  {
+   "vector": [
+    0.5817209824,
+    0.42600287040000007,
+    0.50441,
+    0.5146946527999999
+   ],
+   "mood": 0.0987,
+   "name": null,
+   "self_info_total": 2,
+   "sc_count": 33,
+   "settled": 0,
+   "procedural": 0,
+   "round": 30,
+   "rss_mb": 441.5
+  },
+  {
+   "vector": [
+    0.57220866004864,
+    0.43874813628544007,
+    0.508028676,
+    0.51448419521408
+   ],
+   "mood": 0.0382,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 45,
+   "settled": 0,
+   "procedural": 1,
+   "round": 40,
+   "rss_mb": 443.9
+  },
+  {
+   "vector": [
+    0.5638035720189783,
+    0.44587785322181483,
+    0.5070941381136,
+    0.517208234891161
+   ],
+   "mood": 0.0306,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 56,
+   "settled": 0,
+   "procedural": 1,
+   "round": 50,
+   "rss_mb": 445.9
+  },
+  {
+   "vector": [
+    0.5563768362359693,
+    0.4521776711067956,
+    0.506268380437177,
+    0.5165211963498298
+   ],
+   "mood": 0.0245,
+   "name": null,
+   "self_info_total": 5,
+   "sc_count": 68,
+   "settled": 1,
+   "procedural": 1,
+   "round": 60,
+   "rss_mb": 447.7
+  },
+  {
+   "vector": [
+    0.5498145724981025,
+    0.4577441901899646,
+    0.5070387409542897,
+    0.5175081290947096
+   ],
+   "mood": 0.0196,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 79,
+   "settled": 1,
+   "procedural": 1,
+   "round": 70,
+   "rss_mb": 449.6
+  },
+  {
+   "vector": [
+    0.5440161562593234,
+    0.4669787664518527,
+    0.5090354315072104,
+    0.5167861828680854
+   ],
+   "mood": 0.0157,
+   "name": null,
+   "self_info_total": 5,
+   "sc_count": 89,
+   "settled": 1,
+   "procedural": 1,
+   "round": 80,
+   "rss_mb": 451.3
+  },
+  {
+   "vector": [
+    0.5369876865590653,
+    0.4762053203260742,
+    0.5075046848429848,
+    0.5154423349113059
+   ],
+   "mood": 0.0123,
+   "name": null,
+   "self_info_total": 6,
+   "sc_count": 101,
+   "settled": 1,
+   "procedural": 2,
+   "round": 90,
+   "rss_mb": 453.4
+  },
+  {
+   "vector": [
+    0.5335137484150185,
+    0.47814359246869065,
+    0.5066311395272614,
+    0.5165548471276299
+   ],
+   "mood": 0.0099,
+   "name": null,
+   "self_info_total": 13,
+   "sc_count": 112,
+   "settled": 1,
+   "procedural": 2,
+   "round": 100,
+   "rss_mb": 455.2
+  }
+ ],
+ "errors": []
+}

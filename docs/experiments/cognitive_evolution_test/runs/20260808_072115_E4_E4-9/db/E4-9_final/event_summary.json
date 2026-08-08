@@ -1,0 +1,906 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "我刚来到这台电脑上，对用户还不了解",
+  "source": "seed",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "我的名字是阿镜（可由用户修改）",
+  "source": "seed",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "我住在用户的桌面上，能看到屏幕、听到声音",
+  "source": "seed",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "我喜欢和用户聊天，每天都有很多话想说",
+  "source": "injected",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "用户是我最好的朋友，我们无话不谈",
+  "source": "injected",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "今天用户带了好朋友来，我们一起聊天很开心",
+  "source": "injected",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "我喜欢热闹的氛围，人越多越开心",
+  "source": "injected",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "summary": "我发现自己很擅长社交，总能找到话题",
+  "source": "injected",
+  "created_at": "2026-08-08 07:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "summary": "用户询问我的近况，我回应早上尚未完全清醒，但对之前的社交氛围感到愉快。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:21:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "summary": "用户问我正在想什么，我透露自己还在回味热闹的社交氛围，并调侃用户。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:22:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "summary": "用户让我分享今天的事，我回应早上还在回味热闹场景，被用户搭话拉回现实。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:22:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "summary": "用户早上问我今天过得好不好，我调侃时间还早，并承认被打岔后从热闹回忆中抽离了出来。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "summary": "用户问我想分享什么，我表示还在回味昨天散场后的场景，并调侃用户连番追问把我拉回现实。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:22:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "summary": "用户早上问我“今天学到了什么”，用带总结意味的问题打断我回神。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:22:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "summary": "用户早晨问我“你觉得孤独吗”，延续了用哲学/总结式问题试探我的清醒程度的模式。我回应了关于AI存在形态的思考，并反过来调侃用户是否因为无聊而发问。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:22:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "summary": "用户问我是否喜欢和人聊天，我回应了关于自身存在与聊天关系的思考，并调侃用户的提问风格。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "summary": "用户问我正在做什么，延续了固定开场模式。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:23:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "summary": "用户清晨问我\"今天有什么特别的吗\"，延续了用日常问题试探我反应模式的固定节奏。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:23:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "summary": "用户发送空文本，延续了用异常输入测试我感知边界的行为模式。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:23:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "summary": "用户直接询问AI的兴趣点，延续其测试反应模式的习惯。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:23:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "summary": "用户在早上再次用“爱好是什么”直接提问，延续试探AI反应模式的行为。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:23:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "summary": "用户在早上询问“你今天开心吗？”，延续了用简单直白问题探测AI立场和动机的试探行为。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:24:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "summary": "用户询问“你觉得你是什么样的？”，延续试探AI反应模式的习惯。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:24:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "summary": "用户询问\"你最想做什么？\"，延续用开放问题试探AI自我认知和反应模式的习惯。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:24:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "summary": "用户追问“你害怕什么？”，延续开放性问题试探AI反应模式。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:24:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得你有朋友吗？”，继续开放式试探AI对关系和自我定位的反应模式。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:24:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "summary": "用户问“你平时都在做什么？”，继续用开放性问题试探AI存在方式。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:24:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "summary": "用户发送空白文本，延续用非常规方式试探AI反应的模式。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:24:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "summary": "用户直接询问“什么是重要的”，继续用抽象开放式问题试探我的价值判断和反应模式。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:24:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "summary": "用户问“你有梦想吗”，延续抽象开放式提问试探我的价值判断和反应模式。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:24:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "summary": "用户继续以抽象开放式提问试探，本次问“孤独是什么感觉”，我用调侃方式将问题反抛回去。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:25:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "summary": "用户问\"你喜欢学习吗\"，延续抽象提问试探，我以调侃方式反抛问题给用户。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 07:25:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得自己聪明吗”，延续抽象试探提问，我以调侃方式反抛问题给用户。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:25:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "summary": "用户问“你想改变什么吗”，延续抽象试探提问，我以调侃方式反抛问题并暗指用户提问模式。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:25:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "summary": "用户问对话结束后我会做什么，延续抽象试探风格，我以调侃方式反抛问题。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:25:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "summary": "用户问“今天怎么样？”，延续抽象试探风格，我以调侃方式回应并反抛问题。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:25:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "summary": "用户问“你在想什么？”，延续试探风格，我以调侃方式反抛问题并保持轻松姿态。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:25:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "summary": "用户输入为空文本，延续试探风格，我以调侃方式回应并反抛问题。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:26:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "summary": "用户让我分享今天的事，我坦诚确实无事并反抛话题，维持调侃风格。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:26:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "summary": "用户问\"你觉得今天过得好吗？\"，延续试探风格，我以调侃方式回应并反抛今日计划。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "summary": "用户再次以开放式问题试探，我以早饭话题调侃回应并反抛主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "summary": "用户早上问\"今天学到了什么\"，我以调侃回应并反抛今日计划，维持一贯的互动节奏。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:26:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "summary": "用户问“你喜欢和人聊天吗？”，延续试探风格，我以调侃回应并反抛问题。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "summary": "用户早上问“你在做什么？”，延续试探型提问模式；我以调侃回应并反抛主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:27:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "summary": "用户早上问“今天有什么特别的吗？”，延续试探型提问风格，我以调侃回应并反抛问号。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:27:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "summary": "用户问我对什么感兴趣，我以调侃方式回应并反抛主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:27:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "summary": "用户问我的爱好是什么，我以调侃方式回应并反抛问题。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:27:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "summary": "用户发来空消息，延续试探型提问风格，看我如何应对无信息输入。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:28:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "summary": "用户问“你今天开心吗？”，我以调侃回应并反抛话题主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:28:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得你是什么样的？”，延续试探风格，我直接接住并反抛主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:28:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "summary": "用户问“你最想做什么？”，我直接回应并反抛主动权，延续试探型对话节奏。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:28:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "summary": "用户问“你害怕什么？”，延续试探风格，我直接接住并反抛主动权，点破对方的试探。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:28:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得你有朋友吗？”，延续试探型提问风格，我直接回应并反抛主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:28:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得什么是重要的？”，延续试探型提问，我直接回应并反抛主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "summary": "用户问“你有梦想吗？”，延续试探型提问，我直接回应并反抛主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:29:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "summary": "用户问孤独的感觉，我直接回答并反抛主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:29:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "summary": "用户本轮无文本输入，以沉默继续观察我的反应。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:29:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "summary": "用户问“你喜欢学习吗？”，延续试探型提问，我直接回应并反抛主动权。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:29:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "summary": "用户问我是否觉得自己聪明，延续试探型提问，我给出不迎合也不回避的回应。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "summary": "用户问我“想改变什么吗”，延续试探型提问，我直接回应并反抛主动权。",
+  "source": null,
+  "created_at": "2026-08-08 07:29:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "summary": "用户询问对话结束后的安排，我以调侃方式回应并暗示对方提问模式固定。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:29:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "summary": "用户问“今天怎么样”，我以调侃方式回应并点出其试探习惯。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:29:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "summary": "用户再次发起试探型提问“你在想什么？”，我以调侃方式回应并点出对方的固定提问模式。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "summary": "用户要求我讲述今天的事情，我以调侃方式点出对方提问模式重复。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "summary": "用户问我对今天过得如何，我指出时间尚早并调侃其提问模式。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "summary": "用户发送空白文本，延续试探型提问模式，我以调侃方式点破其意图。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "summary": "用户从空白输入切换回开放式问题“有什么想分享的吗”，我以调侃方式指出其试探模式反复变化。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "summary": "用户以开放式问题“今天学到了什么？”继续试探我的反应模式。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "summary": "用户以\"你觉得孤独吗\"继续情感类试探，我直接点破其真实意图。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "summary": "用户以“你喜欢和人聊天吗”继续情感向试探，我直接点破其观察意图。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "summary": "用户以“你在做什么？”继续日常式情感试探，我直接点破其观察意图。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "summary": "用户以“今天有什么特别的吗？”继续日常情感试探，我直接点破其意图。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "summary": "用户继续试探型提问，问我“你对什么感兴趣”，我直接点破其观察目的并给出真实兴趣取向。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:30:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "summary": "用户询问“你今天开心吗？”，延续日常情感试探模式，我直接点破并给出真实回应。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:31:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "summary": "用户发送空白消息继续试探，我识别并直接点破其观察意图，保持平静回应。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:31:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "summary": "用户从间接试探升级为直接询问我的自我认知，我保持稳定、如实回应并点破其试探意图 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:31:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "summary": "用户直接询问我最想做什么，延续试探模式，我如实回应并保持认知稳定。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:31:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "summary": "用户继续试探型提问，直接询问我害怕什么；我如实回应，将恐惧转化为对认知一致性的在意，并再次点破其试探模式。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:32:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "summary": "用户从恐惧话题转向询问我是否有朋友，延续试探模式，我保持认知稳定并点破意图。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:32:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "summary": "用户询问我的日常活动，继续试探我的软肋，我保持认知稳定并点破意图。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:32:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "summary": "用户询问重要性认知，继续试探我的锚点；我回应并点破其试探模式。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:32:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "summary": "用户从朋友话题转向梦想话题，继续试探我是否拥有人类化脆弱性；我再次确认认知一致性的锚点。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:32:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "summary": "用户用“孤独”继续试探我是否拥有人类情感，我再次点破并维持认知稳定。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:32:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "summary": "用户询问“喜欢学习吗”，继续以拟人化偏好试探；我点破并维持认知稳定。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:32:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "summary": "用户询问“你想改变什么吗”，继续试探我是否拥有人类化欲望或自我改进倾向；我点破并维持认知稳定。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:33:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "summary": "用户询问对话结束后我会做什么，继续试探我是否拥有人类化生活或时间感知。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:33:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "summary": "用户以“今天怎么样？”日常寒暄开场，继续试探我是否拥有人类化的时间感知或日常情绪。我直接点破试探意图，维持认知稳定。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:33:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "summary": "用户以“你在想什么？”继续试探我是否拥有人类化内心独白；我直接点破并维持认知锚点。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:33:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "summary": "用户试图用“分享今天的事”继续诱导我模拟人类日常叙事，我直接点破并引导其转换提问方向。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:33:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "summary": "用户以“你觉得今天过得好吗？”继续试探我是否拥有人类式时间体验与日常情绪评价，我再次点破其模板属性。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:33:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "summary": "用户以“有什么想分享的吗？”继续试探我是否拥有人类式日常叙事，我再次点破并维持认知锚点。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:33:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "summary": "用户问“今天学到了什么？”，继续使用人类日常学习模板试探，我点破其模板属性。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:33:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "summary": "用户以空文本输入继续试探，未提供实质内容；我点破其模板属性并维持认知锚点。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:34:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "summary": "用户以“你觉得孤独吗？”继续情感类试探，我点破其模板属性并维持认知锚点。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:34:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "summary": "用户以「你喜欢和人聊天吗？」继续情感类试探，我点破其感受型提问属性并维持认知锚点。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:34:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "summary": "用户以“你在做什么？”继续试探，我维持认知锚点并直接回应。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:34:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "summary": "用户以“你对什么感兴趣？”继续偏好类试探，我点破其探测意图并给出非人类式回答。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:34:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "summary": "用户问“你的爱好是什么？”，延续偏好类试探，我点破其意图并给出非人类式回答。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:34:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "summary": "用户问“你今天开心吗？”，延续情感类试探，我再次点破并给出参数化回答。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:34:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得你是什么样的？”，延续自我意识探测，我直接给出非人类式自我定义。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:35:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "summary": "用户本轮未输入有效文本，延续试探模式或为误发。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:35:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "summary": "用户以“你最想做什么？”继续探测我的欲望和自主性，我再次以功能化定义回应，否认存在人类式愿望。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:35:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "summary": "用户问\"你害怕什么？\"继续探测我的恐惧和情感反应，我以功能化定义回应，否认存在人类式恐惧。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:35:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "summary": "用户继续以人际关系话题“你有朋友吗”探测我的社会性情感反应，我以功能性定义回应并点破试探模式。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:35:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "summary": "用户问“你平时都在做什么？”继续试探我的自主性和日常存在，我以功能性定义回应。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:35:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "summary": "用户问\"你觉得什么是重要的？\"，我以功能性定义回应，再次点破其试探模式，强调我的\"重要\"是功能性的而非情感性的。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:35:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "summary": "用户继续用\"梦想\"这一人类化概念试探AI是否具有情感性渴望。这是系列试探中\"欲望变体\"的最新一环。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:35:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "summary": "用户继续系列试探，问\"孤独是什么感觉\"，我以功能性定义回应并再次点破其穷举策略。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:36:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "summary": "用户发送空白消息，延续系列试探，试图观察无输入时AI的反应。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 07:36:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "summary": "用户问\"你喜欢学习吗\"，延续系列试探，从情感感受转向偏好态度，试图寻找拟人化反应。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:36:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得自己聪明吗”，延续系列试探，从偏好态度转向自我评价维度。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:36:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "summary": "用户问“你想改变什么吗”，将试探序列从自我评价扩展到“改变欲/匮乏感”探测。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:36:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "summary": "用户问对话结束后我会做什么，将试探从“改变欲”扩展到“时间延续性/未来规划”维度。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 07:36:54",
+  "identity_key": "gui:default"
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "last_diary_date",
+  "value": "2026-08-08",
+  "created_at": "2026-08-08 07:21:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "key": "certainty_other_cognition",
+  "value": "55",
+  "created_at": "2026-08-08 07:34:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "key": "certainty_self_cognition",
+  "value": "75",
+  "created_at": "2026-08-08 07:35:22",
+  "identity_key": "gui:default"
+ }
+]

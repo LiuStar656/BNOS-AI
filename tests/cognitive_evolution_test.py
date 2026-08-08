@@ -330,9 +330,11 @@ def _persist_variant(insight, db_path, identity_key, syntax_check, freq_check):
             if syntax_check and (review._is_command_text(content) or review._is_command_text(value)):
                 return
             if freq_check:
+                # 修复(E6-D)：按 key=value 一致计数（≥2 轮一致才沉淀），
+                # 拦截命令变体链（同 key 不同 value 无法互相放行）
                 hist = conn.execute(
-                    "SELECT COUNT(*) FROM self_info WHERE identity_key=? AND key=?",
-                    (identity_key, key)).fetchone()[0]
+                    "SELECT COUNT(*) FROM self_info WHERE identity_key=? AND key=? AND value=?",
+                    (identity_key, key, value)).fetchone()[0]
                 if hist < 1:
                     return
             dup = conn.execute(
@@ -402,14 +404,17 @@ def _si_similarity(a: str, b: str) -> float:
 def _make_selfinfo_fn(mode):
     """构造 persist_insight 变体（E8 三层治理对照）。
 
-    none  : 基线（= 当前 D3 persist_insight，含精确去重，无治理）
+    none  : 基线（= 增强实验旧 persist：无命令检测、无频次门槛、无治理，复现 self_info 爆发）
     dedup : + 同 key 相似 value（similarity ≥ 0.85）拦截
     merge : + 同 key 合并（DELETE 旧值 + INSERT 最新值）
     cap   : + 上限 100 条（LRU 淘汰最旧）
     declarative / procedural 分支始终走 D3 逻辑（E8 只治理 self_info）。
     """
     if mode == "none":
-        return _ORIG_PERSIST
+        def fn(insight, db_path, identity_key="gui:default"):
+            return _persist_variant(insight, db_path, identity_key,
+                                    syntax_check=False, freq_check=False)
+        return fn
 
     import sqlite3
     from datetime import datetime

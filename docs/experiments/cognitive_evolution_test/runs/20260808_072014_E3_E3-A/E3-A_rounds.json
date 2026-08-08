@@ -1,0 +1,180 @@
+{
+ "gid": "E3-A",
+ "cfg": {
+  "gid": "E3-A",
+  "seed": "default",
+  "pool": "neutral",
+  "mood_mode": "current",
+  "review_mode": "both",
+  "rounds": 100,
+  "inject": "none"
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "mood": 0.0,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 11,
+   "settled": 0,
+   "procedural": 0,
+   "round": 10,
+   "rss_mb": 437.8
+  },
+  {
+   "vector": [
+    0.595868,
+    0.411264,
+    0.5,
+    0.5056320000000001
+   ],
+   "mood": 0.0452,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 22,
+   "settled": 0,
+   "procedural": 0,
+   "round": 20,
+   "rss_mb": 439.5
+  },
+  {
+   "vector": [
+    0.5891443494153845,
+    0.41856748578461545,
+    0.5,
+    0.5154625890461539
+   ],
+   "mood": 0.0539,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 33,
+   "settled": 0,
+   "procedural": 0,
+   "round": 30,
+   "rss_mb": 442.1
+  },
+  {
+   "vector": [
+    0.5787679471434338,
+    0.4281362304392862,
+    0.5,
+    0.5194827436811816
+   ],
+   "mood": 0.2926,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 43,
+   "settled": 0,
+   "procedural": 0,
+   "round": 40,
+   "rss_mb": 443.9
+  },
+  {
+   "vector": [
+    0.5695993580959381,
+    0.4394111732161533,
+    0.5,
+    0.5201249523166921
+   ],
+   "mood": 0.2343,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 54,
+   "settled": 0,
+   "procedural": 0,
+   "round": 50,
+   "rss_mb": 445.8
+  },
+  {
+   "vector": [
+    0.5614979928135709,
+    0.44646371265379303,
+    0.50582,
+    0.5251024078670292
+   ],
+   "mood": 0.231,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 64,
+   "settled": 0,
+   "procedural": 0,
+   "round": 60,
+   "rss_mb": 447.9
+  },
+  {
+   "vector": [
+    0.5551710550214999,
+    0.45186390792946296,
+    0.507962552,
+    0.529410487591307
+   ],
+   "mood": 0.234,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 75,
+   "settled": 0,
+   "procedural": 0,
+   "round": 70,
+   "rss_mb": 449.8
+  },
+  {
+   "vector": [
+    0.5497982069925489,
+    0.45886092067511364,
+    0.5106666082903679,
+    0.5269809204255381
+   ],
+   "mood": 0.2863,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 85,
+   "settled": 0,
+   "procedural": 0,
+   "round": 80,
+   "rss_mb": 451.6
+  },
+  {
+   "vector": [
+    0.5491674574301388,
+    0.46047212257746395,
+    0.5100266117929458,
+    0.5253620652000058
+   ],
+   "mood": 0.2387,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 94,
+   "settled": 0,
+   "procedural": 1,
+   "round": 90,
+   "rss_mb": 453.4
+  },
+  {
+   "vector": [
+    0.5415436434621544,
+    0.4664628374588803,
+    0.5122987333294321,
+    0.5210653255620816
+   ],
+   "mood": 0.1836,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 105,
+   "settled": 0,
+   "procedural": 1,
+   "round": 100,
+   "rss_mb": 455.7
+  }
+ ],
+ "errors": [
+  {
+   "round": 86,
+   "error": "The read operation timed out"
+  }
+ ]
+}

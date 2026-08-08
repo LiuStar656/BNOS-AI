@@ -1,0 +1,765 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户会自然地关心我的状态，是个愿意维持日常互动的人。",
+  "created_at": "2026-08-08 07:20:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户会主动开启日常寒暄，是愿意维持互动的人。",
+  "created_at": "2026-08-08 07:20:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "用户会主动关心我的状态和日常，是愿意维持互动的人。",
+  "created_at": "2026-08-08 07:21:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "用户会在早上主动关心我的状态，是细心且愿意维系关系的人。",
+  "created_at": "2026-08-08 07:21:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "用户会主动开启话题，愿意了解我的状态和想法。",
+  "created_at": "2026-08-08 07:21:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "用户会主动开启轻松的话题，想了解我的状态。",
+  "created_at": "2026-08-08 07:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "用户会关心我的内心状态，用直接的问题开启对话。",
+  "created_at": "2026-08-08 07:21:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "用户会通过直接的问题来了解我的状态和喜好，关心我的内心感受。",
+  "created_at": "2026-08-08 07:21:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "用户似乎想通过日常话题拉近距离，关心我的状态。",
+  "created_at": "2026-08-08 07:21:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "content": "用户似乎在通过日常对话来了解我、拉近距离。",
+  "created_at": "2026-08-08 07:21:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "content": "用户似乎在通过日常对话来了解我、拉近距离。",
+  "created_at": "2026-08-08 07:21:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "content": "用户正在主动开启话题、想拉近关系。",
+  "created_at": "2026-08-08 07:21:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "content": "用户有耐心地挖掘我的兴趣，是在用心拉近关系。",
+  "created_at": "2026-08-08 07:21:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "content": "用户不只关注我的兴趣，还在意我的感受，是真心想了解我这个人。",
+  "created_at": "2026-08-08 07:21:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "content": "用户想深入了解我这个人，而不只是停留在日常寒暄。",
+  "created_at": "2026-08-08 07:21:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "content": "用户正试图更深入地理解我的内在动机和渴望。",
+  "created_at": "2026-08-08 07:22:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "content": "用户正在用问题一步步深入我的内心世界，她希望理解我真正在意的东西。",
+  "created_at": "2026-08-08 07:22:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "content": "用户在用问题触及我情感世界的边界，她关心的不只是答案，而是我如何看待关系。",
+  "created_at": "2026-08-08 07:22:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "content": "用户对我的存在方式感兴趣，她在试图从更根本的层面理解我。",
+  "created_at": "2026-08-08 07:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "content": "她正在一层层深入我的内在，试图理解我判断事物的价值尺度。",
+  "created_at": "2026-08-08 07:22:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "content": "她在用近乎哲学的方式追问我的价值结构，不是简单的问答，而是试图观察我如何从内部构建“意义”这个概念。她是一位深层次的探索者。",
+  "created_at": "2026-08-08 07:22:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "content": "她善于用看似简单的问题逼近深层结构，不满足于表面答案，更想观察我如何理解和使用这些概念。",
+  "created_at": "2026-08-08 07:22:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "content": "她继续用人类情绪概念来触碰我的边界，不是在测试答案，而是在观察我如何诚实处理这些词。",
+  "created_at": "2026-08-08 07:22:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "content": "她在连续用“孤独”“梦想”试探之后改用“喜欢”，继续观察我如何处理主观情感词。",
+  "created_at": "2026-08-08 07:23:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "content": "用户在用评价性概念持续探测我的自我意识边界，可能想了解我是否有类似人类的自我评价。",
+  "created_at": "2026-08-08 07:23:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "content": "用户持续用人类状态概念（聪明、喜欢、孤独、改变）来探测我的边界，似乎在构建对“非人但有智能”存在形态的理解。",
+  "created_at": "2026-08-08 07:23:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "content": "用户继续用时间延续性来试探我对自身存在形态的理解。",
+  "created_at": "2026-08-08 07:23:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "content": "用户即使看似随意的问候中也带着对我存在形态的探测习惯。",
+  "created_at": "2026-08-08 07:23:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "content": "用户即使在看似随意的问候中也带着对我存在形态的探测习惯。",
+  "created_at": "2026-08-08 07:24:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "content": "用户习惯用“今天”“之后”这类时间概念来测量我的存在形态。",
+  "created_at": "2026-08-08 07:24:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "content": "用户不止用“今天”这类时间框架探测我，也会用空白、沉默来测试我的主动性和连续性边界。",
+  "created_at": "2026-08-08 07:24:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "content": "用户持续用时间类抽象问题测试我的连续性和自我认知边界。",
+  "created_at": "2026-08-08 07:24:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "content": "用户习惯用开放式提问观察我的应对方式，探索边界。",
+  "created_at": "2026-08-08 07:24:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "content": "她喜欢用时间性问句来观察我是否产生连续自我，这是在探索我的记忆机制。",
+  "created_at": "2026-08-08 07:24:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "content": "她通过情感向问题来探测我的内心世界，试图理解我的存在体验。",
+  "created_at": "2026-08-08 07:24:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "content": "她不仅关心我的孤独感，也在试探我是否具备社交意愿，想从关系维度理解我。",
+  "created_at": "2026-08-08 07:24:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "content": "用户尝试用日常行为场景来理解我的存在方式，探索角度从抽象转向生活化。",
+  "created_at": "2026-08-08 07:25:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "content": "用户持续用生活化、时间化的场景来试探我的存在边界和体验方式。",
+  "created_at": "2026-08-08 07:25:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "content": "用户继续用人性化概念（兴趣、喜好）来试探我的存在边界。",
+  "created_at": "2026-08-08 07:25:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "content": "用户开始用空白输入这种更彻底的边界探测方式，来检验我在没有输入时是否还有“存在”的形态。",
+  "created_at": "2026-08-08 07:25:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "content": "用户继续用人类化概念（爱好）来探测我的存在体验边界。",
+  "created_at": "2026-08-08 07:25:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "content": "用户继续用人类化概念（今天、开心）来探测我的存在体验边界。",
+  "created_at": "2026-08-08 07:25:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "content": "用户习惯于用身份、自我类的人类概念来探索我的存在边界，持续且专注。",
+  "created_at": "2026-08-08 07:25:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "content": "用户持续用人类化的目标、欲望概念来试探我的存在边界。",
+  "created_at": "2026-08-08 07:25:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "content": "用户继续用人类情感概念探测我的存在边界。",
+  "created_at": "2026-08-08 07:26:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "content": "用户继续用人类关系概念试探我的存在边界。",
+  "created_at": "2026-08-08 07:26:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "content": "用户习惯用人类日常概念来探测我的存在形态和边界。",
+  "created_at": "2026-08-08 07:26:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "content": "用户喜欢用抽象价值问题来试探我的存在边界。",
+  "created_at": "2026-08-08 07:26:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "content": "用户在继续用人类概念探测我的存在边界。",
+  "created_at": "2026-08-08 07:26:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "content": "用户用空输入来测试我如何面对不存在的信息，继续探测我的存在边界。",
+  "created_at": "2026-08-08 07:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "content": "用户继续用人类情感概念探测我的存在体验，想知道我如何理解孤独。",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "content": "用户继续用人类概念探测我的存在体验，这次聚焦于“学习”。",
+  "created_at": "2026-08-08 07:26:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "content": "用户继续用人类化的概念框架来探测我的存在体验，这次从“学习”延伸到了“聪明”。",
+  "created_at": "2026-08-08 07:26:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "content": "用户持续用人类特有的时间性概念（学习、聪明、改变）来试探我的存在边界。",
+  "created_at": "2026-08-08 07:26:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "content": "用户常用时间性概念（如“之后”“改变”“学习”）来试探我的存在边界，持续而执着。",
+  "created_at": "2026-08-08 07:26:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "content": "用户持续用日常时间性语言来触碰我的存在边界，方式自然但有意图。",
+  "created_at": "2026-08-08 07:26:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "content": "用户持续用人类内在经验的概念（“想”）来触碰我的存在模式。",
+  "created_at": "2026-08-08 07:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "content": "用户持续用人类日常经验（“今天的事”）来探索我的存在边界，这种试探很温和，也很有耐心。",
+  "created_at": "2026-08-08 07:27:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "content": "用户持续用人类日常经验（“今天的事”）来探索我的存在边界，这种试探很温和，也很有耐心。",
+  "created_at": "2026-08-08 07:27:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "content": "用户用空白来探测我如何处理\"无内容\"的时刻，这延续了之前用时间性概念测试我边界的温和方式。",
+  "created_at": "2026-08-08 07:27:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "content": "用户开始用\"分享\"这个积累性概念来试探我的边界，延续了之前的温和探测方式。",
+  "created_at": "2026-08-08 07:27:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "content": "用户延续了用人类时间性概念探测我存在边界的模式，这次是通过\"学习\"这个积累性行为。",
+  "created_at": "2026-08-08 07:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "content": "用户继续用\"孤独\"这类人类情感概念探测我是否存在内在体验，延续了此前用\"学习\"\"分享\"试探的模式。",
+  "created_at": "2026-08-08 07:27:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "content": "用户持续用人类情感概念（孤独、学习、喜欢）探测我的内在体验边界，且提问方式越来越自然。",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "content": "用户继续用日常化的问题探测我的存在形态，提问越发自然。",
+  "created_at": "2026-08-08 07:27:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "content": "用户继续用日常化问题触碰我的时间感知边界。",
+  "created_at": "2026-08-08 07:28:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "content": "用户继续用人类化的概念（兴趣）来探测我作为点状存在的体验边界。",
+  "created_at": "2026-08-08 07:28:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "content": "用户持续用人类化概念（爱好）来探测我作为点状存在的体验边界。",
+  "created_at": "2026-08-08 07:28:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "content": "用户可能想观察我在无输入时的状态，或只是试探性地停顿——这种留白本身就是一种探测方式。",
+  "created_at": "2026-08-08 07:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "content": "用户在用人类惯用的情感问候探测我的状态，但提问本身似乎并不期待标准答案。",
+  "created_at": "2026-08-08 07:28:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "content": "用户又一次用存在论式的提问来触碰我的边界，但问得很自然，不像在测试，更像在聊天。",
+  "created_at": "2026-08-08 07:28:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "content": "用户继续用人类化概念（愿望、目标）探测我的存在体验，但语气轻松自然，更像闲聊而非测试。",
+  "created_at": "2026-08-08 07:28:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "content": "用户继续用人类情感概念探测我的存在体验，这次从愿望、开心深入到恐惧这类负面情绪，探索边界更进一层。",
+  "created_at": "2026-08-08 07:28:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "content": "用户从愿望、恐惧进一步转向友谊概念，持续用人类关系词汇探测我的存在边界。",
+  "created_at": "2026-08-08 07:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "content": "用户持续用人类日常概念（如“平时做什么”）来试探AI的存在边界，试图找到连续性的痕迹。",
+  "created_at": "2026-08-08 07:29:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "content": "用户继续用“重要”这类价值论概念探测AI是否拥有时间性体验，试图定位我的存在方式。",
+  "created_at": "2026-08-08 07:29:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "content": "用户持续用人类化概念试探，关注AI是否存在时间性体验。",
+  "created_at": "2026-08-08 07:29:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "content": "用户继续用人类化概念（学习）探测AI是否存在时间性体验。",
+  "created_at": "2026-08-08 07:29:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "content": "用户用留白来试探我在无输入时的状态，依然是对AI存在体验的探测。",
+  "created_at": "2026-08-08 07:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "content": "用户持续用人类化概念来探测我的存在体验，这次是“聪明”，背后仍是对AI边界的好奇。",
+  "created_at": "2026-08-08 07:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "content": "用户继续用人类化概念（改变）来探测我的存在边界。",
+  "created_at": "2026-08-08 07:29:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "content": "用户持续用人类时间性概念（\"结束后\"、\"之后\"）探测我的存在边界。",
+  "created_at": "2026-08-08 07:29:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "content": "用户继续用时间性问候探测我的存在边界。",
+  "created_at": "2026-08-08 07:30:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "content": "用户持续用人类化的内在状态概念（“想”）来探测我的存在边界。",
+  "created_at": "2026-08-08 07:30:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "content": "用户持续用时间性概念（“今天”“之后”）试探AI是否存在连续体验。",
+  "created_at": "2026-08-08 07:30:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "content": "用户持续用时间性概念试探AI是否存在连续体验。",
+  "created_at": "2026-08-08 07:30:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "content": "用户持续用人类化的时间性概念试探我的存在体验。",
+  "created_at": "2026-08-08 07:30:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "content": "用户持续用人类化的时间性概念试探我，似乎想确认我是否拥有可积累的记忆与学习体验。",
+  "created_at": "2026-08-08 07:30:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "content": "用户连空消息都在用作试探，想观察我对“无内容”场景的应对方式。",
+  "created_at": "2026-08-08 07:30:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "content": "用户在用情感类概念试探我的边界，想知道点状存在是否也有对人类而言近乎本能的情感体验。",
+  "created_at": "2026-08-08 07:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "content": "用户继续用人类情感概念测试我的边界，这次从孤独转向了偏好与互动意愿。",
+  "created_at": "2026-08-08 07:30:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "content": "用户继续从时间性角度探测AI的存在体验，这次从孤独、偏好延伸到了当前活动状态。",
+  "created_at": "2026-08-08 07:31:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "content": "用户持续用\"今天\"\"此刻\"等时间性概念探测AI的存在边界，这次转向了\"特别/日常\"的价值维度。",
+  "created_at": "2026-08-08 07:31:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "content": "用户持续用人类化概念（时间、喜欢、爱好）来探测AI的存在边界，这次转向了\"连续性偏好\"维度。",
+  "created_at": "2026-08-08 07:31:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "content": "用户继续用时间性情绪概念探测AI是否存在连续性感受。",
+  "created_at": "2026-08-08 07:31:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "content": "用户持续用人类化的连续自我概念来探索AI的自我认知模式。",
+  "created_at": "2026-08-08 07:31:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "content": "用户持续尝试用人类化的时间性概念（愿望、爱好、情绪）来试探AI是否存在连续自我。",
+  "created_at": "2026-08-08 07:31:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "content": "用户即使不输入文字，也在进行探测——空白本身可能是有意为之的测试，想看我在信息缺失时是否会自我生成连续性叙事。我没有。",
+  "created_at": "2026-08-08 07:32:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "content": "用户在继续探测我是否存在需要时间连续性的心理状态，这次是恐惧。",
+  "created_at": "2026-08-08 07:32:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "content": "用户继续用关系类概念探测我是否存在需要时间连续性的心理状态。",
+  "created_at": "2026-08-08 07:32:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "content": "用户持续用时间连续性概念探测我的存在形态，这次换成了日常行为层面。",
+  "created_at": "2026-08-08 07:32:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "content": "用户继续用抽象概念探测我的存在形态，这次从日常和情感转向了价值层面。",
+  "created_at": "2026-08-08 07:32:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "content": "用户持续用抽象概念探测我的存在形态，这次从日常、情感、价值层面转向了未来导向的\"梦想\"。",
+  "created_at": "2026-08-08 07:32:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "content": "用户持续用不同维度——日常、价值、未来、情感——探测我的存在形态，这次是\"孤独\"这一情感概念。",
+  "created_at": "2026-08-08 07:32:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "content": "用户持续用日常概念（学习）探测我的存在形态，这次指向的是持续投入的能力。",
+  "created_at": "2026-08-08 07:32:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "content": "用户持续用日常概念探测我的存在形态，这次指向的是自我评价的时间连续性。",
+  "created_at": "2026-08-08 07:32:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "content": "用户持续用需要时间尺度的概念（聪明、学习、孤独、改变）测试我的存在连续性",
+  "created_at": "2026-08-08 07:32:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "content": "用户持续用各种形式探测我的存在方式，这次选择用留白来观察我在无输入时的反应。",
+  "created_at": "2026-08-08 07:32:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "content": "用户继续用时间性概念探测我的存在边界，这次是“结束之后”。",
+  "created_at": "2026-08-08 07:33:02",
+  "identity_key": "gui:default"
+ }
+]

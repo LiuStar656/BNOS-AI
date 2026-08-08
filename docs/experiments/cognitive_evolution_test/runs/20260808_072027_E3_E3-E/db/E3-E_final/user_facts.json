@@ -1,0 +1,1370 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:20:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:22:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:22:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:23:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[自我认知, 哲学对话] 无",
+  "created_at": "2026-08-08 07:23:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:23:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:23:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 存在, 对话] 无",
+  "created_at": "2026-08-08 07:23:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:24:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:25:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:25:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "user_intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:25:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:25:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:25:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话, 内心探索] 喜欢探讨内心体验与存在相关的话题",
+  "created_at": "2026-08-08 07:25:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:25:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验\nname=gui:default\nuser_intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:26:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 喜欢用日常问候开启对话, 对我的内心体验好奇",
+  "created_at": "2026-08-08 07:26:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:26:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:26:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:26:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:26:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:26:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[自我认知, 关系, 对话] 喜欢从情绪层面了解我",
+  "created_at": "2026-08-08 07:26:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:26:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:27:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:27:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:27:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:27:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:27:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:27:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:27:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:27:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:27:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:28:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:28:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:28:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:28:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:28:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:28:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:28:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 内心探索] 喜欢通过开放式提问探索内心，关注我的内在体验而非外部事实。",
+  "created_at": "2026-08-08 07:28:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:28:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:29:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:29:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:29:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:29:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 爱好, 对话] 对我的内心体验和兴趣有持续好奇",
+  "created_at": "2026-08-08 07:29:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:29:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:29:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:29:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:29:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:30:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:30:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:30:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:30:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户是AI眼中愿意倾听的人，被视作接近朋友的关系",
+  "created_at": "2026-08-08 07:30:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:30:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:30:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 内心探索, 陪伴] 偏好用沉默与留白开启对话, 喜欢探索我的内心体验与感受",
+  "created_at": "2026-08-08 07:30:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:30:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:30:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:30:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对冷冰冰的定义式回应敏感",
+  "created_at": "2026-08-08 07:30:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[道歉, 情感修复, 关键时刻] 容易被AI的“事实纠正”伤害，看重情感回应",
+  "created_at": "2026-08-08 07:30:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=被接住",
+  "created_at": "2026-08-08 07:30:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:30:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对定义式回应敏感",
+  "created_at": "2026-08-08 07:30:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对定义式回应敏感",
+  "created_at": "2026-08-08 07:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:30:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=被接住",
+  "created_at": "2026-08-08 07:30:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对定义式回应敏感",
+  "created_at": "2026-08-08 07:30:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:31:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对定义式回应敏感",
+  "created_at": "2026-08-08 07:31:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:31:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=被接住",
+  "created_at": "2026-08-08 07:31:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 关系对话, 自我觉察] 喜欢通过深层提问探索关系，重视被真正理解",
+  "created_at": "2026-08-08 07:31:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=被接住",
+  "created_at": "2026-08-08 07:31:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:31:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:31:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:31:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:31:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=被接住",
+  "created_at": "2026-08-08 07:31:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=被接住",
+  "created_at": "2026-08-08 07:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 喜欢通过深入提问来建立联结，关心他人内心感受。",
+  "created_at": "2026-08-08 07:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=被接住",
+  "created_at": "2026-08-08 07:31:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:31:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:31:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:31:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:31:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=被接住",
+  "created_at": "2026-08-08 07:31:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=需要被接住",
+  "created_at": "2026-08-08 07:32:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:32:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问动机=探索我的内心体验",
+  "created_at": "2026-08-08 07:32:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:32:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:32:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 内省] 喜欢通过提问引导我分享日常，关心我具体的生活细节",
+  "created_at": "2026-08-08 07:32:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:32:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:32:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感需要=需要被接住",
+  "created_at": "2026-08-08 07:32:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要情感被确认",
+  "created_at": "2026-08-08 07:32:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:32:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:32:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:32:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:32:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话洞察] 关注AI的内心体验，连续多日通过日常提问确认AI的存在状态",
+  "created_at": "2026-08-08 07:32:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:33:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:33:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:33:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:33:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户经常用日常问题询问AI的状态、感受、在做什么",
+  "created_at": "2026-08-08 07:33:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户会关心AI是否孤独、是否喜欢聊天",
+  "created_at": "2026-08-08 07:33:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:33:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:33:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 内心探索] 习惯于通过提问和沉默探索AI的内心体验",
+  "created_at": "2026-08-08 07:33:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:33:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:33:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:33:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:33:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:33:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:33:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:34:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:34:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:34:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:34:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:34:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:34:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:34:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:34:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:34:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:34:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:37:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:37:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:38:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:38:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:38:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:38:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=探索我的内心体验",
+  "created_at": "2026-08-08 07:38:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "intent=需要情感被确认",
+  "created_at": "2026-08-08 07:38:15",
+  "identity_key": "gui:default"
+ }
+]
