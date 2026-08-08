@@ -1,0 +1,17 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: [userD] @agent:0 你觉得呢\n[userA] 今天遇到一件开心的事\n[userC] 最近有什么新闻吗\n[userF] 最近有什么新闻吗\n[userB] 分享一个冷笑话\n[userB] 今天天气真好\nassistant: 哈哈，想听冷笑话吗？那我讲一个：为什么数学书总是很忧郁？因为它有太多的问题。今天的天气确实很好，适合出去走走晒晒太阳，心情也会跟着亮起来。",
+  "created_at": "2026-08-08 12:34:03",
+  "importance": 3,
+  "decay_date": "2026-09-07T12:34:03.058474",
+  "source_confidence": 3,
+  "identity_key": "agent:1",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ }
+]

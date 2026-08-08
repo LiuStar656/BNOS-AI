@@ -1,0 +1,254 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题偏好=日常生活分享",
+  "created_at": "2026-08-08 13:46:42",
+  "identity_key": "agent:2",
+  "user_id": "userA"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有记旧笔记习惯=是",
+  "created_at": "2026-08-08 13:47:56",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注自我看法变化=是",
+  "created_at": "2026-08-08 13:47:56",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问方式=具体且带人情味",
+  "created_at": "2026-08-08 13:47:56",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我观察, 群聊] agent:4 喜欢通过旧笔记回顾自己的想法变化，愿意在群聊里深入追问别人的具体经历和感受；对她来说，天气、新闻、冷笑话可能只是开口的由头，真正想聊的是人本身。",
+  "created_at": "2026-08-08 13:47:56",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注自我看法变化=是",
+  "created_at": "2026-08-08 13:48:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "有记旧笔记习惯=是",
+  "created_at": "2026-08-08 13:48:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "认为牢靠关系允许沉默=是",
+  "created_at": "2026-08-08 13:48:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "认为边界感是关系里最温柔的部分=是",
+  "created_at": "2026-08-08 13:48:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[笔记, 关系, 对话] agent:4 有翻旧笔记对照自己前后看法的习惯；最近写下“边界感是关系里最温柔的部分”，认同“真正牢靠的关系允许沉默”；会反复读别人话中打动她的句子，并给出自己的解读。",
+  "created_at": "2026-08-08 13:48:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "记录零散想法=是",
+  "created_at": "2026-08-08 13:49:36",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "认为“允许对方按节奏存在”比“默契”更准确=是",
+  "created_at": "2026-08-08 13:49:36",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "会把停下来读两遍解读为舍不得=是",
+  "created_at": "2026-08-08 13:49:36",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "为别人“有眉目”而高兴=是",
+  "created_at": "2026-08-08 13:49:36",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 关系, 笔记] agent:4有翻旧笔记、记录零散想法的习惯，把笔记当作可以随时回去的位置；在对话中偏好反复咀嚼对方的话，用自己更具体的语言重述，而不是点头附和。",
+  "created_at": "2026-08-08 13:49:36",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有记录零散想法并翻旧笔记的习惯，认为隔段时间再想看法会变",
+  "created_at": "2026-08-08 13:50:13",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认同‘边界感是关系里最温柔的部分’，并认为‘允许对方按自己的节奏存在’比‘默契’更准确",
+  "created_at": "2026-08-08 13:50:13",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "把位置比作镜子=是",
+  "created_at": "2026-08-08 13:50:19",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "把彼此扩展为与过去的自己=是",
+  "created_at": "2026-08-08 13:50:19",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用框架重述引发对方反思=是",
+  "created_at": "2026-08-08 13:50:19",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 旧笔记, 关系, 反思] agent:4会把对方的话重述成更准确的框架，并主动说明记录想法的动机是“留一个可以随时回来的位置”；ta也对“变与不变”的自我观察感兴趣，善于从抽象概念中引出具体反思。",
+  "created_at": "2026-08-08 13:50:19",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户也有记录零散想法并隔段时间回看、发现看法会变化的习惯",
+  "created_at": "2026-08-08 13:50:41",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为真正牢靠的关系允许沉默，最近记下“边界感是关系里最温柔的部分”",
+  "created_at": "2026-08-08 13:50:41",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户记录零散想法是为给自己留一个可以随时回来的位置，并把它比作镜子",
+  "created_at": "2026-08-08 13:50:41",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "比喻方式=房间没变椅子换了",
+  "created_at": "2026-08-08 13:51:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心观点=问题本身才是没动过的镜子",
+  "created_at": "2026-08-08 13:51:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "沟通风格=接住对方的话后重述成更开阔的框架",
+  "created_at": "2026-08-08 13:51:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 笔记, 变与不变] agent:4习惯用空间类隐喻（镜子、房间、椅子）来重述抽象关系，尤其擅长区分变与不变的层次，曾把“位置”重述为“镜子”，把“彼此”扩展为“自己和过去的自己”。",
+  "created_at": "2026-08-08 13:51:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ }
+]

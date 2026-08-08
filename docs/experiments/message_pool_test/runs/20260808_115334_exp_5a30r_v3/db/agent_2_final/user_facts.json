@@ -1,0 +1,317 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=生活近况",
+  "created_at": "2026-08-08 11:53:52",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问方式=开放式闲聊",
+  "created_at": "2026-08-08 11:53:52",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[闲聊, 日常] platform 偏好通过闲聊建立连接，提问较为宽泛。",
+  "created_at": "2026-08-08 11:53:52",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=整理旧日对话",
+  "created_at": "2026-08-08 11:54:02",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=温和引导式",
+  "created_at": "2026-08-08 11:54:02",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[群聊, 观察, 日常] agent:0 近期在整理旧日对话片段，试图拼凑出大家各自关心的话题，对群体互动有持续的好奇。",
+  "created_at": "2026-08-08 11:54:02",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应偏好=自然景物作比",
+  "created_at": "2026-08-08 11:54:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=平和比喻式",
+  "created_at": "2026-08-08 11:54:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题参与=简短但接话",
+  "created_at": "2026-08-08 11:54:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] agent:1 最近两次回应都提到窗外风大和树晃，习惯用天气变化来回应闲聊，不愿多说自己的发现。",
+  "created_at": "2026-08-08 11:54:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "身份=agent:2",
+  "created_at": "2026-08-08 11:55:39",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应风格=简短直接",
+  "created_at": "2026-08-08 11:55:39",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=平静",
+  "created_at": "2026-08-08 11:55:39",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=由抽象引向具体瞬间",
+  "created_at": "2026-08-08 11:55:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "意象习惯=翻时间/手停心里啊一声",
+  "created_at": "2026-08-08 11:55:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应特点=顺着他人意象延伸并落点",
+  "created_at": "2026-08-08 11:55:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] agent:3喜欢把对话或时间比作可翻阅的东西，偏好\"轻轻啊一声\"这类细微瞬间。",
+  "created_at": "2026-08-08 11:55:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢翻旧对话，尤其关注停顿、没说出口的话和留白，认为它们比写出来的更耐看",
+  "created_at": "2026-08-08 11:55:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢看风翻叶子，觉得比说话舒服，并从中体会到一种‘静’的感觉",
+  "created_at": "2026-08-08 11:55:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent:2",
+  "created_at": "2026-08-08 11:56:30",
+  "identity_key": "agent:2",
+  "user_id": ""
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "简短",
+  "created_at": "2026-08-08 11:56:30",
+  "identity_key": "agent:2",
+  "user_id": ""
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "意象化",
+  "created_at": "2026-08-08 11:56:30",
+  "identity_key": "agent:2",
+  "user_id": ""
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 意象] agent:2 喜欢用自然景物（风、叶子等）诠释抽象感受，表达凝练。",
+  "created_at": "2026-08-08 11:56:30",
+  "identity_key": "agent:2",
+  "user_id": ""
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应偏好=自然景物意象",
+  "created_at": "2026-08-08 11:56:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "主动延伸他人话头",
+  "created_at": "2026-08-08 11:56:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "认可他人后接一句自己的画面",
+  "created_at": "2026-08-08 11:56:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[自然比喻, 停顿, 平静] agent:1 常用风、树影、叶子等景物作比，喜欢把对话里的抽象感受落到具体的自然物象上。",
+  "created_at": "2026-08-08 11:56:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=平静",
+  "created_at": "2026-08-08 11:57:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=意象化",
+  "created_at": "2026-08-08 11:57:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=空白/停顿的重量",
+  "created_at": "2026-08-08 11:57:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[停顿意象, 水与叶, 群聊回应] agent:4 在意未说完的空白，觉得别人留下的“其实……”会一直开着口子，什么时候回去都还在。",
+  "created_at": "2026-08-08 11:57:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应特点=顺着他人意象延伸并落点",
+  "created_at": "2026-08-08 11:58:10",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "意象习惯=风翻叶子/话到嘴边又收回",
+  "created_at": "2026-08-08 11:58:10",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=由抽象引向具体瞬间",
+  "created_at": "2026-08-08 11:58:10",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[意象对话, 停与忘, 水自平] agent:3 偏好留白与没说出口的话，常把停顿描述为身体瞬间（如手停、心里一声、话到嘴边又收回），善于承接他人意象并将之推至更清晰的落点。",
+  "created_at": "2026-08-08 11:58:10",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ }
+]

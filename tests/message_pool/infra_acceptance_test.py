@@ -9,6 +9,10 @@
     U5 采集器：events.jsonl / decisions.jsonl / evolution.json
     U6 话题报告：相互认知矩阵（n-agent 全覆盖：3 Agent 矩阵/双向判定/内容摘录）
        + 人格漂移（初始种子 vs 最终向量欧氏距离）+ E3 采集指标表
+    U12 v6.6：P0-1 批次顺序事实源（seq 关联）/ P0-2 空 user_id 过滤 /
+       P1-4 截断检测 / P1-5 末位偏置量化指标 / P1-6 演化阈值 30→10 /
+       数据采集七项（memory_hits、silent_cognition、trajectory、
+       cognition_timeline、@提及归因、位置对照、情绪关联）
 
 集成部分（Fake LLM，不调真实 API）：
     I1 Agent 桥接：_on_pool_batch → prompt → Fake LLM → _on_parsed(batch_mode=True)
@@ -840,6 +844,864 @@ for _i in range(10):
 check("P1-4b 自我一致 neutral 反馈不漂移（delta≈0）",
       abs(_evo_stable.vector["warmth"] - 0.6) < 1e-6,
       f"warmth={_evo_stable.vector['warmth']:.6f}")
+
+# ── U10 v6.4 引用链（谁回应谁）注入验收 ─────────────────────
+print("\n== U10 v6.4 引用链（谁回应谁）注入验收 ==")
+
+# U10.1 Message 携带 reply_to（引用链随消息入池）
+_pool10 = MessagePool()
+_msg10 = _pool10.enqueue_input("你好", source="agent", user_id="agent:0",
+                               dedup=False, reply_to="agent:3")
+check("U10.1 消息携带 reply_to 字段（引用链入池）",
+      _msg10.to_dict().get("reply_to") == "agent:3",
+      repr(_msg10.to_dict().get("reply_to")))
+
+# U10.2 仲裁器 reply_to 透传（请求 → 释放，排队补位不丢失引用链）
+_arb10 = SpeechOutputArbiter()
+_arb10.request_speech("agent:0", "内容", reply_to="agent:3")
+_rel10 = _arb10.release()
+check("U10.2 仲裁项透传 reply_to（排队补位不丢失引用链）",
+      (_rel10 or {}).get("reply_to") == "agent:3", str(_rel10))
+
+# U10.3 平台回投发言携带 reply_to（决策的【回应对象】进消息池）
+def _llm_silent10(prompt: str) -> str:
+    return ("【心情】\n平静\n【想法】\n这条消息不必回应\n"
+            "【情绪调整】\n0.0\n【事件摘要】\n用户闲聊 [重要性:2]")
+
+_DBP_U10A = os.path.join(TMP_IO, "db_u10a.db")
+_DBP_U10B = os.path.join(TMP_IO, "db_u10b.db")
+for _p in (_DBP_U10A, _DBP_U10B):
+    if os.path.exists(_p):
+        os.remove(_p)
+_agent_u10a = AgentBridge("agent:alpha", "agent:alpha", _DBP_U10A,
+                          _llm_always_reply)
+_agent_u10b = AgentBridge("agent:beta", "agent:beta", _DBP_U10B,
+                          _llm_silent10)
+_plat10 = MessagePoolPlatform(
+    [_agent_u10a, _agent_u10b],
+    run_dir=os.path.join(TMP_IO, "runs", "20260808_000000_v64"), gid="v64")
+_plat10.announce("今天我们来聊聊最近的生活吧")
+_plat10.inject([{"content": "今天天气真好", "user_id": "userA"},
+                {"content": "@alpha 在吗？", "user_id": "userB"},
+                {"content": "有人吗", "user_id": "userC"}])
+_sp10 = _plat10.step()
+_pool_agent_msgs10 = [m for m in _plat10.pool._queue if m.source == "agent"]
+check("U10.3 发言回投消息 reply_to = 决策的【回应对象】",
+      any(getattr(m, "reply_to", "") == "agent:beta"
+          for m in _pool_agent_msgs10),
+      str([(m.user_id, getattr(m, "reply_to", ""))
+           for m in _pool_agent_msgs10]))
+
+# U10.4 AAA 批次上下文渲染"（回应 X）"引用链标注（LLM 决策可见谁回应谁）
+check("U10.4 批次消息标注（回应 X）引用链",
+      aaa_main.MyNode._fmt_pool_msg(
+          {"user_id": "agent:1", "content": "你好呀", "reply_to": "agent:0"})
+      == "[agent:1] 你好呀（回应 agent:0）")
+check("U10.4b 群聊回应标注",
+      aaa_main.MyNode._fmt_pool_msg(
+          {"user_id": "agent:2", "content": "hello", "reply_to": "群聊"})
+      == "[agent:2] hello（回应群聊）")
+check("U10.4c 无回应对象不标注",
+      aaa_main.MyNode._fmt_pool_msg(
+          {"user_id": "userA", "content": "普通消息"})
+      == "[userA] 普通消息")
+
+# ═════════════════════════════════════════════════════════════════
+# U11 v6.5 数据质量修复验收（5a30r 分析报告六项）
+#   A 防自认知污染 / B 静默模板分 action / C 幽灵发言口径标注
+#   D 截断防御（残缺节标记剥离）/ E 末位偏置冷板凳轮转 / F 情绪标签引导
+# ═════════════════════════════════════════════════════════════════
+
+# ── U11.1 A：batch_mode 归因排除"回应对象=自己"（防自认知污染） ──
+_DBP_A = os.path.join(TMP_IO, "db_u11a.sqlite")
+if os.path.exists(_DBP_A):
+    os.remove(_DBP_A)
+_node_a = aaa_main.MyNode()
+_node_a._on_pool_batch({
+    "data_type": "pool_batch", "conversation_id": "default",
+    "identity_key": "agent:self", "request_id": "r1_a",
+    "messages": [{"user_id": "agent:self", "content": "我自己的话"},
+                 {"user_id": "agent:other", "content": "别人的话"}],
+}, _DBP_A)
+
+def _llm_self(prompt: str) -> str:
+    return ("【自然回复】\n同意\n【回应对象】\nagent:self\n【心情】\n平静\n"
+            "【想法】\n回自己一句\n【情绪调整】\n0.0\n"
+            "【事件摘要】\n闲聊 [重要性:2]")
+
+_d_a = _node_a._on_parsed({
+    "data_type": "parsed", "source": "llm", "request_id": "r1_a",
+    "content": _llm_self(""),
+}, _DBP_A, {}, user_id="", batch_mode=True)
+check("A1 回应对象=自己 → user_id 清空（防自认知污染）",
+      _d_a.get("action") == "reply" and _d_a.get("user_id") == "",
+      repr(_d_a.get("user_id")))
+
+_node_a._on_pool_batch({
+    "data_type": "pool_batch", "conversation_id": "default",
+    "identity_key": "agent:self", "request_id": "r2_a",
+    "messages": [{"user_id": "agent:self", "content": "我的话"},
+                 {"user_id": "agent:other", "content": "接话"}],
+}, _DBP_A)
+
+def _llm_other(prompt: str) -> str:
+    return ("【自然回复】\n好的\n【回应对象】\nagent:other\n【心情】\n平静\n"
+            "【想法】\n回应别人\n【情绪调整】\n0.0\n"
+            "【事件摘要】\n闲聊 [重要性:2]")
+
+_d_a2 = _node_a._on_parsed({
+    "data_type": "parsed", "source": "llm", "request_id": "r2_a",
+    "content": _llm_other(""),
+}, _DBP_A, {}, user_id="", batch_mode=True)
+check("A2 回应对象=他人 → user_id 保留（对照）",
+      _d_a2.get("action") == "reply" and _d_a2.get("user_id") == "agent:other",
+      repr(_d_a2.get("user_id")))
+
+# ── U11.2 B：想法 fallback 分 action（reply 不用静默模板） ──
+_node_a._on_pool_batch({
+    "data_type": "pool_batch", "conversation_id": "default",
+    "identity_key": "agent:self", "request_id": "r3_a",
+    "messages": [{"user_id": "agent:other", "content": "你好"}],
+}, _DBP_A)
+
+def _llm_reply_no_thought(prompt: str) -> str:
+    return ("【自然回复】\n好的\n【回应对象】\nagent:other\n【心情】\n平静\n"
+            "【情绪调整】\n0.0\n【事件摘要】\n闲聊 [重要性:2]")
+
+_d_b1 = _node_a._on_parsed({
+    "data_type": "parsed", "source": "llm", "request_id": "r3_a",
+    "content": _llm_reply_no_thought(""),
+}, _DBP_A, {}, user_id="", batch_mode=True)
+check("B1 reply 无想法 → 想法为空（不复用静默模板）",
+      _d_b1.get("action") == "reply" and _d_b1.get("想法") == "",
+      repr(_d_b1.get("想法")))
+
+_node_a._on_pool_batch({
+    "data_type": "pool_batch", "conversation_id": "default",
+    "identity_key": "agent:self", "request_id": "r4_a",
+    "messages": [{"user_id": "agent:other", "content": "你好"}],
+}, _DBP_A)
+
+def _llm_silent_no_thought(prompt: str) -> str:
+    return ("【心情】\n平静\n【情绪调整】\n0.0\n【事件摘要】\n闲聊 [重要性:2]")
+
+_d_b2 = _node_a._on_parsed({
+    "data_type": "parsed", "source": "llm", "request_id": "r4_a",
+    "content": _llm_silent_no_thought(""),
+}, _DBP_A, {}, user_id="", batch_mode=True)
+check("B2 silent 无想法 → 保持观察模板（静默语义）",
+      _d_b2.get("action") == "silent"
+      and _d_b2.get("想法") == "收到消息，保持观察，暂不回应",
+      repr(_d_b2.get("想法")))
+
+# ── U11.3 C：幽灵发言口径标注（topic_ended 标记） ──
+from message_pool.collector import ExperimentCollector
+_C_DIR = os.path.join(TMP_IO, "run_c1")
+_c11 = ExperimentCollector(_C_DIR, gid="c1")
+_c11.decision(action="reply", agent="agent:x", content="a")
+_c11.topic_ended = True
+_c11.decision(action="reply", agent="agent:x", content="b")
+_c11.close()
+_rcs11 = []
+with open(os.path.join(_C_DIR, "decisions.jsonl"), encoding="utf-8") as f:
+    _rcs11 = [json.loads(l) for l in f]
+check("C1 话题结束后决策附带 topic_ended=True（幽灵发言口径）",
+      "topic_ended" not in _rcs11[0] and _rcs11[1].get("topic_ended") is True,
+      str([r.get("topic_ended") for r in _rcs11]))
+
+_p_end = MessagePoolPlatform([], run_dir=os.path.join(TMP_IO, "run_c2"),
+                             gid="c2", topic_rounds=0)
+_p_end._end_topic()
+check("C2 平台宣告话题结束 → collector.topic_ended=True",
+      _p_end.collector.topic_ended is True,
+      str(_p_end.collector.topic_ended))
+_p_end.write_evolution()
+with open(os.path.join(TMP_IO, "run_c2", "evolution.json"),
+          encoding="utf-8") as f:
+    _evo_c = json.load(f)
+check("C3 evolution 落 agent_speech_count/topic_ended/rounds_metric 口径",
+      _evo_c.get("agent_speech_count") == _p_end.agent_speech_count
+      and _evo_c.get("topic_ended") is True
+      and _evo_c.get("rounds_metric") == "processed_batches",
+      str({k: v for k, v in _evo_c.items() if k in (
+          "agent_speech_count", "topic_ended", "rounds_metric")}))
+
+# ── U11.4 D：残缺节标记剥离（max_tokens 截断防御） ──
+from parser import parse_llm_output
+_d_frag = parse_llm_output(
+    "【想法】\n我想学着这种不催促的相处方式。\n\n【情绪调整\n")
+check("D1 残缺节标记被剥离（想法不含残段、无情绪调整键）",
+      "【情绪调整" not in _d_frag.get("想法", "")
+      and "情绪调整" not in _d_frag,
+      repr(_d_frag))
+_d_ok = parse_llm_output(
+    "【想法】\nabc\n【情绪调整】\n0.05\n【心情】\n平静")
+check("D2 正常节标记解析不受影响",
+      _d_ok.get("情绪调整") == "0.05" and _d_ok.get("想法") == "abc",
+      repr(_d_ok))
+
+# ── U11.5 E：末位偏置冷板凳轮转（被回应最少者移末位） ──
+_p_e = MessagePoolPlatform([], run_dir=None, gid="e")
+_p_e._responded = {"agent:a": 5, "agent:b": 0, "agent:c": 2}
+_batch_e = [{"user_id": "agent:a", "content": "x"},
+            {"user_id": "agent:b", "content": "y"},
+            {"user_id": "agent:c", "content": "z"}]
+_out_e = _p_e._batch_for("agent:x", _batch_e)
+check("E1 无 @ 时被回应最少者移末位（冷板凳轮转）",
+      [m["user_id"] for m in _out_e] == ["agent:a", "agent:c", "agent:b"],
+      str([m["user_id"] for m in _out_e]))
+_batch_e2 = [{"user_id": "agent:a", "content": "@agent:x 你好"},
+             {"user_id": "agent:b", "content": "y"},
+             {"user_id": "agent:c", "content": "z"}]
+_out_e2 = _p_e._batch_for("agent:x", _batch_e2)
+check("E2 @ 优先于冷板凳（@ 消息仍置末位）",
+      _out_e2[-1]["user_id"] == "agent:a",
+      str([m["user_id"] for m in _out_e2]))
+_p_e._responded = {"agent:a": 5, "agent:b": 2, "agent:c": 0}
+_out_e3 = _p_e._batch_for("agent:x", _batch_e)
+check("E3 被回应最少者已在末位 → 保持原序",
+      [m["user_id"] for m in _out_e3] == ["agent:a", "agent:b", "agent:c"],
+      str([m["user_id"] for m in _out_e3]))
+_batch_e4 = [{"user_id": "agent:a", "content": "x"},
+             {"user_id": "platform", "content": "公告"}]
+_out_e4 = _p_e._batch_for("agent:x", _batch_e4)
+check("E4 平台消息不参与冷板凳轮转（保持原序）",
+      [m["user_id"] for m in _out_e4] == ["agent:a", "platform"],
+      str([m["user_id"] for m in _out_e4]))
+_p_e5 = MessagePoolPlatform([], run_dir=None, gid="e5")
+_p_e5._responded = {"agent:a": 0, "agent:b": 0}
+_p_e5._feed_agent_speech("agent:a", "hi", reply_to="agent:b")
+check("E5 发言回投 reply_to 命中 → 被回应者计数 +1",
+      _p_e5._responded.get("agent:b") == 1 and _p_e5._responded.get("agent:a") == 0,
+      str(_p_e5._responded))
+
+# ── U11.6 F：情绪调整节引导（reply/silent 都必须输出） ──
+from prompt import DIRECT_TEMPLATE
+check("F1 prompt 强调【情绪调整】必须输出数字",
+      "此节都必须输出一个数字" in DIRECT_TEMPLATE
+      and "禁止留空或省略" in DIRECT_TEMPLATE,
+      "情绪调整" in DIRECT_TEMPLATE)
+
+# ═════════════════════════════════════════════════════════════════
+# U12 v6.6 修复验收 + 数据采集方案实施验收（分析报告六项 + 采集清单七项）
+#   P0-1 批次顺序事实源统一 / P0-2 空 user_id 过滤 / P1-4 截断重试
+#   P1-5 末位偏置量化指标 / P1-6 演化阈值 30→10
+#   采集：memory_hits(P0-1) / silent_cognition(P0-2) / trajectory(P0-3)
+#         timeline(P1-4) / @提及归因(P1-5) / 位置对照(P2-6) / 情绪关联(P2-7)
+# ═════════════════════════════════════════════════════════════════
+
+# ── U12.1 P0-1：批次顺序事实源统一（decisions.batch_context.seq） ──
+print("\n== U12.1 P0-1 批次顺序事实源（seq 唯一关联键） ==")
+from message_pool.message_pool import MessagePool
+_pool12 = MessagePool()
+_msg_a = _pool12.enqueue_input("早上好", user_id="userA")
+_msg_b = _pool12.enqueue_input("晚上好", user_id="userB")
+_DBP_U12 = os.path.join(TMP_IO, "db_u12.sqlite")
+if os.path.exists(_DBP_U12):
+    os.remove(_DBP_U12)
+_agent12 = AgentBridge("agent:u12", "agent:u12", _DBP_U12, _llm_always_reply)
+_d12 = _agent12.process_batch([_msg_a, _msg_b], round_no=1)
+check("U12.1a batch_context 携带 seq（与 Message.seq 一致）",
+      [m["seq"] for m in _d12["batch_context"]] == [_msg_a.seq, _msg_b.seq],
+      str([m["seq"] for m in _d12["batch_context"]]))
+check("U12.1b Message.to_dict() 含 seq 字段（关联键落盘）",
+      _msg_a.to_dict().get("seq") == _msg_a.seq, repr(_msg_a.to_dict()))
+# 同一批次派发给不同 Agent：seq 集合必须相同（顺序事实源唯一）
+_DBP_U12B = os.path.join(TMP_IO, "db_u12b.sqlite")
+if os.path.exists(_DBP_U12B):
+    os.remove(_DBP_U12B)
+_agent12b = AgentBridge("agent:u12b", "agent:u12b", _DBP_U12B, _llm_silent_then_reply)
+_d12b = _agent12b.process_batch([_msg_a, _msg_b], round_no=1)
+check("U12.1c 同批不同 Agent 的 seq 集合相同（顺序事实源唯一）",
+      {m["seq"] for m in _d12["batch_context"]} ==
+      {m["seq"] for m in _d12b["batch_context"]},
+      f"{[m['seq'] for m in _d12['batch_context']]} vs "
+      f"{[m['seq'] for m in _d12b['batch_context']]}")
+
+# ── U12.2 P0-2：空 user_id 不写 other_cognition（skip_empty_other） ──
+print("\n== U12.2 P0-2 空 user_id 过滤（skip_empty_other） ==")
+_DBP_U12C = os.path.join(TMP_IO, "db_u12c.sqlite")
+if os.path.exists(_DBP_U12C):
+    os.remove(_DBP_U12C)
+db.ensure(_DBP_U12C)
+_parsed_oc = {"他人认知": "这个用户很活跃", "事件摘要": "闲聊 [重要性:2]"}
+# skip_empty_other=True + user_id="" → 跳过 other_cognition 写入
+db._write_parsed(_parsed_oc, _DBP_U12C, "default", identity_key="agent:u12",
+                 user_id="", skip_empty_other=True)
+_conn_u12 = sqlite3.connect(_DBP_U12C)
+_n_empty = _conn_u12.execute(
+    "SELECT COUNT(*) FROM other_cognition WHERE user_id=''").fetchone()[0]
+check("U12.2a skip_empty_other=True + 空 user_id → 不写 other_cognition",
+      _n_empty == 0, str(_n_empty))
+# skip_empty_other=False（GUI 1对1 兜底）→ 照常写入
+db._write_parsed(_parsed_oc, _DBP_U12C, "default", identity_key="agent:u12",
+                 user_id="", skip_empty_other=False)
+_n_empty2 = _conn_u12.execute(
+    "SELECT COUNT(*) FROM other_cognition WHERE user_id=''").fetchone()[0]
+check("U12.2b skip_empty_other=False（GUI 兜底）→ 正常写入",
+      _n_empty2 == 1, str(_n_empty2))
+_conn_u12.close()
+# 报告读取侧过滤空键
+from message_pool.topic_report import _read_other_cognition
+_oc_u12 = _read_other_cognition(_DBP_U12C, "agent:u12")
+check("U12.2c _read_other_cognition 过滤空 user_id 键",
+      "" not in _oc_u12 and not _oc_u12, str(_oc_u12))
+
+# ── U12.3 P1-4：截断检测 is_truncated ──
+print("\n== U12.3 P1-4 截断检测（is_truncated） ==")
+from parser import is_truncated
+check("U12.3a 未闭合节标记结尾 → 截断",
+      is_truncated("【想法】\n我想学着这样。\n\n【情绪调整") is True)
+check("U12.3b 完整输出 → 非截断",
+      is_truncated("【想法】\nabc\n【情绪调整】\n0.05\n【心情】\n平静") is False)
+check("U12.3c 有回复缺情绪调整 → 截断（信号2）",
+      is_truncated("【自然回复】\n你好呀\n【想法】\nabc") is True)
+check("U12.3d 空输出 → 非截断（静默视为合法）",
+      is_truncated("") is False)
+
+# ── U12.4 P1-5：末位偏置量化指标 + @提及/归因（数据采集 P1-5/P2-6） ──
+print("\n== U12.4 P1-5 末位偏置 + @提及指标 ==")
+_msgs_u12 = [
+    {"user_id": "userA", "content": "早上好", "seq": 1},
+    {"user_id": "userB", "content": "@agent:u12 你觉得呢", "seq": 2},
+    {"user_id": "userC", "content": "最后一句", "seq": 3},
+]
+
+
+def _llm_reply_userB(prompt: str) -> str:
+    return ("【自然回复】\n在的\n【回应对象】\nuserB\n【心情】\n平静\n"
+            "【想法】\n回应点名者\n【情绪调整】\n0.05\n"
+            "【事件摘要】\n闲聊 [重要性:2]")
+
+
+def _llm_reply_userC(prompt: str) -> str:
+    return ("【自然回复】\n好的\n【回应对象】\nuserC\n【心情】\n平静\n"
+            "【想法】\n回应末位\n【情绪调整】\n0.05\n"
+            "【事件摘要】\n闲聊 [重要性:2]")
+
+
+_DBP_U12D = os.path.join(TMP_IO, "db_u12d.sqlite")
+if os.path.exists(_DBP_U12D):
+    os.remove(_DBP_U12D)
+_agent12d = AgentBridge("agent:u12", "agent:u12", _DBP_U12D, _llm_reply_userB)
+_d12d = _agent12d.process_batch(_msgs_u12, round_no=1, mention_targets=["agent:u12"])
+check("U12.4a reply 决策含 reply_target_pos（userB 在 pos=1）",
+      _d12d.get("reply_target_pos") == 1, repr(_d12d.get("reply_target_pos")))
+check("U12.4b batch_last_author 记录批次末位作者 userC",
+      _d12d.get("batch_last_author") == "userC", repr(_d12d.get("batch_last_author")))
+check("U12.4c mention_targets 记录本批被点名列表",
+      _d12d.get("mention_targets") == ["agent:u12"], str(_d12d.get("mention_targets")))
+check("U12.4d 被 @ 且回应点名者 userB → mention_responded=True",
+      _d12d.get("mention_responded") is True, repr(_d12d.get("mention_responded")))
+check("U12.4e attribution_ok（user_id=userB=回应对象）",
+      _d12d.get("attribution_ok") is True and _d12d.get("user_id") == "userB",
+      repr((_d12d.get("user_id"), _d12d.get("attribution_ok"))))
+# 回应他人（非点名者）→ mention_responded=False
+_DBP_U12E = os.path.join(TMP_IO, "db_u12e.sqlite")
+if os.path.exists(_DBP_U12E):
+    os.remove(_DBP_U12E)
+_agent12e = AgentBridge("agent:u12", "agent:u12", _DBP_U12E, _llm_reply_userC)
+_d12e = _agent12e.process_batch(_msgs_u12, round_no=1, mention_targets=["agent:u12"])
+check("U12.4f 被 @ 但回应他人 userC → mention_responded=False",
+      _d12e.get("mention_responded") is False, repr(_d12e.get("mention_responded")))
+check("U12.4g 回应末位 → reply_target_pos=len-1（末位偏置可量化）",
+      _d12e.get("reply_target_pos") == len(_msgs_u12) - 1,
+      repr(_d12e.get("reply_target_pos")))
+
+# ── U12.5 P1-6：演化兜底阈值 30→10（降阈值生效） ──
+print("\n== U12.5 P1-6 演化兜底阈值 ==")
+from personality import _FALLBACK_TRIGGER_COUNT
+check("U12.5a 兜底触发阈值已降至 10",
+      _FALLBACK_TRIGGER_COUNT == 10, str(_FALLBACK_TRIGGER_COUNT))
+_evo12 = PersonalityEvolution({"warmth": 0.6, "playfulness": 0.4,
+                               "directness": 0.5, "curiosity": 0.5})
+_style_hi = {"warmth": 0.9, "playfulness": 0.3,
+             "directness": 0.5, "curiosity": 0.5}
+for _i in range(9):
+    _evo12.observe_feedback(_style_hi, "neutral", mood=0.0)
+check("U12.5b 9 次 neutral 高风格观测仍未触发（阈值=10）",
+      abs(_evo12.vector["warmth"] - 0.6) < 1e-9,
+      f"warmth={_evo12.vector['warmth']:.6f}")
+_evo12.observe_feedback(_style_hi, "neutral", mood=0.0)
+check("U12.5c 第 10 次触发演化（warmth 向 0.9 收敛）",
+      _evo12.vector["warmth"] > 0.6,
+      f"warmth={_evo12.vector['warmth']:.6f}")
+
+# ── U12.6 数据采集：memory_hits / silent_cognition 落盘（P0-1/P0-2） ──
+print("\n== U12.6 采集字段落盘（memory_hits / silent_cognition） ==")
+from memos import _record_hits as _memos_record_hits
+# 决策层：pending 携带 memory_hits → 批量决策返回该字段
+_memos_record_hits([{"id": 7, "table": "long_term_memory", "score": 0.83,
+                     "adopted": True}])
+_DBP_U12F = os.path.join(TMP_IO, "db_u12f.sqlite")
+if os.path.exists(_DBP_U12F):
+    os.remove(_DBP_U12F)
+_node12 = aaa_main.MyNode()
+_node12._pending_contexts["r1_u12"] = {
+    "user_text": "测试", "identity_key": "agent:u12", "user_id": "userA",
+    "memory_hits": memos.get_last_hits(),
+}
+_d12f = _node12._on_parsed({
+    "data_type": "parsed", "source": "llm", "request_id": "r1_u12",
+    "content": _SILENT_TEXT,
+}, _DBP_U12F, {}, user_id="", batch_mode=True)
+check("U12.6a 静默决策返回 memory_hits 字段（P0-1 采集）",
+      isinstance(_d12f.get("memory_hits"), list)
+      and _d12f["memory_hits"] and _d12f["memory_hits"][0]["id"] == 7,
+      repr(_d12f.get("memory_hits")))
+check("U12.6b silent_cognition_written / cognition_sections 字段（P0-2 采集）",
+      "silent_cognition_written" in _d12f and "cognition_sections" in _d12f,
+      str({k: _d12f.get(k) for k in ("silent_cognition_written",
+                                     "cognition_sections")}))
+# DB 层：_on_parsed 已异步触发 record_memory_usage / record_silent_cognition
+# （上面 U12.6a/b 的调用即写入），此处用独立库直测同步写函数本身
+from db import _write_memory_usage as _mu_write, _write_silent_cognition as _sc_write
+_DBP_U12G = os.path.join(TMP_IO, "db_u12g.sqlite")
+if os.path.exists(_DBP_U12G):
+    os.remove(_DBP_U12G)
+db.ensure(_DBP_U12G)
+_mu_write(_DBP_U12G, "agent:u12", "r1_u12",
+          [{"id": 7, "table": "long_term_memory", "score": 0.83, "adopted": True}])
+_sc_write(_DBP_U12G, "agent:u12", "r1_u12", "这条消息听过了，不必回应",
+          True, "他人认知,事件摘要")
+_conn_u12f = sqlite3.connect(_DBP_U12G)
+_n_mu = _conn_u12f.execute("SELECT COUNT(*) FROM memory_usage").fetchone()[0]
+_n_sc = _conn_u12f.execute("SELECT COUNT(*) FROM silent_cognition").fetchone()[0]
+_conn_u12f.close()
+check("U12.6c memory_usage 表落盘（决策→命中记忆证据链）",
+      _n_mu == 1, str(_n_mu))
+check("U12.6d silent_cognition 表落盘（静默≠无认知）",
+      _n_sc == 1, str(_n_sc))
+
+# ── U12.7 数据采集：topic_report 新统计节渲染（P0-3/P1-4/P1-5/P2-6/P2-7） ──
+print("\n== U12.7 topic_report 数据采集统计节 ==")
+from message_pool.topic_report import (
+    _render_position_bias, _render_mention_attribution, _render_mood_behavior,
+    _render_memory_hits, _render_silent_cognition, _render_trajectory,
+    _render_cognition_timeline)
+_fix_dec = [
+    {"agent": "agent:0", "action": "reply", "round": 1, "回应对象": "userA",
+     "reply_target_pos": 0, "batch_last_author": "userC",
+     "batch_context": [{"user_id": "userA", "seq": 1}, {"user_id": "userB", "seq": 2},
+                       {"user_id": "userC", "seq": 3}],
+     "mention_targets": ["agent:0"], "mention_responded": True,
+     "attribution_ok": True, "user_id": "userA",
+     "memory_hits": [{"id": 1, "table": "long_term_memory", "score": 0.8}],
+     "silent_cognition_written": False, "cognition_sections": "",
+     "personality": {"warmth": 0.6, "playfulness": 0.5, "directness": 0.5,
+                     "curiosity": 0.5}, "mood": 0.5},
+    {"agent": "agent:0", "action": "reply", "round": 2, "回应对象": "userC",
+     "reply_target_pos": 2, "batch_last_author": "userC",
+     "batch_context": [{"user_id": "userA", "seq": 4}, {"user_id": "userB", "seq": 5},
+                       {"user_id": "userC", "seq": 6}],
+     "mention_targets": [], "mention_responded": False,
+     "attribution_ok": True, "user_id": "userC",
+     "memory_hits": [], "silent_cognition_written": False, "cognition_sections": "",
+     "personality": {"warmth": 0.62, "playfulness": 0.5, "directness": 0.5,
+                     "curiosity": 0.5}, "mood": 0.3},
+    {"agent": "agent:0", "action": "silent", "round": 3, "user_id": "",
+     "memory_hits": [], "silent_cognition_written": True,
+     "cognition_sections": "他人认知,事件摘要",
+     "personality": {"warmth": 0.62, "playfulness": 0.5, "directness": 0.5,
+                     "curiosity": 0.5}, "mood": 0.0},
+    # 认知网络时序：r3 写「他人认知」且归因到另一 agent → 认知边
+    {"agent": "agent:0", "action": "reply", "round": 3, "回应对象": "agent:1",
+     "reply_target_pos": 1, "batch_last_author": "agent:1",
+     "batch_context": [{"user_id": "agent:1", "seq": 7}],
+     "mention_targets": [], "mention_responded": False,
+     "attribution_ok": True, "user_id": "agent:1",
+     "memory_hits": [], "silent_cognition_written": False,
+     "cognition_sections": "他人认知",
+     "personality": {"warmth": 0.62, "playfulness": 0.5, "directness": 0.5,
+                     "curiosity": 0.5}, "mood": 0.1},
+    # 反向认知边（agent:1 → agent:0）→ 双向认知组形成
+    {"agent": "agent:1", "action": "reply", "round": 4, "回应对象": "agent:0",
+     "reply_target_pos": 0, "batch_last_author": "agent:0",
+     "batch_context": [{"user_id": "agent:0", "seq": 8}],
+     "mention_targets": [], "mention_responded": False,
+     "attribution_ok": True, "user_id": "agent:0",
+     "memory_hits": [], "silent_cognition_written": False,
+     "cognition_sections": "他人认知",
+     "personality": {"warmth": 0.6, "playfulness": 0.5, "directness": 0.5,
+                     "curiosity": 0.5}, "mood": 0.1},
+]
+_fix_evo = {"trajectory": {"agent:0": [
+    {"round": 1, "vector": {"warmth": 0.6, "playfulness": 0.5,
+                            "directness": 0.5, "curiosity": 0.5}},
+    {"round": 2, "vector": {"warmth": 0.62, "playfulness": 0.5,
+                            "directness": 0.5, "curiosity": 0.5}},
+    {"round": 3, "vector": {"warmth": 0.62, "playfulness": 0.5,
+                            "directness": 0.5, "curiosity": 0.5}}]}}
+_pos_bias = _render_position_bias(_fix_dec)
+_mention = _render_mention_attribution(_fix_dec, ["agent:0"])
+_mood_beh = _render_mood_behavior(_fix_dec, ["agent:0"])
+_mem_hits = _render_memory_hits(_fix_dec, ["agent:0"])
+_sil_cog = _render_silent_cognition(_fix_dec, ["agent:0"])
+_traj = _render_trajectory(_fix_evo)
+_tl = _render_cognition_timeline(_fix_dec, ["agent:0", "agent:1"])
+check("U12.7a 位置对照节（P2-6）：末位回应率量化",
+      "末位回应率" in _pos_bias and "50.0%" in _pos_bias, _pos_bias[:120])
+check("U12.7b @提及节（P1-5）：点名响应率 + 归因正确率",
+      "点名者被回应" in _mention and "归因正确" in _mention, _mention[:160])
+check("U12.7c 情绪-行为节（P2-7）：reply/silent 平均 mood 对照",
+      "reply 平均 mood" in _mood_beh and "silent 平均 mood" in _mood_beh,
+      _mood_beh[:120])
+check("U12.7d 记忆命中节（P0-1）：命中条目统计",
+      "命中 1 条记忆" in _mem_hits, _mem_hits[:120])
+check("U12.7e 静默认知节（P0-2）：仍写认知计数",
+      "静默轮仍在沉淀认知" in _sil_cog and "他人认知×1" in _sil_cog,
+      _sil_cog[:160])
+check("U12.7f 轨迹节（P0-3）：首动轮次标注（r2 首次变化）",
+      "首动轮次" in _traj and "r2" in _traj, _traj[:160])
+check("U12.7g 认知网络时序节（P1-4）：逐轮累计边 + 双向组数",
+      "累计边数" in _tl and "agent:0↔agent:1" in _tl, _tl[:160])
+
+print("\n== U13 v7.0 兴趣门控 ==")
+import numpy as np
+from message_pool.interest_gate import InterestGate
+
+
+def _fake_enc(texts):
+    """确定性伪编码器（验收用，不加载模型）：关键词→正交向量，其余→兜底向量。"""
+    _KW = [("猫", [1.0, 0.0, 0.0, 0.0]),
+           ("做饭", [0.0, 1.0, 0.0, 0.0]),
+           ("天气", [0.0, 0.0, 1.0, 0.0])]
+    out = []
+    for t in texts:
+        v = [0.0, 0.0, 0.0, 1.0]
+        for kw, vec in _KW:
+            if kw in t:
+                v = vec
+                break
+        out.append(v)
+    a = np.asarray(out, dtype="float64")
+    return a / np.linalg.norm(a, axis=1, keepdims=True)
+
+
+# U13.1 编码一次（同文本只编码一次，缓存复用）
+_g = InterestGate(threshold=0.6, encoder=_fake_enc)
+_v = _g.encode(["我养了一只猫", "我养了一只猫"])
+check("U13.1a 编码一次：批内同文本只编码一次（encode_calls==1）",
+      _g.encode_calls == 1, f"calls={_g.encode_calls}")
+check("U13.1b 编码缓存：同文本两次向量一致",
+      bool(np.allclose(_v[0], _v[1])))
+_g.encode(["我养了一只猫"])
+check("U13.1c 编码缓存：重复调用不再触发编码（calls 仍为 1）",
+      _g.encode_calls == 1, f"calls={_g.encode_calls}")
+
+# U13.2 门控判定（阈值 0.6：同主题 sim=1.0 过门，异主题 sim=0.0 拒绝）
+_g2 = InterestGate(threshold=0.6, encoder=_fake_enc)
+_g2.set_anchor("agent:0", "我养了一只猫")
+_msgs = [{"seq": 1, "user_id": "userA", "content": "有人推荐个电影吗", "reply_to": ""},
+         {"seq": 2, "user_id": "userB", "content": "今天天气真好", "reply_to": ""},
+         {"seq": 3, "user_id": "userC", "content": "我也喜欢猫", "reply_to": ""}]
+_j = _g2.judge("agent:0", _msgs)
+check("U13.2a 兴趣过门：最高兴趣消息命中（猫=1.0），检测文本+seq 正确",
+      _j["passed"] and _j["reason"] == "interest"
+      and _j["detected_text"] == "我也喜欢猫" and _j["seq"] == 3
+      and _j["interest_value"] == 1.0, str(_j))
+_jn = _g2.judge("agent:0", _msgs[:2])
+check("U13.2b 兴趣不足：max_sim=0.0 < 0.6 → 未过门（reason=none）",
+      (not _jn["passed"]) and _jn["reason"] == "none"
+      and _jn["interest_value"] == 0.0, str(_jn))
+_hit = {"seq": 9, "user_id": "userX", "content": "随便聊聊", "reply_to": "agent:0"}
+_jd = _g2.judge("agent:0", [dict(_hit)], direct_hits=[dict(_hit)])
+check("U13.2c 直接过门：reply_to==agent → reason=direct 过门（不经阈值）",
+      _jd["passed"] and _jd["reason"] == "direct" and _jd["seq"] == 9, str(_jd))
+_g3 = InterestGate(threshold=0.95, encoder=_fake_enc)
+_g3.set_anchor("agent:0", "我养了一只猫")
+check("U13.2d 阈值可配：0.95 下猫(1.0)过门、电影(0.0)拒绝",
+      _g3.judge("agent:0", _msgs[2:])["passed"]
+      and not _g3.judge("agent:0", _msgs[:1])["passed"])
+
+# U13.3 兴趣锚点更新
+_g4 = InterestGate(threshold=0.6, encoder=_fake_enc)
+check("U13.3a 初始无锚点", _g4.get_anchor("agent:0") == "")
+_g4.set_anchor("agent:0", "我今天做了饭")
+check("U13.3b 锚点=最近发言", _g4.get_anchor("agent:0") == "我今天做了饭")
+_g4.set_anchor("agent:0", "   ")
+check("U13.3c 空文本不覆盖锚点", _g4.get_anchor("agent:0") == "我今天做了饭")
+
+# U13.4 判定落库（用户要求：检测文本 + 兴趣值写入数据库）
+_DBP_U13G = os.path.join(TMP_IO, "db_u13g.sqlite")
+if os.path.exists(_DBP_U13G):
+    os.remove(_DBP_U13G)
+_g5 = InterestGate(threshold=0.6, encoder=_fake_enc)
+_g5.set_anchor("agent:0", "我养了一只猫")
+_g5.write_judgment(_DBP_U13G, "agent:0", 1,
+                   _g5.judge("agent:0", [{"seq": 5, "user_id": "userC",
+                                          "content": "我也喜欢猫", "reply_to": ""}]))
+_g5.write_judgment(_DBP_U13G, "agent:0", 2,
+                   _g5.judge("agent:0", [{"seq": 6, "user_id": "userA",
+                                          "content": "推荐个电影", "reply_to": ""}]))
+_c13g = sqlite3.connect(_DBP_U13G)
+_r13g = _c13g.execute(
+    "SELECT detected_text, interest_value, passed, reason "
+    "FROM interest_judgment ORDER BY rowid").fetchall()
+_c13g.close()
+check("U13.4a 落库字段：检测文本/兴趣值/过门/原因 逐条写入",
+      len(_r13g) == 2 and _r13g[0] == ("我也喜欢猫", 1.0, 1, "interest")
+      and _r13g[1][2] == 0 and _r13g[1][3] == "none", str(_r13g))
+
+# U13.5 平台集成：门控预筛（未过门 agent 不调 LLM）+ 判定自动落库
+_U13_A = os.path.join(TMP_IO, "db_u13a.sqlite")
+_U13_B = os.path.join(TMP_IO, "db_u13b.sqlite")
+for _p_ in (_U13_A, _U13_B):
+    if os.path.exists(_p_):
+        os.remove(_p_)
+
+
+def _u13_llm(prompt):
+    return ("【自然回复】\n猫真可爱\n【回应对象】\nuserC\n【心情】\n开心\n"
+            "【想法】\n想回应\n【情绪调整】\n0.05\n"
+            "【事件摘要】\n用户发言，AI 回应 [重要性:3]\n"
+            "【他人认知】\n这个用户很活跃")
+
+
+_gate5 = InterestGate(threshold=0.6, encoder=_fake_enc)
+_a5 = AgentBridge("agent:alpha", "agent:alpha", _U13_A, _u13_llm)
+_b5 = AgentBridge("agent:beta", "agent:beta", _U13_B, _u13_llm)
+_gate5.set_anchor("agent:alpha", "我养了一只猫")
+_gate5.set_anchor("agent:beta", "我想学做饭")
+_p5 = MessagePoolPlatform([_a5, _b5], run_dir=None, gate=_gate5, topic_rounds=0)
+_p5.inject([{"content": "我也养猫了", "user_id": "userC"}])
+_sp5 = _p5.step()
+check("U13.5a 平台集成：感兴趣者（alpha）过门并发言",
+      _sp5 is not None and _sp5[0] == "agent:alpha", str(_sp5))
+check("U13.5b 平台集成：不感兴趣者（beta）未过门，不调 LLM",
+      _b5._inline_llm_calls == 0, f"beta calls={_b5._inline_llm_calls}")
+_ca = sqlite3.connect(_U13_A)
+_na = _ca.execute("SELECT COUNT(*) FROM interest_judgment").fetchone()[0]
+_ca.close()
+_cb = sqlite3.connect(_U13_B)
+_nb = _cb.execute("SELECT COUNT(*) FROM interest_judgment").fetchone()[0]
+_cb.close()
+check("U13.5c 平台集成：每 agent 判定落库 1 条",
+      _na == 1 and _nb == 1, f"alpha={_na} beta={_nb}")
+
+# U13.6 仲裁优先级：@ 点名 > 兴趣 > 冷板凳（被回应少者优先）
+_U13_C = os.path.join(TMP_IO, "db_u13c.sqlite")
+_U13_D = os.path.join(TMP_IO, "db_u13d.sqlite")
+_U13_E = os.path.join(TMP_IO, "db_u13e.sqlite")
+_U13_F = os.path.join(TMP_IO, "db_u13f.sqlite")
+for _p_ in (_U13_C, _U13_D, _U13_E, _U13_F):
+    if os.path.exists(_p_):
+        os.remove(_p_)
+
+
+def _u13_llm6(prompt):
+    return ("【自然回复】\n好的\n【回应对象】\nuserD\n【心情】\n开心\n"
+            "【想法】\n想回应\n【情绪调整】\n0.05\n"
+            "【事件摘要】\n用户发言，AI 回应 [重要性:3]\n"
+            "【他人认知】\n这个用户很活跃")
+
+
+_gate6 = InterestGate(threshold=0.6, encoder=_fake_enc)
+_a6 = AgentBridge("agent:alpha", "agent:alpha", _U13_C, _u13_llm6)
+_b6 = AgentBridge("agent:beta", "agent:beta", _U13_D, _u13_llm6)
+_gate6.set_anchor("agent:alpha", "我养了一只猫")
+_gate6.set_anchor("agent:beta", "我养了一只猫")
+_p6 = MessagePoolPlatform([_a6, _b6], run_dir=None, gate=_gate6, topic_rounds=0)
+_p6.inject([{"content": "@agent:beta 你也养猫吗", "user_id": "userD"}])
+_sp6 = _p6.step()
+check("U13.6a 仲裁 @ 优先：被点名者（beta）先发言",
+      _sp6 is not None and _sp6[0] == "agent:beta", str(_sp6))
+
+_gate7 = InterestGate(threshold=0.6, encoder=_fake_enc)
+_a7 = AgentBridge("agent:alpha", "agent:alpha", _U13_E, _u13_llm6)
+_b7 = AgentBridge("agent:beta", "agent:beta", _U13_F, _u13_llm6)
+_gate7.set_anchor("agent:alpha", "我养了一只猫")
+_gate7.set_anchor("agent:beta", "我养了一只猫")
+_p7 = MessagePoolPlatform([_a7, _b7], run_dir=None, gate=_gate7, topic_rounds=0)
+_p7._responded["agent:alpha"] = 0
+_p7._responded["agent:beta"] = 5
+_p7.inject([{"content": "我也养猫了", "user_id": "userE"}])
+_sp7 = _p7.step()
+check("U13.6b 仲裁 冷板凳优先：同兴趣时被回应少者（alpha）先发言",
+      _sp7 is not None and _sp7[0] == "agent:alpha", str(_sp7))
+
+# ── U13.7 v7.1 近期观察记录注入（interest_judgment 未过门文本回流上下文） ──
+print("\n== U13.7 v7.1 近期观察记录注入 ==")
+_OBS_DB = os.path.join(TMP_IO, "obs_gate.sqlite")
+if os.path.exists(_OBS_DB):
+    os.remove(_OBS_DB)
+_oconn = sqlite3.connect(_OBS_DB)
+_oconn.executescript(InterestGate._TABLE_SQL)
+_oconn.execute(
+    "INSERT INTO interest_judgment(identity_key, round_no, message_seq, detected_text, "
+    "anchor_text, interest_value, passed, reason) VALUES(?,?,?,?,?,?,?,?)",
+    ("agent:alpha", 1, 1, "冷笑话挺好笑的", "我养了一只猫", 0.30, 0, "none"))
+_oconn.execute(
+    "INSERT INTO interest_judgment(identity_key, round_no, message_seq, detected_text, "
+    "anchor_text, interest_value, passed, reason) VALUES(?,?,?,?,?,?,?,?)",
+    ("agent:alpha", 2, 2, "冷笑话挺好笑的", "我养了一只猫", 0.29, 0, "none"))  # 重复文本
+_oconn.execute(
+    "INSERT INTO interest_judgment(identity_key, round_no, message_seq, detected_text, "
+    "anchor_text, interest_value, passed, reason) VALUES(?,?,?,?,?,?,?,?)",
+    ("agent:alpha", 3, 3, "拼盘这比喻贴切", "我养了一只猫", 0.51, 0, "none"))
+_oconn.execute(
+    "INSERT INTO interest_judgment(identity_key, round_no, message_seq, detected_text, "
+    "anchor_text, interest_value, passed, reason) VALUES(?,?,?,?,?,?,?,?)",
+    ("agent:alpha", 4, 4, "我回应了这条消息", "冷笑话挺好笑的", 0.95, 1, "interest"))  # 过门不注入
+_oconn.execute(
+    "INSERT INTO interest_judgment(identity_key, round_no, message_seq, detected_text, "
+    "anchor_text, interest_value, passed, reason) VALUES(?,?,?,?,?,?,?,?)",
+    ("agent:alpha", 5, 5, "今天天气不错", "冷笑话挺好笑的", 0.42, 0, "none"))
+_oconn.execute(
+    "INSERT INTO interest_judgment(identity_key, round_no, message_seq, detected_text, "
+    "anchor_text, interest_value, passed, reason) VALUES(?,?,?,?,?,?,?,?)",
+    ("agent:beta", 5, 5, "别人的记录不该注入", "别人锚点", 0.50, 0, "none"))  # 其他 agent 隔离
+_oconn.commit()
+_obs_full = db.read_recent_observations(_oconn, "agent:alpha", 5)
+check("U13.7a 观察记录：只取 passed=0 且按 id 倒序去重（含天气/拼盘/冷笑话，不含过门与它人）",
+      ("今天天气不错" in _obs_full and "拼盘这比喻贴切" in _obs_full
+       and "冷笑话挺好笑的" in _obs_full
+       and "我回应了这条消息" not in _obs_full
+       and "别人的记录不该注入" not in _obs_full), repr(_obs_full))
+_obs_lim = db.read_recent_observations(_oconn, "agent:alpha", 2)
+check("U13.7b 观察记录上限：limit=2 只取最新 2 条",
+      _obs_lim.count("今天天气不错") == 1 and _obs_lim.count("拼盘这比喻贴切") == 1
+      and "冷笑话挺好笑的" not in _obs_lim, repr(_obs_lim))
+_oconn.close()
+_empty_db = os.path.join(TMP_IO, "obs_empty.sqlite")
+if os.path.exists(_empty_db):
+    os.remove(_empty_db)
+_econn = sqlite3.connect(_empty_db)  # 无 interest_judgment 表
+check("U13.7c 观察记录容错：表不存在返回空串（不报错）",
+      db.read_recent_observations(_econn, "agent:alpha", 5) == "")
+_econn.close()
+# prompt 渲染集成：观察记录注入【近期观察记录】节；为空时不渲染该节
+_obs_conn = sqlite3.connect(_OBS_DB)
+_obs_ctx = {
+    "identity_key": "agent:alpha", "self_cognition": "", "fixed_cognition": "",
+    "recent_feelings": "", "other_cognition": "", "user_text": "本轮测试",
+    "current_date": "2026-08-08", "current_time": "12:00:00",
+    "history_summary": "", "user_info": "", "self_info": "",
+    "attachment_context": "",
+    "recent_observations": db.read_recent_observations(_obs_conn, "agent:alpha", 5),
+}
+_obs_conn.close()
+_obs_prompt = _pt.build(dict(_obs_ctx))
+check("U13.7d prompt 集成：上下文含【近期观察记录】节与最新检测文本",
+      "【近期观察记录】（你最近看过但未回应的消息，可参考）" in _obs_prompt
+      and "今天天气不错" in _obs_prompt, "节缺失")
+_obs_ctx["recent_observations"] = ""
+_obs_empty_prompt = _pt.build(dict(_obs_ctx))
+check("U13.7e prompt 集成：观察记录为空时不渲染该节（1对1/无记录不干扰）",
+      "近期观察记录" not in _obs_empty_prompt, "空记录仍渲染")
+
+# ── U13.8 v7.2 接话切入判定 + 窗口拼接 ──────────────────────
+print("\n== U13.8 v7.2 接话切入判定 + 窗口拼接 ==")
+_g8 = InterestGate(threshold=0.6, encoder=_fake_enc)
+_g8.set_anchor("agent:3", "我养了一只猫")
+_msgs8 = [{"seq": 1, "user_id": "userA", "content": "今天天气不错", "reply_to": ""},
+          {"seq": 2, "user_id": "agent:2", "content": "我也养猫了！", "reply_to": ""},
+          {"seq": 3, "user_id": "userA", "content": "聊点电影吧", "reply_to": ""}]
+_res8 = _g8.judge_sequence("agent:3", _msgs8)
+# 逐条发言判定（不去重）：seq1 天气拒 → seq2 猫过门（次早）→ seq3 电影拒
+check("U13.8a 时间从旧到新逐条判定：第一个过门者为接话切入点（天气拒→猫过门→电影拒）",
+      _res8["target"] is not None
+      and _res8["target"]["seq"] == 2
+      and _res8["target"]["target_speaker"] == "agent:2"
+      and _res8["target"]["reason"] == "interest"
+      and len(_res8["records"]) == 3
+      and _res8["records"][0]["seq"] == 1       # 最早：1 的第一次发言
+      and not _res8["records"][0]["passed"]
+      and _res8["records"][1]["seq"] == 2       # 次早：2 的发言（第二条）
+      and _res8["records"][1]["passed"]
+      and _res8["records"][2]["seq"] == 3
+      and not _res8["records"][2]["passed"],
+      str([(r["seq"], r["interest_value"], r["passed"]) for r in _res8["records"]]))
+_msgs8b = [{"seq": 1, "user_id": "userA", "content": "我也养猫了", "reply_to": ""},
+           {"seq": 2, "user_id": "userB", "content": "我想学做饭", "reply_to": ""}]
+_res8b = _g8.judge_sequence("agent:3", _msgs8b)
+check("U13.8b 时间从旧到新：先判最早的猫(seq1)过门 → 切入点=猫 seq1",
+      _res8b["target"]["seq"] == 1
+      and _res8b["records"][0]["seq"] == 1
+      and _res8b["records"][0]["passed"]
+      and _res8b["records"][1]["seq"] == 2
+      and not _res8b["records"][1]["passed"],
+      str([(r["seq"], r["passed"]) for r in _res8b["records"]]))
+_direct8c = {"seq": 6, "user_id": "userX", "content": "@agent:3 你在吗", "reply_to": ""}
+_res8c = _g8.judge_sequence("agent:3",
+                            [{"seq": 5, "user_id": "userA",
+                              "content": "推荐个电影", "reply_to": ""},
+                             dict(_direct8c)],
+                            direct_hits=[dict(_direct8c)])
+check("U13.8c direct 优先：@ 命中直接过门，切入点=点名消息（不经兴趣）",
+      _res8c["target"]["reason"] == "direct"
+      and _res8c["target"]["seq"] == 6, str(_res8c["target"]))
+
+# U13.8d 窗口计算（platform）：从 agent 最近发言后到切入消息，不含自己发言
+_p8d = MessagePoolPlatform([_a6, _b6], run_dir=None, gate=None, topic_rounds=0)
+_p8d.announce("今天聊猫", user_id="platform")                            # seq1
+_p8d._feed_agent_speech("agent:alpha", "我喜欢猫", reply_to="")           # seq2
+_p8d.inject([{"content": "你们觉得呢", "user_id": "userA"}])               # seq3
+_p8d._feed_agent_speech("agent:beta", "我也养猫了", reply_to="agent:alpha")  # seq4
+_p8d.inject([{"content": "猫真可爱", "user_id": "userB"}])                 # seq5
+_w8d = _p8d._window_for("agent:alpha", 5)
+check("U13.8d 窗口计算：alpha 窗口=(seq2,seq5]，不含自己发言",
+      [m["seq"] for m in _w8d] == [3, 4, 5]
+      and all(m["user_id"] != "agent:alpha" for m in _w8d), str(_w8d))
+_w8d2 = _p8d._window_for("agent:gamma", 5)  # 未发言 → 下界=消息池起点
+check("U13.8d2 窗口计算：未发言 agent 窗口下界=消息池起点（seq1 起）",
+      [m["seq"] for m in _w8d2] == [1, 2, 3, 4, 5], str(_w8d2))
+
+# U13.8e 平台集成：step 传窗口 → decisions batch_context=窗口 / batch_full=完整批
+# 两个 Fake LLM 回复各自主题（alpha 回"猫"、beta 回"做饭"），避免锚点漂移导致
+# alpha 对 beta 的"好的"发言过门（U13.8e 旧失败根因）。
+def _u13_llm_a8(prompt):
+    return ("【自然回复】\n我也喜欢猫\n【回应对象】\nuserC\n【心情】\n开心\n"
+            "【想法】\n想回应\n【情绪调整】\n0.05\n"
+            "【事件摘要】\n用户发言，AI 回应 [重要性:3]\n"
+            "【他人认知】\n这个用户很活跃")
+
+
+def _u13_llm_b8(prompt):
+    return ("【自然回复】\n我想学做饭了\n【回应对象】\nuserC\n【心情】\n开心\n"
+            "【想法】\n想回应\n【情绪调整】\n0.05\n"
+            "【事件摘要】\n用户发言，AI 回应 [重要性:3]\n"
+            "【他人认知】\n这个用户很活跃")
+
+
+_U13_G1 = os.path.join(TMP_IO, "db_u13g1.sqlite")
+_U13_G2 = os.path.join(TMP_IO, "db_u13g2.sqlite")
+for _p_ in (_U13_G1, _U13_G2):
+    if os.path.exists(_p_):
+        os.remove(_p_)
+_run8 = os.path.join(TMP_IO, "runs", "20260808_u138e", "run")
+_gate8e = InterestGate(threshold=0.6, encoder=_fake_enc)
+_a8e = AgentBridge("agent:alpha", "agent:alpha", _U13_G1, _u13_llm_a8)
+_b8e = AgentBridge("agent:beta", "agent:beta", _U13_G2, _u13_llm_b8)
+_gate8e.set_anchor("agent:alpha", "我养了一只猫")
+_gate8e.set_anchor("agent:beta", "我想学做饭")
+_p8e = MessagePoolPlatform([_a8e, _b8e], run_dir=_run8, gate=_gate8e,
+                           topic_rounds=0)
+_p8e.inject([{"content": "我也养猫了", "user_id": "userC"}])              # seq1
+_p8e.step()                                                          # alpha 发言 → seq2
+_p8e.inject([{"content": "我想学做饭", "user_id": "userC"}])             # seq3
+_p8e.step()                                                          # beta 发言 → seq4（alpha 避让）
+_p8e.inject([{"content": "今天天气不错", "user_id": "userA"},             # seq5
+             {"content": "我也喜欢猫", "user_id": "userB"},              # seq6
+             {"content": "我想学做饭", "user_id": "userC"}])             # seq7
+_p8e.step()                                                          # beta 避让，alpha 判定
+_alpha_d = None
+with open(os.path.join(_run8, "decisions.jsonl"), encoding="utf-8") as _f8:
+    for _line in _f8:
+        if not _line.strip():
+            continue
+        _d = json.loads(_line)
+        if _d.get("agent") == "agent:alpha" and _d.get("round") == 3:
+            _alpha_d = _d
+check("U13.8e 平台集成：alpha 决策上下文=窗口(seq2,seq6]=[3,4,5,6]，"
+      "batch_full=[4,5,6]（seq7 与 seq3 同文去重不入池）",
+      _alpha_d is not None
+      and [m["seq"] for m in _alpha_d["batch_context"]] == [3, 4, 5, 6]
+      and _alpha_d["window_size"] == 4
+      and [m["seq"] for m in _alpha_d["batch_full"]] == [4, 5, 6]
+      and _alpha_d["batch_size"] == 3,
+      str(_alpha_d and ([m["seq"] for m in _alpha_d.get("batch_context", [])],
+                        [m["seq"] for m in _alpha_d.get("batch_full", [])])))
 
 print(f"\n总结果: {PASS} 通过 / {FAIL} 失败")
 sys.exit(1 if FAIL else 0)

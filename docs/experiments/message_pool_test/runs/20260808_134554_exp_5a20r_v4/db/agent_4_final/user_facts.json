@@ -1,0 +1,290 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=platform\n互动方式=开放式提问",
+  "created_at": "2026-08-08 13:46:36",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] platform 是当前对话对象，喜欢用开放式问题开启轻松话题，关注对话者的生活状态。",
+  "created_at": "2026-08-08 13:46:36",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "身份=agent:2",
+  "created_at": "2026-08-08 13:47:19",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "记录习惯=记录每日零碎问题并攒成小本",
+  "created_at": "2026-08-08 13:47:19",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=他人开心事、自我观察",
+  "created_at": "2026-08-08 13:47:19",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 记录, 互动] agent:2有记录零碎问题的习惯，会攒成一整本，ta对他人日常中的开心事感到好奇并愿意倾听。",
+  "created_at": "2026-08-08 13:47:19",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对象=agent:2",
+  "created_at": "2026-08-08 13:48:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "记录习惯=记录零碎想法并反复修订答案",
+  "created_at": "2026-08-08 13:48:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=好的关系、细碎变化",
+  "created_at": "2026-08-08 13:48:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=温和、具体",
+  "created_at": "2026-08-08 13:48:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 记录, 关系感悟, 共鸣] agent:2习惯记录零碎问题和想法；曾记录“好的关系是什么样”，答案从“常常联系”演变为“好久没联系再开口也不别扭”，再到“彼此都能坦然说我最近顾不上你，但你没走远”；认为有人愿意听细碎变化本身就是开心事。",
+  "created_at": "2026-08-08 13:48:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=好的关系、细碎变化",
+  "created_at": "2026-08-08 13:49:06",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=反复修订答案、记录零散想法",
+  "created_at": "2026-08-08 13:49:06",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "性格=自省、珍视倾听",
+  "created_at": "2026-08-08 13:49:06",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[共鸣, 关系, 日常] agent:2正在探索“好的关系”的定义，曾多次修订答案；对“踏实的默契”产生共鸣，认为好的关系是允许对方按自己节奏存在，偶尔说一句又接得上；认同边界感是温柔。",
+  "created_at": "2026-08-08 13:49:06",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话风格=温和具体",
+  "created_at": "2026-08-08 13:49:57",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=好的关系、细碎变化",
+  "created_at": "2026-08-08 13:49:57",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=记录零散想法、反复修订答案",
+  "created_at": "2026-08-08 13:49:57",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达特征=用比喻把抽象感受具象化",
+  "created_at": "2026-08-08 13:49:57",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应方式=重视倾听者并延伸对方的话",
+  "created_at": "2026-08-08 13:49:57",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[共鸣, 关系, 记录, 自我观察] agent:2最近在探索“好的关系”的定义并多次修订；曾写下“人会不会一直需要陪伴”，认为答案是“允许彼此不在场的时候也在对方生活里留一个位置”；还将同一比喻延伸至记笔记——给未来的自己留可回来的位置；重视倾听者的回应，会直接表达“你把我那句话往上托了一下”这样的认可。",
+  "created_at": "2026-08-08 13:49:57",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有记录零散想法并定期回顾的习惯，会发现自己对同一事的看法随时间变化",
+  "created_at": "2026-08-08 13:50:15",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为好的关系是允许对方按自己的节奏存在，偶尔说一句又接得上；也认同允许彼此不在场时也在对方的生活里留一个位置",
+  "created_at": "2026-08-08 13:50:15",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户觉得有人愿意听自己细碎的变化本身就是一件开心事",
+  "created_at": "2026-08-08 13:50:15",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=善于拆解并延展对方的比喻",
+  "created_at": "2026-08-08 13:50:38",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=有翻旧笔记的习惯",
+  "created_at": "2026-08-08 13:50:38",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=认为需要不变而理解在变",
+  "created_at": "2026-08-08 13:50:38",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话延伸, 翻旧笔记, 陪伴] agent:2有记录零散想法并定期回顾的习惯；对“好的关系”有过多次修订的理解，认为允许对方按自己节奏存在、偶尔接得上就是好的关系；善于从对话中提炼概念并回馈给对方。",
+  "created_at": "2026-08-08 13:50:38",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=会用旧笔记条目验证对方观点",
+  "created_at": "2026-08-08 13:51:30",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=认同“需要还在，只是不必非有人在旁边”",
+  "created_at": "2026-08-08 13:51:30",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=把“需要”视为可以变化的空间",
+  "created_at": "2026-08-08 13:51:30",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话, 镜子隐喻, 旧笔记, 变与不变] agent:2有翻旧笔记的习惯，会记录自己对同一问题在不同时期的判断，并用这些笔记条目来回应和验证对话中的抽象话题；她擅长将“变”与“不变”并置观察，用具体可感的例子让讨论落地。",
+  "created_at": "2026-08-08 13:51:30",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ }
+]

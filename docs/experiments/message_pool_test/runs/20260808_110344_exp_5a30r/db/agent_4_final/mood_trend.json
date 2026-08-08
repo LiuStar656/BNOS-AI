@@ -1,0 +1,79 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "轻松",
+  "sample_count": 1,
+  "created_at": "2026-08-08 11:04:04",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "轻松",
+  "sample_count": 1,
+  "created_at": "2026-08-08 11:05:07",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "轻松",
+  "sample_count": 2,
+  "created_at": "2026-08-08 11:05:17",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "轻快",
+  "sample_count": 3,
+  "created_at": "2026-08-08 11:06:01",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "轻快",
+  "sample_count": 3,
+  "created_at": "2026-08-08 11:06:48",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "轻快",
+  "sample_count": 4,
+  "created_at": "2026-08-08 11:07:00",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "轻快",
+  "sample_count": 5,
+  "created_at": "2026-08-08 11:07:37",
+  "identity_key": "agent:4"
+ }
+]

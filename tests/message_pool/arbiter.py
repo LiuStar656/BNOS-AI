@@ -53,8 +53,13 @@ class SpeechOutputArbiter:
         return self._current is not None
 
     # ── 请求 / 释放 ────────────────────────────────────────
-    def request_speech(self, agent_id, content, priority=0, policy=None):
+    def request_speech(self, agent_id, content, priority=0, policy=None,
+                       reply_to=""):
         """请求发言权。
+
+        Args:
+            reply_to: v6.4 引用链——本条发言回应谁（决策的【回应对象】），
+                      随仲裁项透传，排队补位广播时保留。
 
         Returns:
             True = 立即获得（含打断获得）；False = 排队/丢弃/队列满。
@@ -63,13 +68,13 @@ class SpeechOutputArbiter:
         self._pub("speech_requested", agent=agent_id, priority=priority,
                   policy=str(policy))
         if self._current is None:
-            self._grant(agent_id, content)
+            self._grant(agent_id, content, reply_to)
             return True
         # 当前有人发言
         if policy == ArbiterPolicy.INTERRUPT and priority >= self._interrupt_priority:
             old = self._current["agent_id"]
             self._pub("speech_cancelled", agent=old, interrupted_by=agent_id)
-            self._grant(agent_id, content)
+            self._grant(agent_id, content, reply_to)
             return True
         if policy == ArbiterPolicy.DROP:
             self._pub("speech_dropped", agent=agent_id, policy=str(policy))
@@ -79,7 +84,7 @@ class SpeechOutputArbiter:
             self._pub("speech_dropped", agent=agent_id, policy="queue_full")
             return False
         self._queue.append({"agent_id": agent_id, "content": content,
-                            "priority": priority})
+                            "priority": priority, "reply_to": reply_to})
         self._pub("speech_queued", agent=agent_id)
         return False
 
@@ -108,8 +113,9 @@ class SpeechOutputArbiter:
             yield released
 
     # ── 内部 ───────────────────────────────────────────────
-    def _grant(self, agent_id, content):
-        self._current = {"agent_id": agent_id, "content": content}
+    def _grant(self, agent_id, content, reply_to=""):
+        self._current = {"agent_id": agent_id, "content": content,
+                         "reply_to": reply_to}
         self._pub("speech_output_started", agent=agent_id)
 
     def _serve_next(self):
@@ -117,7 +123,10 @@ class SpeechOutputArbiter:
             return None
         items = sorted(self._queue, key=lambda q: -q["priority"])
         self._queue = deque(items[1:])
-        self._grant(items[0]["agent_id"], items[0]["content"])
+        # v6.6 P1-5 修复：排队补位时透传 reply_to（原实现漏传导致
+        # 排队发言的引用链丢失，批次上下文标注"回应谁"缺位）
+        self._grant(items[0]["agent_id"], items[0]["content"],
+                    items[0].get("reply_to", ""))
         return self._current
 
     def _pub(self, event_type, **payload):

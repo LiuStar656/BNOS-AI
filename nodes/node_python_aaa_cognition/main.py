@@ -11,6 +11,7 @@ v2.0 新特性：
 import sys
 import json
 import os
+import re
 import shutil
 import sqlite3
 import threading
@@ -19,13 +20,14 @@ from datetime import datetime
 from config import load_config, resolve
 import db
 import prompt as pt
-import prompt_retrieval as ptr
-import prompt_tool as ptoo
 import parser as psr
 import memos
 import diary
 import personality as prs
 from perception_capabilities import PerceptionCapabilities
+from memory_provider import MemOSProvider, sanitize_memory_context
+from context_engine import ContextEngine
+from session_manager import SessionManager
 
 
 # ════════════════════════════════════════════════════════════════
@@ -33,6 +35,13 @@ from perception_capabilities import PerceptionCapabilities
 # ════════════════════════════════════════════════════════════════
 
 _IDENTITY_KEY_DEFAULT = "gui:default"
+
+# v4.0 Prefetch：无意义输入（短输入/礼貌语/命令）跳过记忆预取
+_TRIVIAL_PATTERNS = [
+    r'^\s*(嗯|好|对|是|ok|yes|继续|在吗|hello|hi|谢谢|了解了|知道了)\s*[.!?！？。]*$',
+    r'^\s*[.!?！？。\s]{1,3}\s*$',
+    r'^\s*(/learn|/help|/clear|/status)\s*',
+]
 
 class MyNode:
     """
@@ -64,6 +73,17 @@ class MyNode:
         memos.preload()
         # v4.0: 感知能力声明系统
         self._perception = PerceptionCapabilities()
+        # v4.0 Prefetch：最近一次预取命中（v6.6 数据采集，随 pending 传递到 _on_parsed）
+        self._last_prefetch_hits: list = []
+        # v4.0 MemoryProvider：MemOS 包装（main 不再直连 memos.py 检索细节）
+        self.memory_provider = MemOSProvider()
+        # v4.0 ContextEngine：按会话跟踪 Token + 超阈值压缩保护
+        self.context_engine = ContextEngine()
+        self._conversation_history: dict[str, list] = {}
+        # v4.0 SessionManager：会话边界管理（切换摘要 + 跨会话结构化记忆）
+        self.session_manager = SessionManager()
+        # v4.0 Review 回执重试：已重试的 request_id（防无限重发）
+        self._review_retried_ids: set = set()
 
     # ── 框架入口 ──────────────────────────────────────────────
     def process(self, data):
@@ -111,6 +131,34 @@ class MyNode:
         return {"_port": "default", "status": "noop"}
 
     # ── 用户文本 / ASR / 视觉 / 环境输入 ──────────────────────
+
+    # ── v4.0 Prefetch 辅助 ─────────────────────────────────────
+    def _is_trivial_prompt(self, text: str) -> bool:
+        """跳过无意义输入（短输入/礼貌语/命令），节省记忆预取延迟"""
+        text = text.strip().lower()
+        if len(text) < 3:
+            return True
+        return any(re.match(p, text, re.IGNORECASE) for p in _TRIVIAL_PATTERNS)
+
+    def _sanitize_memory(self, text: str) -> str:
+        """记忆注入前脱敏 + 截断（实现统一在 memory_provider.sanitize_memory_context）"""
+        return sanitize_memory_context(text)
+
+    def _prefetch_memory(self, query, dbp, identity_key):
+        """同步预取记忆（经 MemoryProvider，含安全协议）；
+        无结果返回空串，异常不阻塞对话。"""
+        self._last_prefetch_hits = []
+        try:
+            result = self.memory_provider.prefetch(query, dbp, identity_key)
+            if not result:
+                return ""
+            hits = self.memory_provider.get_last_hits()
+            if hits:
+                self._last_prefetch_hits = hits
+            return result
+        except Exception:
+            return ""
+
     def _on_text(self, data, dbp):
         db.ensure(dbp)
         # 首次连接 DB 时加载 MemOS 索引
@@ -138,21 +186,31 @@ class MyNode:
         diary.check_and_write_diary(today, dbp)
 
         attachments = data.get("attachments", [])
+        rid = data.get("request_id", "")
 
-        # 第一轮：薄 prompt（skip_retrieval=True）
+        # ── v4.0 Prefetch：单轮交互，同步预取记忆并注入安全协议 ──
+        query = data.get("content", "")
+        memory_context = ""
+        if not self._is_trivial_prompt(query):
+            memory_context = self._prefetch_memory(query, dbp, identity_key)
+
+        # 一轮成型：直接组装完整上下文（不再需要 LLM 决策检索）
         ctx = self._gather_context(
-            data.get("content", ""), dbp, attachments, conv_id,
-            skip_retrieval=True, identity_key=identity_key,
+            query, dbp, attachments, conv_id,
+            skip_retrieval=True,
+            prefetch_override=memory_context,
+            identity_key=identity_key,
         )
 
-        # 缓存当前上下文，供第二轮检索使用
-        rid = data.get("request_id", "")
+        # 缓存当前上下文，供写库/反思/Review 使用
+        # （v6.6 采集：预取命中随 pending 传递到 _on_parsed，替代原第二轮 get_last_hits）
         self._pending_contexts[rid] = {
-            "user_text": data.get("content", ""),
+            "user_text": query,
             "attachments": attachments,
             "conv_id": conv_id,
             "identity_key": identity_key,
             "user_id": str(data.get("user_id", "") or ""),
+            "memory_hits": self._last_prefetch_hits,
         }
 
         return {
@@ -199,12 +257,18 @@ class MyNode:
             f"[{m.get('user_id') or m.get('speaker_id') or '匿名'}] {m.get('content', '')}"
             for m in messages)
 
+        # v4.0 Prefetch：批量场景对合并文本同步预取（单轮交互，注入安全协议）
+        memory_context = ""
+        if not self._is_trivial_prompt(merged):
+            memory_context = self._prefetch_memory(merged, dbp, identity_key)
+
         ctx = self._gather_context(
             merged, dbp, conv_id=conv_id, skip_retrieval=True,
+            prefetch_override=memory_context,
             identity_key=identity_key, user_id=last_user_id, batch_items=messages,
         )
 
-        # 3. 缓存当前上下文（供第二轮检索 / 反思 / 写库使用）
+        # 3. 缓存当前上下文（供写库 / 反思 / Review 使用；v6.6 采集：预取命中随 pending 传递）
         if rid:
             self._pending_contexts[rid] = {
                 "user_text": merged,
@@ -213,12 +277,15 @@ class MyNode:
                 "identity_key": identity_key,
                 "user_id": last_user_id,
                 "batch_items": messages,
+                "memory_hits": self._last_prefetch_hits,
             }
 
         # 4. F7 后台监听计数：静默观察也计数，每 N 批触发一次后台反思
         #    （独立于发言计数 _review_counter，保证"只听不说"也能沉淀认知）
+        # v4.0 阈值配置化：review_interval（0 = 关闭）
         self._observe_counter += 1
-        if self._observe_counter % 5 == 0:
+        _ri = int(load_config().get("review_interval", 5) or 0)
+        if _ri and self._observe_counter % _ri == 0:
             self._trigger_background_review(dbp, conv_id, identity_key, last_user_id)
 
         return {
@@ -236,7 +303,6 @@ class MyNode:
 
         # ── 三选一决策 ─────────────────────────────────
         tool_call = parsed.get("工具调用", [])
-        retrieval_keywords = (parsed.get("语意检索") or "").strip()
         pending = self._pending_contexts.pop(rid, None)
         user_text = pending.get("user_text", "") if pending else ""
         identity_key = pending.get("identity_key", _IDENTITY_KEY_DEFAULT) if pending else _IDENTITY_KEY_DEFAULT
@@ -254,7 +320,10 @@ class MyNode:
         if batch_mode:
             _target = (parsed.get("回应对象") or "").strip()
             if _target and _target not in ("群聊", "多条", "所有人"):
-                user_id = _target
+                # v6.5 防自认知污染：agent 回应对象是自己（如话题结束后
+                # 批次含自身发言，LLM 回应了自己的话）时不得把认知归因到
+                # 自己 → 清空归因（otherwise other_cognition 混入自认知）
+                user_id = "" if _target == identity_key else _target
             else:
                 user_id = ""
 
@@ -272,30 +341,16 @@ class MyNode:
                 "request_id": rid,
             }
 
-        # ② 检索记忆 — 跑 MemOS 语义检索 → 第二轮 prompt → 再次发给 LLM
-        if retrieval_keywords and pending:
-            memos_results = memos.retrieve(
-                retrieval_keywords, top_k=5, db_path=dbp, identity_key=identity_key,
-            )
-            if memos_results:
-                ctx2 = self._gather_context(
-                    pending["user_text"], dbp, pending["attachments"],
-                    pending["conv_id"], retrieval_override=memos_results,
-                    identity_key=identity_key, user_id=user_id,
-                    batch_items=pending.get("batch_items"),
-                )
-                new_rid = f"{rid}_r2"
-                self._pending_contexts[new_rid] = pending
-                return {
-                    "_port": "prompt", "data_type": "prompt",
-                    "content": ptr.build_second(ctx2),
-                    "request_id": new_rid,
-                }
-            # 检索无结果 → fall through 到直接回复
+        # v4.0 Prefetch 单轮交互：删除「② 检索记忆 → 第二轮」分支。
+        # 记忆检索已在 _on_text/_on_pool_batch 预取完成并随 Prompt 注入；
+        # 命中采集随 pending["memory_hits"] 传递（见 _on_text）。
 
         # ① 直接回复 — 正常写库 + 输出
+        # v6.6 P0-2：批量模式下 user_id 空（群聊/无对象/自认知）→ 跳过
+        # other_cognition 写入（空键污染认知矩阵的根因）；GUI 路径保持兜底。
         db.write_parsed_async(parsed, dbp, conversation_id=conv_id, user_input=user_text,
-                              identity_key=identity_key, user_id=user_id)
+                              identity_key=identity_key, user_id=user_id,
+                              skip_empty_other=batch_mode)
 
         # ── v2.0 认知演化增强：观测本次回复风格 → 触发性格演化 ──
         # 演化输入源改为"本次回复实际表现的风格"（修复 v1.0 自己看自己）
@@ -304,9 +359,11 @@ class MyNode:
                                          reaction="neutral",
                                          style=self._last_observed_style)
 
-        # ── v3.1 认知反思：每 5 轮后台 Review 沉淀持久认知 ──
+        # ── v3.1 认知反思：每 N 轮后台 Review 沉淀持久认知 ──
+        # v4.0 阈值配置化：cfg.review_interval（0 = 关闭）
         self._review_counter += 1
-        if self._review_counter % 5 == 0:
+        _ri = int(cfg.get("review_interval", 5) or 0)
+        if _ri and self._review_counter % _ri == 0:
             self._trigger_background_review(dbp, conv_id, identity_key, user_id)
 
         # ── 自我反思触发器 ──────────────────────────────────
@@ -358,13 +415,26 @@ class MyNode:
                 "request_id": new_rid,
             }
 
-        # ── 异步重建 MemOS 索引 + 知识图谱 + 情感趋势 ────
-        threading.Thread(target=memos.rebuild_index, args=(dbp,), daemon=True).start()
+        # ── 异步重建 MemOS 索引（经 MemoryProvider）+ 知识图谱 + 情感趋势 ──
+        self.memory_provider.sync_turn(
+            user_text, parsed.get("自然回复", ""), dbp, identity_key, conv_id)
         threading.Thread(target=memos.rebuild_knowledge_index, args=(dbp,), daemon=True).start()
         threading.Thread(
             target=db._aggregate_mood, args=(dbp, conv_id), daemon=True,
             kwargs={"identity_key": identity_key},
         ).start()
+
+        # ── v4.0 ContextEngine：会话历史 Token 跟踪 + 超阈值压缩保护 ──
+        # 压缩前抢救含持久化价值的消息（on_pre_compress → long_term_memory）
+        self._conversation_history.setdefault(conv_id, []).extend([
+            {"role": "user", "content": user_text},
+            {"role": "assistant", "content": parsed.get("自然回复", "")},
+        ])
+        hist = self._conversation_history[conv_id]
+        if self.context_engine.should_compress(
+                self.context_engine.estimate_tokens(hist)):
+            self._conversation_history[conv_id] = self.context_engine.compress(
+                hist, dbp, identity_key)
 
         # v6.0 F4 静默处理通道：回复文本（自然回复为空 → 静默）
         reply_text = (psr.inject_mood_tag(parsed["自然回复"], parsed.get("心情", ""))
@@ -376,17 +446,39 @@ class MyNode:
         # 【想法】/【心情】时给默认值兜底，保证静默决策也带状态（回复与否只看
         # 【自然回复】有无文本，与想法无关）。
         if batch_mode:
+            _is_reply = bool(reply_text)
+            # v6.6 数据采集 P0-1：记忆检索命中（第二轮决策时 pending 携带）
+            _hits = list((pending or {}).get("memory_hits", []))
+            # v6.6 数据采集 P0-2：静默≠无认知——统计本次是否仍写入了认知类内容
+            _cog_sections = [k for k in ("自我认知", "他人认知", "用户记忆",
+                                         "环境记忆", "事件摘要")
+                             if (parsed.get(k) or "").strip()]
+            _thought = parsed.get("想法", "").strip()
+            if _hits:
+                db.record_memory_usage(dbp, identity_key, rid, _hits)
+            if not _is_reply:
+                db.record_silent_cognition(
+                    dbp, identity_key, rid, thought=_thought,
+                    cognition_written=bool(_cog_sections),
+                    sections=",".join(_cog_sections))
             return {
-                "action": "reply" if reply_text else "silent",
+                "action": "reply" if _is_reply else "silent",
                 "content": reply_text,
                 "user_id": user_id,
-                "想法": parsed.get("想法", "").strip()
-                       or "收到消息，保持观察，暂不回应",
+                # v6.5 静默模板分 action：想法缺失时只有静默才用
+                # "保持观察"兜底；reply 不得复用静默文案（曾出现
+                # action=reply 但想法="收到消息，保持观察"的数据污染）
+                "想法": _thought
+                       or ("" if _is_reply else "收到消息，保持观察，暂不回应"),
                 "心情": parsed.get("心情", "").strip() or "平静",
                 # v6.2 回应对象：LLM 显式声明的回应对象（agent:3 / 用户A / 群聊），
                 # 渲染聊天历史时优先用它标注"在回答谁"（无 batch_context 的旧数据回退）
                 "回应对象": parsed.get("回应对象", "").strip(),
                 "request_id": rid,
+                # v6.6 采集：记忆命中日志 + 静默认知写入标记
+                "memory_hits": _hits,
+                "silent_cognition_written": bool(_cog_sections) if not _is_reply else False,
+                "cognition_sections": ",".join(_cog_sections),
             }
 
         # ── 输出 reply + knowledge + logseq ─────────────
@@ -479,15 +571,30 @@ class MyNode:
         return {"_port": "prompt", "data_type": "prompt", "content": pt.build(ctx)}
 
     # ── 上下文收集（v3.0 重写：加入 identity_key 隔离；v6.0：加入 user_id 多用户过滤 + 批量合并） ─────────
+    @staticmethod
+    def _fmt_pool_msg(m: dict) -> str:
+        """v6.4 引用链：批次消息格式化，标注"回应谁"（reply_to）——
+        让 LLM 决策时可见对话引用结构（谁在回应谁），而非扁平消息列表。"""
+        user = m.get("user_id") or m.get("speaker_id") or "匿名"
+        content = m.get("content", "")
+        rt = str(m.get("reply_to") or "").strip()
+        if rt:
+            if rt in ("群聊", "多条", "所有人"):
+                return f"[{user}] {content}（回应群聊）"
+            return f"[{user}] {content}（回应 {rt[:20]}）"
+        return f"[{user}] {content}"
+
     def _gather_context(self, user_text, dbp, attachments=None, conv_id="default",
                          skip_retrieval=False, retrieval_override=None,
+                         prefetch_override=None,
                          reflection_override=None, identity_key=_IDENTITY_KEY_DEFAULT,
                          user_id="", batch_items=None):
         """收集上下文。
 
         Args:
             skip_retrieval: 第一轮「薄 prompt」时不检索
-            retrieval_override: 第二轮「带检索结果」时直接注入
+            retrieval_override: 第二轮「带检索结果」时直接注入（兼容保留）
+            prefetch_override: v4.0 Prefetch 模式注入预取结果（优先级最高，含安全标签）
             reflection_override: 自我反思时注入历史认知
             identity_key: 身份键，隔离不同用户的记忆/认知/画像
             user_id: v6.0 当前对话用户；other_cognition / user_facts 按该用户过滤
@@ -508,6 +615,11 @@ class MyNode:
             sc = db.g_where_identity(conn, "self_cognition", "content", conv_id, identity_key)
             # v6.0 多用户：他人认知按 user_id 检索（user_id='' 全局认知兜底）
             oc = db.g_where_identity_user(conn, "other_cognition", "content", conv_id, identity_key, user_id)
+
+            # v7.1 近期观察记录：interest_judgment 未过门（passed=0）的检测文本
+            # 回流上下文，让"看过但没回应"的消息后续想得起（零额外 LLM 调用）
+            recent_observations = db.read_recent_observations(
+                conn, identity_key, cfg.get("recent_observations_limit", 5))
 
             r = conn.execute(
                 "SELECT mood,thought FROM feelings WHERE conversation_id=? AND identity_key=? ORDER BY id DESC LIMIT 1",
@@ -547,9 +659,11 @@ class MyNode:
         finally:
             conn.close()
 
-        # 4. MemOS 检索
+        # 4. MemOS 检索（v4.0 优先级：prefetch_override > retrieval_override > 按需）
         memos_top5 = ""
-        if retrieval_override is not None:
+        if prefetch_override is not None:
+            memos_top5 = prefetch_override    # v4.0 Prefetch：直接使用预取结果（含安全标签）
+        elif retrieval_override is not None:
             memos_top5 = retrieval_override    # 第二轮：注入精确检索结果
         elif not skip_retrieval:
             memos_top5 = memos.retrieve(
@@ -584,10 +698,21 @@ class MyNode:
         mood_value = db.get_current_mood(dbp, identity_key)
         mood_section = prs.build_mood_section(mood_value)
 
+        # v4.0 SessionManager：跨会话摘要注入（会话级结构化记忆，与全局扁平记忆互补）
+        try:
+            session_hist = self.session_manager.get_session_history(identity_key, dbp)
+            if session_hist:
+                ss_text = "\n".join(
+                    f"[{s['created_at'][:10]}] {s['summary']}" for s in session_hist)
+                hs = (ss_text + "\n" + hs) if hs else ss_text
+        except Exception:
+            pass
+
         return {
             "identity_key": identity_key,
             "fixed_cognition": fixed_context,
             "self_cognition": sc, "other_cognition": oc, "recent_feelings": feel,
+            "recent_observations": recent_observations,
             "user_text": user_text, "current_date": now.strftime("%Y-%m-%d"),
             "current_time": now.strftime("%H:%M:%S"), "current_state": "清醒",
             "history_summary": hs, "user_info": ui, "self_info": si,
@@ -605,8 +730,7 @@ class MyNode:
             "user_id": user_id,
             "pool_batch_section": (
                 "本轮消息池消息（按时间正序）：\n" + "\n".join(
-                    f"[{m.get('user_id') or m.get('speaker_id') or '匿名'}] {m.get('content', '')}"
-                    for m in batch_items)
+                    self._fmt_pool_msg(m) for m in batch_items)
                 if batch_items else ""
             ),
         }
@@ -614,8 +738,15 @@ class MyNode:
     # ── 对话切换 ────────────────────────────────────────────
     def _on_switch_conversation(self, data):
         conv_id = data.get("conversation_id", "default")
+        identity_key = data.get("identity_key", _IDENTITY_KEY_DEFAULT)
         self._current_conversation_id = conv_id
         self._pending_contexts.clear()
+        # v4.0 ContextEngine：会话切换时清空旧会话历史（Token 统计归零）
+        self._conversation_history.pop(conv_id, None)
+        # v4.0 SessionManager：切换会话 → 旧会话异步生成摘要 + 新会话加载历史摘要
+        cfg = load_config()
+        dbp = resolve(cfg.get("db_path", "../shared/chatbot.db"))
+        self.session_manager.start_session(conv_id, identity_key, dbp)
         return {
             "_port": "default", "data_type": "switch_conversation_ack",
             "status": "ok", "conversation_id": conv_id,
@@ -735,6 +866,10 @@ class MyNode:
 
     def _on_review_response(self, data, dbp):
         """处理 review 回执（data_type=parsed, source=review）→ 解析 + 持久化"""
+        # v4.0 Session 摘要回执分流（复用 review 通道，request_id 前缀区分）
+        rid = data.get("request_id", "")
+        if rid.startswith("session_summary_"):
+            return self._on_session_summary_response(data, dbp)
         try:
             import review
             content = data.get("content", "")
@@ -743,12 +878,49 @@ class MyNode:
             if not content:
                 return {"_port": "default", "status": "noop"}
             insights = review.parse_review_result(content)
+            # v4.0 回执重试：LLM 偶发输出脏文本导致解析为空 → 重发一次 review 请求
+            # （防静默丢记忆；_review_retried_ids 防无限重发）
+            if not insights and content.strip() and rid not in self._review_retried_ids:
+                self._review_retried_ids.add(rid)
+                self._trigger_background_review(
+                    dbp, self._current_conversation_id, identity_key, user_id)
+                return {"_port": "default", "status": "retry"}
             for ins in insights:
                 review.persist_insight(ins, dbp, identity_key, user_id)
             return {"_port": "default", "status": "ok",
                     "message": f"review processed {len(insights)} insights"}
         except Exception:
             return {"_port": "default", "status": "error"}
+
+    def _on_session_summary_response(self, data, dbp):
+        """处理会话摘要回执（request_id 前缀 session_summary_）→ 写 session_summaries 表"""
+        content = (data.get("content") or "").strip()
+        identity_key = data.get("identity_key", _IDENTITY_KEY_DEFAULT)
+        rid = data.get("request_id", "")
+        # 回执定位旧会话：session_id 字段 > request_id 编码 > 当前会话兜底
+        session_id = (data.get("session_id") or ""
+                      or SessionManager.parse_summary_rid(rid)
+                      or self._current_conversation_id)
+        if not content:
+            return {"_port": "default", "status": "noop"}
+        conn = sqlite3.connect(dbp)
+        try:
+            conn.execute(
+                "CREATE TABLE IF NOT EXISTS session_summaries("
+                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                "session_id TEXT NOT NULL,"
+                "identity_key TEXT NOT NULL DEFAULT 'gui:default',"
+                "summary TEXT NOT NULL,"
+                "created_at TEXT NOT NULL DEFAULT(datetime('now', 'localtime')))")
+            conn.execute(
+                "INSERT INTO session_summaries(session_id, identity_key, summary, created_at) "
+                "VALUES(?, ?, ?, datetime('now','localtime'))",
+                (session_id, identity_key, content[:2000]))
+            conn.commit()
+        finally:
+            conn.close()
+        return {"_port": "default", "status": "ok",
+                "message": f"session summary saved: {session_id}"}
 
     # ── DB 管理命令（clear / format / backup / restore）───
     def _clear_conversation_history(self):

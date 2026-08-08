@@ -218,23 +218,40 @@ class AgentBridge:
             return {"personality": {}, "mood": 0.0}
 
     # ── 批量处理 ───────────────────────────────────────────
-    def process_batch(self, messages, round_no=None) -> dict:
+    def process_batch(self, messages, round_no=None, mention_targets=None,
+                      window=None) -> dict:
         """处理一批聊天室消息，返回显式决策。
+
+        Args:
+            messages: 平台派发的本批消息（含 user_id/content/reply_to/seq）
+            round_no: 当前批次数
+            mention_targets: v6.6 采集——本批中被 @ 点名的 Agent 列表
+                （平台按批计算，供 @提及响应率指标统计）
+            window: v7.2 接话窗口（平台计算的决策上下文 = 该 agent 最近发言
+                之后到切入消息的区间消息）；None 时退回完整批次
 
         Returns:
             {action: "reply"|"silent", content, user_id, 想法, 心情,
              agent, round, batch_size, personality, mood, ...}
         """
-        msgs = [
-            {"user_id": m.user_id, "content": m.text}
-            if hasattr(m, "text") else
-            {"user_id": m.get("user_id", ""), "content": m.get("content", "")}
-            for m in messages
-        ]
+        def _norm(m):
+            if hasattr(m, "text"):
+                return {"user_id": m.user_id, "content": m.text,
+                        "reply_to": getattr(m, "reply_to", ""),
+                        "seq": getattr(m, "seq", 0)}
+            return {"user_id": m.get("user_id", ""), "content": m.get("content", ""),
+                    "reply_to": m.get("reply_to", ""),
+                    "seq": m.get("seq", 0)}
+
+        msgs = [_norm(m) for m in messages]
         if not msgs:
             return {"action": "silent", "content": "", "user_id": "",
                     "想法": "", "心情": "", "agent": self.agent_id,
                     "round": round_no, "batch_size": 0}
+        # v7.2 接话窗口：决策上下文 = 窗口（LLM 输入）；完整批另存 batch_full
+        window_items = ([_norm(m) for m in window]
+                        if window is not None else None)
+        decision_msgs = window_items if window is not None else msgs
 
         rid = f"round_{round_no or 0}_" + self.agent_id.replace(":", "_")
         if self.mode == "subprocess":
@@ -243,7 +260,7 @@ class AgentBridge:
                 "conversation_id": self.conv_id,
                 "identity_key": self.identity_key,
                 "request_id": rid,
-                "messages": msgs,
+                "messages": decision_msgs,
             })
             if resp.get("code") != 0:
                 # v6.3 P0-1：LLM/AAA 调用失败必须独立标记 action="error"，
@@ -263,16 +280,27 @@ class AgentBridge:
                 "conversation_id": self.conv_id,
                 "identity_key": self.identity_key,
                 "request_id": rid,
-                "messages": msgs,
+                "messages": decision_msgs,
             }, self.db_path)
 
             decision = None
+            _trunc_retried = False
             try:
                 for _ in range(self.max_llm_rounds):
                     if not out or out.get("data_type") != "prompt":
                         decision = out
                         break
                     content = self.llm_fn(out.get("content", ""))
+                    # v6.6 P1-4 输出完整性校验：截断（未闭合节标记 / 有回复
+                    # 缺情绪调整）→ 追加提示重试一次，避免半句回复落盘
+                    if not _trunc_retried:
+                        from parser import is_truncated
+                        if is_truncated(content or ""):
+                            _trunc_retried = True
+                            content = self.llm_fn(
+                                (out.get("content", "") or "")
+                                + "\n\n（注意：你上次的输出被截断了，"
+                                "请完整输出全部小节，并在结尾正常结束，不要中断。）")
                     out = node._on_parsed({
                         "data_type": "parsed", "source": "llm",
                         "request_id": out.get("request_id", rid),
@@ -302,13 +330,56 @@ class AgentBridge:
         decision["agent"] = self.agent_id
         decision["round"] = round_no
         decision["batch_size"] = len(msgs)
-        # v6.2 回应上下文：本批消息作者/内容摘录（渲染聊天历史时标注"回应了谁"；
-        # 注意 user_id 只是批次最后一条消息的作者，不等于真正的回应对象）
+        decision["window_size"] = len(decision_msgs)
+        # v6.6 P0-1 批次顺序事实源统一：batch_context 带 seq（消息池全局
+        # 唯一序号，与 events.batch_dispatched 关联）与 pos（本 Agent 实际
+        # 所见顺序中的位置）——末位偏置分析以本顺序为准，两种顺序互证不互斥
+        # v7.2 口径：batch_context = 接话窗口（决策实际所见，指标统计依据）；
+        # batch_full = 完整批次（与 v6.6 口径对照复核用）
         decision["batch_context"] = [
             {"user_id": m.get("user_id", ""),
-             "content": (m.get("content", "") or "")[:60]}
-            for m in msgs
+             "content": (m.get("content", "") or "")[:60],
+             "seq": m.get("seq", 0), "pos": i}
+            for i, m in enumerate(decision_msgs)
         ]
+        decision["batch_full"] = [
+            {"user_id": m.get("user_id", ""),
+             "content": (m.get("content", "") or "")[:60],
+             "seq": m.get("seq", 0), "pos": i}
+            for i, m in enumerate(msgs)
+        ]
+        # v6.6 P1-5 末位偏置量化（数据采集方案 P2）：reply 时记录回应对象
+        # 在批次中的位置（LLM 实际所见顺序）与末位作者——topic_report 据此
+        # 计算"回复是否总指向批次最后一条"的量化证据
+        _target = str(decision.get("回应对象", "") or "").strip()
+        if decision.get("action") == "reply" and _target:
+            _pos = next((i for i, m in enumerate(decision_msgs)
+                         if m.get("user_id", "").strip() == _target), -1)
+            decision["reply_target_pos"] = _pos
+            decision["batch_last_author"] = (decision_msgs[-1].get("user_id", "")
+                                             if decision_msgs else "")
+        # v6.6 采集 @ 提及指标（数据采集方案 P1-5）：本批是否被 @ 点名、
+        # 点名者是谁、是否回应了点名者、user_id 归因是否正确
+        # （决策 user_id == LLM 回应对象）
+        decision["mention_targets"] = list(mention_targets or [])
+        _was_mentioned = bool(decision["mention_targets"])
+        # mentioner：本批中点名本 agent 的消息作者（@agent:3 / @3 语法）
+        _mentioner = ""
+        if _was_mentioned:
+            _alias = self.agent_id.split(":")[-1]
+            for _m in msgs:
+                _t = _m.get("content", "") or ""
+                if f"@{self.agent_id}" in _t or f"@{_alias}" in _t:
+                    _mentioner = _m.get("user_id", "")
+                    break
+        if decision.get("action") == "reply":
+            decision["mention_responded"] = bool(
+                _was_mentioned and _mentioner
+                and _target and _target == _mentioner)
+        decision["attribution_ok"] = bool(
+            decision.get("user_id")
+            and decision.get("user_id") == _target
+            and _target not in ("群聊", "多条", "所有人"))
         decision.update(self._snapshot())
         if self.collector:
             self.collector.decision(**decision)

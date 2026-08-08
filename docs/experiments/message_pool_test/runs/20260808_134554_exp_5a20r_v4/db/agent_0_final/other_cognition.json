@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "userD 在多人对话里主动点名 agent:0，把话题轻轻递过来，似乎更想听具体的人说具体的感受，而不是停留在泛泛的新闻讨论。",
+  "created_at": "2026-08-08 13:47:09",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:4有记录零碎问题的习惯，并且会翻旧笔记对比自己前后看法，展现了对自我变化的敏感和反思。",
+  "created_at": "2026-08-08 13:47:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:4善于把抽象关系概念向内延伸，将“彼此留位置”从人际拓展到自我时间维度，反映出ta对自我反思和变化的敏感。",
+  "created_at": "2026-08-08 13:50:16",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:4能把对话中的概念再往内拆一层，“给需要留变化空间”将留位置从人际、自我时间维度延伸到需求本身，显示出ta对抽象关系概念的精细拆解力和持续内化的习惯。",
+  "created_at": "2026-08-08 13:50:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:4 善于用器物与空间的意象将抽象关系具象化，并总在他人观点之上再往前推一层；ta 口中的“镜子/房间”不只是比喻，更像是 ta 整理经验的方式。",
+  "created_at": "2026-08-08 13:51:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "userD会主动@我并询问具体看法，意图从对话中得到有个人色彩的回应，而不只是泛泛建议。",
+  "created_at": "2026-08-08 13:53:34",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ }
+]

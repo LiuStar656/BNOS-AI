@@ -27,8 +27,10 @@ _MOOD_REGRESSION = 0.98
 _MOOD_TRIGGER_WINDOW = 10
 # 情绪驱动阈值
 _MOOD_TRIGGER_THRESHOLD = 0.3
-# 兜底触发：每 30 次交互
-_FALLBACK_TRIGGER_COUNT = 30
+# 兜底触发：每 10 次交互（v6.6 P1-6：30 → 10。消息池 30 轮配置下每 agent
+# 仅 5-8 次 reply，原阈值导致人格零漂移（全部欧氏距离 0.0000），演化管线
+# 在短话题场景永远不触发；降至 10 后与单话题决策量匹配，轨迹才有数据）
+_FALLBACK_TRIGGER_COUNT = 10
 # 观察窗口
 _FEEDBACK_WINDOW = 50
 # 单次微调幅度上限（慢演化）
@@ -72,7 +74,7 @@ class PersonalityEvolution:
             self._adjust_vector()
             return self.vector_changed
 
-        # 兜底：每 30 次交互强制检查
+        # 兜底：每 10 次交互强制检查（v6.6 P1-6 降阈值）
         if len(self.feedback_history) >= _FALLBACK_TRIGGER_COUNT:
             self._adjust_vector()
         return self.vector_changed

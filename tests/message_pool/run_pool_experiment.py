@@ -60,6 +60,7 @@ NODE_DIR = os.path.join(ROOT, "nodes", "node_python_aaa_cognition")
 from message_pool.agent_bridge import AgentBridge
 from message_pool.platform_runner import MessagePoolPlatform
 from message_pool.arbiter import ArbiterPolicy
+from message_pool.interest_gate import InterestGate
 from message_pool import data_export
 from message_pool.topic_report import generate_topic_report
 
@@ -68,7 +69,8 @@ API_URL = "https://api.deepseek.com/v1/chat/completions"
 API_KEY = "sk-REVOKED"
 MODEL = "deepseek-v4-flash"
 TEMPERATURE = 0.7
-MAX_TOKENS = 2048
+# v6.5 截断修复：2048 偶发截断（自我介绍等长文本），提升到 4096
+MAX_TOKENS = 4096
 
 
 def llm_infer(prompt: str) -> str:
@@ -194,6 +196,12 @@ def main():
     ap.add_argument("--topic-rounds", type=int, default=10,
                     help="agent 间对话轮数上限（默认 10，0=不限）")
     ap.add_argument("--per-batch", type=int, default=6, help="每轮消息条数上限（默认 6）")
+    ap.add_argument("--gate-threshold", type=float, default=None,
+                    help="兴趣门控阈值（默认 0.60，由 5a30r_v3 数据标定）")
+    ap.add_argument("--gate-model", default=None,
+                    help="兴趣门控嵌入模型（默认 paraphrase-multilingual-MiniLM-L12-v2）")
+    ap.add_argument("--no-gate", action="store_true",
+                    help="关闭兴趣门控（退回 v6.6：所有候选 agent 均调 LLM 决策）")
     ap.add_argument("--fake-llm", action="store_true", help="用假 LLM 验证流程，不调 API")
     ap.add_argument("--inline", action="store_true",
                     help="单进程对照模式（默认每 Agent 独立 AAA 子进程，F9）")
@@ -244,7 +252,14 @@ def main():
                 "per_batch": args.per_batch, "model": MODEL,
                 "fake_llm": args.fake_llm,
                 # v2: 记录每个 Agent 初始角色种子（供话题报告计算人格漂移基线）
-                "seeds": {}}
+                "seeds": {},
+                # v7.0: 兴趣门控配置（判定"谁感兴趣"，未过门不调 LLM）
+                "interest_gate": {
+                    "enabled": not args.no_gate,
+                    "threshold": (args.gate_threshold if args.gate_threshold
+                                  is not None else 0.60),
+                    "model": (args.gate_model or
+                              "paraphrase-multilingual-MiniLM-L12-v2")}}
     print(f"[启动] run_dir={run_dir}  agents={args.agents}  rounds={args.rounds}",
           flush=True)
 
@@ -279,9 +294,19 @@ def main():
     with open(os.path.join(run_dir, "_run_meta.json"), "w", encoding="utf-8") as f:
         json.dump(run_meta, f, ensure_ascii=False, indent=1)
 
+    # v7.0 兴趣门控：平台进程共享多语模型（懒加载，编码一次比对多次）
+    gate = None
+    if not args.no_gate:
+        gate = InterestGate(threshold=run_meta["interest_gate"]["threshold"],
+                            model_name=run_meta["interest_gate"]["model"])
+        print(f"[兴趣门控] 开启  阈值={gate.threshold}  模型={gate._model_name}",
+              flush=True)
+    else:
+        print("[兴趣门控] 关闭（--no-gate，退回 v6.6 全候选决策）", flush=True)
+
     plat = MessagePoolPlatform(agents, run_dir=run_dir, gid=args.gid or ts,
                                max_batch=10, arbiter_policy=ArbiterPolicy.QUEUE,
-                               topic_rounds=args.topic_rounds)
+                               topic_rounds=args.topic_rounds, gate=gate)
 
     # ── 阶段一：自我介绍（每个 Agent 基于角色种子广播自我介绍） ──
     for agent in agents:

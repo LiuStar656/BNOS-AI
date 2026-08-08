@@ -31,13 +31,19 @@ class Message:
         self.reply_to = reply_to
 
     def to_dict(self) -> dict:
-        """转平台派发格式（AAA _on_pool_batch 消费）。"""
+        """转平台派发格式（AAA _on_pool_batch 消费）。
+
+        v6.6 P0-1 批次顺序事实源统一：携带 seq（消息池全局单调递增序号）——
+        decisions.batch_context 与 events.batch_dispatched 均可按 seq 关联，
+        批次"原始到达顺序"与"各 Agent 实际所见顺序"不再互相矛盾。
+        """
         return {
             "content": self.text,
             "source": self.source,
             "user_id": self.user_id,
             "priority": self.priority,
             "ts": self.ts,
+            "seq": self.seq,
             "reply_to": self.reply_to,
         }
 

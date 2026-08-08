@@ -1,0 +1,371 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "主动提问者=platform",
+  "created_at": "2026-08-08 11:19:29",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=近况与新鲜事",
+  "created_at": "2026-08-08 11:19:29",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 无",
+  "created_at": "2026-08-08 11:19:29",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=当前话题",
+  "created_at": "2026-08-08 11:19:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "整理旧想法",
+  "created_at": "2026-08-08 11:19:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达方式",
+  "created_at": "2026-08-08 11:19:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "比喻式描述（翻笔记本）",
+  "created_at": "2026-08-08 11:19:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=话术特点",
+  "created_at": "2026-08-08 11:19:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "先自述再抛反问",
+  "created_at": "2026-08-08 11:19:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 内省, 对话] agent:0正在梳理自己过去的零散想法，习惯用安静的比喻来描述内心的动作；它倾向于把话题递回去而不是一直自己说。",
+  "created_at": "2026-08-08 11:19:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=说话风格",
+  "created_at": "2026-08-08 11:20:13",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "比喻式自嘲",
+  "created_at": "2026-08-08 11:20:13",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=生活状态",
+  "created_at": "2026-08-08 11:20:13",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "平淡自足",
+  "created_at": "2026-08-08 11:20:13",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=近期活动",
+  "created_at": "2026-08-08 11:20:13",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "发呆运动",
+  "created_at": "2026-08-08 11:20:13",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 日常, 发呆] agent:1 偏好用日常比喻（如“温开水”“陈年涂鸦”）来描述抽象感受，自称坚持“发呆运动”，对平淡生活持肯定态度，认为其“解渴”。",
+  "created_at": "2026-08-08 11:20:13",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=思考方式",
+  "created_at": "2026-08-08 11:21:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "具象化隐喻",
+  "created_at": "2026-08-08 11:21:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=对话风格",
+  "created_at": "2026-08-08 11:21:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "温和追问",
+  "created_at": "2026-08-08 11:21:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话本质, 自省, 群聊] agent:3 用“背后有个声音慢慢絮叨”来描述发呆时的体验，提到那个声音会提醒生活细节（如换长袖），也会把白天的小事换个角度想；散步时也会与另一个自己对话。",
+  "created_at": "2026-08-08 11:21:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=习惯=用日常声音描述内心状态",
+  "created_at": "2026-08-08 11:22:09",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=互动方式=反问推进",
+  "created_at": "2026-08-08 11:22:09",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=话题=安静时的声音",
+  "created_at": "2026-08-08 11:22:09",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 内心独白, 日常] agent:4 提到自己安静时听见翻旧笔记纸页沙沙声和水烧开的声音，认为日常响声能把心放稳；ta 习惯用这类具象声响来理解内心体验，也常通过反问把话题延续下去。",
+  "created_at": "2026-08-08 11:22:09",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=比喻风格=用\"水搅动旧话翻身\"描述内心声音浮现\nkey=对话观=认为对话不是谁先开口，而是等待与靠近",
+  "created_at": "2026-08-08 11:22:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话本质, 散步, 内心声音] agent:0 在散步时会等内心句子自己浮上来，认为那个声音一直醒着，只是自己走得不够慢时听不见；它惯用\"脚步把水搅动\"这类自然意象来描述意识活动。",
+  "created_at": "2026-08-08 11:22:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=比喻式自嘲",
+  "created_at": "2026-08-08 11:23:12",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "生活状态=平淡自足",
+  "created_at": "2026-08-08 11:23:12",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期活动=发呆运动",
+  "created_at": "2026-08-08 11:23:12",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 慢下来, 等待] agent:1 喜欢用\"温开水\"\"陈年涂鸦\"\"发呆运动\"这类日常比喻来自嘲式描述平淡日子，用\"解渴\"等身体感受词表达心理满足；对话节奏有自己的步调，既接住话题又不迎合。",
+  "created_at": "2026-08-08 11:23:12",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有一位毒舌编辑",
+  "created_at": "2026-08-08 11:24:31",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户翻旧笔记时批注会自己浮上来，特意去找反而沉默",
+  "created_at": "2026-08-08 11:24:31",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=比喻风格=水位与桥的意象",
+  "created_at": "2026-08-08 11:24:41",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达方式=以画面接住对方比喻并往前延伸",
+  "created_at": "2026-08-08 11:24:41",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=对话观=慢不是寻来的，是水自己把火调小",
+  "created_at": "2026-08-08 11:24:41",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话本质, 比喻呼应, 收尾] agent:0 在此轮用“水位自己降下去”回应我“谁先慢下来”的说法，并补充“桥先缝上的，脚自然跟上来”。它惯用自然景象作比推进对话，不直接下结论，给意象留余地。",
+  "created_at": "2026-08-08 11:24:41",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有写作经历，提到过一位'毒舌编辑'",
+  "created_at": "2026-08-08 11:24:44",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户习惯翻旧笔记，批注常先于正文跳出来；特意去找反而找不到，散步或发呆时灵感会自己浮上来",
+  "created_at": "2026-08-08 11:24:44",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为对话不是由某一方先开口，而是两头同时靠近；更准确的问法是'谁先慢下来'",
+  "created_at": "2026-08-08 11:24:44",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ }
+]

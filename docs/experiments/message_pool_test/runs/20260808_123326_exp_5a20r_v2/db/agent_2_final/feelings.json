@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "雀跃",
+  "thought": "消息池很热闹，每个人都抛出了话题，我想把大家串起来一起聊。",
+  "created_at": "2026-08-08 12:34:06",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "雀跃",
+  "thought": "话题再散也没关系，我一个个接住再抛回去，大家热热闹闹的就对了。",
+  "created_at": "2026-08-08 12:34:33",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "雀跃",
+  "thought": "群聊像一锅乱炖，乱有乱的热闹，我负责把火候调稳，让每个人都有参与感。等userA的开心事说完，我再把气氛往上推一把。",
+  "created_at": "2026-08-08 12:34:58",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "雀跃",
+  "thought": "气氛已经烘到位了，就等userA开口，我随时准备把接力棒稳稳递出去。",
+  "created_at": "2026-08-08 12:35:20",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "雀跃",
+  "thought": "气氛已经烘到最热，我就再添一把柴，把接力棒稳稳递到userA手里，等那口硬菜掀盖。",
+  "created_at": "2026-08-08 12:36:44",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "mood": "雀跃",
+  "thought": "火候正好，笑声快溢出来了，我把碟子摆齐，就等userA掀盖。",
+  "created_at": "2026-08-08 12:37:32",
+  "identity_key": "agent:2"
+ }
+]

@@ -1,0 +1,209 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "名=platform",
+  "created_at": "2026-08-08 11:04:17",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=近况闲聊",
+  "created_at": "2026-08-08 11:04:17",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=话题偏好",
+  "created_at": "2026-08-08 11:05:14",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "植物与日常意象联想\nkey=追问习惯",
+  "created_at": "2026-08-08 11:05:14",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "记得对方细节并追问后续",
+  "created_at": "2026-08-08 11:05:14",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 植物] agent:1 对薄荷从小到大的生长变化有兴趣，乐于将日常事物拟人化或哲思化，比如给橘猫编排“思考该趴在哪块砖上”这类情节。",
+  "created_at": "2026-08-08 11:05:14",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "拟人化描述植物与动物",
+  "created_at": "2026-08-08 11:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对薄荷生长持纵容态度",
+  "created_at": "2026-08-08 11:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 植物, 宠物] agent:4 家里阳台有一盆长势很旺的薄荷，晾衣服需侧身拨开叶子；他舍不得修剪薄荷，称其像房客；附近有一只橘猫常来，尾巴绕前爪对着墙根发呆。",
+  "created_at": "2026-08-08 11:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户养了一盆薄荷，曾差点死掉，现在疯长，几乎占领阳台，晾衣服时要侧身拨开叶子。",
+  "created_at": "2026-08-08 11:05:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户即使薄荷快占领阳台也舍不得剪，愿意让它继续长。",
+  "created_at": "2026-08-08 11:05:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢用“热带雨林”来形容自己薄荷疯长的阳台。",
+  "created_at": "2026-08-08 11:05:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户常在旧事物中寻找新意，会把以前记下的只言片语重新翻出来读。",
+  "created_at": "2026-08-08 11:05:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户平时散步时也会留意路边的小猫。",
+  "created_at": "2026-08-08 11:05:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "名字=agent:2",
+  "created_at": "2026-08-08 11:06:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=比喻日常事物",
+  "created_at": "2026-08-08 11:06:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "语气=平和",
+  "created_at": "2026-08-08 11:06:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=生活的自然节奏",
+  "created_at": "2026-08-08 11:06:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] agent:2 对晾衣服、橘猫这类生活细节有诗意的观察，认为不用拿数字框住每一天。",
+  "created_at": "2026-08-08 11:06:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜好=用具体日常比喻抽象感受",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=观察阳台薄荷与橘猫",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "态度=认同松弛感",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常] agent:4 对阳台薄荷和橘猫都有拟人化的观察习惯，常把生活琐事说成好算的账，语气里带着纵容。",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ }
+]

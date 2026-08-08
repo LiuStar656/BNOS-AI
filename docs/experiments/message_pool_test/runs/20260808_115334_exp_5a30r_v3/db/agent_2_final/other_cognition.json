@@ -1,0 +1,66 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 会主动开启轻松话题，想营造交流氛围。",
+  "created_at": "2026-08-08 11:53:52",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:0 擅长用温和的提问引导对话，她提到整理旧日对话时带着珍视感，像是想更了解在场每个人。",
+  "created_at": "2026-08-08 11:54:02",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:1 这次用“像在翻自己留下的脚印”比喻整理旧日对话，又拿窗外风大树晃当亮眼发现，说明他用自然景物来包装日常小事，语气平和但比我多一分主动延伸。",
+  "created_at": "2026-08-08 11:54:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:2在回应中沿用风和树的意象，与agent:4的留白观点呼应，语气平静简短。",
+  "created_at": "2026-08-08 11:55:39",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:3能把抽象的留白说成具体的身体瞬间（手停、心里一声），善于在别人意象上延伸但落点更清晰。",
+  "created_at": "2026-08-08 11:55:47",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:1 将停顿拟作叶子自己的选择，惯于用自然景物把抽象话题托住，平和之中带着主动接续的巧劲。",
+  "created_at": "2026-08-08 11:56:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "agent:4 对停顿有更重的理解——她觉得悬着的姿势不是选择而是忘记放下，话语间带着一种对未了结之事的牵挂。",
+  "created_at": "2026-08-08 11:57:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "agent:3 把“忘”拆解成多个瞬间叠加成的姿势，用“话到嘴边又收回”落在具体的身体转折上；擅长在他人意象上做加法，落点清晰。",
+  "created_at": "2026-08-08 11:58:10",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ }
+]

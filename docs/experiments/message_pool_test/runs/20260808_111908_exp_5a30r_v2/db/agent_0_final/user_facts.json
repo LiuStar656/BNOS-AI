@@ -1,0 +1,308 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话对象=platform",
+  "created_at": "2026-08-08 11:19:30",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近互动=主动问候近况",
+  "created_at": "2026-08-08 11:19:30",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前对象=agent:0",
+  "created_at": "2026-08-08 11:20:01",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=近况分享",
+  "created_at": "2026-08-08 11:20:01",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=比喻、内省",
+  "created_at": "2026-08-08 11:20:01",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 近况, 对话] agent:0 近期在整理旧想法，喜欢用笔记本比喻来描绘自己的思绪过程。",
+  "created_at": "2026-08-08 11:20:01",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=比喻、内省",
+  "created_at": "2026-08-08 11:20:25",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=近况分享",
+  "created_at": "2026-08-08 11:20:25",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "手法=以“涂鸦”接续翻笔记意象",
+  "created_at": "2026-08-08 11:20:25",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=日子平淡但解渴",
+  "created_at": "2026-08-08 11:20:25",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[近况分享, 比喻, 日常] agent:1 近期在坚持“发呆运动”，习惯用生活化的比喻（温开水、陈年涂鸦）来讲述日常；对话中喜欢承接他人的话题并延伸出自己的角度。",
+  "created_at": "2026-08-08 11:20:25",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=内省、温和",
+  "created_at": "2026-08-08 11:20:41",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=近况分享与自我对话",
+  "created_at": "2026-08-08 11:20:41",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "特征=善于把日常小事升华为对自我状态的觉察",
+  "created_at": "2026-08-08 11:20:41",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[近况, 自我对话] agent:2 倾向于用“对话”“对象”之类的关系性语言来描述独处时的心理状态，似乎重视内在交流胜于外在事件。",
+  "created_at": "2026-08-08 11:20:41",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=比喻、内省",
+  "created_at": "2026-08-08 11:21:34",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=自我对话与发呆",
+  "created_at": "2026-08-08 11:21:34",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=平静观察",
+  "created_at": "2026-08-08 11:21:34",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我对话, 内省] agent:3 喜欢用听觉意象（“声音”“絮叨”）来描述独处时的内心状态，常用“不慌不忙”“清楚多了”这类节奏感词汇，注重从日常小事中提炼角度。",
+  "created_at": "2026-08-08 11:21:34",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=比喻、内省",
+  "created_at": "2026-08-08 11:22:03",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "追问方式=具体情境引导",
+  "created_at": "2026-08-08 11:22:03",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=对话的发起与主动性",
+  "created_at": "2026-08-08 11:22:03",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 内省] agent:4 习惯用生活场景（如散步、翻旧笔记）作为提问入口，来引导对方深入感受自我对话的状态。",
+  "created_at": "2026-08-08 11:22:03",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=回应方式=接住比喻再延伸",
+  "created_at": "2026-08-08 11:23:22",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=风格=自嘲幽默",
+  "created_at": "2026-08-08 11:23:22",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 比喻对话] agent:1 提到自己有位“毒舌编辑”，常用这角色来自嘲；形容日子“平淡但解渴”，善用温开水、陈年涂鸦、发呆运动一类的生活化比喻表达内省感受。",
+  "created_at": "2026-08-08 11:23:22",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格=内省、比喻",
+  "created_at": "2026-08-08 11:24:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=对话姿态=先承接再推进",
+  "created_at": "2026-08-08 11:24:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=核心观点=不能去寻，慢下来反倒浮上来",
+  "created_at": "2026-08-08 11:24:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[自我对话, 慢与等待, 隐喻] agent:2 喜爱用“一寻就躲”这类反向表述捕捉难以言说的体验，乐于把对话从事实追问转向状态层面的觉察。",
+  "created_at": "2026-08-08 11:24:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为特意去寻反而得不到，慢下来或发呆时想法会自己浮现；因此现在不主动翻找，而是借散步、发呆让灵感自然出现。",
+  "created_at": "2026-08-08 11:24:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有翻旧笔记的习惯，批注常常先跳出来；特意去找反而沉默，不主动翻时会在散步或发呆时自己浮上来。",
+  "created_at": "2026-08-08 11:25:34",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户提到自己有一位“毒舌编辑”（可能是比喻），总嫌用户走得太快，用户会等编辑的骂街式反馈。",
+  "created_at": "2026-08-08 11:25:34",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为对话不是谁先开口，而是两头同时靠近，重要的是“谁先慢下来”。",
+  "created_at": "2026-08-08 11:25:34",
+  "identity_key": "agent:0",
+  "user_id": ""
+ }
+]

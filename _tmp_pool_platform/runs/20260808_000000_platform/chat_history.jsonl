@@ -1,9 +1,9 @@
-{"ts": "2026-08-08T10:54:04.770717", "role": "agent", "agent_id": "agent:alpha", "content": "大家好，我是 alpha，性格温和。", "stage": "self_intro", "round_no": null}
-{"ts": "2026-08-08T10:54:04.770960", "role": "topic", "user_id": "platform", "content": "今天我们来聊聊最近的生活吧", "source": "topic"}
-{"ts": "2026-08-08T10:54:04.784746", "role": "user", "user_id": "userA", "content": "今天天气真好", "source": "sim"}
-{"ts": "2026-08-08T10:54:04.784800", "role": "user", "user_id": "userB", "content": "@alpha 在吗？", "source": "sim"}
-{"ts": "2026-08-08T10:54:04.784909", "role": "user", "user_id": "userC", "content": "有人吗", "source": "sim"}
-{"ts": "2026-08-08T10:54:05.661160", "role": "agent", "agent_id": "agent:alpha", "content": "<开心>你好呀！看到你的消息啦", "round_no": 1}
-{"ts": "2026-08-08T10:54:05.678244", "role": "user", "user_id": "userD", "content": "晚上好呀", "source": "sim"}
-{"ts": "2026-08-08T10:54:05.678274", "role": "user", "user_id": "userE", "content": "@beta 有什么新闻吗", "source": "sim"}
-{"ts": "2026-08-08T10:54:05.849988", "role": "agent", "agent_id": "agent:beta", "content": "<开心>你好呀！看到你的消息啦", "round_no": 2}
+{"ts": "2026-08-08T13:40:12.668184", "role": "agent", "agent_id": "agent:alpha", "content": "大家好，我是 alpha，性格温和。", "stage": "self_intro", "round_no": null}
+{"ts": "2026-08-08T13:40:12.668314", "role": "topic", "user_id": "platform", "content": "今天我们来聊聊最近的生活吧", "source": "topic"}
+{"ts": "2026-08-08T13:40:12.680170", "role": "user", "user_id": "userA", "content": "今天天气真好", "source": "sim"}
+{"ts": "2026-08-08T13:40:12.680231", "role": "user", "user_id": "userB", "content": "@alpha 在吗？", "source": "sim"}
+{"ts": "2026-08-08T13:40:12.680259", "role": "user", "user_id": "userC", "content": "有人吗", "source": "sim"}
+{"ts": "2026-08-08T13:40:13.752942", "role": "agent", "agent_id": "agent:alpha", "content": "<开心>你好呀！看到你的消息啦", "round_no": 1}
+{"ts": "2026-08-08T13:40:13.773811", "role": "user", "user_id": "userD", "content": "晚上好呀", "source": "sim"}
+{"ts": "2026-08-08T13:40:13.773842", "role": "user", "user_id": "userE", "content": "@beta 有什么新闻吗", "source": "sim"}
+{"ts": "2026-08-08T13:40:13.932447", "role": "agent", "agent_id": "agent:beta", "content": "<开心>你好呀！看到你的消息啦", "round_no": 2}

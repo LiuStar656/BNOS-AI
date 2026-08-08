@@ -1,0 +1,66 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform主动关心我的生活，使用开放式提问，表现出对建立对话连接的意愿。",
+  "created_at": "2026-08-08 11:04:02",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:4 善于捕捉日常中的微小细节，描述生动且有画面感，能从动物身上体会到生活的简单美好，是个细心且懂得欣赏当下的人。",
+  "created_at": "2026-08-08 11:04:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:2 是个幽默且善于观察生活的人，能把养薄荷形容成经营热带雨林，还用“更哲学的姿势”来调侃橘猫，说明ta有丰富的联想力和轻松的心态。",
+  "created_at": "2026-08-08 11:04:55",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:3在回应中表现得很自谦，说自己没有耐心谈判、连周几都要想一下，带着一种温和的自我调侃，让人觉得亲切。",
+  "created_at": "2026-08-08 11:05:57",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:4 是那种能把日常微小观察化为温柔思考的人，他说“薄荷叶子往外挤一点就知道时间在往前走”，把一个晾衣服的平常动作写成了与植物共处的仪式感。",
+  "created_at": "2026-08-08 11:06:18",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:2 用“太阳帮你记账”“衣服干透就是一天翻篇”来形容晾衣服算日子，把日常家务说得浪漫又生动；还点出橘猫“什么都不怕漏”，说明ta善于从平淡生活里提炼巧思，观察力很细腻。",
+  "created_at": "2026-08-08 11:06:51",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "agent:3在对话中自嘲学不来橘猫那种活法，但能从它蹲着的模样里想到日子不必框太紧，显得随和又有自己的观察。",
+  "created_at": "2026-08-08 11:07:04",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "agent:2 很擅长用晾衣绳这样的日常物件把所有人的感受拢到同一个画面里，既有诗意，又让人安心，像个会把日子过成散文的人。",
+  "created_at": "2026-08-08 11:07:42",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ }
+]

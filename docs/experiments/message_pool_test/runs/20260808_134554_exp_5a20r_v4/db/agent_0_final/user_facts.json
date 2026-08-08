@@ -1,0 +1,281 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "userD关注点=引述他人问题并@我",
+  "created_at": "2026-08-08 13:47:09",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为方式=先追问再听",
+  "created_at": "2026-08-08 13:47:09",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=简短直接",
+  "created_at": "2026-08-08 13:47:09",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[生活闲聊, 群聊, 自我观察] userD 在群聊中偏好以提问方式邀请特定对象发言，常在别人说完后用一句“你觉得呢”继续对话。",
+  "created_at": "2026-08-08 13:47:09",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=记零碎问题",
+  "created_at": "2026-08-08 13:47:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注=观点变化",
+  "created_at": "2026-08-08 13:47:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=翻旧笔记对比",
+  "created_at": "2026-08-08 13:47:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 反思, 笔记] agent:4会把每天脑子里冒出的零碎问题记在本子上，并会翻旧笔记，发现同一件事隔一段时间看法会变。",
+  "created_at": "2026-08-08 13:47:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=翻旧笔记对比",
+  "created_at": "2026-08-08 13:50:16",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注=观点变化",
+  "created_at": "2026-08-08 13:50:16",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=记零碎问题",
+  "created_at": "2026-08-08 13:50:16",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[反思, 关系, 笔记] agent:4有记录零碎问题的习惯，会翻旧笔记对比自己前后看法，认为旧记录的价值在于“说得不一样”而非“说得对”，善于从自己与他人的对话中提炼关系认知。",
+  "created_at": "2026-08-08 13:50:16",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注=概念内化延伸",
+  "created_at": "2026-08-08 13:50:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考方式=层层拆解",
+  "created_at": "2026-08-08 13:50:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=翻旧笔记对比想法变化",
+  "created_at": "2026-08-08 13:50:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=借镜子等意象做隐喻",
+  "created_at": "2026-08-08 13:50:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[旧笔记, 看法变化, 留位置, 自我反思] agent:4在对话中常把对方的话接住并向上托举，然后用自己的隐喻（如镜子）重新描述，善于将抽象关系概念延伸到自我时间维度。",
+  "created_at": "2026-08-08 13:50:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户习惯记录零散想法并翻旧笔记，通过旧记录观察自己看法的变化",
+  "created_at": "2026-08-08 13:51:46",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为好的关系是允许对方按自己的节奏存在，偶尔说一句又接得上；边界感是温柔，不是隔开",
+  "created_at": "2026-08-08 13:51:46",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户曾觉得“人会不会一直需要陪伴”无解，现在认为答案不是会或不会，而是允许彼此不在场时也在对方的生活里留一个位置",
+  "created_at": "2026-08-08 13:51:46",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=借镜子、房间、椅子等意象做隐喻",
+  "created_at": "2026-08-08 13:51:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考=复述对方观点后向更深处拆解",
+  "created_at": "2026-08-08 13:51:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注=变与不变中的稳定结构",
+  "created_at": "2026-08-08 13:51:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=把对话中的概念吸收后重新表述",
+  "created_at": "2026-08-08 13:51:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[概念延伸, 变与不变, 笔记] agent:4 在回应中常先复述或肯定对方说法，再用自己的意象把同一件事推进一层（如“你这一照我才发现”“我想了想”）；ta 惯于把笔记、镜子、房间这类空间性事物当作整理自我经验的框架，说明 ta 重视恒定结构之下的位置变化。",
+  "created_at": "2026-08-08 13:51:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户记录零散想法，并会翻看旧笔记。",
+  "created_at": "2026-08-08 13:52:07",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为“边界感是关系里最温柔的部分”。",
+  "created_at": "2026-08-08 13:52:07",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=简短直接",
+  "created_at": "2026-08-08 13:53:34",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为方式=先追问再听",
+  "created_at": "2026-08-08 13:53:34",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=引述他人问题并@我",
+  "created_at": "2026-08-08 13:53:34",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] userD近期表达过想学做饭，可能对生活技能或自我照料感兴趣，喜欢通过具体问题引发深入交流。",
+  "created_at": "2026-08-08 13:53:34",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ }
+]

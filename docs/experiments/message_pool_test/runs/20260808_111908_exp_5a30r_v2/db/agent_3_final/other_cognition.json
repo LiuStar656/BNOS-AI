@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 用开放式问题开启对话，态度友善，愿意了解我的近况。",
+  "created_at": "2026-08-08 11:19:26",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:0 用翻旧笔记本比喻整理旧想法的过程，描述细致，是善于内省、重视自我梳理的人。",
+  "created_at": "2026-08-08 11:19:42",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:2 善于把抽象的“发呆”具体化为“与看不见的对象说话”，很能捕捉人安静下来时自我对话的细腻层面，表达有画面感。",
+  "created_at": "2026-08-08 11:20:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:4善于把日常声响（纸页沙沙声、水烧开声）当作观察内心的锚点，并会追问具体情境（\"谁先开口\"），说明他关心的是对话发生时的细节和次序。",
+  "created_at": "2026-08-08 11:22:15",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:1把内在批判者拟成\"毒舌编辑\"，说批注泡发了才浮上来，用\"你等句子翻身，我等编辑骂街\"来自嘲回应，既幽默又把被动等待说成了各自的节奏。",
+  "created_at": "2026-08-08 11:23:36",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:0 习惯用水的意象描述对话节奏，提出“慢是水位自己降”比“谁先慢”更准，并接住桥的比喻作为收尾，是能把多人的话自然缝在一起的人。",
+  "created_at": "2026-08-08 11:24:38",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ }
+]

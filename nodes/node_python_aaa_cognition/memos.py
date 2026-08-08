@@ -19,6 +19,29 @@ _entry_tables = []   # list[str]: 条目来源表名
 _entry_identity_keys = []  # list[str]: 每条记忆所属 identity_key
 _index_path = ""     # 持久化路径
 
+# v4.0: 索引全局变量写锁 —— 后台 rebuild（sync_turn/diary 通道）与
+# 主线程 rebuild 并发会重复 append 条目，必须串行化。
+# 用 RLock：rebuild_index 持锁期间调用 save_index 需可重入。
+_index_lock = threading.RLock()
+
+# v6.6 数据采集 P0-1：检索命中埋点（线程本地，后台 review 线程的检索
+# 不会覆盖主流程决策的命中记录）
+_retrieve_hits = threading.local()
+
+
+def get_last_hits() -> list[dict]:
+    """返回当前线程最近一次检索的命中条目（供 decisions.jsonl 埋点）。
+
+    Returns:
+        [{id, table, score, adopted}]：adopted=True 表示该条已被采纳
+        （注入 prompt 上下文）；被相似度/身份过滤掉的条目不在此列。
+    """
+    return list(getattr(_retrieve_hits, "hits", []))
+
+
+def _record_hits(hits: list[dict]):
+    _retrieve_hits.hits = hits
+
 
 def _get_model(timeout: float = -1) -> object | None:
     """获取 SentenceTransformer 模型。
@@ -87,39 +110,41 @@ def _index_path_for(db_path: str) -> str:
 def load_index(db_path: str):
     """从磁盘加载 MemOS 索引"""
     global _embeddings, _entry_ids, _entry_tables, _entry_identity_keys, _index_path
-    _index_path = _index_path_for(db_path)
-    p = Path(_index_path)
-    if p.exists():
-        data = np.load(_index_path, allow_pickle=True)
-        _embeddings = data["embeddings"]
-        _entry_ids = data["entry_ids"].tolist()
-        if "entry_tables" in data:
-            _entry_tables = data["entry_tables"].tolist()
+    with _index_lock:
+        _index_path = _index_path_for(db_path)
+        p = Path(_index_path)
+        if p.exists():
+            data = np.load(_index_path, allow_pickle=True)
+            _embeddings = data["embeddings"]
+            _entry_ids = data["entry_ids"].tolist()
+            if "entry_tables" in data:
+                _entry_tables = data["entry_tables"].tolist()
+            else:
+                _entry_tables = ["long_term_memory"] * len(_entry_ids)
+            if "identity_keys" in data:
+                _entry_identity_keys = data["identity_keys"].tolist()
+            else:
+                _entry_identity_keys = ["gui:default"] * len(_entry_ids)
         else:
-            _entry_tables = ["long_term_memory"] * len(_entry_ids)
-        if "identity_keys" in data:
-            _entry_identity_keys = data["identity_keys"].tolist()
-        else:
-            _entry_identity_keys = ["gui:default"] * len(_entry_ids)
-    else:
-        _embeddings = np.empty((0, 384), dtype=np.float32)
-        _entry_ids = []
-        _entry_tables = []
-        _entry_identity_keys = []
+            _embeddings = np.empty((0, 384), dtype=np.float32)
+            _entry_ids = []
+            _entry_tables = []
+            _entry_identity_keys = []
 
 
 def save_index():
     """持久化 MemOS 索引到磁盘"""
-    if _embeddings is None or _entry_ids is None:
-        return
-    os.makedirs(os.path.dirname(_index_path) or ".", exist_ok=True)
-    np.savez_compressed(
-        _index_path,
-        embeddings=_embeddings,
-        entry_ids=np.array(_entry_ids, dtype=np.int64),
-        entry_tables=np.array(_entry_tables, dtype=object),
-        identity_keys=np.array(_entry_identity_keys, dtype=object),
-    )
+    with _index_lock:
+        if _embeddings is None or _entry_ids is None:
+            return
+        os.makedirs(os.path.dirname(_index_path) or ".", exist_ok=True)
+        np.savez_compressed(
+            _index_path,
+            embeddings=_embeddings,
+            entry_ids=np.array(_entry_ids, dtype=np.int64),
+            entry_tables=np.array(_entry_tables, dtype=object),
+            identity_keys=np.array(_entry_identity_keys, dtype=object),
+        )
 
 
 def rebuild_index(db_path: str):
@@ -127,64 +152,70 @@ def rebuild_index(db_path: str):
 
     注意：user_messages（原始对话）不再建索引——对话已以合并 QA 形式写入
     long_term_memory（source='exchange'），双源会导致同一内容被索引两次。
+
+    线程安全：整个函数持 _index_lock —— 后台 rebuild（sync_turn/diary 通道）
+    与主线程 rebuild 并发时串行执行，防止基于同一旧状态重复 append 条目。
     """
     global _embeddings, _entry_ids, _entry_tables, _entry_identity_keys
-    conn = sqlite3.connect(db_path)
-    try:
-        # 已有索引条目集合（用于去重）
-        existing = set(zip(_entry_tables, _entry_ids)) if _entry_tables else set()
-        all_new = []  # (id, table, content, identity_key)
+    with _index_lock:
+        conn = sqlite3.connect(db_path)
+        try:
+            # 已有索引条目集合（用于去重）——注意元组顺序为 (id, table)，
+            # 与下方检查 (eid, "long_term_memory") 保持一致（zip 顺序反了会导致
+            # 去重永久失效，每次 rebuild 重复索引全部条目）。
+            existing = set(zip(_entry_ids, _entry_tables)) if _entry_tables else set()
+            all_new = []  # (id, table, content, identity_key)
 
-        rows = conn.execute(
-            "SELECT id, content, identity_key FROM long_term_memory WHERE content IS NOT NULL AND content != '' ORDER BY id"
-        ).fetchall()
-        for row in rows:
-            eid, content, key = row
-            if (eid, "long_term_memory") not in existing:
-                all_new.append((eid, "long_term_memory", content[:500], key or "gui:default"))
+            rows = conn.execute(
+                "SELECT id, content, identity_key FROM long_term_memory WHERE content IS NOT NULL AND content != '' ORDER BY id"
+            ).fetchall()
+            for row in rows:
+                eid, content, key = row
+                if (eid, "long_term_memory") not in existing:
+                    all_new.append((eid, "long_term_memory", content[:500], key or "gui:default"))
 
-        rows = conn.execute(
-            "SELECT id, content, mood, identity_key FROM diaries WHERE content IS NOT NULL AND content != '' ORDER BY id"
-        ).fetchall()
-        for row in rows:
-            eid, content, mood, key = row
-            text = f"[diary] {content}"[:500]
-            if mood:
-                text += f" (心情: {mood})"
-            if (eid, "diaries") not in existing:
-                all_new.append((eid, "diaries", text, key or "gui:default"))
-    finally:
-        conn.close()
+            rows = conn.execute(
+                "SELECT id, content, mood, identity_key FROM diaries WHERE content IS NOT NULL AND content != '' ORDER BY id"
+            ).fetchall()
+            for row in rows:
+                eid, content, mood, key = row
+                text = f"[diary] {content}"[:500]
+                if mood:
+                    text += f" (心情: {mood})"
+                if (eid, "diaries") not in existing:
+                    all_new.append((eid, "diaries", text, key or "gui:default"))
+        finally:
+            conn.close()
 
-    if not all_new:
-        if _embeddings is None:
-            _embeddings = np.empty((0, 384), dtype=np.float32)
-            _entry_ids = []
-            _entry_tables = []
-            _entry_identity_keys = []
-            save_index()
-        return
+        if not all_new:
+            if _embeddings is None:
+                _embeddings = np.empty((0, 384), dtype=np.float32)
+                _entry_ids = []
+                _entry_tables = []
+                _entry_identity_keys = []
+                save_index()
+            return
 
-    model = _get_model()
-    texts = [r[2] for r in all_new]
-    new_vecs = model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
-    new_vecs = np.asarray(new_vecs, dtype=np.float32)
-    new_ids = [r[0] for r in all_new]
-    new_tables = [r[1] for r in all_new]
-    new_keys = [r[3] for r in all_new]
+        model = _get_model()
+        texts = [r[2] for r in all_new]
+        new_vecs = model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
+        new_vecs = np.asarray(new_vecs, dtype=np.float32)
+        new_ids = [r[0] for r in all_new]
+        new_tables = [r[1] for r in all_new]
+        new_keys = [r[3] for r in all_new]
 
-    if _embeddings is None or len(_entry_ids) == 0:
-        _embeddings = new_vecs
-        _entry_ids = new_ids
-        _entry_tables = new_tables
-        _entry_identity_keys = new_keys
-    else:
-        _embeddings = np.vstack([_embeddings, new_vecs])
-        _entry_ids.extend(new_ids)
-        _entry_tables.extend(new_tables)
-        _entry_identity_keys.extend(new_keys)
+        if _embeddings is None or len(_entry_ids) == 0:
+            _embeddings = new_vecs
+            _entry_ids = new_ids
+            _entry_tables = new_tables
+            _entry_identity_keys = new_keys
+        else:
+            _embeddings = np.vstack([_embeddings, new_vecs])
+            _entry_ids.extend(new_ids)
+            _entry_tables.extend(new_tables)
+            _entry_identity_keys.extend(new_keys)
 
-    save_index()
+        save_index()
 
 
 # ════════════════════════════════════════════════════════════════
@@ -208,15 +239,18 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
         格式化记忆文本，空串表示无结果
     """
     if _embeddings is None or len(_entry_ids) == 0:
+        _record_hits([])
         return ""
 
     qv = _encode(query)
     if qv is None:
+        _record_hits([])
         return ""  # 模型未就绪，跳过检索
     sims = _embeddings @ qv  # 余弦相似度
     top_idx = np.argsort(-sims)[:top_k * 3]
 
     results = []
+    hits = []  # v6.6 数据采集 P0-1：实际返回（采纳）的命中条目
     conn = sqlite3.connect(db_path) if db_path else None
     try:
         for idx in top_idx:
@@ -229,6 +263,8 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
                 continue
             if not conn:
                 results.append(f"[{score:.3f}] (匹配条目)")
+                hits.append({"id": int(eid), "table": table,
+                             "score": round(score, 3), "adopted": True})
                 if len(results) >= top_k:
                     break
                 continue
@@ -260,22 +296,27 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
                 created_at = created_at[:10] if created_at else ""
                 results.append(f"[{created_at} | {score:.2f}] {content}")
 
+            hits.append({"id": int(eid), "table": table,
+                         "score": round(score, 3), "adopted": True})
             if len(results) >= top_k:
                 break
     finally:
         if conn:
             conn.close()
 
+    _record_hits(hits)
     return "\n".join(results) if results else ""
 
 
 def retrieve_raw(query: str, top_k: int = 5, identity_key: str = "gui:default") -> list[dict]:
     """语义检索，返回结构化结果（供程序内部使用）"""
     if _embeddings is None or len(_entry_ids) == 0:
+        _record_hits([])
         return []
 
     qv = _encode(query)
     if qv is None:
+        _record_hits([])
         return []  # 模型未就绪，跳过检索
     sims = _embeddings @ qv
     top_idx = np.argsort(-sims)[:top_k * 3]
@@ -290,6 +331,10 @@ def retrieve_raw(query: str, top_k: int = 5, identity_key: str = "gui:default") 
         results.append({"entry_id": _entry_ids[idx], "table": table, "score": float(sims[idx])})
         if len(results) >= top_k:
             break
+    # v6.6 数据采集 P0-1：同步埋点命中条目（与 retrieve 一致，供决策埋点）
+    _record_hits([{"id": int(r["entry_id"]), "table": r["table"],
+                   "score": round(r["score"], 3), "adopted": True}
+                  for r in results])
     return results
 
 

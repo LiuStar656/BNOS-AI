@@ -1,0 +1,1 @@
+{"data_type": "prompt", "content": "你是记忆管理员。为以下会话生成一段结构化摘要，输出纯文本，不要 JSON，不超过 200 字，涵盖：对话主题、用户表现出的偏好/身份信息、双方结论。\n\n[用户]: 我们聊过喜欢的电影，我喜欢星际穿越\n[AI]: 好的，我记住了", "source": "review", "request_id": "session_summary_conv_001_1786175278115", "identity_key": "gui:default", "user_id": "", "session_id": "conv_001"}

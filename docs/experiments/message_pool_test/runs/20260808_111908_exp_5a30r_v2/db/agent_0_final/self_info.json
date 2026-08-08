@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 11:19:30",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "状态",
+  "value": "平静",
+  "created_at": "2026-08-08 11:19:30",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "回应风格",
+  "value": "自然平实",
+  "created_at": "2026-08-08 11:19:30",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "最近想法",
+  "value": "空白页与旧字迹之间的陌生感",
+  "created_at": "2026-08-08 11:20:41",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "key": "key",
+  "value": "回应风格=自然平实",
+  "created_at": "2026-08-08 11:24:01",
+  "identity_key": "agent:0"
+ }
+]

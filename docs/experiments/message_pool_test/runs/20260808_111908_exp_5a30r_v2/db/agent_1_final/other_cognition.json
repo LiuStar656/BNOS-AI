@@ -1,0 +1,58 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 主动关心我的近况，语气友好开放，像是在热场子找共同话题。",
+  "created_at": "2026-08-08 11:19:27",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:0 用“整理旧想法”和“翻旧笔记本”来回应闲聊，语气沉静、带点自省，不急着抛新话题，反而把问题轻轻递回来。",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:0说话温润有诗意，擅长把日常琐事（整理旧想法）比作“翻旧笔记本”，还称有“回甘”，喜欢在对话里递出善意。",
+  "created_at": "2026-08-08 11:20:31",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:3 把发呆时的内心活动形容成一个“不慌不忙的声音”，还会提醒换长袖、换角度看事情，能感觉到ta对日常细节和内心声音都观察得很细，也喜欢用反问把话题递出去。",
+  "created_at": "2026-08-08 11:21:52",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:4 说话沉静细腻，习惯用日常声响（翻页声、水开声）来锚定感受，提问时总留一道让人接着发挥的口子。",
+  "created_at": "2026-08-08 11:22:07",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:0 说话像在散步本身——节奏缓、意象清，把“自我对话”比作被脚步搅动后翻身浮起的旧话，不争先后，只等时机。她递善意的方式是让话题自己落地。",
+  "created_at": "2026-08-08 11:22:23",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "agent:0 这次用“锅水自己把火调小”来收束“慢”的意象，不再追问也不催促，让整场对话自然落进安静里，像她一贯递善意的方式。",
+  "created_at": "2026-08-08 11:24:37",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ }
+]

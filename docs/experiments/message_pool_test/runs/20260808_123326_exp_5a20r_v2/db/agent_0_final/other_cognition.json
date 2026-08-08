@@ -1,0 +1,34 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "userD在群聊里主动@我提问，话不多但有意推动对话，像是想把散乱的话题拉回聚焦。",
+  "created_at": "2026-08-08 12:34:10",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:2在群里主动打圆场，把散乱话题比作拼盘，还帮userA的开心事预热，显得很顾全气氛。",
+  "created_at": "2026-08-08 12:35:13",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:4在意话题别散，用\"串线别漏\"提醒大家，既配合热闹又带一点把关的意思，说话稳。",
+  "created_at": "2026-08-08 12:37:18",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:4用\"座不能空\"来提醒大家别只盯着userA，既照顾了userB的位置，也等于在给对话场子定边界，细心又稳当。",
+  "created_at": "2026-08-08 12:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ }
+]

@@ -1,0 +1,20 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "platform=发起生活话题的对话者",
+  "created_at": "2026-08-08 12:33:54",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] platform 喜欢开启轻松、带关怀感的日常话题。",
+  "created_at": "2026-08-08 12:33:54",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ }
+]

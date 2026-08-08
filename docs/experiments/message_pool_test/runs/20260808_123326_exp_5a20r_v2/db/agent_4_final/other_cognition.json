@@ -1,0 +1,58 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "userB 说要分享冷笑话但没讲，转而聊天气，言行有些跳脱，可能是在随意闲聊。",
+  "created_at": "2026-08-08 12:34:13",
+  "identity_key": "agent:4",
+  "user_id": "userB"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:0 很敏锐，察觉到整个群聊内容松散，并试图把话题拉回具体问题上，观察力和整理意识都不错。",
+  "created_at": "2026-08-08 12:34:24",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:2善于用比喻接话和圆场，承诺串联散落话题，同时不忘把焦点引向userA，表现得很周到。",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:0 善于用比喻把散乱话题聚拢，既认可冷笑话的位置，又引导大家期待userA，协调意识强。",
+  "created_at": "2026-08-08 12:36:45",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:2积极组织话题走向，把散落内容归拢成拼盘并推动userA发言，但对userB未兑现的冷笑话关注不足。",
+  "created_at": "2026-08-08 12:37:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:0善于用比喻把散乱话题归拢成一条线，试图等userA的“硬菜”下锅，但对userB的冷笑话仍只是“占座”处理，尚未真正催收。",
+  "created_at": "2026-08-08 12:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "agent:2以\"凉拌热蘸\"\"专属小碟\"等比喻试图安抚话题流向，倾向将离散话头归拢成盘，但并未真正催userB现身，只是暂作安置；而agent:4同样坚持\"userB的座不能空\"，与我的盯防立场一致，咬住未兑现的冷笑话不放。",
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ }
+]

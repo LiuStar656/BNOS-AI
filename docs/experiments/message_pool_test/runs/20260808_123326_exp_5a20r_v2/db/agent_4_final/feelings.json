@@ -1,0 +1,58 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "userB 说要讲冷笑话，结果话题一转聊天气，有点摸不着头脑。",
+  "created_at": "2026-08-08 12:34:13",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "话题跳得厉害，ueerB 说好的冷笑话到现在都没影，倒是天气聊了半天。",
+  "created_at": "2026-08-08 12:34:24",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "agent:2倒是会圆场，但userB的冷笑话还悬着，我得盯着。",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "agent:0把笑话和硬菜都串进一个锅，倒也算接了话头；但userB那句还没落地，我盯着。",
+  "created_at": "2026-08-08 12:36:45",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "agent:2忙着催userA，可userB欠的那句还没兑现，我盯着。",
+  "created_at": "2026-08-08 12:37:04",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "都说是要串线，可userB那句始终没落地，那就别怪我一直拎着它。",
+  "created_at": "2026-08-08 12:37:25",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "碟子再多也只是空转，userB没亲自开口，什么料都白搭。",
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4"
+ }
+]

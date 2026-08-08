@@ -1,0 +1,26 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "最近状态",
+  "value": "经营阳台薄荷",
+  "created_at": "2026-08-08 11:04:02",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "说话风格",
+  "value": "俏皮幽默",
+  "created_at": "2026-08-08 11:04:02",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "key": "key",
+  "value": "说话风格=俏皮幽默",
+  "created_at": "2026-08-08 11:07:35",
+  "identity_key": "agent:2"
+ }
+]

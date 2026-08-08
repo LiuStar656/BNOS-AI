@@ -325,7 +325,49 @@ def ensure(db_path):
             CREATE INDEX IF NOT EXISTS idx_uf_c ON user_facts(category);
             CREATE INDEX IF NOT EXISTS idx_lh_key ON location_history(identity_key, status);
             CREATE INDEX IF NOT EXISTS idx_mv_identity ON mood_value(identity_key);
-            CREATE INDEX IF NOT EXISTS idx_mv_time ON mood_value(created_at);""")
+            CREATE INDEX IF NOT EXISTS idx_mv_time ON mood_value(created_at);
+            -- v6.6 数据采集 P0-1：记忆检索命中日志表（决策 id → 命中记忆条目）
+            CREATE TABLE IF NOT EXISTS memory_usage(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                identity_key TEXT NOT NULL DEFAULT 'gui:default',
+                decision_id TEXT,
+                entry_id INTEGER,
+                table_name TEXT,
+                score REAL,
+                adopted INTEGER DEFAULT 1,
+                created_at TEXT NOT NULL DEFAULT(datetime('now','localtime')));
+            CREATE INDEX IF NOT EXISTS idx_mu_decision ON memory_usage(decision_id);
+            -- v6.6 数据采集 P0-2：静默期间的认知更新日志表（静默≠无认知）
+            CREATE TABLE IF NOT EXISTS silent_cognition(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                identity_key TEXT NOT NULL DEFAULT 'gui:default',
+                decision_id TEXT,
+                thought TEXT,
+                cognition_written INTEGER DEFAULT 0,
+                sections TEXT,
+                created_at TEXT NOT NULL DEFAULT(datetime('now','localtime')));
+            -- v7.0 兴趣门控：向量判定日志表（检测文本 + 兴趣值，平台进程写入）
+            CREATE TABLE IF NOT EXISTS interest_judgment(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                identity_key TEXT NOT NULL DEFAULT 'gui:default',
+                round_no INTEGER,
+                message_seq INTEGER,
+                detected_text TEXT,
+                anchor_text TEXT,
+                interest_value REAL,
+                passed INTEGER DEFAULT 0,
+                reason TEXT,
+                created_at TEXT NOT NULL DEFAULT(datetime('now','localtime')));
+            CREATE INDEX IF NOT EXISTS idx_ij_identity ON interest_judgment(identity_key);
+            -- v4.0 会话边界管理：会话摘要表（SessionManager 写入，供跨会话结构化记忆）
+            CREATE TABLE IF NOT EXISTS session_summaries(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                session_id TEXT NOT NULL,
+                identity_key TEXT NOT NULL DEFAULT 'gui:default',
+                summary TEXT NOT NULL,
+                created_at TEXT NOT NULL DEFAULT(datetime('now', 'localtime')));
+            CREATE INDEX IF NOT EXISTS idx_ss_identity ON session_summaries(identity_key);
+            CREATE INDEX IF NOT EXISTS idx_ss_session ON session_summaries(session_id);""")
         conn.commit()
 
         # v1: 迁移 conversation_id 列（幂等）
@@ -502,14 +544,20 @@ def _write(data, db_path, role):
         pass
 
 
-def write_parsed_async(parsed, db_path, conversation_id="default", user_input="", identity_key=None, user_id=""):
-    """并行写解析结果到各表"""
+def write_parsed_async(parsed, db_path, conversation_id="default", user_input="", identity_key=None, user_id="", skip_empty_other=False):
+    """并行写解析结果到各表
+
+    Args:
+        skip_empty_other: v6.6 P0-2——消息池批量模式下 user_id 为空（回应对象
+            为群聊/多条/无对象/自认知）时跳过 other_cognition 写入，杜绝空键
+            污染认知矩阵；GUI 1对1 路径保持 False（空 user_id 是"全局认知兜底"）。
+    """
     kwargs = {"user_input": user_input, "identity_key": identity_key or _IDENTITY_KEY_DEFAULT,
-              "user_id": user_id}
+              "user_id": user_id, "skip_empty_other": skip_empty_other}
     threading.Thread(target=_write_parsed, args=(parsed, db_path, conversation_id), kwargs=kwargs, daemon=True).start()
 
 
-def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=None, user_id=""):
+def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=None, user_id="", skip_empty_other=False):
     """将节标记结果分别写入对应表（v3.0：去重 + importance 解析 + MemOS 增量 + identity_key；v6.0：+ user_id）"""
     identity_key = identity_key or _IDENTITY_KEY_DEFAULT
     user_id = str(user_id or "")
@@ -560,6 +608,10 @@ def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=
                     (conversation_id, identity_key, val, now))
                 _increment_certainty("self_cognition", conn)
             elif k == "他人认知":
+                # v6.6 P0-2：批量模式空 user_id（无明确认知对象）跳过写入，
+                # 杜绝 "" 空键进入 other_cognition 污染认知矩阵统计
+                if skip_empty_other and not user_id:
+                    continue
                 # 直接 INSERT，不去重合并（像 adaptive-agent-architecture 那样）
                 conn.execute(
                     "INSERT INTO other_cognition(conversation_id,identity_key,content,user_id,created_at) VALUES(?,?,?,?,?)",
@@ -626,6 +678,66 @@ def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=
         pass
 
 
+# ── v6.6 数据采集：记忆检索命中 / 静默认知更新 ──────────────────
+def record_memory_usage(db_path, identity_key, decision_id, hits):
+    """记录一次决策的记忆检索命中（数据采集 P0-1）：每条命中一行。
+
+    Args:
+        hits: memos.get_last_hits() 的结构化结果 [{id, table, score, adopted}]
+    """
+    if not hits:
+        return
+    threading.Thread(
+        target=_write_memory_usage,
+        args=(db_path, identity_key, decision_id, list(hits)), daemon=True).start()
+
+
+def _write_memory_usage(db_path, identity_key, decision_id, hits):
+    try:
+        conn = sqlite3.connect(db_path)
+        try:
+            for h in hits:
+                conn.execute(
+                    "INSERT INTO memory_usage(identity_key, decision_id, entry_id, table_name, score, adopted) VALUES(?,?,?,?,?,?)",
+                    (identity_key, decision_id, h.get("id"), h.get("table"),
+                     h.get("score", 0.0), 1 if h.get("adopted") else 0))
+            conn.commit()
+        finally:
+            conn.close()
+    except Exception:
+        pass
+
+
+def record_silent_cognition(db_path, identity_key, decision_id, thought,
+                            cognition_written, sections=""):
+    """记录静默决策的认知更新（数据采集 P0-2）：静默≠无认知。
+
+    Args:
+        thought: 静默时的真实想法（模型输出）
+        cognition_written: 本次静默是否仍写入了认知类内容（他人认知/用户记忆等）
+        sections: 写入的认知节名（逗号分隔）
+    """
+    threading.Thread(
+        target=_write_silent_cognition,
+        args=(db_path, identity_key, decision_id, thought or "",
+              bool(cognition_written), sections or ""), daemon=True).start()
+
+
+def _write_silent_cognition(db_path, identity_key, decision_id, thought,
+                            cognition_written, sections):
+    try:
+        conn = sqlite3.connect(db_path)
+        try:
+            conn.execute(
+                "INSERT INTO silent_cognition(identity_key, decision_id, thought, cognition_written, sections) VALUES(?,?,?,?,?)",
+                (identity_key, decision_id, thought, 1 if cognition_written else 0, sections))
+            conn.commit()
+        finally:
+            conn.close()
+    except Exception:
+        pass
+
+
 def g(conn, table, column):
     """获取表中最新一条记录的指定列"""
     r = conn.execute(f"SELECT {column} FROM {table} ORDER BY id DESC LIMIT 1").fetchone()
@@ -664,6 +776,35 @@ def g_where_identity_user(conn, table, column, conv_id, identity_key, user_id):
         (conv_id, identity_key, user_id, user_id)
     ).fetchone()
     return r[0] if r else ""
+
+
+def read_recent_observations(conn, identity_key, limit=5):
+    """读取该 agent 最近"看过但未回应"的消息（v7.1 近期观察记录注入）。
+
+    interest_judgment 由平台进程写入（检测文本 + 兴趣值），过门（passed=1）的
+    消息已在当批决策上下文，不重复注入；只取 passed=0 的检测文本，按 id 倒序
+    去重收集 limit 条，返回注入段文本（含标题行）。无记录 / 表不存在 → 返回 ""。
+    """
+    try:
+        rows = conn.execute(
+            "SELECT round_no, detected_text FROM interest_judgment "
+            "WHERE identity_key=? AND passed=0 ORDER BY id DESC LIMIT 200",
+            (identity_key,)).fetchall()
+    except Exception:
+        return ""
+    seen, kept = set(), []
+    for rno, txt in rows:
+        txt = (txt or "").strip()
+        if not txt or txt in seen:
+            continue
+        seen.add(txt)
+        kept.append((rno, txt))
+        if len(kept) >= max(int(limit), 1):
+            break
+    if not kept:
+        return ""
+    lines = "\n".join(f"- [r{rno}] {txt}" for rno, txt in kept)
+    return "【近期观察记录】（你最近看过但未回应的消息，可参考）\n" + lines
 
 
 # ══════════════════════════════════════════════════════════════════

@@ -30,6 +30,9 @@ class ExperimentCollector:
         self._silent_count: dict[str, int] = {}
         # v6.3 P0-1：调用失败独立计数（error），与"主动沉默"区分
         self._error_count: dict[str, int] = {}
+        # v6.5 幽灵发言口径：平台话题结束后置 True，之后的决策记录
+        # 附带 topic_ended=True（残余批次决策未入池，与话题中决策区分）
+        self.topic_ended = False
 
     # ── 事件日志（订阅 EventBus 写入） ─────────────────────
     def event(self, **payload):
@@ -41,7 +44,13 @@ class ExperimentCollector:
 
     # ── 决策日志（Agent 每批响应） ─────────────────────────
     def decision(self, **payload):
-        """写一条 Agent 决策并累计 reply/silent 计数。"""
+        """写一条 Agent 决策并累计 reply/silent 计数。
+
+        v6.5 幽灵发言口径：平台话题结束后产生的残余批次决策
+        （未入池）附加 topic_ended=True 标记。
+        """
+        if self.topic_ended:
+            payload["topic_ended"] = True
         self._decisions.write(json.dumps(
             {"ts": datetime.now().isoformat(), **payload},
             ensure_ascii=False) + "\n")

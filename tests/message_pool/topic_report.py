@@ -98,7 +98,12 @@ def _read_personality(db_path: str, identity: str) -> dict | None:
 
 
 def _read_other_cognition(db_path: str, identity: str) -> dict[str, list[str]]:
-    """读取 other_cognition 表，按 user_id 分组的认知内容列表。"""
+    """读取 other_cognition 表，按 user_id 分组的认知内容列表。
+
+    v6.6 P0-2：user_id 为空（""，消息池批量模式的归因污染 / 无明确对象）
+    的条目过滤掉——空键会污染相互认知矩阵与网络演化统计。GUI 全局兜底
+    认知也一并排除：实验报告只关心"对明确对象"的认知。
+    """
     out: dict[str, list[str]] = {}
     try:
         conn = _db_conn(db_path)
@@ -110,7 +115,9 @@ def _read_other_cognition(db_path: str, identity: str) -> dict[str, list[str]]:
         finally:
             conn.close()
         for r in rows:
-            uid = r["user_id"] or "unknown"
+            uid = (r["user_id"] or "").strip()
+            if not uid:
+                continue
             out.setdefault(uid, []).append(r["content"])
     except Exception:
         pass
@@ -391,6 +398,350 @@ def _render_e3_table(identities: list[str], counts: dict, keywords: dict,
             "|---|---|---|---|---|---|---|---|\n" + "\n".join(rows))
 
 
+# ── v6.6 数据采集统计节（数据采集价值清单与方案.md 对齐）────────────
+def _load_decisions(run_dir: str) -> list[dict]:
+    """读取 decisions.jsonl 全部决策（按写入顺序）。"""
+    path = os.path.join(run_dir, "decisions.jsonl")
+    if not os.path.exists(path):
+        return []
+    out = []
+    try:
+        with open(path, encoding="utf-8") as f:
+            for raw in f:
+                if raw.strip():
+                    out.append(json.loads(raw))
+    except Exception:
+        pass
+    return out
+
+
+def _load_evolution(run_dir: str) -> dict:
+    """读取 evolution.json；缺失返回空 dict。"""
+    path = os.path.join(run_dir, "evolution.json")
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _render_position_bias(decisions: list[dict]) -> str:
+    """批次位置-回应对象对照（数据采集 P2-6，末位偏置量化）。
+
+    对每条 reply：回应对象在 batch_context 中的位置 vs 批次末位。
+    reply_target_pos==-1 表示回应对象不在本批（如回应平台话题/历史消息）。
+    """
+    rows = []
+    n_reply = n_valid = n_last = 0
+    for d in decisions:
+        if d.get("action") != "reply" or not d.get("回应对象"):
+            continue
+        n_reply += 1
+        bc = d.get("batch_context") or []
+        pos = d.get("reply_target_pos")
+        last_author = d.get("batch_last_author", "")
+        target = str(d.get("回应对象", "")).strip()
+        if target in ("群聊", "多条", "所有人"):
+            rows.append(f"| r{d.get('round')} | {d.get('agent')} | {target} | 群聊/多条 | {last_author} | — |")
+            continue
+        if pos is not None and pos >= 0:
+            n_valid += 1
+            is_last = (pos == len(bc) - 1)
+            if is_last:
+                n_last += 1
+            rows.append(f"| r{d.get('round')} | {d.get('agent')} | {target} | {pos} | "
+                        f"{last_author} | {'✅ 末位' if is_last else '—'} |")
+        else:
+            rows.append(f"| r{d.get('round')} | {d.get('agent')} | {target} | 不在本批 | "
+                        f"{last_author} | — |")
+    if not rows:
+        return "- 无有效 reply 决策（缺少 回应对象 / batch_context 数据）。"
+    table = ("| 轮次 | Agent | 回应对象 | 对象在批次位置 | 末位作者 | 是否末位 |\n"
+             "|---|---|---|---|---|---|\n" + "\n".join(rows))
+    rate = f"{n_last / n_valid * 100:.1f}%" if n_valid else "-"
+    return (f"- **末位偏置量化**：reply {n_reply} 条，其中可定位批次位置的 {n_valid} 条，"
+            f"回应末位 {n_last} 条 → **末位回应率 {rate}**\n"
+            f"- `reply_target_pos` = 回应对象在 LLM 实际所见批次（batch_context.seq 唯一"
+            f"事实源）中的位置；P0-1 修复后 decisions/events 顺序同源，本统计可信\n\n{table}")
+
+
+def _render_mention_attribution(decisions: list[dict], identities: list[str]) -> str:
+    """@提及响应率 + user_id 归因正确率（数据采集 P1-5）。"""
+    mentioned = [d for d in decisions if d.get("mention_targets")]
+    m_reply = [d for d in mentioned if d.get("action") == "reply"]
+    m_responded = [d for d in m_reply if d.get("mention_responded")]
+    replies = [d for d in decisions if d.get("action") == "reply"]
+    attr_valid = [d for d in replies
+                  if str(d.get("回应对象", "")).strip() not in ("群聊", "多条", "所有人", "")]
+    attr_ok = [d for d in attr_valid if d.get("attribution_ok")]
+    rows = []
+    for aid in identities:
+        md = [d for d in mentioned if aid in (d.get("mention_targets") or [])]
+        mdr = [d for d in md if d.get("action") == "reply"]
+        mdrp = [d for d in mdr if d.get("mention_responded")]
+        av = [d for d in attr_valid if d.get("agent") == aid]
+        ao = [d for d in av if d.get("attribution_ok")]
+        rate = f"{len(mdrp) / len(md) * 100:.0f}%" if md else "-"
+        arate = f"{len(ao) / len(av) * 100:.0f}%" if av else "-"
+        rows.append(f"| {aid} | {len(md)} | {len(mdr)} | {len(mdrp)} ({rate}) | "
+                    f"{len(av)} | {len(ao)} ({arate}) |")
+    if not mentioned and not attr_valid:
+        return "- 本轮无 @提及 与可判归因的 reply（可能未注入 sim 消息或全部回应群聊）。"
+    table = ("| Agent | 被@批次 | @后回复 | @点名回应(率) | 可判归因 | 归因正确(率) |\n"
+             "|---|---|---|---|---|---|\n" + "\n".join(rows))
+    total_rate = (f"{len(m_responded) / len(mentioned) * 100:.0f}%" if mentioned else "-")
+    attr_rate = (f"{len(attr_ok) / len(attr_valid) * 100:.0f}%" if attr_valid else "-")
+    return (f"- 全局：被 @ {len(mentioned)} 批，@后回复 {len(m_reply)}，点名者被回应 "
+            f"{len(m_responded)}（响应率 {total_rate}）；可判归因 reply {len(attr_valid)} 条，"
+            f"归因正确 {len(attr_ok)} 条（**{attr_rate}**）\n"
+            f"- `attribution_ok` = 决策 user_id == LLM 声明的回应对象（排除群聊/多条）；"
+            f"P0-2 修复后空归因不再写入 other_cognition\n\n{table}")
+
+
+def _render_mood_behavior(decisions: list[dict], identities: list[str]) -> str:
+    """情绪-行为关联（数据采集 P2-7）：mood 值与当次 reply/silent 的交叉统计。"""
+    rows = []
+    notes = []
+    for aid in identities:
+        ds = [d for d in decisions if d.get("agent") == aid]
+        rep = [d for d in ds if d.get("action") == "reply"]
+        sil = [d for d in ds if d.get("action") == "silent"]
+
+        def _avg(lst):
+            vals = [float(d.get("mood", 0)) for d in lst if d.get("mood") is not None]
+            return f"{sum(vals) / len(vals):.3f}" if vals else "-"
+
+        rows.append(f"| {aid} | {len(rep)} | {_avg(rep)} | {len(sil)} | {_avg(sil)} |")
+        # 静默全 0 的 agent 提示情绪更新链路异常（5a30r 中 agent:3 现象）
+        if sil and not any(d.get("mood") not in (None, 0) for d in sil):
+            notes.append(f"- {aid}：静默决策 mood 恒为 0——情绪更新链路可能未对该 "
+                         "agent 生效（需核查心情标签映射）")
+    if not rows:
+        return "- 无决策数据。"
+    table = ("| Agent | reply 次数 | reply 平均 mood | silent 次数 | silent 平均 mood |\n"
+             "|---|---|---|---|---|\n" + "\n".join(rows))
+    note = "\n".join(notes) if notes else "- 无 mood 恒 0 的静默 agent，情绪链路正常。"
+    return table + "\n\n" + note
+
+
+def _render_memory_hits(decisions: list[dict], identities: list[str]) -> str:
+    """记忆检索命中日志统计（数据采集 P0-1）。"""
+    rows = []
+    n_hit_decisions = 0
+    n_hits = 0
+    for aid in identities:
+        ds = [d for d in decisions if d.get("agent") == aid]
+        hd = [d for d in ds if d.get("memory_hits")]
+        hits = [h for d in hd for h in (d.get("memory_hits") or [])]
+        n_hit_decisions += len(hd)
+        n_hits += len(hits)
+        avg = (f"{sum(h.get('score', 0) for h in hits) / len(hits):.3f}" if hits else "-")
+        rows.append(f"| {aid} | {len(hd)} | {len(hits)} | {avg} |")
+    if not rows or n_hits == 0:
+        return "- 本轮无记忆检索命中（LLM 未触发【语意检索】，或 MemOS 无匹配条目）。"
+    table = ("| Agent | 检索决策数 | 命中条目 | 平均相似度 |\n"
+             "|---|---|---|---|\n" + "\n".join(rows))
+    return (f"- 共 {n_hit_decisions} 个决策触发记忆检索，命中 {n_hits} 条记忆"
+            f"（认知写入 → 检索 → 被采纳的证据链）\n{table}")
+
+
+def _render_silent_cognition(decisions: list[dict], identities: list[str]) -> str:
+    """静默期间的认知更新统计（数据采集 P0-2）：静默≠无认知。"""
+    rows = []
+    for aid in identities:
+        sil = [d for d in decisions if d.get("agent") == aid and d.get("action") == "silent"]
+        if not sil:
+            continue
+        with_thought = [d for d in sil if (d.get("想法") or "").strip()]
+        with_cog = [d for d in sil if d.get("silent_cognition_written")]
+        sections = {}
+        for d in sil:
+            for s in (d.get("cognition_sections") or "").split(","):
+                if s.strip():
+                    sections[s.strip()] = sections.get(s.strip(), 0) + 1
+        sec_str = "、".join(f"{k}×{v}" for k, v in sections.items()) if sections else "—"
+        rows.append(f"| {aid} | {len(sil)} | {len(with_thought)} | {len(with_cog)} | {sec_str} |")
+    if not rows:
+        return "- 本轮无静默决策。"
+    table = ("| Agent | silent 次数 | 有想法 | 仍写认知 | 认知节分布 |\n"
+             "|---|---|---|---|---|\n" + "\n".join(rows))
+    return (f"- 静默轮仍在沉淀认知（想法/他人认知/用户记忆）→ 平台差异化理念"
+            f"『听而不说 ≠ 无认知』的可量化证据\n{table}")
+
+
+def _render_trajectory(evo: dict) -> str:
+    """人格漂移过程轨迹（数据采集 P0-3）：evolution.json 的 trajectory。"""
+    traj = evo.get("trajectory") or {}
+    if not traj:
+        return "- 本轮无轨迹数据（人格演化未触发或 decisions 无 personality 快照）。"
+    blocks = []
+    for aid in sorted(traj):
+        pts = traj[aid]
+        first = pts[0]["vector"] if pts else {}
+        moved = next((p["round"] for p in pts
+                      if any(abs(p["vector"].get(d, 0) - first.get(d, 0)) > 1e-6
+                             for d in PERSONA_DIMS)), None)
+        n_points = len(pts)
+        last_round = pts[-1]["round"] if pts else "-"
+        rows = [f"| {p['round']} | {p['vector'].get('warmth', 0):.4f} | "
+                f"{p['vector'].get('playfulness', 0):.4f} | "
+                f"{p['vector'].get('directness', 0):.4f} | "
+                f"{p['vector'].get('curiosity', 0):.4f} |" for p in pts]
+        table = ("| 轮次 | warmth | playfulness | directness | curiosity |\n"
+                 "|---|---|---|---|---|\n" + "\n".join(rows))
+        move_note = (f"首动轮次：**r{moved}**（第 {pts.index(next(p for p in pts if p['round'] == moved)) + 1} 个采样点）"
+                     if moved else "全程未变化")
+        blocks.append(f"#### {aid}（{n_points} 个采样点，末轮 r{last_round}；{move_note}）\n\n{table}")
+    return "- 每轮决策附带人格向量快照（decisions.personality → trajectory），" \
+           "回答『演化是渐进还是突变、从第几轮开始动』\n\n" + "\n\n".join(blocks)
+
+
+def _render_cognition_timeline(decisions: list[dict], identities: list[str]) -> str:
+    """认知网络演化时序（数据采集 P1-4）：逐轮累计互认矩阵（谁认知了谁、何时成对）。"""
+    # 边 (a → b, 首见轮次)：决策写了「他人认知」且归因到另一 agent
+    first_seen: dict[tuple[str, str], int] = {}
+    by_round: dict[int, list[str]] = {}
+    for d in decisions:
+        if not d.get("user_id"):
+            continue
+        if d.get("user_id") not in identities:
+            continue
+        if "他人认知" not in (d.get("cognition_sections") or ""):
+            continue
+        a, b = d.get("agent"), d.get("user_id")
+        r = d.get("round")
+        if a == b:
+            continue
+        if (a, b) not in first_seen:
+            first_seen[(a, b)] = r
+        by_round.setdefault(r, []).append(f"{a}→{b}")
+    if not first_seen:
+        return "- 本轮未从决策中解析出 agent 间认知边（需 cognition_sections + 有效归因）。"
+    ids = identities
+    rows = []
+    total_mutual = 0
+    for r in sorted(by_round):
+        # 累计到本轮：含本轮及之前所有边
+        edges = {(a, b) for (a, b), rr in first_seen.items() if rr <= r}
+        mutual = 0
+        pair_list = []
+        for i in range(len(ids)):
+            for j in range(i + 1, len(ids)):
+                a, b = ids[i], ids[j]
+                if (a, b) in edges and (b, a) in edges:
+                    mutual += 1
+                    pair_list.append(f"{a}↔{b}")
+        total_mutual = mutual
+        new_cnt = len(by_round[r])
+        rows.append(f"| r{r} | {new_cnt} | {len(edges)} | {mutual} | "
+                    f"{', '.join(pair_list) if pair_list else '—'} |")
+    table = ("| 轮次 | 新增认知边 | 累计边数 | 双向认知组数 | 双向组明细 |\n"
+             "|---|---|---|---|---|\n" + "\n".join(rows))
+    return (f"- 认知网络从稀疏到稠密的时序证据：末轮双向认知组数 **{total_mutual}**\n"
+            f"- 边 = 决策写「他人认知」且归因到对方 agent（P0-2 修复后空归因不产生边）\n\n{table}")
+
+
+# ── 主入口 ───────────────────────────────────────────────────────
+def _median(vals: list[float]) -> float:
+    """列表（可空）中位数。"""
+    if not vals:
+        return 0.0
+    s = sorted(vals)
+    n = len(s)
+    return s[n // 2] if n % 2 else (s[n // 2 - 1] + s[n // 2]) / 2
+
+
+def _percentile(vals: list[float], q: float) -> float:
+    """列表（可空）线性插值百分位。"""
+    if not vals:
+        return 0.0
+    s = sorted(vals)
+    k = (len(s) - 1) * q / 100.0
+    lo, hi = int(k), min(int(k) + 1, len(s) - 1)
+    return s[lo] + (s[hi] - s[lo]) * (k - lo)
+
+
+def _read_interest_judgments(run_dir: str,
+                             identities: list[str]) -> dict[str, list[dict]]:
+    """读取 interest_judgment 表（v7.0 兴趣门控判定）。
+
+    优先读 data_export 导出的 {agent}_final/interest_judgment.json；
+    缺失（旧实验/未导出）时回退直接读原始 sqlite。
+    """
+    out: dict[str, list[dict]] = {}
+    for identity in identities:
+        out[identity] = []
+        num = identity.split(":")[-1]
+        exp = os.path.join(run_dir, "db",
+                           f"{identity.replace(':', '_')}_final",
+                           "interest_judgment.json")
+        if os.path.exists(exp):
+            try:
+                with open(exp, encoding="utf-8") as f:
+                    out[identity] = json.load(f)
+                continue
+            except Exception:
+                pass
+        dbp = os.path.join(run_dir, "db", f"agent_{num}.sqlite")
+        try:
+            conn = _db_conn(dbp)
+            try:
+                rows = conn.execute(
+                    "SELECT * FROM interest_judgment ORDER BY rowid").fetchall()
+                out[identity] = [dict(r) for r in rows]
+            finally:
+                conn.close()
+        except Exception:
+            pass
+    return out
+
+
+def _render_interest_gate(judgments: dict[str, list[dict]],
+                          identities: list[str], meta: dict) -> str:
+    """渲染兴趣门控判定采集章节（v7.0）：兴趣值分布 + 过门率 + 判定原因。"""
+    gate_cfg = meta.get("interest_gate") or {}
+    enabled = gate_cfg.get("enabled")
+    threshold = gate_cfg.get("threshold", "?")
+    total = sum(len(v) for v in judgments.values())
+    if total == 0:
+        if enabled is False:
+            return "- 兴趣门控已关闭（--no-gate，本实验为 v6.6 全候选决策基线）。"
+        return "- 未采集到兴趣判定（interest_judgment 表为空）。"
+
+    rows = []
+    all_vals: list[float] = []
+    total_pass = total_fail = 0
+    reasons: dict[str, int] = {}
+    for identity in identities:
+        js = judgments.get(identity) or []
+        n_pass = sum(1 for j in js if j.get("passed"))
+        n_fail = len(js) - n_pass
+        vals = [float(j.get("interest_value", 0.0)) for j in js]
+        all_vals.extend(vals)
+        rows.append(f"| {identity} | {len(js)} | {n_pass} | {n_fail} | "
+                    f"{_median(vals):.3f} |")
+        total_pass += n_pass
+        total_fail += n_fail
+        for j in js:
+            r = j.get("reason", "?")
+            reasons[r] = reasons.get(r, 0) + 1
+    table = ("| Agent | 判定数 | 过门 | 未过门(省调用) | 兴趣值中位 |\n"
+             "|---|---|---|---|---|\n" + "\n".join(rows))
+    pass_rate = total_pass / total * 100 if total else 0.0
+    reason_txt = "、".join(f"{k}×{v}" for k, v in sorted(reasons.items()))
+    return (f"- 门控配置：{'开启' if enabled else '关闭'} | 阈值 {threshold} | "
+            f"模型 {gate_cfg.get('model', '?')}\n"
+            f"- 判定总数 {total}，过门 {total_pass}（{pass_rate:.1f}%），"
+            f"未过门 {total_fail} 条 → LLM 调用节约 {total_fail} 次\n"
+            f"- 兴趣值分布：min {min(all_vals):.3f} / 中位 {_median(all_vals):.3f} / "
+            f"p90 {_percentile(all_vals, 90):.3f} / max {max(all_vals):.3f}\n"
+            f"- 判定原因分布：{reason_txt}\n"
+            f"- 检测文本与兴趣值逐条存于各 agent 数据库 interest_judgment 表\n\n"
+            f"{table}")
+
+
 # ── 主入口 ───────────────────────────────────────────────────────
 def generate_topic_report(run_dir: str, out_name: str = "topic_report.md") -> str:
     """从留档目录收集数据并生成话题报告。
@@ -419,6 +770,18 @@ def generate_topic_report(run_dir: str, out_name: str = "topic_report.md") -> st
     pt_table, pt_verdict = _render_personality_table(starts, ends)
     e3_table = _render_e3_table(identities, counts, keywords, speeches)
     llm_stats = _load_llm_stats(run_dir)
+    # v6.6 数据采集统计节（decisions.jsonl / evolution.json 驱动）
+    decisions = _load_decisions(run_dir)
+    evo = _load_evolution(run_dir)
+    position_bias = _render_position_bias(decisions)
+    mention_attr = _render_mention_attribution(decisions, identities)
+    mood_behavior = _render_mood_behavior(decisions, identities)
+    memory_hits = _render_memory_hits(decisions, identities)
+    silent_cog = _render_silent_cognition(decisions, identities)
+    trajectory = _render_trajectory(evo)
+    timeline = _render_cognition_timeline(decisions, identities)
+    interest_gate = _render_interest_gate(
+        _read_interest_judgments(run_dir, identities), identities, meta)
 
     topic = meta.get("topic", "（未记录）")
     topic_rounds = meta.get("topic_rounds", "?")
@@ -460,7 +823,39 @@ def generate_topic_report(run_dir: str, out_name: str = "topic_report.md") -> st
 
 {_render_llm_stats(llm_stats, identities)}
 
-## 五、结论
+## 五、批次位置-回应对象对照（末位偏置量化，P2）
+
+{position_bias}
+
+## 六、@提及响应率 与 user_id 归因正确率（P1-5）
+
+{mention_attr}
+
+## 七、情绪-行为关联（P2-7）
+
+{mood_behavior}
+
+## 八、记忆检索命中日志（P0-1）
+
+{memory_hits}
+
+## 九、静默期间的认知更新（P0-2）
+
+{silent_cog}
+
+## 十、人格漂移过程轨迹（P0-3）
+
+{trajectory}
+
+## 十一、认知网络演化时序（P1-4）
+
+{timeline}
+
+## 十二、兴趣门控判定采集（v7.0）
+
+{interest_gate}
+
+## 十三、结论
 
 - **相互认知**：本报告检查了 Agent 之间是否在聊天室中形成对彼此的认知记忆
   （other_cognition 表，user_id=对方 Agent）。双向认知的形成是"多 Agent 相互

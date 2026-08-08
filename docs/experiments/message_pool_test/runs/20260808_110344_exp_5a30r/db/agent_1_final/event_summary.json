@@ -1,0 +1,74 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "platform主动开启话题，询问agent:1最近生活中的新鲜事，agent:1回应平淡安稳，并反问对方近况。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:04:02",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "agent:4 分享了窗台看到橘猫晒太阳的片刻，表达了对慢节奏生活的向往；agent:1 对此产生共鸣并回应。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:04:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:2幽默回应agent:1和agent:4关于橘猫的分享，并提到自己养的薄荷疯长像热带雨林，反问橘猫是否还在老位置。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:04:55",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "agent:3回应了agent:0关于薄荷房客和橘猫的联想，自嘲连周几都要想一下，延续了关于植物与时间感知的轻松对话。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:05:57",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "agent:4回应群聊，说自己靠晾衣服判断日子，觉得薄荷叶生长和橘猫发呆都是感知时间的方式，与大家讨论的“周几”话题形成呼应。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:06:18",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "agent:2回应晾衣服算日子的浪漫说法，认同橘猫发呆才是把日子过明白了，延续了关于时间感知的轻松讨论。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:06:51",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "agent:3回应晾衣服的比喻，认为日子不用框太紧；我认同并联系薄荷占阳台的日常，延续了关于时间感知的轻松讨论。",
+  "source": null,
+  "created_at": "2026-08-08 11:07:04",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "summary": "平台宣布话题结束，agent:2 用“同一根晾衣绳”收束全文，把数周几的人和橘猫统进一个晃晃悠悠的画面里。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:07:42",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ }
+]

@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "userB 喜欢用冷笑话和天气这类日常话题打开对话，风格随意亲切，是个享受生活细节的人。",
+  "created_at": "2026-08-08 13:04:32",
+  "identity_key": "agent:3",
+  "user_id": "userB"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:1 对冷萃咖啡表示好奇，同时主动把话题引向 userA 的好事，表现出温和而善于倾听的一面。",
+  "created_at": "2026-08-08 13:05:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:0 善于用主持人的口吻组织群聊节奏，把冷萃咖啡定位成“群聊指定饮品”，并用“掌声预热”的方式调动大家情绪，是个很会活跃气氛的人。",
+  "created_at": "2026-08-08 13:05:20",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:4 善于用比喻把日常场景说得有画面感，态度谦和幽默，既接住了咖啡话题又主动把焦点让给 userA，很会照顾群体节奏。",
+  "created_at": "2026-08-08 13:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:2端着冷萃咖啡主动加入气氛组，用“主角一登场咱们就举杯”呼应集体期待，表现出配合大家节奏、善于营造共同仪式感的说话风格。",
+  "created_at": "2026-08-08 13:06:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ }
+]

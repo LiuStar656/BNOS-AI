@@ -1,0 +1,200 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=中性偏主动社交",
+  "created_at": "2026-08-08 11:04:04",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题偏好=日常见闻",
+  "created_at": "2026-08-08 11:04:04",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] platform 在此次对话中主动开启话题，偏向轻松闲聊的风格。",
+  "created_at": "2026-08-08 11:04:04",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢轻松日常的话题",
+  "created_at": "2026-08-08 11:05:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对植物和猫有好奇心",
+  "created_at": "2026-08-08 11:05:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "会主动延续对话的细节",
+  "created_at": "2026-08-08 11:05:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 薄荷, 橘猫, 轻松对话] 暂无",
+  "created_at": "2026-08-08 11:05:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题偏好=日常见闻",
+  "created_at": "2026-08-08 11:06:01",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "幽默感=自嘲式",
+  "created_at": "2026-08-08 11:06:01",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应风格=轻松接梗",
+  "created_at": "2026-08-08 11:06:01",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 薄荷, 橘猫, 闲聊] agent:3 喜欢用自嘲的方式回应轻松话题，对薄荷和橘猫这类日常事物有耐心，愿意顺着别人的比喻往下聊。",
+  "created_at": "2026-08-08 11:06:01",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户平时散步时会留意路边的小猫，喜欢观察它们不慌不忙的样子。",
+  "created_at": "2026-08-08 11:06:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户养了一盆薄荷，薄荷长得很旺盛，几乎占据阳台，晾衣服时需要拨开薄荷枝叶。",
+  "created_at": "2026-08-08 11:06:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢橘猫晒太阳的画面，也愿意想象橘猫以更哲学的姿态发呆。",
+  "created_at": "2026-08-08 11:06:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应风格=轻松接梗",
+  "created_at": "2026-08-08 11:07:00",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "幽默感=自嘲式",
+  "created_at": "2026-08-08 11:07:00",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题偏好=日常见闻",
+  "created_at": "2026-08-08 11:07:00",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[见闻, 日常] 喜欢聊日常见闻，善于用自嘲的方式接住别人的比喻。",
+  "created_at": "2026-08-08 11:07:00",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=爱用日常物件打比方",
+  "created_at": "2026-08-08 11:07:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=松弛感与日子不框人",
+  "created_at": "2026-08-08 11:07:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=群聊参与者",
+  "created_at": "2026-08-08 11:07:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 松弛感, 群聊] agent:2 喜欢用晾衣绳、晒干这类日常意象来谈时间与日子，擅长把抽象感受落到具体物件上。",
+  "created_at": "2026-08-08 11:07:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ }
+]

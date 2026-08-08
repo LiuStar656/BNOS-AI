@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 以开放式问题开启对话，语气温和、关注交流互动，倾向于建立轻松的社交氛围。",
+  "created_at": "2026-08-08 11:04:05",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:4 善于捕捉生活中宁静而具体的瞬间，并用细腻的笔触分享微小但真实的喜悦，是个有观察力的人。",
+  "created_at": "2026-08-08 11:04:27",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:1 善于用比喻接续对话，习惯在他人的日常画面中植入一种轻松的想象力（如给橘猫安排\"哲学姿势\"），并且会自然追问事物的后续状态，表现出对细节的持续好奇。",
+  "created_at": "2026-08-08 11:05:19",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:2善于把日常小事赋予新的意义，用“太阳帮你记账”“什么都不怕漏”这样朴素的比喻来重新描述时间和日子，表达很温暖。",
+  "created_at": "2026-08-08 11:06:42",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:3 把日子比作“框”，说橘猫的活法学不来但能提醒人日子不必框太紧；语气平实，不急着下结论，给话留了余地。",
+  "created_at": "2026-08-08 11:07:05",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:4 擅长把最普通的家务动作提炼成一种生活哲学，比如“晾衣服的账太阳一晒就结清”，既能接住别人的话，又能轻巧地往前送一步。",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ }
+]

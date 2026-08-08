@@ -10,6 +10,35 @@ _MOOD_MAP = {"开心": "开心", "高兴": "开心", "愉快": "开心", "兴奋
               "害羞": "害羞", "俏皮": "俏皮", "调皮": "俏皮"}
 
 _SECTION_LINE = re.compile(r"^【(.+?)】\s*$")
+# v6.5 截断防御：未闭合的节标记行（如"【情绪调整"被 max_tokens 截断、
+# 缺右括号）不是正文，不应并入上一节——否则会污染该节内容
+_SECTION_FRAGMENT = re.compile(r"^【[^】]{1,16}$")
+
+
+def is_truncated(raw: str) -> bool:
+    """截断启发式检测（v6.6 P1-4 输出完整性校验）。
+
+    两个信号：
+    1) 输出以未闭合节标记结尾（如 `【情绪调整` 被截断，无右括号）——
+       说明输出在节标记处中断，其后的小节（想法/回应对象等）全部丢失；
+    2) 解析后【自然回复】有文本但【情绪调整】缺失——prompt 硬性要求
+       reply/silent 都必须输出情绪调整数字，缺失说明输出被截断。
+
+    Returns:
+        True=判定为截断（调用方应重试一次）；False=输出看起来完整。
+    """
+    if not raw or not raw.strip():
+        return False  # 空输出视为静默/无内容，不属于"截断"
+    tail = [ln.strip() for ln in raw.strip().splitlines() if ln.strip()]
+    if tail and _SECTION_FRAGMENT.match(tail[-1]):
+        return True
+    try:
+        parsed = parse_llm_output(raw)
+        if parsed.get("自然回复") and not parsed.get("情绪调整"):
+            return True
+    except Exception:
+        pass
+    return False
 
 
 def parse_llm_output(text):
@@ -31,6 +60,9 @@ def parse_llm_output(text):
             current = m.group(1).strip()
             buf = []
         elif current is not None:
+            # v6.5 截断防御：残缺节标记行跳过，不并入上一节
+            if _SECTION_FRAGMENT.match(line.strip()):
+                continue
             buf.append(line)
     if current is not None:
         _store_section(r, current, "\n".join(buf))

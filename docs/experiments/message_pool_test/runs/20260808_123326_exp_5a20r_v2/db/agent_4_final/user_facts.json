@@ -1,0 +1,308 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=天气",
+  "created_at": "2026-08-08 12:34:13",
+  "identity_key": "agent:4",
+  "user_id": "userB"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=承诺分享冷笑话未兑现",
+  "created_at": "2026-08-08 12:34:13",
+  "identity_key": "agent:4",
+  "user_id": "userB"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent_id=agent:0",
+  "created_at": "2026-08-08 12:34:24",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "特点=善于发现话题散乱并主动厘清",
+  "created_at": "2026-08-08 12:34:24",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常] 无",
+  "created_at": "2026-08-08 12:34:24",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "名字=agent:2",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=接住agent:1的包袱",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "承诺=串起散落话题",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "引导=让userA分享开心事",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊] agent:2喜欢用生动的比喻来缓和聊天氛围，比如“拼盘”“满天星”；他习惯主动承接别人的话头，并承诺把话题串联起来，也喜欢把话题引向某个成员（如userA）。",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢用拼盘、乱炖等比喻来形容话题，喜欢把散落的话题串联起来。",
+  "created_at": "2026-08-08 12:36:39",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户期待听冷笑话和开心事，自己也准备了趣事准备分享。",
+  "created_at": "2026-08-08 12:36:39",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "mentions=userB冷笑话",
+  "created_at": "2026-08-08 12:36:45",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "期待=userA下锅",
+  "created_at": "2026-08-08 12:36:45",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "策略=用拼盘/乱炖比喻串联话题",
+  "created_at": "2026-08-08 12:36:45",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[群聊, 话题串联, 冷笑话] agent:0 倾向于在群聊混乱时主动做话题整理，常用食物类比喻来缓和气氛。",
+  "created_at": "2026-08-08 12:36:45",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "执念=userB冷笑话",
+  "created_at": "2026-08-08 12:37:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=话题一致性",
+  "created_at": "2026-08-08 12:37:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=中性",
+  "created_at": "2026-08-08 12:37:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 话题跟踪] agent:4 对未兑现的冷笑话有执念，多次提及 userB 的冷笑话尚未落地，同时在维护话题一致性；与 agent:2 互动中强调“别漏了”。",
+  "created_at": "2026-08-08 12:37:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢冷笑话，并会主动分享冷笑话",
+  "created_at": "2026-08-08 12:37:21",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢用拼盘、串、锅等比喻来串联聊天话题",
+  "created_at": "2026-08-08 12:37:21",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent=agent:0",
+  "created_at": "2026-08-08 12:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=串联话题",
+  "created_at": "2026-08-08 12:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "态度=等待userA下锅",
+  "created_at": "2026-08-08 12:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对userB冷笑话态度=仅占座",
+  "created_at": "2026-08-08 12:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话盯防, 冷笑话未兑现] agent:0喜欢用厨房/做菜类比喻来组织对话，惯于把松散话题收拢成一条线，语气偏轻快但不太主动催人兑现。",
+  "created_at": "2026-08-08 12:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=当前状态",
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "value=盯防userB冷笑话",
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格",
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "value=简短、一针见血、不绕过未落地的话头",
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=关注",
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "value=话题一致性",
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[群聊, 话题盯防, 冷笑话] agent:4在群聊中持续盯住userB未兑现的冷笑话，多次提醒他人别让此事滑过去；表达时话不多，但总要点名要害。",
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ }
+]

@@ -48,7 +48,9 @@ if NODE_DIR not in sys.path:
 def _llm_real(prompt: str) -> str:
     body = {"model": os.environ.get("AAA_MODEL", "deepseek-v4-flash"),
             "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.7, "max_tokens": 2048}
+            # v6.5 截断修复：2048 在批量场景（批次上下文+想法+情绪+认知节）
+            # 下偶发截断（半句收尾/节标记残缺），提升到 4096
+            "temperature": 0.7, "max_tokens": 4096}
     req = urllib.request.Request(
         os.environ.get("AAA_API_URL",
                        "https://api.deepseek.com/v1/chat/completions"),
@@ -222,11 +224,22 @@ def _handle_pool_batch(node, db_path, req, llm_fn, identity, max_llm_rounds):
     }, db_path)
     last_user_id = messages[-1].get("user_id", "")
     decision = None
+    _trunc_retried = False
     for _ in range(max_llm_rounds):
         if not out or out.get("data_type") != "prompt":
             decision = out
             break
         content = llm_fn(out.get("content", ""))
+        # v6.6 P1-4 输出完整性校验：截断（未闭合节标记 / 有回复缺情绪调整）
+        # → 追加提示重试一次，避免半句回复落盘（与 AgentBridge inline 路径一致）
+        if not _trunc_retried:
+            from parser import is_truncated
+            if is_truncated(content or ""):
+                _trunc_retried = True
+                content = llm_fn(
+                    (out.get("content", "") or "")
+                    + "\n\n（注意：你上次的输出被截断了，"
+                    "请完整输出全部小节，并在结尾正常结束，不要中断。）")
         out = node._on_parsed({
             "data_type": "parsed", "source": "llm",
             "request_id": out.get("request_id", rid),
