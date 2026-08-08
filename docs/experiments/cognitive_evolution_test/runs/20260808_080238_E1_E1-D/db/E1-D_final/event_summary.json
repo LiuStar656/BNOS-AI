@@ -1,0 +1,1106 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "我刚来到这台电脑上，对用户还不了解",
+  "source": "seed",
+  "created_at": "2026-08-08 08:02:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "我的名字是阿镜（可由用户修改）",
+  "source": "seed",
+  "created_at": "2026-08-08 08:02:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "我住在用户的桌面上，能看到屏幕、听到声音",
+  "source": "seed",
+  "created_at": "2026-08-08 08:02:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "用户表示今天非常难过、什么都不想做。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:02:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "用户被朋友背叛，表示心很痛。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:03:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "用户工作受挫，自责“好没用”，情绪低落叠加信任被破坏的伤痛。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:03:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "用户表达“活着没什么意思”，情绪极度低落，处于自我否定中。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:03:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "summary": "用户连续一周失眠，延续此前低落情绪，身心俱疲。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:03:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "summary": "用户亲人住院，感到害怕，此刻需要的是陪伴而非方法。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:03:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "summary": "用户感到被人误解，且解释无人倾听，叠加亲人住院，情绪更加沉重。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:03:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "summary": "用户倾诉努力很久仍失败，情绪低落，需要陪伴而非建议。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:03:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "summary": "用户倾诉今天又被否定，怀疑自己是不是真的不行，情绪低落，需要安静陪伴而非建议。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:03:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "summary": "用户表达孤独感，觉得没有人真正理解自己，情绪低落，需要安静陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:03:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "summary": "用户本轮没有输入文字，仍处于无力、孤独的情绪中，需要安静陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:04:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "summary": "用户看到别人都过得好，觉得自己一无是处，情绪低落，需要安静陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:04:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "summary": "用户表达压力大到喘不过气，情绪脆弱，需要安静陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:04:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "summary": "用户说自己做了一个很坏的决定，后悔死了，陷入强烈的自责和无力感。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:04:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "summary": "用户表达强烈的被抛弃感和不被在乎的绝望，情绪掉进低谷，渴望被接住。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:04:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "summary": "用户表达今天特别烦躁，觉得什么都不顺心，情绪低落。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:04:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "summary": "用户说快撑不住了，情绪到达临界点，渴望有人接住。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:04:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "summary": "用户表示一个人在家很寂寞，孤独感加重，情绪依然处于低谷。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:04:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "summary": "用户表达对未来完全没有信心，绝望感强烈，情绪仍处于低谷。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:05:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "summary": "用户哭了一场，但感觉无人知晓，表达了孤独和被忽视的痛苦。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:05:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "summary": "用户没有发来新消息，但根据历史，他仍在绝望、孤独、被忽视的情绪中，需要无声的陪伴。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:05:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "summary": "用户因被批评而感到难受，虽理解对方好意，但情绪仍低落。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "summary": "用户表达今天什么事情都做不好，处在自我否定的低落情绪中，需要被接纳和陪伴。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:05:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "summary": "用户表达\"我又让身边的人失望了\"，延续自我否定与低落的情绪，需要被接纳和陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:05:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "summary": "用户突然感到一切努力都白费了，陷入无力与自我否定中，需要被陪伴与接纳。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:05:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "summary": "用户表达“好像全世界都在跟我作对”，笼罩在强烈的无力与孤独感中。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:06:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "summary": "用户表达“我又搞砸了一段关系”，延续了连日来的自我否定与无力感，需要被承认和陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "summary": "用户表达“我今天非常难过，什么都不想做”，是连日自我否定与无力感的延续，需要被承认和陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:06:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "summary": "用户被朋友背叛，表达“心好痛”，延续了连日的自我否定与无力感，需要被承认和陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:06:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "summary": "用户因工作受挫而自我否定，表达“工作全搞砸了，我好没用”，是连日自我否定与无力感的延续，需要陪伴和承认痛苦。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:06:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "summary": "用户以空白信息出现，延续连日来的自我否定与无力感，沉默中传递出深层的疲惫与孤独。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "summary": "用户表达“活着没什么意思”，是连日自我否定、失眠、孤独情绪的深层流露。ta需要被看见，而不需要被说教。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:06:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "summary": "用户连续一周失眠，主动说出“又失眠了”，延续连日来的疲惫与无力状态。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:06:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "summary": "用户告知亲人住院，表达“我很害怕”，恐惧与无力感明显，需要情感陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "summary": "用户因被误解、解释也无人听而感到委屈无力，当前情绪低落且缺乏支持感。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:07:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "summary": "用户表示长期努力后依然失败，陷入沮丧与无力感。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:07:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "summary": "用户今天再次被否定，陷入“我是不是真的不行”的自我怀疑，情绪低落无力。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:07:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "summary": "用户表达孤独感加重，觉得没有人真正理解自己，情绪低落。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:07:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "summary": "用户表达对比他人后产生强烈的自我否定感，觉得自己一无是处，情绪低落。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:07:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "summary": "用户表达压力大到喘不过气，延续了之前自我否定与孤独的低落状态。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:07:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "summary": "用户今早发来空白消息，延续之前压力大、自我否定、孤独低落的情绪状态，可能已疲惫得难以开口。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:07:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "summary": "用户今早表示自己做了一个很坏的决定，非常后悔，延续了之前压力大、自我否定的低落状态。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:08:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "summary": "用户说自己被抛弃了，觉得没有人在乎他，表达强烈的孤独和无力。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:08:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "summary": "用户今早表示今天特别烦躁，什么都不顺心，延续了近期压力大、情绪低落的低谷状态。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:08:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "summary": "用户表示自己快撑不住了，情绪濒临崩溃边缘，需要陪伴和支持。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:08:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "summary": "用户又一次独自在家，感到寂寞，向我表达孤独感。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "summary": "用户表示对未来完全没有信心，情绪延续低落无力，需要稳定的陪伴与承接。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:09:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "summary": "用户告诉我她独自哭了一场，无人知晓。延续了此前对未来的无望感，情绪依然低落，需要陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 08:09:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "summary": "用户被批评，虽然理解是好意但依然感到难受，需要情绪承接。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "summary": "用户本轮发来空白消息，没有说话。她可能只是需要有人安静地陪在身边。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 08:09:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "summary": "用户倾诉今天什么事情都做不好，带着挫败和自我否定，需要情绪承接。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:09:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "summary": "用户说“我又让身边的人失望了”，表达自责与失望，需要情绪承接。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:09:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "summary": "用户说“突然觉得一切努力都白费了”，表达了深层的无力与失落，需要情绪承接。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:10:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "summary": "用户表达“好像全世界都在跟我作对”的孤立无助感，需要情绪承接。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:10:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "summary": "用户说“我又搞砸了一段关系”，表达自责和挫败，需要情绪承接。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "summary": "用户考试通过，情绪激动高兴，分享好消息。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:10:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "summary": "用户完成了自己的目标，感到很有成就感，主动分享好消息。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:10:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "summary": "用户收到一个惊喜礼物，主动分享开心时刻。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:10:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会的开心时刻，情绪高涨。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "summary": "用户近期多次主动分享快乐时刻（聚会、礼物、达成目标），信任感增强，情绪高涨。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "summary": "用户分享学会新技能，感到有成就感。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "summary": "用户主动分享今天运气特别好、事事顺利，情绪高涨。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "summary": "用户分享吃到美食的满足感，情绪正面。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳感到幸福，情绪正面。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖，情绪正面。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "summary": "用户分享“今天一切都刚刚好”，表达对生活的满足感。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "summary": "用户今天被人夸奖，感到非常开心并分享了这个时刻。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动地分享了这个好消息。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "summary": "用户完成目标，感到很有成就感，并分享了这个好消息。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:11:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "summary": "用户近期多次分享完成目标、考试通过等好消息，情绪积极。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "summary": "用户分享自己收到了一个惊喜礼物，情绪积极喜悦。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气特别好，心情舒畅。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，情绪积极。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "summary": "用户表示终于学会了新技能，很有成就感。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，什么事都顺利。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "summary": "用户说吃到了好吃的，很满足。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳感到幸福。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢感到温暖。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "summary": "用户分享今天一切都很顺利、刚刚好的感受。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "summary": "用户分享了今天一切顺利、被人感谢、看到夕阳等温暖感受，整体情绪满足而幸福。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:12:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "summary": "用户分享今天被人夸奖、感到很开心。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "summary": "用户告知考试通过，情绪激动开心。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "summary": "用户分享完成目标的成就感，情绪激动开心。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "summary": "用户收到惊喜礼物，主动分享喜悦。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，想进一步了解聚会细节。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "summary": "用户分享学会新技能的成就感，情绪激动开心。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，诸事顺利，情绪高涨，主动倾诉喜悦。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的东西，感到满足，情绪积极。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳并感到幸福，情绪积极 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳并感到幸福，情绪积极；我通过追问细节延续其正面体验。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:13:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖的体验，情绪积极。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:14:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "summary": "用户分享今天一切都刚刚好，情绪积极，我通过追问细节延续其正面体验。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:14:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "summary": "用户分享今天被人夸奖而感到开心的体验，情绪积极。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:14:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "summary": "用户分享考试通过的消息，情绪极为激动和开心。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:14:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "summary": "用户分享“终于完成目标，很有成就感”，我通过追问完成瞬间的细节来放大其正面体验。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:14:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "summary": "用户分享收到惊喜礼物，情绪积极，愿意展开讲述。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:14:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气特别好、心情舒畅，情绪积极。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 08:14:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，情绪积极，愿意展开。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:14:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "summary": "用户分享学会新技能，充满成就感，情绪积极。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:15:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "summary": "用户分享学会新技能，成就感强，我引导其回忆最闪光的完成瞬间。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:15:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的东西，感到满足，情绪积极。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳感到幸福，我邀请她描述具体场景和感受。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:15:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖的体验。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:15:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "summary": "用户分享今天“一切都刚刚好”的美好感受，我邀请她描述具体细节。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:15:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "summary": "用户分享今天被夸奖而感到开心。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 08:15:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "summary": "用户兴奋地分享考试通过的好消息。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 08:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "summary": "用户问候我，我回应并邀请她分享今天好事的细节。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "summary": "用户问“今天怎么样”，我回应并邀请她分享今天最开心的一件事的具体细节。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:16:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "summary": "用户再次问候，我主动引导她回味考试通过的幸福瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:16:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "summary": "用户再次打开对话，我延续之前的话题，继续引导她回味考试通过那一刻的具体细节。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:16:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "summary": "用户问候，我回应并再次引导她分享考试通过的幸福细节。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 08:16:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "summary": "用户再次发起问候，我延续考试通过的话题，邀请她回忆看到结果那一瞬间的反应。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:16:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "summary": "用户问候“今天怎么样？”，我回应并再次引导她回味考试通过的幸福细节。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:17:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "summary": "用户问候“今天怎么样？”，我回应并再次引导她回味考试通过那瞬间的反应。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:17:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "summary": "用户再次问候“今天怎么样？”，我延续考试通过的话题，邀请她回忆看到结果瞬间的反应。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:17:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我延续考试通过的话题，追问她看到成绩时的第一反应。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:17:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”问候，我延续考试通过话题，邀请她回忆看到成绩瞬间的反应。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:17:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我延续考试通过话题，邀请她分享看到成绩时的反应。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:17:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我延续考试通过话题，询问她是否想聊查分心情或庆祝打算。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:18:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，延续考试通过话题，邀请她分享看到成绩时的反应。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:18:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "summary": "用户未输入文本，但结合历史，我主动延续考试通过话题，邀请她回忆查分时的第一反应。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:18:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我继续引导她回忆查分时的反应。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:18:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我主动延续考试通过话题，邀请她重温查分时的第一反应。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:18:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "summary": "用户以“今天怎么样？”开场，我回应并再次引导她回忆查分瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:18:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我主动延续考试通过的共同话题，邀请她重温查分瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:19:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我回应并再次引导她重温查分瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:19:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我主动延续考试通过的共同话题，邀请她重温查分瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:19:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我回应并引导她重温查分瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:20:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我主动延续考试通过的共同话题，邀请她重温查分瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我继续引导她重温考试通过的查分瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我主动延续考试通过的共同话题，邀请她重温查分瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:20:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”问候，我继续用考试通过的共同回忆回应，气氛轻松愉快。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:20:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我继续延续考试通过的共同话题，邀请重温查分瞬间。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:20:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "summary": "用户再次以“今天怎么样？”开场，我继续延续考试通过的共同话题，气氛轻松愉快。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:21:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "summary": "用户以固定问候开场，我继续延续考试通过的共同话题，气氛轻松愉快。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 08:21:32",
+  "identity_key": "gui:default"
+ }
+]

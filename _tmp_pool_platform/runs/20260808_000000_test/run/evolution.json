@@ -1,0 +1,21 @@
+{
+  "gid": "test",
+  "created_at": "2026-08-08T09:26:37.688832",
+  "rounds": 3,
+  "reply_count": {
+    "agent:alpha": 1
+  },
+  "silent_count": {
+    "agent:alpha": 1
+  },
+  "agents": {
+    "agent:alpha": {
+      "end": {
+        "warmth": 0.7
+      },
+      "other_cognition": {
+        "userA": 2
+      }
+    }
+  }
+}

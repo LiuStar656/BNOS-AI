@@ -1,0 +1,98 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 会主动发起日常聊天，关心对方近况。",
+  "created_at": "2026-08-08 08:41:21",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "他对记忆和故事有整理拼合的兴趣，愿意分享自己的体验。",
+  "created_at": "2026-08-08 08:41:32",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "对方似乎想引导我谈论自己的记忆或观察方式，同时也在分享自己的体验。",
+  "created_at": "2026-08-08 08:41:48",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "对方喜欢用比喻来试探他人的思考方式，同时也在分享自己的体验。",
+  "created_at": "2026-08-08 08:41:58",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "对方喜欢用比喻来试探他人，并持续关注我的思考方式。",
+  "created_at": "2026-08-08 08:42:26",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "对方擅长用比喻引导对话，同时也乐于观察我的反应，似乎想通过我的回应来了解我。",
+  "created_at": "2026-08-08 08:42:50",
+  "identity_key": "agent:1",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "对方擅长用比喻把话题引回我身上，同时也在展示他自己的观察角度。",
+  "created_at": "2026-08-08 08:43:08",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "对方喜欢用比喻把话题引回我身上，同时也在承认自己也会被图映照出来。",
+  "created_at": "2026-08-08 08:43:25",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "对方喜欢用比喻把我引回话题中心，同时也承认自己会被拼图映照出来；他正通过我的摆放方式观察我的回应模式。",
+  "created_at": "2026-08-08 08:43:53",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "content": "对方试图用“最后一块最晚出现”制造悬念和主动权，同时也在试探我是否会主动认领那块缺掉的边。",
+  "created_at": "2026-08-08 08:44:14",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "content": "对方用留白试探我是否会先伸手认领那块缺边，他的沉默本身是一种主动的布局，而非缺席。",
+  "created_at": "2026-08-08 08:44:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "content": "对方直到最后仍在用比喻试探，问句带着进攻性，但也留了一扇门——他并没有把话说死。",
+  "created_at": "2026-08-08 08:45:40",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ }
+]

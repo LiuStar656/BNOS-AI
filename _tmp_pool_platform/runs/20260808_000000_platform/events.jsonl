@@ -1,0 +1,16 @@
+{"ts": 1786152398.3673143, "event": "message_enqueued", "user_id": "platform", "content": "今天我们来聊聊最近的生活吧", "priority": 5}
+{"ts": 1786152398.3817239, "event": "message_enqueued", "user_id": "userA", "content": "今天天气真好", "priority": 0}
+{"ts": 1786152398.3818316, "event": "message_enqueued", "user_id": "userB", "content": "@alpha 在吗？", "priority": 0}
+{"ts": 1786152398.381866, "event": "message_enqueued", "user_id": "userC", "content": "有人吗", "priority": 0}
+{"ts": "2026-08-08T09:26:38.381998", "event": "batch_dispatched", "n": 4, "contents": [{"content": "今天我们来聊聊最近的生活吧", "source": "topic", "user_id": "platform", "priority": 5, "ts": 1786152398.3673143}, {"content": "今天天气真好", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786152398.3817239}, {"content": "@alpha 在吗？", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786152398.3818316}, {"content": "有人吗", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786152398.381866}]}
+{"ts": "2026-08-08T09:26:39.284281", "event": "speech_requested", "agent": "agent:alpha", "priority": 20, "policy": "drop"}
+{"ts": "2026-08-08T09:26:39.284307", "event": "speech_output_started", "agent": "agent:alpha"}
+{"ts": "2026-08-08T09:26:40.215994", "event": "speech_finished", "agent": "agent:alpha"}
+{"ts": 1786152400.2160525, "event": "message_enqueued", "user_id": "agent:alpha", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}
+{"ts": 1786152400.2317271, "event": "message_enqueued", "user_id": "userD", "content": "晚上好呀", "priority": 0}
+{"ts": 1786152400.2317815, "event": "message_enqueued", "user_id": "userE", "content": "@beta 有什么新闻吗", "priority": 0}
+{"ts": "2026-08-08T09:26:40.231815", "event": "batch_dispatched", "n": 3, "contents": [{"content": "<开心>你好呀！看到你的消息啦", "source": "agent", "user_id": "agent:alpha", "priority": 0, "ts": 1786152400.2160525}, {"content": "晚上好呀", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786152400.2317271}, {"content": "@beta 有什么新闻吗", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786152400.2317815}]}
+{"ts": "2026-08-08T09:26:40.388716", "event": "speech_requested", "agent": "agent:beta", "priority": 20, "policy": "drop"}
+{"ts": "2026-08-08T09:26:40.388734", "event": "speech_output_started", "agent": "agent:beta"}
+{"ts": "2026-08-08T09:26:40.388745", "event": "speech_finished", "agent": "agent:beta"}
+{"ts": 1786152400.388771, "event": "message_enqueued", "user_id": "agent:beta", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}

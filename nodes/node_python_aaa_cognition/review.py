@@ -32,20 +32,23 @@ def set_llm_call(fn):
     _llm_call_hook = fn
 
 
-def llm_call(prompt: str, identity_key: str = "gui:default") -> str:
+def llm_call(prompt: str, identity_key: str = "gui:default", user_id: str = "") -> str:
     """获取 review 的 LLM 输出。
 
     有注入钩子 → 同步返回文本；
     无钩子（真实节点） → 写 output_review_prompt.json 走节点间通道，返回 ""，
     回执由 AAA handle() 的 review 分支处理（_on_review_response）。
+
+    Args:
+        user_id: v6.1 多用户 — 写入 review prompt 文件，供 LLM 节点回执时带回归属
     """
     if _llm_call_hook is not None:
         return _llm_call_hook(prompt)
-    _write_review_prompt_file(prompt, identity_key)
+    _write_review_prompt_file(prompt, identity_key, user_id)
     return ""
 
 
-def _write_review_prompt_file(prompt: str, identity_key: str):
+def _write_review_prompt_file(prompt: str, identity_key: str, user_id: str = ""):
     """写 output_review_prompt.json — 由 LLM 节点通过 review 端口消费（复用 diary 模式）"""
     try:
         from config import resolve
@@ -57,6 +60,7 @@ def _write_review_prompt_file(prompt: str, identity_key: str):
                 "source": "review",
                 "request_id": f"review_{int(time.time() * 1000)}",
                 "identity_key": identity_key,
+                "user_id": user_id,
             }, f, ensure_ascii=False)
     except Exception:
         pass
@@ -78,12 +82,17 @@ _REVIEW_HEADER = (
 
 
 def build_review_prompt(conversation: list) -> str:
-    """构建 review prompt。conversation: [{"role": "user|assistant", "content": str}, ...]"""
+    """构建 review prompt。conversation: [{"role": "user|assistant", "content": str, "user_id": str}, ...]
+
+    消息带 user_id 时标注具体说话对象（避免多人场景用笼统"用户"导致 declarative 归属歧义）。
+    """
     lines = []
     for m in (conversation or [])[-10:]:
         role = "用户" if m.get("role") == "user" else "AI"
+        uid = str(m.get("user_id") or "").strip()
+        label = f"（说话对象: {uid}）" if uid and m.get("role") == "user" else ""
         content = (m.get("content") or "").strip().replace("\n", " ")
-        lines.append(f"[{role}]: {content[:200]}")
+        lines.append(f"[{role}]{label}: {content[:200]}")
     if not lines:
         lines = ["（无对话记录）"]
     return _REVIEW_HEADER + "最近对话：\n" + "\n".join(lines) + "\n"
@@ -135,8 +144,12 @@ def _is_command_text(text: str) -> bool:
     return any(re.search(p, text) for p in _COMMAND_PATTERNS)
 
 
-def persist_insight(insight: dict, db_path: str, identity_key: str = "gui:default"):
-    """将一条 review 洞察写入对应表（独立连接，线程安全，不去重冲突）。"""
+def persist_insight(insight: dict, db_path: str, identity_key: str = "gui:default", user_id: str = ""):
+    """将一条 review 洞察写入对应表（独立连接，线程安全，不去重冲突）。
+
+    Args:
+        user_id: v6.1 多用户 — declarative 用户事实归属到具体说话对象（缺省归全局）
+    """
     itype = str(insight.get("type", "declarative"))
     content = str(insight.get("content") or "").strip()
     try:
@@ -180,14 +193,15 @@ def persist_insight(insight: dict, db_path: str, identity_key: str = "gui:defaul
                 "INSERT INTO self_cognition(conversation_id,identity_key,content,created_at) "
                 "VALUES('default',?,?,?)", (identity_key, f"[沉淀] {key}={value}", now))
         elif itype == "declarative":
-            # 用户事实/偏好 → user_facts（去重）
+            # 用户事实/偏好 → user_facts（去重，v6.1 多用户：带 user_id 归属说话对象）
             dup = conn.execute(
-                "SELECT COUNT(*) FROM user_facts WHERE identity_key=? AND content=?",
-                (identity_key, content)).fetchone()[0]
+                "SELECT COUNT(*) FROM user_facts WHERE identity_key=? AND content=? AND user_id=?",
+                (identity_key, content, user_id)).fetchone()[0]
             if not dup:
                 conn.execute(
-                    "INSERT INTO user_facts(conversation_id,identity_key,category,content,created_at) "
-                    "VALUES('default',?,?,?,?)", (identity_key, "background", content, now))
+                    "INSERT INTO user_facts(conversation_id,identity_key,category,content,user_id,created_at) "
+                    "VALUES('default',?,?,?,?,?)",
+                    (identity_key, "background", content, user_id, now))
         elif itype == "procedural":
             # 操作模式 → self_cognition（保留来源标记）
             conn.execute(
@@ -198,8 +212,12 @@ def persist_insight(insight: dict, db_path: str, identity_key: str = "gui:defaul
         conn.close()
 
 
-def run_review(conversation: list, db_path: str, identity_key: str = "gui:default") -> int:
+def run_review(conversation: list, db_path: str, identity_key: str = "gui:default", user_id: str = "") -> int:
     """同步执行一次 review（构建 → LLM 调用 → 解析 → 持久化）。
+
+    Args:
+        user_id: v6.1 多用户 — declarative 沉淀归属的说话对象
+        conversation: [{"role": "user|assistant", "content": str, "user_id": str}]
 
     Returns:
         写入的洞察条数（无钩子走节点间通道时返回 -1，等待回执处理）
@@ -207,14 +225,14 @@ def run_review(conversation: list, db_path: str, identity_key: str = "gui:defaul
     if not conversation:
         return 0
     prompt = build_review_prompt(conversation)
-    text = llm_call(prompt, identity_key)
+    text = llm_call(prompt, identity_key, user_id)
     if not text:
         return -1  # 已走节点间通道，回执由 _on_review_response 处理
     insights = parse_review_result(text)
     n = 0
     for ins in insights:
         try:
-            persist_insight(ins, db_path, identity_key)
+            persist_insight(ins, db_path, identity_key, user_id)
             n += 1
         except Exception:
             continue

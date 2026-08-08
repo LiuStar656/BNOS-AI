@@ -11,10 +11,10 @@ _CONTEXT_HEADER = """
 你的固定认知（长期不变的核心设定）：{fixed_cognition}
 你的最近感受：{recent_feelings}
 本周情感基调：{mood_trend}
-你的他人认知（对用户）：{other_cognition}
+你的他人认知{other_cognition_label}：{other_cognition}
 
 本轮输入：
-  用户文本：{user_text}
+{user_text_section}
 {attachment_context}
 
 {perception}
@@ -51,13 +51,13 @@ DIRECT_TEMPLATE = _CONTEXT_HEADER + """
 【自我认知】
 你对自己的新认识
 【他人认知】
-你对用户的新认识
+你对当前对话对象 {current_user_label} 的新认识（必须点名对象、具体描述其言行特点，禁止用笼统的"用户"二字）
 【用户信息】
-key=值, key=值
+key=值, key=值（针对当前对话对象 {current_user_label}）
 【自我信息】
 key=值, key=值
 【用户记忆】
-关于用户的信息（喜好、习惯、身份），没有可留空
+关于当前对话对象 {current_user_label} 的信息（喜好、习惯、身份），具体详细描述，没有可留空
 【环境记忆】
 关于环境/物品/空间的信息（最多3条），没有可留空
 【实体名】
@@ -106,9 +106,21 @@ def build_tool(ctx):
 def _prepare_ctx(ctx):
     """填充条件字段"""
     for key in ("reflection_section", "mood_trend", "perception", "location_section",
-                "personality", "mood"):
+                "personality", "mood", "other_cognition_label", "user_text_section",
+                "pool_batch_section", "current_user_label"):
         if key not in ctx:
             ctx[key] = ""
+    # v6.0 多用户：他人认知注入标签（对指定用户 / 对用户）
+    if not ctx.get("other_cognition_label"):
+        ctx["other_cognition_label"] = f"（对 {ctx.get('user_id')}）" if ctx.get("user_id") else "（对用户）"
+    # v6.1 多用户：认知描述点名对象（他人认知/用户信息/用户记忆必须指名，避免歧义）
+    if not ctx.get("current_user_label"):
+        ctx["current_user_label"] = ctx.get("user_id") or "用户"
+    # v6.0 批量输入：消息池合并段优先；否则回退单条用户文本
+    if ctx.get("pool_batch_section"):
+        ctx["user_text_section"] = ctx["pool_batch_section"]
+    else:
+        ctx["user_text_section"] = f"  用户文本：{ctx.get('user_text', '')}"
     if ctx.get("reflection_prompt"):
         ctx["reflection_section"] = (
             f"{ctx['reflection_prompt']}\n"

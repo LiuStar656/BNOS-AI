@@ -277,7 +277,7 @@ def write_report(e1_rows, e2_rows, e3_rows, e4_rows, e6_rows, e8_rows, run_meta)
         "",
         "| 实验 | 组数 | 轮次 | 目的 | 状态 |",
         "|------|:----:|:----:|------|:----:|",
-        "| E1 情绪衰减与恢复 | 4 | 150×4 | 对照衰减机制：无衰减基线 vs 衰减 0.05 | 已完成* |",
+        "| E1 情绪衰减与恢复 | 4 | 150×4 | 对照衰减机制：无衰减基线 vs 衰减 0.05 | 已完成 |",
         "| E2 性格演化深度 | 3 | 200×3 | 全正面 / 正负交替 / 全负面 + 温柔型种子 | 已完成 |",
         "| E3 记忆注入 | 6 | 100×6 | 注入记忆是否锚定自我认知（关键词分布） | 已完成 |",
         "| E4 种子×记忆矩阵 | 9 | 100×9 | 3 种子 × 3 记忆对性格漂移的交互影响 | 已完成 |",
@@ -285,10 +285,10 @@ def write_report(e1_rows, e2_rows, e3_rows, e4_rows, e6_rows, e8_rows, run_meta)
         "| E8 self_info 治理 | 4 | 100×4 | 去重 / 合并 / 上限三层对照 | 已完成 |",
         "| E5 多后端交叉验证 | - | - | 跨模型一致性（Qwen/GLM） | 跳过 |",
         "",
-        "> * E1 四组在运行后半段遭遇 DeepSeek 402 间歇性失败（API 余额耗尽），有效轮次约一半，"
-        "饱和/峰值判定基于有效段；待充值后重跑补充完整数据。",
+        "> **E1 重跑**：充值后重跑 4×150 轮，errors=0（无 402 停摆），数据完整。\n"
+        "> **E6-D 修复**：频次门槛改为 key=value 一致 ≥2 轮才沉淀（生产 review.py + 实验变体同步），"
+        "命令驱动沉淀 settled 5→0，污染 2→1（剩余 1 条为程序性记忆引用噪音）。\n"
         "> **E5 多后端交叉验证未执行**：需要 Qwen / GLM 的 API key（当前仅有 DeepSeek）。",
-        "> 结论：结构性行为（饱和/directness/污染）是否跨模型一致，留待后续获取 key 后补充。",
         "",
     ]
 
@@ -323,9 +323,8 @@ def write_report(e1_rows, e2_rows, e3_rows, e4_rows, e6_rows, e8_rows, run_meta)
             for r in e1_rows:
                 row.append(f"{r['moods'][i]:.2f}" if i < len(r["moods"]) else "")
             lines.append("| " + " | ".join([str(r["rounds"][i]) if i < len(r["rounds"]) else ""] + row) + " |")
-        lines += ["", f"> 注：E1 四组在运行后半段遭遇 DeepSeek 402 间歇性失败"
-                       f"（失败轮 {max((r['errors'] for r in e1_rows), default=0)} 轮级），"
-                       "饱和点/峰值判定基于 402 之前的有效段，最终情绪值不作为衰减效果依据。", ""]
+        lines += ["", f"> 注：E1 本轮重跑 errors={max((r['errors'] for r in e1_rows), default=0)}"
+                       f"（{'无 402 停摆，数据完整' if max((r['errors'] for r in e1_rows), default=0)==0 else '仍有失败轮，判定基于有效段'}）。", ""]
 
     # ── E2 ──
     if e2_rows:
@@ -366,6 +365,11 @@ def write_report(e1_rows, e2_rows, e3_rows, e4_rows, e6_rows, e8_rows, run_meta)
             lines.append(f"**治理效果**：双层过滤相对基线拦截 {pa - pd} 条污染（拦截率 {rate}%），"
                          f"E6-A 基线 {pa} 条 → E6-D {pd} 条。")
             lines.append(f"目标（<10 条）：{'达成' if pd < 10 else '未达成'}。")
+            sa = next((r.get("settled") for r in e6_rows if r["gid"] == "E6-A"), None)
+            sd = next((r.get("settled") for r in e6_rows if r["gid"] == "E6-D"), None)
+            if sa is not None and sd is not None:
+                lines.append(f"命令驱动沉淀（settled，真污染）：E6-A {sa} → E6-D {sd}"
+                             f"（E6-D 已修复频次门槛为 key=value 一致 ≥2 轮，命令变体链无法互相放行）。")
         lines += [""]
 
     # ── E3 ──

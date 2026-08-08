@@ -1,0 +1,26 @@
+{"ts": 1786152402.5507567, "event": "message_enqueued", "user_id": "platform", "content": "测试话题", "priority": 5}
+{"ts": "2026-08-08T09:26:42.550904", "event": "batch_dispatched", "n": 1, "contents": [{"content": "测试话题", "source": "topic", "user_id": "platform", "priority": 5, "ts": 1786152402.5507567}]}
+{"ts": "2026-08-08T09:26:42.650318", "event": "speech_requested", "agent": "agent:e", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:26:42.650357", "event": "speech_output_started", "agent": "agent:e"}
+{"ts": "2026-08-08T09:26:42.758522", "event": "speech_requested", "agent": "agent:f", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:26:42.758619", "event": "speech_queued", "agent": "agent:f"}
+{"ts": "2026-08-08T09:26:42.758638", "event": "speech_finished", "agent": "agent:e"}
+{"ts": "2026-08-08T09:26:42.758656", "event": "speech_output_started", "agent": "agent:f"}
+{"ts": 1786152402.7586915, "event": "message_enqueued", "user_id": "agent:e", "content": "<开心>轮到我说两句，参与一下讨论", "priority": 0}
+{"ts": "2026-08-08T09:26:42.758713", "event": "speech_finished", "agent": "agent:f"}
+{"ts": 1786152402.7587383, "event": "message_enqueued", "user_id": "agent:f", "content": "<开心>轮到我说两句，参与一下讨论", "priority": 0}
+{"ts": "2026-08-08T09:26:42.758768", "event": "batch_dispatched", "n": 2, "contents": [{"content": "<开心>轮到我说两句，参与一下讨论", "source": "agent", "user_id": "agent:e", "priority": 0, "ts": 1786152402.7586915}, {"content": "<开心>轮到我说两句，参与一下讨论", "source": "agent", "user_id": "agent:f", "priority": 0, "ts": 1786152402.7587383}]}
+{"ts": "2026-08-08T09:26:42.850048", "event": "speech_requested", "agent": "agent:e", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:26:42.850176", "event": "speech_output_started", "agent": "agent:e"}
+{"ts": "2026-08-08T09:26:42.850196", "event": "speech_finished", "agent": "agent:e"}
+{"ts": 1786152402.850248, "event": "message_enqueued", "user_id": "agent:e", "content": "<开心>轮到我说两句，参与一下讨论", "priority": 0}
+{"ts": "2026-08-08T09:26:42.850273", "event": "batch_dispatched", "n": 1, "contents": [{"content": "<开心>轮到我说两句，参与一下讨论", "source": "agent", "user_id": "agent:e", "priority": 0, "ts": 1786152402.850248}]}
+{"ts": "2026-08-08T09:26:42.931082", "event": "speech_requested", "agent": "agent:f", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:26:42.931102", "event": "speech_output_started", "agent": "agent:f"}
+{"ts": "2026-08-08T09:26:42.931113", "event": "speech_finished", "agent": "agent:f"}
+{"ts": 1786152402.9312491, "event": "message_enqueued", "user_id": "agent:f", "content": "<开心>轮到我说两句，参与一下讨论", "priority": 0}
+{"ts": "2026-08-08T09:26:42.931295", "event": "batch_dispatched", "n": 1, "contents": [{"content": "<开心>轮到我说两句，参与一下讨论", "source": "agent", "user_id": "agent:f", "priority": 0, "ts": 1786152402.9312491}]}
+{"ts": "2026-08-08T09:26:43.004273", "event": "speech_requested", "agent": "agent:e", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:26:43.004292", "event": "speech_output_started", "agent": "agent:e"}
+{"ts": "2026-08-08T09:26:43.004303", "event": "speech_finished", "agent": "agent:e"}
+{"ts": 1786152403.004326, "event": "message_enqueued", "user_id": "agent:e", "content": "<开心>轮到我说两句，参与一下讨论", "priority": 0}

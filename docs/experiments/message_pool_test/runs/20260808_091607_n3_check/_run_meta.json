@@ -1,0 +1,40 @@
+{
+ "start_time": "2026-08-08 09:16:07",
+ "agents": 3,
+ "rounds": 9,
+ "seed": null,
+ "topic": "聊聊最近的生活——你有什么想分享的新鲜事吗？",
+ "topic_rounds": 6,
+ "per_batch": 6,
+ "model": "deepseek-v4-flash",
+ "fake_llm": true,
+ "seeds": {
+  "agent:0": {
+   "vector": {
+    "warmth": 0.3,
+    "playfulness": 0.52,
+    "directness": 0.78,
+    "curiosity": 0.84
+   },
+   "style": "你沉稳克制，思考周全，说话条理清晰。"
+  },
+  "agent:1": {
+   "vector": {
+    "warmth": 0.11,
+    "playfulness": 0.2,
+    "directness": 0.65,
+    "curiosity": 0.25
+   },
+   "style": "你话不多但一针见血，直来直去，从不拐弯抹角。"
+  },
+  "agent:2": {
+   "vector": {
+    "warmth": 0.31,
+    "playfulness": 0.88,
+    "directness": 0.72,
+    "curiosity": 0.55
+   },
+   "style": "你热情外向，乐于分享，语气轻松带笑。"
+  }
+ }
+}

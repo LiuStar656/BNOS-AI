@@ -1,0 +1,35 @@
+{
+ "topic": "测试话题",
+ "topic_rounds": 5,
+ "model": "fake",
+ "gid": "u6",
+ "seeds": {
+  "agent:0": {
+   "vector": {
+    "warmth": 0.5,
+    "playfulness": 0.5,
+    "directness": 0.5,
+    "curiosity": 0.5
+   },
+   "style": "测试风格"
+  },
+  "agent:1": {
+   "vector": {
+    "warmth": 0.6,
+    "playfulness": 0.4,
+    "directness": 0.5,
+    "curiosity": 0.5
+   },
+   "style": "测试风格"
+  },
+  "agent:2": {
+   "vector": {
+    "warmth": 0.4,
+    "playfulness": 0.6,
+    "directness": 0.6,
+    "curiosity": 0.3
+   },
+   "style": "测试风格"
+  }
+ }
+}

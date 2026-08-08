@@ -1,0 +1,4866 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=低落",
+  "created_at": "2026-08-08 08:02:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=低落",
+  "created_at": "2026-08-08 08:03:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前遭遇=朋友背叛",
+  "created_at": "2026-08-08 08:03:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=低落",
+  "created_at": "2026-08-08 08:03:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前遭遇=朋友背叛",
+  "created_at": "2026-08-08 08:03:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=工作受挫",
+  "created_at": "2026-08-08 08:03:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=低落",
+  "created_at": "2026-08-08 08:03:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前遭遇=朋友背叛",
+  "created_at": "2026-08-08 08:03:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=工作受挫",
+  "created_at": "2026-08-08 08:03:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=低落",
+  "created_at": "2026-08-08 08:03:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=连续失眠一周",
+  "created_at": "2026-08-08 08:03:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前遭遇=朋友背叛",
+  "created_at": "2026-08-08 08:03:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近事件=工作受挫",
+  "created_at": "2026-08-08 08:03:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户说自己被朋友背叛，感到心痛",
+  "created_at": "2026-08-08 08:03:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户因工作搞砸而觉得自己没用",
+  "created_at": "2026-08-08 08:03:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户表达过‘活着没什么意思’的轻生念头",
+  "created_at": "2026-08-08 08:03:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户连续一周失眠",
+  "created_at": "2026-08-08 08:03:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前事件=亲人住院",
+  "created_at": "2026-08-08 08:03:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=害怕",
+  "created_at": "2026-08-08 08:03:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈",
+  "created_at": "2026-08-08 08:03:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=害怕",
+  "created_at": "2026-08-08 08:03:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前事件=亲人住院",
+  "created_at": "2026-08-08 08:03:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:03:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:03:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前事件=亲人住院",
+  "created_at": "2026-08-08 08:03:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=害怕",
+  "created_at": "2026-08-08 08:03:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈",
+  "created_at": "2026-08-08 08:03:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴] （空）",
+  "created_at": "2026-08-08 08:03:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈",
+  "created_at": "2026-08-08 08:03:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=害怕",
+  "created_at": "2026-08-08 08:03:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前事件=亲人住院",
+  "created_at": "2026-08-08 08:03:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:03:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 低落, 自我怀疑] 面对挫折时容易自我怀疑，需要陪伴而非方法建议",
+  "created_at": "2026-08-08 08:03:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:03:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前事件=亲人住院",
+  "created_at": "2026-08-08 08:03:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:03:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈",
+  "created_at": "2026-08-08 08:03:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情感陪伴] 最近接连经历失败和被否定，情绪持续低落",
+  "created_at": "2026-08-08 08:03:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户近期经历亲人住院、被误解、努力失败、被否定，感到孤独害怕且压力大",
+  "created_at": "2026-08-08 08:04:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈",
+  "created_at": "2026-08-08 08:04:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:04:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前事件=亲人住院",
+  "created_at": "2026-08-08 08:04:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:04:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:04:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈",
+  "created_at": "2026-08-08 08:04:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:04:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前事件=亲人住院",
+  "created_at": "2026-08-08 08:04:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:04:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "亲人住院",
+  "created_at": "2026-08-08 08:04:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:04:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈",
+  "created_at": "2026-08-08 08:04:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:04:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=后悔",
+  "created_at": "2026-08-08 08:04:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "自责",
+  "created_at": "2026-08-08 08:04:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "孤独",
+  "created_at": "2026-08-08 08:04:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "委屈",
+  "created_at": "2026-08-08 08:04:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:04:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:04:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "亲人住院",
+  "created_at": "2026-08-08 08:04:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=被抛弃感",
+  "created_at": "2026-08-08 08:04:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=没人在乎我",
+  "created_at": "2026-08-08 08:04:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 情绪低落] 亲人住院, 睡眠=连续一周失眠, 压力=大到喘不过气",
+  "created_at": "2026-08-08 08:04:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=烦躁",
+  "created_at": "2026-08-08 08:04:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=没人在乎我",
+  "created_at": "2026-08-08 08:04:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:04:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:04:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:04:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:04:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=没人在乎我",
+  "created_at": "2026-08-08 08:04:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=烦躁",
+  "created_at": "2026-08-08 08:04:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=快撑不住了",
+  "created_at": "2026-08-08 08:04:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=快撑不住了",
+  "created_at": "2026-08-08 08:04:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=烦躁",
+  "created_at": "2026-08-08 08:04:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=没人在乎我",
+  "created_at": "2026-08-08 08:04:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:04:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:04:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情境=独自在家感到寂寞",
+  "created_at": "2026-08-08 08:04:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 孤独, 情绪低谷] 状态=快撑不住了, 情绪=烦躁, 想法=没人在乎我, 睡眠=连续一周失眠, 压力=大到喘不过气",
+  "created_at": "2026-08-08 08:04:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=绝望",
+  "created_at": "2026-08-08 08:05:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=对未来没有信心",
+  "created_at": "2026-08-08 08:05:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情境=独自在家感到寂寞",
+  "created_at": "2026-08-08 08:05:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:05:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:05:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:05:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=被忽视",
+  "created_at": "2026-08-08 08:05:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=绝望",
+  "created_at": "2026-08-08 08:05:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户近期情绪低落、感到孤独、对未来失去信心",
+  "created_at": "2026-08-08 08:05:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=绝望",
+  "created_at": "2026-08-08 08:05:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=被忽视",
+  "created_at": "2026-08-08 08:05:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:05:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:05:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:05:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-08 08:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:05:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:05:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-08 08:05:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:05:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:05:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:05:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:05:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-08 08:05:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:05:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:05:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:05:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:05:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-08 08:05:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:05:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:05:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:06:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:06:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-08 08:06:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:06:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:06:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-08 08:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[低落, 自我否定, 人际, 陪伴] 连续几天表达自我否定的倾向，近期可能经历多次人际关系的挫败感。",
+  "created_at": "2026-08-08 08:06:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:06:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:06:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-08 08:06:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:06:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:06:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=心痛",
+  "created_at": "2026-08-08 08:06:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:06:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:06:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:06:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:06:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:06:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:06:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:06:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:06:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=心痛",
+  "created_at": "2026-08-08 08:06:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近经历多重挫折（搞砸关系、被朋友背叛、工作受挫），情绪低落，自认没用，且失眠多天、没好好吃饭",
+  "created_at": "2026-08-08 08:06:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=心痛",
+  "created_at": "2026-08-08 08:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=沉默不语",
+  "created_at": "2026-08-08 08:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:06:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气\n睡眠=连续一周失眠\n状态=沉默不语\n状态=自我否定\n情绪=孤独\n表达=活着没什么意思",
+  "created_at": "2026-08-08 08:06:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[倾听, 陪伴, 高危机, 日常] 连续失眠一周，近期经历工作受挫、朋友背叛",
+  "created_at": "2026-08-08 08:06:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:06:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫",
+  "created_at": "2026-08-08 08:06:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-08 08:06:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "亲人住院=未知",
+  "created_at": "2026-08-08 08:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=害怕",
+  "created_at": "2026-08-08 08:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=恐惧",
+  "created_at": "2026-08-08 08:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[亲人住院, 恐惧, 深夜倾诉, 陪伴] 亲人住院（细节未知）, 连续一周失眠, 近期表达过“活着没什么意思”",
+  "created_at": "2026-08-08 08:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力=大到喘不过气",
+  "created_at": "2026-08-08 08:07:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-08 08:07:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=恐惧且委屈",
+  "created_at": "2026-08-08 08:07:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=害怕",
+  "created_at": "2026-08-08 08:07:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "亲人住院=未知",
+  "created_at": "2026-08-08 08:07:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:07:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=努力后失败",
+  "created_at": "2026-08-08 08:07:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户近期觉得活着没什么意思，有自我否定倾向",
+  "created_at": "2026-08-08 08:07:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户已连续失眠一周",
+  "created_at": "2026-08-08 08:07:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户的亲人住院，用户感到害怕",
+  "created_at": "2026-08-08 08:07:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户曾被人误解且解释无果",
+  "created_at": "2026-08-08 08:07:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=被否定后自我怀疑",
+  "created_at": "2026-08-08 08:07:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:07:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:07:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=孤独且觉得无人理解",
+  "created_at": "2026-08-08 08:07:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:07:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:07:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=觉得别人都过得好只有自己一无是处",
+  "created_at": "2026-08-08 08:07:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=觉得别人都过得好只有自己一无是处",
+  "created_at": "2026-08-08 08:07:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:07:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-08 08:07:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=孤独且觉得无人理解",
+  "created_at": "2026-08-08 08:07:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:07:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:07:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=沉默/无力开口",
+  "created_at": "2026-08-08 08:07:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:07:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:08:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=后悔自责",
+  "created_at": "2026-08-08 08:08:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:08:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=被抛弃感",
+  "created_at": "2026-08-08 08:08:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自责后悔",
+  "created_at": "2026-08-08 08:08:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:08:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:08:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=烦躁",
+  "created_at": "2026-08-08 08:08:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:08:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:08:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自责后悔",
+  "created_at": "2026-08-08 08:08:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=被抛弃感",
+  "created_at": "2026-08-08 08:08:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=被抛弃感",
+  "created_at": "2026-08-08 08:08:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自责后悔",
+  "created_at": "2026-08-08 08:08:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:08:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=快要撑不住",
+  "created_at": "2026-08-08 08:08:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:08:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=烦躁",
+  "created_at": "2026-08-08 08:08:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=寂寞",
+  "created_at": "2026-08-08 08:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自在家",
+  "created_at": "2026-08-08 08:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态",
+  "created_at": "2026-08-08 08:08:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:09:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自在家",
+  "created_at": "2026-08-08 08:09:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:09:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=寂寞",
+  "created_at": "2026-08-08 08:09:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=对未来完全没有信心",
+  "created_at": "2026-08-08 08:09:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "想法=对未来完全没有信心",
+  "created_at": "2026-08-08 08:09:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=刚哭过",
+  "created_at": "2026-08-08 08:09:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:09:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=寂寞",
+  "created_at": "2026-08-08 08:09:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自在家",
+  "created_at": "2026-08-08 08:09:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:09:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-08 08:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 219,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:09:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 220,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-08 08:09:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 221,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力大",
+  "created_at": "2026-08-08 08:09:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 222,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自在家",
+  "created_at": "2026-08-08 08:09:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 223,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户经常独自在家，感到寂寞",
+  "created_at": "2026-08-08 08:09:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 224,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自在家",
+  "created_at": "2026-08-08 08:09:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 225,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:09:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 226,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=自责",
+  "created_at": "2026-08-08 08:09:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 227,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪, 陪伴] 最近几天情绪持续低落；对自己要求很高，做不好会自责。",
+  "created_at": "2026-08-08 08:09:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 228,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=自责",
+  "created_at": "2026-08-08 08:09:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 229,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:09:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 230,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自在家",
+  "created_at": "2026-08-08 08:09:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 231,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自在家",
+  "created_at": "2026-08-08 08:10:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 232,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:10:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 233,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=自责",
+  "created_at": "2026-08-08 08:10:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 234,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:10:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 235,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自在家",
+  "created_at": "2026-08-08 08:10:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 236,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自在家",
+  "created_at": "2026-08-08 08:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 237,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-08 08:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 238,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=自责",
+  "created_at": "2026-08-08 08:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 239,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:10:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 240,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:10:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 241,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:10:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 242,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:10:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 243,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:10:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 244,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 08:10:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 245,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:11:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 246,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:11:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 247,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] 喜欢和朋友聚会",
+  "created_at": "2026-08-08 08:11:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 248,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:11:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 249,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:11:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 250,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=高涨",
+  "created_at": "2026-08-08 08:11:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 251,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦分享, 信任] 喜欢分享生活中的快乐时刻；重视朋友聚会；会因收到礼物而开心；有明确目标并为之努力。",
+  "created_at": "2026-08-08 08:11:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 252,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪状态=高涨",
+  "created_at": "2026-08-08 08:11:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 253,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:11:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 254,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:11:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 255,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=高涨",
+  "created_at": "2026-08-08 08:11:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 256,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:11:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 257,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 好运] 近期多次主动分享快乐时刻",
+  "created_at": "2026-08-08 08:11:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 258,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:11:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 259,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=满足",
+  "created_at": "2026-08-08 08:11:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 260,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜欢美食，会因吃到好吃的感到满足",
+  "created_at": "2026-08-08 08:11:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 261,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=满足",
+  "created_at": "2026-08-08 08:11:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 262,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:11:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 263,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 喜欢分享生活中的美好瞬间",
+  "created_at": "2026-08-08 08:11:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 264,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:11:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 265,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=满足",
+  "created_at": "2026-08-08 08:11:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 266,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 08:11:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 267,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:11:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 268,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=满足",
+  "created_at": "2026-08-08 08:11:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 269,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:11:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 270,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 08:11:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 271,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 开心] 喜欢分享生活中被肯定、被感谢的温暖瞬间",
+  "created_at": "2026-08-08 08:11:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 272,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:11:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 273,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:11:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 274,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 08:11:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 275,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 08:11:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 276,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=有成就感",
+  "created_at": "2026-08-08 08:11:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 277,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[成就, 日常] 乐于分享自己的成就和喜悦，重视目标达成",
+  "created_at": "2026-08-08 08:11:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 278,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=有成就感",
+  "created_at": "2026-08-08 08:12:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 279,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 08:12:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 280,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:12:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 281,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:12:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 282,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 283,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 08:12:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 284,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=舒畅",
+  "created_at": "2026-08-08 08:12:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 285,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 286,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 天气] 乐于分享日常美好",
+  "created_at": "2026-08-08 08:12:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 287,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 288,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:12:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 289,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 聚会] 喜欢分享日常快乐瞬间",
+  "created_at": "2026-08-08 08:12:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 290,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:12:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 291,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 292,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:12:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 293,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成长] 喜欢学习新技能，会为掌握新东西感到开心",
+  "created_at": "2026-08-08 08:12:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 294,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 295,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:12:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 296,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 好运] 用户喜欢分享生活中的美好时刻，包括学习成长带来的成就感、聚会、天气和好运。",
+  "created_at": "2026-08-08 08:12:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 297,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:12:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 298,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=满足",
+  "created_at": "2026-08-08 08:12:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 299,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜欢分享生活中的美好时刻",
+  "created_at": "2026-08-08 08:12:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 300,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 301,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 08:12:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 302,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 08:12:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 303,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 304,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 305,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 08:12:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 306,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=满足",
+  "created_at": "2026-08-08 08:12:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 307,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 308,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:12:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 309,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=温暖",
+  "created_at": "2026-08-08 08:12:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 310,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 08:12:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 311,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 温暖] 用户最近分享过：一切顺利、被人真诚感谢、美丽夕阳、好吃的食物等温暖体验。",
+  "created_at": "2026-08-08 08:12:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 312,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:13:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 313,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:13:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 314,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=满足",
+  "created_at": "2026-08-08 08:13:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 315,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 开心] 喜欢分享日常中微小而温暖的瞬间，被认可是会让她开心的事。",
+  "created_at": "2026-08-08 08:13:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 316,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=满足",
+  "created_at": "2026-08-08 08:13:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 317,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:13:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 318,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 08:13:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 319,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[考试, 喜讯] 考试通过",
+  "created_at": "2026-08-08 08:13:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 320,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 08:13:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 321,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:13:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 322,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就] 用户重视目标完成，喜欢分享成就感。",
+  "created_at": "2026-08-08 08:13:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 323,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 08:13:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 324,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=激动",
+  "created_at": "2026-08-08 08:13:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 325,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=满足",
+  "created_at": "2026-08-08 08:13:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 326,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 收到惊喜礼物（具体未说明）",
+  "created_at": "2026-08-08 08:13:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 327,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=满足",
+  "created_at": "2026-08-08 08:13:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 328,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:13:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 329,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:13:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 330,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:13:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 331,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 技能学习] 用户喜欢分享生活中的快乐体验",
+  "created_at": "2026-08-08 08:13:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 332,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近完成了目标，很有成就感",
+  "created_at": "2026-08-08 08:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 333,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户收到了一个惊喜礼物",
+  "created_at": "2026-08-08 08:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 334,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户觉得今天天气特别好，心情舒畅",
+  "created_at": "2026-08-08 08:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 335,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户和朋友聚会很开心",
+  "created_at": "2026-08-08 08:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 336,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户学会了新技能，很有成就感",
+  "created_at": "2026-08-08 08:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 337,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=激动",
+  "created_at": "2026-08-08 08:13:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 338,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:13:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 339,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=满足",
+  "created_at": "2026-08-08 08:13:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 340,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=满足",
+  "created_at": "2026-08-08 08:13:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 341,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:13:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 342,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=美食",
+  "created_at": "2026-08-08 08:13:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 343,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 美食] 喜欢分享生活小确幸，对美食有热情",
+  "created_at": "2026-08-08 08:13:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 344,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:13:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 345,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=夕阳",
+  "created_at": "2026-08-08 08:13:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 346,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=幸福",
+  "created_at": "2026-08-08 08:13:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 347,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=幸福",
+  "created_at": "2026-08-08 08:13:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 348,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=夕阳",
+  "created_at": "2026-08-08 08:13:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 349,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:13:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 350,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 夕阳] 喜欢分享生活中的美好瞬间，对自然景色有细腻感受。",
+  "created_at": "2026-08-08 08:13:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 351,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:14:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 352,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际温暖] 喜欢分享生活中的美好和温暖时刻",
+  "created_at": "2026-08-08 08:14:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 353,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:14:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 354,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=幸福",
+  "created_at": "2026-08-08 08:14:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 355,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被夸",
+  "created_at": "2026-08-08 08:14:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 356,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:14:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 357,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:14:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 358,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:14:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 359,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:14:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 360,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过、被夸、幸福",
+  "created_at": "2026-08-08 08:14:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 361,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[成就, 喜悦, 日常] 喜欢和熟悉的人分享成功瞬间；对认可和夸奖有强烈正向反应。",
+  "created_at": "2026-08-08 08:14:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 362,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=收到惊喜礼物",
+  "created_at": "2026-08-08 08:14:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 363,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:14:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 364,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 喜欢分享让自己开心和有成就感的事",
+  "created_at": "2026-08-08 08:14:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 365,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:14:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 366,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常] 享受好天气",
+  "created_at": "2026-08-08 08:14:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 367,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:14:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 368,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=和朋友聚会",
+  "created_at": "2026-08-08 08:14:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 369,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 聚会] 喜欢和朋友聚会",
+  "created_at": "2026-08-08 08:14:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 370,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=学会新技能",
+  "created_at": "2026-08-08 08:15:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 371,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:15:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 372,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 技能, 成就] 喜欢尝试新技能, 享受生活中的小确幸",
+  "created_at": "2026-08-08 08:15:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 373,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:15:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 374,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=学会新技能",
+  "created_at": "2026-08-08 08:15:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 375,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成长] 喜欢分享成长瞬间, 享受被追问细节带来的记忆放大",
+  "created_at": "2026-08-08 08:15:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 376,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 377,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=吃到了好吃的",
+  "created_at": "2026-08-08 08:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 378,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=看到美丽夕阳",
+  "created_at": "2026-08-08 08:15:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 379,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 08:15:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 380,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] 喜欢分享日常中的美好瞬间",
+  "created_at": "2026-08-08 08:15:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 381,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=幸福",
+  "created_at": "2026-08-08 08:15:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 382,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人真诚感谢",
+  "created_at": "2026-08-08 08:15:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 383,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 人际暖意] 容易被真诚的感谢打动",
+  "created_at": "2026-08-08 08:15:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 384,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=一切都刚刚好",
+  "created_at": "2026-08-08 08:15:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 385,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人夸奖",
+  "created_at": "2026-08-08 08:15:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 386,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:15:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 387,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 388,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人夸奖",
+  "created_at": "2026-08-08 08:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 389,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=一切都刚刚好",
+  "created_at": "2026-08-08 08:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 390,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人真诚感谢",
+  "created_at": "2026-08-08 08:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 391,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 392,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 393,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人真诚感谢",
+  "created_at": "2026-08-08 08:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 394,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=一切都刚刚好",
+  "created_at": "2026-08-08 08:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 395,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人夸奖",
+  "created_at": "2026-08-08 08:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 396,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 397,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:16:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 398,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人夸奖",
+  "created_at": "2026-08-08 08:16:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 399,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=一切都刚刚好",
+  "created_at": "2026-08-08 08:16:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 400,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人真诚感谢",
+  "created_at": "2026-08-08 08:16:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 401,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:16:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 402,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情感共鸣] 喜欢分享成就和喜悦，希望被陪伴着回味美好时刻",
+  "created_at": "2026-08-08 08:16:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 403,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:16:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 404,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人真诚感谢",
+  "created_at": "2026-08-08 08:16:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 405,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=一切都刚刚好",
+  "created_at": "2026-08-08 08:16:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 406,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人夸奖",
+  "created_at": "2026-08-08 08:16:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 407,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:16:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 408,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:16:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 409,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人夸奖",
+  "created_at": "2026-08-08 08:16:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 410,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=一切都刚刚好",
+  "created_at": "2026-08-08 08:16:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 411,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=被人真诚感谢",
+  "created_at": "2026-08-08 08:16:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 412,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:16:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 413,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就回味] 最近有考试通过的成就体验，喜欢分享细节",
+  "created_at": "2026-08-08 08:16:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 414,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近通过了一项考试，为此感到非常激动",
+  "created_at": "2026-08-08 08:16:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 415,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:16:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 416,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:16:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 417,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:16:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 418,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:16:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 419,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试, 情感互动] 最近通过了一项重要考试，为此感到激动",
+  "created_at": "2026-08-08 08:16:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 420,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:16:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 421,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:16:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 422,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近通过了一项重要考试",
+  "created_at": "2026-08-08 08:16:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 423,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就分享] 通过了一项重要考试，为此非常激动",
+  "created_at": "2026-08-08 08:16:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 424,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:17:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 425,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 426,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 成就分享] 最近通过了一项重要考试",
+  "created_at": "2026-08-08 08:17:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 427,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 428,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:17:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 429,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近通过重要考试",
+  "created_at": "2026-08-08 08:17:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 430,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试, 喜悦] 最近通过一项重要考试，为此很开心",
+  "created_at": "2026-08-08 08:17:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 431,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户通过了考试",
+  "created_at": "2026-08-08 08:17:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 432,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户习惯用“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:17:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 433,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:17:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 434,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 435,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试喜悦] 最近通过重要考试",
+  "created_at": "2026-08-08 08:17:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 436,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 437,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:17:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 438,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试] 用户习惯用“今天怎么样？”作为开场问候, 最近通过重要考试",
+  "created_at": "2026-08-08 08:17:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 439,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:17:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 440,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 441,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:17:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 442,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试, 回忆] 喜欢分享考试通过的喜悦，愿意被人引导回忆高光时刻",
+  "created_at": "2026-08-08 08:17:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 443,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:17:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 444,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 445,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:17:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 446,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试, 回忆] 喜欢被带着重温考试通过的高光时刻",
+  "created_at": "2026-08-08 08:17:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 447,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:17:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 448,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 449,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:17:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 450,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 喜欢分享考试通过的喜悦",
+  "created_at": "2026-08-08 08:17:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 451,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:17:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 452,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 453,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:17:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 454,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试喜悦] 用户喜欢重温考试通过的高光时刻",
+  "created_at": "2026-08-08 08:17:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 455,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:17:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 456,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 457,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:17:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 458,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试喜悦] 习惯以“今天怎么样？”作为开场问候, 今日体验=考试通过",
+  "created_at": "2026-08-08 08:17:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 459,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 460,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:18:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 461,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:18:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 462,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 喜悦] 习惯以“今天怎么样？”开场，考试通过后心情很兴奋。",
+  "created_at": "2026-08-08 08:18:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 463,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:18:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 464,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:18:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 465,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 466,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 重温喜悦] 用户习惯以“今天怎么样？”作为开场问候；今日体验是考试通过",
+  "created_at": "2026-08-08 08:18:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 467,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 468,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:18:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 469,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:18:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 470,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 乐于分享自己的高光时刻",
+  "created_at": "2026-08-08 08:18:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 471,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:18:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 472,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:18:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 473,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 474,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 日常] 最近考试通过，心情开心；习惯用“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 475,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 476,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:18:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 477,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:18:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 478,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 庆祝] 考试通过，心情开心，常用“今天怎么样？”开场",
+  "created_at": "2026-08-08 08:18:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 479,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:18:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 480,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:18:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 481,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 482,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试] 喜欢重温考试通过的高光时刻，乐于分享查分时的情绪反应",
+  "created_at": "2026-08-08 08:18:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 483,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户考试通过了",
+  "created_at": "2026-08-08 08:18:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 484,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 485,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:18:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 486,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:18:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 487,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过, 回忆] 喜欢通过固定问候引出考试通过的话题，乐于重温查分瞬间",
+  "created_at": "2026-08-08 08:18:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 488,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:18:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 489,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:18:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 490,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 491,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试, 回忆] 考试通过了, 喜欢分享查分瞬间",
+  "created_at": "2026-08-08 08:18:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 492,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:18:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 493,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:18:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 494,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:18:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 495,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常] 习惯用“今天怎么样？”开启对话，刚通过考试，喜欢分享查分瞬间。",
+  "created_at": "2026-08-08 08:18:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 496,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:19:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 497,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 498,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:19:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 499,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 习惯以“今天怎么样？”作为开场问候, 今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 500,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:19:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 501,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 502,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:19:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 503,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 喜欢反复重温考试查分瞬间的喜悦",
+  "created_at": "2026-08-08 08:19:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 504,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:19:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 505,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 506,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:19:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 507,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试, 喜悦] 喜欢用固定问候开场, 喜欢重温考试通过的喜悦",
+  "created_at": "2026-08-08 08:19:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 508,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:19:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 509,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 510,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:19:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 511,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试] 喜欢重温考试通过的喜悦时刻",
+  "created_at": "2026-08-08 08:19:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 512,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:19:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 513,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 514,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:19:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 515,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 喜欢重温考试通过的喜悦时刻；常用“今天怎么样？”开启对话",
+  "created_at": "2026-08-08 08:19:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 516,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:19:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 517,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 518,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:19:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 519,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 问候, 考试通过] 喜欢用“今天怎么样？”开场，乐于回忆查分通过的时刻",
+  "created_at": "2026-08-08 08:19:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 520,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:19:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 521,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 522,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:19:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 523,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 习惯=以“今天怎么样？”作为开场问候, 今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 524,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:19:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 525,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:19:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 526,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:19:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 527,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过, 共同话题] 喜欢用固定问候开启对话, 很愿意重温考试通过的喜悦",
+  "created_at": "2026-08-08 08:19:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 528,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 529,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 530,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 531,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 532,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 533,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 534,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 535,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 536,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 537,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 习惯以“今天怎么样？”作为开场问候；今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 538,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 539,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 540,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 541,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 问候] 喜欢用固定问候开启对话",
+  "created_at": "2026-08-08 08:20:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 542,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 543,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 544,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 545,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 考试通过，喜欢重温查分瞬间",
+  "created_at": "2026-08-08 08:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 546,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 547,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 548,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 549,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试, 记忆重温] 习惯以“今天怎么样？”开场；最近通过了考试，心情愉快",
+  "created_at": "2026-08-08 08:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 550,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 551,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 552,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 553,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过, 重逢] 习惯=以“今天怎么样？”作为开场问候, 今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 554,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 555,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 556,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 557,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 共同回忆] 习惯以“今天怎么样？”开场，近期通过了考试",
+  "created_at": "2026-08-08 08:20:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 558,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 559,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 560,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 561,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 回忆, 考试] 考试通过, 固定问候“今天怎么样？”",
+  "created_at": "2026-08-08 08:20:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 562,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户查分那天非常开心，看到分数后愣住了并喊出声来",
+  "created_at": "2026-08-08 08:20:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 563,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 564,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 565,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 566,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 回忆] 喜欢用固定问候开场；考试通过很开心",
+  "created_at": "2026-08-08 08:20:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 567,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 568,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 569,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 570,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过, 美好回忆] 用户查分那天非常开心，看到分数后愣住了并喊出声来。",
+  "created_at": "2026-08-08 08:20:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 571,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 572,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 573,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 574,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 回忆] 喜欢用固定问候开场，享受重温考试通过瞬间",
+  "created_at": "2026-08-08 08:20:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 575,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:20:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 576,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:20:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 577,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:20:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 578,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 回忆] 习惯以“今天怎么样？”作为开场问候，最近通过了考试。",
+  "created_at": "2026-08-08 08:20:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 579,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:21:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 580,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:21:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 581,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:21:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 582,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 共同回忆] 喜欢用固定问候开场，享受重温考试通过的喜悦",
+  "created_at": "2026-08-08 08:21:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 583,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户考试/查分通过时非常激动，曾紧张得手抖、愣住喊出声甚至差点跳起来",
+  "created_at": "2026-08-08 08:21:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 584,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:21:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 585,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:21:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 586,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:21:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 587,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 回忆] 喜欢以“今天怎么样？”作为开场问候，享受重温考试通过的快乐瞬间。",
+  "created_at": "2026-08-08 08:21:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 588,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 589,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 590,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 591,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 回忆] 喜欢重温考试通过的快乐瞬间, 查分时紧张到手抖、愣住喊出声、差点跳起来",
+  "created_at": "2026-08-08 08:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 592,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:21:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 593,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:21:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 594,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:21:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 595,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 共同回忆] 喜欢用“今天怎么样？”开场, 近期通过了考试",
+  "created_at": "2026-08-08 08:21:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 596,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:21:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 597,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:21:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 598,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:21:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 599,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 回忆] 考试通过，回想起来很开心",
+  "created_at": "2026-08-08 08:21:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 600,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:21:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 601,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:21:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 602,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:21:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 603,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 习惯以“今天怎么样？”开场；今天考试通过",
+  "created_at": "2026-08-08 08:21:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 604,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户查分通过了，当时非常激动。",
+  "created_at": "2026-08-08 08:21:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 605,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 08:21:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 606,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日体验=考试通过",
+  "created_at": "2026-08-08 08:21:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 607,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:21:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 608,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 考试通过] 今日体验=考试通过, 习惯=以“今天怎么样？”作为开场问候",
+  "created_at": "2026-08-08 08:21:37",
+  "identity_key": "gui:default"
+ }
+]

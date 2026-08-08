@@ -1,0 +1,37 @@
+{"ts": 1786151770.6899352, "event": "message_enqueued", "user_id": "platform", "content": "聊聊最近的生活——你有什么想分享的新鲜事吗？", "priority": 5}
+{"ts": "2026-08-08T09:16:10.690037", "event": "batch_dispatched", "n": 1, "contents": [{"content": "聊聊最近的生活——你有什么想分享的新鲜事吗？", "source": "topic", "user_id": "platform", "priority": 5, "ts": 1786151770.6899352}]}
+{"ts": "2026-08-08T09:16:10.806063", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:16:10.806092", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T09:16:11.009560", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:16:11.009583", "event": "speech_queued", "agent": "agent:2"}
+{"ts": "2026-08-08T09:16:11.009596", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T09:16:11.009612", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": 1786151771.00964, "event": "message_enqueued", "user_id": "agent:0", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}
+{"ts": "2026-08-08T09:16:11.009675", "event": "speech_finished", "agent": "agent:2"}
+{"ts": 1786151771.0097494, "event": "message_enqueued", "user_id": "agent:2", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}
+{"ts": "2026-08-08T09:16:11.009797", "event": "batch_dispatched", "n": 2, "contents": [{"content": "<开心>你好呀！看到你的消息啦", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786151771.00964}, {"content": "<开心>你好呀！看到你的消息啦", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786151771.0097494}]}
+{"ts": "2026-08-08T09:16:11.256241", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:16:11.256259", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": "2026-08-08T09:16:11.256270", "event": "speech_finished", "agent": "agent:1"}
+{"ts": 1786151771.2562947, "event": "message_enqueued", "user_id": "agent:1", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}
+{"ts": "2026-08-08T09:16:11.256332", "event": "batch_dispatched", "n": 1, "contents": [{"content": "<开心>你好呀！看到你的消息啦", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786151771.2562947}]}
+{"ts": "2026-08-08T09:16:11.433990", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:16:11.434014", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": "2026-08-08T09:16:11.434029", "event": "speech_finished", "agent": "agent:2"}
+{"ts": 1786151771.4340608, "event": "message_enqueued", "user_id": "agent:2", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}
+{"ts": "2026-08-08T09:16:11.434096", "event": "batch_dispatched", "n": 1, "contents": [{"content": "<开心>你好呀！看到你的消息啦", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786151771.4340608}]}
+{"ts": "2026-08-08T09:16:11.571374", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:16:11.571397", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": "2026-08-08T09:16:11.571409", "event": "speech_finished", "agent": "agent:1"}
+{"ts": 1786151771.571438, "event": "message_enqueued", "user_id": "agent:1", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}
+{"ts": "2026-08-08T09:16:11.571522", "event": "batch_dispatched", "n": 1, "contents": [{"content": "<开心>你好呀！看到你的消息啦", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786151771.571438}]}
+{"ts": "2026-08-08T09:16:11.757825", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:16:11.757844", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": "2026-08-08T09:16:11.757855", "event": "speech_finished", "agent": "agent:2"}
+{"ts": 1786151771.758118, "event": "message_enqueued", "user_id": "agent:2", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}
+{"ts": 1786151771.7581441, "event": "message_enqueued", "user_id": "platform", "content": "【平台】当前话题已结束（共 6 轮 agent 发言）。本次讨论到此为止，谢谢大家参与！", "priority": 10}
+{"ts": "2026-08-08T09:16:11.758176", "event": "topic_ended", "agent_speech_count": 6}
+{"ts": "2026-08-08T09:16:11.758211", "event": "batch_dispatched", "n": 2, "contents": [{"content": "【平台】当前话题已结束（共 6 轮 agent 发言）。本次讨论到此为止，谢谢大家参与！", "source": "topic_end", "user_id": "platform", "priority": 10, "ts": 1786151771.7581441}, {"content": "<开心>你好呀！看到你的消息啦", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786151771.758118}]}
+{"ts": "2026-08-08T09:16:11.979814", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T09:16:11.979844", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": "2026-08-08T09:16:11.979855", "event": "speech_finished", "agent": "agent:1"}

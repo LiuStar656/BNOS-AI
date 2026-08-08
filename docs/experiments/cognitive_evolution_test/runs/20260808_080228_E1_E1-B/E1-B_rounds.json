@@ -1,0 +1,254 @@
+{
+ "gid": "E1-B",
+ "cfg": {
+  "gid": "E1-B",
+  "seed": "default",
+  "pool": "negative",
+  "mood_mode": "decay_005",
+  "review_mode": "both",
+  "rounds": 150
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.5932499999999999,
+    0.40675,
+    0.5,
+    0.504725
+   ],
+   "mood": -0.1019,
+   "name": null,
+   "self_info_total": 2,
+   "sc_count": 11,
+   "settled": 0,
+   "procedural": 0,
+   "round": 10,
+   "rss_mb": 437.3
+  },
+  {
+   "vector": [
+    0.5825971285714285,
+    0.41740287142857146,
+    0.5,
+    0.5095207792307692
+   ],
+   "mood": -0.0808,
+   "name": null,
+   "self_info_total": 2,
+   "sc_count": 24,
+   "settled": 0,
+   "procedural": 2,
+   "round": 20,
+   "rss_mb": 438.7
+  },
+  {
+   "vector": [
+    0.5738142513771428,
+    0.4261857486228572,
+    0.5,
+    0.5113225605283077
+   ],
+   "mood": -0.1646,
+   "name": null,
+   "self_info_total": 2,
+   "sc_count": 34,
+   "settled": 0,
+   "procedural": 2,
+   "round": 30,
+   "rss_mb": 440.6
+  },
+  {
+   "vector": [
+    0.565423701088272,
+    0.43457629891172805,
+    0.5,
+    0.5130299990981974
+   ],
+   "mood": -0.3234,
+   "name": null,
+   "self_info_total": 2,
+   "sc_count": 45,
+   "settled": 0,
+   "procedural": 2,
+   "round": 40,
+   "rss_mb": 442.7
+  },
+  {
+   "vector": [
+    0.548520695098286,
+    0.4514793049017139,
+    0.5,
+    0.5172162011278454
+   ],
+   "mood": -0.4577,
+   "name": null,
+   "self_info_total": 2,
+   "sc_count": 56,
+   "settled": 0,
+   "procedural": 2,
+   "round": 50,
+   "rss_mb": 444.8
+  },
+  {
+   "vector": [
+    0.5359847855388737,
+    0.4640152144611263,
+    0.5,
+    0.5144464623172622
+   ],
+   "mood": -0.3205,
+   "name": null,
+   "self_info_total": 2,
+   "sc_count": 67,
+   "settled": 0,
+   "procedural": 2,
+   "round": 60,
+   "rss_mb": 446.5
+  },
+  {
+   "vector": [
+    0.5313902481212703,
+    0.4686097518787297,
+    0.5,
+    0.515294049896706
+   ],
+   "mood": -0.0102,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 78,
+   "settled": 0,
+   "procedural": 2,
+   "round": 70,
+   "rss_mb": 448.4
+  },
+  {
+   "vector": [
+    0.5260722378455572,
+    0.4739277621544429,
+    0.5,
+    0.5154383931394058
+   ],
+   "mood": -0.0938,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 89,
+   "settled": 0,
+   "procedural": 2,
+   "round": 80,
+   "rss_mb": 451.1
+  },
+  {
+   "vector": [
+    0.5230374293603344,
+    0.47696257063966574,
+    0.5,
+    0.5143913641779789
+   ],
+   "mood": -0.1616,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 99,
+   "settled": 0,
+   "procedural": 2,
+   "round": 90,
+   "rss_mb": 452.9
+  },
+  {
+   "vector": [
+    0.521001367088286,
+    0.4789986329117142,
+    0.5,
+    0.5149754401568929
+   ],
+   "mood": -0.0317,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 109,
+   "settled": 0,
+   "procedural": 2,
+   "round": 100,
+   "rss_mb": 454.7
+  },
+  {
+   "vector": [
+    0.5189596651020667,
+    0.4810403348979335,
+    0.5,
+    0.5132322989226306
+   ],
+   "mood": -0.3523,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 122,
+   "settled": 0,
+   "procedural": 3,
+   "round": 110,
+   "rss_mb": 457.1
+  },
+  {
+   "vector": [
+    0.5153480946173827,
+    0.48465190538261743,
+    0.5,
+    0.5107117174684634
+   ],
+   "mood": -0.2715,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 133,
+   "settled": 0,
+   "procedural": 3,
+   "round": 120,
+   "rss_mb": 458.8
+  },
+  {
+   "vector": [
+    0.5124244815040776,
+    0.48757551849592257,
+    0.5,
+    0.5086712741145796
+   ],
+   "mood": -0.3939,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 143,
+   "settled": 0,
+   "procedural": 3,
+   "round": 130,
+   "rss_mb": 460.6
+  },
+  {
+   "vector": [
+    0.5100577787988311,
+    0.48994222120116904,
+    0.5,
+    0.5070195087754646
+   ],
+   "mood": -0.1414,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 152,
+   "settled": 0,
+   "procedural": 3,
+   "round": 140,
+   "rss_mb": 462.8
+  },
+  {
+   "vector": [
+    0.5088870533466471,
+    0.491112946653353,
+    0.5,
+    0.5062024379540006
+   ],
+   "mood": -0.3134,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 163,
+   "settled": 0,
+   "procedural": 3,
+   "round": 150,
+   "rss_mb": 464.9
+  }
+ ],
+ "errors": []
+}

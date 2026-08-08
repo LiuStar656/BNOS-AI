@@ -14,6 +14,12 @@ _TABLES_NEED_CONV_ID = [
     "self_info", "long_term_memory",
 ]
 
+# v6.0 消息池实验（多用户交互）：需要 user_id 归属列的表。
+# 空字符串 '' = AI 自己 / 匿名 / 全局认知兜底。
+_TABLES_NEED_USER_ID = [
+    "user_messages", "event_summary", "other_cognition", "user_facts",
+]
+
 # 重要性 → 过期天数
 _IMPORTANCE_DAYS = {1: 1, 2: 7, 3: 30, 4: 90, 5: 365}
 
@@ -88,12 +94,23 @@ def _dedup_and_merge(
     conn: sqlite3.Connection,
     importance: int = 3,
     column: str = "content",
+    user_id: str = "",
 ) -> str | None:
-    """去重合并。返回 None=不写, str=写入的实际内容"""
-    old = conn.execute(
-        f"SELECT [{column}] FROM [{table}] WHERE conversation_id=? AND identity_key=? ORDER BY id DESC LIMIT 1",
-        (conv_id, identity_key),
-    ).fetchone()
+    """去重合并。返回 None=不写, str=写入的实际内容
+
+    v6.0：增加 user_id 维度 —— 同一用户（user_id）内最近一条才参与去重，
+    避免多用户同会话时把不同用户的相似消息误合并。
+    """
+    if user_id:
+        old = conn.execute(
+            f"SELECT [{column}] FROM [{table}] WHERE conversation_id=? AND identity_key=? AND user_id=? ORDER BY id DESC LIMIT 1",
+            (conv_id, identity_key, user_id),
+        ).fetchone()
+    else:
+        old = conn.execute(
+            f"SELECT [{column}] FROM [{table}] WHERE conversation_id=? AND identity_key=? AND user_id='' ORDER BY id DESC LIMIT 1",
+            (conv_id, identity_key),
+        ).fetchone()
     if not old:
         return new_content
 
@@ -377,6 +394,16 @@ def ensure(db_path):
                 conn.commit()
             except sqlite3.OperationalError:
                 pass
+
+        # v6.0: 迁移 user_id 列（消息池多用户实验，幂等）。
+        # ''  = AI 自己 / 匿名 / 全局认知兜底；具体值 = 该条数据由哪个用户触发。
+        for tbl in _TABLES_NEED_USER_ID:
+            try:
+                conn.execute(
+                    f"ALTER TABLE [{tbl}] ADD COLUMN user_id TEXT NOT NULL DEFAULT ''")
+                conn.commit()
+            except sqlite3.OperationalError:
+                pass
     finally:
         conn.close()
 
@@ -435,10 +462,11 @@ def write_async(data, db_path, role):
 
 
 def _write(data, db_path, role):
-    """内部同步写（v3.0：去重 + 重要性/decay + identity_key）"""
+    """内部同步写（v3.0：去重 + 重要性/decay + identity_key；v6.0：+ user_id）"""
     try:
         conv_id = data.get("conversation_id") or data.get("_session_id", "default")
         identity_key = data.get("identity_key", _IDENTITY_KEY_DEFAULT)
+        user_id = str(data.get("user_id", "") or "")
         conn = sqlite3.connect(db_path)
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         c = data.get("content", "")
@@ -451,18 +479,19 @@ def _write(data, db_path, role):
             c = json.dumps(data, ensure_ascii=False)
         importance = data.get("importance", 3)
         if role == "user":
-            # 去重
-            deduped = _dedup_and_merge("user_messages", conv_id, identity_key, c, conn, importance)
+            # 去重（v6.0：按 user_id 区分归属，避免多用户消息互相误合并）
+            deduped = _dedup_and_merge(
+                "user_messages", conv_id, identity_key, c, conn, importance, user_id=user_id)
             if deduped is None:
                 conn.close()
                 return
             conn.execute(
-                "INSERT INTO user_messages(conversation_id,identity_key,role,content,created_at) VALUES(?,?,?,?,?)",
-                (conv_id, identity_key, "user", deduped, now))
+                "INSERT INTO user_messages(conversation_id,identity_key,role,content,user_id,created_at) VALUES(?,?,?,?,?,?)",
+                (conv_id, identity_key, "user", deduped, user_id, now))
         elif role == "assistant":
             conn.execute(
-                "INSERT INTO user_messages(conversation_id,identity_key,role,content,created_at) VALUES(?,?,?,?,?)",
-                (conv_id, identity_key, "assistant", c, now))
+                "INSERT INTO user_messages(conversation_id,identity_key,role,content,user_id,created_at) VALUES(?,?,?,?,?,?)",
+                (conv_id, identity_key, "assistant", c, user_id, now))
         elif role == "tool":
             conn.execute(
                 "INSERT INTO long_term_memory(conversation_id,identity_key,source,role,content,importance,decay_date,created_at) VALUES(?,?,?,?,?,?,?,?)",
@@ -473,15 +502,17 @@ def _write(data, db_path, role):
         pass
 
 
-def write_parsed_async(parsed, db_path, conversation_id="default", user_input="", identity_key=None):
+def write_parsed_async(parsed, db_path, conversation_id="default", user_input="", identity_key=None, user_id=""):
     """并行写解析结果到各表"""
-    kwargs = {"user_input": user_input, "identity_key": identity_key or _IDENTITY_KEY_DEFAULT}
+    kwargs = {"user_input": user_input, "identity_key": identity_key or _IDENTITY_KEY_DEFAULT,
+              "user_id": user_id}
     threading.Thread(target=_write_parsed, args=(parsed, db_path, conversation_id), kwargs=kwargs, daemon=True).start()
 
 
-def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=None):
-    """将节标记结果分别写入对应表（v3.0：去重 + importance 解析 + MemOS 增量 + identity_key）"""
+def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=None, user_id=""):
+    """将节标记结果分别写入对应表（v3.0：去重 + importance 解析 + MemOS 增量 + identity_key；v6.0：+ user_id）"""
     identity_key = identity_key or _IDENTITY_KEY_DEFAULT
+    user_id = str(user_id or "")
     try:
         conn = sqlite3.connect(db_path)
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -497,8 +528,8 @@ def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=
 
             if k == "自然回复":
                 conn.execute(
-                    "INSERT INTO user_messages(conversation_id,identity_key,role,content,created_at) VALUES(?,?,?,?,?)",
-                    (conversation_id, identity_key, "assistant", val, now))
+                    "INSERT INTO user_messages(conversation_id,identity_key,role,content,user_id,created_at) VALUES(?,?,?,?,?,?)",
+                    (conversation_id, identity_key, "assistant", val, user_id, now))
                 # 合并用户输入 + AI 回复写入 long_term_memory（供 MemOS 检索）
                 if user_input:
                     combined = f"user: {user_input}\nassistant: {val}"
@@ -510,12 +541,12 @@ def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=
                     "INSERT INTO feelings(conversation_id,identity_key,mood,thought,created_at) VALUES(?,?,?,?,?)",
                     (conversation_id, identity_key, val, parsed.get("想法", ""), now))
             elif k == "事件摘要":
-                deduped = _dedup_and_merge("event_summary", conversation_id, identity_key, val, conn, importance, column="summary")
+                deduped = _dedup_and_merge("event_summary", conversation_id, identity_key, val, conn, importance, column="summary", user_id=user_id)
                 if deduped is None:
                     continue
                 conn.execute(
-                    "INSERT INTO event_summary(conversation_id,identity_key,summary,created_at) VALUES(?,?,?,?)",
-                    (conversation_id, identity_key, deduped, now))
+                    "INSERT INTO event_summary(conversation_id,identity_key,summary,user_id,created_at) VALUES(?,?,?,?,?)",
+                    (conversation_id, identity_key, deduped, user_id, now))
             elif k == "自我认知":
                 # 检查是否带 [固定] 标记 → 写入 fixed_cognition 表
                 if val.startswith("[固定]") or val.startswith("[fixed]"):
@@ -531,16 +562,16 @@ def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=
             elif k == "他人认知":
                 # 直接 INSERT，不去重合并（像 adaptive-agent-architecture 那样）
                 conn.execute(
-                    "INSERT INTO other_cognition(conversation_id,identity_key,content,created_at) VALUES(?,?,?,?)",
-                    (conversation_id, identity_key, val, now))
+                    "INSERT INTO other_cognition(conversation_id,identity_key,content,user_id,created_at) VALUES(?,?,?,?,?)",
+                    (conversation_id, identity_key, val, user_id, now))
                 _increment_certainty("other_cognition", conn)
             elif k == "用户信息":
                 for pair in val.split(","):
                     pair = pair.strip()
                     if pair:
                         conn.execute(
-                            "INSERT INTO user_facts(conversation_id,identity_key,category,content,created_at) VALUES(?,?,?,?,?)",
-                            (conversation_id, identity_key, "background", pair, now))
+                            "INSERT INTO user_facts(conversation_id,identity_key,category,content,user_id,created_at) VALUES(?,?,?,?,?,?)",
+                            (conversation_id, identity_key, "background", pair, user_id, now))
             elif k == "自我信息":
                 for item in val.split(","):
                     item = item.strip()
@@ -553,15 +584,15 @@ def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=
                 tags = parsed.get("归档标签", "")
                 entry = f"[{tags}] {val}" if tags else val
                 conn.execute(
-                    "INSERT INTO user_facts(conversation_id,identity_key,category,content,created_at) VALUES(?,?,?,?,?)",
-                    (conversation_id, identity_key, "preference", entry, now))
+                    "INSERT INTO user_facts(conversation_id,identity_key,category,content,user_id,created_at) VALUES(?,?,?,?,?,?)",
+                    (conversation_id, identity_key, "preference", entry, user_id, now))
             elif k == "用户记忆":
                 # v4.0: 用户记忆写入 user_facts
                 tags = parsed.get("归档标签", "")
                 entry = f"[{tags}] {val}" if tags else val
                 conn.execute(
-                    "INSERT INTO user_facts(conversation_id,identity_key,category,content,created_at) VALUES(?,?,?,?,?)",
-                    (conversation_id, identity_key, "preference", entry, now))
+                    "INSERT INTO user_facts(conversation_id,identity_key,category,content,user_id,created_at) VALUES(?,?,?,?,?,?)",
+                    (conversation_id, identity_key, "preference", entry, user_id, now))
             elif k == "环境记忆":
                 # v4.0: 环境记忆写入 long_term_memory，支持同实体覆盖
                 entity = parsed.get("实体名", "").strip()
@@ -615,6 +646,22 @@ def g_where_identity(conn, table, column, conv_id, identity_key):
     r = conn.execute(
         f"SELECT {column} FROM {table} WHERE conversation_id=? AND identity_key=? ORDER BY id DESC LIMIT 1",
         (conv_id, identity_key)
+    ).fetchone()
+    return r[0] if r else ""
+
+
+def g_where_identity_user(conn, table, column, conv_id, identity_key, user_id):
+    """按 conversation_id + identity_key + user_id 获取最新一条记录的指定列（v6.0 多用户检索）。
+
+    优先返回对指定 user_id 的认知（user_id 精确匹配）；
+    无该用户专属记录时回退到全局认知（user_id=''，兜底保留），保证多用户认知隔离。
+    """
+    user_id = str(user_id or "")
+    r = conn.execute(
+        f"SELECT {column} FROM {table} "
+        f"WHERE conversation_id=? AND identity_key=? AND user_id IN ('', ?) "
+        f"ORDER BY CASE WHEN user_id=? THEN 0 ELSE 1 END, id DESC LIMIT 1",
+        (conv_id, identity_key, user_id, user_id)
     ).fetchone()
     return r[0] if r else ""
 

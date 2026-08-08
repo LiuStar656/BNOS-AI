@@ -1,0 +1,155 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 09:00:36",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=平静",
+  "created_at": "2026-08-08 09:00:50",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偶尔闷",
+  "created_at": "2026-08-08 09:00:50",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偶尔闷",
+  "created_at": "2026-08-08 09:01:03",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=平静",
+  "created_at": "2026-08-08 09:01:03",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 天气] 喜欢从日常小细节里开启对话",
+  "created_at": "2026-08-08 09:01:03",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=平静",
+  "created_at": "2026-08-08 09:01:12",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偶尔闷",
+  "created_at": "2026-08-08 09:01:12",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴] 喜欢待在窗边看天光和云，出门对他来说比较费劲",
+  "created_at": "2026-08-08 09:01:12",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近生活平静，偶尔会感到有些闷",
+  "created_at": "2026-08-08 09:01:23",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户看电影音乐不多，没有特别明确的爱好",
+  "created_at": "2026-08-08 09:01:23",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户出门走动比较费劲，喜欢在窗边看天光和云",
+  "created_at": "2026-08-08 09:01:23",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近生活平静，偶尔觉得闷，但也习惯了",
+  "created_at": "2026-08-08 09:01:54",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户电影音乐看得不多，没有特别爱好",
+  "created_at": "2026-08-08 09:01:54",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢待在窗边看天光云影，觉得出门走走费劲，需要这份安静",
+  "created_at": "2026-08-08 09:01:54",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偶尔闷",
+  "created_at": "2026-08-08 09:02:11",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=平静",
+  "created_at": "2026-08-08 09:02:11",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ }
+]
