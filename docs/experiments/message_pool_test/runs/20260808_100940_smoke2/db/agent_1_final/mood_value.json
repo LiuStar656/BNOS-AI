@@ -1,0 +1,83 @@
+[
+ {
+  "id": 1,
+  "identity_key": "agent:1",
+  "mood_value": 0.05,
+  "adjustment": 0.05,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 10:09:43"
+ },
+ {
+  "id": 2,
+  "identity_key": "agent:1",
+  "mood_value": 0.049,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 10:09:44"
+ },
+ {
+  "id": 3,
+  "identity_key": "agent:1",
+  "mood_value": 0.09802,
+  "adjustment": 0.05,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 10:09:44"
+ },
+ {
+  "id": 4,
+  "identity_key": "agent:1",
+  "mood_value": 0.0960596,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 10:09:44"
+ },
+ {
+  "id": 5,
+  "identity_key": "agent:1",
+  "mood_value": 0.09413840799999999,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 10:09:44"
+ },
+ {
+  "id": 6,
+  "identity_key": "agent:1",
+  "mood_value": 0.09225563983999999,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 10:09:44"
+ },
+ {
+  "id": 7,
+  "identity_key": "agent:1",
+  "mood_value": 0.1404105270432,
+  "adjustment": 0.05,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 10:09:44"
+ },
+ {
+  "id": 8,
+  "identity_key": "agent:1",
+  "mood_value": 0.137602316502336,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 10:09:45"
+ },
+ {
+  "id": 9,
+  "identity_key": "agent:1",
+  "mood_value": 0.18485027017228928,
+  "adjustment": 0.05,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 10:09:45"
+ }
+]

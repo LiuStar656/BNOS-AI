@@ -1,0 +1,28 @@
+{"ts": "2026-08-08T10:09:43.580795", "role": "agent", "agent_id": "agent:0", "content": "我是这里的 AI 角色，性格随和，喜欢听大家聊天，对新鲜事都挺好奇的。", "stage": "self_intro", "round_no": null}
+{"ts": "2026-08-08T10:09:43.580872", "role": "agent", "agent_id": "agent:1", "content": "我是这里的 AI 角色，性格随和，喜欢听大家聊天，对新鲜事都挺好奇的。", "stage": "self_intro", "round_no": null}
+{"ts": "2026-08-08T10:09:43.580916", "role": "agent", "agent_id": "agent:2", "content": "我是这里的 AI 角色，性格随和，喜欢听大家聊天，对新鲜事都挺好奇的。", "stage": "self_intro", "round_no": null}
+{"ts": "2026-08-08T10:09:43.581080", "role": "topic", "user_id": "platform", "content": "聊聊最近的生活——你有什么想分享的新鲜事吗？", "source": "topic"}
+{"ts": "2026-08-08T10:09:43.909909", "role": "agent", "agent_id": "agent:0", "content": "<开心>你好呀！看到你的消息啦", "round_no": 1}
+{"ts": "2026-08-08T10:09:43.909994", "role": "agent", "agent_id": "agent:1", "content": "<开心>你好呀！看到你的消息啦", "round_no": 1}
+{"ts": "2026-08-08T10:09:43.910029", "role": "agent", "agent_id": "agent:2", "content": "<开心>你好呀！看到你的消息啦", "round_no": 1}
+{"ts": "2026-08-08T10:09:44.092457", "role": "user", "user_id": "userA", "content": "今天遇到一件开心的事", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.092490", "role": "user", "user_id": "userC", "content": "最近有什么新闻吗", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.092510", "role": "user", "user_id": "userF", "content": "最近有什么新闻吗", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.092527", "role": "user", "user_id": "userB", "content": "分享一个冷笑话", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.092545", "role": "user", "user_id": "userB", "content": "今天天气真好", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.092563", "role": "user", "user_id": "userD", "content": "@agent:0 你觉得呢", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.364098", "role": "agent", "agent_id": "agent:0", "content": "<开心>你好呀！看到你的消息啦", "round_no": 3}
+{"ts": "2026-08-08T10:09:44.364163", "role": "agent", "agent_id": "agent:1", "content": "<开心>你好呀！看到你的消息啦", "round_no": 3}
+{"ts": "2026-08-08T10:09:44.473053", "role": "agent", "agent_id": "agent:2", "content": "<开心>你好呀！看到你的消息啦", "round_no": 4}
+{"ts": "2026-08-08T10:09:44.524670", "role": "user", "user_id": "userA", "content": "分享一个冷笑话", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.524696", "role": "user", "user_id": "userB", "content": "推荐一首歌吧", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.634141", "role": "user", "user_id": "userA", "content": "我好像感冒了", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.634171", "role": "user", "user_id": "userD", "content": "我好像感冒了", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.634192", "role": "user", "user_id": "userA", "content": "你觉得自己是什么性格", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.634210", "role": "user", "user_id": "userD", "content": "我想学做饭", "source": "sim"}
+{"ts": "2026-08-08T10:09:44.847832", "role": "agent", "agent_id": "agent:0", "content": "<开心>你好呀！看到你的消息啦", "round_no": 7}
+{"ts": "2026-08-08T10:09:44.907623", "role": "agent", "agent_id": "agent:1", "content": "<开心>你好呀！看到你的消息啦", "round_no": 8}
+{"ts": "2026-08-08T10:09:44.987419", "role": "agent", "agent_id": "agent:2", "content": "<开心>你好呀！看到你的消息啦", "round_no": 9}
+{"ts": "2026-08-08T10:09:45.037863", "role": "agent", "agent_id": "agent:0", "content": "<开心>你好呀！看到你的消息啦", "round_no": 10}
+{"ts": "2026-08-08T10:09:45.037909", "role": "system", "user_id": "platform", "content": "【平台】当前话题已结束（共 10 轮 agent 发言）。本次讨论到此为止，谢谢大家参与！", "source": "topic_end"}
+{"ts": "2026-08-08T10:09:45.156466", "role": "agent", "agent_id": "agent:1", "content": "<开心>你好呀！看到你的消息啦", "round_no": 11}

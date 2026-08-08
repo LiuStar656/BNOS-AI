@@ -1,6 +1,6 @@
 {
   "gid": "platform",
-  "created_at": "2026-08-08T09:26:40.231236",
+  "created_at": "2026-08-08T10:54:05.677606",
   "rounds": 1,
   "reply_count": {
     "agent:alpha": 1
@@ -8,6 +8,7 @@
   "silent_count": {
     "agent:beta": 1
   },
+  "error_count": {},
   "agents": {
     "agent:alpha": {
       "end": {
@@ -20,7 +21,7 @@
         "mood": 0.05
       },
       "other_cognition": {
-        "userC": 1
+        "agent:beta": 1
       }
     },
     "agent:beta": {

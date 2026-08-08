@@ -105,16 +105,24 @@ class PersonalityEvolution:
                    if r["reaction"] == "positive" and r["style"].get(dim) is not None]
             neg = [r["style"].get(dim) for r in recent
                    if r["reaction"] == "negative" and r["style"].get(dim) is not None]
+            # v6.3 P1-4：neutral 反馈也参与演化（消息池批量路径 / 无显式反馈
+            # 时 reaction 恒为 neutral，原实现 pos/neg 为空导致 for 循环全部
+            # continue → 人格零漂移根因）。向观测风格收敛：自我一致时 delta≈0
+            # 不漂移，出现风格偏离时缓慢收敛（步长仍限幅 ±0.02）。
+            neutral = [r["style"].get(dim) for r in recent
+                       if r["reaction"] == "neutral" and r["style"].get(dim) is not None]
 
-            if not pos and not neg:
+            if not pos and not neg and not neutral:
                 continue  # 无观测，跳过（有观测即演化，无死区间）
 
             if pos and neg:
                 target = (sum(pos) / len(pos) + sum(neg) / len(neg)) / 2
             elif pos:
                 target = sum(pos) / len(pos)          # 正反馈 → 向观测风格靠拢
-            else:
+            elif neg:
                 target = 1.0 - sum(neg) / len(neg)    # 负反馈 → 背离观测风格
+            else:
+                target = sum(neutral) / len(neutral)  # 中性反馈 → 向观测风格收敛
 
             delta = (target - self.vector[dim]) * _ADJUST_LEARN_RATE
             # 情绪趋势调速（保留 v1.0 行为）

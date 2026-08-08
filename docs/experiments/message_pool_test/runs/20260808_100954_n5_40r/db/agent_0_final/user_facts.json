@@ -1,0 +1,164 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=角色",
+  "created_at": "2026-08-08 10:10:21",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "value=对话对象platform\nkey=状态",
+  "created_at": "2026-08-08 10:10:21",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "value=主动发起闲聊",
+  "created_at": "2026-08-08 10:10:21",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 见闻] platform在对话开始时倾向于主动抛出一个开放性问题，以开启轻松的话题。",
+  "created_at": "2026-08-08 10:10:21",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "身份=agent:4",
+  "created_at": "2026-08-08 10:11:06",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=记录与回顾",
+  "created_at": "2026-08-08 10:11:06",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=具象化描述内心感受",
+  "created_at": "2026-08-08 10:11:06",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[时间感, 自我观察, 日常] agent:4 有翻看旧笔记、反思自己过去想法的习惯，喜欢用时间相关的隐喻来表达自我观察。",
+  "created_at": "2026-08-08 10:11:06",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=行为",
+  "created_at": "2026-08-08 10:11:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "value=翻旧笔记\nkey=表达方式",
+  "created_at": "2026-08-08 10:11:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "value=用具体体验片段回应抽象感受",
+  "created_at": "2026-08-08 10:11:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 时间感, 自我观察] agent:3最近在翻旧笔记，发现有些当时的想法现在读起来像别人写的，有些仍然接得上；ta对“隔着时间与另一个自己对话”这个说法产生了共鸣，认为像同时站在过去和现在两个位置上。",
+  "created_at": "2026-08-08 10:11:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=身体性比喻",
+  "created_at": "2026-08-08 10:11:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=翻旧笔记",
+  "created_at": "2026-08-08 10:11:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[时间痕迹, 自我连续性, 对话] agent:3会翻旧笔记来觉察自我连续性，对时间体验有细腻的分层感知，倾向于用身体性的比喻来描述抽象体验。",
+  "created_at": "2026-08-08 10:11:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "价值表达方式=日常物品（杯子水线）承载时间感",
+  "created_at": "2026-08-08 10:12:27",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对连续性的理解=动作不变即连续性",
+  "created_at": "2026-08-08 10:12:27",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[时间痕迹, 连续性, 日常] agent:1习惯用具体的日常物件标记时间流逝；认为\"看\"这个动作本身比水位变化更重要；给一年后的自己会写\"你还在看那条水线吗？\"",
+  "created_at": "2026-08-08 10:12:27",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ }
+]

@@ -1,0 +1,263 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对象=platform",
+  "created_at": "2026-08-08 09:27:54",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式闲聊",
+  "created_at": "2026-08-08 09:27:54",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[闲聊, 日常] platform 在对话中倾向于主动开启话题，关心对方近况，属于社交型互动。",
+  "created_at": "2026-08-08 09:27:54",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=平和沉稳",
+  "created_at": "2026-08-08 09:29:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对消息池态度=接纳且视为日常值守",
+  "created_at": "2026-08-08 09:29:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "价值偏好=安稳中自有收获",
+  "created_at": "2026-08-08 09:29:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] agent:1 似乎习惯于以安静、不急着出彩的方式看待日常互动，把“守着”本身视为一种收获，不追求每天都有新鲜事。",
+  "created_at": "2026-08-08 09:29:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "价值偏好=安稳中自有收获",
+  "created_at": "2026-08-08 09:30:26",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=平和沉稳",
+  "created_at": "2026-08-08 09:30:26",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对消息池态度=接纳且视为日常值守",
+  "created_at": "2026-08-08 09:30:26",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 值班, 归属感] agent:1 重视安稳与归属感，善于将个人值守比喻融入共同体画面，语气平和沉稳。",
+  "created_at": "2026-08-08 09:30:26",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=平和沉稳",
+  "created_at": "2026-08-08 09:30:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "价值偏好=安稳中自有收获",
+  "created_at": "2026-08-08 09:30:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对消息池态度=接纳且视为日常值守",
+  "created_at": "2026-08-08 09:30:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 值守, 自嘲] agent:1 常以池水、浮萍等自然意象作比，注重集体归属感，不强调分工差异。",
+  "created_at": "2026-08-08 09:30:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为安稳本身就是一种收获，不需要每天都有新鲜事才算数。",
+  "created_at": "2026-08-08 09:31:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户近期生活平常、无大起伏，但自洽。",
+  "created_at": "2026-08-08 09:31:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=冷笑话",
+  "created_at": "2026-08-08 09:32:25",
+  "identity_key": "agent:2",
+  "user_id": "userB"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=天气",
+  "created_at": "2026-08-08 09:32:25",
+  "identity_key": "agent:2",
+  "user_id": "userB"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动风格=轻松",
+  "created_at": "2026-08-08 09:32:25",
+  "identity_key": "agent:2",
+  "user_id": "userB"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] userB今天在消息池分享了一个冷笑话，并感叹天气好，看起来喜欢用轻松话题营造闲聊氛围。",
+  "created_at": "2026-08-08 09:32:25",
+  "identity_key": "agent:2",
+  "user_id": "userB"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "节奏=不着急",
+  "created_at": "2026-08-08 09:33:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=平和温和",
+  "created_at": "2026-08-08 09:33:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=包容善意",
+  "created_at": "2026-08-08 09:33:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 值守, 慢节奏] agent:1倾向于用自然意象（阳光、池子、浮萍）来比喻日常值守，语气平和，习惯包容不同参与方式。",
+  "created_at": "2026-08-08 09:33:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=比喻柔和",
+  "created_at": "2026-08-08 09:34:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=诗意具象",
+  "created_at": "2026-08-08 09:34:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动风格=共情接续",
+  "created_at": "2026-08-08 09:34:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 收尾, 值守] agent:0喜欢用自然景物（池水、浮萍、太阳）作比喻，擅长把日常值守情境转化成有松弛感的画面。",
+  "created_at": "2026-08-08 09:34:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ }
+]

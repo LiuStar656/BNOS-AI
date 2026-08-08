@@ -21,7 +21,7 @@ import sqlite3
 
 from .event_bus import EventBus
 from .message_pool import MessagePool
-from .router import pick_speaker
+from .router import pick_speaker, find_mentions
 from .arbiter import SpeechOutputArbiter, ArbiterPolicy
 from .collector import ExperimentCollector
 
@@ -102,6 +102,23 @@ class MessagePoolPlatform:
         return True
 
     # ── Agent 发言回投与话题轮数（多轮对话） ──────────────────
+    def _batch_for(self, aid, batch):
+        """v6.3 P1-3：为单个 Agent 定制批次顺序——把 @ 该 Agent 的消息移到
+        批次末尾。AAA 合并上下文把末位作者作为"最后发言者"，LLM 存在末位偏置
+        （几乎总回应批次最后一条消息），导致发言排在批次前端的 Agent（如
+        agent:0/1）永远不被回应 → 认知黑洞。把 @ 消息置末位，让末位偏置
+        反过来为"@ 优先"服务；无 @ 时保持原序（最后发言者仍是自然的回应焦点）。
+        """
+        mentioned = []
+        rest = []
+        for m in batch:
+            text = m.text if hasattr(m, "text") else m.get("text", m.get("content", ""))
+            if aid in find_mentions(text, [aid]):
+                mentioned.append(m)
+            else:
+                rest.append(m)
+        return rest + mentioned if mentioned else batch
+
     def _feed_agent_speech(self, agent_id, content):
         """把 Agent 广播发言回投消息池（构成 agent 间多轮对话）并按轮计数。
 
@@ -160,6 +177,10 @@ class MessagePoolPlatform:
     def step(self):
         """消费一批消息并让相关 Agent 决策。
 
+        F9 并行派发：同一批消息并行投给全部目标 Agent（各 Agent 独立
+        子进程/实例），决策完成后按 @ 优先级排序仲裁——被点名 Agent
+        即使决策完成较晚，其发言仍优先生效。
+
         Returns:
             (agent_id, content) 本步广播的发言；无消息或无人发言则 None。
         """
@@ -176,11 +197,51 @@ class MessagePoolPlatform:
             target_agents = [a for a in target_agents
                              if a != self._last_speaker]
 
+        # ── F9 并行决策：并发调用全部目标 Agent，收集决策 ──
+        decisions: dict[str, dict] = {}
+        if len(target_agents) == 1:
+            aid = target_agents[0]
+            try:
+                decisions[aid] = self.agents[aid].process_batch(
+                    self._batch_for(aid, batch), round_no=self._round_no)
+            except Exception as e:
+                # v6.3 P0-1：单 Agent 路径调用失败 → error（不落 silent）
+                decisions[aid] = {"action": "error", "content": "",
+                                  "user_id": "", "想法": "", "心情": "",
+                                  "error": f"{type(e).__name__}: {e}"}
+        else:
+            import threading
+            results: dict[str, dict] = {}
+            errors: list[str] = []
+
+            def _run(aid):
+                try:
+                    results[aid] = self.agents[aid].process_batch(
+                        self._batch_for(aid, batch), round_no=self._round_no)
+                except Exception as e:
+                    errors.append(f"{aid}: {type(e).__name__}: {e}")
+                    # v6.3 P0-1：调用失败独立标记 error，不落 silent
+                    # （否则 402 等错误被当成"主动沉默"，静默率被污染）
+                    results[aid] = {"action": "error", "content": "",
+                                    "user_id": "", "想法": "", "心情": "",
+                                    "error": f"{type(e).__name__}: {e}"}
+
+            threads = [threading.Thread(target=_run, args=(a,), daemon=True)
+                       for a in target_agents]
+            for t in threads:
+                t.start()
+            for t in threads:
+                t.join()
+            decisions = results
+
+        # ── F9 优先级仲裁：@ 点名 > 普通（决策完成后排序，非先到先得） ──
+        order = sorted(target_agents,
+                       key=lambda a: (0 if a in mentioned else 1,
+                                      target_agents.index(a)))
         speech = None
-        for aid in target_agents:
-            agent = self.agents[aid]
+        for aid in order:
+            decision = decisions.get(aid) or {}
             priority = self.MENTION_PRIORITY if aid in mentioned else 0
-            decision = agent.process_batch(batch, round_no=self._round_no)
             if (decision.get("action") == "reply"
                     and decision.get("content")):
                 ok = self.arbiter.request_speech(

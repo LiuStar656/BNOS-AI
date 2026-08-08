@@ -1,0 +1,34 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "想回应这条消息",
+  "created_at": "2026-08-08 10:14:51",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "这条消息听过了，不必回应",
+  "created_at": "2026-08-08 10:14:51",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "想回应这条消息",
+  "created_at": "2026-08-08 10:14:51",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "这条消息听过了，不必回应",
+  "created_at": "2026-08-08 10:14:52",
+  "identity_key": "agent:1"
+ }
+]

@@ -1,0 +1,99 @@
+{
+  "gid": "n5_40r",
+  "created_at": "2026-08-08T10:12:35.436941",
+  "rounds": 4,
+  "reply_count": {
+    "agent:1": 2,
+    "agent:2": 4,
+    "agent:3": 2,
+    "agent:0": 4,
+    "agent:4": 2
+  },
+  "silent_count": {
+    "agent:1": 2,
+    "agent:3": 1
+  },
+  "agents": {
+    "agent:0": {
+      "end": {
+        "personality": {
+          "warmth": 0.65,
+          "playfulness": 0.76,
+          "directness": 0.78,
+          "curiosity": 0.58
+        },
+        "mood": 0.05
+      },
+      "other_cognition": {
+        "agent:1": 1,
+        "agent:3": 2,
+        "agent:4": 1,
+        "platform": 1
+      }
+    },
+    "agent:1": {
+      "end": {
+        "personality": {
+          "warmth": 0.57,
+          "playfulness": 0.19,
+          "directness": 0.63,
+          "curiosity": 0.42
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:3": 2,
+        "agent:4": 1,
+        "platform": 1
+      }
+    },
+    "agent:2": {
+      "end": {
+        "personality": {
+          "warmth": 0.77,
+          "playfulness": 0.79,
+          "directness": 0.2,
+          "curiosity": 0.87
+        },
+        "mood": 0.1384
+      },
+      "other_cognition": {
+        "agent:1": 1,
+        "agent:3": 2,
+        "agent:4": 2,
+        "platform": 1
+      }
+    },
+    "agent:3": {
+      "end": {
+        "personality": {
+          "warmth": 0.69,
+          "playfulness": 0.6,
+          "directness": 0.64,
+          "curiosity": 0.58
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:1": 2,
+        "agent:4": 1,
+        "platform": 1
+      }
+    },
+    "agent:4": {
+      "end": {
+        "personality": {
+          "warmth": 0.73,
+          "playfulness": 0.34,
+          "directness": 0.36,
+          "curiosity": 0.52
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:3": 2,
+        "platform": 1
+      }
+    }
+  }
+}

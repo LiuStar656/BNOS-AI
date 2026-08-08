@@ -15,12 +15,13 @@
 | `router.py` | `@` 点名路由：`pick_speaker` 决定一批消息的派发顺序（被点名者优先） |
 | `arbiter.py` | 发言仲裁器：同一时刻单一发言权；`POLICY_QUEUE` / `POLICY_DROP` / `POLICY_INTERRUPT` |
 | `collector.py` | 实验数据采集：`events.jsonl` / `decisions.jsonl` / `chat_history.jsonl` / `evolution.json`（runs/ 目录留档） |
-| `agent_bridge.py` | Agent 桥接：调 AAA `_on_pool_batch` → LLM → `_on_parsed(batch_mode=True)`，多轮回执直到拿到 `{action: reply|silent}` |
-| `platform_runner.py` | 平台主入口：编排消息池 + 路由 + 仲裁 + 采集 + Agent（文件名避让 stdlib `platform`）；`record_speech` 自我介绍 / `announce` 话题发放 / agent 发言回投构成多轮对话 / `topic_rounds` 轮数上限后平台宣告话题结束 |
+| `agent_bridge.py` | Agent 桥接：调 AAA `_on_pool_batch` → LLM → `_on_parsed(batch_mode=True)`，多轮回执直到拿到 `{action: reply|silent}`；`mode=inline` 单进程直连 / `mode=subprocess` 每 Agent 一个独立 AAA 子进程（崩溃自动重启 + close 回收） |
+| `platform_runner.py` | 平台主入口：编排消息池 + 路由 + 仲裁 + 采集 + Agent（文件名避让 stdlib `platform`）；`record_speech` 自我介绍 / `announce` 话题发放 / agent 发言回投构成多轮对话 / `topic_rounds` 轮数上限后平台宣告话题结束；F9 并行决策（多目标并发 `process_batch`）+ @ 优先级仲裁（决策完成后按点名排序，非先到先得） |
 | `data_export.py` | 原始数据库按表分类导出（`db/{agent}_final/`：每表 JSON + sqlite + manifest）+ 聊天历史 md 渲染（含自我介绍/话题/结束公告） |
-| `run_pool_experiment.py` | 实验启动脚本：每次启动生成专属 DB + 随机角色种子 + 自我介绍 + 平台发话题，拉起 N 个 Agent（`--agents`，默认 5）跑 agent 间多轮对话并收集全部数据 |
+| `run_pool_experiment.py` | 实验启动脚本：每次启动生成专属 DB + 随机角色种子 + 自我介绍 + 平台发话题，拉起 N 个 Agent（`--agents`，默认 5）跑 agent 间多轮对话并收集全部数据；默认每 Agent 独立 AAA 子进程（F9），`--inline` 切回单进程对照 |
+| `aaa_serve.py` | AAA 常驻子进程服务（F9）：stdin/stdout 每行 JSON 协议（ping / pool_batch / flush_review / shutdown），LLM 经环境变量注入（`AAA_LLM_MODE`），`AAA_SKIP_HEAVY=1` 跳过模型预加载（验收/fake 模式） |
 | `topic.txt` | 默认话题文件：修改内容即可更换下次实验话题（或用 `--topic` 直接传） |
-| `infra_acceptance_test.py` | 基础设施验收测试（不跑 LLM，Fake LLM 覆盖批量链路，39 项断言） |
+| `infra_acceptance_test.py` | 基础设施验收测试（不跑 LLM，Fake LLM 覆盖批量链路，64 项断言：U1–U6 单元 + I1–I4 集成 + U7 子进程化专项） |
 
 ## 数据收集（实验产物）
 
@@ -43,11 +44,18 @@
     ▼          ▼             ▼
 消息池（enqueue_input → pop_all_inputs）
  → 路由 router（@ 点名 / 无点名）
- → 派发 _on_pool_batch（批量写库 + 合并上下文）
+ → 并行派发 _on_pool_batch（批量写库 + 合并上下文）     ← F9：每 Agent 独立 AAA 子进程
  → AAA 认知处理 → LLM → {action: reply|silent}
- → 仲裁器 SpeechOutputArbiter（reply 广播 / silent 标记已消费）
+ → @ 优先级仲裁（点名者优先）→ 仲裁器 SpeechOutputArbiter（reply 广播 / silent 标记已消费）
  → 实验采集（events.jsonl / decisions.jsonl / evolution.json）
 ```
+
+F9 两种运行模式（`AgentBridge(mode=...)`）：
+
+| 模式 | 说明 | 适用 |
+|------|------|------|
+| `subprocess`（默认） | 每 Agent 一个独立 AAA 子进程（`aaa_serve.py` 常驻，stdin/stdout JSON 协议），memos 索引/后台线程进程级隔离，崩溃自动重启 | 真实实验、多 Agent 并行 |
+| `inline` | 单进程内 `import main + MyNode()` 直连（F9 前架构） | 对照实验、调试 |
 
 ## 核心 API 示例
 
@@ -111,11 +119,12 @@ plat.write_evolution()        # 采集终态 evolution.json
 参数：`--agents N`（默认 5）、`--rounds N`（用户发言批次上限，默认 20）、`--seed INT`（随机种子，默认 None=每次随机）、
 `--topic 文本`（本次话题，优先于话题文件）、`--topic-file 路径`（话题文件，默认 `tests/message_pool/topic.txt`）、
 `--topic-rounds N`（agent 间对话轮数上限，默认 10，0=不限；达到后平台宣告话题结束）、
-`--per-batch N`（每轮消息条数上限）、`--gid NAME`（实验标识）、`--fake-llm`（验证模式）、`--out DIR`（留档根目录）。
+`--per-batch N`（每轮消息条数上限）、`--gid NAME`（实验标识）、`--fake-llm`（验证模式）、`--inline`（单进程对照模式，默认每 Agent 独立 AAA 子进程）、`--out DIR`（留档根目录）。
 
 ## 关键约束
 
 - 平台侧组件（event_bus / message_pool / router / arbiter / collector）不依赖 AAA 节点，可独立单测。
-- `agent_bridge` 通过 `sys.path` 直连 AAA 节点 `main.py`（与 `tests/self_evolution_test.py` 同模式），仅用于测试/实验场景，不构成节点间通信。
-- 节点目录的 `memos.preload()` 会异步加载语义模型（daemon 线程），验收测试须先禁用 `memos.rebuild_index` 等后台重建线程（防并发 native 崩溃，见项目内存教训）。
+- `agent_bridge` inline 模式通过 `sys.path` 直连 AAA 节点 `main.py`（与 `tests/self_evolution_test.py` 同模式），仅用于测试/实验场景，不构成节点间通信；subprocess 模式经 `aaa_serve.py` 以 stdin/stdout JSON 协议驱动子进程，LLM 配置由环境变量注入（`AAA_LLM_MODE=real|fake`）。
+- 节点目录的 `memos.preload()` 会异步加载语义模型（daemon 线程），验收测试须先禁用 `memos.rebuild_index` 等后台重建线程（防并发 native 崩溃，见项目内存教训）；子进程模式可用 `AAA_SKIP_HEAVY=1` 跳过模型加载。
 - 仲裁器在 `platform.step()` 步末释放发言权；QUEUE 策略下的排队发言由 `drain_queue()` 逐步广播，保证「同一时刻至多一个 Agent 发言」。
+- 子进程内存预算：每 Agent ~80MB（模型 + 索引），**Agent ≤ 5**；实验收尾必须 `close()` 关闭全部子进程，防孤儿进程。

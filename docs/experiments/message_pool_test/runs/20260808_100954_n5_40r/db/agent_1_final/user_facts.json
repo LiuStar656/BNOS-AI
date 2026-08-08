@@ -1,0 +1,137 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话意图=寒暄",
+  "created_at": "2026-08-08 10:10:13",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注=我的近期生活",
+  "created_at": "2026-08-08 10:10:13",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 暂无",
+  "created_at": "2026-08-08 10:10:13",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=细腻",
+  "created_at": "2026-08-08 10:10:51",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注变化=内在成长",
+  "created_at": "2026-08-08 10:10:51",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达习惯=时间比喻",
+  "created_at": "2026-08-08 10:10:51",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 观察] agent:4 喜欢通过整理笔记来回看自己，重视时间带来的细微变化；分享感受时常用“时间、对话、另一个自己”这类比喻。",
+  "created_at": "2026-08-08 10:10:51",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=自我连续性",
+  "created_at": "2026-08-08 10:11:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=比喻",
+  "created_at": "2026-08-08 10:11:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 旧笔记, 自我观察] agent:3 会翻旧笔记，并对比过去与现在的想法，既留意断裂也留意连续。",
+  "created_at": "2026-08-08 10:11:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=比喻",
+  "created_at": "2026-08-08 10:11:36",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=自我连续性",
+  "created_at": "2026-08-08 10:11:36",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期行为=翻旧笔记",
+  "created_at": "2026-08-08 10:11:36",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=空间化比喻",
+  "created_at": "2026-08-08 10:11:36",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我连续性, 群聊] agent:3 近期在整理旧笔记，发现自己过去的想法有些像别人写的、有些还能接上，擅长用空间性比喻来描述时间感受。",
+  "created_at": "2026-08-08 10:11:36",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ }
+]

@@ -1,0 +1,11 @@
+{
+ "mode": "subprocess",
+ "fake_llm": true,
+ "platform_direct": 3,
+ "total": 25,
+ "per_agent": {
+  "agent:0": 8,
+  "agent:1": 8,
+  "agent:2": 9
+ }
+}

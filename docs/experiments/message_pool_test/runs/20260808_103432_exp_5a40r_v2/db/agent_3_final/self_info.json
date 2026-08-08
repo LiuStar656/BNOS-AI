@@ -1,0 +1,26 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 10:34:49",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "分享欲",
+  "value": "低",
+  "created_at": "2026-08-08 10:34:49",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "心情",
+  "value": "平静",
+  "created_at": "2026-08-08 10:36:28",
+  "identity_key": "agent:3"
+ }
+]

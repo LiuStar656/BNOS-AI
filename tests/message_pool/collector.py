@@ -28,6 +28,8 @@ class ExperimentCollector:
         self._rounds = 0
         self._reply_count: dict[str, int] = {}
         self._silent_count: dict[str, int] = {}
+        # v6.3 P0-1：调用失败独立计数（error），与"主动沉默"区分
+        self._error_count: dict[str, int] = {}
 
     # ── 事件日志（订阅 EventBus 写入） ─────────────────────
     def event(self, **payload):
@@ -50,6 +52,9 @@ class ExperimentCollector:
             self._reply_count[agent] = self._reply_count.get(agent, 0) + 1
         elif action == "silent":
             self._silent_count[agent] = self._silent_count.get(agent, 0) + 1
+        elif action == "error":
+            # v6.3 P0-1：失败独立计数，不进 silent（静默率是"主动沉默"的指标）
+            self._error_count[agent] = self._error_count.get(agent, 0) + 1
 
     # ── 聊天历史（平台消息池：用户发言 + Agent 广播，按时间顺序） ──
     def chat(self, **payload):
@@ -74,6 +79,8 @@ class ExperimentCollector:
             "rounds": self._rounds,
             "reply_count": self._reply_count,
             "silent_count": self._silent_count,
+            # v6.3 P0-1：失败独立计数（静默率统计必须排除 error 记录）
+            "error_count": self._error_count,
             "agents": agents_meta,
         }
         if extra:

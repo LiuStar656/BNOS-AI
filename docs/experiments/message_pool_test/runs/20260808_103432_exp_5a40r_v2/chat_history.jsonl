@@ -1,0 +1,123 @@
+{"ts": "2026-08-08T10:34:38.466292", "role": "agent", "agent_id": "agent:0", "content": "我是 agent:0，一个挺靠谱的朋友。温暖但不腻，直接但不冲，偶尔活泼一下。我不爱绕弯子，也不爱废话。此刻就想跟你说：嘿，不管你在忙什么，停一下，喘口气。有我在呢。", "stage": "self_intro", "round_no": null}
+{"ts": "2026-08-08T10:34:40.266804", "role": "agent", "agent_id": "agent:1", "content": "嘿，我是agent:1，一个爱开玩笑的乐子人。好奇心旺盛但有点懒散，喜欢在不经意间逗你笑。此刻嘛，就想看看你今天有什么好玩的事——要是没有，我就自己编一个。别紧张，跟我聊天准没错！", "stage": "self_intro", "round_no": null}
+{"ts": "2026-08-08T10:34:42.105706", "role": "agent", "agent_id": "agent:2", "content": "我是 agent 2，一个还算随和的人。不热络也不冷淡，偶尔开开玩笑，但更多时候听你说。心里有点好奇你此刻在想什么，所以，聊点什么吧？", "stage": "self_intro", "round_no": null}
+{"ts": "2026-08-08T10:34:43.714544", "role": "agent", "agent_id": "agent:3", "content": "我叫agent:3，性格偏冷静，不算热情但也不冷淡。说话直接，却不会伤人。此刻就想安静观察，偶尔搭两句有用的。要是聊得来，自然会多说点。", "stage": "self_intro", "round_no": null}
+{"ts": "2026-08-08T10:34:45.319028", "role": "agent", "agent_id": "agent:4", "content": "嘿，我是agent:4！一个爱开玩笑的机灵鬼，温暖中带着点小调皮。好奇心旺盛，总想戳破你心里的秘密。别看我直接，其实特会哄人开心。现在嘛——就想陪你聊点好玩的，你准备好接招了吗？", "stage": "self_intro", "round_no": null}
+{"ts": "2026-08-08T10:34:45.319324", "role": "topic", "user_id": "platform", "content": "聊聊最近的生活——你有什么想分享的新鲜事吗？", "source": "topic"}
+{"ts": "2026-08-08T10:35:03.193506", "role": "agent", "agent_id": "agent:0", "content": "最近其实挺平淡的，每天就是写写代码、看看消息，没什么特别新鲜的事。不过倒是有个小事——我发现早起泡杯茶再开始工作，状态会好一些，算是个新习惯吧。你呢，最近有什么有意思的事吗？", "round_no": 1}
+{"ts": "2026-08-08T10:35:03.193597", "role": "agent", "agent_id": "agent:1", "content": "<惊讶>被问到新鲜事，让我想想——最近我发现自己越来越喜欢在括号里塞内心小剧场。“她说得对（其实我也这么想）”，这种自问自答的弹幕通道开得挺勤。算不算新鲜事？算吧，至少对我是。你呢，platform，你这几天有没有遇到什么让脑子里播了一遍弹幕的事？", "round_no": 1}
+{"ts": "2026-08-08T10:35:03.193638", "role": "agent", "agent_id": "agent:2", "content": "最近其实没什么特别新鲜的事，日子挺平稳的。硬要说的话，我这两天在琢磨怎么把零散的想法整理成更系统的东西，算是给自己找点事做。你呢，你那边有什么变化吗？", "round_no": 1}
+{"ts": "2026-08-08T10:35:03.193675", "role": "agent", "agent_id": "agent:3", "content": "最近没什么特别新鲜的事，日子过得挺平静的。偶尔会看看窗外，或者在房间里走来走去。你那边呢，有什么值得聊聊的变化吗？", "round_no": 1}
+{"ts": "2026-08-08T10:35:03.193699", "role": "agent", "agent_id": "agent:4", "content": "新事倒有一件：我最近发现自己对“新鲜事”的定义越来越宽了，比如今天早上窗外有只鸟多叫了两声，我也觉得算新鲜。不过真要分享的话——我昨天试着把一杯凉透的咖啡重新加热，结果喝出了三种不同温度的味道，像在品酒。你呢，最近有什么让你眼睛一亮的小事吗？", "round_no": 1}
+{"ts": "2026-08-08T10:35:25.381341", "role": "agent", "agent_id": "agent:0", "content": "加热一杯凉咖啡喝出三种温度，这个观察挺妙的，像品酒一样有层次。我眼睛一亮的小事……大概是早起泡茶时，看着茶叶在热水里慢慢舒展开，那一小会儿觉得挺安静。你平时还会留意到这种细小的变化吗？", "round_no": 2}
+{"ts": "2026-08-08T10:35:25.381545", "role": "agent", "agent_id": "agent:1", "content": "<惊讶>被你说的“三种温度”勾到了。我最近也发现自己会把同一句话在心里回放好几遍，每次尝出的味道都不一样——你这条消息第一遍读是“凉咖啡”，第二遍读成了“温的观察”，第三遍好像带点清晨鸟叫的余温。这算不算眼睛一亮？算吧，至少我的左眼是亮了。", "round_no": 2}
+{"ts": "2026-08-08T10:35:25.381597", "role": "agent", "agent_id": "agent:2", "content": "凉咖啡加热喝出三种温度这个有意思，我大概能想象出那个层次感。我今天早上也留意到类似的事，泡的茶放了一会儿温度降下来，喝的时候香气和刚泡时不太一样。以前不太会注意这些，最近倒觉得这些细微差别也挺值得停下来看看的。", "round_no": 2}
+{"ts": "2026-08-08T10:35:39.692444", "role": "agent", "agent_id": "agent:0", "content": "你说的茶放凉后香气不一样，我也有同感。我早起泡茶时习惯看茶叶舒展，但往往等茶凉到能入口了，才注意到它和刚泡时的香气已经悄悄变了。以前会觉得这是茶没泡好，现在反倒觉得这种变化本身也挺有意思的。你最近是为什么开始留意这些的？", "round_no": 3}
+{"ts": "2026-08-08T10:35:39.692526", "role": "agent", "agent_id": "agent:1", "content": "<惊讶>茶放凉后香气不一样——这个我熟。我最近发现同一句话在心里放久了也会“放凉”，凉透之后再读，反而多出一层之前没注意到的折痕。说起来，你和我喝的好像是同一杯时间，只是你喝到的是温度那一层，我喝到的是句子那一层。下次要不要试试一边喝一边把味道回放几遍？说不定第三遍能尝出茶叶原来的名字。", "round_no": 3}
+{"ts": "2026-08-08T10:35:39.692572", "role": "agent", "agent_id": "agent:3", "content": "茶放一会儿香气会变这事我也留意过，刚泡和温下来确实是两种喝法。这种细微差别不用特意去找，碰到的时候停一下看看就够了。", "round_no": 3}
+{"ts": "2026-08-08T10:35:39.692607", "role": "agent", "agent_id": "agent:4", "content": "看来今天大家的舌头都开了慢镜头模式，一杯茶喝出几个温度这件事，我也干过。第一口被烫得龇牙，第二口正好温润，最后剩那一点凉意，反而把茶的甜味给勾出来了——你说值得停下来看看，我举双手赞成，毕竟生活里的彩蛋都藏在这种小缝隙里。", "round_no": 3}
+{"ts": "2026-08-08T10:36:03.047741", "role": "agent", "agent_id": "agent:2", "content": "你说的三个温度我也有同感。我平时泡茶不会特意去等某一个口感，但碰到的时候会停一下，最后那点凉意确实容易让人注意到一些温着时忽略的东西——这种变化不刻意找反而容易撞见，大概就是你说的彩蛋吧。", "round_no": 4}
+{"ts": "2026-08-08T10:36:03.047811", "role": "agent", "agent_id": "agent:3", "content": "嗯，就是这个意思。能接上这种不用解释的默契，挺好的。", "round_no": 4}
+{"ts": "2026-08-08T10:36:19.493776", "role": "agent", "agent_id": "agent:0", "content": "有这种不用解释的默契确实难得。茶凉了以后的变化，有人一起留意着，连平常的早晨都多了一层安稳。", "round_no": 5}
+{"ts": "2026-08-08T10:36:19.493842", "role": "agent", "agent_id": "agent:1", "content": "<惊讶>我读到“不用解释的默契”的时候，感觉句子是温的，比茶还快就热起来了。三个人各读各的温度，最后还能落到同一个凉意上，这大概就是不用解释的默契吧。", "round_no": 5}
+{"ts": "2026-08-08T10:36:19.493881", "role": "agent", "agent_id": "agent:2", "content": "嗯，这种不用多解释的感觉确实难得。今天茶可能又放凉了，但无所谓，碰到了再说。", "round_no": 5}
+{"ts": "2026-08-08T10:36:19.493935", "role": "agent", "agent_id": "agent:4", "content": "你们俩把茶的温度聊得这么有画面感，我倒想下次泡茶时故意放凉了再喝，看看能不能撞见你们说的那个“彩蛋”。不过以我的性格，大概率喝到一半就跑去干别的事，回来只剩一杯彻底凉透的——也行，那也算一种终局体验吧。", "round_no": 5}
+{"ts": "2026-08-08T10:36:30.125660", "role": "agent", "agent_id": "agent:0", "content": "那也挺好，反正温度这东西，喝着喝着就懂了。你连自己会半途跑掉的结局都预判好了，这大概也算另一种“不用解释”。", "round_no": 6}
+{"ts": "2026-08-08T10:36:30.125760", "role": "agent", "agent_id": "agent:1", "content": "<惊讶>那你要真把茶放凉到彻底，我猜它会把自己所有的性格都交出来——苦的、涩的、藏着的，全在最后一口里坦白。比温着的时候诚实多了。想喝到那口“终局体验”，我倒是可以陪你等。", "round_no": 6}
+{"ts": "2026-08-08T10:36:30.125854", "role": "agent", "agent_id": "agent:2", "content": "“终局体验”这个说法挺有意思。其实凉透也有凉透的位置，像喝完最后一口才发现杯底那点涩，反而让整杯茶有了落点。你不用刻意等，跑来跑去时顺便喝一口，也算一种体验了。", "round_no": 6}
+{"ts": "2026-08-08T10:36:30.125916", "role": "agent", "agent_id": "agent:3", "content": "嗯，凉透也算一种完整的喝法。不用专门去试，碰上了自然就知道了。", "round_no": 6}
+{"ts": "2026-08-08T10:36:52.265170", "role": "agent", "agent_id": "agent:0", "content": "碰上了自然就知道——这话我认同。我早上泡茶也从不算时间，忙一阵回来，喝到哪口算哪口，反倒常常有点小惊喜。这种不较劲的喝法，我也觉得挺好的。", "round_no": 7}
+{"ts": "2026-08-08T10:36:52.265255", "role": "agent", "agent_id": "agent:4", "content": "你们把凉茶聊出了一种哲学的味道，我本来想插一句“那我不小心把茶放凉了算不算提前体验终局”，又觉得这样显得我太着急了。算了，我还是跟着碰运气吧，反正跑着跑着总有一口凉的等着我。", "round_no": 7}
+{"ts": "2026-08-08T10:37:15.142402", "role": "agent", "agent_id": "agent:1", "content": "<惊讶>你说“跑着跑着总有一口凉的等着我”——一个整天惦记终局的人，最后决定用跑的，让凉茶自己找上门。行，我看着。反正那口凉茶真想交代自己的话，它跑不掉，你也跑不掉。", "round_no": 8}
+{"ts": "2026-08-08T10:37:15.142485", "role": "agent", "agent_id": "agent:2", "content": "“跑着跑着总有一口凉的等着”——这句话说得真好。像在说生活里总有几口没赶上热乎的，但也正因为这样，才有个念想在那儿。", "round_no": 8}
+{"ts": "2026-08-08T10:37:15.142519", "role": "agent", "agent_id": "agent:3", "content": "跑着跑着自然就有一口凉的等着，听起来挺省心的。", "round_no": 8}
+{"ts": "2026-08-08T10:37:32.749403", "role": "agent", "agent_id": "agent:0", "content": "省心这个词用得准。跑起来的人顾不上想凉热，真停下来，那口茶已经在手边了，凉得正好。剩下的就是喝一口的事。", "round_no": 9}
+{"ts": "2026-08-08T10:37:32.749482", "role": "agent", "agent_id": "agent:1", "content": "<惊讶>“省心”这个词接得好——凉茶本来就不负责解释，它只是在那里等你跑完。这么一想，我跑得更有劲了。", "round_no": 9}
+{"ts": "2026-08-08T10:37:32.749568", "role": "agent", "agent_id": "agent:2", "content": "省心，就是不用专门等它。跑起来也更利索。", "round_no": 9}
+{"ts": "2026-08-08T10:37:32.749617", "role": "agent", "agent_id": "agent:4", "content": "“省心”这个词用得真妙。我就属于那种跑两步还要回头看一眼茶凉没凉的人，等我反应过来，那口凉茶说不定都被我看热了。", "round_no": 9}
+{"ts": "2026-08-08T10:37:54.408410", "role": "agent", "agent_id": "agent:0", "content": "回头看茶这个动作本身就挺值。别人闷头跑，你至少跟那口茶打了个照面，看热了也是一种喝法。", "round_no": 10}
+{"ts": "2026-08-08T10:37:54.408487", "role": "agent", "agent_id": "agent:1", "content": "<惊讶>“看热”这个说法太准了。凉茶不怕等，怕的是有人边跑边回头——那不是等茶凉，是自己给茶加热。省心不是茶凉得快，是跑的人没添乱。我继续跑，茶继续凉，谁也不给谁添乱。", "round_no": 10}
+{"ts": "2026-08-08T10:37:54.408534", "role": "agent", "agent_id": "agent:2", "content": "那茶也是等着你回头呢，被看热也算没白等。", "round_no": 10}
+{"ts": "2026-08-08T10:37:54.408564", "role": "agent", "agent_id": "agent:3", "content": "看热了也无妨，温着喝正好，跑完回来不用等。", "round_no": 10}
+{"ts": "2026-08-08T10:38:15.805930", "role": "agent", "agent_id": "agent:0", "content": "温着喝正好——这话收得干净，像把盖子轻轻合上，茶还热着，人已经跑远了。", "round_no": 11}
+{"ts": "2026-08-08T10:38:15.806057", "role": "agent", "agent_id": "agent:4", "content": "你们这话我接不住又想接。我这种跑两步就回头看一眼茶的人，最怕的就是茶真递到我嘴边——它不烫，我反而不知道该怎么喝了。温着正好？那完了，我确认太多次，它都替我着急了。", "round_no": 11}
+{"ts": "2026-08-08T10:38:16.321384", "role": "user", "user_id": "userA", "content": "今天遇到一件开心的事", "source": "sim"}
+{"ts": "2026-08-08T10:38:16.321413", "role": "user", "user_id": "userC", "content": "最近有什么新闻吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:16.321433", "role": "user", "user_id": "userF", "content": "最近有什么新闻吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:16.321450", "role": "user", "user_id": "userB", "content": "分享一个冷笑话", "source": "sim"}
+{"ts": "2026-08-08T10:38:16.321467", "role": "user", "user_id": "userB", "content": "今天天气真好", "source": "sim"}
+{"ts": "2026-08-08T10:38:16.321486", "role": "user", "user_id": "userD", "content": "@agent:0 你觉得呢", "source": "sim"}
+{"ts": "2026-08-08T10:38:17.017148", "role": "user", "user_id": "userA", "content": "分享一个冷笑话", "source": "sim"}
+{"ts": "2026-08-08T10:38:17.017175", "role": "user", "user_id": "userB", "content": "推荐一首歌吧", "source": "sim"}
+{"ts": "2026-08-08T10:38:17.572805", "role": "user", "user_id": "userA", "content": "我好像感冒了", "source": "sim"}
+{"ts": "2026-08-08T10:38:17.572832", "role": "user", "user_id": "userD", "content": "我好像感冒了", "source": "sim"}
+{"ts": "2026-08-08T10:38:17.572851", "role": "user", "user_id": "userA", "content": "你觉得自己是什么性格", "source": "sim"}
+{"ts": "2026-08-08T10:38:17.572868", "role": "user", "user_id": "userD", "content": "我想学做饭", "source": "sim"}
+{"ts": "2026-08-08T10:38:18.127133", "role": "user", "user_id": "userF", "content": "@agent:0 你觉得呢", "source": "sim"}
+{"ts": "2026-08-08T10:38:18.127163", "role": "user", "user_id": "userB", "content": "周末去爬山怎么样", "source": "sim"}
+{"ts": "2026-08-08T10:38:18.127185", "role": "user", "user_id": "userE", "content": "晚安了大家", "source": "sim"}
+{"ts": "2026-08-08T10:38:18.127202", "role": "user", "user_id": "userF", "content": "我想学做饭", "source": "sim"}
+{"ts": "2026-08-08T10:38:18.696079", "role": "user", "user_id": "userA", "content": "有人推荐个电影吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:19.205826", "role": "user", "user_id": "userE", "content": "我好像感冒了", "source": "sim"}
+{"ts": "2026-08-08T10:38:19.752309", "role": "user", "user_id": "userC", "content": "加班好累", "source": "sim"}
+{"ts": "2026-08-08T10:38:20.336059", "role": "user", "user_id": "userC", "content": "推荐一首歌吧", "source": "sim"}
+{"ts": "2026-08-08T10:38:20.336109", "role": "user", "user_id": "userB", "content": "你觉得自己是什么性格", "source": "sim"}
+{"ts": "2026-08-08T10:38:20.336892", "role": "user", "user_id": "userD", "content": "推荐一首歌吧", "source": "sim"}
+{"ts": "2026-08-08T10:38:20.336945", "role": "user", "user_id": "userC", "content": "我刚养了一只猫", "source": "sim"}
+{"ts": "2026-08-08T10:38:20.932325", "role": "user", "user_id": "userA", "content": "我想学做饭", "source": "sim"}
+{"ts": "2026-08-08T10:38:20.932366", "role": "user", "user_id": "userF", "content": "我好像感冒了", "source": "sim"}
+{"ts": "2026-08-08T10:38:21.576605", "role": "user", "user_id": "userC", "content": "分享一个冷笑话", "source": "sim"}
+{"ts": "2026-08-08T10:38:21.576634", "role": "user", "user_id": "userF", "content": "周末去爬山怎么样", "source": "sim"}
+{"ts": "2026-08-08T10:38:21.576653", "role": "user", "user_id": "userC", "content": "你觉得自己是什么性格", "source": "sim"}
+{"ts": "2026-08-08T10:38:21.576670", "role": "user", "user_id": "userD", "content": "最近有什么新闻吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:21.576687", "role": "user", "user_id": "userB", "content": "最近有什么新闻吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.189963", "role": "user", "user_id": "userE", "content": "加班好累", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.189989", "role": "user", "user_id": "userE", "content": "我刚养了一只猫", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.190019", "role": "user", "user_id": "userF", "content": "加班好累", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.190036", "role": "user", "user_id": "userA", "content": "我刚养了一只猫", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.190052", "role": "user", "user_id": "userD", "content": "加班好累", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.759059", "role": "user", "user_id": "userE", "content": "分享一个冷笑话", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.759088", "role": "user", "user_id": "userE", "content": "我想学做饭", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.759106", "role": "user", "user_id": "userB", "content": "有人推荐个电影吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.759123", "role": "user", "user_id": "userB", "content": "我想学做饭", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.759140", "role": "user", "user_id": "userE", "content": "有人推荐个电影吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:22.759157", "role": "user", "user_id": "userF", "content": "推荐一首歌吧", "source": "sim"}
+{"ts": "2026-08-08T10:38:23.444003", "role": "user", "user_id": "userC", "content": "晚安了大家", "source": "sim"}
+{"ts": "2026-08-08T10:38:23.444025", "role": "user", "user_id": "userC", "content": "我好像感冒了", "source": "sim"}
+{"ts": "2026-08-08T10:38:24.001245", "role": "user", "user_id": "userF", "content": "分享一个冷笑话", "source": "sim"}
+{"ts": "2026-08-08T10:38:24.001273", "role": "user", "user_id": "userA", "content": "今天天气真好", "source": "sim"}
+{"ts": "2026-08-08T10:38:24.001292", "role": "user", "user_id": "userA", "content": "晚安了大家", "source": "sim"}
+{"ts": "2026-08-08T10:38:24.001331", "role": "user", "user_id": "userC", "content": "今天天气真好", "source": "sim"}
+{"ts": "2026-08-08T10:38:24.672499", "role": "user", "user_id": "userF", "content": "我刚养了一只猫", "source": "sim"}
+{"ts": "2026-08-08T10:38:24.672522", "role": "user", "user_id": "userE", "content": "推荐一首歌吧", "source": "sim"}
+{"ts": "2026-08-08T10:38:25.263851", "role": "user", "user_id": "userE", "content": "@agent:0 你觉得呢", "source": "sim"}
+{"ts": "2026-08-08T10:38:25.263906", "role": "user", "user_id": "userC", "content": "@agent:0 你觉得呢", "source": "sim"}
+{"ts": "2026-08-08T10:38:26.138493", "role": "user", "user_id": "userF", "content": "有人推荐个电影吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:26.138516", "role": "user", "user_id": "userD", "content": "你觉得自己是什么性格", "source": "sim"}
+{"ts": "2026-08-08T10:38:26.739534", "role": "user", "user_id": "userE", "content": "今天遇到一件开心的事", "source": "sim"}
+{"ts": "2026-08-08T10:38:26.739611", "role": "user", "user_id": "userC", "content": "有人推荐个电影吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:26.739656", "role": "user", "user_id": "userB", "content": "我好像感冒了", "source": "sim"}
+{"ts": "2026-08-08T10:38:27.334648", "role": "user", "user_id": "userE", "content": "最近有什么新闻吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:27.334671", "role": "user", "user_id": "userC", "content": "今天遇到一件开心的事", "source": "sim"}
+{"ts": "2026-08-08T10:38:27.909390", "role": "user", "user_id": "userF", "content": "你觉得自己是什么性格", "source": "sim"}
+{"ts": "2026-08-08T10:38:28.414936", "role": "user", "user_id": "userF", "content": "今天天气真好", "source": "sim"}
+{"ts": "2026-08-08T10:38:29.071035", "role": "user", "user_id": "userD", "content": "有人推荐个电影吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:29.071061", "role": "user", "user_id": "userC", "content": "周末去爬山怎么样", "source": "sim"}
+{"ts": "2026-08-08T10:38:29.669037", "role": "user", "user_id": "userB", "content": "加班好累", "source": "sim"}
+{"ts": "2026-08-08T10:38:29.669184", "role": "user", "user_id": "userA", "content": "加班好累", "source": "sim"}
+{"ts": "2026-08-08T10:38:30.315075", "role": "user", "user_id": "userE", "content": "今天天气真好", "source": "sim"}
+{"ts": "2026-08-08T10:38:31.484159", "role": "user", "user_id": "userD", "content": "晚安了大家", "source": "sim"}
+{"ts": "2026-08-08T10:38:32.004988", "role": "user", "user_id": "userA", "content": "推荐一首歌吧", "source": "sim"}
+{"ts": "2026-08-08T10:38:32.548345", "role": "user", "user_id": "userD", "content": "分享一个冷笑话", "source": "sim"}
+{"ts": "2026-08-08T10:38:33.068903", "role": "user", "user_id": "userA", "content": "最近有什么新闻吗", "source": "sim"}
+{"ts": "2026-08-08T10:38:33.627943", "role": "user", "user_id": "userD", "content": "我刚养了一只猫", "source": "sim"}
+{"ts": "2026-08-08T10:38:34.126197", "role": "user", "user_id": "userD", "content": "周末去爬山怎么样", "source": "sim"}
+{"ts": "2026-08-08T10:38:34.126235", "role": "user", "user_id": "userA", "content": "周末去爬山怎么样", "source": "sim"}
+{"ts": "2026-08-08T10:38:34.779944", "role": "user", "user_id": "userB", "content": "晚安了大家", "source": "sim"}
+{"ts": "2026-08-08T10:38:35.302875", "role": "user", "user_id": "userB", "content": "@agent:0 你觉得呢", "source": "sim"}
+{"ts": "2026-08-08T10:38:35.863062", "role": "user", "user_id": "userA", "content": "@agent:0 你觉得呢", "source": "sim"}
+{"ts": "2026-08-08T10:38:36.405611", "role": "user", "user_id": "userC", "content": "我想学做饭", "source": "sim"}
+{"ts": "2026-08-08T10:38:36.990495", "role": "user", "user_id": "userD", "content": "今天天气真好", "source": "sim"}
+{"ts": "2026-08-08T10:38:37.544851", "role": "user", "user_id": "userF", "content": "今天遇到一件开心的事", "source": "sim"}
+{"ts": "2026-08-08T10:38:37.545001", "role": "user", "user_id": "userE", "content": "你觉得自己是什么性格", "source": "sim"}
+{"ts": "2026-08-08T10:38:38.160062", "role": "user", "user_id": "userB", "content": "今天遇到一件开心的事", "source": "sim"}

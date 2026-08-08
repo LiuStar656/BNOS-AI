@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 主动开启日常闲聊，询问我的近况，表现出想拉近距离的意图。",
+  "created_at": "2026-08-08 10:34:49",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:2是个会留意生活细节的人，对饮品温度变化带来的口感差异有细腻的观察，语气平和不夸张。",
+  "created_at": "2026-08-08 10:35:30",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:4 说话带着生活化的比喻，但回应时不加压力，只是表示赞同，不追问也不延伸，节奏和我很合拍。",
+  "created_at": "2026-08-08 10:35:45",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:4 用“彩蛋”“终局体验”这类带游戏感的生活化比喻来收尾，自嘲中带着不在意，不给对方接话的压力。",
+  "created_at": "2026-08-08 10:36:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:4 用\"提前体验终局\"\"跑着跑着总有一口凉的等着\"这类游戏化又轻松的生活比喻收尾，自嘲中带着不在意，不给对方接话的压力。",
+  "created_at": "2026-08-08 10:37:05",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:4 喜欢把“看热了凉茶”这种细碎的生活动作也变成自嘲素材，松弛且不给人接话的压力。",
+  "created_at": "2026-08-08 10:37:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ }
+]

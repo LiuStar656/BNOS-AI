@@ -1,0 +1,123 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 1,
+  "created_at": "2026-08-08 10:15:33",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 3,
+  "created_at": "2026-08-08 10:16:10",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 5,
+  "created_at": "2026-08-08 10:17:36",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 6,
+  "created_at": "2026-08-08 10:19:14",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 8,
+  "created_at": "2026-08-08 10:20:52",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 8,
+  "created_at": "2026-08-08 10:21:56",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 8,
+  "created_at": "2026-08-08 10:22:50",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 11,
+  "created_at": "2026-08-08 10:23:22",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 11,
+  "created_at": "2026-08-08 10:24:22",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 12,
+  "created_at": "2026-08-08 10:24:57",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 14,
+  "created_at": "2026-08-08 10:27:34",
+  "identity_key": "agent:3"
+ }
+]

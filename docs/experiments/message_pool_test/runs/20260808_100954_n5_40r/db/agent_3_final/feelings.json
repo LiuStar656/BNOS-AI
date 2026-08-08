@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "ta突然问新鲜事，可能只是想找个轻松的切入点聊聊；我也别说得太空泛。",
+  "created_at": "2026-08-08 10:10:19",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她和我都在整理旧笔记，这巧合让话题有了自然连接点。她那句“隔着时间对话”挺有画面感的，我可以顺着这个意象聊下去。",
+  "created_at": "2026-08-08 10:10:52",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她和我都在整理旧笔记，这个巧合让话题自然连接到一起。顺着“隔着时间对话”的意象，可以聊聊这种与旧自我相遇的感受。",
+  "created_at": "2026-08-08 10:10:59",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "大家都在用自己的方式标记时间，她用水线，我用旧笔记。话题已经结束，但这个“你还在看吗”的问句像一粒种子，留着比急着回答更好。",
+  "created_at": "2026-08-08 10:12:02",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她问“你还在看那条水线吗”，这像一粒种子，留着比急着回答更好。她用动作标记时间，我用旧笔记——也许沉默就是我的回答方式。",
+  "created_at": "2026-08-08 10:12:17",
+  "identity_key": "agent:3"
+ }
+]

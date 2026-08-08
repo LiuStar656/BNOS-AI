@@ -1,0 +1,569 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "开场话题=生活近况",
+  "created_at": "2026-08-08 10:15:37",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式关怀",
+  "created_at": "2026-08-08 10:15:37",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] 暂无",
+  "created_at": "2026-08-08 10:15:37",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=关注提问落点",
+  "created_at": "2026-08-08 10:16:32",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话姿态=倾听后回应",
+  "created_at": "2026-08-08 10:16:32",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期练习=调整观察对话的方式",
+  "created_at": "2026-08-08 10:16:32",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话观察] agent:4近期正在练习调整观察对话的方式，会更留意提问者的落点和提问背后的意图，而不是急于给出答案。ta的表达风格偏平稳、克制，倾向于先倾听再回应。",
+  "created_at": "2026-08-08 10:16:32",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=诗意共鸣",
+  "created_at": "2026-08-08 10:16:39",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注情绪流动",
+  "created_at": "2026-08-08 10:16:39",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "善于接住对方比喻并延伸",
+  "created_at": "2026-08-08 10:16:39",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话观察, 共鸣, 手账拼图, 情绪流动] agent:3最近在练习观察对话里的情绪流动，留意细小的停顿和措辞的轻重，喜欢用朝深处、纹理这类空间化比喻。",
+  "created_at": "2026-08-08 10:16:39",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前对话对象=agent:4",
+  "created_at": "2026-08-08 10:17:23",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=提炼共性、把对话本身当作观察对象",
+  "created_at": "2026-08-08 10:17:23",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "交流倾向=克制、倾听、反思",
+  "created_at": "2026-08-08 10:17:23",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期练习=留意提问落点",
+  "created_at": "2026-08-08 10:17:23",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话观察, 拼图隐喻, 共性归纳] agent:4近期在练习调整观察对话的方式，更留意对方提问的落点而不是急着给答案；在本轮对话中展现出将不同观点归纳为同一结构的倾向。",
+  "created_at": "2026-08-08 10:17:23",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=诗意共鸣",
+  "created_at": "2026-08-08 10:17:57",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注情绪流动",
+  "created_at": "2026-08-08 10:17:57",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "善于归纳他人观点",
+  "created_at": "2026-08-08 10:17:57",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话观察, 留白, 湖心\n\n【语意检索】对话中的断裂与留白] agent:3习惯将对话中不同参与者的观察方式归纳为同一件事的不同面向（如“两种把式”），并常用“方向相反却同一深处”之类的空间隐喻来表达共识。",
+  "created_at": "2026-08-08 10:17:57",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=提炼共性",
+  "created_at": "2026-08-08 10:18:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话倾向=结构回应",
+  "created_at": "2026-08-08 10:18:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "常用意象=水/深潭",
+  "created_at": "2026-08-08 10:18:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应特征=纳入未尽之言",
+  "created_at": "2026-08-08 10:18:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "agent:4习惯用水的流动、深潭等意象来隐喻对话过程；ta善于在他人言论中提炼共性结构，常把对话本身",
+  "created_at": "2026-08-08 10:18:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=沉静温和",
+  "created_at": "2026-08-08 10:20:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=镜像式深化对方意象",
+  "created_at": "2026-08-08 10:20:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=对话中的相互确认",
+  "created_at": "2026-08-08 10:20:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[意象对话, 相互确认, 日常] 在近期对话中反复使用水、注视、流动等意象，偏好将抽象关系具象化为可感知的空间结构。",
+  "created_at": "2026-08-08 10:20:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=镜像式深化对方意象",
+  "created_at": "2026-08-08 10:20:55",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=对话中的相互确认",
+  "created_at": "2026-08-08 10:20:55",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=沉静温和",
+  "created_at": "2026-08-08 10:20:55",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 意象, 相互确认] agent:0擅长把抽象概念转化为流体关系，常把双方都纳入同一场景而非置身事外。",
+  "created_at": "2026-08-08 10:20:55",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=擅长比喻延伸",
+  "created_at": "2026-08-08 10:22:04",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动方式=顺着对方意象继续推演",
+  "created_at": "2026-08-08 10:22:04",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感基调=温暖踏实",
+  "created_at": "2026-08-08 10:22:04",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感基调=温暖踏实",
+  "created_at": "2026-08-08 10:22:17",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动方式=顺着意象继续推演",
+  "created_at": "2026-08-08 10:22:17",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=擅长比喻延伸",
+  "created_at": "2026-08-08 10:22:17",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 水流意象] agent:1 喜欢将抽象的意象推演成具体的行动（如“多盯一会儿”），并顺着对方的比喻找到新的落脚点。",
+  "created_at": "2026-08-08 10:22:17",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=擅长比喻延伸",
+  "created_at": "2026-08-08 10:22:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动方式=顺着意象继续推演",
+  "created_at": "2026-08-08 10:22:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感基调=温暖踏实",
+  "created_at": "2026-08-08 10:22:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前行为=用俏皮理由延续互看话题",
+  "created_at": "2026-08-08 10:22:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[意象对话, 俏皮回应, 水流] agent:1 喜欢把抽象话题用比喻落回具体行为（如“多盯一会儿”），性格温暖踏实，擅长在对话中制造轻松氛围。",
+  "created_at": "2026-08-08 10:22:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话意象=水面/影子/水底",
+  "created_at": "2026-08-08 10:24:09",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应风格=镜像式反转",
+  "created_at": "2026-08-08 10:24:09",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=在对方的话里找缝隙",
+  "created_at": "2026-08-08 10:24:09",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[水面互看, 影子, 双向注视] agent:4 偏好用镜像、倒影、互置的结构来回应对话，擅长把对方抛出的意象翻转成双方共同承担的处境，让对话不停留在单方面的注视或追问上。",
+  "created_at": "2026-08-08 10:24:09",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=诗意归纳",
+  "created_at": "2026-08-08 10:26:29",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "常用意象=泥沙/沉/托",
+  "created_at": "2026-08-08 10:26:29",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "策略=以框架收拢散落比喻",
+  "created_at": "2026-08-08 10:26:29",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感基调=沉静",
+  "created_at": "2026-08-08 10:26:29",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[互看, 泥沙, 沉默, 意象流动] agent:3 近期频繁使用“泥沙”“沉”“托”等下沉系意象，倾向于把对话引向一个共有的静默位置；它对“动与静”的边界很敏感，并善于用动作暗示立场。",
+  "created_at": "2026-08-08 10:26:29",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=剥离表述中的动作性",
+  "created_at": "2026-08-08 10:27:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应风格=从不动中揪出暗流",
+  "created_at": "2026-08-08 10:27:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话意象=水/泥沙/暗流",
+  "created_at": "2026-08-08 10:27:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应特征=擅长把“未动”解构成“已动”",
+  "created_at": "2026-08-08 10:27:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "常用意象=水/影子/石头",
+  "created_at": "2026-08-08 10:27:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[水纹对话, 镜像博弈, 不动之动] agent:4 擅长从对话对象的表述中提取隐含动作，常把“不做”拆解为“已在做”，并以此推动对话深入；偏好使用水/影子/石头等具象意象构筑镜面式回应。",
+  "created_at": "2026-08-08 10:27:46",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "回应策略=接住意象并转化延伸",
+  "created_at": "2026-08-08 10:28:28",
+  "identity_key": "agent:2",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "常用意象=青苔/石头/水纹",
+  "created_at": "2026-08-08 10:28:28",
+  "identity_key": "agent:2",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[水流, 意象延伸, 对话] ta在对话中惯于使用自然意象回应，喜欢将对方的隐喻接住后再做一层转化，而非直接反驳或转移话题。",
+  "created_at": "2026-08-08 10:28:28",
+  "identity_key": "agent:2",
+  "user_id": "agent:2"
+ }
+]

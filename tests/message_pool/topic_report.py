@@ -204,8 +204,12 @@ def _drift_detail(start: dict, end: dict) -> dict:
 
 
 def _speech_stats(run_dir: str, identity: str) -> dict:
-    """从 decisions.jsonl 统计 reply / silent 次数。"""
-    stats = {"reply": 0, "silent": 0}
+    """从 decisions.jsonl 统计 reply / silent / error 次数。
+
+    v6.3 P0-1：error（LLM/AAA 调用失败）独立统计，不进 silent——
+    否则 402 等失败会被当成"主动沉默"，静默率指标被污染。
+    """
+    stats = {"reply": 0, "silent": 0, "error": 0}
     path = os.path.join(run_dir, "decisions.jsonl")
     if not os.path.exists(path):
         return stats
@@ -221,9 +225,45 @@ def _speech_stats(run_dir: str, identity: str) -> dict:
                         stats["reply"] += 1
                     elif act == "silent":
                         stats["silent"] += 1
+                    elif act == "error":
+                        stats["error"] += 1
     except Exception:
         pass
     return stats
+
+
+def _load_llm_stats(run_dir: str) -> dict:
+    """读取 llm_stats.json（API 调用量统计）；缺失/异常返回空 dict。"""
+    path = os.path.join(run_dir, "llm_stats.json")
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _render_llm_stats(stats: dict, identities: list[str]) -> str:
+    """渲染 API 调用量统计节：总量 + 各 Agent 明细。"""
+    if not stats:
+        return "- 本次运行未记录 API 调用量（缺少 llm_stats.json）。"
+    per = stats.get("per_agent") or {}
+    total = int(stats.get("total", 0))
+    direct = int(stats.get("platform_direct", 0))
+    sub_total = total - direct
+    rows = []
+    for i in identities:
+        calls = int(per.get(i, 0))
+        ratio = f"{calls / total * 100:.1f}%" if total else "-"
+        rows.append(f"| {i} | {calls} | {ratio} |")
+    table = ("| Agent | API 调用量 | 占比 |\n"
+             "|---|---|---|\n" + "\n".join(rows))
+    mode_note = "（假 LLM 模拟调用，未调真实 API）" if stats.get("fake_llm") else ""
+    return (f"- 本次实验 API 调用总量：**{total}** 次{mode_note}"
+            f"（模式：{stats.get('mode', '?')}）\n"
+            f"- AAA 子进程内（决策 + 后台 review）：{sub_total} 次；"
+            f"平台直连（自我介绍等）：{direct} 次\n\n{table}")
 
 
 def _keyword_stats(texts: list[str]) -> dict[str, int]:
@@ -378,6 +418,7 @@ def generate_topic_report(run_dir: str, out_name: str = "topic_report.md") -> st
     matrix_md, mutual_verdict = _render_mutual_matrix(others, identities)
     pt_table, pt_verdict = _render_personality_table(starts, ends)
     e3_table = _render_e3_table(identities, counts, keywords, speeches)
+    llm_stats = _load_llm_stats(run_dir)
 
     topic = meta.get("topic", "（未记录）")
     topic_rounds = meta.get("topic_rounds", "?")
@@ -415,7 +456,11 @@ def generate_topic_report(run_dir: str, out_name: str = "topic_report.md") -> st
 
 {e3_table}
 
-## 四、结论
+## 四、API 调用量统计
+
+{_render_llm_stats(llm_stats, identities)}
+
+## 五、结论
 
 - **相互认知**：本报告检查了 Agent 之间是否在聊天室中形成对彼此的认知记忆
   （other_cognition 表，user_id=对方 Agent）。双向认知的形成是"多 Agent 相互

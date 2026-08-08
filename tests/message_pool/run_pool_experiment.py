@@ -14,8 +14,9 @@
 
 用法（项目根目录，使用 AAA 节点 venv）：
     & nodes/node_python_aaa_cognition/venv/Scripts/python.exe tests/message_pool/run_pool_experiment.py
-    --agents 5 --rounds 20 --gid exp1          # 真实 DeepSeek 直连
+    --agents 5 --rounds 20 --gid exp1          # 真实 DeepSeek 直连（默认子进程模式）
     --fake-llm                                  # 假 LLM 冒烟验证流程（不调 API）
+    --inline                                    # 单进程对照模式（F9 前架构，保留作回归）
 
 参数：
     --agents N    拉起 Agent 数量（默认 5；按需求调整数量只改这里）
@@ -28,6 +29,7 @@
                    0=不限；只统计成功入池的 agent 发言，后台思考/总结不计）
     --per-batch N 每轮注入消息条数上限（默认 6，随机 1~N）
     --fake-llm    用假 LLM 验证流程，不调用真实 API
+    --inline      单进程对照模式（默认每 Agent 独立 AAA 子进程，F9）
     --out DIR     留档根目录（默认 docs/experiments/message_pool_test/）
 
 启动流程：
@@ -138,7 +140,8 @@ def _fake_llm(prompt: str) -> str:
                 "对新鲜事都挺好奇的。")
     _fake_llm.n = getattr(_fake_llm, "n", 0) + 1
     if _fake_llm.n % 2 == 1:
-        return ("【自然回复】\n你好呀！看到你的消息啦\n【心情】\n开心\n"
+        return ("【自然回复】\n你好呀！看到你的消息啦\n【回应对象】\nagent:0\n"
+                "【心情】\n开心\n"
                 "【想法】\n想回应这条消息\n【情绪调整】\n0.05\n"
                 "【事件摘要】\n用户发言，AI 回应 [重要性:3]\n"
                 "【他人认知】\n这个用户很活跃")
@@ -192,23 +195,40 @@ def main():
                     help="agent 间对话轮数上限（默认 10，0=不限）")
     ap.add_argument("--per-batch", type=int, default=6, help="每轮消息条数上限（默认 6）")
     ap.add_argument("--fake-llm", action="store_true", help="用假 LLM 验证流程，不调 API")
+    ap.add_argument("--inline", action="store_true",
+                    help="单进程对照模式（默认每 Agent 独立 AAA 子进程，F9）")
     ap.add_argument("--out", default=os.path.join(ROOT, "docs", "experiments",
                                                   "message_pool_test"),
                     help="留档根目录")
     args = ap.parse_args()
 
-    # ── 节点模块：先 import 以 patch 后台重建线程（防并发 native 崩溃）──
+    # ── 运行模式：F9 默认子进程；--inline 保留单进程对照 ──
+    mode = "inline" if args.inline else "subprocess"
+    # 主进程直连 LLM 计数（自我介绍等平台侧调用；agent 决策调用在 AAA 子进程内
+    # 由 aaa_serve 计数，收尾时经 llm_stats 汇总，写入 llm_stats.json）
+    _platform_llm_calls = {"n": 0}
+    _base_llm = _fake_llm if args.fake_llm else llm_infer
+
+
+    def llm(prompt):
+        _platform_llm_calls["n"] += 1
+        return _base_llm(prompt)
+
+    # 主进程始终需要 db 模块（init_character 写种子 / _snapshot 读快照；
+    # db.py 仅 sqlite 操作，不依赖 memos，import 安全）
     if NODE_DIR not in sys.path:
         sys.path.insert(0, NODE_DIR)
-    import db
-    import memos
-    import review
-    memos.rebuild_index = lambda *a, **k: None
-    memos.rebuild_knowledge_index = lambda *a, **k: None
-    db._aggregate_mood = lambda *a, **k: None
-    llm = _fake_llm if args.fake_llm else llm_infer
-    # review 后台线程内同步调 LLM（与对话并行）；fake 模式返回空不沉淀
-    review.set_llm_call((lambda p: "") if args.fake_llm else llm_infer)
+
+    if args.inline:
+        # ── 节点模块：先 import 以 patch 后台重建线程（防并发 native 崩溃）──
+        import db
+        import memos
+        import review
+        memos.rebuild_index = lambda *a, **k: None
+        memos.rebuild_knowledge_index = lambda *a, **k: None
+        db._aggregate_mood = lambda *a, **k: None
+        # review 后台线程内同步调 LLM（与对话并行）；fake 模式返回空不沉淀
+        review.set_llm_call((lambda p: "") if args.fake_llm else llm_infer)
 
     # ── 留档目录（每次运行独立时间戳目录，禁止覆盖历史实验） ──
     ts = time.strftime("%Y%m%d_%H%M%S")
@@ -232,6 +252,16 @@ def main():
     rng = random.Random(args.seed) if args.seed is not None else random.Random()
     agents = []
     seeds = {}
+    # F9 子进程模式：LLM 配置经环境变量注入 AAA 子进程（不写死节点代码）
+    aaa_env = {}
+    if not args.fake_llm:
+        aaa_env.update({"AAA_LLM_MODE": "real",
+                        "AAA_API_URL": API_URL,
+                        "AAA_API_KEY": API_KEY,
+                        "AAA_MODEL": MODEL})
+    else:
+        # 假 LLM 冒烟：跳过模型预加载/重建线程（验证全链路但不耗资源）
+        aaa_env.update({"AAA_LLM_MODE": "fake", "AAA_SKIP_HEAVY": "1"})
     for i in range(args.agents):
         identity = f"agent:{i}"
         dbp = os.path.join(run_dir, "db", f"agent_{i}.sqlite")
@@ -240,9 +270,10 @@ def main():
         init_character(dbp, identity, seed, style)
         seeds[identity] = {"seed": seed, "style": style}
         run_meta["seeds"][identity] = {"vector": seed, "style": style}
-        agents.append(AgentBridge(identity, identity, dbp, llm))
+        agents.append(AgentBridge(identity, identity, dbp, llm,
+                                  mode=mode, aaa_env=aaa_env))
         print(f"[Agent] {identity}  db={dbp}  种子={seed}  "
-              f"风格={style[:12]}...", flush=True)
+              f"风格={style[:12]}... 模式={mode}", flush=True)
 
     # 种子记录齐全后落盘 _run_meta.json
     with open(os.path.join(run_dir, "_run_meta.json"), "w", encoding="utf-8") as f:
@@ -310,10 +341,29 @@ def main():
     # ── 等待后台 review 线程沉淀落库（对话已结束，只等落库） ──
     for agent in agents:
         try:
-            for t in agent._get_node()._review_threads:
-                t.join(timeout=60)
+            agent.flush_review()
         except Exception:
             pass
+
+    # ── API 调用量统计（记录本次实验 LLM/API 调用量：总量 + 各 Agent） ──
+    # subprocess：子进程内计数（决策 + 后台 review 全经过 llm_fn）；
+    # platform_direct：平台侧直连（自我介绍等）。
+    llm_stats = {"mode": mode, "fake_llm": args.fake_llm,
+                 "platform_direct": _platform_llm_calls["n"],
+                 "per_agent": {}, "total": _platform_llm_calls["n"]}
+    for agent in agents:
+        try:
+            s = agent.llm_stats()
+        except Exception:
+            s = {"calls": 0}
+        llm_stats["per_agent"][agent.agent_id] = s["calls"]
+        llm_stats["total"] += s["calls"]
+    with open(os.path.join(run_dir, "llm_stats.json"), "w", encoding="utf-8") as f:
+        json.dump(llm_stats, f, ensure_ascii=False, indent=1)
+    sub_total = llm_stats["total"] - llm_stats["platform_direct"]
+    print(f"[API 调用量] total={llm_stats['total']}  "
+          f"(AAA 子进程 {sub_total} + 平台直连 {llm_stats['platform_direct']})"
+          + ("  [fake，未调真实 API]" if args.fake_llm else ""), flush=True)
 
     # ── 收尾：演化汇总 + 原始 DB 按表导出 + 聊天历史渲染 + 话题报告 ──
     plat.write_evolution()
@@ -328,6 +378,15 @@ def main():
         print(f"  聊天历史：{chat_md}", flush=True)
     if report_md:
         print(f"  话题报告：{report_md}", flush=True)
+
+    # ── F9 资源回收：关闭全部 AAA 子进程（防孤儿进程） ──
+    if mode == "subprocess":
+        for agent in agents:
+            try:
+                agent.close()
+            except Exception:
+                pass
+        print(f"[回收] 已关闭 {len(agents)} 个 AAA 子进程", flush=True)
 
 
 if __name__ == "__main__":

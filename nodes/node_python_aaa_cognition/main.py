@@ -246,6 +246,18 @@ class MyNode:
         if not user_id and pending:
             user_id = pending.get("user_id", "")
 
+        # v6.3 P0-2：批量模式 user_id 归因改为 LLM 显式【回应对象】——
+        # 原实现把批次最后一条消息的作者当作 user_id（_on_pool_batch 的
+        # last_user_id），导致静默/回复的认知都错误归因到"最后发言者"，
+        # 且与模型实际回应对象（若 LLM 输出 agent:3 但末位是 agent:5）不符。
+        # reply → 归因到回应对象；静默/群聊/无回应对象 → 不归因（""）。
+        if batch_mode:
+            _target = (parsed.get("回应对象") or "").strip()
+            if _target and _target not in ("群聊", "多条", "所有人"):
+                user_id = _target
+            else:
+                user_id = ""
+
         # ③ 工具调用（当前功能尚未开放）
         if tool_call:
             if batch_mode:
@@ -360,13 +372,20 @@ class MyNode:
 
         # ── v6.0 F4 批量模式：返回显式决策 {action: reply|silent} ──
         # 平台据此决定广播（reply）或标记已消费（silent）；认知演化已在上方照常执行。
+        # v6.1 意识流同步：想法是内心活动，无论回复与否都必须更新——LLM 未输出
+        # 【想法】/【心情】时给默认值兜底，保证静默决策也带状态（回复与否只看
+        # 【自然回复】有无文本，与想法无关）。
         if batch_mode:
             return {
                 "action": "reply" if reply_text else "silent",
                 "content": reply_text,
                 "user_id": user_id,
-                "想法": parsed.get("想法", ""),
-                "心情": parsed.get("心情", ""),
+                "想法": parsed.get("想法", "").strip()
+                       or "收到消息，保持观察，暂不回应",
+                "心情": parsed.get("心情", "").strip() or "平静",
+                # v6.2 回应对象：LLM 显式声明的回应对象（agent:3 / 用户A / 群聊），
+                # 渲染聊天历史时优先用它标注"在回答谁"（无 batch_context 的旧数据回退）
+                "回应对象": parsed.get("回应对象", "").strip(),
                 "request_id": rid,
             }
 

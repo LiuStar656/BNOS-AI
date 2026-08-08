@@ -18,6 +18,9 @@
 - [10 避让机制防自言自语与聊天室措辞](#10-避让机制防自言自语与聊天室措辞)
 - [11 话题报告生成器：相互认知记忆与人格漂移分析](#11-话题报告生成器相互认知记忆与人格漂移分析)
 - [12 认知记忆生成指名说话对象：多用户歧义修复](#12-认知记忆生成指名说话对象多用户歧义修复)
+- [13 Agent 子进程化：平台维护多个独立 AAA 子进程（F9）](#13-agent-子进程化平台维护多个独立-aaa-子进程f9)
+- [14 意识流同步：静默决策也更新想法](#14-意识流同步静默决策也更新想法)
+- [15 API 调用量统计：实验报告记录总量与各 Agent 调用量](#15-api-调用量统计实验报告记录总量与各-agent-调用量)
 
 ---
 
@@ -37,6 +40,9 @@
 | 10 | 避让机制（防自言自语）：上一条 agent 广播发言者下批跳过决策（@ 点名豁免，其他 Agent 均沉默时解除防停滞），不侵入 AAA（身份判断由平台记录 agent_id 完成）；修复 `arbiter.release()` 返回语义导致 QUEUE 排队发言丢失的潜伏 bug；措辞统一『弹幕』→『聊天室』 | 无点名时派发顺序固定，先到先得发言权形成单 Agent 系统性主导；QUEUE 排队发言从未被广播 | 验收 42/42；真实测试 2 Agent 10 轮对话序列交替 5:5，不再自言自语，排队发言正常广播 |
 | 11 | 话题报告生成器 `topic_report.py`：话题结束生成 `topic_report.md`，分析相互认知记忆（other_cognition 按认知方×对象矩阵 + 双向判定 + 内容摘录）与人格漂移倾向（初始种子 vs 最终向量欧氏距离）；`_run_meta.json` 记录每个 Agent 初始种子；收尾自动生成报告；**n-agent 全覆盖**（glob 自动发现全部 Agent，验收 3-Agent 双重验证）（对齐实验设计方案采集方法） | evolution.json 只有他人认知计数，无法回答"Agent 间是否相互认识"与"人格是否漂移"两个科学问题；personality_seed 表只存最终向量，初始种子未落盘无法计算漂移基线 | 验收 57/57（新增 U6 15 项）；yield10 真实 run 报告显示双向认知已形成（0→1×4、1→0×3）、漂移 0（短话题不触发演化门槛）；3-Agent fake run 矩阵 3×3+其他、gid 正确；旧 run 无 seeds 自动回退 decisions 首条快照；修复 run_dir 名含 `_final` 时误伤全部 Agent 库 |
 | 12 | 认知记忆生成指名说话对象：DIRECT_TEMPLATE【他人认知】【用户信息】【用户记忆】注入 `current_user_label`（user_id，回退"用户"），要求点名对象 + 详细描述；Background Review 沉淀链路（build_review_prompt / persist_insight / run_review / 触发链 / 回执回调）透传 user_id，declarative 用户事实按说话对象归属落库 user_facts | LLM 生成他人认知/用户信息/用户记忆用笼统"用户"二字未点名对象，review 沉淀 declarative 也无 user_id → 多人场景记忆无主、检索交叉混淆 | Prompt 构建验证（三段渲染"当前对话对象 agent:1"）；review declarative 落库 user_id='agent:1'；验收 57/57 无回归；单用户行为不变（回退"用户"/归全局） |
+| 13 | Agent 子进程化（F9）：平台为父进程、每 Agent 一个独立 AAA 子进程。新增 `aaa_serve.py` 常驻服务（stdin/stdout 每行 JSON 协议：ping/pool_batch/flush_review/shutdown；LLM 经环境变量注入；AAA_SKIP_HEAVY=1 跳过模型加载）；`agent_bridge.py` 改 subprocess 桥接（崩溃自动重启 + 日志重定向 + close 回收）；`platform_runner.py` 并行决策 + @ 优先级仲裁（决策完成后按点名排序，非先到先得）；`run_pool_experiment.py` 默认子进程模式 + `--inline` 单进程对照保留 | 单进程多 AAA 实例共享 memos 索引有竞态/native 崩溃风险、崩溃连坐、GIL 下无法真并行；LLM 为 HTTP 直连天然支持并发 | 进程级隔离（memos 索引/后台线程每子进程独立）、崩溃隔离自动重启、并行决策提速；内存预算每子进程 ~80MB（Agent ≤ 5）；AAA 节点代码零改动 |
+| 14 | 意识流同步：静默决策（action=silent）也更新想法/心情。prompt.py【想法】强制输出（即使【自然回复】留空也必须写意识流）+【自然回复】明确静默=留空；main.py batch_mode 兜底（无想法→"收到消息，保持观察，暂不回应"、无心情→"平静"）；回不回复只看【自然回复】有无文本（判断逻辑未变）。测试稳定性：I1/I2 共享 fake_llm 计数器改每 Agent 独立确定性 LLM（消除 F9 并行线程竞态），U7 ping 阈值 1s→2s | 真实 LLM 静默时未输出【想法】节，`parse_llm_output` 空节跳过 → decisions.jsonl 里 silent 记录想法/心情为空；fake LLM 固定输出想法故冒烟未暴露 | 临时脚本验证 3 场景（reply+想法 / silent+想法 / silent 兜底）；`infra_acceptance_test.py` 连续两次 64/64；GUI 单用户对话不受影响（batch_mode=False 不经过兜底） |
+| 15 | API 调用量统计：aaa_serve `_make_llm` 计数包装（决策 + 后台 review 全经过 llm_fn）+ 新增 `llm_stats` 协议请求；agent_bridge 新增 `llm_stats()`（subprocess 查子进程计数 / inline 决策路径计数）；run_pool_experiment 平台直连计数 + 收尾落盘 `llm_stats.json`（mode/fake_llm/platform_direct/per_agent/total）；topic_report 报告新增「四、API 调用量统计」节（总量 + 子进程/直连拆分 + 各 Agent 明细占比，缺失降级） | 子进程架构下 LLM 调用在 AAA 子进程内，平台看不到调用次数，协议无统计通道；实验无法核算 API 成本与调用分布 | 验收 68/68（U7 llm_stats 2 项 + U6 报告 2 项）；冒烟 total=35（子进程 32 + 直连 3）；5 Agent 40 轮真实实验报告展示总量与明细 |
 
 ---
 
@@ -88,6 +94,18 @@
 
 详见 [12_认知记忆生成指名说话对象.md](./12_认知记忆生成指名说话对象.md)。
 
+### 13 Agent 子进程化：平台维护多个独立 AAA 子进程
+
+详见 [13_Agent子进程化平台多Agent独立AAA进程.md](./13_Agent子进程化平台多Agent独立AAA进程.md)。
+
+### 14 意识流同步：静默决策也更新想法
+
+详见 [14_意识流同步静默决策也更新想法.md](./14_意识流同步静默决策也更新想法.md)。
+
+### 15 API 调用量统计：实验报告记录总量与各 Agent 调用量
+
+详见 [15_API调用量统计实验报告记录.md](./15_API调用量统计实验报告记录.md)。
+
 ---
 
 ## 修改文件清单
@@ -102,13 +120,14 @@
 | `tests/message_pool/router.py` | #01 |
 | `tests/message_pool/arbiter.py` | #01、#10（release 返回语义修复） |
 | `tests/message_pool/collector.py` | #01、#02、#10（措辞） |
-| `tests/message_pool/agent_bridge.py` | #01、#10（措辞） |
-| `tests/message_pool/platform_runner.py` | #01、#02、#08、#09、#10（避让机制） |
+| `tests/message_pool/agent_bridge.py` | #01、#10（措辞）、#13（subprocess 桥接）、#15（llm_stats + inline 计数） |
+| `tests/message_pool/platform_runner.py` | #01、#02、#08、#09、#10（避让机制）、#13（并行决策 + 优先级仲裁） |
 | `tests/message_pool/data_export.py` | #02、#08、#09、#10（措辞） |
-| `tests/message_pool/run_pool_experiment.py` | #02、#08、#09、#10（措辞） |
+| `tests/message_pool/run_pool_experiment.py` | #02、#08、#09、#10（措辞）、#13（--inline + aaa_env + 回收）、#15（直连计数 + llm_stats.json） |
 | `tests/message_pool/topic.txt` | #08 |
-| `tests/message_pool/infra_acceptance_test.py` | #01、#02、#08、#09、#10（42 项）、#11（U6 9 项） |
-| `tests/message_pool/topic_report.py` | #11 |
+| `tests/message_pool/infra_acceptance_test.py` | #01、#02、#08、#09、#10（42 项）、#11（U6 9 项）、#13（U7 7 项）、#14（fake_llm 独立确定性 + ping 阈值）、#15（llm_stats 2 项 + 报告统计 2 项） |
+| `tests/message_pool/topic_report.py` | #11、#15（API 调用量统计节） |
+| `tests/message_pool/aaa_serve.py` | #13、#15（计数包装 + llm_stats 协议） |
 | `tests/message_pool/README.md` | #01、#02、#08、#09、#10、#11 |
 | `docs/cogevo/[PLAN] 消息池与弹幕式消息处理方案（多用户交互实验）.md` | #01、#10（措辞） |
 | `gui/pages/location_page.py` | #04 |
@@ -121,6 +140,8 @@
 | `nodes/node_python_aaa_cognition/main.py` | 新增 `_on_pool_batch` 批量入口（批量写库 + F5 合并上下文 + `_observe_counter` 静默观察计数）；`_on_parsed` 增加 `batch_mode` 显式决策返回；`_gather_context` 增加 `user_id` / `batch_items` / `pool_batch_section`；修复反思轮 pending 上下文丢失 | #01 |
 | `nodes/node_python_aaa_cognition/prompt.py` | `_CONTEXT_HEADER` 他人认知标签与用户文本改为占位符，支持按 user_id 渲染与批量输入段 | #01 |
 | `nodes/node_python_aaa_cognition/prompt.py` | #12 【他人认知】【用户信息】【用户记忆】注入 `current_user_label`（点名对象 + 要求详细） | #12 |
+| `nodes/node_python_aaa_cognition/prompt.py` | 【想法】强制输出（静默也必须写意识流）+【自然回复】明确静默=留空 | #14 |
+| `nodes/node_python_aaa_cognition/main.py` | `_on_parsed` batch_mode 兜底想法/心情默认值（静默决策也带状态） | #14 |
 | `tests/message_pool/collector.py` | 新增 chat_history.jsonl 输出与 `chat()` 方法 | #02 |
 | `tests/message_pool/platform_runner.py` | inject/step/drain_queue 记录聊天历史（role=user / agent） | #02 |
 | `tests/message_pool/platform_runner.py` | 新增 `record_speech`（自我介绍，不入池）与 `announce`（话题发放，入池 + 记录 role=topic） | #08 |

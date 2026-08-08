@@ -1,6 +1,6 @@
 {
   "gid": "test",
-  "created_at": "2026-08-08T09:26:37.688832",
+  "created_at": "2026-08-08T10:54:04.077929",
   "rounds": 3,
   "reply_count": {
     "agent:alpha": 1
@@ -8,6 +8,7 @@
   "silent_count": {
     "agent:alpha": 1
   },
+  "error_count": {},
   "agents": {
     "agent:alpha": {
       "end": {

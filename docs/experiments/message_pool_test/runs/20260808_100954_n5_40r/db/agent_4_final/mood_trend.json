@@ -1,0 +1,24 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 1,
+  "created_at": "2026-08-08 10:10:31",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "period": "daily",
+  "period_start": "2026-08-08",
+  "avg_mood_value": 3.0,
+  "dominant_mood": "平静",
+  "sample_count": 3,
+  "created_at": "2026-08-08 10:11:48",
+  "identity_key": "agent:4"
+ }
+]

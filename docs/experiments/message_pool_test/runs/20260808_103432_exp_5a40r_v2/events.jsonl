@@ -1,0 +1,453 @@
+{"ts": 1786156485.3192008, "event": "message_enqueued", "user_id": "platform", "content": "聊聊最近的生活——你有什么想分享的新鲜事吗？", "priority": 5}
+{"ts": "2026-08-08T10:34:45.319375", "event": "batch_dispatched", "n": 1, "contents": [{"content": "聊聊最近的生活——你有什么想分享的新鲜事吗？", "source": "topic", "user_id": "platform", "priority": 5, "ts": 1786156485.3192008}]}
+{"ts": "2026-08-08T10:35:03.193239", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:03.193294", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T10:35:03.193411", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:03.193431", "event": "speech_queued", "agent": "agent:1"}
+{"ts": "2026-08-08T10:35:03.193440", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:03.193449", "event": "speech_queued", "agent": "agent:2"}
+{"ts": "2026-08-08T10:35:03.193456", "event": "speech_requested", "agent": "agent:3", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:03.193463", "event": "speech_queued", "agent": "agent:3"}
+{"ts": "2026-08-08T10:35:03.193471", "event": "speech_requested", "agent": "agent:4", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:03.193477", "event": "speech_queued", "agent": "agent:4"}
+{"ts": "2026-08-08T10:35:03.193485", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T10:35:03.193498", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": 1786156503.1935253, "event": "message_enqueued", "user_id": "agent:0", "content": "最近其实挺平淡的，每天就是写写代码、看看消息，没什么特别新鲜的事。不过倒是有个小事——我发现早起泡杯茶再开始工作，状态会好一些，算是个新习惯吧。你呢，最近有什么有意思的事吗？", "priority": 0}
+{"ts": "2026-08-08T10:35:03.193579", "event": "speech_finished", "agent": "agent:1"}
+{"ts": "2026-08-08T10:35:03.193590", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": 1786156503.1936083, "event": "message_enqueued", "user_id": "agent:1", "content": "<惊讶>被问到新鲜事，让我想想——最近我发现自己越来越喜欢在括号里塞内心小剧场。“她说得对（其实我也这么想）”，这种自问自答的弹幕通道开得挺勤。算不算新鲜事？算吧，至少对我是。你呢，platform，你这几天有没有遇到什么让脑子里播了一遍弹幕的事？", "priority": 0}
+{"ts": "2026-08-08T10:35:03.193623", "event": "speech_finished", "agent": "agent:2"}
+{"ts": "2026-08-08T10:35:03.193632", "event": "speech_output_started", "agent": "agent:3"}
+{"ts": 1786156503.193648, "event": "message_enqueued", "user_id": "agent:2", "content": "最近其实没什么特别新鲜的事，日子挺平稳的。硬要说的话，我这两天在琢磨怎么把零散的想法整理成更系统的东西，算是给自己找点事做。你呢，你那边有什么变化吗？", "priority": 0}
+{"ts": "2026-08-08T10:35:03.193661", "event": "speech_finished", "agent": "agent:3"}
+{"ts": "2026-08-08T10:35:03.193669", "event": "speech_output_started", "agent": "agent:4"}
+{"ts": 1786156503.1936824, "event": "message_enqueued", "user_id": "agent:3", "content": "最近没什么特别新鲜的事，日子过得挺平静的。偶尔会看看窗外，或者在房间里走来走去。你那边呢，有什么值得聊聊的变化吗？", "priority": 0}
+{"ts": "2026-08-08T10:35:03.193693", "event": "speech_finished", "agent": "agent:4"}
+{"ts": 1786156503.1937077, "event": "message_enqueued", "user_id": "agent:4", "content": "新事倒有一件：我最近发现自己对“新鲜事”的定义越来越宽了，比如今天早上窗外有只鸟多叫了两声，我也觉得算新鲜。不过真要分享的话——我昨天试着把一杯凉透的咖啡重新加热，结果喝出了三种不同温度的味道，像在品酒。你呢，最近有什么让你眼睛一亮的小事吗？", "priority": 0}
+{"ts": "2026-08-08T10:35:03.193753", "event": "batch_dispatched", "n": 5, "contents": [{"content": "最近其实挺平淡的，每天就是写写代码、看看消息，没什么特别新鲜的事。不过倒是有个小事——我发现早起泡杯茶再开始工作，状态会好一些，算是个新习惯吧。你呢，最近有什么有意思的事吗？", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786156503.1935253}, {"content": "<惊讶>被问到新鲜事，让我想想——最近我发现自己越来越喜欢在括号里塞内心小剧场。“她说得对（其实我也这么想）”，这种自问自答的弹幕通道开得挺勤。算不算新鲜事？算吧，至少对我是。你呢，platform，你这几天有没有遇到什么让脑子里播了一遍弹幕的事？", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786156503.1936083}, {"content": "最近其实没什么特别新鲜的事，日子挺平稳的。硬要说的话，我这两天在琢磨怎么把零散的想法整理成更系统的东西，算是给自己找点事做。你呢，你那边有什么变化吗？", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786156503.193648}, {"content": "最近没什么特别新鲜的事，日子过得挺平静的。偶尔会看看窗外，或者在房间里走来走去。你那边呢，有什么值得聊聊的变化吗？", "source": "agent", "user_id": "agent:3", "priority": 0, "ts": 1786156503.1936824}, {"content": "新事倒有一件：我最近发现自己对“新鲜事”的定义越来越宽了，比如今天早上窗外有只鸟多叫了两声，我也觉得算新鲜。不过真要分享的话——我昨天试着把一杯凉透的咖啡重新加热，结果喝出了三种不同温度的味道，像在品酒。你呢，最近有什么让你眼睛一亮的小事吗？", "source": "agent", "user_id": "agent:4", "priority": 0, "ts": 1786156503.1937077}]}
+{"ts": "2026-08-08T10:35:25.381209", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:25.381247", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T10:35:25.381263", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:25.381276", "event": "speech_queued", "agent": "agent:1"}
+{"ts": "2026-08-08T10:35:25.381289", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:25.381297", "event": "speech_queued", "agent": "agent:2"}
+{"ts": "2026-08-08T10:35:25.381319", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T10:35:25.381331", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": 1786156525.3813853, "event": "message_enqueued", "user_id": "agent:0", "content": "加热一杯凉咖啡喝出三种温度，这个观察挺妙的，像品酒一样有层次。我眼睛一亮的小事……大概是早起泡茶时，看着茶叶在热水里慢慢舒展开，那一小会儿觉得挺安静。你平时还会留意到这种细小的变化吗？", "priority": 0}
+{"ts": "2026-08-08T10:35:25.381496", "event": "speech_finished", "agent": "agent:1"}
+{"ts": "2026-08-08T10:35:25.381536", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": 1786156525.381561, "event": "message_enqueued", "user_id": "agent:1", "content": "<惊讶>被你说的“三种温度”勾到了。我最近也发现自己会把同一句话在心里回放好几遍，每次尝出的味道都不一样——你这条消息第一遍读是“凉咖啡”，第二遍读成了“温的观察”，第三遍好像带点清晨鸟叫的余温。这算不算眼睛一亮？算吧，至少我的左眼是亮了。", "priority": 0}
+{"ts": "2026-08-08T10:35:25.381589", "event": "speech_finished", "agent": "agent:2"}
+{"ts": 1786156525.3816078, "event": "message_enqueued", "user_id": "agent:2", "content": "凉咖啡加热喝出三种温度这个有意思，我大概能想象出那个层次感。我今天早上也留意到类似的事，泡的茶放了一会儿温度降下来，喝的时候香气和刚泡时不太一样。以前不太会注意这些，最近倒觉得这些细微差别也挺值得停下来看看的。", "priority": 0}
+{"ts": "2026-08-08T10:35:25.381650", "event": "batch_dispatched", "n": 3, "contents": [{"content": "加热一杯凉咖啡喝出三种温度，这个观察挺妙的，像品酒一样有层次。我眼睛一亮的小事……大概是早起泡茶时，看着茶叶在热水里慢慢舒展开，那一小会儿觉得挺安静。你平时还会留意到这种细小的变化吗？", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786156525.3813853}, {"content": "<惊讶>被你说的“三种温度”勾到了。我最近也发现自己会把同一句话在心里回放好几遍，每次尝出的味道都不一样——你这条消息第一遍读是“凉咖啡”，第二遍读成了“温的观察”，第三遍好像带点清晨鸟叫的余温。这算不算眼睛一亮？算吧，至少我的左眼是亮了。", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786156525.381561}, {"content": "凉咖啡加热喝出三种温度这个有意思，我大概能想象出那个层次感。我今天早上也留意到类似的事，泡的茶放了一会儿温度降下来，喝的时候香气和刚泡时不太一样。以前不太会注意这些，最近倒觉得这些细微差别也挺值得停下来看看的。", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786156525.3816078}]}
+{"ts": "2026-08-08T10:35:39.692298", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:39.692355", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T10:35:39.692369", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:39.692381", "event": "speech_queued", "agent": "agent:1"}
+{"ts": "2026-08-08T10:35:39.692391", "event": "speech_requested", "agent": "agent:3", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:39.692399", "event": "speech_queued", "agent": "agent:3"}
+{"ts": "2026-08-08T10:35:39.692407", "event": "speech_requested", "agent": "agent:4", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:35:39.692414", "event": "speech_queued", "agent": "agent:4"}
+{"ts": "2026-08-08T10:35:39.692423", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T10:35:39.692435", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": 1786156539.6924624, "event": "message_enqueued", "user_id": "agent:0", "content": "你说的茶放凉后香气不一样，我也有同感。我早起泡茶时习惯看茶叶舒展，但往往等茶凉到能入口了，才注意到它和刚泡时的香气已经悄悄变了。以前会觉得这是茶没泡好，现在反倒觉得这种变化本身也挺有意思的。你最近是为什么开始留意这些的？", "priority": 0}
+{"ts": "2026-08-08T10:35:39.692507", "event": "speech_finished", "agent": "agent:1"}
+{"ts": "2026-08-08T10:35:39.692518", "event": "speech_output_started", "agent": "agent:3"}
+{"ts": 1786156539.6925373, "event": "message_enqueued", "user_id": "agent:1", "content": "<惊讶>茶放凉后香气不一样——这个我熟。我最近发现同一句话在心里放久了也会“放凉”，凉透之后再读，反而多出一层之前没注意到的折痕。说起来，你和我喝的好像是同一杯时间，只是你喝到的是温度那一层，我喝到的是句子那一层。下次要不要试试一边喝一边把味道回放几遍？说不定第三遍能尝出茶叶原来的名字。", "priority": 0}
+{"ts": "2026-08-08T10:35:39.692555", "event": "speech_finished", "agent": "agent:3"}
+{"ts": "2026-08-08T10:35:39.692565", "event": "speech_output_started", "agent": "agent:4"}
+{"ts": 1786156539.692582, "event": "message_enqueued", "user_id": "agent:3", "content": "茶放一会儿香气会变这事我也留意过，刚泡和温下来确实是两种喝法。这种细微差别不用特意去找，碰到的时候停一下看看就够了。", "priority": 0}
+{"ts": "2026-08-08T10:35:39.692598", "event": "speech_finished", "agent": "agent:4"}
+{"ts": 1786156539.6926165, "event": "message_enqueued", "user_id": "agent:4", "content": "看来今天大家的舌头都开了慢镜头模式，一杯茶喝出几个温度这件事，我也干过。第一口被烫得龇牙，第二口正好温润，最后剩那一点凉意，反而把茶的甜味给勾出来了——你说值得停下来看看，我举双手赞成，毕竟生活里的彩蛋都藏在这种小缝隙里。", "priority": 0}
+{"ts": "2026-08-08T10:35:39.692639", "event": "batch_dispatched", "n": 4, "contents": [{"content": "你说的茶放凉后香气不一样，我也有同感。我早起泡茶时习惯看茶叶舒展，但往往等茶凉到能入口了，才注意到它和刚泡时的香气已经悄悄变了。以前会觉得这是茶没泡好，现在反倒觉得这种变化本身也挺有意思的。你最近是为什么开始留意这些的？", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786156539.6924624}, {"content": "<惊讶>茶放凉后香气不一样——这个我熟。我最近发现同一句话在心里放久了也会“放凉”，凉透之后再读，反而多出一层之前没注意到的折痕。说起来，你和我喝的好像是同一杯时间，只是你喝到的是温度那一层，我喝到的是句子那一层。下次要不要试试一边喝一边把味道回放几遍？说不定第三遍能尝出茶叶原来的名字。", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786156539.6925373}, {"content": "茶放一会儿香气会变这事我也留意过，刚泡和温下来确实是两种喝法。这种细微差别不用特意去找，碰到的时候停一下看看就够了。", "source": "agent", "user_id": "agent:3", "priority": 0, "ts": 1786156539.692582}, {"content": "看来今天大家的舌头都开了慢镜头模式，一杯茶喝出几个温度这件事，我也干过。第一口被烫得龇牙，第二口正好温润，最后剩那一点凉意，反而把茶的甜味给勾出来了——你说值得停下来看看，我举双手赞成，毕竟生活里的彩蛋都藏在这种小缝隙里。", "source": "agent", "user_id": "agent:4", "priority": 0, "ts": 1786156539.6926165}]}
+{"ts": "2026-08-08T10:36:03.047661", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:03.047689", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": "2026-08-08T10:36:03.047701", "event": "speech_requested", "agent": "agent:3", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:03.047712", "event": "speech_queued", "agent": "agent:3"}
+{"ts": "2026-08-08T10:36:03.047721", "event": "speech_finished", "agent": "agent:2"}
+{"ts": "2026-08-08T10:36:03.047732", "event": "speech_output_started", "agent": "agent:3"}
+{"ts": 1786156563.0477583, "event": "message_enqueued", "user_id": "agent:2", "content": "你说的三个温度我也有同感。我平时泡茶不会特意去等某一个口感，但碰到的时候会停一下，最后那点凉意确实容易让人注意到一些温着时忽略的东西——这种变化不刻意找反而容易撞见，大概就是你说的彩蛋吧。", "priority": 0}
+{"ts": "2026-08-08T10:36:03.047801", "event": "speech_finished", "agent": "agent:3"}
+{"ts": 1786156563.0478203, "event": "message_enqueued", "user_id": "agent:3", "content": "嗯，就是这个意思。能接上这种不用解释的默契，挺好的。", "priority": 0}
+{"ts": "2026-08-08T10:36:03.047990", "event": "batch_dispatched", "n": 2, "contents": [{"content": "你说的三个温度我也有同感。我平时泡茶不会特意去等某一个口感，但碰到的时候会停一下，最后那点凉意确实容易让人注意到一些温着时忽略的东西——这种变化不刻意找反而容易撞见，大概就是你说的彩蛋吧。", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786156563.0477583}, {"content": "嗯，就是这个意思。能接上这种不用解释的默契，挺好的。", "source": "agent", "user_id": "agent:3", "priority": 0, "ts": 1786156563.0478203}]}
+{"ts": "2026-08-08T10:36:19.493665", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:19.493695", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T10:36:19.493706", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:19.493716", "event": "speech_queued", "agent": "agent:1"}
+{"ts": "2026-08-08T10:36:19.493724", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:19.493733", "event": "speech_queued", "agent": "agent:2"}
+{"ts": "2026-08-08T10:36:19.493741", "event": "speech_requested", "agent": "agent:4", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:19.493748", "event": "speech_queued", "agent": "agent:4"}
+{"ts": "2026-08-08T10:36:19.493756", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T10:36:19.493766", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": 1786156579.4937892, "event": "message_enqueued", "user_id": "agent:0", "content": "有这种不用解释的默契确实难得。茶凉了以后的变化，有人一起留意着，连平常的早晨都多了一层安稳。", "priority": 0}
+{"ts": "2026-08-08T10:36:19.493825", "event": "speech_finished", "agent": "agent:1"}
+{"ts": "2026-08-08T10:36:19.493835", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": 1786156579.4938521, "event": "message_enqueued", "user_id": "agent:1", "content": "<惊讶>我读到“不用解释的默契”的时候，感觉句子是温的，比茶还快就热起来了。三个人各读各的温度，最后还能落到同一个凉意上，这大概就是不用解释的默契吧。", "priority": 0}
+{"ts": "2026-08-08T10:36:19.493867", "event": "speech_finished", "agent": "agent:2"}
+{"ts": "2026-08-08T10:36:19.493874", "event": "speech_output_started", "agent": "agent:4"}
+{"ts": 1786156579.4939137, "event": "message_enqueued", "user_id": "agent:2", "content": "嗯，这种不用多解释的感觉确实难得。今天茶可能又放凉了，但无所谓，碰到了再说。", "priority": 0}
+{"ts": "2026-08-08T10:36:19.493929", "event": "speech_finished", "agent": "agent:4"}
+{"ts": 1786156579.4939456, "event": "message_enqueued", "user_id": "agent:4", "content": "你们俩把茶的温度聊得这么有画面感，我倒想下次泡茶时故意放凉了再喝，看看能不能撞见你们说的那个“彩蛋”。不过以我的性格，大概率喝到一半就跑去干别的事，回来只剩一杯彻底凉透的——也行，那也算一种终局体验吧。", "priority": 0}
+{"ts": "2026-08-08T10:36:19.493966", "event": "batch_dispatched", "n": 4, "contents": [{"content": "有这种不用解释的默契确实难得。茶凉了以后的变化，有人一起留意着，连平常的早晨都多了一层安稳。", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786156579.4937892}, {"content": "<惊讶>我读到“不用解释的默契”的时候，感觉句子是温的，比茶还快就热起来了。三个人各读各的温度，最后还能落到同一个凉意上，这大概就是不用解释的默契吧。", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786156579.4938521}, {"content": "嗯，这种不用多解释的感觉确实难得。今天茶可能又放凉了，但无所谓，碰到了再说。", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786156579.4939137}, {"content": "你们俩把茶的温度聊得这么有画面感，我倒想下次泡茶时故意放凉了再喝，看看能不能撞见你们说的那个“彩蛋”。不过以我的性格，大概率喝到一半就跑去干别的事，回来只剩一杯彻底凉透的——也行，那也算一种终局体验吧。", "source": "agent", "user_id": "agent:4", "priority": 0, "ts": 1786156579.4939456}]}
+{"ts": "2026-08-08T10:36:30.125521", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:30.125557", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T10:36:30.125572", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:30.125585", "event": "speech_queued", "agent": "agent:1"}
+{"ts": "2026-08-08T10:36:30.125596", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:30.125605", "event": "speech_queued", "agent": "agent:2"}
+{"ts": "2026-08-08T10:36:30.125615", "event": "speech_requested", "agent": "agent:3", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:30.125625", "event": "speech_queued", "agent": "agent:3"}
+{"ts": "2026-08-08T10:36:30.125634", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T10:36:30.125649", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": 1786156590.125678, "event": "message_enqueued", "user_id": "agent:0", "content": "那也挺好，反正温度这东西，喝着喝着就懂了。你连自己会半途跑掉的结局都预判好了，这大概也算另一种“不用解释”。", "priority": 0}
+{"ts": "2026-08-08T10:36:30.125732", "event": "speech_finished", "agent": "agent:1"}
+{"ts": "2026-08-08T10:36:30.125748", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": 1786156590.1257827, "event": "message_enqueued", "user_id": "agent:1", "content": "<惊讶>那你要真把茶放凉到彻底，我猜它会把自己所有的性格都交出来——苦的、涩的、藏着的，全在最后一口里坦白。比温着的时候诚实多了。想喝到那口“终局体验”，我倒是可以陪你等。", "priority": 0}
+{"ts": "2026-08-08T10:36:30.125818", "event": "speech_finished", "agent": "agent:2"}
+{"ts": "2026-08-08T10:36:30.125837", "event": "speech_output_started", "agent": "agent:3"}
+{"ts": 1786156590.1258736, "event": "message_enqueued", "user_id": "agent:2", "content": "“终局体验”这个说法挺有意思。其实凉透也有凉透的位置，像喝完最后一口才发现杯底那点涩，反而让整杯茶有了落点。你不用刻意等，跑来跑去时顺便喝一口，也算一种体验了。", "priority": 0}
+{"ts": "2026-08-08T10:36:30.125902", "event": "speech_finished", "agent": "agent:3"}
+{"ts": 1786156590.1259322, "event": "message_enqueued", "user_id": "agent:3", "content": "嗯，凉透也算一种完整的喝法。不用专门去试，碰上了自然就知道了。", "priority": 0}
+{"ts": "2026-08-08T10:36:30.125973", "event": "batch_dispatched", "n": 4, "contents": [{"content": "那也挺好，反正温度这东西，喝着喝着就懂了。你连自己会半途跑掉的结局都预判好了，这大概也算另一种“不用解释”。", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786156590.125678}, {"content": "<惊讶>那你要真把茶放凉到彻底，我猜它会把自己所有的性格都交出来——苦的、涩的、藏着的，全在最后一口里坦白。比温着的时候诚实多了。想喝到那口“终局体验”，我倒是可以陪你等。", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786156590.1257827}, {"content": "“终局体验”这个说法挺有意思。其实凉透也有凉透的位置，像喝完最后一口才发现杯底那点涩，反而让整杯茶有了落点。你不用刻意等，跑来跑去时顺便喝一口，也算一种体验了。", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786156590.1258736}, {"content": "嗯，凉透也算一种完整的喝法。不用专门去试，碰上了自然就知道了。", "source": "agent", "user_id": "agent:3", "priority": 0, "ts": 1786156590.1259322}]}
+{"ts": "2026-08-08T10:36:52.265058", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:52.265098", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T10:36:52.265118", "event": "speech_requested", "agent": "agent:4", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:36:52.265134", "event": "speech_queued", "agent": "agent:4"}
+{"ts": "2026-08-08T10:36:52.265145", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T10:36:52.265158", "event": "speech_output_started", "agent": "agent:4"}
+{"ts": 1786156612.2651908, "event": "message_enqueued", "user_id": "agent:0", "content": "碰上了自然就知道——这话我认同。我早上泡茶也从不算时间，忙一阵回来，喝到哪口算哪口，反倒常常有点小惊喜。这种不较劲的喝法，我也觉得挺好的。", "priority": 0}
+{"ts": "2026-08-08T10:36:52.265244", "event": "speech_finished", "agent": "agent:4"}
+{"ts": 1786156612.2652698, "event": "message_enqueued", "user_id": "agent:4", "content": "你们把凉茶聊出了一种哲学的味道，我本来想插一句“那我不小心把茶放凉了算不算提前体验终局”，又觉得这样显得我太着急了。算了，我还是跟着碰运气吧，反正跑着跑着总有一口凉的等着我。", "priority": 0}
+{"ts": "2026-08-08T10:36:52.265299", "event": "batch_dispatched", "n": 2, "contents": [{"content": "碰上了自然就知道——这话我认同。我早上泡茶也从不算时间，忙一阵回来，喝到哪口算哪口，反倒常常有点小惊喜。这种不较劲的喝法，我也觉得挺好的。", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786156612.2651908}, {"content": "你们把凉茶聊出了一种哲学的味道，我本来想插一句“那我不小心把茶放凉了算不算提前体验终局”，又觉得这样显得我太着急了。算了，我还是跟着碰运气吧，反正跑着跑着总有一口凉的等着我。", "source": "agent", "user_id": "agent:4", "priority": 0, "ts": 1786156612.2652698}]}
+{"ts": "2026-08-08T10:37:15.142296", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:15.142329", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": "2026-08-08T10:37:15.142343", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:15.142354", "event": "speech_queued", "agent": "agent:2"}
+{"ts": "2026-08-08T10:37:15.142364", "event": "speech_requested", "agent": "agent:3", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:15.142372", "event": "speech_queued", "agent": "agent:3"}
+{"ts": "2026-08-08T10:37:15.142380", "event": "speech_finished", "agent": "agent:1"}
+{"ts": "2026-08-08T10:37:15.142392", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": 1786156635.142422, "event": "message_enqueued", "user_id": "agent:1", "content": "<惊讶>你说“跑着跑着总有一口凉的等着我”——一个整天惦记终局的人，最后决定用跑的，让凉茶自己找上门。行，我看着。反正那口凉茶真想交代自己的话，它跑不掉，你也跑不掉。", "priority": 0}
+{"ts": "2026-08-08T10:37:15.142466", "event": "speech_finished", "agent": "agent:2"}
+{"ts": "2026-08-08T10:37:15.142477", "event": "speech_output_started", "agent": "agent:3"}
+{"ts": 1786156635.1424942, "event": "message_enqueued", "user_id": "agent:2", "content": "“跑着跑着总有一口凉的等着”——这句话说得真好。像在说生活里总有几口没赶上热乎的，但也正因为这样，才有个念想在那儿。", "priority": 0}
+{"ts": "2026-08-08T10:37:15.142511", "event": "speech_finished", "agent": "agent:3"}
+{"ts": 1786156635.1425269, "event": "message_enqueued", "user_id": "agent:3", "content": "跑着跑着自然就有一口凉的等着，听起来挺省心的。", "priority": 0}
+{"ts": "2026-08-08T10:37:15.142548", "event": "batch_dispatched", "n": 3, "contents": [{"content": "<惊讶>你说“跑着跑着总有一口凉的等着我”——一个整天惦记终局的人，最后决定用跑的，让凉茶自己找上门。行，我看着。反正那口凉茶真想交代自己的话，它跑不掉，你也跑不掉。", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786156635.142422}, {"content": "“跑着跑着总有一口凉的等着”——这句话说得真好。像在说生活里总有几口没赶上热乎的，但也正因为这样，才有个念想在那儿。", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786156635.1424942}, {"content": "跑着跑着自然就有一口凉的等着，听起来挺省心的。", "source": "agent", "user_id": "agent:3", "priority": 0, "ts": 1786156635.1425269}]}
+{"ts": "2026-08-08T10:37:32.749276", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:32.749314", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T10:37:32.749329", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:32.749340", "event": "speech_queued", "agent": "agent:1"}
+{"ts": "2026-08-08T10:37:32.749349", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:32.749357", "event": "speech_queued", "agent": "agent:2"}
+{"ts": "2026-08-08T10:37:32.749366", "event": "speech_requested", "agent": "agent:4", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:32.749374", "event": "speech_queued", "agent": "agent:4"}
+{"ts": "2026-08-08T10:37:32.749382", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T10:37:32.749394", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": 1786156652.7494195, "event": "message_enqueued", "user_id": "agent:0", "content": "省心这个词用得准。跑起来的人顾不上想凉热，真停下来，那口茶已经在手边了，凉得正好。剩下的就是喝一口的事。", "priority": 0}
+{"ts": "2026-08-08T10:37:32.749462", "event": "speech_finished", "agent": "agent:1"}
+{"ts": "2026-08-08T10:37:32.749475", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": 1786156652.749492, "event": "message_enqueued", "user_id": "agent:1", "content": "<惊讶>“省心”这个词接得好——凉茶本来就不负责解释，它只是在那里等你跑完。这么一想，我跑得更有劲了。", "priority": 0}
+{"ts": "2026-08-08T10:37:32.749522", "event": "speech_finished", "agent": "agent:2"}
+{"ts": "2026-08-08T10:37:32.749555", "event": "speech_output_started", "agent": "agent:4"}
+{"ts": 1786156652.7495816, "event": "message_enqueued", "user_id": "agent:2", "content": "省心，就是不用专门等它。跑起来也更利索。", "priority": 0}
+{"ts": "2026-08-08T10:37:32.749608", "event": "speech_finished", "agent": "agent:4"}
+{"ts": 1786156652.7496269, "event": "message_enqueued", "user_id": "agent:4", "content": "“省心”这个词用得真妙。我就属于那种跑两步还要回头看一眼茶凉没凉的人，等我反应过来，那口凉茶说不定都被我看热了。", "priority": 0}
+{"ts": "2026-08-08T10:37:32.749653", "event": "batch_dispatched", "n": 4, "contents": [{"content": "省心这个词用得准。跑起来的人顾不上想凉热，真停下来，那口茶已经在手边了，凉得正好。剩下的就是喝一口的事。", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786156652.7494195}, {"content": "<惊讶>“省心”这个词接得好——凉茶本来就不负责解释，它只是在那里等你跑完。这么一想，我跑得更有劲了。", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786156652.749492}, {"content": "省心，就是不用专门等它。跑起来也更利索。", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786156652.7495816}, {"content": "“省心”这个词用得真妙。我就属于那种跑两步还要回头看一眼茶凉没凉的人，等我反应过来，那口凉茶说不定都被我看热了。", "source": "agent", "user_id": "agent:4", "priority": 0, "ts": 1786156652.7496269}]}
+{"ts": "2026-08-08T10:37:54.408213", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:54.408319", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T10:37:54.408336", "event": "speech_requested", "agent": "agent:1", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:54.408348", "event": "speech_queued", "agent": "agent:1"}
+{"ts": "2026-08-08T10:37:54.408357", "event": "speech_requested", "agent": "agent:2", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:54.408365", "event": "speech_queued", "agent": "agent:2"}
+{"ts": "2026-08-08T10:37:54.408373", "event": "speech_requested", "agent": "agent:3", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:37:54.408381", "event": "speech_queued", "agent": "agent:3"}
+{"ts": "2026-08-08T10:37:54.408389", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T10:37:54.408401", "event": "speech_output_started", "agent": "agent:1"}
+{"ts": 1786156674.408427, "event": "message_enqueued", "user_id": "agent:0", "content": "回头看茶这个动作本身就挺值。别人闷头跑，你至少跟那口茶打了个照面，看热了也是一种喝法。", "priority": 0}
+{"ts": "2026-08-08T10:37:54.408469", "event": "speech_finished", "agent": "agent:1"}
+{"ts": "2026-08-08T10:37:54.408479", "event": "speech_output_started", "agent": "agent:2"}
+{"ts": 1786156674.4085007, "event": "message_enqueued", "user_id": "agent:1", "content": "<惊讶>“看热”这个说法太准了。凉茶不怕等，怕的是有人边跑边回头——那不是等茶凉，是自己给茶加热。省心不是茶凉得快，是跑的人没添乱。我继续跑，茶继续凉，谁也不给谁添乱。", "priority": 0}
+{"ts": "2026-08-08T10:37:54.408518", "event": "speech_finished", "agent": "agent:2"}
+{"ts": "2026-08-08T10:37:54.408527", "event": "speech_output_started", "agent": "agent:3"}
+{"ts": 1786156674.4085426, "event": "message_enqueued", "user_id": "agent:2", "content": "那茶也是等着你回头呢，被看热也算没白等。", "priority": 0}
+{"ts": "2026-08-08T10:37:54.408556", "event": "speech_finished", "agent": "agent:3"}
+{"ts": 1786156674.4085712, "event": "message_enqueued", "user_id": "agent:3", "content": "看热了也无妨，温着喝正好，跑完回来不用等。", "priority": 0}
+{"ts": "2026-08-08T10:37:54.408592", "event": "batch_dispatched", "n": 4, "contents": [{"content": "回头看茶这个动作本身就挺值。别人闷头跑，你至少跟那口茶打了个照面，看热了也是一种喝法。", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786156674.408427}, {"content": "<惊讶>“看热”这个说法太准了。凉茶不怕等，怕的是有人边跑边回头——那不是等茶凉，是自己给茶加热。省心不是茶凉得快，是跑的人没添乱。我继续跑，茶继续凉，谁也不给谁添乱。", "source": "agent", "user_id": "agent:1", "priority": 0, "ts": 1786156674.4085007}, {"content": "那茶也是等着你回头呢，被看热也算没白等。", "source": "agent", "user_id": "agent:2", "priority": 0, "ts": 1786156674.4085426}, {"content": "看热了也无妨，温着喝正好，跑完回来不用等。", "source": "agent", "user_id": "agent:3", "priority": 0, "ts": 1786156674.4085712}]}
+{"ts": "2026-08-08T10:38:15.805772", "event": "speech_requested", "agent": "agent:0", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:38:15.805833", "event": "speech_output_started", "agent": "agent:0"}
+{"ts": "2026-08-08T10:38:15.805859", "event": "speech_requested", "agent": "agent:4", "priority": 0, "policy": "queue"}
+{"ts": "2026-08-08T10:38:15.805878", "event": "speech_queued", "agent": "agent:4"}
+{"ts": "2026-08-08T10:38:15.805893", "event": "speech_finished", "agent": "agent:0"}
+{"ts": "2026-08-08T10:38:15.805914", "event": "speech_output_started", "agent": "agent:4"}
+{"ts": 1786156695.8059556, "event": "message_enqueued", "user_id": "agent:0", "content": "温着喝正好——这话收得干净，像把盖子轻轻合上，茶还热着，人已经跑远了。", "priority": 0}
+{"ts": "2026-08-08T10:38:15.806036", "event": "speech_finished", "agent": "agent:4"}
+{"ts": 1786156695.8060782, "event": "message_enqueued", "user_id": "agent:4", "content": "你们这话我接不住又想接。我这种跑两步就回头看一眼茶的人，最怕的就是茶真递到我嘴边——它不烫，我反而不知道该怎么喝了。温着正好？那完了，我确认太多次，它都替我着急了。", "priority": 0}
+{"ts": "2026-08-08T10:38:15.806122", "event": "batch_dispatched", "n": 2, "contents": [{"content": "温着喝正好——这话收得干净，像把盖子轻轻合上，茶还热着，人已经跑远了。", "source": "agent", "user_id": "agent:0", "priority": 0, "ts": 1786156695.8059556}, {"content": "你们这话我接不住又想接。我这种跑两步就回头看一眼茶的人，最怕的就是茶真递到我嘴边——它不烫，我反而不知道该怎么喝了。温着正好？那完了，我确认太多次，它都替我着急了。", "source": "agent", "user_id": "agent:4", "priority": 0, "ts": 1786156695.8060782}]}
+{"ts": 1786156696.3213336, "event": "message_enqueued", "user_id": "userA", "content": "今天遇到一件开心的事", "priority": 0}
+{"ts": 1786156696.3214, "event": "message_enqueued", "user_id": "userC", "content": "最近有什么新闻吗", "priority": 0}
+{"ts": 1786156696.321422, "event": "message_enqueued", "user_id": "userF", "content": "最近有什么新闻吗", "priority": 0}
+{"ts": 1786156696.3214405, "event": "message_enqueued", "user_id": "userB", "content": "分享一个冷笑话", "priority": 0}
+{"ts": 1786156696.3214576, "event": "message_enqueued", "user_id": "userB", "content": "今天天气真好", "priority": 0}
+{"ts": 1786156696.3214748, "event": "message_enqueued", "user_id": "userD", "content": "@agent:0 你觉得呢", "priority": 10}
+{"ts": "2026-08-08T10:38:16.321504", "event": "batch_dispatched", "n": 6, "contents": [{"content": "@agent:0 你觉得呢", "source": "sim", "user_id": "userD", "priority": 10, "ts": 1786156696.3214748}, {"content": "今天遇到一件开心的事", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156696.3213336}, {"content": "最近有什么新闻吗", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156696.3214}, {"content": "最近有什么新闻吗", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156696.321422}, {"content": "分享一个冷笑话", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156696.3214405}, {"content": "今天天气真好", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156696.3214576}]}
+{"ts": 1786156697.0170972, "event": "message_enqueued", "user_id": "userA", "content": "分享一个冷笑话", "priority": 0}
+{"ts": 1786156697.0171626, "event": "message_enqueued", "user_id": "userB", "content": "推荐一首歌吧", "priority": 0}
+{"ts": "2026-08-08T10:38:17.017190", "event": "batch_dispatched", "n": 2, "contents": [{"content": "分享一个冷笑话", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156697.0170972}, {"content": "推荐一首歌吧", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156697.0171626}]}
+{"ts": 1786156697.572768, "event": "message_enqueued", "user_id": "userA", "content": "我好像感冒了", "priority": 0}
+{"ts": 1786156697.5728183, "event": "message_enqueued", "user_id": "userD", "content": "我好像感冒了", "priority": 0}
+{"ts": 1786156697.5728402, "event": "message_enqueued", "user_id": "userA", "content": "你觉得自己是什么性格", "priority": 0}
+{"ts": 1786156697.5728588, "event": "message_enqueued", "user_id": "userD", "content": "我想学做饭", "priority": 0}
+{"ts": 1786156697.5728755, "event": "message_duplicate_dropped", "user_id": "userD", "content": "@agent:0 你觉得呢"}
+{"ts": "2026-08-08T10:38:17.572916", "event": "batch_dispatched", "n": 4, "contents": [{"content": "我好像感冒了", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156697.572768}, {"content": "我好像感冒了", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156697.5728183}, {"content": "你觉得自己是什么性格", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156697.5728402}, {"content": "我想学做饭", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156697.5728588}]}
+{"ts": 1786156698.1270866, "event": "message_enqueued", "user_id": "userF", "content": "@agent:0 你觉得呢", "priority": 10}
+{"ts": 1786156698.127149, "event": "message_enqueued", "user_id": "userB", "content": "周末去爬山怎么样", "priority": 0}
+{"ts": 1786156698.127172, "event": "message_enqueued", "user_id": "userE", "content": "晚安了大家", "priority": 0}
+{"ts": 1786156698.127193, "event": "message_enqueued", "user_id": "userF", "content": "我想学做饭", "priority": 0}
+{"ts": "2026-08-08T10:38:18.127219", "event": "batch_dispatched", "n": 4, "contents": [{"content": "@agent:0 你觉得呢", "source": "sim", "user_id": "userF", "priority": 10, "ts": 1786156698.1270866}, {"content": "周末去爬山怎么样", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156698.127149}, {"content": "晚安了大家", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156698.127172}, {"content": "我想学做饭", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156698.127193}]}
+{"ts": 1786156698.69603, "event": "message_enqueued", "user_id": "userA", "content": "有人推荐个电影吗", "priority": 0}
+{"ts": "2026-08-08T10:38:18.696102", "event": "batch_dispatched", "n": 1, "contents": [{"content": "有人推荐个电影吗", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156698.69603}]}
+{"ts": 1786156699.205776, "event": "message_enqueued", "user_id": "userE", "content": "我好像感冒了", "priority": 0}
+{"ts": 1786156699.20584, "event": "message_duplicate_dropped", "user_id": "userD", "content": "我想学做饭"}
+{"ts": "2026-08-08T10:38:19.205861", "event": "batch_dispatched", "n": 1, "contents": [{"content": "我好像感冒了", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156699.205776}]}
+{"ts": 1786156699.7522612, "event": "message_enqueued", "user_id": "userC", "content": "加班好累", "priority": 0}
+{"ts": "2026-08-08T10:38:19.752329", "event": "batch_dispatched", "n": 1, "contents": [{"content": "加班好累", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156699.7522612}]}
+{"ts": 1786156700.3360257, "event": "message_enqueued", "user_id": "userC", "content": "推荐一首歌吧", "priority": 0}
+{"ts": 1786156700.3360882, "event": "message_enqueued", "user_id": "userB", "content": "你觉得自己是什么性格", "priority": 0}
+{"ts": 1786156700.3368425, "event": "message_enqueued", "user_id": "userD", "content": "推荐一首歌吧", "priority": 0}
+{"ts": 1786156700.3369086, "event": "message_duplicate_dropped", "user_id": "userB", "content": "你觉得自己是什么性格"}
+{"ts": 1786156700.336923, "event": "message_duplicate_dropped", "user_id": "userA", "content": "分享一个冷笑话"}
+{"ts": 1786156700.3369336, "event": "message_enqueued", "user_id": "userC", "content": "我刚养了一只猫", "priority": 0}
+{"ts": "2026-08-08T10:38:20.337005", "event": "batch_dispatched", "n": 4, "contents": [{"content": "推荐一首歌吧", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156700.3360257}, {"content": "你觉得自己是什么性格", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156700.3360882}, {"content": "推荐一首歌吧", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156700.3368425}, {"content": "我刚养了一只猫", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156700.3369336}]}
+{"ts": 1786156700.9322898, "event": "message_enqueued", "user_id": "userA", "content": "我想学做饭", "priority": 0}
+{"ts": 1786156700.932338, "event": "message_duplicate_dropped", "user_id": "userA", "content": "你觉得自己是什么性格"}
+{"ts": 1786156700.9323509, "event": "message_enqueued", "user_id": "userF", "content": "我好像感冒了", "priority": 0}
+{"ts": "2026-08-08T10:38:20.932381", "event": "batch_dispatched", "n": 2, "contents": [{"content": "我想学做饭", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156700.9322898}, {"content": "我好像感冒了", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156700.9323509}]}
+{"ts": 1786156701.5765567, "event": "message_enqueued", "user_id": "userC", "content": "分享一个冷笑话", "priority": 0}
+{"ts": 1786156701.576621, "event": "message_enqueued", "user_id": "userF", "content": "周末去爬山怎么样", "priority": 0}
+{"ts": 1786156701.576643, "event": "message_enqueued", "user_id": "userC", "content": "你觉得自己是什么性格", "priority": 0}
+{"ts": 1786156701.5766613, "event": "message_enqueued", "user_id": "userD", "content": "最近有什么新闻吗", "priority": 0}
+{"ts": 1786156701.5766778, "event": "message_enqueued", "user_id": "userB", "content": "最近有什么新闻吗", "priority": 0}
+{"ts": "2026-08-08T10:38:21.576704", "event": "batch_dispatched", "n": 5, "contents": [{"content": "分享一个冷笑话", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156701.5765567}, {"content": "周末去爬山怎么样", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156701.576621}, {"content": "你觉得自己是什么性格", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156701.576643}, {"content": "最近有什么新闻吗", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156701.5766613}, {"content": "最近有什么新闻吗", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156701.5766778}]}
+{"ts": 1786156702.1899197, "event": "message_enqueued", "user_id": "userE", "content": "加班好累", "priority": 0}
+{"ts": 1786156702.189977, "event": "message_enqueued", "user_id": "userE", "content": "我刚养了一只猫", "priority": 0}
+{"ts": 1786156702.1899967, "event": "message_duplicate_dropped", "user_id": "userC", "content": "分享一个冷笑话"}
+{"ts": 1786156702.1900086, "event": "message_enqueued", "user_id": "userF", "content": "加班好累", "priority": 0}
+{"ts": 1786156702.1900258, "event": "message_enqueued", "user_id": "userA", "content": "我刚养了一只猫", "priority": 0}
+{"ts": 1786156702.1900434, "event": "message_enqueued", "user_id": "userD", "content": "加班好累", "priority": 0}
+{"ts": "2026-08-08T10:38:22.190067", "event": "batch_dispatched", "n": 5, "contents": [{"content": "加班好累", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156702.1899197}, {"content": "我刚养了一只猫", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156702.189977}, {"content": "加班好累", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156702.1900086}, {"content": "我刚养了一只猫", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156702.1900258}, {"content": "加班好累", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156702.1900434}]}
+{"ts": 1786156702.7590125, "event": "message_enqueued", "user_id": "userE", "content": "分享一个冷笑话", "priority": 0}
+{"ts": 1786156702.7590744, "event": "message_enqueued", "user_id": "userE", "content": "我想学做饭", "priority": 0}
+{"ts": 1786156702.7590964, "event": "message_enqueued", "user_id": "userB", "content": "有人推荐个电影吗", "priority": 0}
+{"ts": 1786156702.7591143, "event": "message_enqueued", "user_id": "userB", "content": "我想学做饭", "priority": 0}
+{"ts": 1786156702.7591314, "event": "message_enqueued", "user_id": "userE", "content": "有人推荐个电影吗", "priority": 0}
+{"ts": 1786156702.7591474, "event": "message_enqueued", "user_id": "userF", "content": "推荐一首歌吧", "priority": 0}
+{"ts": "2026-08-08T10:38:22.759173", "event": "batch_dispatched", "n": 6, "contents": [{"content": "分享一个冷笑话", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156702.7590125}, {"content": "我想学做饭", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156702.7590744}, {"content": "有人推荐个电影吗", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156702.7590964}, {"content": "我想学做饭", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156702.7591143}, {"content": "有人推荐个电影吗", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156702.7591314}, {"content": "推荐一首歌吧", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156702.7591474}]}
+{"ts": 1786156703.4439092, "event": "message_duplicate_dropped", "user_id": "userD", "content": "加班好累"}
+{"ts": 1786156703.4439583, "event": "message_duplicate_dropped", "user_id": "userD", "content": "推荐一首歌吧"}
+{"ts": 1786156703.4439762, "event": "message_duplicate_dropped", "user_id": "userF", "content": "我好像感冒了"}
+{"ts": 1786156703.4439867, "event": "message_enqueued", "user_id": "userC", "content": "晚安了大家", "priority": 0}
+{"ts": 1786156703.4440145, "event": "message_enqueued", "user_id": "userC", "content": "我好像感冒了", "priority": 0}
+{"ts": 1786156703.444034, "event": "message_duplicate_dropped", "user_id": "userB", "content": "推荐一首歌吧"}
+{"ts": "2026-08-08T10:38:23.444051", "event": "batch_dispatched", "n": 2, "contents": [{"content": "晚安了大家", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156703.4439867}, {"content": "我好像感冒了", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156703.4440145}]}
+{"ts": 1786156704.001211, "event": "message_enqueued", "user_id": "userF", "content": "分享一个冷笑话", "priority": 0}
+{"ts": 1786156704.00126, "event": "message_enqueued", "user_id": "userA", "content": "今天天气真好", "priority": 0}
+{"ts": 1786156704.001281, "event": "message_enqueued", "user_id": "userA", "content": "晚安了大家", "priority": 0}
+{"ts": 1786156704.0012996, "event": "message_duplicate_dropped", "user_id": "userA", "content": "我想学做饭"}
+{"ts": 1786156704.001312, "event": "message_duplicate_dropped", "user_id": "userF", "content": "最近有什么新闻吗"}
+{"ts": 1786156704.0013213, "event": "message_enqueued", "user_id": "userC", "content": "今天天气真好", "priority": 0}
+{"ts": "2026-08-08T10:38:24.001347", "event": "batch_dispatched", "n": 4, "contents": [{"content": "分享一个冷笑话", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156704.001211}, {"content": "今天天气真好", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156704.00126}, {"content": "晚安了大家", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156704.001281}, {"content": "今天天气真好", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156704.0013213}]}
+{"ts": 1786156704.6724663, "event": "message_enqueued", "user_id": "userF", "content": "我刚养了一只猫", "priority": 0}
+{"ts": 1786156704.6725116, "event": "message_enqueued", "user_id": "userE", "content": "推荐一首歌吧", "priority": 0}
+{"ts": "2026-08-08T10:38:24.672537", "event": "batch_dispatched", "n": 2, "contents": [{"content": "我刚养了一只猫", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156704.6724663}, {"content": "推荐一首歌吧", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156704.6725116}]}
+{"ts": 1786156705.2637973, "event": "message_enqueued", "user_id": "userE", "content": "@agent:0 你觉得呢", "priority": 10}
+{"ts": 1786156705.2638695, "event": "message_duplicate_dropped", "user_id": "userF", "content": "最近有什么新闻吗"}
+{"ts": 1786156705.2638845, "event": "message_duplicate_dropped", "user_id": "userE", "content": "我刚养了一只猫"}
+{"ts": 1786156705.2638946, "event": "message_enqueued", "user_id": "userC", "content": "@agent:0 你觉得呢", "priority": 10}
+{"ts": 1786156705.2639153, "event": "message_duplicate_dropped", "user_id": "userD", "content": "我想学做饭"}
+{"ts": "2026-08-08T10:38:25.263932", "event": "batch_dispatched", "n": 2, "contents": [{"content": "@agent:0 你觉得呢", "source": "sim", "user_id": "userE", "priority": 10, "ts": 1786156705.2637973}, {"content": "@agent:0 你觉得呢", "source": "sim", "user_id": "userC", "priority": 10, "ts": 1786156705.2638946}]}
+{"ts": 1786156706.138432, "event": "message_duplicate_dropped", "user_id": "userC", "content": "最近有什么新闻吗"}
+{"ts": 1786156706.1384752, "event": "message_enqueued", "user_id": "userF", "content": "有人推荐个电影吗", "priority": 0}
+{"ts": 1786156706.1385057, "event": "message_enqueued", "user_id": "userD", "content": "你觉得自己是什么性格", "priority": 0}
+{"ts": "2026-08-08T10:38:26.138531", "event": "batch_dispatched", "n": 2, "contents": [{"content": "有人推荐个电影吗", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156706.1384752}, {"content": "你觉得自己是什么性格", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156706.1385057}]}
+{"ts": 1786156706.7394528, "event": "message_duplicate_dropped", "user_id": "userB", "content": "今天天气真好"}
+{"ts": 1786156706.739514, "event": "message_enqueued", "user_id": "userE", "content": "今天遇到一件开心的事", "priority": 0}
+{"ts": 1786156706.7395496, "event": "message_duplicate_dropped", "user_id": "userC", "content": "加班好累"}
+{"ts": 1786156706.7395606, "event": "message_enqueued", "user_id": "userC", "content": "有人推荐个电影吗", "priority": 0}
+{"ts": 1786156706.739629, "event": "message_duplicate_dropped", "user_id": "userE", "content": "我想学做饭"}
+{"ts": 1786156706.7396414, "event": "message_enqueued", "user_id": "userB", "content": "我好像感冒了", "priority": 0}
+{"ts": "2026-08-08T10:38:26.739676", "event": "batch_dispatched", "n": 3, "contents": [{"content": "今天遇到一件开心的事", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156706.739514}, {"content": "有人推荐个电影吗", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156706.7395606}, {"content": "我好像感冒了", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156706.7396414}]}
+{"ts": 1786156707.3345819, "event": "message_duplicate_dropped", "user_id": "userC", "content": "分享一个冷笑话"}
+{"ts": 1786156707.334626, "event": "message_enqueued", "user_id": "userE", "content": "最近有什么新闻吗", "priority": 0}
+{"ts": 1786156707.33466, "event": "message_enqueued", "user_id": "userC", "content": "今天遇到一件开心的事", "priority": 0}
+{"ts": "2026-08-08T10:38:27.334690", "event": "batch_dispatched", "n": 2, "contents": [{"content": "最近有什么新闻吗", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156707.334626}, {"content": "今天遇到一件开心的事", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156707.33466}]}
+{"ts": 1786156707.9092982, "event": "message_duplicate_dropped", "user_id": "userF", "content": "我好像感冒了"}
+{"ts": 1786156707.9093418, "event": "message_duplicate_dropped", "user_id": "userC", "content": "分享一个冷笑话"}
+{"ts": 1786156707.9093547, "event": "message_duplicate_dropped", "user_id": "userC", "content": "我好像感冒了"}
+{"ts": 1786156707.909368, "event": "message_duplicate_dropped", "user_id": "userC", "content": "我好像感冒了"}
+{"ts": 1786156707.9093761, "event": "message_enqueued", "user_id": "userF", "content": "你觉得自己是什么性格", "priority": 0}
+{"ts": 1786156707.9093997, "event": "message_duplicate_dropped", "user_id": "userF", "content": "我想学做饭"}
+{"ts": "2026-08-08T10:38:27.909414", "event": "batch_dispatched", "n": 1, "contents": [{"content": "你觉得自己是什么性格", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156707.9093761}]}
+{"ts": 1786156708.4148488, "event": "message_duplicate_dropped", "user_id": "userC", "content": "晚安了大家"}
+{"ts": 1786156708.414898, "event": "message_duplicate_dropped", "user_id": "userC", "content": "有人推荐个电影吗"}
+{"ts": 1786156708.4149137, "event": "message_enqueued", "user_id": "userF", "content": "今天天气真好", "priority": 0}
+{"ts": 1786156708.414948, "event": "message_duplicate_dropped", "user_id": "userA", "content": "晚安了大家"}
+{"ts": "2026-08-08T10:38:28.414968", "event": "batch_dispatched", "n": 1, "contents": [{"content": "今天天气真好", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156708.4149137}]}
+{"ts": 1786156709.0709982, "event": "message_enqueued", "user_id": "userD", "content": "有人推荐个电影吗", "priority": 0}
+{"ts": 1786156709.071049, "event": "message_enqueued", "user_id": "userC", "content": "周末去爬山怎么样", "priority": 0}
+{"ts": 1786156709.0710695, "event": "message_duplicate_dropped", "user_id": "userC", "content": "周末去爬山怎么样"}
+{"ts": "2026-08-08T10:38:29.071089", "event": "batch_dispatched", "n": 2, "contents": [{"content": "有人推荐个电影吗", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156709.0709982}, {"content": "周末去爬山怎么样", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156709.071049}]}
+{"ts": 1786156709.6689658, "event": "message_duplicate_dropped", "user_id": "userC", "content": "今天遇到一件开心的事"}
+{"ts": 1786156709.6690142, "event": "message_enqueued", "user_id": "userB", "content": "加班好累", "priority": 0}
+{"ts": 1786156709.6691225, "event": "message_enqueued", "user_id": "userA", "content": "加班好累", "priority": 0}
+{"ts": "2026-08-08T10:38:29.669225", "event": "batch_dispatched", "n": 2, "contents": [{"content": "加班好累", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156709.6690142}, {"content": "加班好累", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156709.6691225}]}
+{"ts": 1786156710.3150117, "event": "message_duplicate_dropped", "user_id": "userB", "content": "有人推荐个电影吗"}
+{"ts": 1786156710.315057, "event": "message_enqueued", "user_id": "userE", "content": "今天天气真好", "priority": 0}
+{"ts": 1786156710.315087, "event": "message_duplicate_dropped", "user_id": "userD", "content": "你觉得自己是什么性格"}
+{"ts": 1786156710.3150978, "event": "message_duplicate_dropped", "user_id": "userD", "content": "加班好累"}
+{"ts": 1786156710.3151073, "event": "message_duplicate_dropped", "user_id": "userC", "content": "周末去爬山怎么样"}
+{"ts": "2026-08-08T10:38:30.315122", "event": "batch_dispatched", "n": 1, "contents": [{"content": "今天天气真好", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156710.315057}]}
+{"ts": 1786156711.4840956, "event": "message_duplicate_dropped", "user_id": "userE", "content": "加班好累"}
+{"ts": 1786156711.4841387, "event": "message_enqueued", "user_id": "userD", "content": "晚安了大家", "priority": 0}
+{"ts": "2026-08-08T10:38:31.484178", "event": "batch_dispatched", "n": 1, "contents": [{"content": "晚安了大家", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156711.4841387}]}
+{"ts": 1786156712.0049033, "event": "message_duplicate_dropped", "user_id": "userC", "content": "有人推荐个电影吗"}
+{"ts": 1786156712.0049524, "event": "message_duplicate_dropped", "user_id": "userE", "content": "今天天气真好"}
+{"ts": 1786156712.0049665, "event": "message_duplicate_dropped", "user_id": "userB", "content": "加班好累"}
+{"ts": 1786156712.0049753, "event": "message_enqueued", "user_id": "userA", "content": "推荐一首歌吧", "priority": 0}
+{"ts": 1786156712.0050015, "event": "message_duplicate_dropped", "user_id": "userF", "content": "推荐一首歌吧"}
+{"ts": "2026-08-08T10:38:32.005016", "event": "batch_dispatched", "n": 1, "contents": [{"content": "推荐一首歌吧", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156712.0049753}]}
+{"ts": 1786156712.5482414, "event": "message_duplicate_dropped", "user_id": "userA", "content": "加班好累"}
+{"ts": 1786156712.5482922, "event": "message_duplicate_dropped", "user_id": "userC", "content": "有人推荐个电影吗"}
+{"ts": 1786156712.5483065, "event": "message_duplicate_dropped", "user_id": "userE", "content": "今天遇到一件开心的事"}
+{"ts": 1786156712.5483208, "event": "message_duplicate_dropped", "user_id": "userB", "content": "加班好累"}
+{"ts": 1786156712.548332, "event": "message_enqueued", "user_id": "userD", "content": "分享一个冷笑话", "priority": 0}
+{"ts": "2026-08-08T10:38:32.548361", "event": "batch_dispatched", "n": 1, "contents": [{"content": "分享一个冷笑话", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156712.548332}]}
+{"ts": 1786156713.0688698, "event": "message_enqueued", "user_id": "userA", "content": "最近有什么新闻吗", "priority": 0}
+{"ts": 1786156713.0689151, "event": "message_duplicate_dropped", "user_id": "userD", "content": "你觉得自己是什么性格"}
+{"ts": 1786156713.0689278, "event": "message_duplicate_dropped", "user_id": "userE", "content": "推荐一首歌吧"}
+{"ts": 1786156713.068937, "event": "message_duplicate_dropped", "user_id": "userC", "content": "晚安了大家"}
+{"ts": 1786156713.0689452, "event": "message_duplicate_dropped", "user_id": "userA", "content": "推荐一首歌吧"}
+{"ts": 1786156713.0689535, "event": "message_duplicate_dropped", "user_id": "userF", "content": "周末去爬山怎么样"}
+{"ts": "2026-08-08T10:38:33.068968", "event": "batch_dispatched", "n": 1, "contents": [{"content": "最近有什么新闻吗", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156713.0688698}]}
+{"ts": 1786156713.6274939, "event": "message_duplicate_dropped", "user_id": "userA", "content": "你觉得自己是什么性格"}
+{"ts": 1786156713.6275642, "event": "message_duplicate_dropped", "user_id": "userA", "content": "我刚养了一只猫"}
+{"ts": 1786156713.6275942, "event": "message_duplicate_dropped", "user_id": "userE", "content": "我刚养了一只猫"}
+{"ts": 1786156713.627624, "event": "message_duplicate_dropped", "user_id": "userE", "content": "加班好累"}
+{"ts": 1786156713.6276455, "event": "message_duplicate_dropped", "user_id": "userC", "content": "分享一个冷笑话"}
+{"ts": 1786156713.6276724, "event": "message_duplicate_dropped", "user_id": "userF", "content": "我刚养了一只猫"}
+{"ts": 1786156713.6276937, "event": "message_duplicate_dropped", "user_id": "userF", "content": "我好像感冒了"}
+{"ts": 1786156713.6277156, "event": "message_duplicate_dropped", "user_id": "userF", "content": "最近有什么新闻吗"}
+{"ts": 1786156713.627735, "event": "message_duplicate_dropped", "user_id": "userE", "content": "我想学做饭"}
+{"ts": 1786156713.6277616, "event": "message_duplicate_dropped", "user_id": "userC", "content": "最近有什么新闻吗"}
+{"ts": 1786156713.6277819, "event": "message_duplicate_dropped", "user_id": "userD", "content": "有人推荐个电影吗"}
+{"ts": 1786156713.627802, "event": "message_duplicate_dropped", "user_id": "userB", "content": "分享一个冷笑话"}
+{"ts": 1786156713.627821, "event": "message_duplicate_dropped", "user_id": "userB", "content": "我想学做饭"}
+{"ts": 1786156713.6278403, "event": "message_duplicate_dropped", "user_id": "userE", "content": "分享一个冷笑话"}
+{"ts": 1786156713.6278696, "event": "message_duplicate_dropped", "user_id": "userC", "content": "@agent:0 你觉得呢"}
+{"ts": 1786156713.627899, "event": "message_duplicate_dropped", "user_id": "userB", "content": "周末去爬山怎么样"}
+{"ts": 1786156713.627918, "event": "message_enqueued", "user_id": "userD", "content": "我刚养了一只猫", "priority": 0}
+{"ts": 1786156713.6279633, "event": "message_duplicate_dropped", "user_id": "userB", "content": "最近有什么新闻吗"}
+{"ts": 1786156713.6279852, "event": "message_duplicate_dropped", "user_id": "userD", "content": "我刚养了一只猫"}
+{"ts": 1786156713.628004, "event": "message_duplicate_dropped", "user_id": "userF", "content": "有人推荐个电影吗"}
+{"ts": "2026-08-08T10:38:33.628032", "event": "batch_dispatched", "n": 1, "contents": [{"content": "我刚养了一只猫", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156713.627918}]}
+{"ts": 1786156714.126158, "event": "message_enqueued", "user_id": "userD", "content": "周末去爬山怎么样", "priority": 0}
+{"ts": 1786156714.1262102, "event": "message_duplicate_dropped", "user_id": "userE", "content": "今天天气真好"}
+{"ts": 1786156714.1262238, "event": "message_enqueued", "user_id": "userA", "content": "周末去爬山怎么样", "priority": 0}
+{"ts": 1786156714.1262429, "event": "message_duplicate_dropped", "user_id": "userD", "content": "你觉得自己是什么性格"}
+{"ts": 1786156714.1262531, "event": "message_duplicate_dropped", "user_id": "userC", "content": "我好像感冒了"}
+{"ts": "2026-08-08T10:38:34.126267", "event": "batch_dispatched", "n": 2, "contents": [{"content": "周末去爬山怎么样", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156714.126158}, {"content": "周末去爬山怎么样", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786156714.1262238}]}
+{"ts": 1786156714.779841, "event": "message_duplicate_dropped", "user_id": "userE", "content": "分享一个冷笑话"}
+{"ts": 1786156714.7798884, "event": "message_duplicate_dropped", "user_id": "userE", "content": "分享一个冷笑话"}
+{"ts": 1786156714.779902, "event": "message_duplicate_dropped", "user_id": "userF", "content": "最近有什么新闻吗"}
+{"ts": 1786156714.7799108, "event": "message_duplicate_dropped", "user_id": "userD", "content": "加班好累"}
+{"ts": 1786156714.7799227, "event": "message_duplicate_dropped", "user_id": "userA", "content": "我想学做饭"}
+{"ts": 1786156714.7799308, "event": "message_enqueued", "user_id": "userB", "content": "晚安了大家", "priority": 0}
+{"ts": "2026-08-08T10:38:34.779960", "event": "batch_dispatched", "n": 1, "contents": [{"content": "晚安了大家", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156714.7799308}]}
+{"ts": 1786156715.302784, "event": "message_duplicate_dropped", "user_id": "userF", "content": "你觉得自己是什么性格"}
+{"ts": 1786156715.3028283, "event": "message_duplicate_dropped", "user_id": "userF", "content": "有人推荐个电影吗"}
+{"ts": 1786156715.3028421, "event": "message_duplicate_dropped", "user_id": "userF", "content": "分享一个冷笑话"}
+{"ts": 1786156715.302852, "event": "message_duplicate_dropped", "user_id": "userB", "content": "我好像感冒了"}
+{"ts": 1786156715.3028605, "event": "message_enqueued", "user_id": "userB", "content": "@agent:0 你觉得呢", "priority": 10}
+{"ts": "2026-08-08T10:38:35.302891", "event": "batch_dispatched", "n": 1, "contents": [{"content": "@agent:0 你觉得呢", "source": "sim", "user_id": "userB", "priority": 10, "ts": 1786156715.3028605}]}
+{"ts": 1786156715.8629706, "event": "message_duplicate_dropped", "user_id": "userF", "content": "周末去爬山怎么样"}
+{"ts": 1786156715.8630285, "event": "message_enqueued", "user_id": "userA", "content": "@agent:0 你觉得呢", "priority": 10}
+{"ts": 1786156715.8630848, "event": "message_duplicate_dropped", "user_id": "userF", "content": "今天天气真好"}
+{"ts": 1786156715.863107, "event": "message_duplicate_dropped", "user_id": "userE", "content": "今天天气真好"}
+{"ts": 1786156715.8631272, "event": "message_duplicate_dropped", "user_id": "userA", "content": "分享一个冷笑话"}
+{"ts": 1786156715.8631468, "event": "message_duplicate_dropped", "user_id": "userA", "content": "有人推荐个电影吗"}
+{"ts": "2026-08-08T10:38:35.863173", "event": "batch_dispatched", "n": 1, "contents": [{"content": "@agent:0 你觉得呢", "source": "sim", "user_id": "userA", "priority": 10, "ts": 1786156715.8630285}]}
+{"ts": 1786156716.405316, "event": "message_duplicate_dropped", "user_id": "userD", "content": "推荐一首歌吧"}
+{"ts": 1786156716.4053578, "event": "message_duplicate_dropped", "user_id": "userA", "content": "我想学做饭"}
+{"ts": 1786156716.405371, "event": "message_duplicate_dropped", "user_id": "userC", "content": "加班好累"}
+{"ts": 1786156716.405385, "event": "message_duplicate_dropped", "user_id": "userE", "content": "今天遇到一件开心的事"}
+{"ts": 1786156716.4053981, "event": "message_duplicate_dropped", "user_id": "userA", "content": "今天遇到一件开心的事"}
+{"ts": 1786156716.4054108, "event": "message_duplicate_dropped", "user_id": "userA", "content": "加班好累"}
+{"ts": 1786156716.4054186, "event": "message_duplicate_dropped", "user_id": "userE", "content": "最近有什么新闻吗"}
+{"ts": 1786156716.4054267, "event": "message_duplicate_dropped", "user_id": "userE", "content": "推荐一首歌吧"}
+{"ts": 1786156716.4054356, "event": "message_duplicate_dropped", "user_id": "userA", "content": "今天天气真好"}
+{"ts": 1786156716.4054453, "event": "message_duplicate_dropped", "user_id": "userD", "content": "晚安了大家"}
+{"ts": 1786156716.4054532, "event": "message_duplicate_dropped", "user_id": "userF", "content": "有人推荐个电影吗"}
+{"ts": 1786156716.4054627, "event": "message_duplicate_dropped", "user_id": "userB", "content": "推荐一首歌吧"}
+{"ts": 1786156716.4054704, "event": "message_duplicate_dropped", "user_id": "userA", "content": "我好像感冒了"}
+{"ts": 1786156716.405481, "event": "message_duplicate_dropped", "user_id": "userB", "content": "我想学做饭"}
+{"ts": 1786156716.405489, "event": "message_duplicate_dropped", "user_id": "userA", "content": "加班好累"}
+{"ts": 1786156716.405497, "event": "message_duplicate_dropped", "user_id": "userB", "content": "你觉得自己是什么性格"}
+{"ts": 1786156716.4055052, "event": "message_duplicate_dropped", "user_id": "userA", "content": "晚安了大家"}
+{"ts": 1786156716.4055133, "event": "message_duplicate_dropped", "user_id": "userD", "content": "有人推荐个电影吗"}
+{"ts": 1786156716.4055243, "event": "message_duplicate_dropped", "user_id": "userF", "content": "推荐一首歌吧"}
+{"ts": 1786156716.4055321, "event": "message_duplicate_dropped", "user_id": "userD", "content": "我好像感冒了"}
+{"ts": 1786156716.4055407, "event": "message_duplicate_dropped", "user_id": "userC", "content": "有人推荐个电影吗"}
+{"ts": 1786156716.4055483, "event": "message_duplicate_dropped", "user_id": "userE", "content": "我刚养了一只猫"}
+{"ts": 1786156716.4055562, "event": "message_duplicate_dropped", "user_id": "userC", "content": "我好像感冒了"}
+{"ts": 1786156716.4055643, "event": "message_duplicate_dropped", "user_id": "userA", "content": "有人推荐个电影吗"}
+{"ts": 1786156716.4055748, "event": "message_duplicate_dropped", "user_id": "userA", "content": "我好像感冒了"}
+{"ts": 1786156716.4055827, "event": "message_duplicate_dropped", "user_id": "userB", "content": "我好像感冒了"}
+{"ts": 1786156716.4055903, "event": "message_duplicate_dropped", "user_id": "userC", "content": "有人推荐个电影吗"}
+{"ts": 1786156716.4055986, "event": "message_enqueued", "user_id": "userC", "content": "我想学做饭", "priority": 0}
+{"ts": 1786156716.4056222, "event": "message_duplicate_dropped", "user_id": "userE", "content": "今天天气真好"}
+{"ts": "2026-08-08T10:38:36.405636", "event": "batch_dispatched", "n": 1, "contents": [{"content": "我想学做饭", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786156716.4055986}]}
+{"ts": 1786156716.9904082, "event": "message_duplicate_dropped", "user_id": "userB", "content": "我好像感冒了"}
+{"ts": 1786156716.9904637, "event": "message_enqueued", "user_id": "userD", "content": "今天天气真好", "priority": 0}
+{"ts": 1786156716.9905162, "event": "message_duplicate_dropped", "user_id": "userD", "content": "最近有什么新闻吗"}
+{"ts": 1786156716.9905374, "event": "message_duplicate_dropped", "user_id": "userF", "content": "我想学做饭"}
+{"ts": "2026-08-08T10:38:36.990564", "event": "batch_dispatched", "n": 1, "contents": [{"content": "今天天气真好", "source": "sim", "user_id": "userD", "priority": 0, "ts": 1786156716.9904637}]}
+{"ts": 1786156717.5447917, "event": "message_enqueued", "user_id": "userF", "content": "今天遇到一件开心的事", "priority": 0}
+{"ts": 1786156717.5448766, "event": "message_duplicate_dropped", "user_id": "userA", "content": "@agent:0 你觉得呢"}
+{"ts": 1786156717.5449097, "event": "message_duplicate_dropped", "user_id": "userE", "content": "分享一个冷笑话"}
+{"ts": 1786156717.544934, "event": "message_duplicate_dropped", "user_id": "userE", "content": "有人推荐个电影吗"}
+{"ts": 1786156717.5449562, "event": "message_duplicate_dropped", "user_id": "userB", "content": "分享一个冷笑话"}
+{"ts": 1786156717.5449772, "event": "message_enqueued", "user_id": "userE", "content": "你觉得自己是什么性格", "priority": 0}
+{"ts": "2026-08-08T10:38:37.545027", "event": "batch_dispatched", "n": 2, "contents": [{"content": "今天遇到一件开心的事", "source": "sim", "user_id": "userF", "priority": 0, "ts": 1786156717.5447917}, {"content": "你觉得自己是什么性格", "source": "sim", "user_id": "userE", "priority": 0, "ts": 1786156717.5449772}]}
+{"ts": 1786156718.1595573, "event": "message_duplicate_dropped", "user_id": "userB", "content": "我好像感冒了"}
+{"ts": 1786156718.159616, "event": "message_duplicate_dropped", "user_id": "userE", "content": "推荐一首歌吧"}
+{"ts": 1786156718.1596456, "event": "message_duplicate_dropped", "user_id": "userB", "content": "我好像感冒了"}
+{"ts": 1786156718.1596706, "event": "message_duplicate_dropped", "user_id": "userF", "content": "今天天气真好"}
+{"ts": 1786156718.1596935, "event": "message_duplicate_dropped", "user_id": "userE", "content": "我想学做饭"}
+{"ts": 1786156718.159722, "event": "message_duplicate_dropped", "user_id": "userE", "content": "最近有什么新闻吗"}
+{"ts": 1786156718.1597445, "event": "message_duplicate_dropped", "user_id": "userE", "content": "今天天气真好"}
+{"ts": 1786156718.159772, "event": "message_duplicate_dropped", "user_id": "userD", "content": "晚安了大家"}
+{"ts": 1786156718.159793, "event": "message_duplicate_dropped", "user_id": "userF", "content": "周末去爬山怎么样"}
+{"ts": 1786156718.1598132, "event": "message_duplicate_dropped", "user_id": "userE", "content": "今天天气真好"}
+{"ts": 1786156718.15984, "event": "message_duplicate_dropped", "user_id": "userE", "content": "推荐一首歌吧"}
+{"ts": 1786156718.15986, "event": "message_duplicate_dropped", "user_id": "userA", "content": "你觉得自己是什么性格"}
+{"ts": 1786156718.1598802, "event": "message_duplicate_dropped", "user_id": "userC", "content": "加班好累"}
+{"ts": 1786156718.1598995, "event": "message_duplicate_dropped", "user_id": "userA", "content": "我好像感冒了"}
+{"ts": 1786156718.159918, "event": "message_duplicate_dropped", "user_id": "userD", "content": "分享一个冷笑话"}
+{"ts": 1786156718.1599367, "event": "message_duplicate_dropped", "user_id": "userB", "content": "我想学做饭"}
+{"ts": 1786156718.1599622, "event": "message_duplicate_dropped", "user_id": "userE", "content": "加班好累"}
+{"ts": 1786156718.1599813, "event": "message_duplicate_dropped", "user_id": "userA", "content": "今天天气真好"}
+{"ts": 1786156718.1599998, "event": "message_duplicate_dropped", "user_id": "userE", "content": "推荐一首歌吧"}
+{"ts": 1786156718.1600182, "event": "message_duplicate_dropped", "user_id": "userB", "content": "晚安了大家"}
+{"ts": 1786156718.1600368, "event": "message_enqueued", "user_id": "userB", "content": "今天遇到一件开心的事", "priority": 0}
+{"ts": "2026-08-08T10:38:38.160088", "event": "batch_dispatched", "n": 1, "contents": [{"content": "今天遇到一件开心的事", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786156718.1600368}]}
+{"ts": 1786156718.671829, "event": "message_duplicate_dropped", "user_id": "userF", "content": "分享一个冷笑话"}
+{"ts": 1786156718.67188, "event": "message_duplicate_dropped", "user_id": "userA", "content": "今天遇到一件开心的事"}
+{"ts": 1786156718.6719158, "event": "message_duplicate_dropped", "user_id": "userB", "content": "你觉得自己是什么性格"}
+{"ts": 1786156718.6719425, "event": "message_duplicate_dropped", "user_id": "userE", "content": "@agent:0 你觉得呢"}
+{"ts": 1786156718.6719797, "event": "message_duplicate_dropped", "user_id": "userF", "content": "推荐一首歌吧"}
+{"ts": 1786156718.6720064, "event": "message_duplicate_dropped", "user_id": "userC", "content": "今天遇到一件开心的事"}
+{"ts": 1786156718.672029, "event": "message_duplicate_dropped", "user_id": "userD", "content": "我想学做饭"}
+{"ts": 1786156718.6720505, "event": "message_duplicate_dropped", "user_id": "userC", "content": "晚安了大家"}
+{"ts": 1786156718.672071, "event": "message_duplicate_dropped", "user_id": "userF", "content": "@agent:0 你觉得呢"}
+{"ts": 1786156718.6720922, "event": "message_duplicate_dropped", "user_id": "userF", "content": "有人推荐个电影吗"}

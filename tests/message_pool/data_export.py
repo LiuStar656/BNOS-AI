@@ -68,15 +68,131 @@ def export_all_agent_dbs(agents, run_dir: str, db_sub: str = "db") -> dict:
     return result
 
 
+def _load_decision_map(run_dir: str) -> dict:
+    """decisions.jsonl → {(round, agent): decision}。
+
+    供聊天历史渲染标注"回应上下文/回应对象"使用。
+    """
+    path = os.path.join(run_dir, "decisions.jsonl")
+    if not os.path.exists(path):
+        return {}
+    out = {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            for raw in f:
+                if not raw.strip():
+                    continue
+                d = json.loads(raw)
+                if d.get("round") is not None and d.get("agent"):
+                    out[(d["round"], d["agent"])] = d
+    except Exception:
+        pass
+    return out
+
+
+def _reconstruct_round_batches(run_dir: str, decisions: dict) -> dict:
+    """旧数据回退：重建每轮批次的消息作者（新数据用 decision.batch_context，不走到这里）。
+
+    原理：消息池按（优先级降序，时间正序）弹批，同轮全部 Agent 共享同一批
+    （batch_size 相同）；每轮弹批边界取该轮最早决策时间戳（弹批发生在决策之前）。
+    仅用于展示"回应上下文"，属于近似重建，不作为精确数据依据。
+    """
+    src = os.path.join(run_dir, "chat_history.jsonl")
+    if not os.path.exists(src):
+        return {}
+    # 每轮 batch_size + 最早决策 ts（弹批边界）
+    rounds: dict[int, dict] = {}
+    for (r, _agent), d in decisions.items():
+        entry = rounds.setdefault(r, {"batch_size": 0, "ts": ""})
+        entry["batch_size"] = max(int(d.get("batch_size") or 0), entry["batch_size"])
+        dts = d.get("ts", "") or ""
+        if dts and (not entry["ts"] or dts < entry["ts"]):
+            entry["ts"] = dts
+    if not rounds:
+        return {}
+    # 入池消息流（chat_history 按时间顺序）：用户发言 / 平台话题 / agent 广播回投
+    events = []  # (ts, priority, user_id, content)
+    with open(src, encoding="utf-8") as f:
+        for raw in f:
+            if not raw.strip():
+                continue
+            e = json.loads(raw)
+            role = e.get("role")
+            if role == "user":
+                c = e.get("content", "")
+                events.append((e.get("ts", ""), 10 if "@agent" in c else 0,
+                               e.get("user_id", ""), c))
+            elif role == "topic":
+                events.append((e.get("ts", ""), 5, e.get("user_id", "platform"),
+                               e.get("content", "")))
+            elif role == "agent" and e.get("round_no") is not None:
+                events.append((e.get("ts", ""), 0, e.get("agent_id", ""),
+                               e.get("content", "")))
+            # role=system（话题结束公告）/ 自我介绍（round_no=None）不进入消息池
+    events.sort(key=lambda ev: ev[0])
+    pool = []
+    added = 0
+    batches: dict[int, list] = {}
+    for r in sorted(rounds):
+        bs = rounds[r]["batch_size"]
+        bound = rounds[r]["ts"]
+        while added < len(events) and events[added][0] < bound:
+            pool.append(events[added])
+            added += 1
+        pool.sort(key=lambda ev: (-ev[1], ev[0]))
+        picked = pool[:bs]
+        del pool[:bs]
+        if picked:
+            batches[r] = [{"user_id": ev[2], "content": ev[3][:60]} for ev in picked]
+    return batches
+
+
+def _reply_context_annotation(decision: dict | None, batch: list | None) -> str:
+    """生成回应上下文标注：优先 LLM 显式【回应对象】，其次批次消息作者。"""
+    if not decision and not batch:
+        return ""
+    # ① LLM 显式回应对象（v6.2，仅批量模式输出）
+    target = (decision or {}).get("回应对象", "") if decision else ""
+    if target and str(target).strip():
+        t = str(target).strip()
+        if "群" in t or "多条" in t or "所有人" in t:
+            return "（回应群聊）"
+        return f"（回应 {t[:20]}）"
+    # ② 批次上下文（新数据 exact / 旧数据重建近似）
+    ctx = (decision or {}).get("batch_context") if decision else None
+    if not ctx:
+        ctx = batch or []
+    authors, seen, cnt = [], set(), len(ctx)
+    for m in ctx:
+        uid = m.get("user_id", "") or "匿名"
+        if uid not in seen:
+            seen.add(uid)
+            authors.append(uid)
+        if len(authors) >= 4:
+            break
+    if not authors:
+        return ""
+    if cnt == 1:
+        return f"（回应上下文：{authors[0]}）"
+    tail = f" 等 {cnt} 条" if cnt > len(authors) else f"（{cnt} 条）"
+    return f"（回应上下文：{', '.join(authors)}{tail}）"
+
+
 def render_chat_history_md(run_dir: str, out_name: str = "chat_history.md") -> str:
     """把 chat_history.jsonl 渲染为人类可读 Markdown（返回输出文件路径）。
 
     会话视角：用户发言（左）与 Agent 广播（右）按时间顺序交错展示。
+    v6.2 增强：Agent 发言标注回应上下文（本批消息作者 / LLM 显式回应对象），
+    解决"看不出在回答谁"的问题；旧数据（无 batch_context）自动重建近似。
     """
     src = os.path.join(run_dir, "chat_history.jsonl")
     dst = os.path.join(run_dir, out_name)
     if not os.path.exists(src):
         return ""
+    decisions = _load_decision_map(run_dir)
+    # 仅当存在无 batch_context 的旧决策时才重建批次（新数据直接读决策字段）
+    need_rebuild = decisions and any(not d.get("batch_context") for d in decisions.values())
+    batches = _reconstruct_round_batches(run_dir, decisions) if need_rebuild else {}
     lines = []
     with open(src, encoding="utf-8") as f:
         for raw in f:
@@ -89,7 +205,14 @@ def render_chat_history_md(run_dir: str, out_name: str = "chat_history.md") -> s
             elif role == "agent":
                 stage = e.get("stage")
                 prefix = f"（{stage}）" if stage else ""
-                lines.append(f"> **[{e.get('agent_id')}]{prefix}** {e.get('content', '')}")
+                anno = ""
+                rn = e.get("round_no")
+                if rn is not None and not stage:
+                    decision = decisions.get((rn, e.get("agent_id")))
+                    batch = batches.get(rn)
+                    anno = _reply_context_annotation(decision, batch)
+                lines.append(
+                    f"> **[{e.get('agent_id')}]{prefix}{anno}** {e.get('content', '')}")
             elif role == "topic":
                 lines.append(f"> ## 📢 平台话题：{e.get('content', '')}")
             elif role == "system":

@@ -39,11 +39,12 @@ DIRECT_TEMPLATE = _CONTEXT_HEADER + """
 **硬性要求：每个【节标记】必须独占一行，后面换行写内容；所有内容（包括对用户的回复正文）都必须放在对应节内，严禁写在节标记之外或输出任何前言。**
 
 【自然回复】
-你给用户看的回复文本（禁止使用emoji和颜文字）
+你给用户看的回复文本（禁止使用emoji和颜文字）。如果你决定不回应这条消息，此节**留空**（不输出任何内容）
+{reply_target_section}
 【心情】
 1-4个字，如：开心、难过、好奇、平静
 【想法】
-1-2句话描述你此刻的内心想法
+1-2句话描述你此刻的内心想法（意识流）。**即使【自然回复】留空（选择静默），你也必须输出此节**——这是你不说话时也在进行的内心活动
 【情绪调整】
 1个数字（范围 -0.2 到 +0.2，表示你希望情绪值的调整幅度，不是绝对值；情绪平稳时输出 0.0）
 【事件摘要】
@@ -107,9 +108,22 @@ def _prepare_ctx(ctx):
     """填充条件字段"""
     for key in ("reflection_section", "mood_trend", "perception", "location_section",
                 "personality", "mood", "other_cognition_label", "user_text_section",
-                "pool_batch_section", "current_user_label"):
+                "pool_batch_section", "current_user_label", "reply_target_section"):
         if key not in ctx:
             ctx[key] = ""
+    # v6.2 回应对象：仅多消息批量场景（消息池）要求显式输出，1对1 单条消息
+    # 不渲染该节（1对1 的回应对象恒为用户，输出反而多余且干扰解析）
+    if ctx.get("pool_batch_section"):
+        # v6.3 P1-3：明确要求从整个批次中选择回应对象（可非末位），
+        # @ 点名优先——消除"总回应批次最后一条"的末位偏置认知黑洞
+        ctx["reply_target_section"] = (
+            "【回应对象】\n"
+            "这条回复主要是回应谁？从上方消息中挑选你最想回应/与你话题最相关的"
+            "人，填写具体对象名（如 agent:3、用户A），不一定是最后一条消息的作者；"
+            "如果上方消息中点名了（@）你，优先回应点名的人。"
+            "或写\"群聊\"表示回应多条消息；如果你选择静默（自然回复留空），此节留空")
+    else:
+        ctx["reply_target_section"] = ""
     # v6.0 多用户：他人认知注入标签（对指定用户 / 对用户）
     if not ctx.get("other_cognition_label"):
         ctx["other_cognition_label"] = f"（对 {ctx.get('user_id')}）" if ctx.get("user_id") else "（对用户）"

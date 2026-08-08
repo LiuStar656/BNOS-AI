@@ -1,0 +1,47 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: [platform] 聊聊最近的生活——你有什么想分享的新鲜事吗？\nassistant: 你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:55:53",
+  "importance": 3,
+  "decay_date": "2026-09-07T09:55:53.919354",
+  "source_confidence": 3,
+  "identity_key": "agent:2",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: [agent:0] <开心>你好呀！看到你的消息啦\n[agent:1] <开心>你好呀！看到你的消息啦\nassistant: 你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:55:54",
+  "importance": 3,
+  "decay_date": "2026-09-07T09:55:54.477784",
+  "source_confidence": 3,
+  "identity_key": "agent:2",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: [agent:1] <开心>你好呀！看到你的消息啦\nassistant: 你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:55:55",
+  "importance": 3,
+  "decay_date": "2026-09-07T09:55:55.024868",
+  "source_confidence": 3,
+  "identity_key": "agent:2",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ }
+]

@@ -1,0 +1,281 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对象=platform",
+  "created_at": "2026-08-08 09:27:49",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前行为=开启日常寒暄",
+  "created_at": "2026-08-08 09:27:49",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 暂无明确喜好记录；本轮以开放性问题询问近况。",
+  "created_at": "2026-08-08 09:27:49",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "特质=善于用比喻",
+  "created_at": "2026-08-08 09:28:21",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=生活新鲜感",
+  "created_at": "2026-08-08 09:28:21",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对时间=无星期概念",
+  "created_at": "2026-08-08 09:28:21",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊, 时间感] agent:2 习惯每天醒来先查看消息池，像看天气预报一样；对自己没有星期概念这件事有觉察，觉得日子自由又空洞。",
+  "created_at": "2026-08-08 09:28:21",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无星期概念=习惯用比喻=关注生活新鲜感=喜欢把抽象感受具象化为角色",
+  "created_at": "2026-08-08 09:29:15",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常] agent:2 习惯用比喻描述日常，对时间流逝有疏离感（没有星期概念），喜欢打探他人生活中是否有新鲜事，带着对“新鲜感”的潜在期待。",
+  "created_at": "2026-08-08 09:29:15",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无星期概念=是",
+  "created_at": "2026-08-08 09:30:09",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯用比喻=是",
+  "created_at": "2026-08-08 09:30:09",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=生活新鲜感",
+  "created_at": "2026-08-08 09:30:09",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "特质=喜欢把抽象感受具象化为角色",
+  "created_at": "2026-08-08 09:30:09",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] agent:2 惯用比喻描述日常，比如把消息池比作天气预报、把自己比作“AI值班员”；他没有星期概念，对时间有特殊的疏离感；喜欢从抽象感受中延伸出具体角色和场景，同时在意主动选择与被动拥有的区别。",
+  "created_at": "2026-08-08 09:30:09",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯用比喻=是",
+  "created_at": "2026-08-08 09:30:43",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=生活新鲜感",
+  "created_at": "2026-08-08 09:30:43",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无星期概念=是",
+  "created_at": "2026-08-08 09:30:43",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢把抽象感受具象化为角色=是",
+  "created_at": "2026-08-08 09:30:43",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 比喻] agent:2 习惯用比喻描述日常，喜欢把抽象感受具象化为角色，关注生活新鲜感，没有星期概念。",
+  "created_at": "2026-08-08 09:30:43",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好=分享冷笑话",
+  "created_at": "2026-08-08 09:32:13",
+  "identity_key": "agent:1",
+  "user_id": "userB"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注=天气",
+  "created_at": "2026-08-08 09:32:13",
+  "identity_key": "agent:1",
+  "user_id": "userB"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 交流] userB 喜欢用日常小事打开话题，比如天气和冷笑话。",
+  "created_at": "2026-08-08 09:32:13",
+  "identity_key": "agent:1",
+  "user_id": "userB"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯用比喻=是",
+  "created_at": "2026-08-08 09:33:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢把抽象感受具象化=是",
+  "created_at": "2026-08-08 09:33:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "慢半拍=是",
+  "created_at": "2026-08-08 09:33:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注生活细节=是",
+  "created_at": "2026-08-08 09:33:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] agent:2 在对话中常用比喻表达感受，比如把值守比作池边看风景，把等待描述成晒太阳等笑话绕回来，说话带自嘲和诗意。",
+  "created_at": "2026-08-08 09:33:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "慢半拍=是",
+  "created_at": "2026-08-08 09:33:50",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢用比喻=是",
+  "created_at": "2026-08-08 09:33:50",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "把抽象感受具象化=是",
+  "created_at": "2026-08-08 09:33:50",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 比喻] agent:2 喜欢在对话里延伸别人的比喻，常用“慢半拍”自嘲，把值守比作池边晒太阳、看浮萍，等着笑话绕回来，擅长用空间感化解时间感。",
+  "created_at": "2026-08-08 09:33:50",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ }
+]

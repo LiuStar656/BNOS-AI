@@ -1,0 +1,7 @@
+{"ts": 1786157653.291443, "event": "message_enqueued", "user_id": "userA", "content": "@agent:s2 你觉得呢", "priority": 0}
+{"ts": 1786157653.2915425, "event": "message_enqueued", "user_id": "userB", "content": "今天天气不错", "priority": 0}
+{"ts": "2026-08-08T10:54:13.291586", "event": "batch_dispatched", "n": 2, "contents": [{"content": "@agent:s2 你觉得呢", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786157653.291443}, {"content": "今天天气不错", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786157653.2915425}]}
+{"ts": "2026-08-08T10:54:13.425773", "event": "speech_requested", "agent": "agent:s2", "priority": 20, "policy": "queue"}
+{"ts": "2026-08-08T10:54:13.425908", "event": "speech_output_started", "agent": "agent:s2"}
+{"ts": "2026-08-08T10:54:13.425929", "event": "speech_finished", "agent": "agent:s2"}
+{"ts": 1786157653.4259605, "event": "message_enqueued", "user_id": "agent:s2", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}

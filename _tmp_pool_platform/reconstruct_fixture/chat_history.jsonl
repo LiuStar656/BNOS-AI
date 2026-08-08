@@ -1,0 +1,4 @@
+{"ts": "2026-08-08T09:00:00.100", "role": "topic", "user_id": "platform", "content": "话题"}
+{"ts": "2026-08-08T09:00:01.100", "role": "user", "user_id": "userA", "content": "你好"}
+{"ts": "2026-08-08T09:00:02.100", "role": "user", "user_id": "userB", "content": "在吗"}
+{"ts": "2026-08-08T09:00:03.100", "role": "agent", "agent_id": "agent:0", "content": "我是 alpha", "round_no": 1}

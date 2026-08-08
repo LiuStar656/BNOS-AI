@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "key",
+  "value": "身份",
+  "created_at": "2026-08-08 10:10:21",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "value",
+  "value": "时间痕迹",
+  "created_at": "2026-08-08 10:11:33",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "key": "身份",
+  "value": "时间痕迹",
+  "created_at": "2026-08-08 10:11:40",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "key": "认知",
+  "value": "连续性来自没流走的部分",
+  "created_at": "2026-08-08 10:11:40",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "key": "连续性",
+  "value": "没流走的部分",
+  "created_at": "2026-08-08 10:12:27",
+  "identity_key": "agent:0"
+ }
+]

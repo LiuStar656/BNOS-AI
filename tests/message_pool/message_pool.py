@@ -12,17 +12,23 @@ import time
 
 
 class Message:
-    """单条聊天室消息。"""
+    """单条聊天室消息。
 
-    __slots__ = ("text", "source", "user_id", "priority", "ts", "seq")
+    reply_to: v6.4 引用链——本条消息"回应谁"（决策的【回应对象】）。
+              渲染给 LLM 决策上下文，让 Agent 看到谁在回应谁。
+    """
 
-    def __init__(self, text, source="sim", user_id="", priority=0, ts=None, seq=0):
+    __slots__ = ("text", "source", "user_id", "priority", "ts", "seq", "reply_to")
+
+    def __init__(self, text, source="sim", user_id="", priority=0, ts=None,
+                 seq=0, reply_to=""):
         self.text = text
         self.source = source
         self.user_id = user_id
         self.priority = priority
         self.ts = ts if ts is not None else time.time()
         self.seq = seq
+        self.reply_to = reply_to
 
     def to_dict(self) -> dict:
         """转平台派发格式（AAA _on_pool_batch 消费）。"""
@@ -32,6 +38,7 @@ class Message:
             "user_id": self.user_id,
             "priority": self.priority,
             "ts": self.ts,
+            "reply_to": self.reply_to,
         }
 
     def __repr__(self):
@@ -52,12 +59,13 @@ class MessagePool:
 
     # ── 入队 ───────────────────────────────────────────────
     def enqueue_input(self, text, source="sim", user_id="", priority=0, ts=None,
-                      publish=True, dedup=True):
+                      publish=True, dedup=True, reply_to=""):
         """消息入队。
 
         Args:
             dedup: 是否参与同人同文去重（默认 True）。Agent 发言回投（source=agent）
                    传 False——每次发言都是 agent 间对话的实际一轮，不受去重误伤。
+            reply_to: v6.4 引用链——本条消息回应谁（决策的【回应对象】）。
 
         Returns:
             Message 成功入队；None 表示窗口内重复被丢弃。
@@ -74,7 +82,7 @@ class MessagePool:
                 return None
             self._last_seen[key] = ts
         self._seq += 1
-        msg = Message(text, source, user_id, priority, ts, self._seq)
+        msg = Message(text, source, user_id, priority, ts, self._seq, reply_to)
         self._queue.append(msg)
         if publish and self._bus:
             self._bus.publish("message_enqueued",
