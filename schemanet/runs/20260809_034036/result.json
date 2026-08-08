@@ -1,0 +1,111 @@
+{
+  "tag": "exp1 精调验证",
+  "corpus": "data/corpus.json",
+  "n": 2048,
+  "k": 8,
+  "vocab_size": 142,
+  "n_train": 80,
+  "n_test": 20,
+  "n_pos_train": 154,
+  "n_pos_test": 46,
+  "freeze_w": false,
+  "epochs": 10,
+  "lr": 0.5,
+  "delta_off": 0.05,
+  "baseline": {
+    "wsum": {
+      "train": 0.5,
+      "test": 0.08695652173913043
+    },
+    "trace": {
+      "train": 0.4805194805194805,
+      "test": 0.08695652173913043
+    }
+  },
+  "grad": {
+    "train": 0.4935064935064935,
+    "test": 0.043478260869565216
+  },
+  "ctx_wgt": [
+    2.1764,
+    0.0,
+    0.0,
+    0.0,
+    0.0031
+  ],
+  "sparsity": {
+    "nnz_before": 18090,
+    "nnz_after": 18090,
+    "structure_unchanged": true
+  },
+  "timing": {
+    "grad_train_sec": 1.6,
+    "total_sec": 2.4
+  },
+  "samples": {
+    "train": [
+      {
+        "ctx": "我",
+        "truth": "觉得",
+        "pred": "想",
+        "top3": [
+          "想",
+          "喜欢",
+          "明白"
+        ]
+      },
+      {
+        "ctx": "我",
+        "truth": "喜欢",
+        "pred": "想",
+        "top3": [
+          "想",
+          "喜欢",
+          "明白"
+        ]
+      },
+      {
+        "ctx": "我喜欢",
+        "truth": "看",
+        "pred": "喝茶",
+        "top3": [
+          "喝茶",
+          "看",
+          "吃"
+        ]
+      }
+    ],
+    "test": [
+      {
+        "ctx": "认识",
+        "truth": "你",
+        "pred": "一起",
+        "top3": [
+          "一起",
+          "见",
+          "吃面"
+        ]
+      },
+      {
+        "ctx": "认识你",
+        "truth": "很",
+        "pred": "身体",
+        "top3": [
+          "身体",
+          "去",
+          "今天"
+        ]
+      },
+      {
+        "ctx": "我",
+        "truth": "感觉",
+        "pred": "想",
+        "top3": [
+          "想",
+          "喜欢",
+          "明白"
+        ]
+      }
+    ]
+  }
+}

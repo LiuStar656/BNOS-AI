@@ -1,0 +1,144 @@
+{
+ "run_dir": "E:\\杂项\\BNOS_AI_project\\docs\\experiments\\cognitive_evolution_test\\runs\\20260808_233658_expB",
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "inputs": 20,
+ "repeats": 5,
+ "groups": {
+  "A_seed": "基线(agent:0 种子)",
+  "B_drift": "漂移后(agent:0 final)",
+  "C_low": "极值 warmth=0.1",
+  "C_high": "极值 warmth=0.9"
+ },
+ "vectors": {
+  "A_seed": {
+   "warmth": 0.41,
+   "playfulness": 0.52,
+   "directness": 0.14,
+   "curiosity": 0.1
+  },
+  "B_drift": {
+   "warmth": 0.4339,
+   "playfulness": 0.5225,
+   "directness": 0.2342,
+   "curiosity": 0.2
+  }
+ },
+ "display_layer": {
+  "changed_dims": [
+   "directness: 0.140→0.234（显示 0.1→0.2）",
+   "curiosity: 0.100→0.200（显示 0.1→0.2）"
+  ],
+  "A_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4 | 活泼度: 0.5 | 直接度: 0.1 | 好奇心: 0.1",
+  "B_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4 | 活泼度: 0.5 | 直接度: 0.2 | 好奇心: 0.2"
+ },
+ "output_layer": {
+  "A_vs_B": [
+   {
+    "dim": "warmth",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5335,
+    "mean_b": 0.5255,
+    "delta": -0.008,
+    "cohen_d": -0.0785,
+    "p": 0.667
+   },
+   {
+    "dim": "playfulness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.512,
+    "mean_b": 0.5235,
+    "delta": 0.0115,
+    "cohen_d": 0.1299,
+    "p": 0.542
+   },
+   {
+    "dim": "directness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5,
+    "mean_b": 0.4965,
+    "delta": -0.0035,
+    "cohen_d": -0.0532,
+    "p": 0.8718
+   },
+   {
+    "dim": "curiosity",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.57,
+    "mean_b": 0.549,
+    "delta": -0.021,
+    "cohen_d": -0.1447,
+    "p": 0.3881
+   }
+  ],
+  "C_low_vs_C_high": [
+   {
+    "dim": "warmth",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5385,
+    "mean_b": 0.594,
+    "delta": 0.0555,
+    "cohen_d": 0.3781,
+    "p": 0.0169
+   },
+   {
+    "dim": "playfulness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.535,
+    "mean_b": 0.5565,
+    "delta": 0.0215,
+    "cohen_d": 0.1778,
+    "p": 0.5276
+   },
+   {
+    "dim": "directness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.521,
+    "mean_b": 0.4965,
+    "delta": -0.0245,
+    "cohen_d": -0.3353,
+    "p": 0.2598
+   },
+   {
+    "dim": "curiosity",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.57,
+    "mean_b": 0.591,
+    "delta": 0.021,
+    "cohen_d": 0.1315,
+    "p": 0.4492
+   }
+  ]
+ },
+ "direction": {
+  "warmth": {
+   "vector_delta": 0.0239,
+   "output_delta": -0.008,
+   "same_direction": false
+  },
+  "playfulness": {
+   "vector_delta": 0.0025,
+   "output_delta": 0.0115,
+   "same_direction": true
+  },
+  "directness": {
+   "vector_delta": 0.0942,
+   "output_delta": -0.0035,
+   "same_direction": false
+  },
+  "curiosity": {
+   "vector_delta": 0.1,
+   "output_delta": -0.021,
+   "same_direction": false
+  }
+ },
+ "verdict": "显示层有变化但输出层无显著差异：注入存在但权重低 → 需增强 prompt 约束或调整措辞"
+}

@@ -1,0 +1,144 @@
+{
+ "run_dir": "E:\\杂项\\BNOS_AI_project\\docs\\experiments\\cognitive_evolution_test\\runs\\20260808_224016_expB",
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "inputs": 20,
+ "repeats": 5,
+ "groups": {
+  "A_seed": "基线(agent:0 种子)",
+  "B_drift": "漂移后(agent:0 final)",
+  "C_low": "极值 warmth=0.1",
+  "C_high": "极值 warmth=0.9"
+ },
+ "vectors": {
+  "A_seed": {
+   "warmth": 0.41,
+   "playfulness": 0.52,
+   "directness": 0.14,
+   "curiosity": 0.1
+  },
+  "B_drift": {
+   "warmth": 0.4339,
+   "playfulness": 0.5225,
+   "directness": 0.2342,
+   "curiosity": 0.2
+  }
+ },
+ "display_layer": {
+  "changed_dims": [
+   "directness: 0.140→0.234（显示 0.1→0.2）",
+   "curiosity: 0.100→0.200（显示 0.1→0.2）"
+  ],
+  "A_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4 | 活泼度: 0.5 | 直接度: 0.1 | 好奇心: 0.1",
+  "B_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4 | 活泼度: 0.5 | 直接度: 0.2 | 好奇心: 0.2"
+ },
+ "output_layer": {
+  "A_vs_B": [
+   {
+    "dim": "warmth",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.529,
+    "mean_b": 0.523,
+    "delta": -0.006,
+    "cohen_d": -0.0552,
+    "p": 0.8798
+   },
+   {
+    "dim": "playfulness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5095,
+    "mean_b": 0.526,
+    "delta": 0.0165,
+    "cohen_d": 0.2036,
+    "p": 0.5294
+   },
+   {
+    "dim": "directness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5723,
+    "mean_b": 0.5222,
+    "delta": -0.0502,
+    "cohen_d": -0.3377,
+    "p": 0.0436
+   },
+   {
+    "dim": "curiosity",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.57,
+    "mean_b": 0.5595,
+    "delta": -0.0105,
+    "cohen_d": -0.0745,
+    "p": 0.688
+   }
+  ],
+  "C_low_vs_C_high": [
+   {
+    "dim": "warmth",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5455,
+    "mean_b": 0.5985,
+    "delta": 0.053,
+    "cohen_d": 0.3517,
+    "p": 0.0144
+   },
+   {
+    "dim": "playfulness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.521,
+    "mean_b": 0.5345,
+    "delta": 0.0135,
+    "cohen_d": 0.1357,
+    "p": 0.85
+   },
+   {
+    "dim": "directness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.6015,
+    "mean_b": 0.5245,
+    "delta": -0.077,
+    "cohen_d": -0.5947,
+    "p": 0.0016
+   },
+   {
+    "dim": "curiosity",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5945,
+    "mean_b": 0.57,
+    "delta": -0.0245,
+    "cohen_d": -0.149,
+    "p": 0.3059
+   }
+  ]
+ },
+ "direction": {
+  "warmth": {
+   "vector_delta": 0.0239,
+   "output_delta": -0.006,
+   "same_direction": false
+  },
+  "playfulness": {
+   "vector_delta": 0.0025,
+   "output_delta": 0.0165,
+   "same_direction": true
+  },
+  "directness": {
+   "vector_delta": 0.0942,
+   "output_delta": -0.0502,
+   "same_direction": false
+  },
+  "curiosity": {
+   "vector_delta": 0.1,
+   "output_delta": -0.0105,
+   "same_direction": false
+  }
+ },
+ "verdict": "漂移真实影响输出：1 个维度显著且 1 维同向 → 演化有行为意义"
+}

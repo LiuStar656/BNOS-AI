@@ -7,6 +7,9 @@ import threading
 import os
 from datetime import datetime, timedelta
 
+# v7.1 阶段0-bug2：实体-属性一致性校验器（用户原话抽取 + LLM 摘要冲突修正）
+import entity_attr_checker
+
 # 所有需要加 conversation_id 的表
 _TABLES_NEED_CONV_ID = [
     "user_messages", "feelings", "event_summary",
@@ -34,6 +37,12 @@ _MOOD_VALUES = {
 
 # 去重相似度阈值
 _SIMILARITY_THRESHOLD = 0.80
+
+# v7.1 阶段0-bug2：LLM 摘要类节（写入前过实体-属性一致性校验，
+# 冲突类型词用已知绑定修正——防事件摘要互相污染导致实体属性漂移）
+_LLM_SUMMARY_SECTIONS = {
+    "事件摘要", "自我认知", "他人认知", "用户记忆", "环境记忆", "记忆归档",
+}
 
 # v3.1(D4) self_info 治理：单 identity 条数上限 + 同 key 相似 value 去重阈值
 _SELF_INFO_CAP = 100
@@ -446,6 +455,10 @@ def ensure(db_path):
                 conn.commit()
             except sqlite3.OperationalError:
                 pass
+
+        # v7.1 阶段0-bug2：实体-属性绑定表（一致性校验数据源）
+        entity_attr_checker.ensure_table(conn)
+        conn.commit()
     finally:
         conn.close()
 
@@ -530,6 +543,9 @@ def _write(data, db_path, role):
             conn.execute(
                 "INSERT INTO user_messages(conversation_id,identity_key,role,content,user_id,created_at) VALUES(?,?,?,?,?,?)",
                 (conv_id, identity_key, "user", deduped, user_id, now))
+            # v7.1 阶段0-bug2：用户原话是实体-属性绑定的可靠事实源，
+            # 抽取「实体→动物类型」强绑定写入 entity_attrs（防 LLM 摘要漂移）
+            entity_attr_checker.record_statement(deduped, conn, identity_key)
         elif role == "assistant":
             conn.execute(
                 "INSERT INTO user_messages(conversation_id,identity_key,role,content,user_id,created_at) VALUES(?,?,?,?,?,?)",
@@ -564,12 +580,25 @@ def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=
     try:
         conn = sqlite3.connect(db_path)
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # v7.1 阶段0-bug2：懒回填历史可靠源（旧库 user_messages/种子记忆）
+        entity_attr_checker.backfill(conn, identity_key)
         for k, v in [("自然回复", "assistant"), ("心情", None), ("想法", None), ("事件摘要", None),
                       ("自我认知", None), ("他人认知", None), ("用户信息", None), ("自我信息", None),
                       ("知识条目", None), ("记忆归档", None), ("用户记忆", None), ("环境记忆", None)]:
             val = parsed.get(k, "")
             if not val:
                 continue
+            # v7.1 阶段0-bug2：LLM 摘要类节过实体-属性一致性校验，
+            # 冲突时用已知绑定修正类型词（二饼=猫 不会被摘要写成狗）
+            if k in _LLM_SUMMARY_SECTIONS:
+                _fixed, n_conflict = entity_attr_checker.validate_llm(
+                    val, conn, identity_key)
+                if n_conflict:
+                    print(f"[WARN] 实体-属性冲突修正 {k}: "
+                          f"「{val[:60]}」→「{_fixed[:60]}」({n_conflict}处)", flush=True)
+                val = _fixed
+                if not val.strip():
+                    continue
 
             # 提取 importance（从解析结果中取，如 "事件摘要_importance"）
             importance = parsed.get(f"{k}_importance", 3)

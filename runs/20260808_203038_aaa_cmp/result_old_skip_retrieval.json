@@ -1,0 +1,119 @@
+{
+  "node_dir": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\aaa_old_node",
+  "mode": "old",
+  "real": false,
+  "db_path": "e:\\杂项\\BNOS_AI_project\\runs\\20260808_203038_aaa_cmp\\db_old\\chatbot.db",
+  "round_trips_total": 4,
+  "tokens_total": 2129.0,
+  "turns_with_memory": 0,
+  "answers_correct": 0,
+  "turns": [
+    {
+      "idx": 0,
+      "user_text": "你还记得我喜欢什么电影吗？",
+      "round_trips": 1,
+      "prompts": [
+        {
+          "has_memory": false,
+          "keywords": [],
+          "tokens": 531.0,
+          "char_len": 564
+        }
+      ],
+      "reply": "我记得你说过这件事，我们一起聊过的。",
+      "raws": [],
+      "elapsed_ms": 139.7,
+      "retrieval_triggered": false,
+      "memory_present": false,
+      "memory_keywords": [],
+      "answer": {
+        "expected": [
+          "星际穿越"
+        ],
+        "found": [],
+        "correct": false,
+        "n_expected": 1
+      }
+    },
+    {
+      "idx": 1,
+      "user_text": "我的猫叫什么名字？",
+      "round_trips": 1,
+      "prompts": [
+        {
+          "has_memory": false,
+          "keywords": [],
+          "tokens": 531.8,
+          "char_len": 567
+        }
+      ],
+      "reply": "我记得你说过这件事，我们一起聊过的。",
+      "raws": [],
+      "elapsed_ms": 62.7,
+      "retrieval_triggered": false,
+      "memory_present": false,
+      "memory_keywords": [],
+      "answer": {
+        "expected": [
+          "二饼"
+        ],
+        "found": [],
+        "correct": false,
+        "n_expected": 1
+      }
+    },
+    {
+      "idx": 2,
+      "user_text": "最近天气怎么样",
+      "round_trips": 1,
+      "prompts": [
+        {
+          "has_memory": false,
+          "keywords": [],
+          "tokens": 530.0,
+          "char_len": 565
+        }
+      ],
+      "reply": "我记得你说过这件事，我们一起聊过的。",
+      "raws": [],
+      "elapsed_ms": 153.5,
+      "retrieval_triggered": false,
+      "memory_present": false,
+      "memory_keywords": [],
+      "answer": {
+        "expected": [],
+        "found": [],
+        "correct": false,
+        "n_expected": 0
+      }
+    },
+    {
+      "idx": 3,
+      "user_text": "我上次说的考试还记得吗？",
+      "round_trips": 1,
+      "prompts": [
+        {
+          "has_memory": false,
+          "keywords": [],
+          "tokens": 536.2,
+          "char_len": 570
+        }
+      ],
+      "reply": "我记得你说过这件事，我们一起聊过的。",
+      "raws": [],
+      "elapsed_ms": 106.9,
+      "retrieval_triggered": false,
+      "memory_present": false,
+      "memory_keywords": [],
+      "answer": {
+        "expected": [
+          "专升本",
+          "计算机"
+        ],
+        "found": [],
+        "correct": false,
+        "n_expected": 2
+      }
+    }
+  ]
+}

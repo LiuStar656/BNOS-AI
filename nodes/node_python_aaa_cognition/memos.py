@@ -6,6 +6,7 @@ MemOS 语义记忆检索模块 — 替换 memory.py
 """
 import os
 import json
+import re
 import sqlite3
 import threading
 import numpy as np
@@ -95,6 +96,69 @@ def _encode(text: str) -> np.ndarray | None:
         return None
     v = model.encode(text, normalize_embeddings=True)
     return np.asarray(v, dtype=np.float32)
+
+
+def _core(text: str) -> str:
+    """去空白/标点后的文本核心（供逐字命中检测）"""
+    return re.sub(r"[\s。！？，、；：,.!?;:（）()【】\[\]「」\"'“”]", "",
+                  text or "")
+
+
+def _query_echo_penalty(query: str, content: str) -> float:
+    """query 逐字命中惩罚：query 原文出现在记忆内容里（历史 exchange 回放）
+    说明该条是「重复提问的历史」而非「答案记忆」，降权让位给真正知识记忆。
+
+    E4 idx44 实证：问「你还记得我喜欢什么电影吗？」时，历史里逐字相同的
+    exchange 条目相似度 0.65+ 霸榜 top5，种子「星际穿越」仅 0.405 被挤出。
+    """
+    q_core = _core(query)
+    c_core = _core(content[:120])
+    if len(q_core) >= 4 and q_core in c_core:
+        return 0.2
+    return 0.0
+
+
+# v7.3 停用字/词（gram 提权噪声过滤）：意图词与通用高频词无内容判别力
+_GRAM_STOP_CHARS = frozenset(
+    "什么怎么一个这个那个没有不是就是但是所以因为如果可以还是现在知道记得喜欢"
+    "我们你们他们这些那些时候地方东西事情觉得感觉我的你有什么在我不你有他她它"
+    "和与及就都也很还又再才只最着过吧吗呢啊了")
+_GRAM_NOISE = frozenset(
+    {"今天", "现在", "什么", "这个", "那个", "我们", "你们", "他们", "自己",
+     "时候", "真的", "还是", "没有", "觉得", "感觉", "地方", "东西", "知道",
+     "这样", "那样", "怎么", "因为", "所以", "但是", "如果", "就是", "不是",
+     "可以", "有些", "其实", "可能", "比较", "应该", "最近", "之前", "以后"})
+
+
+def _grams(chars: list[str], noise: bool) -> set:
+    """连续双字 gram 集（噪声 gram 可剔除）"""
+    out = set()
+    for i in range(len(chars) - 1):
+        g = chars[i] + chars[i + 1]
+        if len(g) == 2 and (not noise or g not in _GRAM_NOISE):
+            out.add(g)
+    return out
+
+
+def _gram_boost(query: str, content: str) -> float:
+    """query 词元提权：query 去停用字后的双字 gram 与记忆内容重叠时提权。
+
+    中文语义模型（all-MiniLM-L6-v2）相似度饱和 + 语义坍塌下，纯余弦排序
+    对唯一性记忆失效（E4 idx44 种子星际穿越 0.405 vs 无关 exchange 0.65+），
+    词元重叠是更可靠的相关性信号。上限 +0.4 防单条记忆过度拔高。
+    """
+    qc = _core(query)
+    cc = _core(content[:120])
+    qchars = [c for c in qc if c not in _GRAM_STOP_CHARS]
+    cchars = [c for c in cc if c not in _GRAM_STOP_CHARS]
+    if len(qchars) < 2 or len(cchars) < 2:
+        return 0.0
+    q_grams = _grams(qchars, noise=False)
+    c_grams = _grams(cchars, noise=True)
+    overlap = q_grams & c_grams
+    if not overlap:
+        return 0.0
+    return min(0.2 * len(overlap), 0.4)
 
 
 # ════════════════════════════════════════════════════════════════
@@ -247,13 +311,27 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
         _record_hits([])
         return ""  # 模型未就绪，跳过检索
     sims = _embeddings @ qv  # 余弦相似度
-    top_idx = np.argsort(-sims)[:top_k * 3]
+    # v7.1 阶段0-bug3：候选池 top_k*3 → top_k*20。中文语义模型相似度饱和
+    # （E4 idx44：种子星际穿越 0.405 在 85 条库里排 70 名外），候选池过小
+    # 会让高 importance 种子记忆永远进不了排序，加权无从生效。
+    top_idx = set(np.argsort(-sims)[:top_k * 20].tolist())
 
-    results = []
+    cands = []  # (weighted_score, line, hit)  v7.1 收集后按加权分排序
     hits = []  # v6.6 数据采集 P0-1：实际返回（采纳）的命中条目
     conn = sqlite3.connect(db_path) if db_path else None
     try:
-        for idx in top_idx:
+        # v7.3 高重要记忆保底：importance>=5 的记忆无条件进候选
+        # （相似度饱和下靠 top_idx 永远捞不到它们，加权无从生效）
+        if conn:
+            id_to_idx = {eid: i for i, eid in enumerate(_entry_ids)}
+            for (eid,) in conn.execute(
+                "SELECT id FROM long_term_memory WHERE identity_key=? "
+                "AND importance>=5 AND (status IS NULL OR status='active')",
+                (identity_key,)):
+                i = id_to_idx.get(int(eid))
+                if i is not None:
+                    top_idx.add(i)
+        for idx in sorted(top_idx):
             eid = _entry_ids[idx]
             table = _entry_tables[idx] if idx < len(_entry_tables) else "long_term_memory"
             score = float(sims[idx])
@@ -262,11 +340,9 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
             if idx < len(_entry_identity_keys) and _entry_identity_keys[idx] != identity_key:
                 continue
             if not conn:
-                results.append(f"[{score:.3f}] (匹配条目)")
-                hits.append({"id": int(eid), "table": table,
-                             "score": round(score, 3), "adopted": True})
-                if len(results) >= top_k:
-                    break
+                cands.append((score, f"[{score:.3f}] (匹配条目)",
+                              {"id": int(eid), "table": table,
+                               "score": round(score, 3), "adopted": True}))
                 continue
 
             if table == "diaries":
@@ -280,36 +356,57 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
                 line = f"[{ts} | {score:.2f}] [日记] {content[:200]}"
                 if mood:
                     line += f" (心情: {mood})"
-                results.append(line)
+                cands.append((score, line,
+                              {"id": int(eid), "table": table,
+                               "score": round(score, 3), "adopted": True}))
             else:
                 # long_term_memory
                 row = conn.execute(
-                    "SELECT content, created_at, status FROM long_term_memory WHERE id=?", (eid,)
+                    "SELECT content, created_at, status, importance, source FROM long_term_memory WHERE id=?", (eid,)
                 ).fetchone()
                 if not row:
                     continue
-                content, created_at, status = row
+                content, created_at, status, importance, source = row
                 # v4.0: 过滤掉 superseded 的记录
                 if status and status != "active":
                     continue
                 content = content[:200] if content else ""
                 created_at = created_at[:10] if created_at else ""
-                results.append(f"[{created_at} | {score:.2f}] {content}")
+                line = f"[{created_at} | {score:.2f}] {content}"
+                # v7.1 阶段0-bug3：importance 弱加权（0.02/级，仅同分决胜，
+                # 防止高重要种子反超真正答案记忆——见 dbg_side 实测）；
+                # v7.2 对话回放降权 + 逐字命中降权；
+                # v7.3 query 词元提权（中文语义坍塌下词元重叠才是可靠相关性）。
+                imp = int(importance or 3)
+                w = score + 0.02 * (imp - 3)
+                if source == "exchange":
+                    w -= 0.10
+                w -= _query_echo_penalty(query, content)
+                w += _gram_boost(query, content)
+                cands.append((w, line,
+                              {"id": int(eid), "table": table,
+                               "score": round(score, 3), "adopted": True}))
 
-            hits.append({"id": int(eid), "table": table,
-                         "score": round(score, 3), "adopted": True})
-            if len(results) >= top_k:
-                break
     finally:
         if conn:
             conn.close()
+
+    # v7.1 按加权分降序取 top_k（diaries 无 importance，加权分 = 原始分）
+    cands.sort(key=lambda c: c[0], reverse=True)
+    selected = cands[:top_k]
+    results = [c[1] for c in selected]
+    hits = [c[2] for c in selected]
 
     _record_hits(hits)
     return "\n".join(results) if results else ""
 
 
-def retrieve_raw(query: str, top_k: int = 5, identity_key: str = "gui:default") -> list[dict]:
-    """语义检索，返回结构化结果（供程序内部使用）"""
+def retrieve_raw(query: str, top_k: int = 5, identity_key: str = "gui:default", db_path: str = "") -> list[dict]:
+    """语义检索，返回结构化结果（供程序内部使用）。
+
+    v7.1 阶段0-bug3：与 retrieve 对齐——候选池 top_k*5 + importance 加权
+    （db_path 提供时可读 importance，否则退化为纯相似度排序）。
+    """
     if _embeddings is None or len(_entry_ids) == 0:
         _record_hits([])
         return []
@@ -319,18 +416,51 @@ def retrieve_raw(query: str, top_k: int = 5, identity_key: str = "gui:default") 
         _record_hits([])
         return []  # 模型未就绪，跳过检索
     sims = _embeddings @ qv
-    top_idx = np.argsort(-sims)[:top_k * 3]
+    # v7.1 阶段0-bug3：候选池 top_k*12 + v7.3 高重要保底（与 retrieve 对齐）
+    top_idx = set(np.argsort(-sims)[:top_k * 12].tolist())
 
-    results = []
-    for idx in top_idx:
-        if float(sims[idx]) < 0.3:
-            continue
-        if idx < len(_entry_identity_keys) and _entry_identity_keys[idx] != identity_key:
-            continue
-        table = _entry_tables[idx] if idx < len(_entry_tables) else "long_term_memory"
-        results.append({"entry_id": _entry_ids[idx], "table": table, "score": float(sims[idx])})
-        if len(results) >= top_k:
-            break
+    conn = sqlite3.connect(db_path) if db_path else None
+    cands = []  # (weighted_score, hit_dict)
+    try:
+        # v7.3 高重要记忆保底（importance>=5 无条件进候选）
+        if conn:
+            id_to_idx = {eid: i for i, eid in enumerate(_entry_ids)}
+            for (eid,) in conn.execute(
+                "SELECT id FROM long_term_memory WHERE identity_key=? "
+                "AND importance>=5 AND (status IS NULL OR status='active')",
+                (identity_key,)):
+                i = id_to_idx.get(int(eid))
+                if i is not None:
+                    top_idx.add(i)
+        for idx in sorted(top_idx):
+            score = float(sims[idx])
+            if score < 0.3:
+                continue
+            if idx < len(_entry_identity_keys) and _entry_identity_keys[idx] != identity_key:
+                continue
+            table = _entry_tables[idx] if idx < len(_entry_tables) else "long_term_memory"
+            hit = {"entry_id": _entry_ids[idx], "table": table, "score": score}
+            w = score
+            if conn and table == "long_term_memory":
+                row = conn.execute(
+                    "SELECT importance, content, source FROM long_term_memory WHERE id=?", (hit["entry_id"],)
+                ).fetchone()
+                if row:
+                    imp = int(row[0] or 3)
+                    # v7.3 与 retrieve 对齐：importance 弱加权 + 回放降权 +
+                    # 逐字命中降权 + query 词元提权
+                    w = score + 0.02 * (imp - 3)
+                    if row[2] == "exchange":
+                        w -= 0.10
+                    w -= _query_echo_penalty(query, str(row[1] or ""))
+                    w += _gram_boost(query, str(row[1] or ""))
+            cands.append((w, hit))
+    finally:
+        if conn:
+            conn.close()
+
+    cands.sort(key=lambda c: c[0], reverse=True)
+    results = [c[1] for c in cands[:top_k]]
     # v6.6 数据采集 P0-1：同步埋点命中条目（与 retrieve 一致，供决策埋点）
     _record_hits([{"id": int(r["entry_id"]), "table": r["table"],
                    "score": round(r["score"], 3), "adopted": True}

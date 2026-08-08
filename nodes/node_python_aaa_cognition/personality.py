@@ -196,17 +196,88 @@ def mood_level_text(value: float) -> str:
 # Prompt 段构建
 # ══════════════════════════════════════════════════════════════════
 
+# v1.9 行为锚点：数值对 LLM 是抽象刻度（expB 极值对照：directness 0.1 vs 0.9
+# 仍无显著差异——「直接度」标签词义模糊，LLM 无法从数值脑补行为）。
+# 每维度按数值档位附加行为描述，把数值翻译成 LLM 能执行的行为指令。
+# v2.0 程度副词插值：三档离散锚点抹平连续演化（0.14→0.23 同属低档描述不变）。
+# v2.1 五档动作级：插值版相邻档只差程度词（非常 vs 相当），真实漂移
+# （0.14→0.23）描述差异仍不可测（expB 022312：d=0.174 p=0.20）。五档每档
+# 独立动作级描述（行为模式随档变化），实测真实漂移 d=0.805 p<0.0001、
+# 极值 d=1.236（expB 023851）——「描述差异分辨率决定漂移可测性」。
+_PERSONALITY_BANDS = {
+    "warmth": [
+        "冷淡疏离、保持距离、公事公办，极少寒暄",
+        "话少、礼貌客气，偶尔关心对方近况",
+        "自然平和、不过分热络也不冷淡",
+        "比较热情、会主动关心对方近况",
+        "热情主动、语气温暖、主动关心并表达支持",
+    ],
+    "playfulness": [
+        "一本正经、严肃认真，从不开玩笑",
+        "正经为主，偶尔带一点轻松",
+        "轻松自然、偶尔玩笑",
+        "比较爱开玩笑、语气轻松活泼",
+        "爱开玩笑、语气活泼有趣，常逗趣",
+    ],
+    "directness": [
+        "委婉含蓄、说话绕圈子，先寒暄铺垫再引入正题，几乎不直接说重点，常用「可能、也许」",
+        "比较委婉、说话留有余地，会先铺垫但能点到正题，偶尔直接表态",
+        "有话直说但注意分寸，简洁明确，适当客套",
+        "比较直接、简洁明确，少客套，直接进入正题",
+        "直截了当、不拐弯抹角、开门见山，不铺垫直接说",
+    ],
+    "curiosity": [
+        "关注当下、很少追问，对新鲜事物不主动了解",
+        "较少追问，偶尔对感兴趣的事问一两句",
+        "适度关注，会追问细节但不刨根问底",
+        "比较好奇、会主动追问细节",
+        "强烈好奇、主动追问、爱探索，常问为什么",
+    ],
+}
+# 五档区间：≤0.2 / ≤0.4 / ≤0.6 / ≤0.8 / >0.8
+_PERSONALITY_BAND_EDGES = (0.2, 0.4, 0.6, 0.8)
+_PERSONALITY_LABELS = [
+    ("warmth", "温暖度"), ("playfulness", "活泼度"),
+    ("directness", "直接度"), ("curiosity", "好奇心"),
+]
+_PERSONALITY_MID = {"warmth": 0.6, "playfulness": 0.4,
+                    "directness": 0.5, "curiosity": 0.5}
+
+
+def _personality_anchor(dim: str, v: float) -> str:
+    """v2.1 五档动作级描述：每档一段独立行为描述（不只程度词，行为模式随档变化）。
+
+    例（directness）：0.14「委婉含蓄、说话绕圈子，先寒暄铺垫再引入正题…」vs
+    0.23「比较委婉、说话留有余地，会先铺垫但能点到正题…」——相邻档动作级
+    差异使真实漂移可被 LLM 感知（expB 023851：A/B 漂移 d=0.805 p<0.0001）。
+    """
+    bands = _PERSONALITY_BANDS.get(dim)
+    if not bands:
+        return ""
+    idx = 4
+    for i, edge in enumerate(_PERSONALITY_BAND_EDGES):
+        if v <= edge:
+            idx = i
+            break
+    return f"（{bands[idx]}）"
+
+
 def build_personality_section(vector: dict, style_description: str = "") -> str:
-    """构建【你的性格】段（慢变量，注入 {personality} 占位符）"""
+    """构建【你的性格】段（慢变量，注入 {personality} 占位符）
+
+    v2.1：五档动作级描述——描述差异分辨率决定漂移可测性。真实漂移
+    （0.14→0.23）已可被 LLM 感知（expB 023851：d=0.805 p<0.0001）。
+    """
     if not vector:
         return ""
+    dims = []
+    for dim, label in _PERSONALITY_LABELS:
+        v = vector.get(dim, _PERSONALITY_MID[dim])
+        dims.append(f"{label}: {v:.1f}{_personality_anchor(dim, v)}")
     parts = [
         "### 你的性格（会随使用自然演化，不需主动提及）",
         "各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：",
-        (f"温暖度: {vector.get('warmth', 0.6):.1f} | "
-         f"活泼度: {vector.get('playfulness', 0.4):.1f} | "
-         f"直接度: {vector.get('directness', 0.5):.1f} | "
-         f"好奇心: {vector.get('curiosity', 0.5):.1f}"),
+        " | ".join(dims),
     ]
     if style_description:
         parts.append(f"说话风格: {style_description}")
@@ -241,8 +312,11 @@ _STYLE_KEYWORDS = {
     },
     "directness": {
         "high": ["说话直", "直来直去", "想到什么说什么", "不藏着掖着",
-                 "心里想什么就说什么", "爽快", "利落", "简洁", "不拐弯抹角",
-                 "直接说", "直接"],
+                 "心里想什么就说什么", "爽快", "利落", "简洁", "不拐弯抹角"],
+        # v7.4 瘦身：删除「直接」「直接说」——20260808_224016 expB 实测
+        # 「直接」是高频副词（直接提问/直接面对/直接展开）且【自我信息】节
+        # 会复述 prompt「直接度=0.1」数值，两者均非真实行为信号，制造了
+        # directness 观测的虚假反向（A=33 vs B=13 命中差、观测 0.85 差 23→10）。
         "low": ["委婉", "含蓄", "吞吞吐吐", "拐弯抹角", "磨叽", "绕来绕去",
                 "欲言又止", "绕弯"],
     },

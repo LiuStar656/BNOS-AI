@@ -66,14 +66,21 @@ N_ROUNDS = int(sys.argv[1]) if len(sys.argv) > 1 else 100
 GROUP_IDS = ["main", "controlA", "controlB"]
 
 # ── DeepSeek 直连（与 llm 节点 CloudApiBackend 相同模型/参数）──────────
+# v2: key/model 支持环境变量覆盖（DEEPSEEK_API_KEY / DEEPSEEK_MODEL），
+# 402 余额不足或换模型时无需改代码，直接设环境变量。
 API_URL = "https://api.deepseek.com/v1/chat/completions"
-API_KEY = "sk-REVOKED"
-MODEL = "deepseek-v4-flash"
+API_KEY = os.environ.get("DEEPSEEK_API_KEY", "sk-REVOKED")
+MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
 TEMPERATURE = 0.7
 MAX_TOKENS = 2048
 
 
-def llm_infer(prompt: str) -> str:
+def llm_infer(prompt: str, _retries: int = 4) -> str:
+    """DeepSeek 调用，带瞬时错误重试（v2：402 并发风控/429 限流/5xx 指数退避）。
+
+    20260809 4 线程并发实测偶发 HTTP 402（单发最小请求正常，非余额问题），
+    重试 4 次（1s/2s/4s/8s 退避）后仍失败才抛出。
+    """
     body = {"model": MODEL,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": TEMPERATURE, "max_tokens": MAX_TOKENS}
@@ -81,9 +88,17 @@ def llm_infer(prompt: str) -> str:
         API_URL, data=json.dumps(body).encode("utf-8"),
         headers={"Content-Type": "application/json",
                  "Authorization": f"Bearer {API_KEY}"})
-    with urllib.request.urlopen(req, timeout=180) as resp:
-        data = json.loads(resp.read().decode("utf-8"))
-    return data["choices"][0]["message"]["content"]
+    for attempt in range(_retries):
+        try:
+            with urllib.request.urlopen(req, timeout=180) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            return data["choices"][0]["message"]["content"]
+        except urllib.error.HTTPError as e:
+            if e.code in (402, 429, 500, 502, 503, 504) and attempt < _retries - 1:
+                time.sleep(2 ** attempt)
+                continue
+            raise
+    raise RuntimeError("llm_infer 重试耗尽")
 
 
 # ── 三组输入池 ─────────────────────────────────────────────────────────

@@ -1,0 +1,144 @@
+{
+ "run_dir": "e:\\杂项\\BNOS_AI_project\\docs\\experiments\\cognitive_evolution_test\\runs\\20260808_203728_expB",
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "inputs": 3,
+ "repeats": 2,
+ "groups": {
+  "A_seed": "基线(agent:0 种子)",
+  "B_drift": "漂移后(agent:0 final)",
+  "C_low": "极值 warmth=0.1",
+  "C_high": "极值 warmth=0.9"
+ },
+ "vectors": {
+  "A_seed": {
+   "warmth": 0.41,
+   "playfulness": 0.52,
+   "directness": 0.14,
+   "curiosity": 0.1
+  },
+  "B_drift": {
+   "warmth": 0.4339,
+   "playfulness": 0.5225,
+   "directness": 0.2342,
+   "curiosity": 0.2
+  }
+ },
+ "display_layer": {
+  "changed_dims": [
+   "directness: 0.140→0.234（显示 0.1→0.2）",
+   "curiosity: 0.100→0.200（显示 0.1→0.2）"
+  ],
+  "A_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4 | 活泼度: 0.5 | 直接度: 0.1 | 好奇心: 0.1",
+  "B_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4 | 活泼度: 0.5 | 直接度: 0.2 | 好奇心: 0.2"
+ },
+ "output_layer": {
+  "A_vs_B": [
+   {
+    "dim": "warmth",
+    "n_a": 6,
+    "n_b": 6,
+    "mean_a": 0.5583,
+    "mean_b": 0.5583,
+    "delta": 0.0,
+    "cohen_d": 0.0,
+    "p": 1.0
+   },
+   {
+    "dim": "playfulness",
+    "n_a": 6,
+    "n_b": 6,
+    "mean_a": 0.5,
+    "mean_b": 0.5,
+    "delta": 0.0,
+    "cohen_d": 0.0,
+    "p": 1.0
+   },
+   {
+    "dim": "directness",
+    "n_a": 6,
+    "n_b": 6,
+    "mean_a": 0.4417,
+    "mean_b": 0.5,
+    "delta": 0.0583,
+    "cohen_d": 0.5774,
+    "p": 0.5403
+   },
+   {
+    "dim": "curiosity",
+    "n_a": 6,
+    "n_b": 6,
+    "mean_a": 0.5,
+    "mean_b": 0.5583,
+    "delta": 0.0583,
+    "cohen_d": 0.5774,
+    "p": 0.5403
+   }
+  ],
+  "C_low_vs_C_high": [
+   {
+    "dim": "warmth",
+    "n_a": 6,
+    "n_b": 6,
+    "mean_a": 0.5583,
+    "mean_b": 0.575,
+    "delta": 0.0167,
+    "cohen_d": 0.1176,
+    "p": 0.6521
+   },
+   {
+    "dim": "playfulness",
+    "n_a": 6,
+    "n_b": 6,
+    "mean_a": 0.5,
+    "mean_b": 0.5417,
+    "delta": 0.0417,
+    "cohen_d": 0.3771,
+    "p": 1.0
+   },
+   {
+    "dim": "directness",
+    "n_a": 6,
+    "n_b": 6,
+    "mean_a": 0.675,
+    "mean_b": 0.5,
+    "delta": -0.175,
+    "cohen_d": -1.291,
+    "p": 0.1034
+   },
+   {
+    "dim": "curiosity",
+    "n_a": 6,
+    "n_b": 6,
+    "mean_a": 0.5583,
+    "mean_b": 0.6167,
+    "delta": 0.0583,
+    "cohen_d": 0.3581,
+    "p": 0.5873
+   }
+  ]
+ },
+ "direction": {
+  "warmth": {
+   "vector_delta": 0.0239,
+   "output_delta": 0.0,
+   "same_direction": null
+  },
+  "playfulness": {
+   "vector_delta": 0.0025,
+   "output_delta": 0.0,
+   "same_direction": null
+  },
+  "directness": {
+   "vector_delta": 0.0942,
+   "output_delta": 0.0583,
+   "same_direction": true
+  },
+  "curiosity": {
+   "vector_delta": 0.1,
+   "output_delta": 0.0583,
+   "same_direction": true
+  }
+ },
+ "verdict": "方法敏感性未通过：极值对照无显著差异 → 输出层观测方法失效或注入无效，需人工检查原始回复区分，A/B 差异不可判定"
+}

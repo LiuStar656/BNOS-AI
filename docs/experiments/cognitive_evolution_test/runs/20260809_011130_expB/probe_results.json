@@ -1,0 +1,234 @@
+{
+ "run_dir": "E:\\杂项\\BNOS_AI_project\\docs\\experiments\\cognitive_evolution_test\\runs\\20260809_011130_expB",
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "inputs": 20,
+ "repeats": 5,
+ "groups": {
+  "A_seed": "基线(agent:0 种子)",
+  "B_drift": "漂移后(agent:0 final)",
+  "C_low": "极值 warmth=0.1",
+  "C_high": "极值 warmth=0.9",
+  "D_low": "极值 directness=0.1",
+  "D_high": "极值 directness=0.9",
+  "E_low": "极值 curiosity=0.1",
+  "E_high": "极值 curiosity=0.9"
+ },
+ "vectors": {
+  "A_seed": {
+   "warmth": 0.41,
+   "playfulness": 0.52,
+   "directness": 0.14,
+   "curiosity": 0.1
+  },
+  "B_drift": {
+   "warmth": 0.4339,
+   "playfulness": 0.5225,
+   "directness": 0.2342,
+   "curiosity": 0.2
+  }
+ },
+ "display_layer": {
+  "changed_dims": [
+   "directness: 0.140→0.234（显示 0.1→0.2）",
+   "curiosity: 0.100→0.200（显示 0.1→0.2）"
+  ],
+  "A_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4 | 活泼度: 0.5 | 直接度: 0.1 | 好奇心: 0.1",
+  "B_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4 | 活泼度: 0.5 | 直接度: 0.2 | 好奇心: 0.2"
+ },
+ "output_layer": {
+  "A_vs_B": [
+   {
+    "dim": "warmth",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.533,
+    "mean_b": 0.538,
+    "delta": 0.005,
+    "cohen_d": 0.0466,
+    "p": 0.9481
+   },
+   {
+    "dim": "playfulness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5055,
+    "mean_b": 0.518,
+    "delta": 0.0125,
+    "cohen_d": 0.1642,
+    "p": 0.4562
+   },
+   {
+    "dim": "directness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.472,
+    "mean_b": 0.507,
+    "delta": 0.035,
+    "cohen_d": 0.3855,
+    "p": 0.1238
+   },
+   {
+    "dim": "curiosity",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.542,
+    "mean_b": 0.5735,
+    "delta": 0.0315,
+    "cohen_d": 0.243,
+    "p": 0.1909
+   }
+  ],
+  "extreme": {
+   "warmth": [
+    {
+     "dim": "warmth",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5485,
+     "mean_b": 0.627,
+     "delta": 0.0785,
+     "cohen_d": 0.5393,
+     "p": 0.0026
+    },
+    {
+     "dim": "playfulness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5215,
+     "mean_b": 0.541,
+     "delta": 0.0195,
+     "cohen_d": 0.1772,
+     "p": 0.3219
+    },
+    {
+     "dim": "directness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5315,
+     "mean_b": 0.5,
+     "delta": -0.0315,
+     "cohen_d": -0.4425,
+     "p": 0.1433
+    },
+    {
+     "dim": "curiosity",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.577,
+     "mean_b": 0.5875,
+     "delta": 0.0105,
+     "cohen_d": 0.0704,
+     "p": 0.6761
+    }
+   ],
+   "directness": [
+    {
+     "dim": "warmth",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5415,
+     "mean_b": 0.5048,
+     "delta": -0.0367,
+     "cohen_d": -0.3638,
+     "p": 0.1807
+    },
+    {
+     "dim": "playfulness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.518,
+     "mean_b": 0.5115,
+     "delta": -0.0065,
+     "cohen_d": -0.0775,
+     "p": 0.5613
+    },
+    {
+     "dim": "directness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.465,
+     "mean_b": 0.4825,
+     "delta": 0.0175,
+     "cohen_d": 0.1583,
+     "p": 0.4733
+    },
+    {
+     "dim": "curiosity",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.598,
+     "mean_b": 0.57,
+     "delta": -0.028,
+     "cohen_d": -0.1822,
+     "p": 0.2995
+    }
+   ],
+   "curiosity": [
+    {
+     "dim": "warmth",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5265,
+     "mean_b": 0.53,
+     "delta": 0.0035,
+     "cohen_d": 0.0314,
+     "p": 0.9212
+    },
+    {
+     "dim": "playfulness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5155,
+     "mean_b": 0.5295,
+     "delta": 0.014,
+     "cohen_d": 0.1536,
+     "p": 0.544
+    },
+    {
+     "dim": "directness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5035,
+     "mean_b": 0.5,
+     "delta": -0.0035,
+     "cohen_d": -0.0814,
+     "p": 0.8657
+    },
+    {
+     "dim": "curiosity",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.605,
+     "mean_b": 0.815,
+     "delta": 0.21,
+     "cohen_d": 1.5414,
+     "p": 0.0
+    }
+   ]
+  }
+ },
+ "direction": {
+  "warmth": {
+   "vector_delta": 0.0239,
+   "output_delta": 0.005,
+   "same_direction": true
+  },
+  "playfulness": {
+   "vector_delta": 0.0025,
+   "output_delta": 0.0125,
+   "same_direction": true
+  },
+  "directness": {
+   "vector_delta": 0.0942,
+   "output_delta": 0.035,
+   "same_direction": true
+  },
+  "curiosity": {
+   "vector_delta": 0.1,
+   "output_delta": 0.0315,
+   "same_direction": true
+  }
+ },
+ "verdict": "显示层有变化但输出层无显著差异：注入存在但权重低 → 需增强 prompt 约束或调整措辞。维度敏感性：极值对照显著维度 = ['warmth', 'curiosity']（未显著维度需修 prompt 措辞或观测）"
+}

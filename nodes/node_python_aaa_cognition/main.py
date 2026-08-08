@@ -24,6 +24,7 @@ import parser as psr
 import memos
 import diary
 import personality as prs
+import retrieval_gate
 from perception_capabilities import PerceptionCapabilities
 from memory_provider import MemOSProvider, sanitize_memory_context
 from context_engine import ContextEngine
@@ -189,10 +190,14 @@ class MyNode:
         rid = data.get("request_id", "")
 
         # ── v4.0 Prefetch：单轮交互，同步预取记忆并注入安全协议 ──
+        # v7.0 检索门控（retrieval_gate.should_prefetch）：判断这轮需不需要
+        # 预取记忆（config.retrieval_gate.mode，默认 off = 每轮强制预取）
         query = data.get("content", "")
         memory_context = ""
         if not self._is_trivial_prompt(query):
-            memory_context = self._prefetch_memory(query, dbp, identity_key)
+            should, _gate_info = retrieval_gate.should_prefetch(query)
+            if should:
+                memory_context = self._prefetch_memory(query, dbp, identity_key)
 
         # 一轮成型：直接组装完整上下文（不再需要 LLM 决策检索）
         ctx = self._gather_context(
@@ -258,9 +263,12 @@ class MyNode:
             for m in messages)
 
         # v4.0 Prefetch：批量场景对合并文本同步预取（单轮交互，注入安全协议）
+        # v7.0 检索门控：判断这轮需不需要预取记忆
         memory_context = ""
         if not self._is_trivial_prompt(merged):
-            memory_context = self._prefetch_memory(merged, dbp, identity_key)
+            should, _gate_info = retrieval_gate.should_prefetch(merged)
+            if should:
+                memory_context = self._prefetch_memory(merged, dbp, identity_key)
 
         ctx = self._gather_context(
             merged, dbp, conv_id=conv_id, skip_retrieval=True,
@@ -440,6 +448,13 @@ class MyNode:
         reply_text = (psr.inject_mood_tag(parsed["自然回复"], parsed.get("心情", ""))
                       if parsed.get("自然回复") else "")
 
+        # v7.0 空回复兜底（阶段0-bug1）：GUI 单条路径 LLM 输出被截断/格式损坏
+        # 导致【自然回复】缺失时，不应让用户收到空响应——输出兜底回复并告警。
+        # 批量路径保留原语义（reply/silent 由平台按有无文本决策，不算异常）。
+        if not reply_text and not batch_mode:
+            print(f"[WARN] 空回复（rid={rid} raw_len={len(content)}），输出兜底", flush=True)
+            reply_text = "嗯，我在听。刚才那句我可能没接好，你能再说具体一点吗？"
+
         # ── v6.0 F4 批量模式：返回显式决策 {action: reply|silent} ──
         # 平台据此决定广播（reply）或标记已消费（silent）；认知演化已在上方照常执行。
         # v6.1 意识流同步：想法是内心活动，无论回复与否都必须更新——LLM 未输出
@@ -501,7 +516,8 @@ class MyNode:
             # ── Logseq 输出：记忆归档 + 向量关联 ────────────
             logseq_related = []
             try:
-                raw_results = memos.retrieve_raw(archive_content, top_k=5, identity_key=identity_key)
+                raw_results = memos.retrieve_raw(
+                    archive_content, top_k=5, identity_key=identity_key, db_path=dbp)
                 if raw_results:
                     conn = sqlite3.connect(dbp)
                     try:
@@ -660,15 +676,21 @@ class MyNode:
             conn.close()
 
         # 4. MemOS 检索（v4.0 优先级：prefetch_override > retrieval_override > 按需）
+        # v7.0 检索门控：兴趣门控（平台 passed=1）之后、提示词拼接之前，判定
+        # 这轮对话需不需要预取记忆（config.retrieval_gate.mode，默认 off=每轮强制）。
+        # 三条路径统一过门控：on_text/on_pool_batch 的 prefetch（前置判定已拦，
+        # 传 prefetch_override），反思等 fallback 检索在此判定（含空文本拦截）。
         memos_top5 = ""
         if prefetch_override is not None:
             memos_top5 = prefetch_override    # v4.0 Prefetch：直接使用预取结果（含安全标签）
         elif retrieval_override is not None:
-            memos_top5 = retrieval_override    # 第二轮：注入精确检索结果
+            memos_top5 = retrieval_override    # 第二轮：注入精确检索结果（LLM 明确请求，绕过门控）
         elif not skip_retrieval:
-            memos_top5 = memos.retrieve(
-                user_text, top_k=5, db_path=dbp, identity_key=identity_key,
-            )
+            should, _info = retrieval_gate.should_prefetch(user_text)
+            if should:
+                memos_top5 = memos.retrieve(
+                    user_text, top_k=5, db_path=dbp, identity_key=identity_key,
+                )
 
         # 6. 附件上下文
         attachment_context = ""

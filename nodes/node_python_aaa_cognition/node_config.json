@@ -122,5 +122,10 @@
   "resource_limit": {
     "cpu_percent": 80,
     "memory_mb": 512
+  },
+  "retrieval_gate": {
+    "mode": "off",
+    "t1": 0.75,
+    "t2": 0.95
   }
 }

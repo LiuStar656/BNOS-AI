@@ -1,0 +1,111 @@
+{
+  "tag": "exp2 data/corpus_ctx.json",
+  "corpus": "data/corpus_ctx.json",
+  "n": 8192,
+  "k": 16,
+  "vocab_size": 21,
+  "n_train": 230,
+  "n_test": 58,
+  "n_pos_train": 363,
+  "n_pos_test": 93,
+  "freeze_w": true,
+  "epochs": 20,
+  "lr": 0.5,
+  "delta_off": 0.02,
+  "baseline": {
+    "wsum": {
+      "train": 0.6115702479338843,
+      "test": 0.5806451612903226
+    },
+    "trace": {
+      "train": 0.6088154269972452,
+      "test": 0.5913978494623656
+    }
+  },
+  "grad": {
+    "train": 0.6060606060606061,
+    "test": 0.6021505376344086
+  },
+  "ctx_wgt": [
+    0.9453,
+    0.0547,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "sparsity": {
+    "nnz_before": 147064,
+    "nnz_after": 147064,
+    "structure_unchanged": true
+  },
+  "timing": {
+    "grad_train_sec": 0.1,
+    "total_sec": 2.1
+  },
+  "samples": {
+    "train": [
+      {
+        "ctx": "早上",
+        "truth": "香",
+        "pred": "吃饭",
+        "top3": [
+          "吃饭",
+          "香",
+          "天气"
+        ]
+      },
+      {
+        "ctx": "数学考试",
+        "truth": "简单",
+        "pred": "难",
+        "top3": [
+          "难",
+          "简单",
+          "早上"
+        ]
+      },
+      {
+        "ctx": "昨天",
+        "truth": "累",
+        "pred": "上班",
+        "top3": [
+          "上班",
+          "累",
+          "吃饭"
+        ]
+      }
+    ],
+    "test": [
+      {
+        "ctx": "晚上吃饭",
+        "truth": "香",
+        "pred": "饱",
+        "top3": [
+          "饱",
+          "上班",
+          "香"
+        ]
+      },
+      {
+        "ctx": "冬天天气",
+        "truth": "热",
+        "pred": "冷",
+        "top3": [
+          "冷",
+          "吃饭",
+          "热"
+        ]
+      },
+      {
+        "ctx": "夏天天气",
+        "truth": "冷",
+        "pred": "热",
+        "top3": [
+          "热",
+          "冷",
+          "难"
+        ]
+      }
+    ]
+  }
+}
