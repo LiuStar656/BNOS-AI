@@ -1,0 +1,51 @@
+{
+ "version": "6.0",
+ "parent_version": "5.0",
+ "tag": "续训闭环：扩容+调参零遗忘，新增 500 常用词组",
+ "ts": "20260810_010641",
+ "metrics": {
+  "baseline_char": 1.0,
+  "baseline_word": 1.0,
+  "expand_char_equal": true,
+  "expand_word_equal": true,
+  "wta_char_keep": true,
+  "wta_word_keep": true,
+  "wta_table": {
+   "char_wta2": 1.0,
+   "char_wta4": 1.0,
+   "char_wta8": 1.0,
+   "char_wta16": 1.0,
+   "char_wta24": 0.995,
+   "char_wta32": 1.0,
+   "word_wta8": 1.0,
+   "word_wta16": 1.0,
+   "word_wta20": 1.0,
+   "word_wta24": 1.0,
+   "word_wta32": 1.0,
+   "word_wta48": 1.0
+  },
+  "after_char": 1.0,
+  "after_word": 1.0,
+  "new_word_recall": 1.0,
+  "new_words": 500,
+  "no_forget": true,
+  "all_ok": true,
+  "n": 58096
+ },
+ "meta": {
+  "version": "6.0",
+  "major": 6,
+  "minor": 0,
+  "parent_version": "5.0",
+  "ts": "20260810_010641",
+  "tag": "续训闭环：扩容+调参零遗忘，新增 500 常用词组",
+  "net_kind": "sparse",
+  "n": 58096,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 14000,
+  "pats_size": 14000,
+  "cursor": 56000
+ }
+}

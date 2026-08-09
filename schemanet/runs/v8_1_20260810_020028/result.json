@@ -1,0 +1,60 @@
+{
+ "version": "8.1",
+ "parent_version": "7.0",
+ "tag": "Stage 2.5 词语类别（类别 hub + 举一反三）",
+ "ts": "20260810_020028",
+ "metrics": {
+  "cat_recall": 1.0,
+  "cat_recall_per": {
+   "食物": 1.0,
+   "动物": 1.0,
+   "颜色": 1.0,
+   "动作": 1.0,
+   "时间": 1.0,
+   "地点": 1.0
+  },
+  "hold_recall": 0.0,
+  "hold_per": {
+   "食物": 0.0,
+   "动物": 0.0,
+   "颜色": 0.0,
+   "动作": 0.0,
+   "时间": 0.0,
+   "地点": 0.0
+  },
+  "make_sent": {
+   "草莓": false,
+   "猪肉": false
+  },
+  "char_recall": 1.0,
+  "char_recall_before": 1.0,
+  "word_recall": 1.0,
+  "word_recall_before": 1.0,
+  "labels": [
+   "食物",
+   "动物",
+   "颜色",
+   "动作",
+   "时间",
+   "地点"
+  ],
+  "n": 148140,
+  "all_ok": false
+ },
+ "meta": {
+  "version": "8.1",
+  "major": 8,
+  "minor": 1,
+  "parent_version": "7.0",
+  "ts": "20260810_020028",
+  "tag": "Stage 2.5 词语类别（类别 hub + 举一反三）",
+  "net_kind": "sparse",
+  "n": 148140,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37035,
+  "pats_size": 37035,
+  "cursor": 148140
+ }
+}

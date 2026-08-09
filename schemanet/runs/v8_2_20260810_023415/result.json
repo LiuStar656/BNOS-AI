@@ -1,0 +1,72 @@
+{
+ "version": "8.2",
+ "parent_version": "7.0",
+ "tag": "Stage 2.5 词典学词义（OpenHowNet 义原 + RL 验证门判断题）",
+ "ts": "20260810_023415",
+ "metrics": {
+  "cat_recall": 1.0,
+  "cat_recall_per": {
+   "食物": 1.0,
+   "动物": 1.0,
+   "颜色": 1.0,
+   "时间": 1.0,
+   "地点": 1.0
+  },
+  "hold_recall": 1.0,
+  "hold_per": {
+   "食物": 1.0,
+   "动物": 1.0,
+   "颜色": 1.0,
+   "时间": 1.0,
+   "地点": 1.0
+  },
+  "hold_ok": 5,
+  "hold_total": 5,
+  "pos_judgments": 55,
+  "neg_judgments": 15,
+  "neg_rejected": 15,
+  "make_sent": [
+   "我",
+   "的",
+   "不",
+   "为什么",
+   "了",
+   "你",
+   "有"
+  ],
+  "make_hit": [],
+  "make_hold_hit": [],
+  "char_recall": 1.0,
+  "char_recall_before": 1.0,
+  "word_recall": 1.0,
+  "word_recall_before": 1.0,
+  "sent_recall": 0.9359,
+  "sent_recall_before": 0.9392,
+  "labels": [
+   "食物",
+   "动物",
+   "颜色",
+   "时间",
+   "地点"
+  ],
+  "skipped_labels": [],
+  "n": 148344,
+  "all_ok": false
+ },
+ "meta": {
+  "version": "8.2",
+  "major": 8,
+  "minor": 2,
+  "parent_version": "7.0",
+  "ts": "20260810_023415",
+  "tag": "Stage 2.5 词典学词义（OpenHowNet 义原 + RL 验证门判断题）",
+  "net_kind": "sparse",
+  "n": 148344,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37086,
+  "pats_size": 37044,
+  "cursor": 148344
+ }
+}

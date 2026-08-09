@@ -1,0 +1,16 @@
+{
+ "version": "10.0",
+ "major": 10,
+ "minor": 0,
+ "parent_version": "9.0",
+ "ts": "20260810_035459",
+ "tag": "Stage 2.6 动宾搭配约束（v9.0 迭代：V 词↔允许 O 类别）",
+ "net_kind": "sparse",
+ "n": 148776,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 37194,
+ "pats_size": 37062,
+ "cursor": 148776
+}

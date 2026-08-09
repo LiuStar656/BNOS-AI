@@ -1,32 +1,40 @@
 # -*- coding: utf-8 -*-
-"""定式网络模型版本链统一机制（时间戳快照 + 版本号 + 父子追溯 + 回退训练）。
+"""定式网络模型版本链统一机制（时间戳快照 + 语义版本号 + 父子追溯 + 回退训练）。
 
 需求（用户 2026-08-09）：
   "a 是第一版模型，经过训练产生 a+1，但 a 还是存在；a+1 再训练后出现 a+2，
-   现在就有 a、a+1、a+2；如果 a+2 有问题，就可以用 a+1 来回退训练。"
+   现在就有 a、a+1、a+2；如果 a+2 有问题，就可以用 a+1 来回退训练。
+   回退再训练的时候，a+1 再训练就是 a+2.1，这样就可以对比 a+2 和 a+2.1 的区别。"
 
-即：模型像 git 版本一样管理——
-  - 每次训练 = 产生一个新版本（基于当前模型继续学习）
-  - 旧版本永不删除（可追溯）
-  - 任意历史版本可回退续训（产生新版本，旧版本仍保留）
+即：模型像软件版本（MAJOR.MINOR）一样管理——
+  - 每次训练 = 产生一个新版本，旧版本永不删除（可追溯）
+  - 正常续训：parent.MAJOR+1.0（a → a+1 → a+2 → a+3）
+  - 回退训练：parent.MAJOR+1 的同代变体（a+2 出问题 → 回退 a+1 再训 = a+2.1，
+    a+2 与 a+2.1 平级并存、可直接对比；再回退再训 = a+2.2 …）
+
+版本号语义（类比软件版本）：
+  a     = 1.0（根）
+  a+1   = 2.0（parent=1.0）
+  a+2   = 3.0（parent=2.0）
+  a+2.1 = 3.1（回退 parent=2.0 再训练，与 a+2 同 major 可对比）
 
 机制：
-  - 目录 runs/v{版本号}_{时间戳}/，版本号全局单调递增（a → a+1 → a+2 …）
-  - meta.json / 追溯索引 runs/index.jsonl 记录 version 与 parent_version（父子链）
-  - save_snapshot(parent=None)  → parent 缺省继承最新版本（正常链式增长）；
-                                  显式传 parent=N → 回退训练（从版本 N 分支）
-  - load_version(N)            → 按版本号恢复（回退入口）
+  - 目录 runs/v{M}_{N}_{时间戳}/（版本号 + 时间戳）
+  - meta.json / 追溯索引 runs/index.jsonl 记录 major/minor/version/parent_version
+  - save_snapshot(parent=None) → 缺省继承最新版本（正常链式增长）；
+                              显式传 parent="2.0" → 回退训练（同代变体 +0.1）
+  - load_version("3.1")        → 按版本号恢复（回退入口）
   - version_chain()            → 从任意版本回溯到根的完整链
   - 双后端：SparseSchemaNet（W_out 稀疏）与 SchemaNet（W 稠密）自动识别
 
 用法：
     from snapshot import save_snapshot, load_version, version_chain
-    save_snapshot(ng, tag="v1 初始训练", vocab=words, pats=pats)          # a
-    save_snapshot(ng, tag="v2 续训",     vocab=words, pats=pats)          # a+1（parent=v1）
-    save_snapshot(ng, tag="v3 续训",     vocab=words, pats=pats)          # a+2（parent=v2）
-    ng2, vocab, pats, cursor = load_version(2)                            # 回退到 a+1
-    # ... 继续训练 ng2 ...
-    save_snapshot(ng2, parent=2, tag="v4 回退续训", vocab=vocab, pats=pats)  # 分支
+    save_snapshot(ng, tag="1.0 初始训练", vocab=words, pats=pats)        # a
+    save_snapshot(ng, tag="2.0 续训",     vocab=words, pats=pats)        # a+1
+    save_snapshot(ng, tag="3.0 续训",     vocab=words, pats=pats)        # a+2
+    ng2, vocab, pats, cursor = load_version("2.0")                       # 回退到 a+1
+    save_snapshot(ng2, parent="2.0", tag="3.1 回退续训",
+                  vocab=vocab, pats=pats)                                # a+2.1（对比 a+2）
     for r in version_chain():       # 最新 → 根，逐级可追溯
         print(r["version"], "←", r["parent_version"], r["tag"])
 """
@@ -96,21 +104,50 @@ def _restore_net(z):
 # ────────────────────────────────────────────────────────────────
 
 def snapshot_index(base=None):
-    """追溯索引：全部版本按产生顺序（追加顺序 = 时间顺序）。"""
+    """追溯索引：全部版本按产生顺序（追加顺序 = 时间顺序）。
+
+    只收带 version 的记录（v2.1 版本化之前的旧格式行无 version/major/minor，
+    不参与语义版本链；其快照目录仍在，追溯无损）。"""
     idx = (base or RUNS) / "index.jsonl"
     if not idx.exists():
         return []
     rows = []
     for line in idx.read_text(encoding="utf-8").splitlines():
         if line.strip():
-            rows.append(json.loads(line))
+            r = json.loads(line)
+            if "version" in r:
+                rows.append(r)
     return rows
 
 
-def _next_version(base):
-    rows = snapshot_index(base)
-    vers = [r.get("version", 0) for r in rows]
-    return (max(vers) if vers else 0) + 1
+# ── 版本号（MAJOR.MINOR，类比软件版本）──
+
+def _parse_version(v):
+    """'3.1' → (3, 1)；int/缺省 minor → (n, 0)。"""
+    s = str(v)
+    parts = s.split(".")
+    major = int(parts[0])
+    minor = int(parts[1]) if len(parts) > 1 else 0
+    return major, minor
+
+
+def _v_str(major, minor):
+    return f"{major}.{minor}"
+
+
+def _new_version(parent_v, rows):
+    """由父版本推出新版本号。
+
+    正常续训（parent 存在）：major = parent.major + 1，minor 从 0 起
+      （a+1 = parent 的 major+1.0）。
+    回退训练：同一 major 下已存在的最大 minor + 1 → 与出问题的版本
+      同 major 平级（a+2 = 3.0，回退 a+1 再训 = 3.1，可直接对比）。
+    """
+    if parent_v is None:                       # 根版本
+        return 1, 0
+    major = parent_v[0] + 1
+    minors = [r["minor"] for r in rows if r.get("major") == major]
+    return major, (max(minors) + 1 if minors else 0)
 
 
 # ────────────────────────────────────────────────────────────────
@@ -128,13 +165,14 @@ def _next_dir(base, name):
 
 def save_snapshot(ng, *, parent=None, tag="", data_fp=None, metrics=None,
                   vocab=None, pats=None, cursor=None, base=None):
-    """训练后产生一个新版本：runs/v{版本}_{时间戳}/net.npz + meta.json + result.json，
+    """训练后产生一个新版本：runs/v{M}_{N}_{时间戳}/net.npz + meta.json + result.json，
     追加追溯索引 runs/index.jsonl。
 
     参数：
         ng        网络（SparseSchemaNet 或 SchemaNet）
-        parent    父版本号 int；缺省 = 最新版本（正常链式增长，a→a+1→a+2）；
-                  显式传 N = 回退到版本 N 训练出的分支
+        parent    父版本号（'1.0' / '3.1'）；缺省 = 最新版本（正常链式增长
+                  a→a+1→a+2）；显式传 N = 回退训练（同代变体：a+2 出问题
+                  → 回退 a+1 再训 = a+2.1，与 a+2 平级可对比）
         tag       版本语义标签（如 "Stage2 短句跟读"）
         data_fp   训练数据指纹（文件路径/时间戳，追溯数据版本）
         metrics   验收指标 dict（记入 result.json 与追溯索引）
@@ -145,12 +183,17 @@ def save_snapshot(ng, *, parent=None, tag="", data_fp=None, metrics=None,
     """
     base = base or RUNS
     base.mkdir(parents=True, exist_ok=True)
-    version = _next_version(base)
-    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    out = _next_dir(base, f"v{version}_{ts}")
+    rows = snapshot_index(base)
     if parent is None:
-        rows = snapshot_index(base)
-        parent = rows[-1].get("version") if rows else None
+        parent_v = (rows[-1]["major"], rows[-1]["minor"]) if rows else None
+    else:
+        parent_v = _parse_version(parent)
+    major, minor = _new_version(parent_v, rows)
+    version = _v_str(major, minor)
+    parent_str = _v_str(*parent_v) if parent_v else None
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    out = _next_dir(base, f"v{major}_{minor}_{ts}")
+    out.mkdir(parents=True, exist_ok=True)
     pats_json = {w: [int(x) for x in v] for w, v in (pats or {}).items()}
 
     np.savez_compressed(
@@ -161,10 +204,79 @@ def save_snapshot(ng, *, parent=None, tag="", data_fp=None, metrics=None,
         cursor=np.asarray([int(cursor or 0)], dtype=np.int64),
         ** _pack_net(ng))
 
-    meta = {"version": version, "parent_version": parent, "ts": ts, "tag": tag,
+    meta = {"version": version, "major": major, "minor": minor,
+            "parent_version": parent_str, "ts": ts, "tag": tag,
             "net_kind": net_kind(ng), "n": ng.n, "slots": ng.slots,
             "learn_gate": ng.learn_gate, "data_fp": data_fp or "",
             "vocab_size": len(vocab or []), "pats_size": len(pats or {}),
             "cursor": int(cursor or 0)}
     (out / "meta.json").write_text(
-        json.dumps(meta, ensure_asc
+        json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "result.json").write_text(json.dumps(
+        {"version": version, "parent_version": parent_str, "tag": tag, "ts": ts,
+         "metrics": metrics or {}, "meta": meta},
+        ensure_ascii=False, indent=1), encoding="utf-8")
+
+    with open(base / "index.jsonl", "a", encoding="utf-8") as f:
+        f.write(json.dumps({"version": version, "major": major, "minor": minor,
+                            "parent_version": parent_str,
+                            "ts": ts, "dir": out.name, **meta,
+                            "metrics": metrics or {}},
+                           ensure_ascii=False) + "\n")
+    print(f"[snapshot] v{version} (parent={parent_str})  {out}  tag={tag!r}")
+    return out
+
+
+# ────────────────────────────────────────────────────────────────
+#  加载 / 追溯 / 回退（读）
+# ────────────────────────────────────────────────────────────────
+
+def load_snapshot(path):
+    """恢复快照：返回 (ng, vocab, pats, cursor)。path 为目录或 net.npz。"""
+    p = Path(path)
+    if p.is_dir():
+        p = p / "net.npz"
+    z = np.load(p, allow_pickle=False)
+    ng = _restore_net(z)
+    vocab = json.loads(z["vocab"].tobytes().decode("utf-8"))
+    pats = json.loads(z["pats"].tobytes().decode("utf-8")) if "pats" in z else {}
+    pats = {w: [int(x) for x in v] for w, v in pats.items()}
+    cursor = int(z["cursor"][0]) if "cursor" in z else 0
+    return ng, vocab, pats, cursor
+
+
+def load_version(version, base=None):
+    """按版本号恢复（回退入口）：返回 (ng, vocab, pats, cursor)。
+    version 接受 '1.0' / '3.1' / 3（→ 3.0）。"""
+    base = base or RUNS
+    want = _v_str(*_parse_version(version))
+    for r in snapshot_index(base):
+        if r.get("version") == want:
+            return load_snapshot(base / r["dir"] / "net.npz")
+    raise FileNotFoundError(f"版本 v{want} 不存在（见 runs/index.jsonl）")
+
+
+def latest_snapshot(base=None):
+    """最近版本（最新训练产物）的 net.npz 路径（用于续训）。"""
+    rows = snapshot_index(base)
+    if not rows:
+        return None
+    return (base or RUNS) / rows[-1]["dir"] / "net.npz"
+
+
+def version_chain(version=None, base=None):
+    """版本链：从指定版本（缺省最新）回溯 parent 到根，返回逐级记录列表。"""
+    base = base or RUNS
+    rows = {r.get("version"): r for r in snapshot_index(base)}
+    if not rows:
+        return []
+    v = version if version is not None else _v_str(*max(
+        (_parse_version(k) for k in rows), key=lambda t: (t[0], t[1])))
+    v = _v_str(*_parse_version(v))
+    chain = []
+    seen = set()
+    while v is not None and v in rows and v not in seen:
+        chain.append(rows[v])
+        seen.add(v)
+        v = rows[v].get("parent_version")
+    return chain

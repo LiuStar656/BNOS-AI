@@ -1,0 +1,16 @@
+{
+ "version": "8.5",
+ "major": 8,
+ "minor": 5,
+ "parent_version": "7.0",
+ "ts": "20260810_024804",
+ "tag": "Stage 2.5 词典学词义（OpenHowNet 义原 + RL 验证门判断题）",
+ "net_kind": "sparse",
+ "n": 148604,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 37151,
+ "pats_size": 37059,
+ "cursor": 148604
+}

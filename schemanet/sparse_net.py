@@ -91,15 +91,16 @@ class SparseSchemaNet:
         self._edge_dirty = [[True for _ in range(self.slots)] for _ in range(self.n)]
 
     def _edge_row(self, i, k):
-        """返回 W_out[i][k] 的镜像 (dst, w) numpy 数组；dirty/缺失时懒重建。"""
+        """返回 W_out[i][k] 的镜像 (dst, w) numpy 数组；dirty/缺失时懒重建。
+        空行返回 None（调用处 `if e is not None` 直接跳过）。"""
         if self._edge_dirty[i][k]:
             row = self.W_out[i][k]
             if row:
                 dst = np.array(list(row.keys()), dtype=np.int64)
                 w = np.array(list(row.values()), dtype=np.float64)
+                self._edge_cache[i][k] = (dst, w)
             else:
-                dst = w = None
-            self._edge_cache[i][k] = (dst, w)
+                self._edge_cache[i][k] = None
             self._edge_dirty[i][k] = False
         return self._edge_cache[i][k]
 
@@ -249,6 +250,48 @@ class SparseSchemaNet:
                         self._edge_dirty[i][k] = True   # 外部写 W，传播镜像置脏
                 self.slot_freq[i, k] = 0  # 新窗口
         return cleared, weakened
+
+    def expand(self, n_new):
+        """神经元逐步扩容（v2.1 分配制配套，纯追加、任意粒度含 n+1）。
+
+        旧知识 100% 保留：W_out 前 n_old 行原样复制（连接结构不动），
+        新神经元空白供新阶段学习；所有状态数组 pad 对齐。
+        粒度任意：n_new = n+1（单个新概念落位）或成批扩容，机制等价。
+        验收硬指标：扩容前后旧评估集逐值一致（零遗忘）。
+        """
+        assert n_new > self.n
+        pad = n_new - self.n
+        self.v = np.vstack([self.v, np.zeros((pad, self.slots))])
+        self.spikes = np.pad(self.spikes, (0, pad))
+        self.pre_trace = np.pad(self.pre_trace, (0, pad))
+        self.last_k_star = np.pad(self.last_k_star, (0, pad))
+        self.refractory_left = np.pad(self.refractory_left, (0, pad))
+        self.slot_freq = np.pad(self.slot_freq, ((0, pad), (0, 0)))
+        self.W_out += [[{} for _ in range(self.slots)] for _ in range(pad)]
+        self._edge_cache += [[None] * self.slots for _ in range(pad)]
+        self._edge_dirty += [[True] * self.slots for _ in range(pad)]
+        self.n = n_new
+
+
+# ────────────────────────────────────────────────────────────────
+#  分配制模式字典（v2.1：词→神经元落位，生成一次永久冻结，随快照持久化）
+# ────────────────────────────────────────────────────────────────
+
+def allocate_pats(ng, words, k, cursor=0):
+    """按需为 words 分配 k 个神经元/词，返回 (pats, cursor)。
+
+    - 从当前空白神经元按游标顺序取 k 个（分配唯一 → 新词零冲突）
+    - 游标越界 → 自动 expand（任意粒度）——"知识的增量 = 神经元的增量"
+    - 旧词落位（已分配的 pats）永不动；重复调用同一词返回原落位
+    - pats/cursor 随快照持久化（snapshot.py），加载后 cursor 续用
+    """
+    pats = {}
+    for w in dict.fromkeys(words):
+        if cursor + k > ng.n:
+            ng.expand(cursor + k)          # 按需扩容（本阶段新词落位）
+        pats[w] = list(range(cursor, cursor + k))
+        cursor += k
+    return pats, cursor
 
 
 # ════════════════════════════════════════════════════════════════

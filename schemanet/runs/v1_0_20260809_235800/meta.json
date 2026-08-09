@@ -1,0 +1,16 @@
+{
+ "version": "1.0",
+ "major": 1,
+ "minor": 0,
+ "parent_version": null,
+ "ts": "20260809_235800",
+ "tag": "1.0 = a 字级（3500 常用字跟读）",
+ "net_kind": "sparse",
+ "n": 16384,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 3500,
+ "pats_size": 3500,
+ "cursor": 14000
+}

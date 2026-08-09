@@ -1,0 +1,16 @@
+{
+ "version": "4.0",
+ "major": 4,
+ "minor": 0,
+ "parent_version": "3.0",
+ "ts": "20260810_004510",
+ "tag": "验证门最小实验：复读+走链+验证门（复读记/联想想/验证门管该不该记）",
+ "net_kind": "sparse",
+ "n": 256,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 14,
+ "pats_size": 16,
+ "cursor": 64
+}

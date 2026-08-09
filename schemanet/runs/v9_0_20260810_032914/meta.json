@@ -1,0 +1,16 @@
+{
+ "version": "9.0",
+ "major": 9,
+ "minor": 0,
+ "parent_version": "8.5",
+ "ts": "20260810_032914",
+ "tag": "Stage 2.6 主谓宾句式（S/V/O 槽位 + 类别约束 + 造句）",
+ "net_kind": "sparse",
+ "n": 148776,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 37194,
+ "pats_size": 37062,
+ "cursor": 148776
+}

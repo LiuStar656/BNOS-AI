@@ -1,0 +1,74 @@
+{
+ "desc": "大网络机制验证（v2.0 真实字词网络，机制从构造词表搬迁）",
+ "params": {
+  "K": 4,
+  "seed": 42,
+  "source_version": "2.0",
+  "n": 54012,
+  "n_modes": 13502
+ },
+ "summary": {
+  "walk_ok": true,
+  "converge": true,
+  "gate_up": true,
+  "gate_err": true,
+  "all_ok": true
+ },
+ "walk_old": {
+  "苹果": {
+   "target": "食物",
+   "walked": [
+    "苹果",
+    "果",
+    "苹",
+    "小",
+    "子",
+    "房",
+    "产"
+   ],
+   "reached": false,
+   "overshoot": false
+  },
+  "动物": {
+   "target": "生物",
+   "walked": [
+    "动物",
+    "动",
+    "车",
+    "汽",
+    "一",
+    "第",
+    "届"
+   ],
+   "reached": false,
+   "overshoot": false
+  }
+ },
+ "walk_new": {
+  "苹果": {
+   "target": "食物",
+   "walked": [
+    "苹果",
+    "水果",
+    "食物"
+   ],
+   "reached": true,
+   "overshoot": false
+  },
+  "动物": {
+   "target": "生物",
+   "walked": [
+    "动物",
+    "生物"
+   ],
+   "reached": true,
+   "overshoot": false
+  }
+ },
+ "gate": {
+  "apple_food_before": 0.0,
+  "apple_food_after": 1.6000000000000003,
+  "apple_bio_before": 0.0,
+  "apple_bio_after": 0.0
+ }
+}
