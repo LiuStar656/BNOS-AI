@@ -265,7 +265,7 @@ def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_dir = Path("runs") / ts
     out_dir.mkdir(parents=True, exist_ok=True)
-    save_net(ng, vocab, out_dir / "net.npz")
+    save_net(ng, vocab, out_dir / "net.npz", ctx_wgt=ro.ctx_wgt)
     result = {
         "tag": "Phase 4 前置·开源真实语料规模验证（标准档·变体 lr=0.02/5ep/跳过train_ctx/归一化）",
         "corpus": CORPUS,
@@ -276,6 +276,7 @@ def main():
                    "delta_off": delta_off, "delta_scan": DELTA_SCAN,
                    "sleep": {"min_wake": round(min_wake, 1), "decay": SLEEP_DECAY,
                              "eps": SLEEP_EPS}},
+        "ctx_wgt": [round(float(w), 4) for w in ro.ctx_wgt],
         "sleep": {"cleared": cleared, "nnz_pre": nnz_pre, "nnz_post": nnz_post,
                   "recycle_pct": round(100 * (nnz_pre - nnz_post) / max(1, nnz_pre), 3)},
         "top1": {"wsum": {"train": w_tr[0], "test": w_te[0]},

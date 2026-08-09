@@ -634,8 +634,8 @@ def run_sparse_language_experiment(args):
 #  序列化（Phase 3 生成调参用：train_w 一次，反复调生成参数免重训）
 # ════════════════════════════════════════════════════════════════
 
-def save_net(ng, vocab, path):
-    """序列化稀疏网络（W_out + 构造参数）+ 词表。npz 压缩。"""
+def save_net(ng, vocab, path, ctx_wgt=None):
+    """序列化稀疏网络（W_out + 构造参数）+ 词表 + 可选 ctx_wgt。npz 压缩。"""
     src_i, slot_k, dst_j, vals = [], [], [], []
     for i in range(ng.n):
         for k in range(ng.slots):
@@ -657,11 +657,14 @@ def save_net(ng, vocab, path):
                         dst_j=np.array(dst_j, dtype=np.int32),
                         vals=np.array(vals, dtype=np.float32),
                         params=json.dumps(params).encode("utf-8"),
-                        vocab=json.dumps(vocab, ensure_ascii=False).encode("utf-8"))
+                        vocab=json.dumps(vocab, ensure_ascii=False).encode("utf-8"),
+                        ctx_wgt=np.asarray(ctx_wgt, dtype=np.float64)
+                        if ctx_wgt is not None else np.array([]))
 
 
-def load_net(path, seed=42):
-    """反序列化：返回 (SparseSchemaNet, vocab)。"""
+def load_net(path, seed=42, return_ctx=False):
+    """反序列化：默认返回 (SparseSchemaNet, vocab)；return_ctx=True 时返回
+    (ng, vocab, ctx_wgt)（文件无 ctx_wgt 时返回 None，兼容旧模型）。"""
     z = np.load(path, allow_pickle=False)
     params = json.loads(z["params"].tobytes().decode("utf-8"))
     vocab = json.loads(z["vocab"].tobytes().decode("utf-8"))
@@ -669,6 +672,11 @@ def load_net(path, seed=42):
     src_i, slot_k, dst_j, vals = z["src_i"], z["slot_k"], z["dst_j"], z["vals"]
     for i, k, j, w in zip(src_i, slot_k, dst_j, vals):
         ng.W_out[int(i)][int(k)][int(j)] = float(w)
+    ctx_wgt = z["ctx_wgt"] if "ctx_wgt" in z else None
+    if ctx_wgt is not None and ctx_wgt.size == 0:
+        ctx_wgt = None
+    if return_ctx:
+        return ng, vocab, ctx_wgt
     return ng, vocab
 
 
