@@ -96,15 +96,18 @@ class GradReadout:
 
     # ── 训练：冻结 W，只训 ctx_wgt（exp2 快速路径）─────────────────
 
-    def train_ctx(self, positions, lr=0.5, epochs=20, seed=42):
+    def train_ctx(self, positions, lr=0.5, epochs=20, seed=42, subsample=None):
         """只训上下文信任分布。初值 = 信任末词（数据支持才拉起远端权重），
-        梯度只把有统计信息的远端位置抬起来。返回训练秒数。"""
+        梯度只把有统计信息的远端位置抬起来。返回训练秒数。
+        subsample：每 epoch 随机抽 N 个样本（None=全量；大语料提速用）。"""
         self.build_score_matrix()
         self.ctx_wgt = np.array([1.0] + [0.0] * (self.maxlen - 1))
         t0 = time.time()
         for ep in range(epochs):
             rng = np.random.default_rng(seed + ep)
             perm = rng.permutation(len(positions))
+            if subsample is not None and subsample < len(perm):
+                perm = perm[:subsample]
             for idx in perm:
                 pidxs, target = positions[idx]
                 Ln = min(self.maxlen, len(pidxs))
@@ -252,6 +255,7 @@ class GradReadout:
             raise RuntimeError("GradReadout.restore_w: 无快照，先调 snapshot_w()")
         self.ng.W_out = [[{j: w for j, w in row.items()} for row in rows]
                          for rows in self._snap]
+        self.ng.invalidate_edge_cache()   # W_out 整体替换，传播镜像置脏
 
     def nnz(self):
         """W 非零连接总数（结构度量）。"""
@@ -301,6 +305,7 @@ class GradReadout:
             row = self.ng.W_out[i][0]
             for k, j in enumerate(dst):
                 row[int(j)] = float(w[k])
+        self.ng.invalidate_edge_cache()   # 外部写 W，传播镜像（SparseSchemaNet._edge_cache）置脏
 
     def _out_edges_accum_fast(self, src_idxs, slot=0):
         """镜像版出边聚合（= _out_edges_accum，fancy-index 向量化）。"""

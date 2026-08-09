@@ -83,6 +83,35 @@ class SparseSchemaNet:
         # 唤醒计数（频率门控慢衰减用）：窗口内每个槽位被"发放神经元主导"的次数。
         # 只数真实发放（防静息 v≈0 的噪声性 argmax 污染）；冻结态不计数（纯检索零改动）。
         self.slot_freq = np.zeros((self.n, self.slots), dtype=np.int32)
+        # 出边镜像（Hebbian 传播加速，2026-08-09）：W_out[i][k] 的 numpy 视图
+        # （dst/w 数组），只加速 step() 内传播读；W_out dict 始终是唯一事实源，
+        # 写入侧（Hebbian/STDP/weight_decay）置 dirty，传播读时懒重建。
+        # 动力学逐位等价于直接遍历 dict（fancy-index 累加 = 逐条 +=）。
+        self._edge_cache = [[None for _ in range(self.slots)] for _ in range(self.n)]
+        self._edge_dirty = [[True for _ in range(self.slots)] for _ in range(self.n)]
+
+    def _edge_row(self, i, k):
+        """返回 W_out[i][k] 的镜像 (dst, w) numpy 数组；dirty/缺失时懒重建。"""
+        if self._edge_dirty[i][k]:
+            row = self.W_out[i][k]
+            if row:
+                dst = np.array(list(row.keys()), dtype=np.int64)
+                w = np.array(list(row.values()), dtype=np.float64)
+            else:
+                dst = w = None
+            self._edge_cache[i][k] = (dst, w)
+            self._edge_dirty[i][k] = False
+        return self._edge_cache[i][k]
+
+    def invalidate_edge_cache(self):
+        """外部直接写 W_out 后调用：全量置脏（传播读时懒重建）。
+
+        外部写路径：GradReadout.sync_edges/restore_w、sleep_consolidate。
+        只置已构建缓存的槽位（未构建的本来就是 None，无需动）。"""
+        for i in range(self.n):
+            for k in range(self.slots):
+                if self._edge_cache[i][k] is not None:
+                    self._edge_dirty[i][k] = True
 
     # ── W 访问兼容：稠密版读出函数用 ng.W[j, slot, i]，这里按需提供等价读取 ──
     def w_get(self, j, slot, i):
@@ -100,17 +129,16 @@ class SparseSchemaNet:
         self.v = self.v * self.membrane_decay + noise[:, None]
         self.v[:, slot] += input_pulse
 
-        # 分槽传播（稀疏：只遍历发放神经元出边的非零行）
+        # 分槽传播（稀疏：只遍历发放神经元出边的非零行，镜像 numpy 批量累加）
         if self.spikes.any():
             for k in range(self.slots):
                 senders = np.where((self.spikes > 0) & (self.last_k_star == k))[0]
                 if len(senders):
                     drive = np.zeros(self.n)
                     for i in senders:
-                        row = self.W_out[i][k]
-                        if row:
-                            for j, w in row.items():
-                                drive[j] += w
+                        e = self._edge_row(i, k)
+                        if e is not None:
+                            drive[e[0]] += e[1]
                     self.v[:, k] += drive
 
         # 主导槽 + WTA
@@ -138,7 +166,9 @@ class SparseSchemaNet:
                         if a == c:
                             continue
                         row = self.W_out[c][ka]
-                        row[a] = min(row.get(a, 0.0) + self.eta, self.w_max)
+                        nv = row.get(a, 0.0) + self.eta
+                        row[a] = nv if nv < self.w_max else self.w_max
+                        self._edge_dirty[c][ka] = True
                 # STDP：前驱痕迹 → 当前发放，学 W[后继 ← 前驱]（只正向）
                 if (self.stdp_pre > 0 or self.stdp_neg > 0) and self.pre_trace.any():
                     pre_idx = np.where(self.pre_trace > self.trace_thres)[0]
@@ -149,7 +179,9 @@ class SparseSchemaNet:
                                 if jj == pp:
                                     continue
                                 row = self.W_out[pp][kj]
-                                row[jj] = min(row.get(jj, 0.0) + self.stdp_pre, self.w_max)
+                                nv = row.get(jj, 0.0) + self.stdp_pre
+                                row[jj] = nv if nv < self.w_max else self.w_max
+                                self._edge_dirty[pp][kj] = True
                     if self.stdp_neg > 0 and len(pre_idx):
                         # LTD：当前发放（后发）→ 前驱入连接反序弱化
                         # W[pre_i, kstar_pre_i, top_j] -= stdp_neg
@@ -160,14 +192,17 @@ class SparseSchemaNet:
                                     continue
                                 row = self.W_out[jj][kp]
                                 nv = row.get(pp, 0.0) - self.stdp_neg
-                                row[pp] = max(nv, 0.0)
+                                row[pp] = nv if nv > 0.0 else 0.0
+                                self._edge_dirty[jj][kp] = True
                 if self.weight_decay:
                     for i in range(self.n):
                         for k in range(self.slots):
                             row = self.W_out[i][k]
                             if row:
                                 for j, w in list(row.items()):
-                                    row[j] = max(w * (1.0 - self.weight_decay), 0.0)
+                                    nv = w * (1.0 - self.weight_decay)
+                                    row[j] = nv if nv > 0.0 else 0.0
+                                self._edge_dirty[i][k] = True
 
         self.v[top, :] = 0.0
         # 唤醒计数（频率门控慢衰减）：只数真实发放神经元的主导槽，仅学习态
@@ -211,6 +246,7 @@ class SparseSchemaNet:
                             else:
                                 row[j] = nw
                                 weakened += 1
+                        self._edge_dirty[i][k] = True   # 外部写 W，传播镜像置脏
                 self.slot_freq[i, k] = 0  # 新窗口
         return cleared, weakened
 

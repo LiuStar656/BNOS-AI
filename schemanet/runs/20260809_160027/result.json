@@ -1,0 +1,88 @@
+{
+ "tag": "Phase 2 L1 干净对照：train_w 前后四路 + grad(train_ctx) 主引擎定案",
+ "corpus": "data/corpus_open20w.json",
+ "sub_n": 160000,
+ "eval_n": 2000,
+ "delta_off": 0.01,
+ "train_w": {
+  "run": false,
+  "epochs": 5,
+  "lr": 0.02,
+  "skip_train_ctx": true
+ },
+ "train_ctx": {
+  "epochs": 20,
+  "lr": 0.5,
+  "subsample": 2000
+ },
+ "sleep": {
+  "min_wake": 1152.1,
+  "weakened": 5285537,
+  "cleared": 0
+ },
+ "timing": {
+  "hebbian_sec": 659.5,
+  "train_w_sec": 0.0
+ },
+ "4d": {
+  "nnz0": 58282601,
+  "nnz1": 58282601,
+  "max_delta": 0.0,
+  "n_changed": 0,
+  "n_tot": 0,
+  "train_ctx_zero_perturb": true
+ },
+ "top1_pre_train_w": {
+  "wsum": {
+   "t1": 0.181,
+   "t2": 0.1515,
+   "t3": 0.1388,
+   "t4-5": 0.1232,
+   "t6-8": 0.1077,
+   "t9+": 0.0774
+  },
+  "trace": {
+   "t1": 0.181,
+   "t2": 0.1425,
+   "t3": 0.1238,
+   "t4-5": 0.1116,
+   "t6-8": 0.0899,
+   "t9+": 0.049
+  },
+  "pahe": {
+   "t1": 0.181,
+   "t2": 0.1515,
+   "t3": 0.1388,
+   "t4-5": 0.1103,
+   "t6-8": 0.0866,
+   "t9+": 0.0478
+  },
+  "avg": {
+   "wsum": 0.1299,
+   "trace": 0.1163,
+   "pahe": 0.1193,
+   "grad": 0.1168
+  },
+  "n": 24866,
+  "grad": {
+   "t1": 0.181,
+   "t2": 0.1485,
+   "t3": 0.1188,
+   "t4-5": 0.1075,
+   "t6-8": 0.0906,
+   "t9+": 0.0547
+  },
+  "grad_n": 24866
+ },
+ "top1_post_train_w": null,
+ "grad_vs_wsum_clean": {
+  "diff": -0.0131,
+  "z": -4.44
+ },
+ "Q1_train_w_impact": null,
+ "Q2_scaling_sub_vs_full": null,
+ "Q3_trace_clean": {
+  "trace_minus_wsum_clean": -0.0136,
+  "z": -4.63
+ }
+}

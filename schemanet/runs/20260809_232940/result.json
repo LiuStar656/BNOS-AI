@@ -1,0 +1,25 @@
+{
+ "tag": "三字经第二层验证：人之初→性本善（局部触发、整块唤起）",
+ "ts": "20260809_232940",
+ "metrics": {
+  "suffix_recall": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "all_completed": true
+ },
+ "meta": {
+  "ts": "20260809_232940",
+  "tag": "三字经第二层验证：人之初→性本善（局部触发、整块唤起）",
+  "net_kind": "dense",
+  "n": 256,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "构造句集（非语料）",
+  "vocab_size": 21,
+  "pats_size": 21,
+  "cursor": 42
+ }
+}
