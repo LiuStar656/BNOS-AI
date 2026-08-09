@@ -1,0 +1,208 @@
+{
+ "tag": "Phase 4 前置·开源真实语料规模验证（标准档）",
+ "corpus": "data/corpus_open.json",
+ "config": {
+  "n": 8192,
+  "k": 16,
+  "vocab": 3000,
+  "maxlen": 8,
+  "train_w_epochs": 10,
+  "top_k": 12,
+  "temp": 1.1,
+  "penalty": 2.5,
+  "seed": 42,
+  "delta_off": 0.02,
+  "delta_scan": [
+   0.005,
+   0.01,
+   0.02
+  ]
+ },
+ "top1": {
+  "wsum": {
+   "train": 0.11065907241659886,
+   "test": 0.10809824902723736
+  },
+  "trace": {
+   "train": 0.08780235224498853,
+   "test": 0.08669747081712062
+  },
+  "grad": {
+   "train": 0.09127894075005548,
+   "test": 0.09508754863813229
+  },
+  "eval_n": {
+   "train": 1000,
+   "test": 600
+  }
+ },
+ "bleu2": {
+  "grad": 0.0,
+  "trace": 0.0134,
+  "wsum": 0.0325,
+  "n_prefix": 20
+ },
+ "prefix_ok": 20,
+ "n_prefix_total": 20,
+ "sparsity": {
+  "nnz_before": 18093945,
+  "nnz_after": 18093945,
+  "structure_unchanged": true
+ },
+ "w_delta": {
+  "max_delta": 8.2747,
+  "n_changed": 12112965,
+  "n_tot": 18093945
+ },
+ "regression": {
+  "abc": "PASS",
+  "seq": "PASS"
+ },
+ "samples": [
+  {
+   "prefix": "<UNK>",
+   "grad": "<UNK>",
+   "trace": "<UNK>看活动！和不会，住再点就",
+   "wsum": "<UNK>比较方便。早餐也挺好，包装",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "很",
+   "grad": "很",
+   "trace": "很满意好干净。<UNK>的就是没有不过",
+   "wsum": "很喜欢的！我也是什么？<UNK>",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "酒店",
+   "grad": "酒店",
+   "trace": "酒店环境好？！送餐很好吃难吃的",
+   "wsum": "酒店了！很好，穿着<UNK>啦。",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "送餐",
+   "grad": "送餐",
+   "trace": "送餐，不过的穿着大小服务态度第一次为什么。",
+   "wsum": "送餐很快，看了！很好的感觉",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "房间",
+   "grad": "房间",
+   "trace": "房间很还隔音有不错新鲜扔可以多",
+   "wsum": "房间比较好，包装很喜欢的！我",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "味道",
+   "grad": "味道",
+   "trace": "味道还行不会的？，也就<UNK>",
+   "wsum": "味道也不错，好评！很喜欢的酒店",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "我",
+   "grad": "我",
+   "trace": "我也不给<UNK>得新鲜的能太",
+   "wsum": "我也挺好，而且<UNK>做的！",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "不错",
+   "grad": "不错",
+   "trace": "不错哦了！<UNK>不知道好满意好吃",
+   "wsum": "不错，好评！很高。早餐<UNK>么",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "还",
+   "grad": "还",
+   "trace": "还<UNK>没能不错得在店里，买",
+   "wsum": "还可以的。早餐<UNK>比超市买了",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "非常",
+   "grad": "非常",
+   "trace": "非常方便棒的了好吃就是而且很呢",
+   "wsum": "非常不错，客服<UNK>比较好了！很",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "裤子",
+   "grad": "裤子",
+   "trace": "裤子收到杠杠！不大还方便就是也",
+   "wsum": "裤子质量不错，不过<UNK>与的酒店了",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "送",
+   "grad": "送",
+   "trace": "送了餐员吉利还好态度的很不好",
+   "wsum": "送的！很好，包装<UNK>啦。",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "苹果",
+   "grad": "苹果",
+   "trace": "苹果了不错很甜没有？以后再也不会吃！",
+   "wsum": "苹果，好评！很好的味道一般。",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "为什么",
+   "grad": "为什么",
+   "trace": "为什么，真是等还有很多用。<UNK>酒店",
+   "wsum": "为什么<UNK>比超市买了！很方便。",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "不",
+   "grad": "不",
+   "trace": "不给在中国一样新鲜好喝满意！搞",
+   "wsum": "不说了！很喜欢的酒店，穿着",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "这",
+   "grad": "这",
+   "trace": "这是正品个小月本很物流。",
+   "wsum": "这是我也挺好，这次<UNK>有点",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "这个",
+   "grad": "这个",
+   "trace": "这个牌子价苹果了两个1，好！",
+   "wsum": "这个酒店了！很喜欢，包装<UNK>有点",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "质量",
+   "grad": "质量",
+   "trace": "质量也不新鲜很一般<UNK>，这个太",
+   "wsum": "质量不错，好评！很喜欢的酒店了",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "东西",
+   "grad": "东西",
+   "trace": "东西不错都还是可以在有放",
+   "wsum": "东西，包装很好了！我也不",
+   "prefix_ok": true
+  },
+  {
+   "prefix": "在",
+   "grad": "在",
+   "trace": "在这里京东<UNK>就是我用了送餐的",
+   "wsum": "在京东的就是<UNK>小了！很喜欢",
+   "prefix_ok": true
+  }
+ ],
+ "timing": {
+  "hebbian_sec": 389.1,
+  "ctx_sec": 1516.2,
+  "grad_sec": 121.5
+ }
+}

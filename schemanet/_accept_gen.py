@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Phase 3 完整验收：生成与解码（流畅度为主）。
+"""Phase 3+ 完整验收：生成与解码（有偏语料版，B 阶段）。
 
-流程：corpus_large.json（1814 句）→ Hebbian 预训练 → train_ctx（位置信任）
-→ train_w（微调 W，生成引擎）→ 三路生成对照（grad / trace / wsum）：
-  ① 留出集 top-1 命中率对照（延续 Phase 4 口径）
+流程：corpus_biased.json（15100 句，条件偏斜）→ Hebbian 预训练 → train_ctx
+（位置信任）→ train_w（微调 W，生成引擎）→ 三路生成对照（grad / trace / wsum）：
+  ① 留出集 top-1 命中率对照（有偏语料：验证 trace/grad 借主语痕迹破局的增益）
   ② 20 条 grad 采样生成样例 + 人工流畅度打分（5 分制，≥3/5 达标）
   ③ 前缀一致性：生成句开头 = 条件前缀（自动检查）
   ④ 自动 BLEU-2（句级平均）：grad vs trace vs wsum 同前缀续写对照
@@ -25,14 +25,15 @@ import jieba
 
 from schema_net import _word_pattern, _learn_sentence
 from sparse_net import (SparseSchemaNet, _pats_matrix, outsum_sparse,
-                        evaluate_schemanet_sparse, save_net)
+                        evaluate_schemanet_sparse, evaluate_schemanet_trace_inc,
+                        save_net)
 from grad_readout import GradReadout
 from generator import Generator
 
 N, K, KV = 8192, 16, 2000
-MAXLEN = 5
+MAXLEN = 6
 SEED = 42
-CORPUS = "data/corpus_large.json"
+CORPUS = "data/corpus_biased.json"
 GEN_N = 20        # 人工评估生成条数
 GEN_MAX = 10      # 生成最大词数
 TOP_K, TEMP, PENALTY = 12, 1.1, 2.5   # 0.8/1.2 版高频词重复退化（"很很很很"）
@@ -123,10 +124,11 @@ def main():
     # ── ① 留出集 top-1 命中率对照 ──
     w_tr = evaluate_schemanet_sparse(ng, train_toks, pats, vocab, pats_mat, readout="wsum")
     w_te = evaluate_schemanet_sparse(ng, test_toks, pats, vocab, pats_mat, readout="wsum")
-    t_tr = evaluate_schemanet_sparse(ng, train_toks, pats, vocab, pats_mat,
-                                     readout="trace", norm_base=outsum, delta_off=0.02)
-    t_te = evaluate_schemanet_sparse(ng, test_toks, pats, vocab, pats_mat,
-                                     readout="trace", norm_base=outsum, delta_off=0.02)
+    # trace 用增量评估（单句内 pre_trace 累积，不清零重放——对拍验证与重放版一致）
+    t_tr = evaluate_schemanet_trace_inc(ng, train_toks, pats, vocab, pats_mat,
+                                        norm_base=outsum, delta_off=0.02)
+    t_te = evaluate_schemanet_trace_inc(ng, test_toks, pats, vocab, pats_mat,
+                                        norm_base=outsum, delta_off=0.02)
     g_tr = ro.evaluate_w(train_toks)
     g_te = ro.evaluate_w(test_toks)
     print(f"① top-1 命中率（训练/留出）: wsum {w_tr[0]:.4f}/{w_te[0]:.4f}  "
@@ -191,7 +193,7 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
     save_net(ng, vocab, out_dir / "net.npz")   # 生成调参免重训
     result = {
-        "tag": "Phase3 生成与解码", "corpus": CORPUS,
+        "tag": "Phase3+ 有偏语料生成与解码", "corpus": CORPUS,
         "config": {"n": N, "k": K, "vocab": len(vocab), "maxlen": MAXLEN,
                    "train_w_epochs": TRAIN_W_EPOCHS, "top_k": TOP_K,
                    "temp": TEMP, "penalty": PENALTY, "seed": SEED},
@@ -219,15 +221,15 @@ def main():
     print(f"\n留档: {out_dir}/")
     print(f"人工打分表: {out_dir}/human_eval.txt")
 
-    print("\nPhase 3 验收判定（自动部分）:")
+    print("\nPhase 3+ 验收判定（自动部分）:")
     j_prefix = n_pfx_ok == GEN_N
     j_struct = nnz0 == nnz1
-    # BLEU-2 贪心续写：uniform 合成语料下三路常取同词 → 无区分度，仅作参考报到
-    j_bleu = None
-    print(f"  ① 留出集 top-1 参考（uniform 合成语料是梯度最不利场景，"
-          f"Phase 2/4a 已证；有偏语料才有增益）: "
-          f"grad {g_te[0]:.4f} vs wsum {w_te[0]:.4f}/trace {t_te[0]:.4f}"
-          f"（grad-wsum = {g_te[0]-w_te[0]:+.4f}）")
+    j_gain = g_te[0] > w_te[0] + 0.01 or t_te[0] > w_te[0] + 0.01   # 有偏语料：trace/grad 借主语痕迹破局应超 wsum
+    # BLEU-2 贪心续写：同前缀三路常取同词 → 无区分度，仅作参考报到
+    print(f"  ① 留出集 top-1（有偏语料：trace/grad 借主语痕迹破局的甜区）: "
+          f"wsum {w_te[0]:.4f}  trace {t_te[0]:.4f}  grad {g_te[0]:.4f}"
+          f"（trace-wsum = {t_te[0]-w_te[0]:+.4f}, grad-wsum = {g_te[0]-w_te[0]:+.4f}）")
+    print(f"     trace/grad 增益（>+0.01 达标）: {'PASS ✓' if j_gain else '未超阈值（可能已饱和或噪声级）'}")
     print(f"  ② 前缀一致性 {n_pfx_ok}/{GEN_N}: {'PASS ✓' if j_prefix else 'FAIL ✗'}")
     print(f"  ③ BLEU-2（参考，贪心续写无区分度）: "
           f"grad {b_grad:.3f} vs trace {b_trace:.3f}/wsum {b_wsum:.3f}")

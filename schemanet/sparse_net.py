@@ -49,6 +49,8 @@ class SparseSchemaNet:
                  weight_decay=0.0, slot_cap=0.0, learn_gate=True,
                  stdp_pre=0.5, stdp_neg=0.0, trace_decay=0.5, refractory=1,
                  rng=None):
+        # slot_cap：[已废弃] 满槽覆盖上限（默认永久 0；本稀疏版从未实现覆盖逻辑，
+        # 由频率门控慢衰减 sleep_consolidate 取代，见 Phase 1）。
         self.n = n
         self.slots = slots
         self.theta = theta
@@ -78,6 +80,9 @@ class SparseSchemaNet:
         self.evictions = 0
         # 稀疏出边：W_out[i][k] = {j: w}，语义 = 稠密 W[j, k, i]
         self.W_out = [[{} for _ in range(self.slots)] for _ in range(self.n)]
+        # 唤醒计数（频率门控慢衰减用）：窗口内每个槽位被"发放神经元主导"的次数。
+        # 只数真实发放（防静息 v≈0 的噪声性 argmax 污染）；冻结态不计数（纯检索零改动）。
+        self.slot_freq = np.zeros((self.n, self.slots), dtype=np.int32)
 
     # ── W 访问兼容：稠密版读出函数用 ng.W[j, slot, i]，这里按需提供等价读取 ──
     def w_get(self, j, slot, i):
@@ -165,6 +170,10 @@ class SparseSchemaNet:
                                     row[j] = max(w * (1.0 - self.weight_decay), 0.0)
 
         self.v[top, :] = 0.0
+        # 唤醒计数（频率门控慢衰减）：只数真实发放神经元的主导槽，仅学习态
+        # （冻结态纯检索，不改变任何状态，含计数——sleep 时冻结态也拒绝执行）
+        if self.learn_gate and len(top):
+            self.slot_freq[top, k_star[top]] += 1
         self.spikes = new_spikes
         self.last_k_star = k_star
         self.pre_trace = self.pre_trace * self.trace_decay + new_spikes
@@ -173,6 +182,37 @@ class SparseSchemaNet:
             if len(top):
                 self.refractory_left[top] = self.refractory
         return new_spikes
+
+    def sleep_consolidate(self, min_wake=5, decay=0.3, eps=1e-4):
+        """频率门控慢衰减（睡眠记忆巩固）：低频唤醒槽位的连接逐步衰减为 0。
+
+        - 唤醒频率判据：当前窗口内槽位被发放神经元主导的次数 slot_freq[i][k]。
+          窗口长度由调用时机保证（每 window 步或显式 sleep 调用一次）。
+        - 高频槽（≥ min_wake）：**不动**（活跃定式永不衰减）。
+        - 低频槽：连接逐周期 ×(1-decay) 渐进弱化——期间被唤醒即可被 Hebbian/STDP
+          强化抵消（**可复活**）；最终 ≤ eps 的连接条目删除（稀疏回收空间）。
+        - 冻结态（learn_gate=False）拒绝执行：纯检索物理零改动。
+        - 调用后全部计数重置（新窗口从零开始）。
+
+        返回 (删除条目数, 被弱化条目数)。"""
+        if not self.learn_gate:
+            return 0, 0
+        cleared = weakened = 0
+        for i in range(self.n):
+            for k in range(self.slots):
+                if self.slot_freq[i, k] < min_wake:
+                    row = self.W_out[i][k]
+                    if row:
+                        for j, w in list(row.items()):
+                            nw = w * (1 - decay)
+                            if nw <= eps:
+                                del row[j]
+                                cleared += 1
+                            else:
+                                row[j] = nw
+                                weakened += 1
+                self.slot_freq[i, k] = 0  # 新窗口
+        return cleared, weakened
 
 
 # ════════════════════════════════════════════════════════════════
@@ -212,10 +252,15 @@ def predict_cands_wsum_sparse(ng, prefix, pats, vocab, pats_mat, slot=0, norm_ba
 
 def predict_cands_trace_sparse(ng, prefix, pats, vocab, pats_mat, slot=0, norm_base=None,
                                trace_beta=0.1, delta_off=0.05):
-    """等价 schema_net._predict_cands_trace（向量化）。"""
+    """等价 schema_net._predict_cands_trace（向量化）。
+
+    每调用全清网络状态（含 refractory/last_k_star）——trace 语义是"给定前缀
+    预测下一词"，与之前调用无关，状态残留是原实现的隐副作用（修正）。"""
     ng.v = np.zeros((ng.n, ng.slots))
     ng.spikes = np.zeros(ng.n)
     ng.pre_trace = np.zeros(ng.n)
+    ng.refractory_left = np.zeros(ng.n, dtype=int)
+    ng.last_k_star = np.zeros(ng.n, dtype=int)
     for w in prefix:
         ng.v = np.zeros((ng.n, ng.slots))
         ng.step(build_pulse(ng.n, pats[w]), slot=slot)
@@ -262,6 +307,186 @@ def predict_cands_trace_sparse(ng, prefix, pats, vocab, pats_mat, slot=0, norm_b
 def outsum_sparse(ng, pats, vocab, slot=0):
     """等价稠密 outsum：源词模式所有神经元的出边总强度。"""
     return {a: sum(ng.w_rowsum(src, slot) for src in pats[a]) for a in vocab}
+
+
+def build_score_mat(ng, pats, vocab, pats_mat, slot=0):
+    """S[wi, src] = Σ_{j∈pats[wi]} W[j, slot, src] / k（未归一化词得分矩阵）。
+
+    与 GradReadout 的 S 矩阵同口径（纯 numpy 读出，免 Python 出边循环）。
+    V×V float64（V=3000 → 72MB），一次性构建后评估/扫描全部走矩阵直读。"""
+    V = len(vocab)
+    k = pats_mat.shape[1]
+    S = np.empty((V, V), dtype=np.float64)
+    for src_idx, w in enumerate(vocab):
+        acc = _out_edges_accum(ng, pats[w], slot)
+        S[:, src_idx] = acc[pats_mat].sum(axis=1) / k
+    return S
+
+
+def evaluate_wsum_smat(S, vocab, toks_list, norm_base=None, n_samples=8):
+    """S 矩阵版 wsum next-token 评估（读出 O(V) numpy，替代逐源出边循环）。"""
+    vtab = {w: i for i, w in enumerate(vocab)}
+    hits = total = 0
+    samples = []
+    for toks in toks_list:
+        for t in range(1, len(toks)):
+            last = toks[t - 1]
+            p = S[:, vtab[last]].copy()
+            den = norm_base.get(last, 0.0) if norm_base else 0.0
+            if den > 0:
+                p /= den
+            used = set(toks[:t])
+            cands = [(vocab[wi], float(p[wi])) for wi in range(len(vocab))
+                     if p[wi] > 0 and vocab[wi] not in used]
+            cands.sort(key=lambda x: -x[1])
+            pred = cands[0][0] if cands else None
+            total += 1
+            if pred == toks[t]:
+                hits += 1
+            elif len(samples) < n_samples:
+                samples.append({"ctx": "".join(toks[:t]), "truth": toks[t], "pred": pred,
+                                "top3": [c[0] for c in cands[:3]]})
+    return (hits / total if total else 0.0), hits, total, samples
+
+
+def evaluate_trace_smat(ng, toks_list, S, pats, vocab, norm_base, slot=0,
+                        delta_off=0.05, trace_beta=0.1, n_samples=8):
+    """S 矩阵版增量 trace 评估。
+
+    动力学注入骨架保留（单句内 pre_trace 自然累积），读出走 S 矩阵直读
+    （δ 判定 + 平局痕迹混合全 numpy），替代 _trace_cands_from_state 里
+    逐源神经元 Python 出边循环——词表/连接规模大时几十倍加速。
+    语义与原版一致：learn_gate 冻结下不写 W，仅推进膜电位状态。"""
+    vtab = {w: i for i, w in enumerate(vocab)}
+    V = len(vocab)
+    hits = total = 0
+    samples = []
+    for toks in toks_list:
+        ng.v = np.zeros((ng.n, ng.slots))
+        ng.spikes = np.zeros(ng.n)
+        ng.pre_trace = np.zeros(ng.n)
+        ng.refractory_left = np.zeros(ng.n, dtype=int)
+        ng.last_k_star = np.zeros(ng.n, dtype=int)
+        for t in range(1, len(toks)):
+            ng.v = np.zeros((ng.n, ng.slots))
+            ng.step(build_pulse(ng.n, pats[toks[t - 1]]), slot=slot)
+            ng.step(np.zeros(ng.n), slot=slot)
+            last = toks[t - 1]
+            p_last = S[:, vtab[last]].copy()
+            den = norm_base.get(last, 0.0) if norm_base else 0.0
+            if den > 0:
+                p_last /= den
+            used = set(toks[:t])
+            order = np.argsort(-p_last)
+            top_idx = [wi for wi in order if p_last[wi] > 0 and vocab[wi] not in used]
+            if len(top_idx) >= 2 and p_last[top_idx[0]] - p_last[top_idx[1]] >= delta_off:
+                cands = [(vocab[wi], round(float(p_last[wi]), 6)) for wi in top_idx]
+            else:
+                # 末词平局：整条前缀加权混合（痕迹权重 × trace_beta 压降非末词）
+                last_pats = pats[last]
+                trace_last = float(ng.pre_trace[last_pats].max()) if len(last_pats) else 0.0
+                mix = np.zeros(V)
+                for src_w in toks[:t]:
+                    tr = float(ng.pre_trace[pats[src_w]].max()) if pats[src_w] else 0.0
+                    wgt = tr / trace_last if trace_last > 0 else tr
+                    if src_w != last:
+                        wgt *= trace_beta
+                    if wgt <= 0:
+                        continue
+                    p = S[:, vtab[src_w]].copy()
+                    d2 = norm_base.get(src_w, 0.0) if norm_base else 0.0
+                    if d2 > 0:
+                        p /= d2
+                    mix += wgt * p
+                cands = [(vocab[wi], round(float(mix[wi]), 6)) for wi in range(V)
+                         if mix[wi] > 0 and vocab[wi] not in used]
+                cands.sort(key=lambda x: -x[1])
+            pred = cands[0][0] if cands else None
+            total += 1
+            if pred == toks[t]:
+                hits += 1
+            elif len(samples) < n_samples:
+                samples.append({"ctx": "".join(toks[:t]), "truth": toks[t], "pred": pred,
+                                "top3": [c[0] for c in cands[:3]]})
+    return (hits / total if total else 0.0), hits, total, samples
+
+
+def _trace_cands_from_state(ng, last, prefix, pats, vocab, pats_mat, slot,
+                            norm_base, trace_beta, delta_off):
+    """trace 读出核心：从**当前网络状态**（前缀已重放、pre_trace 已累积）读候选。
+
+    逻辑与 predict_cands_trace_sparse 的读出部分完全一致（δ 直判 → 平局痕迹混合），
+    只是不做动力学重放——状态由调用方在单句内增量维护。"""
+    used = set(prefix)
+    k = pats_mat.shape[1]
+
+    def cond_vec(src_idxs):
+        acc = _out_edges_accum(ng, src_idxs, slot)
+        raw = acc[pats_mat].sum(axis=1) / k
+        denom = norm_base.get(last, 0.0) if norm_base else 0.0
+        return raw / denom if denom > 0 else raw
+
+    # 末词条件分布 → δ 判定
+    p_last = cond_vec(pats[last])
+    order = np.argsort(-p_last)
+    top_idx = [wi for wi in order if p_last[wi] > 0 and vocab[wi] not in used]
+    if len(top_idx) >= 2 and p_last[top_idx[0]] - p_last[top_idx[1]] >= delta_off:
+        return [(vocab[wi], round(float(p_last[wi]), 6)) for wi in top_idx]
+
+    # 末词平局：整条前缀加权混合（痕迹权重 × trace_beta 压降非末词）
+    last_pats = pats[last]
+    trace_last = float(ng.pre_trace[last_pats].max()) if len(last_pats) else 0.0
+    mix = np.zeros(len(vocab))
+    for src_w in prefix:
+        tr = float(ng.pre_trace[pats[src_w]].max()) if pats[src_w] else 0.0
+        wgt = tr / trace_last if trace_last > 0 else tr
+        if src_w != last:
+            wgt *= trace_beta
+        if wgt <= 0:
+            continue
+        acc = _out_edges_accum(ng, pats[src_w], slot)
+        raw = acc[pats_mat].sum(axis=1) / k
+        denom = norm_base.get(src_w, 0.0) if norm_base else 0.0
+        p = raw / denom if denom > 0 else raw
+        mix += wgt * p
+    cands = [(vocab[wi], round(float(mix[wi]), 6)) for wi in range(len(vocab))
+             if mix[wi] > 0 and vocab[wi] not in used]
+    cands.sort(key=lambda x: -x[1])
+    return cands
+
+
+def evaluate_schemanet_trace_inc(ng, toks_list, pats, vocab, pats_mat, slot=0,
+                                 norm_base=None, n_samples=8, delta_off=0.05,
+                                 trace_beta=0.1):
+    """增量 trace 评估：单句内逐词注入（pre_trace 自然累积，不复位重放）。
+
+    语义与 evaluate_schemanet_sparse(readout='trace') 逐位一致——trace 重放前缀
+    就是从空状态逐词 step，而相邻预测位的前缀只差一个词，增量 step 即等价；
+    复杂度 O(len) 而非 O(len²)。learn_gate 冻结下不写 W，仅推进膜电位状态。"""
+    hits = total = 0
+    samples = []
+    for toks in toks_list:
+        ng.v = np.zeros((ng.n, ng.slots))
+        ng.spikes = np.zeros(ng.n)
+        ng.pre_trace = np.zeros(ng.n)
+        ng.refractory_left = np.zeros(ng.n, dtype=int)
+        ng.last_k_star = np.zeros(ng.n, dtype=int)
+        for t in range(1, len(toks)):
+            # 注入 toks[t-1]（predict_cands_trace_sparse 重放前缀的最后两拍）
+            ng.v = np.zeros((ng.n, ng.slots))
+            ng.step(build_pulse(ng.n, pats[toks[t - 1]]), slot=slot)
+            ng.step(np.zeros(ng.n), slot=slot)
+            cands = _trace_cands_from_state(ng, toks[t - 1], toks[:t], pats, vocab,
+                                            pats_mat, slot, norm_base, trace_beta,
+                                            delta_off)
+            pred = cands[0][0] if cands else None
+            total += 1
+            if pred == toks[t]:
+                hits += 1
+            elif len(samples) < n_samples:
+                samples.append({"ctx": "".join(toks[:t]), "truth": toks[t], "pred": pred,
+                                "top3": [c[0] for c in cands[:3]]})
+    return (hits / total if total else 0.0), hits, total, samples
 
 
 def evaluate_schemanet_sparse(ng, toks_list, pats, vocab, pats_mat, slot=0,
