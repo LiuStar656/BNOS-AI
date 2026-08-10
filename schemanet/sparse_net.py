@@ -48,7 +48,8 @@ class SparseSchemaNet:
                  w_max=16.0, wta_k=16, noise_p=0.06, noise_amp=0.5,
                  weight_decay=0.0, slot_cap=0.0, learn_gate=True,
                  stdp_pre=0.5, stdp_neg=0.0, trace_decay=0.5, refractory=1,
-                 rng=None):
+                 inh_loose=0.3, std_dep=0.0, std_rec=0.85,
+                 edge_min=0.0, inh_norm=0.0, refract_clear=False, rng=None):
         # slot_cap：[已废弃] 满槽覆盖上限（默认永久 0；本稀疏版从未实现覆盖逻辑，
         # 由频率门控慢衰减 sleep_consolidate 取代，见 Phase 1）。
         self.n = n
@@ -68,6 +69,48 @@ class SparseSchemaNet:
         self.trace_decay = trace_decay
         self.trace_thres = 0.3
         self.refractory = refractory
+        # inh_loose：侧抑制清扫（lateral inhibition，2026-08-10）。WTA 选出 top
+        # 后，把"过阈但没被选中"的候选 v 压低（×inh_loose）——每步清扫，防止
+        # 老候选越积越高霸榜（v 不发放不回落 ×0.9 累积 = 超临界雪崩引擎之一，
+        # 见 docs/reports/[REPORT]-石头痛觉刺激过强-网络超临界放电诊断.md）。
+        # 生物对应：发放神经元抑制邻近未发放者——"痛是事件不是状态"：碰一下
+        # → 痛发 → 躲开 → 清扫 → 恢复静息（不痛了 = 负强化奖励的前提）。
+        # 1.0 = 关闭（旧动力学）。0 = 最强清扫。
+        self.inh_loose = inh_loose
+        # std_dep/std_rec：短期突触抑制 STD（发放者疲劳，2026-08-10）。发放后的
+        # 神经元其出边驱动临时降效 ×(1-std_dep)（突触前抑制/囊泡耗竭简化版），
+        # 每步按 std_rec 恢复。生物对应"层2 短期突触抑制"——高频词（的/了/是/有）
+        # 持续发放 → 出边持续疲劳 → 互驱环（304 振荡，网络无静息态根因，见
+        # docs/reports/[REPORT]-石头痛觉刺激过强-网络超临界放电诊断.md）被削弱；
+        # 低频定式链（石头→痛→不要）隔跳使用、fat 恢复 → 满效保留。
+        # std_dep=0 = 关闭（旧动力学）。
+        self.std_dep = std_dep
+        self.std_rec = std_rec
+        self.fat = np.zeros(n)   # 每神经元疲劳度（0=满效；1=出边全失效）
+        # edge_min：层2 弱边修剪（weak-edge pruning，2026-08-10）。传播时
+        # 边权重 < edge_min 的出边不参与驱动——阻止"数千条弱边汇聚过阈"
+        # 的雪崩扇出（实测 11.2 网络 80% 边 < 0.5，高频词"我"出边 1.7 万条、
+        # 其中 1.36 万弱边 = 超临界雪崩主引擎；强定式边石头→痛=16、痛→不要=64
+        # 全部保留，修剪只清弱噪声）。0 = 关闭（旧动力学）。
+        # 生物对应：突触权重本身是筛选器——弱连接不足以影响下游发放。
+        self.edge_min = edge_min
+        # inh_norm：层1 全局活动抑制（divisive normalization，2026-08-10）。
+        # 传播 drive 总强度超过 inh_norm 时按总强度除法压缩（发得越猛压得越狠），
+        # 把分支参数 σ 拉回临界附近（feedback inhibition，Carandini & Heeger）。
+        # 0 = 关闭（旧动力学）。
+        self.inh_norm = inh_norm
+        # refract_clear：不应期硬清（2026-08-10）。传播后、WTA 前，把处于
+        # 不应期的神经元膜电位强制清零——防"组装自振复燃"（模式内 Hebbian
+        # 互连驱动自己复燃：实测石头模式内部互连 44.4，注入后每拍自振
+        # v=11.1 复燃，把后继词挤出 WTA 优先）。生物对应：AHP 后超极化
+        # （发放后膜电位压低，不会立即再发放）。False = 关闭（旧动力学）。
+        self.refract_clear = refract_clear
+        # gain：每神经元增益调制（gain modulation，2026-08-10，用户："直接给
+        # 不要加权重，让不要在网络里足够亮"）。WTA 排序用 vmax×gain（候选判定
+        # 仍用原始 v≥θ → 不被驱动时不会误发），让高价值词（安全/拒绝信号"不要"）
+        # 被驱动后优先发放——注意力调制：重要词反应优先级更高。默认全 1=关闭。
+        # 生物对应：feature-based attention 的目标特征增益（attention gain）。
+        self.gain = np.ones(n)
         self.rng = rng or np.random.default_rng()
         self.reset()
 
@@ -125,10 +168,12 @@ class SparseSchemaNet:
 
     def step(self, input_pulse, slot=0):
         """单步动力学：与 SchemaNet.step 逐行对齐（详见 schema_net.py 的注释）。"""
-        slot = min(slot, self.slots - 1)
+        slot = min(slot, self.slots - 1)  # 槽越界保护（单槽时所有输入都进槽 0）
         noise = (self.rng.random(self.n) < self.noise_p) * self.noise_amp
         self.v = self.v * self.membrane_decay + noise[:, None]
         self.v[:, slot] += input_pulse
+        if self.std_dep > 0:
+            self.fat *= self.std_rec   # STD 疲劳逐步恢复（高频词疲劳持续、低频链恢复）
 
         # 分槽传播（稀疏：只遍历发放神经元出边的非零行，镜像 numpy 批量累加）
         if self.spikes.any():
@@ -139,8 +184,26 @@ class SparseSchemaNet:
                     for i in senders:
                         e = self._edge_row(i, k)
                         if e is not None:
-                            drive[e[0]] += e[1]
+                            w = e[1] * (1.0 - self.fat[i])
+                            if self.edge_min > 0:  # 层2 弱边修剪（弱边不参与驱动）
+                                keep = w >= self.edge_min
+                                if not keep.any():
+                                    continue
+                                drive[e[0][keep]] += w[keep]
+                            else:
+                                # STD 发放者疲劳：出边按疲劳度降效（高频词持续发
+                                # 放 → 出边持续疲劳 → 互驱环削弱；低频链恢复满效）
+                                drive[e[0]] += w
+                    if self.inh_norm > 0:  # 层1 全局活动抑制：除法归一化
+                        tot = drive.sum()
+                        if tot > self.inh_norm:
+                            drive *= self.inh_norm / tot
                     self.v[:, k] += drive
+
+        # 不应期硬清：处于不应期的神经元膜电位清零（防组装自振复燃——
+        # 刚发放过的组装被自身模式内互连驱动，不应期一过立即复燃）
+        if self.refract_clear and self.refractory > 0:
+            self.v[self.refractory_left > 0] = 0.0
 
         # 主导槽 + WTA
         k_star = self.v.argmax(axis=1)
@@ -151,13 +214,25 @@ class SparseSchemaNet:
             eligible = self.refractory_left == 0
         candidates = np.where((vmax >= self.theta) & eligible)[0]
         if len(candidates) > self.wta_k:
-            top = candidates[np.argsort(vmax[candidates])[::-1][: self.wta_k]]
+            # 增益调制：WTA 排序用 vmax×gain（候选判定仍用原始 v≥θ），
+            # 高价值词（如"不要"）被驱动后优先发放
+            key = vmax[candidates] * self.gain[candidates]
+            top = candidates[np.argsort(key)[::-1][: self.wta_k]]
         else:
             top = candidates
 
         new_spikes = np.zeros(self.n)
         if len(top):
+            # 侧抑制清扫（v13.2，2026-08-10）：把"过阈但没被选中"的候选 v 压低
+            # ×inh_loose——每步清扫，防止老候选越积越高霸榜（超临界雪崩引擎）。
+            # 生物对应：lateral inhibition（发放神经元抑制邻近未发放者）。
+            if self.inh_loose < 1.0 and len(candidates) > len(top):
+                losers = np.setdiff1d(candidates, top)
+                if len(losers):
+                    self.v[losers, :] *= self.inh_loose
             new_spikes[top] = 1.0
+            if self.std_dep > 0:
+                self.fat[top] = self.std_dep   # 发放 → 疲劳（STD 突触前抑制）
             if self.learn_gate:
                 # Hebbian：共同发放对 (a, c) → W[a, kstar_a, c] += eta（排除自连接）
                 # 稀疏：W_out[c][kstar_a][a] += eta
@@ -267,6 +342,8 @@ class SparseSchemaNet:
         self.last_k_star = np.pad(self.last_k_star, (0, pad))
         self.refractory_left = np.pad(self.refractory_left, (0, pad))
         self.slot_freq = np.pad(self.slot_freq, ((0, pad), (0, 0)))
+        self.gain = np.pad(self.gain, (0, pad))   # 增益数组随扩容对齐（2026-08-10 填充教学
+                                                  # 落位扩容时未 pad → step() IndexError）
         self.W_out += [[{} for _ in range(self.slots)] for _ in range(pad)]
         self._edge_cache += [[None] * self.slots for _ in range(pad)]
         self._edge_dirty += [[True] * self.slots for _ in range(pad)]
@@ -729,6 +806,7 @@ def save_net(ng, vocab, path, ctx_wgt=None):
               "weight_decay": ng.weight_decay, "slot_cap": ng.slot_cap,
               "stdp_pre": ng.stdp_pre, "stdp_neg": ng.stdp_neg,
               "trace_decay": ng.trace_decay, "refractory": ng.refractory,
+              "inh_loose": ng.inh_loose, "std_dep": ng.std_dep, "std_rec": ng.std_rec,
               "learn_gate": ng.learn_gate}
     np.savez_compressed(path,
                         src_i=np.array(src_i, dtype=np.int32),

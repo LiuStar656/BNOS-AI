@@ -1,0 +1,16 @@
+{
+ "version": "11.1",
+ "major": 11,
+ "minor": 1,
+ "parent_version": "10.0",
+ "ts": "20260810_045348",
+ "tag": "Stage 2.6 v11 迭代：RL 颗粒度升级（连接级归因处罚）+ LLM 教师（判断+原因）",
+ "net_kind": "sparse",
+ "n": 148776,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 37194,
+ "pats_size": 37062,
+ "cursor": 148776
+}
