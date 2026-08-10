@@ -1,0 +1,27 @@
+{
+ "version": "28.2",
+ "parent_version": "27.1",
+ "tag": "真实多轮对话 v2：5 场景 14 轮教学单元（问题词→回应链引发教学 + 双轨验收）",
+ "ts": "20260810_231823",
+ "metrics": {
+  "turns": 13,
+  "ok": 13,
+  "rate": 1.0
+ },
+ "meta": {
+  "version": "28.2",
+  "major": 28,
+  "minor": 2,
+  "parent_version": "27.1",
+  "ts": "20260810_231823",
+  "tag": "真实多轮对话 v2：5 场景 14 轮教学单元（问题词→回应链引发教学 + 双轨验收）",
+  "net_kind": "sparse",
+  "n": 149164,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37249,
+  "pats_size": 37144,
+  "cursor": 149164
+ }
+}

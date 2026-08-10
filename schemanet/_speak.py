@@ -60,6 +60,7 @@ import numpy as np
 from schema_net import _learn_sentence, _evoke_prefix
 from sparse_net import allocate_pats
 from snapshot import load_version, load_snapshot, RUNS, _pack_net, _net_params
+from _net_log import ExpLog, register_op
 from _grow_v11 import (VO_PAIRS, V_SET, O_FOOD, O_PLACE, O_TAGS,
                        PERS_MANUAL, S_ANIMALS,
                        sent_recall, _llm_chat, _load_key,
@@ -68,6 +69,22 @@ from _grow_cat import build_cats
 from _grow_v12 import self_judge
 
 DATA = Path(__file__).parent / "data" / "curriculum"
+
+# ── 经历日志（2026-08-10 第四波接入）：对话教学 E 事件 + RL 操作 O 事件 ──
+# 崩溃恢复：最近 checkpoint + 重放日志（见 _net_log.recover_latest）。
+_LOG = ExpLog()
+
+
+def _replay_decay_path(ng, ev, pats):
+    decay_path(ng, pats, ev["path"], ev["factor"], record=False)
+
+
+def _replay_penalize(ng, ev, pats):
+    penalize_edge(ng, pats, ev["src"], ev["dst"])
+
+
+register_op("decay_path", _replay_decay_path)
+register_op("penalize", _replay_penalize)
 
 # 说话教学常量（2026-08-10：取消问句打高分——问句与陈述句同 80 分；
 # 100 分只留给拒绝对了（v13 FCT 最高奖励））
@@ -581,11 +598,13 @@ def _llm_teacher_once(net_out, topic, ask, vo_pairs, recent, streak,
     return score, reason, ptype, fb, demos, next_ask
 
 
-def decay_path(ng, pats, path, factor=REPEAT_DECAY):
+def decay_path(ng, pats, path, factor=REPEAT_DECAY, record=True):
     """路径逐边减权（反复重复惩罚：边减弱但保留，逼网络换说法）。
 
     只作用于 V→O、O→尾 等后续边；共享的 S→V 边不碰（别的句子还要用）。
     """
+    if record:   # O 事件（操作级，重放执行本函数）
+        _LOG.append_op("decay_path", path=list(path), factor=float(factor))
     for a, b in zip(path[:-1], path[1:]):
         dst_n = set(pats[b])
         for i in pats.get(a, []):
@@ -624,7 +643,7 @@ def reward_apply(ng, pats, net_out, score, independent=False, ptype=None):
             else (2 if independent else 1)
         tag = "（独立说出）" if independent else ""
         for _ in range(n):
-            _learn_sentence(ng, net_out, pats, slot=0)
+            _LOG.learn(ng, net_out, pats, slot=0)
         # v13.2 负强化（2026-08-10 用户："不光是避开，还有避开后被奖励，
         # 因为不痛了"）：拒绝坏东西 → "痛解除"本身就是奖励——强化「痛→
         # 不要」**通用边**（任何会痛的东西都受益，不是强化单句 → 防固化）
@@ -640,7 +659,7 @@ def reward_apply(ng, pats, net_out, score, independent=False, ptype=None):
             return f"奖励：学 2 次（{score} 分，最高奖励）{relief_txt}"
         return f"奖励{tag}：句子学 {n} 次（{score} 分）{relief_txt}"
     if score == 40:
-        _learn_sentence(ng, net_out[:2], pats, slot=0)
+        _LOG.learn(ng, net_out[:2], pats, slot=0)
         return f"部分奖励：半句尝试，强化「{'→'.join(net_out[:2])}」"
     if ptype == "repeat":
         decay_path(ng, pats, net_out[1:])        # 只减 V→O 与 O→尾
@@ -652,9 +671,11 @@ def reward_apply(ng, pats, net_out, score, independent=False, ptype=None):
         # 价值通过示范学进网络：好话题"要"+好东西、坏话题"不要"+坏东西）
         return "惩罚：价值错，不给奖励（看老师示范该要还是要拒绝）"
     if score == 10:
+        _LOG.append_op("penalize", src=net_out[1], dst=net_out[2])
         penalize_edge(ng, pats, net_out[1], net_out[2])
         return f"惩罚：删除「{net_out[1]}→{net_out[2]}」错配边"
     if score == 20:
+        _LOG.append_op("penalize", src=net_out[0], dst=net_out[1])
         penalize_edge(ng, pats, net_out[0], net_out[1])
         return f"惩罚：删除「{net_out[0]}→{net_out[1]}」错边"
     return ""
@@ -910,13 +931,13 @@ def _pain_event(ng, pats, s, bad_o, link_times=2):
         （能说出「我吃石头」= 感知；用户红线：删边=麻木）
     返回痛觉反馈文本。
     """
-    _learn_sentence(ng, [bad_o, "痛"], pats, slot=0)       # 内感受：X→痛
-    _learn_sentence(ng, [bad_o, "痛"], pats, slot=0)       # 学 2 次：链要够强
-    _learn_sentence(ng, ["痛", "不要"], pats, slot=0)      # 通用逃避：痛→不要
-    _learn_sentence(ng, ["痛", "不要"], pats, slot=0)      # 才能在回响里传通
+    _LOG.learn(ng, [bad_o, "痛"], pats, slot=0)       # 内感受：X→痛
+    _LOG.learn(ng, [bad_o, "痛"], pats, slot=0)       # 学 2 次：链要够强
+    _LOG.learn(ng, ["痛", "不要"], pats, slot=0)      # 通用逃避：痛→不要
+    _LOG.learn(ng, ["痛", "不要"], pats, slot=0)      # 才能在回响里传通
     for _ in range(link_times - 2):                        # 联结强度可调（默认 2，多学更牢）
-        _learn_sentence(ng, [bad_o, "痛"], pats, slot=0)
-        _learn_sentence(ng, ["痛", "不要"], pats, slot=0)
+        _LOG.learn(ng, [bad_o, "痛"], pats, slot=0)
+        _LOG.learn(ng, ["痛", "不要"], pats, slot=0)
     for v in ["要", "吃"]:                 # 欲望/价值边衰减（痛打击"想要"）
         if v in pats and bad_o in pats:
             decay_path(ng, pats, [v, bad_o], PAIN_DECAY)
@@ -932,7 +953,7 @@ def _relief_event(ng, pats):
     强化，任何会痛的东西都受益（不是强化某一句具体话，避免单句固化）。
     返回描述文本。
     """
-    _learn_sentence(ng, ["痛", "不要"], pats, slot=0)
+    _LOG.learn(ng, ["痛", "不要"], pats, slot=0)
     return "（不痛了！避开它，就不疼了——这就是奖励）"
 
 

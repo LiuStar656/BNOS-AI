@@ -1,0 +1,38 @@
+{
+ "version": "18.6",
+ "parent_version": "17.0",
+ "tag": "Stage 3 v18.1：对话教学（奖励/处罚 + 连续 15 次通过判定，对齐 _speak.py）",
+ "ts": "20260810_173931",
+ "metrics": {
+  "stage3_dialog_v17": true,
+  "teacher": "规则",
+  "dialog_n": 30,
+  "baseline_rate": 0.567,
+  "post_teach_rate": 0.867,
+  "teach_rounds": 90,
+  "streak_peak": 5,
+  "passed": false,
+  "rewards": 58,
+  "offtopic": 29,
+  "structure": 3,
+  "fixes": 3,
+  "eval_regress": 1.0,
+  "cal_fallback": 1
+ },
+ "meta": {
+  "version": "18.6",
+  "major": 18,
+  "minor": 6,
+  "parent_version": "17.0",
+  "ts": "20260810_173931",
+  "tag": "Stage 3 v18.1：对话教学（奖励/处罚 + 连续 15 次通过判定，对齐 _speak.py）",
+  "net_kind": "sparse",
+  "n": 149068,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37249,
+  "pats_size": 37117,
+  "cursor": 149068
+ }
+}

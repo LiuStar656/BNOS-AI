@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
-"""v17 "先见后教" 可行性探测：散文喂入（先见）→ 教学数据（后教）→ 分句接话。
+"""v17 训练管线（先见后教）：散文喂入（先见）→ 教学数据（后教）→ 分句接话。
 
 背景（2026-08-10 用户三决策）：
   - "不是教，是先让网络见过散文"——散文 = 暴露/输入，不是配对句教学
   - 落地：散文全量喂进网络成经验（_learn_sentence 逐句）→ 先见
-  - 顺序：先喂散文建立语言背景 → 再喂 108 条教学数据把目标边压回 → 后教
+  - 顺序：先喂散文建立语言背景 → 再喂教学数据把目标边压回 → 后教
   - 验收：不变（仍以 v16 的 6 句分句接话为准，修正前 ≥0.95 为 v17 目标）
 
-要回答的唯一问题：
-  散文 30 万字 ≈ 1 万句真实边喂入后，v16 校准好的目标边（他→上课 等）
-  会不会被重新碾压？108 条教学数据 ×2 轮后教，能否把分句接话拉回
-  v16 基线（修正前 0.895）？
+v17 升级（PLAN Stage3v17，2026-08-10）：
+  - 数据扩量：后教数据源 stage3_rel_v2.json（108 条）→ stage3_rel_v3.json
+    （166 条 = 108 现有 + 58 新模板全部词表内）——全量散文后教拉回力不足
+    的应对（"虽然→但是"配对直读断点 108×2 轮拉不动）
+  - 训练完成后快照 v17.0（smoke 不存）
+  - 验收口径：后教后修正前 ≥0.95 且校准 ≤1 处 → 快照 v17.0
 
 处理：散文句 jieba 分词 → 只保留词表内词（≥3 词才喂）——铁律 1 边界：
   散文只做"见过"背景（词表内共现），不扩词表不学新词（新词归 Stage 4）。
@@ -23,10 +25,10 @@
     （只跑 random 不学习，秒级），各进程从对应 state 恢复 rng 喂自己
     的句子块 → 块内噪声序列与串行逐位一致 → 增量边合并 = 串行结果。
   - 等价性已证：100 句 2 块对拍，15332295 条边差异 0（_verify_chunk.py）。
-  - 全量串行 ~60 分钟；--chunks 4 → 约 15 分钟。
+  - 全量串行 ~60 分钟；--chunks 4 → 约 30 分钟（越喂越慢超线性）。
 
 用法：python _probe_expose_prose.py [--smoke] [--chunks N] [--verify-chunk]
-  --smoke：每本书只取前 200 句快跑（机制验证）
+  --smoke：每本书只取前 200 句快跑（机制验证，不存快照）
   --chunks N：散文先见切 N 块进程并行（默认全量 4）
   --verify-chunk：smoke 规模对拍切块 ≡ 串行（逐边，对拍铁律）
 """
@@ -44,7 +46,7 @@ import jieba
 import numpy as np
 
 from schema_net import _learn_sentence
-from snapshot import load_version
+from snapshot import load_version, save_snapshot
 from sparse_net import _rows_from_arrays
 from _grow_v16 import (EVAL, REL_FRONT, REL_BACK, role_of, legal_for,
                        clause_next, chain_generate, calibrate, K, R_S)
@@ -288,7 +290,7 @@ def main():
         1, int(sys.argv[sys.argv.index("--chunks") + 1]))
     verify_chk = "--verify-chunk" in sys.argv
     t0 = time.time()
-    print("═══ v17 探测：先见后教（散文暴露 → 教学拉回 → 分句接话）═══\n")
+    print("═══ v17 训练管线：先见后教（散文先见 → 166 条后教 → 校准 → 验收）═══\n")
 
     # ── 1. 加载 v16.0（v17 的起点）────────────────────────────
     ng, vocab, pats, cursor = load_version("16.0")
@@ -332,8 +334,8 @@ def main():
     rate_b = nb / totb if totb else 0.0
     print(f"  [散文后] 命中 {nb}/{totb} = {rate_b:.3f}（v16 基线 0.895）")
 
-    # ── 5. 阶段 C：后教（108 条 ×R_S 轮把目标边拉回）──────────
-    rows_data = json.loads((DATA / "stage3_rel_v2.json").read_text(
+    # ── 5. 阶段 C：后教（166 条 ×R_S 轮把目标边拉回）──────────
+    rows_data = json.loads((DATA / "stage3_rel_v3.json").read_text(
         encoding="utf-8"))
     print(f"\n[后教] {len(rows_data)} 条 ×{R_S} 轮 = {len(rows_data) * R_S} 次学习")
     t2 = time.time()
@@ -350,26 +352,29 @@ def main():
     # ── 6. 阶段 D：校准（教师批改，看后教后还需几处）──────────
     print("\n[校准]（后教后仍需几处教师批改？）")
     fixes = calibrate(ng, pats, n2w, domain)
-    print(f"  [校准] 共 {len(fixes)} 处（v16 是 1 处）")
+    print(f"  [校准] 共 {len(fixes)} 处（v16 是 1 处，v17 目标 ≤1 处）")
 
     rows_d, nd, totd = chain_generate(ng, pats, n2w, domain)
     rate_d = nd / totd if totd else 0.0
     print(f"  [校准后] 命中 {nd}/{totd} = {rate_d:.3f}")
 
-    # ── 7. 结论判读 ────────────────────────────────────────────
+    # ── 7. 结论判读（v17 验收口径）─────────────────────────────
     print("\n[判读]")
     print(f"  散文后修正前 {rate_b:.3f}（碾压程度 = 0.895 - {rate_b:.3f}"
           f" = {0.895 - rate_b:.3f}）")
-    print(f"  后教后修正前 {rate_c:.3f} vs 基线 0.895"
-          f"（{'≥ 基线 ✅' if round(rate_c, 3) >= 0.895 else '< 基线 ❌ 教学量不够'}）")
-    print(f"  后教后校准 {len(fixes)} 处 vs v16 的 1 处"
-          f"（{'≤ 1 处 ✅' if len(fixes) <= 1 else '> 1 处 ❌ 教学量不够'}）")
+    ok_rate = round(rate_c, 3) >= 0.95
+    ok_cal = len(fixes) <= 1
+    print(f"  后教后修正前 {rate_c:.3f} vs v17 目标 0.95"
+          f"（{'≥ 0.95 ✅' if ok_rate else '< 0.95 ❌ 教学量不够'}）")
+    print(f"  后教后校准 {len(fixes)} 处 vs v17 目标 ≤1 处"
+          f"（{'≤ 1 处 ✅' if ok_cal else '> 1 处 ❌ 教学量不够'}）")
 
-    # ── 8. 落档 ────────────────────────────────────────────────
+    # ── 8. 快照 v17.0（smoke 不存）＋ 落档 ─────────────────────
+    all_ok = bool(ok_rate and ok_cal)
     out_dir = RUNS_DIR / "_speak_logs" / f"{time.strftime('%Y%m%d_%H%M%S')}_probe_expose_prose"
     out_dir.mkdir(parents=True, exist_ok=True)
     result = {
-        "tag": "v17 先见后教探测（散文暴露 → 教学拉回）",
+        "tag": "v17 训练管线（散文先见 → 166 条后教 → 校准 → 验收）",
         "base": "16.0", "smoke": smoke, "chunks": chunks,
         "per_book": per_book, "prose_seqs": len(seqs),
         "stageB_prose_only": {"hits": nb, "tot": totb, "rate": round(rate_b, 3)},
@@ -378,11 +383,32 @@ def main():
         "stageD_cal": {"fixes": fixes, "hits": nd, "tot": totd,
                        "rate": round(rate_d, 3), "chain": rows_d},
         "baseline_v16": {"rate_pre_cal": 0.895, "cal_fixes": 1},
+        "target_v17": {"rate_pre_cal_min": 0.95, "cal_fixes_max": 1},
+        "all_ok": all_ok,
         "sec": round(time.time() - t0, 1),
     }
     (out_dir / "result.json").write_text(json.dumps(result, ensure_ascii=False,
                                                     indent=1), encoding="utf-8")
     print(f"\n[留档] {out_dir / 'result.json'}（{time.time() - t0:.0f}s）")
+
+    if not smoke:
+        metrics = {"stage3_v17": True, "data_n": len(rows_data),
+                   "data_src": {src: sum(1 for r in rows_data
+                                         if r["source"] == src)
+                                for src in ["短文·真实", "对话·构造", "短文·构造"]},
+                   "prose_seqs": len(seqs), "chunks": chunks,
+                   "prose_only_rate": round(rate_b, 3),
+                   "post_teach_rate": round(rate_c, 3),
+                   "cal_fixes": fixes, "post_cal_rate": round(rate_d, 3),
+                   "all_ok": all_ok}
+        save_snapshot(ng, parent="16.0",
+                      tag="Stage 3 v17：先见后教 + 数据扩量 166 条 + 并发训练"
+                          "（鲁迅 5 本散文全量先见 → 教学拉回 → 校准）",
+                      metrics=metrics, vocab=vocab, pats=pats, cursor=cursor)
+        print(f"  [验收] 修正前 {rate_c:.3f}（目标 ≥0.95）| 校准 {len(fixes)} 处"
+              f"（目标 ≤1）| {'全部通过 ✅ 快照 v17.0' if all_ok else '有失败 ❌ 快照仍已落'}")
+    else:
+        print("\n  [smoke] 不存快照（机制验证）")
 
 
 if __name__ == "__main__":

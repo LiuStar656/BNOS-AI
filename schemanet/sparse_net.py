@@ -27,7 +27,7 @@ from datetime import datetime
 from pathlib import Path
 
 import numpy as np
-from numba import njit
+from numba import njit, prange
 
 from schema_net import (SchemaNet, _word_pattern, _learn_sentence, _evoke_prefix,
                         _BigramModel, _TrigramModel, _evaluate_ngram, build_pulse,
@@ -201,56 +201,178 @@ class EdgeRow:
 #  O(k²)/O(k×pre) 的行内合并，EdgeRow 数组操作仍由 Python 侧完成。
 
 @njit(cache=True)
-def _merge_row(dst, w, keys, deltas, w_max, clip_low):
-    """单行合并：现有 (dst,w) 有序；更新 keys[i]+deltas[i]（key 唯一）。
-    返回 (new_dst, new_w)，保持有序。语义对齐 batch_update。"""
-    n = len(dst)
-    m = len(keys)
-    ndst = np.empty(n + m, dtype=np.int32)
-    nw = np.empty(n + m, dtype=np.float64)
-    for j in range(n):
-        ndst[j] = dst[j]
-        nw[j] = w[j]
-    n_new = 0
-    for i in range(m):
-        key = keys[i]
-        dlt = deltas[i]
-        idx = np.searchsorted(dst, key)
-        if idx < n and dst[idx] == key:
-            nv = nw[idx] + dlt
-            if nv > w_max:
-                nv = w_max
-            if nv < clip_low:
-                nv = clip_low
-            nw[idx] = nv
-        else:
-            ndst[n + n_new] = key
-            nw[n + n_new] = dlt
-            n_new += 1
-    total = n + n_new
-    if n_new:
-        order = np.argsort(ndst[:total], kind="stable")
-        return ndst[:total][order], nw[:total][order]
-    return ndst[:total], nw[:total]
-
-
-@njit(cache=True)
 def _merge_rows(nr, offs, dsts, ws, koff, keys, deltas, w_max, clip_low,
                 out_offs, out_dst, out_w, out_len):
-    """多行批量合并（扁平化输入，nr 行一次算完）。
-    offs/dsts/ws：各行的现有 dst/w 拼接；koff/keys/deltas：各行的更新拼接。
-    out_offs/out_dst/out_w/out_len：预分配输出（容量 = 总现有 + 总更新）。"""
+    """多行批量合并（扁平化输入，nr 行一次算完）。语义 = 逐行 batch_update。
+
+    第三波提速（2026-08-10）：searchsorted×m + argsort O((n+m)log) →
+    线性双指针一趟 O(n+m)。大行（高频词出边 4 万+）此前每发放步全量重排，
+    占 _apply_edge_updates 87%。keys 每行唯一（top/pre 集合天然唯一），
+    但**并非升序**（WTA top 按 vmax×gain 降序）→ 行内先 argsort keys
+    （m≤380 开销可忽略，大行成本仍由 n 主导），归并即有序。输出直接写
+    out 缓冲（容量 = 总现有 + 总更新），免逐行临时数组。
+
+    同时修复潜伏 bug：新键插入也做 [clip_low, w_max] 截断（原实现原样写
+    dlt——stdp_neg>0 时写入负权重；参考实现写入 max(0, -stdp_neg)=0。
+    v13.0 对拍未触发因 stdp_neg=0，第三波起分支对拍覆盖）。"""
     for r in range(nr):
         dst = dsts[offs[r]:offs[r + 1]]
         w = ws[offs[r]:offs[r + 1]]
         key = keys[koff[r]:koff[r + 1]]
         dlt = deltas[koff[r]:koff[r + 1]]
-        new_dst, new_w = _merge_row(dst, w, key, dlt, w_max, clip_low)
         s = out_offs[r]
-        for j in range(len(new_dst)):
-            out_dst[s + j] = new_dst[j]
-            out_w[s + j] = new_w[j]
-        out_len[r] = len(new_dst)
+        # keys 唯一 → 排序结果与稳定性无关；排序后归并（见上）
+        order = np.argsort(key)
+        i = 0
+        j = 0
+        o = 0
+        n = len(dst)
+        m = len(key)
+        while i < n and j < m:
+            kj = key[order[j]]
+            if dst[i] < kj:
+                out_dst[s + o] = dst[i]
+                out_w[s + o] = w[i]
+                i += 1
+            elif dst[i] > kj:
+                nv = dlt[order[j]]
+                if nv > w_max:
+                    nv = w_max
+                if nv < clip_low:
+                    nv = clip_low
+                out_dst[s + o] = kj
+                out_w[s + o] = nv
+                j += 1
+            else:
+                nv = w[i] + dlt[order[j]]
+                if nv > w_max:
+                    nv = w_max
+                if nv < clip_low:
+                    nv = clip_low
+                out_dst[s + o] = dst[i]
+                out_w[s + o] = nv
+                i += 1
+                j += 1
+            o += 1
+        while i < n:
+            out_dst[s + o] = dst[i]
+            out_w[s + o] = w[i]
+            i += 1
+            o += 1
+        while j < m:
+            nv = dlt[order[j]]
+            if nv > w_max:
+                nv = w_max
+            if nv < clip_low:
+                nv = clip_low
+            out_dst[s + o] = key[order[j]]
+            out_w[s + o] = nv
+            j += 1
+            o += 1
+        out_len[r] = o
+
+
+@njit(cache=True, parallel=True)
+def _update_v(n, slots, v, fat, raw, inp_idx, slot, decay, noise_p, noise_amp,
+              std_dep, std_rec):
+    """融合 v 更新（唤起路径）：膜电位衰减 + 噪声（逐槽，prange）+ 注入 + STD 恢复。
+    噪声内化（2026-08-10 第五波）：raw = rng.random(n) 原始值，`(raw<p)*amp`
+    与 numpy 位级一致（IEEE 比较/乘法确定性）——与 _train_core 同款，
+    省 numpy 比较+乘两 pass（推理步 ~1.2ms → ~0.3ms）。
+    语义与 `v*decay + (raw<p)*amp` + `v[:,slot]+=pulse` + `fat*=std_rec` 逐位一致。"""
+    for i in prange(n):
+        nz = (raw[i] < noise_p) * noise_amp
+        for s in range(slots):
+            v[i, s] = v[i, s] * decay + nz
+    for j in range(len(inp_idx)):
+        v[inp_idx[j], slot] += 1.0
+    if std_dep > 0:
+        for i in prange(n):
+            fat[i] *= std_rec
+
+
+@njit(cache=True, parallel=True)
+def _wta_cand(n, slots, v, last_k_star, ref_left, theta,
+              is_cand, cand_idx, cand_val):
+    """融合 WTA 前置：argmax/k_star（prange）+ 候选收集（vmax≥θ 且可发放）+
+    ref_left 基础 -1（对应原尾部 np.maximum(ref_left-1, 0)，候选判定用
+    未递减值、与旧时序一致）。返回候选数 n_c。
+    cand_idx[:n_c]/cand_val[:n_c] = 候选神经元与其 vmax（神经元号升序）。
+    注意：pre_trace 衰减不放这里——STDP 在 WTA 之后仍要读未衰减痕迹
+    （放这里会先于 STDP 衰减 → 语义分叉），保留在 step 尾部就地 *=。"""
+    for i in prange(n):
+        kmax = 0
+        for s in range(1, slots):
+            if v[i, s] > v[i, kmax]:
+                kmax = s
+        last_k_star[i] = kmax
+        is_cand[i] = (v[i, kmax] >= theta) and (ref_left[i] == 0)
+    n_c = 0
+    for i in range(n):
+        if is_cand[i]:
+            cand_idx[n_c] = i
+            cand_val[n_c] = v[i, last_k_star[i]]
+            n_c += 1
+    for i in prange(n):
+        r = ref_left[i] - 1
+        ref_left[i] = r if r > 0 else 0
+    return n_c
+
+
+@njit(cache=True, parallel=True)
+def _train_core(n, slots, v, fat, raw, inp_idx, slot, decay, noise_p, noise_amp,
+                theta, ref_left, last_k_star, is_cand, cand_idx, cand_val,
+                refract_clear, std_dep, std_rec):
+    """学习路径三段合一（2026-08-10 第二波提速）：衰减+噪声 → 注入 → STD 疲劳
+    恢复 → refract_clear → argmax+候选收集 → ref_left 基础 -1，单 prange 内核。
+    语义 = _update_v + refract_clear + _wta_cand 逐位一致（spikes 为空时传播
+    跳过，两路径终态相同）：
+      - 噪声内化：raw = rng.random(n) 原始值，`(raw<p)*amp` 与 numpy 位级一致
+        （IEEE 比较/乘法确定性）；
+      - refract_clear 在 argmax 前（= 原传播后、WTA 前的位置）；
+      - 候选判定用未递减 ref_left，与旧时序一致。"""
+    for i in prange(n):
+        nz = (raw[i] < noise_p) * noise_amp
+        for s in range(slots):
+            v[i, s] = v[i, s] * decay + nz
+    for j in range(len(inp_idx)):
+        v[inp_idx[j], slot] += 1.0
+    if std_dep > 0:
+        for i in prange(n):
+            fat[i] *= std_rec
+    if refract_clear:
+        for i in prange(n):
+            if ref_left[i] > 0:
+                for s in range(slots):
+                    v[i, s] = 0.0
+    for i in prange(n):
+        kmax = 0
+        for s in range(1, slots):
+            if v[i, s] > v[i, kmax]:
+                kmax = s
+        last_k_star[i] = kmax
+        is_cand[i] = (v[i, kmax] >= theta) and (ref_left[i] == 0)
+    n_c = 0
+    for i in range(n):
+        if is_cand[i]:
+            cand_idx[n_c] = i
+            cand_val[n_c] = v[i, last_k_star[i]]
+            n_c += 1
+    for i in prange(n):
+        r = ref_left[i] - 1
+        ref_left[i] = r if r > 0 else 0
+    return n_c
+
+
+@njit(cache=True)
+def _prop_accum(dst, w, edge_min, drive):
+    """传播驱动单 pass 累加（2026-08-10 第二波提速）：drive[dst[e]] += w[e]，
+    弱边（w < edge_min）跳过（= 原 concat 后过滤再 add.at 的语义逐位一致：
+    过滤是逐元素比较、累加顺序与拼接顺序相同）。edge_min=0 全量累加。"""
+    for e in range(len(dst)):
+        vw = w[e]
+        if vw >= edge_min:
+            drive[dst[e]] += vw
 
 
 def _row_from_dict(d):
@@ -380,6 +502,15 @@ class SparseSchemaNet:
         self.last_k_star = np.zeros(self.n, dtype=int)
         self.pre_trace = np.zeros(self.n)
         self.refractory_left = np.zeros(self.n, dtype=int)
+        # WTA 融合内核工作区（预分配，避免每步临时分配）
+        self._is_cand = np.zeros(self.n, dtype=bool)
+        self._cand_idx = np.zeros(self.n, dtype=np.int64)
+        self._cand_val = np.zeros(self.n)
+        # 发放缓冲（第六波 Step3：复用避免每步 1.2MB 分配；返回给调用者的是
+        # 本缓冲——调用方须步内消费（np.where 等即时操作），跨步持有会被覆写）
+        self._spikes_buf = np.zeros(self.n)
+        # 传播 drive 缓冲（第七波：预分配 (slots, n)，每槽清零复用，免每步分配）
+        self._drive = np.zeros((self.slots, self.n))
         self.evictions = 0
         # 稀疏出边：W_out[i][k] = EdgeRow（数组事实源，dict 兼容接口），
         # 语义 = 稠密 W[j, k, i]。数组即事实源，传播镜像零复制（见 EdgeRow）。
@@ -456,86 +587,116 @@ class SparseSchemaNet:
     def step(self, input_pulse, slot=0):
         """单步动力学：与 SchemaNet.step 逐行对齐（详见 schema_net.py 的注释）。"""
         slot = min(slot, self.slots - 1)  # 槽越界保护（单槽时所有输入都进槽 0）
-        noise = (self.rng.random(self.n) < self.noise_p) * self.noise_amp
-        self.v = self.v * self.membrane_decay + noise[:, None]
-        self.v[:, slot] += input_pulse
-        if self.std_dep > 0:
-            self.fat *= self.std_rec   # STD 疲劳逐步恢复（高频词疲劳持续、低频链恢复）
+        # 第六波 Step4：属性局部化（每步省 ~40 次 self 属性访问的 Python 帧
+        # 开销；数组局部变量 = 同一对象，内核就地修改，无需写回）。
+        n = self.n
+        slots = self.slots
+        v = self.v
+        fat = self.fat
+        spikes = self.spikes
+        last_k = self.last_k_star
+        ref_left = self.refractory_left
+        pre_trace = self.pre_trace
+        # 提速第二波（2026-08-10）：噪声内化 + 训练路径三段合一（_train_core）。
+        # 学习路径（spikes 为空）→ 单 prange 内核完成 衰减+噪声+注入+疲劳恢复+
+        # refract_clear+argmax+候选+ref-1；唤起路径（spikes 非空）→ 保持分步
+        # （传播必须插在 update_v 与 WTA 之间）。两路径与参考实现逐位一致。
+        raw = self.rng.random(n)   # 原始均匀值（内核内做 <p / ×amp，位级一致）
+        inp_idx = np.nonzero(input_pulse)[0]
+        if not spikes.any():
+            n_c = _train_core(n, slots, v, fat, raw,
+                              inp_idx, slot, self.membrane_decay,
+                              self.noise_p, self.noise_amp, self.theta,
+                              ref_left, last_k,
+                              self._is_cand, self._cand_idx, self._cand_val,
+                              self.refract_clear and self.refractory > 0,
+                              self.std_dep, self.std_rec)
+        else:
+            # 第五波：噪声内化进 _update_v（raw 直传，内核内 <p/×amp，位级一致）
+            _update_v(n, slots, v, fat, raw,
+                      inp_idx, slot, self.membrane_decay,
+                      self.noise_p, self.noise_amp,
+                      self.std_dep, self.std_rec)
 
-        # 分槽传播（稀疏：只遍历发放神经元出边的非零行，镜像 numpy 批量累加）
-        if self.spikes.any():
-            for k in range(self.slots):
-                senders = np.where((self.spikes > 0) & (self.last_k_star == k))[0]
-                if len(senders):
-                    drive = np.zeros(self.n)
-                    # 批量累加（2026-08-10 提速）：sender 循环 → 收集全部出边
-                    # 一次 np.add.at（目标侧全量调用，消除 Python 级逐行累加）。
-                    # 语义逐位一致：各 sender 行内顺序 + sender 顺序拼接后 add.at，
-                    # 与逐行 `drive[e[0]] += w` 的累加顺序完全相同。
-                    ds, ws = [], []
-                    for i in senders:
-                        e = self._edge_row(i, k)
-                        if e is not None:
-                            ds.append(e[0])
-                            if self.std_dep > 0:
-                                ws.append(e[1] * (1.0 - self.fat[i]))
-                            else:
-                                ws.append(e[1])
-                    if ds:
-                        all_dst = np.concatenate(ds)
-                        all_w = np.concatenate(ws)
-                        if self.edge_min > 0:  # 层2 弱边修剪（弱边不参与驱动）
-                            keep = all_w >= self.edge_min
-                            if keep.any():
-                                all_dst = all_dst[keep]
-                                all_w = all_w[keep]
-                            else:
-                                all_dst = all_dst[:0]
-                                all_w = all_w[:0]
-                        if len(all_dst):
-                            np.add.at(drive, all_dst, all_w)
-                    if self.inh_norm > 0:  # 层1 全局活动抑制：除法归一化
-                        tot = drive.sum()
-                        if tot > self.inh_norm:
-                            drive *= self.inh_norm / tot
-                    self.v[:, k] += drive
+            # 分槽传播（稀疏：只遍历发放神经元出边的非零行，镜像 numpy 批量累加）
+            # 第六波 Step2/3：一次扫描拿发放索引（兼作 any 判断，免双扫描）→
+            # 按主导槽掩码分桶（掩码保序 → senders 集合与 np.where 相同）
+            fire_idx = np.where(spikes > 0)[0]
+            if len(fire_idx):
+                for k in range(slots):
+                    senders = fire_idx[last_k[fire_idx] == k]
+                    if len(senders):
+                        # 第七波：drive 预分配复用（免每槽 np.zeros 分配；
+                        # 清零→累加→v+=→下槽清零，语义与原 np.zeros 一致）
+                        drive_k = self._drive[k]
+                        drive_k *= 0.0
+                        # 批量累加（2026-08-10 提速）：sender 循环 → 收集全部出边
+                        # 一次 np.add.at（目标侧全量调用，消除 Python 级逐行累加）。
+                        # 语义逐位一致：各 sender 行内顺序 + sender 顺序拼接后 add.at，
+                        # 与逐行 `drive[e[0]] += w` 的累加顺序完全相同。
+                        ds, ws = [], []
+                        for i in senders:
+                            e = self._edge_row(i, k)
+                            if e is not None:
+                                ds.append(e[0])
+                                if self.std_dep > 0:
+                                    ws.append(e[1] * (1.0 - fat[i]))
+                                else:
+                                    ws.append(e[1])
+                        if ds:
+                            all_dst = np.concatenate(ds)
+                            all_w = np.concatenate(ws)
+                            if len(all_dst):
+                                # 第二波提速：add.at → numba 单 pass（edge_min 过滤内嵌，
+                                # 免 concat 后过滤 pass；累加顺序一致 → 位级一致）
+                                _prop_accum(all_dst, all_w, self.edge_min, drive_k)
+                        if self.inh_norm > 0:  # 层1 全局活动抑制：除法归一化
+                            tot = drive_k.sum()
+                            if tot > self.inh_norm:
+                                drive_k *= self.inh_norm / tot
+                        v[:, k] += drive_k
 
-        # 不应期硬清：处于不应期的神经元膜电位清零（防组装自振复燃——
-        # 刚发放过的组装被自身模式内互连驱动，不应期一过立即复燃）
-        if self.refract_clear and self.refractory > 0:
-            self.v[self.refractory_left > 0] = 0.0
+            # 不应期硬清：处于不应期的神经元膜电位清零（防组装自振复燃——
+            # 刚发放过的组装被自身模式内互连驱动，不应期一过立即复燃）
+            if self.refract_clear and self.refractory > 0:
+                v[ref_left > 0] = 0.0
 
-        # 主导槽 + WTA
-        k_star = self.v.argmax(axis=1)
-        vmax = self.v[np.arange(self.n), k_star]
-
-        eligible = np.ones(self.n, dtype=bool)
-        if self.refractory > 0:
-            eligible = self.refractory_left == 0
-        candidates = np.where((vmax >= self.theta) & eligible)[0]
+            # 主导槽 + WTA（融合内核：argmax + 候选收集 + 不应期基础 -1，prange 并行）
+            n_c = _wta_cand(n, slots, v, last_k,
+                            ref_left, self.theta,
+                            self._is_cand, self._cand_idx, self._cand_val)
+        candidates = self._cand_idx[:n_c]
+        vmax_c = self._cand_val[:n_c]   # = v[candidates, k_star[candidates]]，神经元号升序
+        k_star = last_k                 # 内核已就地写入本步 argmax
         if len(candidates) > self.wta_k:
             # 增益调制：WTA 排序用 vmax×gain（候选判定仍用原始 v≥θ），
             # 高价值词（如"不要"）被驱动后优先发放
-            key = vmax[candidates] * self.gain[candidates]
-            # 提速（2026-08-10）：argsort 全排序 O(C log C) → argpartition 部分
-            # 选择 O(C)。只取 top-k，顺序无关（new_spikes/v 清零/Hebbian 均为集合语义）。
-            idx = np.argpartition(-key, self.wta_k - 1)[: self.wta_k]
-            top = candidates[idx]
+            key = vmax_c * self.gain[candidates]
+            # 注意：不用 argpartition——并列 key 时它与 argsort 的 top-k 集合
+            # 可能不同（发放分叉 → 网络演化连锁分叉，实测 105 万边差异），
+            # 语义铁律优先（2026-08-10 验证后回退）。
+            top = candidates[np.argsort(key)[::-1][: self.wta_k]]
         else:
             top = candidates
 
-        new_spikes = np.zeros(self.n)
+        new_spikes = self._spikes_buf   # 第六波 Step3：预分配复用（步内覆写）
+        new_spikes[:] = 0.0
         if len(top):
             # 侧抑制清扫（v13.2，2026-08-10）：把"过阈但没被选中"的候选 v 压低
             # ×inh_loose——每步清扫，防止老候选越积越高霸榜（超临界雪崩引擎）。
             # 生物对应：lateral inhibition（发放神经元抑制邻近未发放者）。
             if self.inh_loose < 1.0 and len(candidates) > len(top):
-                losers = np.setdiff1d(candidates, top)
+                # 第五波：setdiff1d（unique+isin，候选上万时 ~2.9ms）→ 布尔掩码
+                # （148k 标记 + fancy 取，~0.2ms）。结果集合一致；losers 用于
+                # 逐元素乘法，顺序无关 → 位级一致。
+                mark = np.zeros(n, dtype=bool)
+                mark[top] = True
+                losers = candidates[~mark[candidates]]
                 if len(losers):
-                    self.v[losers, :] *= self.inh_loose
+                    v[losers, :] *= self.inh_loose
             new_spikes[top] = 1.0
             if self.std_dep > 0:
-                self.fat[top] = self.std_dep   # 发放 → 疲劳（STD 突触前抑制）
+                fat[top] = self.std_dep   # 发放 → 疲劳（STD 突触前抑制）
             if self.learn_gate:
                 # Hebbian/STDP 批量合并（2026-08-10 numba 提速）：原 O(k²)/O(k×pre)
                 # Python 双循环 + 每对 row.get() 全部移到 numba 内核 _merge_rows，
@@ -593,18 +754,22 @@ class SparseSchemaNet:
                             if row:
                                 row.scale(f)   # 整行向量化（逐条语义一致：w×(1-decay)）
 
-        self.v[top, :] = 0.0
+        v[top, :] = 0.0
         # 唤醒计数（频率门控慢衰减）：只数真实发放神经元的主导槽，仅学习态
         # （冻结态纯检索，不改变任何状态，含计数——sleep 时冻结态也拒绝执行）
         if self.learn_gate and len(top):
             self.slot_freq[top, k_star[top]] += 1
         self.spikes = new_spikes
-        self.last_k_star = k_star
-        self.pre_trace = self.pre_trace * self.trace_decay + new_spikes
+        # 第六波 Step1：痕迹就地更新（省 1.2MB 分配/步；乘后加顺序与原来
+        # `a*decay + b` 相同 → 位级一致）
+        pre_trace *= self.trace_decay
+        pre_trace += new_spikes
         if self.refractory > 0:
-            self.refractory_left = np.maximum(self.refractory_left - 1, 0)
+            # 基础 -1 已由 _wta_cand/_train_core 内核完成（2026-08-10 第二波：
+            # 删除原尾部 np.maximum(ref-1,0)——双递减在 refractory≥2 时语义分叉
+            # （refractory=1 饱和到 0 无感故对拍通过），与参考实现单次递减对齐）
             if len(top):
-                self.refractory_left[top] = self.refractory
+                ref_left[top] = self.refractory
         return new_spikes
 
     def sleep_consolidate(self, min_wake=5, decay=0.3, eps=1e-4):
@@ -648,6 +813,11 @@ class SparseSchemaNet:
         self.pre_trace = np.pad(self.pre_trace, (0, pad))
         self.last_k_star = np.pad(self.last_k_star, (0, pad))
         self.refractory_left = np.pad(self.refractory_left, (0, pad))
+        self._is_cand = np.pad(self._is_cand, (0, pad))
+        self._cand_idx = np.pad(self._cand_idx, (0, pad))
+        self._cand_val = np.pad(self._cand_val, (0, pad))
+        self._spikes_buf = np.pad(self._spikes_buf, (0, pad))
+        self._drive = np.pad(self._drive, ((0, 0), (0, pad)))
         self.slot_freq = np.pad(self.slot_freq, ((0, pad), (0, 0)))
         self.gain = np.pad(self.gain, (0, pad))   # 增益数组随扩容对齐（2026-08-10 填充教学
                                                   # 落位扩容时未 pad → step() IndexError）

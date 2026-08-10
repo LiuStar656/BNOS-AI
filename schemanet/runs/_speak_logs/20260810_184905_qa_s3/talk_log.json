@@ -1,0 +1,281 @@
+{
+ "meta": {
+  "tag": "s3.3 问答应答（Intraverbal：什么是/为什么/会怎样）",
+  "base": "17.0",
+  "teacher": "LLM",
+  "rounds": 25,
+  "streak_peak": 15,
+  "passed": true,
+  "rewards": 15,
+  "fixes": 10,
+  "eval": {
+   "hits": 19,
+   "tot": 19,
+   "rate": 1.0,
+   "cal_fallback": 0
+  },
+  "sec": 31.8
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "layer": "①据因推果",
+   "ask": "累会怎样？",
+   "expect": "所以他想睡觉",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：所以他想睡觉",
+   "ping": ""
+  },
+  {
+   "round": 2,
+   "layer": "②以果溯因",
+   "ask": "为什么睡觉？",
+   "expect": "因为他累了",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：因为他累了",
+   "ping": ""
+  },
+  {
+   "round": 3,
+   "layer": "①据因推果",
+   "ask": "困会怎样？",
+   "expect": "所以我想睡觉",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：所以我想睡觉",
+   "ping": ""
+  },
+  {
+   "round": 4,
+   "layer": "②以果溯因",
+   "ask": "为什么睡觉？",
+   "expect": "因为我困了",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：因为我困了",
+   "ping": ""
+  },
+  {
+   "round": 5,
+   "layer": "①据因推果",
+   "ask": "饿会怎样？",
+   "expect": "所以猫想吃饭",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：所以猫想吃饭",
+   "ping": ""
+  },
+  {
+   "round": 6,
+   "layer": "②以果溯因",
+   "ask": "为什么吃饭？",
+   "expect": "因为猫饿了",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：因为猫饿了",
+   "ping": ""
+  },
+  {
+   "round": 7,
+   "layer": "①据因推果",
+   "ask": "生病会怎样？",
+   "expect": "所以他想看医生",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：所以他想看医生",
+   "ping": ""
+  },
+  {
+   "round": 8,
+   "layer": "②以果溯因",
+   "ask": "为什么看医生？",
+   "expect": "因为他生病了",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：因为他生病了",
+   "ping": ""
+  },
+  {
+   "round": 9,
+   "layer": "①据因推果",
+   "ask": "饿会怎样？",
+   "expect": "所以狗想吃饭",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：所以狗想吃饭",
+   "ping": ""
+  },
+  {
+   "round": 10,
+   "layer": "②以果溯因",
+   "ask": "为什么吃饭？",
+   "expect": "因为狗饿了",
+   "read": "",
+   "ok": false,
+   "fade": "full",
+   "fb": "来，跟老师说：因为狗饿了",
+   "ping": ""
+  },
+  {
+   "round": 11,
+   "layer": "①据因推果",
+   "ask": "冷会怎样？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 12,
+   "layer": "LLM新题",
+   "ask": "那要是觉得冷，你会怎么做呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 13,
+   "layer": "LLM新题",
+   "ask": "那如果觉得身上发凉，你打算怎么办呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 14,
+   "layer": "LLM新题",
+   "ask": "那要是身上觉得有点冷飕飕的，你会怎么让自己暖和起来呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 15,
+   "layer": "LLM新题",
+   "ask": "那要是觉得身上发冷了，你打算怎么让自己暖和起来呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 16,
+   "layer": "LLM新题",
+   "ask": "那要是觉得身上发冷了，你最先想到的办法是什么呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 17,
+   "layer": "LLM新题",
+   "ask": "那要是你感觉身上有点凉了，你会想到什么好办法呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 18,
+   "layer": "LLM新题",
+   "ask": "那要是你突然觉得胳膊上凉飕飕的，你心里第一个冒出来的念头是什么呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 19,
+   "layer": "LLM新题",
+   "ask": "那胳膊上一阵凉意冒上来的时候，你脑子里会蹦出什么想法呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 20,
+   "layer": "LLM新题",
+   "ask": "那胳膊上那股凉飕飕的感觉一冒出来，你心里会冒出个什么念头呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full",
+   "reward": 1
+  },
+  {
+   "round": 21,
+   "layer": "LLM新题",
+   "ask": "那胳膊上那股凉意一上来，你手上会想先做点啥呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none",
+   "reward": 2
+  },
+  {
+   "round": 22,
+   "layer": "LLM新题",
+   "ask": "那阵凉意窜到胳膊上的时候，你手边最想抓的是啥呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none",
+   "reward": 2
+  },
+  {
+   "round": 23,
+   "layer": "LLM新题",
+   "ask": "那阵凉飕飕的感觉一贴到胳膊上，你接下来最想干的一件事是啥呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none",
+   "reward": 2
+  },
+  {
+   "round": 24,
+   "layer": "LLM新题",
+   "ask": "那阵凉风一碰到你胳膊，你下一步会咋办呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none",
+   "reward": 2
+  },
+  {
+   "round": 25,
+   "layer": "LLM新题",
+   "ask": "那阵凉风一碰到你胳膊，你心里会怎么打算呀？",
+   "expect": "所以我想穿衣服",
+   "read": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none",
+   "reward": 2
+  }
+ ]
+}

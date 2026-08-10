@@ -49,7 +49,12 @@ RUNS = Path(__file__).resolve().parent / "runs"
 
 _PARAMS_FIELDS = ("n", "slots", "theta", "membrane_decay", "eta", "w_max", "wta_k",
                   "noise_p", "noise_amp", "weight_decay", "slot_cap",
-                  "stdp_pre", "stdp_neg", "trace_decay", "refractory", "learn_gate")
+                  "stdp_pre", "stdp_neg", "trace_decay", "refractory", "learn_gate",
+                  # v13.2 机制参数（2026-08-10 修复：此前缺字段 → 新机制网络
+                  # 存/载后静默回退默认关闭，语义不可恢复。gain 是数组，不入
+                  # params json，需 _pack_net 另存——未实施，见速度第二波报告）
+                  "inh_loose", "std_dep", "std_rec", "edge_min", "inh_norm",
+                  "refract_clear")
 
 
 # ────────────────────────────────────────────────────────────────
@@ -78,7 +83,11 @@ def _pack_net(ng):
         return dict(src_i=np.array(src_i, dtype=np.int32),
                     slot_k=np.array(slot_k, dtype=np.int8),
                     dst_j=np.array(dst_j, dtype=np.int32),
-                    vals=np.array(vals, dtype=np.float32))
+                    # vals 存 float64（2026-08-10 修复）：原 float32 使会话内
+                    # 新学边（f64 增量）存载后截断 → 日志重放/版本恢复无法逐位
+                    # 一致（对拍 8895 差异边实证）。旧快照（f32）载入兼容。
+                    vals=np.array(vals, dtype=np.float64),
+                    gain=np.array(ng.gain, dtype=np.float64))   # 增益调制数组（2026-08-10：此前不入快照，载后丢失）
     return dict(W=ng.W.astype(np.float32))
 
 
@@ -94,6 +103,8 @@ def _restore_net(z):
         ng = SparseSchemaNet(rng=rng, **params)
         src_i, slot_k, dst_j, vals = z["src_i"], z["slot_k"], z["dst_j"], z["vals"]
         _rows_from_arrays(ng, src_i, slot_k, dst_j, vals)   # 批量构建（免逐条 dict 插入）
+        if "gain" in z:   # 旧快照无 gain 字段 → 保持默认全 1（向后兼容）
+            ng.gain = z["gain"].astype(np.float64)
     return ng
 
 

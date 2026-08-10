@@ -1,0 +1,1285 @@
+{
+ "meta": {
+  "experiment": "v17 对话训练实验（教师示范版：讲评+示范句+跟读）",
+  "ts": "20260810_172243_dialog_v17",
+  "teacher": "LLM",
+  "base": "17.0"
+ },
+ "rounds": [
+  {
+   "turn": 1,
+   "topic": "因果",
+   "level": "A已见",
+   "teacher_says": "因为今天热",
+   "expect": "所以猫睡觉",
+   "student_says": "所以我睡觉",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "猫",
+     "role": "PRE",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "睡觉",
+     "role": "PRED",
+     "read": "睡觉",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "所以猫睡觉",
+     "fb": "老师问的是“因为今天热”，所以后面该接热的结果呀。睡觉跟热不太对得上，咱们想想热了会怎样？来，跟老师说：所以猫睡觉。",
+     "ping": "睡觉和热无直接因果，逻辑不搭。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 2,
+   "topic": "因果",
+   "level": "A已见",
+   "teacher_says": "因为你困了",
+   "expect": "所以你想睡觉",
+   "student_says": "所以我看睡觉",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "你",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "想",
+     "role": "PRED",
+     "read": "看",
+     "hit": true
+    },
+    {
+     "expect": "睡觉",
+     "role": "PRED",
+     "read": "睡觉",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "所以你想睡觉",
+     "fb": "老师问的是“因为你困了”，你该接“所以你想睡觉”呀。来，跟老师说：“所以你想睡觉。”",
+     "ping": "“我看睡觉”搭配不当，且未回应“你困了”的原因。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 3,
+   "topic": "因果",
+   "level": "A已见",
+   "teacher_says": "因为她渴了",
+   "expect": "所以她想回家",
+   "student_says": "所以我回家睡觉",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "她",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "想",
+     "role": "PRED",
+     "read": "回家",
+     "hit": true
+    },
+    {
+     "expect": "回家",
+     "role": "PRED",
+     "read": "睡觉",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "所以她渴了想回家喝水",
+     "fb": "老师问的是“她渴了会想做什么”，不是问你回家睡觉哦。渴了应该想喝水或回家喝水，来，跟老师说：所以她渴了想回家喝水。",
+     "ping": "“回家睡觉”与“渴了”无因果关系，逻辑断裂。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 4,
+   "topic": "因果",
+   "level": "A已见",
+   "teacher_says": "因为冷",
+   "expect": "所以他不穿衣服",
+   "student_says": "所以我想穿衣服",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "不",
+     "role": "PRE",
+     "read": "想",
+     "hit": true
+    },
+    {
+     "expect": "穿衣服",
+     "role": "PRED",
+     "read": "穿衣服",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "structure",
+     "bad": [
+      {
+       "expect": "穿衣服",
+       "read": "需要",
+       "role": "PRED"
+      }
+     ],
+     "demo": "所以他不穿衣服",
+     "fb": "嗯，「穿衣服」说成「需要」，不太对。来，跟老师说：所以他不穿衣服",
+     "ping": "",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "structure",
+   "ok": true
+  },
+  {
+   "turn": 5,
+   "topic": "因果",
+   "level": "A已见",
+   "teacher_says": "因为她累了",
+   "expect": "所以她想睡觉",
+   "student_says": "所以我想睡觉",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "她",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "想",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    },
+    {
+     "expect": "睡觉",
+     "role": "PRED",
+     "read": "睡觉",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "所以她想睡觉",
+     "fb": "老师问的是“她累了”，所以该接“她想睡觉”呀。你想想，累了自然就想休息，对吧？来，跟老师说：“所以她想睡觉。”",
+     "ping": "“回家睡觉”和“她累了”逻辑不直接，答非所问。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 6,
+   "topic": "因果",
+   "level": "B未见",
+   "teacher_says": "因为狗累",
+   "expect": "所以他刷牙",
+   "student_says": "所以我想",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "刷牙",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "所以他刷牙",
+     "fb": "老师问的是狗累了会怎么样呀，不是你想做什么。来，跟老师说：所以他刷牙。",
+     "ping": "“我想”没接住“狗累”的原因，逻辑断了。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 7,
+   "topic": "因果",
+   "level": "B未见",
+   "teacher_says": "因为猫热",
+   "expect": "所以我们跑步",
+   "student_says": "所以我吃饭",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "跑步",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "所以我们跑步",
+     "fb": "老师问的是“猫热”会怎么样呀？猫热了，我们带它去干嘛呢？来，跟老师说：所以我们跑步。",
+     "ping": "“吃饭”和“猫热”没有因果关系，接话逻辑断裂。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 8,
+   "topic": "因果",
+   "level": "B未见",
+   "teacher_says": "因为猫渴",
+   "expect": "所以我们回家",
+   "student_says": "所以我吃饭",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "回家",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "所以我们回家",
+     "fb": "老师问的是猫渴了，不是说你饿啦。猫渴了应该怎么办呀？来，跟老师说：所以我们回家。",
+     "ping": "“猫渴”和“我吃饭”没有因果关系，逻辑不搭。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 9,
+   "topic": "因果",
+   "level": "B未见",
+   "teacher_says": "因为你们饿",
+   "expect": "所以我吃药",
+   "student_says": "所以我想",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "我",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "吃药",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "所以我吃药",
+     "fb": "老师问的是“因为你们饿”，所以该接“所以我吃药”呀。你想想，饿了要吃药才不饿。来，跟老师说：所以我吃药。",
+     "ping": "“我想”没接上“饿”的原因，逻辑断裂。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 10,
+   "topic": "因果",
+   "level": "B未见",
+   "teacher_says": "因为你们困",
+   "expect": "所以他刷牙",
+   "student_says": "所以我想",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "刷牙",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "所以他刷牙",
+     "fb": "老师问的是“因为你们困”，所以后面要接结果呀。困了会做什么呢？来，跟老师说：所以他刷牙。",
+     "ping": "“我想”没接住“困”的原因，逻辑断了。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 11,
+   "topic": "转折",
+   "level": "A已见",
+   "teacher_says": "虽然今天疼",
+   "expect": "但是他去医院",
+   "student_says": "但是我想看",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "去",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    },
+    {
+     "expect": "医院",
+     "role": "PRED",
+     "read": "看",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "但是他去医院",
+     "fb": "老师问的是“虽然今天疼”，后面该说“但是”什么呢？比如“但是他去医院”。来，跟老师说：但是他去医院。",
+     "ping": "“想看”和“疼”没有因果关系，接话逻辑不通。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 12,
+   "topic": "转折",
+   "level": "A已见",
+   "teacher_says": "虽然今天下雨",
+   "expect": "但是猫睡觉",
+   "student_says": "但是我睡觉",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "猫",
+     "role": "PRE",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "睡觉",
+     "role": "PRED",
+     "read": "睡觉",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "但是猫睡觉",
+     "fb": "老师问的是“虽然今天下雨”，你接“但是我睡觉”有点对不上呀。咱们想想，下雨天小猫会干嘛呢？来，跟老师说：但是猫睡觉。",
+     "ping": "“睡觉”和“下雨”没有直接关联，接话不搭。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 13,
+   "topic": "转折",
+   "level": "A已见",
+   "teacher_says": "虽然今天累",
+   "expect": "但是我坚持",
+   "student_says": "但是我想",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "我",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "坚持",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "但是我坚持",
+     "fb": "老师问的是“虽然今天累”，你接“但是我想”有点没对上呢。咱们顺着说“但是我坚持”就顺了。来，跟老师说：但是我坚持。",
+     "ping": "“但是我想”没接住“累”的转折，语义悬空，不完整。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 14,
+   "topic": "转折",
+   "level": "A已见",
+   "teacher_says": "虽然疼",
+   "expect": "但是他去医院",
+   "student_says": "但是我想看",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "去",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    },
+    {
+     "expect": "医院",
+     "role": "PRED",
+     "read": "看",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "但是他去医院",
+     "fb": "老师问的是“虽然疼”，后面应该接一个转折的结果。你想说“但是他想去医院”对吧？来，跟老师说：但是他去医院。",
+     "ping": "“想看”和“疼”之间没有因果关系，接话不自然。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 15,
+   "topic": "转折",
+   "level": "A已见",
+   "teacher_says": "虽然我们忙",
+   "expect": "但是我们上班",
+   "student_says": "但是我吃饭",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "上班",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "但是我们上班",
+     "fb": "老师问的是“虽然我们忙”，后面该接忙的时候会做什么呀。你想想，忙的时候一般是在上班对吧？来，跟老师说：但是我们上班。",
+     "ping": "“吃饭”和“忙”没有直接关联，接话逻辑不通顺。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 16,
+   "topic": "转折",
+   "level": "B未见",
+   "teacher_says": "虽然忙",
+   "expect": "但是她洗澡",
+   "student_says": "但是我想",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "她",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "洗澡",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "虽然忙但是她洗澡",
+     "fb": "老师问的是“虽然忙”，你接“但是我想”有点没对上呀。咱们要接一个跟“忙”相反的事，比如“但是她洗澡”。来，跟老师说：但是她洗澡。",
+     "ping": "“但是我想”没接住“忙”的转折，语义不完整。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 17,
+   "topic": "转折",
+   "level": "B未见",
+   "teacher_says": "虽然渴",
+   "expect": "但是狗回家",
+   "student_says": "但是我饿",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "狗",
+     "role": "PRE",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "回家",
+     "role": "PRED",
+     "read": "饿",
+     "hit": false
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "structure",
+     "bad": [
+      {
+       "expect": "回家",
+       "read": "饿",
+       "role": "PRED"
+      }
+     ],
+     "demo": "但是狗回家",
+     "fb": "嗯，「回家」说成「饿」，不太对。来，跟老师说：但是狗回家",
+     "ping": "",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "structure",
+   "ok": false
+  },
+  {
+   "turn": 18,
+   "topic": "转折",
+   "level": "B未见",
+   "teacher_says": "虽然难过",
+   "expect": "但是我们上课",
+   "student_says": "但是我吃饭",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "上课",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ptype": "ok",
+   "ok": true
+  },
+  {
+   "turn": 19,
+   "topic": "转折",
+   "level": "B未见",
+   "teacher_says": "虽然忙",
+   "expect": "但是我们洗澡",
+   "student_says": "但是我吃饭",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "洗澡",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "虽然忙但是我们洗澡",
+     "fb": "老师问的是“虽然忙”，咱们得接个相关的事儿呀。来，跟老师说：但是我们洗澡。",
+     "ping": "“吃饭”和“忙”不搭，没接上洗澡话题。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 20,
+   "topic": "转折",
+   "level": "B未见",
+   "teacher_says": "虽然忙",
+   "expect": "但是我们做饭",
+   "student_says": "但是我吃饭",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "做饭",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "但是我们做饭",
+     "fb": "老师问的是“虽然忙”后面接什么呀？你接“吃饭”有点跑偏了。来，跟老师说：但是我们做饭。",
+     "ping": "“吃饭”和“忙”逻辑不通，未回应“做饭”的转折。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 21,
+   "topic": "顺序",
+   "level": "A已见",
+   "teacher_says": "先做饭",
+   "expect": "然后她吃饭",
+   "student_says": "然后我想",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "她",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "吃饭",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后她吃饭",
+     "fb": "老师问的是“先做饭”，然后呢？你接“我想”就跑偏啦。来，跟老师说：然后她吃饭。",
+     "ping": "“我想”没接上“先做饭”的动作结果，语义断裂。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 22,
+   "topic": "顺序",
+   "level": "A已见",
+   "teacher_says": "先上班",
+   "expect": "然后他回家",
+   "student_says": "然后我想",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "回家",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后他回家",
+     "fb": "老师问的是“先上班”之后发生什么呀，不是问你想什么。来，跟老师说：然后他回家。",
+     "ping": "“我想”没接上“先上班”的动作，内容不连贯。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 23,
+   "topic": "顺序",
+   "level": "A已见",
+   "teacher_says": "先我吃苹果",
+   "expect": "然后我喝牛奶",
+   "student_says": "然后我想牛奶",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "我",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "喝",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    },
+    {
+     "expect": "牛奶",
+     "role": "PRED",
+     "read": "牛奶",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后我喝牛奶",
+     "fb": "老师问的是“先我吃苹果”，你要接我接着做什么呀。不是“想牛奶”，是“喝牛奶”哦。来，跟老师说：然后我喝牛奶。",
+     "ping": "“想牛奶”搭配不当，且未接上“吃苹果”的动作逻辑。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 24,
+   "topic": "顺序",
+   "level": "A已见",
+   "teacher_says": "先洗手",
+   "expect": "然后我们吃饭",
+   "student_says": "然后我吃饭",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "吃饭",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后我们吃饭",
+     "fb": "老师问的是“先洗手”，你接“然后我吃饭”有点对不上，应该说“然后我们吃饭”呀。来，跟老师说：然后我们吃饭。",
+     "ping": "内容对，但“我”和“你”不搭，接话对象错了。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 25,
+   "topic": "顺序",
+   "level": "A已见",
+   "teacher_says": "先我刷牙",
+   "expect": "然后我上班",
+   "student_says": "然后我想",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "我",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "上班",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后我上班",
+     "fb": "老师问的是“先我刷牙”之后做什么呀，不是问你想什么。来，跟老师说：“然后我上班。”",
+     "ping": "“然后我想”没接上“先我刷牙”的动作，语义断裂。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 26,
+   "topic": "顺序",
+   "level": "B未见",
+   "teacher_says": "先她吃药",
+   "expect": "然后他吃饭",
+   "student_says": "然后我想",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "吃饭",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后他吃饭",
+     "fb": "老师问的是“先她吃药”，然后她做什么呀？不是你想什么。来，跟老师说：然后他吃饭。",
+     "ping": "“我想”没接上“她吃药”的动作，语义断裂。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 27,
+   "topic": "顺序",
+   "level": "B未见",
+   "teacher_says": "先你们洗澡",
+   "expect": "然后我们写作业",
+   "student_says": "然后我吃饭",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "写作业",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后我们写作业",
+     "fb": "老师问的是洗完澡之后做什么呀，不是吃饭哦。咱们先洗澡，洗完澡要写作业的。来，跟老师说：然后我们写作业。",
+     "ping": "接话内容与洗澡无关，逻辑断裂，未承接上文。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 28,
+   "topic": "顺序",
+   "level": "B未见",
+   "teacher_says": "先狗上班",
+   "expect": "然后他吃饭",
+   "student_says": "然后我想",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "吃饭",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后他吃饭",
+     "fb": "老师问的是狗上班之后干嘛呀，不是你想什么。来，跟老师说：然后他吃饭。",
+     "ping": "“我想”没接上“狗上班”的动作，语义断裂。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": false
+  },
+  {
+   "turn": 29,
+   "topic": "顺序",
+   "level": "B未见",
+   "teacher_says": "先我洗澡",
+   "expect": "然后我们吃饭",
+   "student_says": "然后我吃饭",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "吃饭",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后我们吃饭",
+     "fb": "老师问的是“先我洗澡”，你接“然后我们吃饭”才顺呀。来，跟老师说：“然后我们吃饭。”",
+     "ping": "接话内容与“先我洗澡”无关联，未承接同一话题。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  },
+  {
+   "turn": 30,
+   "topic": "顺序",
+   "level": "B未见",
+   "teacher_says": "先狗刷牙",
+   "expect": "然后她洗澡",
+   "student_says": "然后我洗澡",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "她",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "洗澡",
+     "role": "PRED",
+     "read": "洗澡",
+     "hit": true
+    }
+   ],
+   "fixes": [
+    {
+     "ptype": "offtopic",
+     "bad": [],
+     "demo": "然后她洗澡",
+     "fb": "老师问的是狗刷牙之后做什么呀，不是问你想干嘛。来，跟老师说：然后她洗澡。",
+     "ping": "“我想”没接上“狗刷牙”的动作，话题断了。",
+     "round": 1
+    }
+   ],
+   "n_demo_rounds": 1,
+   "ptype": "offtopic",
+   "ok": true
+  }
+ ]
+}

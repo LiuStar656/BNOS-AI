@@ -1,0 +1,34 @@
+{
+ "version": "23.0",
+ "parent_version": "22.0",
+ "tag": "OOV 固化修复：8 词正式词模式（字并集解绑，n2w 污染消除）+ 重喂重建句级边",
+ "ts": "20260810_194900",
+ "metrics": {
+  "oov_words": [
+   "椅子",
+   "操场",
+   "起床",
+   "晚饭",
+   "午觉",
+   "雨伞",
+   "袜子",
+   "早饭"
+  ]
+ },
+ "meta": {
+  "version": "23.0",
+  "major": 23,
+  "minor": 0,
+  "parent_version": "22.0",
+  "ts": "20260810_194900",
+  "tag": "OOV 固化修复：8 词正式词模式（字并集解绑，n2w 污染消除）+ 重喂重建句级边",
+  "net_kind": "sparse",
+  "n": 149100,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37249,
+  "pats_size": 37128,
+  "cursor": 149100
+ }
+}

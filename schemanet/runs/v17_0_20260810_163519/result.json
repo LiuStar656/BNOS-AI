@@ -1,0 +1,38 @@
+{
+ "version": "17.0",
+ "parent_version": "16.0",
+ "tag": "Stage 3 v17：先见后教 + 数据扩量 166 条 + 并发训练（鲁迅 5 本散文全量先见 → 教学拉回 → 校准）",
+ "ts": "20260810_163519",
+ "metrics": {
+  "stage3_v17": true,
+  "data_n": 166,
+  "data_src": {
+   "短文·真实": 47,
+   "对话·构造": 75,
+   "短文·构造": 44
+  },
+  "prose_seqs": 9310,
+  "chunks": 4,
+  "prose_only_rate": 1.0,
+  "post_teach_rate": 1.0,
+  "cal_fixes": [],
+  "post_cal_rate": 1.0,
+  "all_ok": true
+ },
+ "meta": {
+  "version": "17.0",
+  "major": 17,
+  "minor": 0,
+  "parent_version": "16.0",
+  "ts": "20260810_163519",
+  "tag": "Stage 3 v17：先见后教 + 数据扩量 166 条 + 并发训练（鲁迅 5 本散文全量先见 → 教学拉回 → 校准）",
+  "net_kind": "sparse",
+  "n": 149068,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37249,
+  "pats_size": 37117,
+  "cursor": 149068
+ }
+}

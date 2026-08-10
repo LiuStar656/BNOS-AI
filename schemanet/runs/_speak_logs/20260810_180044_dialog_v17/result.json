@@ -1,0 +1,33 @@
+{
+ "tag": "v17 对话教学（对齐 _speak.py 完整流程：话题块/判定链/奖励处罚/渐隐/重复/连续 15 次）",
+ "base": "17.0",
+ "smoke": true,
+ "teacher": "规则",
+ "dialog_n": 12,
+ "stage1_baseline": {
+  "rate": 0.167
+ },
+ "stage2_teach": {
+  "rounds": 100,
+  "streak_peak": 1,
+  "passed": false,
+  "rewards": 42,
+  "offtopic": 56,
+  "structure": 2,
+  "repeat": 0,
+  "missing": 0,
+  "fixes": 2,
+  "fade_at": 10,
+  "talk_block": 3
+ },
+ "stage3_retest": {
+  "rate": 0.583
+ },
+ "stage4_eval": {
+  "hits": 17,
+  "tot": 19,
+  "rate": 0.895,
+  "cal_fallback": 3
+ },
+ "sec": 49.7
+}

@@ -1,0 +1,16 @@
+{
+ "tag": "s3 正式课程 v19（对话→自我表达→问答应答）",
+ "base": "17.0",
+ "teacher": "LLM",
+ "stageA_dialog": true,
+ "stageB_express": true,
+ "stageC_qa": true,
+ "eval": {
+  "hits": 19,
+  "tot": 19,
+  "rate": 1.0,
+  "cal_fallback": 0
+ },
+ "all_ok": true,
+ "sec": 88.7
+}

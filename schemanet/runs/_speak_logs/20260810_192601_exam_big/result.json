@@ -1,0 +1,105 @@
+{
+ "tag": "s2+s3 大规模期末考试（155 题，百分制，80 及格）",
+ "base": "20.0",
+ "total_score": 69.0,
+ "passed": false,
+ "n_valid": 155,
+ "n_hit": 117,
+ "sections": [
+  {
+   "section": "A 词语搭配",
+   "hits": 14,
+   "tot": 20,
+   "invalid": 0,
+   "rate": 0.7,
+   "score": 7.0,
+   "weight": 0.5,
+   "basis": "VB-MAPP Tact/LRFFC · 课标词语运用"
+  },
+  {
+   "section": "B 短句接话",
+   "hits": 30,
+   "tot": 30,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 15.0,
+   "weight": 0.5,
+   "basis": "课标一年级连词成句"
+  },
+  {
+   "section": "C 扩句修饰",
+   "hits": 20,
+   "tot": 20,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 10.0,
+   "weight": 0.5,
+   "basis": "课标扩句 ·《指南》形容词"
+  },
+  {
+   "section": "D 关系句",
+   "hits": 30,
+   "tot": 30,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 22.5,
+   "weight": 0.75,
+   "basis": "《指南》因果假设复杂句"
+  },
+  {
+   "section": "E 问答",
+   "hits": 1,
+   "tot": 15,
+   "invalid": 0,
+   "rate": 0.067,
+   "score": 0.5,
+   "weight": 0.5,
+   "basis": "课标表达与交流 · VB-MAPP Intraverbal"
+  },
+  {
+   "section": "F 自我表达",
+   "hits": 10,
+   "tot": 15,
+   "invalid": 0,
+   "rate": 0.667,
+   "score": 5.0,
+   "weight": 0.5,
+   "basis": "入学准备表达想法需求 · VB-MAPP Mand"
+  },
+  {
+   "section": "G 主动提问",
+   "hits": 9,
+   "tot": 10,
+   "invalid": 0,
+   "rate": 0.9,
+   "score": 4.5,
+   "weight": 0.5,
+   "basis": "《指南》主动提问 · 乐学好问"
+  },
+  {
+   "section": "H 压轴未见组合",
+   "hits": 3,
+   "tot": 15,
+   "invalid": 0,
+   "rate": 0.2,
+   "score": 4.5,
+   "weight": 1.5,
+   "basis": "课标写想象中的事物 · 泛化"
+  }
+ ],
+ "breaks": {
+  "汤→很": 1,
+  "图书馆→唱": 1,
+  "超市→玩": 1,
+  "他→没": 1,
+  "坚持→读书": 1,
+  "我们→多": 1,
+  "厨房→做": 1,
+  "超市→买": 1,
+  "图书馆→读": 1,
+  "上→喝": 1,
+  "了→牛奶": 1,
+  "家→打扫": 1
+ },
+ "sec": 7.6
+}

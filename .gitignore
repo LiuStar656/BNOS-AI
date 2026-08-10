@@ -61,3 +61,9 @@ logseq_pages/
 
 .db
 .pid
+
+# 经历日志（运行时产物，checkpoint 锚点在 index 可追溯）
+schemanet/runs/_exp_logs/
+
+# 实验前快照备份（防改坏回滚用）
+schemanet/runs/_bak_*/

@@ -41,7 +41,7 @@ attributed_sentence（结构检查信号）→ rule_verifier（代码查 O ∈ V
 | 信号 | 来源（复用现有） | 判据初值 |
 |---|---|---|
 | V→O 直连 | `edge_between(ng, pats, v, o)`（W 里 V 模式 → O 模式的边聚合） | ≥ 0.5 → 可造（强判断） |
-| 类别泛化二跳 | V 的搭配类别 `allow` → 类别成员出边（`attributed_sentence` 的"类别泛化"源，×0.3） | 可达 → 可造（弱判断） |
+| 类别泛化二跳 | V 的搭配类别 `allow` → 类别成员传出突触（`attributed_sentence` 的"类别泛化"源，×0.3） | 可达 → 可造（弱判断） |
 | 唤起强度 | `attributed_sentence` 的 `top` 排名 + O 得分（`scores[o]` 归一化） | O 进 top-8 → 置信高 |
 | 路径存在性 | `edge_between` 是否 > 0（图可达性） | 无边 → 判"不知道"（诚实留白） |
 
@@ -106,7 +106,7 @@ attributed_sentence（结构检查信号）→ rule_verifier（代码查 O ∈ V
 | `grade_report()` | 分档一致率统计 + 错误样本清单 |
 | 验收 + `save_snapshot(parent="11.1")` | → v12.0 |
 
-**数据留档**（成长协议四件套）：`runs/` 带时间戳目录——result.json（一致率/错误样本/边权重对比）+ 快照 + 题集数据 + 报告。
+**数据留档**（成长协议四件套）：`runs/` 带时间戳目录——result.json（一致率/错误样本/突触强度对比）+ 快照 + 题集数据 + 报告。
 
 **与说话教学衔接**：v12 的 `self_judge` 替换 `_speak.py` §③ `speak_judge` 的规则版（判断来自网络结构，非代码），作为对话教学"自判应答"的内化升级——分步做，先独立验收 v12，再接进 demo。
 

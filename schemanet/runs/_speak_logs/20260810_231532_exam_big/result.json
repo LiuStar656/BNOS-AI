@@ -1,0 +1,112 @@
+{
+ "tag": "s2+s3 大规模期末考试（155 题，百分制，80 及格）",
+ "base": "27.1",
+ "total_score": 100.0,
+ "passed": true,
+ "n_valid": 185,
+ "n_hit": 185,
+ "sections": [
+  {
+   "section": "A 词语搭配",
+   "hits": 20,
+   "tot": 20,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 10.0,
+   "weight": 0.5,
+   "basis": "VB-MAPP Tact/LRFFC · 课标词语运用"
+  },
+  {
+   "section": "B 短句接话",
+   "hits": 30,
+   "tot": 30,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 15.0,
+   "weight": 0.5,
+   "basis": "课标一年级连词成句"
+  },
+  {
+   "section": "C 扩句修饰",
+   "hits": 20,
+   "tot": 20,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 10.0,
+   "weight": 0.5,
+   "basis": "课标扩句 ·《指南》形容词"
+  },
+  {
+   "section": "D 关系句",
+   "hits": 30,
+   "tot": 30,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 15.0,
+   "weight": 0.5,
+   "basis": "《指南》因果假设复杂句"
+  },
+  {
+   "section": "E 问答",
+   "hits": 15,
+   "tot": 15,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 7.5,
+   "weight": 0.5,
+   "basis": "课标表达与交流 · VB-MAPP Intraverbal"
+  },
+  {
+   "section": "F 自我表达",
+   "hits": 15,
+   "tot": 15,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 7.5,
+   "weight": 0.5,
+   "basis": "入学准备表达想法需求 · VB-MAPP Mand"
+  },
+  {
+   "section": "G 主动提问",
+   "hits": 10,
+   "tot": 10,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 5.0,
+   "weight": 0.5,
+   "basis": "《指南》主动提问 · 乐学好问"
+  },
+  {
+   "section": "H 压轴未见组合",
+   "hits": 15,
+   "tot": 15,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 15.0,
+   "weight": 1.0,
+   "basis": "课标写想象中的事物 · 泛化"
+  },
+  {
+   "section": "I OOV 字造词",
+   "hits": 15,
+   "tot": 15,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 7.5,
+   "weight": 0.5,
+   "basis": "v19 字级 OOV 机制 · 字模式并集"
+  },
+  {
+   "section": "K 时间感知",
+   "hits": 15,
+   "tot": 15,
+   "invalid": 0,
+   "rate": 1.0,
+   "score": 7.5,
+   "weight": 0.5,
+   "basis": "内在时钟（相位起搏器）· 时间词轴 · 事件绑定"
+  }
+ ],
+ "breaks": {},
+ "sec": 4.5
+}

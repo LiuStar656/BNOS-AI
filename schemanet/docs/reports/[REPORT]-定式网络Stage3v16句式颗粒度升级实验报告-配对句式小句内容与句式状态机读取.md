@@ -44,7 +44,7 @@ def clause_next(ng, pats, n2w, prefix, k=6, domain=None):
     state, rel1 = clause_state(prefix)
     last = prefix[-1]
     if state == "PRE" and rel1:
-        # 内容小句读取：读内容词出边 top-1（排除人称——内容小句尾部再读人称
+        # 内容小句读取：读内容词传出突触 top-1（排除人称——内容小句尾部再读人称
         # = 开新小句，超出"单一配对句"边界；且真实边 了→你 碾压专门边）
         top = direct_next_multi(ng, pats, n2w, [last], k=1,
                                 domain=domain, exclude=PERS_SET)
@@ -65,7 +65,7 @@ def clause_next(ng, pats, n2w, prefix, k=6, domain=None):
     return direct_next_multi(ng, pats, n2w, [last], k=k, domain=domain)
 ```
 
-三类断点逐一修复：① PRE 阶段只读内容词出边，**内容没读完不配对直读**；② POST 阶段关系词2 后**排除 V/O 读结果主语**；③ 结果主语后**排除人称读结果谓语**（避开 我→你 201.6）。
+三类断点逐一修复：① PRE 阶段只读内容词传出突触，**内容没读完不配对直读**；② POST 阶段关系词2 后**排除 V/O 读结果主语**；③ 结果主语后**排除人称读结果谓语**（避开 我→你 201.6）。
 
 ### 2.3 验收 = 分句接话（对话语义：教师说前半 → 网络逐词接后半）
 
@@ -111,7 +111,7 @@ REL2 位用**配对约束**（因为→所以）严格判定；SUBJ/PRED 位用�
 ### 3.2 修正前 17/19 的两处断点（均为 PRED 位，校准后全修复）
 
 - `虽然他生病了但是他→上课`：读"生病"（他→生病 碾压）→ 校准 ×6；
-- `因为他累所以他→睡觉`：读"生病"（他→生病 强势出边共享）→ 校准后共享"上课"也自动落入 PRED 合法集 ✅。
+- `因为他累所以他→睡觉`：读"生病"（他→生病 强势传出突触共享）→ 校准后共享"上课"也自动落入 PRED 合法集 ✅。
 
 ## 四、关键洞察
 

@@ -144,7 +144,8 @@ def step_ref(ng, input_pulse, slot=0):
 
 
 def learn_with(ng, pats, pairs, step_fn, rounds=N_ROUNDS):
-    """用指定 step 驱动教学（复刻 _learn_sentence 流程）。"""
+    """用指定 step 驱动教学（复刻 _learn_sentence 流程）。
+    step_fn 签名统一为 fn(ng, pulse, slot)——绑定方法在外层包 lambda。"""
     for x, y in pairs:
         for _ in range(rounds):
             ng.v = np.zeros((ng.n, ng.slots))
@@ -193,7 +194,8 @@ def main():
 
     # numba 首次编译预热（不计时、不对拍）：学 1 对触发 _merge_rows 编译
     ng_warm, _, _, _ = load_version(VERSION)
-    learn_with(ng_warm, pats, pairs[:1], ng_warm.step)
+    learn_with(ng_warm, pats, pairs[:1],
+               lambda ng2, p, slot=0: ng2.step(p, slot))
     del ng_warm
 
     # 参考版（原逻辑）先跑并计时
@@ -203,7 +205,8 @@ def main():
 
     # 新版正式跑并计时（内核已编译，纯执行）
     t0 = time.perf_counter()
-    learn_with(ng_new, pats, pairs, ng_new.step)
+    learn_with(ng_new, pats, pairs,
+               lambda ng2, p, slot=0: ng2.step(p, slot))
     t_new = time.perf_counter() - t0
 
     print(f"[耗时] 参考实现：{t_ref:.2f}s | numba 版：{t_new:.2f}s | "

@@ -1,0 +1,28 @@
+{
+ "version": "25.1",
+ "parent_version": "24.0",
+ "tag": "自发表达教学 v3：引发边×4 降档 + 55 句等权 + 防环验收（v2 顶格黑洞修复）",
+ "ts": "20260810_202909",
+ "metrics": {
+  "passed": 38,
+  "total": 55,
+  "fails": 17,
+  "r_edge": 4
+ },
+ "meta": {
+  "version": "25.1",
+  "major": 25,
+  "minor": 1,
+  "parent_version": "24.0",
+  "ts": "20260810_202909",
+  "tag": "自发表达教学 v3：引发边×4 降档 + 55 句等权 + 防环验收（v2 顶格黑洞修复）",
+  "net_kind": "sparse",
+  "n": 149100,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37249,
+  "pats_size": 37128,
+  "cursor": 149100
+ }
+}

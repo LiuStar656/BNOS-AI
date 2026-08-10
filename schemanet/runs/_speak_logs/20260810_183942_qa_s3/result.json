@@ -1,0 +1,17 @@
+{
+ "tag": "s3.3 问答应答（Intraverbal：什么是/为什么/会怎样）",
+ "base": "17.0",
+ "teacher": "LLM",
+ "rounds": 150,
+ "streak_peak": 0,
+ "passed": false,
+ "rewards": 37,
+ "fixes": 113,
+ "eval": {
+  "hits": 19,
+  "tot": 19,
+  "rate": 1.0,
+  "cal_fallback": 0
+ },
+ "sec": 280.0
+}

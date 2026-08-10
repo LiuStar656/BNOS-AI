@@ -1,0 +1,275 @@
+{
+ "tag": "v17 先见后教探测（散文暴露 → 教学拉回）",
+ "base": "16.0",
+ "smoke": false,
+ "chunks": 4,
+ "per_book": {
+  "zhaohuaxishi_luxun.txt": {
+   "book": "朝花夕拾（散文集）",
+   "sents": 1191,
+   "kept": 1135
+  },
+  "nahan_luxun.txt": {
+   "book": "呐喊（叙事小说集）",
+   "sents": 2856,
+   "kept": 2672
+  },
+  "panghuang_luxun.txt": {
+   "book": "彷徨（叙事小说集）",
+   "sents": 2135,
+   "kept": 1942
+  },
+  "yecao_luxun.txt": {
+   "book": "野草（散文诗）",
+   "sents": 880,
+   "kept": 818
+  },
+  "nanqiangbeidiao_luxun.txt": {
+   "book": "南腔北调集（杂文）",
+   "sents": 2911,
+   "kept": 2743
+  }
+ },
+ "prose_seqs": 9310,
+ "stageB_prose_only": {
+  "hits": 18,
+  "tot": 19,
+  "rate": 0.947
+ },
+ "stageC_post_teach": {
+  "hits": 18,
+  "tot": 19,
+  "rate": 0.947,
+  "chain": [
+   {
+    "front": "因为今天下雨",
+    "back": "所以我带伞",
+    "gen": "所以我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true
+    ],
+    "match": 3,
+    "tot": 3
+   },
+   {
+    "front": "虽然他生病了",
+    "back": "但是他上课",
+    "gen": "在我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     false,
+     true,
+     true
+    ],
+    "match": 2,
+    "tot": 3
+   },
+   {
+    "front": "先吃饭",
+    "back": "然后我写作业",
+    "gen": "然后我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true
+    ],
+    "match": 3,
+    "tot": 3
+   },
+   {
+    "front": "因为他累",
+    "back": "所以他睡觉",
+    "gen": "所以我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true
+    ],
+    "match": 3,
+    "tot": 3
+   },
+   {
+    "front": "虽然下雨",
+    "back": "但是我们去公园",
+    "gen": "但是我吃饭看",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "match": 4,
+    "tot": 4
+   },
+   {
+    "front": "因为饿",
+    "back": "所以我吃饭",
+    "gen": "所以我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true
+    ],
+    "match": 3,
+    "tot": 3
+   }
+  ]
+ },
+ "stageD_cal": {
+  "fixes": [
+   {
+    "step": "虽然他生病了",
+    "expect": "但是",
+    "role": "REL2",
+    "rounds": 60,
+    "before": "在"
+   }
+  ],
+  "hits": 18,
+  "tot": 19,
+  "rate": 0.947,
+  "chain": [
+   {
+    "front": "因为今天下雨",
+    "back": "所以我带伞",
+    "gen": "所以我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true
+    ],
+    "match": 3,
+    "tot": 3
+   },
+   {
+    "front": "虽然他生病了",
+    "back": "但是他上课",
+    "gen": "在我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     false,
+     true,
+     true
+    ],
+    "match": 2,
+    "tot": 3
+   },
+   {
+    "front": "先吃饭",
+    "back": "然后我写作业",
+    "gen": "然后我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true
+    ],
+    "match": 3,
+    "tot": 3
+   },
+   {
+    "front": "因为他累",
+    "back": "所以他睡觉",
+    "gen": "所以我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true
+    ],
+    "match": 3,
+    "tot": 3
+   },
+   {
+    "front": "虽然下雨",
+    "back": "但是我们去公园",
+    "gen": "但是我吃饭看",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "match": 4,
+    "tot": 4
+   },
+   {
+    "front": "因为饿",
+    "back": "所以我吃饭",
+    "gen": "所以我想",
+    "roles": [
+     "REL2",
+     "SUBJ",
+     "PRED"
+    ],
+    "hits": [
+     true,
+     true,
+     true
+    ],
+    "match": 3,
+    "tot": 3
+   }
+  ]
+ },
+ "baseline_v16": {
+  "rate_pre_cal": 0.895,
+  "cal_fixes": 1
+ },
+ "sec": 1877.5
+}

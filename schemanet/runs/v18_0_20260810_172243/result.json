@@ -1,0 +1,32 @@
+{
+ "version": "18.0",
+ "parent_version": "17.0",
+ "tag": "Stage 3 v17.1：对话训练（教师示范版，30 轮：答非所问指出+处罚+示范重铸）",
+ "ts": "20260810_172243",
+ "metrics": {
+  "stage3_dialog_v17": true,
+  "teacher": "LLM",
+  "dialog_n": 30,
+  "baseline_rate": 0.567,
+  "post_teach_rate": 0.6,
+  "fixes": 2,
+  "demos": 29,
+  "eval_regress": 1.0
+ },
+ "meta": {
+  "version": "18.0",
+  "major": 18,
+  "minor": 0,
+  "parent_version": "17.0",
+  "ts": "20260810_172243",
+  "tag": "Stage 3 v17.1：对话训练（教师示范版，30 轮：答非所问指出+处罚+示范重铸）",
+  "net_kind": "sparse",
+  "n": 149068,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37249,
+  "pats_size": 37117,
+  "cursor": 149068
+ }
+}

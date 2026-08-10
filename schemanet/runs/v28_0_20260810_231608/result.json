@@ -1,0 +1,28 @@
+{
+ "version": "28.0",
+ "parent_version": "27.1",
+ "tag": "真实多轮对话：5 场景 14 轮（教师↔网络自由读回应，答错带读修正）",
+ "ts": "20260810_231608",
+ "metrics": {
+  "turns": 13,
+  "ok": 2,
+  "fixes": 11,
+  "rate": 0.154
+ },
+ "meta": {
+  "version": "28.0",
+  "major": 28,
+  "minor": 0,
+  "parent_version": "27.1",
+  "ts": "20260810_231608",
+  "tag": "真实多轮对话：5 场景 14 轮（教师↔网络自由读回应，答错带读修正）",
+  "net_kind": "sparse",
+  "n": 149164,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37249,
+  "pats_size": 37144,
+  "cursor": 149164
+ }
+}

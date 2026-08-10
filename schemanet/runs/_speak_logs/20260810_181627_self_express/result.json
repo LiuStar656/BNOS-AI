@@ -1,0 +1,22 @@
+{
+ "tag": "早教自我表达（网络=自闭症类比，LLM 教师）",
+ "base": "17.0",
+ "teacher": "规则",
+ "rounds": 120,
+ "streak_peak": 0,
+ "passed": false,
+ "rewards": 0,
+ "fixes": 120,
+ "self_initiate": {
+  "hits": 0,
+  "tot": 10,
+  "rate": 0.0
+ },
+ "eval": {
+  "hits": 19,
+  "tot": 19,
+  "rate": 1.0,
+  "cal_fallback": 0
+ },
+ "sec": 26.0
+}

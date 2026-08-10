@@ -1,0 +1,16 @@
+{
+ "version": "18.16",
+ "major": 18,
+ "minor": 16,
+ "parent_version": "17.0",
+ "ts": "20260810_184905",
+ "tag": "Stage 3 v18.13：s3.3 问答应答（Intraverbal：什么是/为什么/会怎样，LLM 教师 + 逆向锚点）",
+ "net_kind": "sparse",
+ "n": 149068,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 37249,
+ "pats_size": 37117,
+ "cursor": 149068
+}

@@ -45,6 +45,7 @@ import numpy as np
 
 from schema_net import _learn_sentence
 from snapshot import load_version, save_snapshot
+from _net_log import ExpLog
 from sparse_net import allocate_pats
 from _grow_cat import build_cats
 from _grow_v11 import O_FOOD, O_PLACE, V_SET, PERS_MANUAL, edge_between
@@ -174,7 +175,7 @@ def clause_next(ng, pats, n2w, prefix, k=6, domain=None):
     last = prefix[-1]
     if state == "PRE" and rel1:
         top = direct_next_multi(ng, pats, n2w, [last], k=1, domain=domain,
-                                exclude=PERS_SET)
+                                exclude=PERS_SET | {"在"})
         if top and top[0][0] in REL_BACK:
             # 内容小句读完（内容词出边指向关系词2）→ 配对词 = rel1 的配对
             nxt = REL_FRONT[rel1]
@@ -251,7 +252,7 @@ def chain_generate(ng, pats, n2w, domain=None):
 # ── 校准（教师批改：接话读错 → 固化期望边，温和不循环）───────────
 
 
-def calibrate(ng, pats, n2w, domain=None):
+def calibrate(ng, pats, n2w, domain=None, log=None):
     """逐位置校准：读出 ∉ 目标词角色合法集 → 固化 期望相邻对（×CAL_FIX 轮），
     直到读出 ∈ 合法集 或 CAL_MAX 上限。角色集口径下命中容易，无死循环。
     返回校准记录 list。
@@ -272,7 +273,10 @@ def calibrate(ng, pats, n2w, domain=None):
             n = 0
             while nxt not in legal and n < CAL_MAX:
                 for _ in range(CAL_FIX):
-                    _learn_sentence(ng, [prev, expect], pats, slot=0)
+                    if log is not None:
+                        log.learn(ng, [prev, expect], pats, slot=0)
+                    else:
+                        _learn_sentence(ng, [prev, expect], pats, slot=0)
                 n += 1
                 top = clause_next(ng, pats, n2w, prefix, k=1, domain=domain)
                 nxt = top[0][0] if top else None
@@ -300,6 +304,13 @@ def main():
 
     # ── 1. 加载 v15.0 + 数据 ───────────────────────────────────
     ng, vocab, pats, cursor = load_version("15.0")
+    # ── 速度配置（2026-08-10 第六/七波验证）：edge_min 弱边修剪 ──
+    # 唤起提速 2.5×（0.5）→ v17 实测 2.0 时速度 -23% 且命中率最高（0.076）、
+    # 4.0 最快（-31%，命中持平）；第七波 v17 全链实测：0.5→2.0+drive 复用
+    # 39.9 → 20.9ms/次（-48%）。注意：会改变训练中唤起评估的 fired 集合
+    # （去噪），cal 修正次数可能变；需要严格复现旧行为时设回 0.0。
+    ng.edge_min = 2.0
+    log = None if smoke else ExpLog()   # 经历日志（崩溃恢复）；smoke 不落盘
     n2w = {j: w for w, ns in pats.items() for j in ns}
     hanzi = json.loads((DATA / "stage0_hanzi.json").read_text(encoding="utf-8"))
     rows = json.loads((DATA / "stage3_rel_v2.json").read_text(encoding="utf-8"))
@@ -326,7 +337,10 @@ def main():
     print(f"\n[训练] {len(rows)} 条 ×{R_S} 轮 = {len(rows) * R_S} 次学习")
     for r in rows:
         for _ in range(R_S):
-            _learn_sentence(ng, r["tokens"], pats, slot=0)
+            if log is not None:
+                log.learn(ng, r["tokens"], pats, slot=0)
+            else:
+                _learn_sentence(ng, r["tokens"], pats, slot=0)
 
     # ── 3. 阶段1：分句接话（修正前）────────────────────────────
     print("\n[分句接话·修正前]（教师说前半 → 网络接后半）")
@@ -336,7 +350,7 @@ def main():
 
     # ── 4. 阶段2：自适应校准（教师批改）────────────────────────
     print("\n[校准]（教师批改：接话读错 → 固化期望边 ×3，直到读对）")
-    fixes = calibrate(ng, pats, n2w, domain)
+    fixes = calibrate(ng, pats, n2w, domain, log=log)
     print(f"  [校准] 共 {len(fixes)} 处（见上）")
 
     # ── 5. 阶段4：分句接话（修正后，验收口径）─────────────────
@@ -392,11 +406,19 @@ def main():
             "char", "char_before", "word", "word_before", "sent",
             "sent_before", "cat25", "hold25_ok", "hold25_tot")}
     if not smoke:
-        save_snapshot(ng, parent="15.0",
-                      tag="Stage 3 v16：句式颗粒度升级（配对句式 + 小句内容"
-                          " + 句式状态机读取，108 条对话/短文数据）",
-                      metrics=metrics, vocab=vocab_new, pats=pats,
-                      cursor=cursor)
+        if log is not None:
+            # checkpoint = 全量快照 + 日志归档（崩溃恢复锚点）
+            log.checkpoint(ng, parent="15.0",
+                           tag="Stage 3 v16：句式颗粒度升级（配对句式 + 小句内容"
+                               " + 句式状态机读取，108 条对话/短文数据）",
+                           metrics=metrics, vocab=vocab_new, pats=pats,
+                           cursor=cursor)
+        else:
+            save_snapshot(ng, parent="15.0",
+                          tag="Stage 3 v16：句式颗粒度升级（配对句式 + 小句内容"
+                              " + 句式状态机读取，108 条对话/短文数据）",
+                          metrics=metrics, vocab=vocab_new, pats=pats,
+                          cursor=cursor)
         out = RUNS_DIR / "_speak_logs" / f"{time.strftime('%Y%m%d_%H%M%S')}_rel_v16"
         out.mkdir(parents=True, exist_ok=True)
         (out / "result.json").write_text(json.dumps(metrics,

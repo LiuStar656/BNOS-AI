@@ -1,0 +1,845 @@
+{
+ "meta": {
+  "tag": "s3 正式课程 v19（对话→自我表达→问答应答）",
+  "base": "17.0",
+  "teacher": "LLM",
+  "stageA_dialog": true,
+  "stageB_express": true,
+  "stageC_qa": true,
+  "eval": {
+   "hits": 19,
+   "tot": 19,
+   "rate": 1.0,
+   "cal_fallback": 0
+  },
+  "all_ok": true,
+  "sec": 88.7
+ },
+ "rounds": [
+  {
+   "stage": "A对话",
+   "round": 1,
+   "topic": "转折",
+   "front": "虽然今天疼",
+   "read": "但是他去医院",
+   "expect": "但是他去医院",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 2,
+   "topic": "转折",
+   "front": "虽然今天下雨",
+   "read": "但是猫睡觉",
+   "expect": "但是猫睡觉",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 3,
+   "topic": "转折",
+   "front": "虽然今天累",
+   "read": "但是我坚持",
+   "expect": "但是我坚持",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 4,
+   "topic": "因果",
+   "front": "因为冷",
+   "read": "所以他不穿衣服",
+   "expect": "所以他不穿衣服",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 5,
+   "topic": "因果",
+   "front": "因为她累了",
+   "read": "所以她想睡觉",
+   "expect": "所以她想睡觉",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 6,
+   "topic": "因果",
+   "front": "因为狗累",
+   "read": "所以他刷牙",
+   "expect": "所以他刷牙",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 7,
+   "topic": "顺序",
+   "front": "先你们洗澡",
+   "read": "然后我们写作业",
+   "expect": "然后我们写作业",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 8,
+   "topic": "顺序",
+   "front": "先狗上班",
+   "read": "然后他吃饭",
+   "expect": "然后他吃饭",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 9,
+   "topic": "顺序",
+   "front": "先我洗澡",
+   "read": "然后我们吃饭",
+   "expect": "然后我们吃饭",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 10,
+   "topic": "顺序",
+   "front": "先狗刷牙",
+   "read": "然后她洗澡",
+   "expect": "然后她洗澡",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "full"
+  },
+  {
+   "stage": "A对话",
+   "round": 11,
+   "topic": "顺序",
+   "front": "先做饭",
+   "read": "然后她吃饭",
+   "expect": "然后她吃饭",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "none"
+  },
+  {
+   "stage": "A对话",
+   "round": 12,
+   "topic": "顺序",
+   "front": "先上班",
+   "read": "然后他回家",
+   "expect": "然后他回家",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "none"
+  },
+  {
+   "stage": "A对话",
+   "round": 13,
+   "topic": "因果",
+   "front": "因为她渴了",
+   "read": "所以她想回家",
+   "expect": "所以她想回家",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "none"
+  },
+  {
+   "stage": "A对话",
+   "round": 14,
+   "topic": "因果",
+   "front": "因为冷",
+   "read": "所以他不穿衣服",
+   "expect": "所以他不穿衣服",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "none"
+  },
+  {
+   "stage": "A对话",
+   "round": 15,
+   "topic": "因果",
+   "front": "因为她累了",
+   "read": "所以她想睡觉",
+   "expect": "所以她想睡觉",
+   "ok": true,
+   "ptype": "ok",
+   "fade": "none"
+  },
+  {
+   "stage": "B表达",
+   "round": 1,
+   "layer": "层2感受",
+   "situ": "你碰了石头",
+   "read": "",
+   "expect": "我疼",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 2,
+   "layer": "层2感受",
+   "situ": "你摔了一跤",
+   "read": "",
+   "expect": "我疼",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 3,
+   "layer": "层2感受",
+   "situ": "一天没吃饭",
+   "read": "我因为",
+   "expect": "我饿",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 4,
+   "layer": "层2感受",
+   "situ": "早饭没吃",
+   "read": "我因为",
+   "expect": "我饿",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 5,
+   "layer": "层2感受",
+   "situ": "走了很远的路",
+   "read": "我回",
+   "expect": "我渴",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 6,
+   "layer": "层2感受",
+   "situ": "太阳晒了很久",
+   "read": "我热",
+   "expect": "我渴",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 7,
+   "layer": "层2感受",
+   "situ": "跑了一整天",
+   "read": "我饿",
+   "expect": "我累",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 8,
+   "layer": "层2感受",
+   "situ": "搬了很多东西",
+   "read": "",
+   "expect": "我累",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 9,
+   "layer": "层2感受",
+   "situ": "外面下雪了",
+   "read": "我冷",
+   "expect": "我冷",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 10,
+   "layer": "层2感受",
+   "situ": "冬天到了",
+   "read": "我冷",
+   "expect": "我冷",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 11,
+   "layer": "层2感受",
+   "situ": "太阳很大",
+   "read": "我热",
+   "expect": "我热",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 12,
+   "layer": "层2感受",
+   "situ": "夏天到了",
+   "read": "我热",
+   "expect": "我热",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 13,
+   "layer": "层2感受",
+   "situ": "玩具被抢走了",
+   "read": "我帮",
+   "expect": "我难过",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 14,
+   "layer": "层2感受",
+   "situ": "好朋友走了",
+   "read": "我难过",
+   "expect": "我难过",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 15,
+   "layer": "层2感受",
+   "situ": "妈妈回来了",
+   "read": "",
+   "expect": "我开心",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 16,
+   "layer": "层2感受",
+   "situ": "今天是我的生日",
+   "read": "",
+   "expect": "我开心",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 17,
+   "layer": "层2感受",
+   "situ": "晚上一个人在家",
+   "read": "",
+   "expect": "我害怕",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 18,
+   "layer": "层2感受",
+   "situ": "打雷了",
+   "read": "我害怕",
+   "expect": "我害怕",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 19,
+   "layer": "层2感受",
+   "situ": "玩具坏了",
+   "read": "我要",
+   "expect": "我生气",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 20,
+   "layer": "层2感受",
+   "situ": "别人不守规矩",
+   "read": "我生气",
+   "expect": "我生气",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 21,
+   "layer": "层2感受",
+   "situ": "你碰了石头",
+   "read": "我疼",
+   "expect": "我疼",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 22,
+   "layer": "层2感受",
+   "situ": "你摔了一跤",
+   "read": "我疼",
+   "expect": "我疼",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 23,
+   "layer": "层2感受",
+   "situ": "一天没吃饭",
+   "read": "我饿",
+   "expect": "我饿",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 24,
+   "layer": "层2感受",
+   "situ": "早饭没吃",
+   "read": "我饿",
+   "expect": "我饿",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 25,
+   "layer": "层2感受",
+   "situ": "走了很远的路",
+   "read": "我回",
+   "expect": "我渴",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 26,
+   "layer": "层2感受",
+   "situ": "太阳晒了很久",
+   "read": "我热",
+   "expect": "我渴",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 27,
+   "layer": "层2感受",
+   "situ": "跑了一整天",
+   "read": "我累",
+   "expect": "我累",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 28,
+   "layer": "层2感受",
+   "situ": "搬了很多东西",
+   "read": "我累",
+   "expect": "我累",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 29,
+   "layer": "层2感受",
+   "situ": "外面下雪了",
+   "read": "我冷",
+   "expect": "我冷",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 30,
+   "layer": "层2感受",
+   "situ": "冬天到了",
+   "read": "我冷",
+   "expect": "我冷",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 31,
+   "layer": "层2感受",
+   "situ": "太阳很大",
+   "read": "我热",
+   "expect": "我热",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 32,
+   "layer": "层2感受",
+   "situ": "夏天到了",
+   "read": "我热",
+   "expect": "我热",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 33,
+   "layer": "层2感受",
+   "situ": "玩具被抢走了",
+   "read": "我难过",
+   "expect": "我难过",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 34,
+   "layer": "层2感受",
+   "situ": "好朋友走了",
+   "read": "我难过",
+   "expect": "我难过",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 35,
+   "layer": "层2感受",
+   "situ": "妈妈回来了",
+   "read": "我开心",
+   "expect": "我开心",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 36,
+   "layer": "层2感受",
+   "situ": "今天是我的生日",
+   "read": "我开心",
+   "expect": "我开心",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "B表达",
+   "round": 37,
+   "layer": "层2感受",
+   "situ": "晚上一个人在家",
+   "read": "我害怕",
+   "expect": "我害怕",
+   "ok": true,
+   "fade": "none"
+  },
+  {
+   "stage": "B表达",
+   "round": 38,
+   "layer": "层2感受",
+   "situ": "打雷了",
+   "read": "我害怕",
+   "expect": "我害怕",
+   "ok": true,
+   "fade": "none"
+  },
+  {
+   "stage": "B表达",
+   "round": 39,
+   "layer": "层2感受",
+   "situ": "玩具坏了",
+   "read": "我生气",
+   "expect": "我生气",
+   "ok": true,
+   "fade": "none"
+  },
+  {
+   "stage": "B表达",
+   "round": 40,
+   "layer": "层2感受",
+   "situ": "别人不守规矩",
+   "read": "我生气",
+   "expect": "我生气",
+   "ok": true,
+   "fade": "none"
+  },
+  {
+   "stage": "B表达",
+   "round": 41,
+   "layer": "层2感受",
+   "situ": "你碰了石头",
+   "read": "我疼",
+   "expect": "我疼",
+   "ok": true,
+   "fade": "none"
+  },
+  {
+   "stage": "C问答",
+   "round": 1,
+   "layer": "①据因推果",
+   "ask": "累会怎样？",
+   "read": "",
+   "expect": "所以他想睡觉",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 2,
+   "layer": "②以果溯因",
+   "ask": "为什么睡觉？",
+   "read": "",
+   "expect": "因为他累了",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 3,
+   "layer": "①据因推果",
+   "ask": "困会怎样？",
+   "read": "",
+   "expect": "所以我想睡觉",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 4,
+   "layer": "②以果溯因",
+   "ask": "为什么睡觉？",
+   "read": "",
+   "expect": "因为我困了",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 5,
+   "layer": "①据因推果",
+   "ask": "饿会怎样？",
+   "read": "",
+   "expect": "所以猫想吃饭",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 6,
+   "layer": "②以果溯因",
+   "ask": "为什么吃饭？",
+   "read": "",
+   "expect": "因为猫饿了",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 7,
+   "layer": "①据因推果",
+   "ask": "生病会怎样？",
+   "read": "",
+   "expect": "所以他想看医生",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 8,
+   "layer": "②以果溯因",
+   "ask": "为什么看医生？",
+   "read": "",
+   "expect": "因为他生病了",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 9,
+   "layer": "①据因推果",
+   "ask": "饿会怎样？",
+   "read": "",
+   "expect": "所以狗想吃饭",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 10,
+   "layer": "②以果溯因",
+   "ask": "为什么吃饭？",
+   "read": "",
+   "expect": "因为狗饿了",
+   "ok": false,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 11,
+   "layer": "①据因推果",
+   "ask": "冷会怎样？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 12,
+   "layer": "LLM新题",
+   "ask": "那要是觉得冷，你会怎么做呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 13,
+   "layer": "LLM新题",
+   "ask": "那如果觉得身上凉飕飕的，你会怎么办呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 14,
+   "layer": "LLM新题",
+   "ask": "那身上发凉的时候，你第一个想到的办法是什么呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 15,
+   "layer": "LLM新题",
+   "ask": "那要是身上觉得冷飕飕的，你最先会想到干啥呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 16,
+   "layer": "LLM新题",
+   "ask": "那要是风一吹身上直打哆嗦，你心里头冒出来的头一个念头是啥呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 17,
+   "layer": "LLM新题",
+   "ask": "那风一吹浑身起鸡皮疙瘩的时候，你脑子里蹦出来的第一个想法是啥？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 18,
+   "layer": "LLM新题",
+   "ask": "那阵凉风嗖地一下钻进骨头缝里的时候，你心里头最急着想干的事儿是啥？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 19,
+   "layer": "LLM新题",
+   "ask": "那阵冷风一激，你当下最巴不得马上做的一件事儿是什么呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 20,
+   "layer": "LLM新题",
+   "ask": "那阵冷风灌进来的时候，你手上最想抓过来的是啥呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "full"
+  },
+  {
+   "stage": "C问答",
+   "round": 21,
+   "layer": "LLM新题",
+   "ask": "那阵风灌进来的时候，你手边最想摸到啥东西呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none"
+  },
+  {
+   "stage": "C问答",
+   "round": 22,
+   "layer": "LLM新题",
+   "ask": "那阵风灌进来的时候，你手边最想摸到啥东西呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none"
+  },
+  {
+   "stage": "C问答",
+   "round": 23,
+   "layer": "LLM新题",
+   "ask": "那阵风一扑过来，你第一反应是伸手去够什么呀？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none"
+  },
+  {
+   "stage": "C问答",
+   "round": 24,
+   "layer": "LLM新题",
+   "ask": "那阵风扑过来的时候，你手忙脚乱地要找的第一样东西是啥？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none"
+  },
+  {
+   "stage": "C问答",
+   "round": 25,
+   "layer": "LLM新题",
+   "ask": "那阵风刮得你直哆嗦，你心里头最急着解决的事儿是啥？",
+   "read": "所以我想穿衣服",
+   "expect": "所以我想穿衣服",
+   "ok": true,
+   "fade": "none"
+  }
+ ]
+}

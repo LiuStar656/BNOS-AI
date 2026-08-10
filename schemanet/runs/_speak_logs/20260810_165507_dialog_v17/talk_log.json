@@ -1,0 +1,394 @@
+{
+ "meta": {
+  "experiment": "v17 对话训练实验（教师示范版：讲评+示范句+跟读）",
+  "ts": "20260810_165507_dialog_v17",
+  "teacher": "规则",
+  "base": "17.0"
+ },
+ "rounds": [
+  {
+   "turn": 1,
+   "topic": "因果",
+   "level": "A已见",
+   "teacher_says": "因为今天热",
+   "expect": "所以猫睡觉",
+   "student_says": "所以我睡觉",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "猫",
+     "role": "PRE",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "睡觉",
+     "role": "PRED",
+     "read": "睡觉",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 2,
+   "topic": "因果",
+   "level": "A已见",
+   "teacher_says": "因为你困了",
+   "expect": "所以你想睡觉",
+   "student_says": "所以我看睡觉",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "你",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "想",
+     "role": "PRED",
+     "read": "看",
+     "hit": true
+    },
+    {
+     "expect": "睡觉",
+     "role": "PRED",
+     "read": "睡觉",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 3,
+   "topic": "因果",
+   "level": "B未见",
+   "teacher_says": "因为狗累",
+   "expect": "所以他刷牙",
+   "student_says": "所以我想",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "刷牙",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 4,
+   "topic": "因果",
+   "level": "B未见",
+   "teacher_says": "因为猫热",
+   "expect": "所以我们跑步",
+   "student_says": "所以我吃饭",
+   "steps": [
+    {
+     "expect": "所以",
+     "role": "REL2",
+     "read": "所以",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "跑步",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 5,
+   "topic": "转折",
+   "level": "A已见",
+   "teacher_says": "虽然今天疼",
+   "expect": "但是他去医院",
+   "student_says": "但是我想看",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "去",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    },
+    {
+     "expect": "医院",
+     "role": "PRE",
+     "read": "看",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 6,
+   "topic": "转折",
+   "level": "A已见",
+   "teacher_says": "虽然今天下雨",
+   "expect": "但是猫睡觉",
+   "student_says": "但是我睡觉",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "猫",
+     "role": "PRE",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "睡觉",
+     "role": "PRED",
+     "read": "睡觉",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 7,
+   "topic": "转折",
+   "level": "B未见",
+   "teacher_says": "虽然忙",
+   "expect": "但是她洗澡",
+   "student_says": "但是我洗澡",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "她",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "洗澡",
+     "role": "PRED",
+     "read": "洗澡",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 8,
+   "topic": "转折",
+   "level": "B未见",
+   "teacher_says": "虽然渴",
+   "expect": "但是狗回家",
+   "student_says": "但是我饿",
+   "steps": [
+    {
+     "expect": "但是",
+     "role": "REL2",
+     "read": "但是",
+     "hit": true
+    },
+    {
+     "expect": "狗",
+     "role": "PRE",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "回家",
+     "role": "PRE",
+     "read": "饿",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 9,
+   "topic": "顺序",
+   "level": "A已见",
+   "teacher_says": "先做饭",
+   "expect": "然后她吃饭",
+   "student_says": "然后我洗澡",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "她",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "吃饭",
+     "role": "PRED",
+     "read": "洗澡",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 10,
+   "topic": "顺序",
+   "level": "A已见",
+   "teacher_says": "先上班",
+   "expect": "然后他回家",
+   "student_says": "然后我想",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "回家",
+     "role": "PRE",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 11,
+   "topic": "顺序",
+   "level": "B未见",
+   "teacher_says": "先她吃药",
+   "expect": "然后他吃饭",
+   "student_says": "然后我想",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "他",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "吃饭",
+     "role": "PRED",
+     "read": "想",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  },
+  {
+   "turn": 12,
+   "topic": "顺序",
+   "level": "B未见",
+   "teacher_says": "先你们洗澡",
+   "expect": "然后我们写作业",
+   "student_says": "然后我吃饭",
+   "steps": [
+    {
+     "expect": "然后",
+     "role": "REL2",
+     "read": "然后",
+     "hit": true
+    },
+    {
+     "expect": "我们",
+     "role": "SUBJ",
+     "read": "我",
+     "hit": true
+    },
+    {
+     "expect": "写作业",
+     "role": "PRED",
+     "read": "吃饭",
+     "hit": true
+    }
+   ],
+   "fixes": [],
+   "n_demo_rounds": 0,
+   "ok": true
+  }
+ ]
+}

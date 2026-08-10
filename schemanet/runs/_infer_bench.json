@@ -1,0 +1,142 @@
+{
+ "baseline": {
+  "tag": "baseline",
+  "edge_min": 0.5,
+  "ts": "192051",
+  "evoke": {
+   "min_ms": 35.24470500124153,
+   "rounds": [
+    35.24,
+    54.93,
+    37.51
+   ]
+  },
+  "hit": {
+   "hit": 49,
+   "tot": 515,
+   "rate": 0.0951
+  },
+  "profile": {
+   "noise": 1.526,
+   "wta": 0.51,
+   "topk": 0.759,
+   "where": 0.173,
+   "collect": 0.036,
+   "prop": 2.084,
+   "_total_ms_step": 5.487,
+   "_cand_avg": 16884.0
+  }
+ },
+ "step1_pre_trace": {
+  "tag": "step1_pre_trace",
+  "edge_min": 0.5,
+  "ts": "192213",
+  "evoke": {
+   "min_ms": 33.654775001923554,
+   "rounds": [
+    36.66,
+    33.65,
+    33.82
+   ]
+  },
+  "hit": {
+   "hit": 49,
+   "tot": 515,
+   "rate": 0.0951
+  },
+  "profile": {
+   "noise": 1.663,
+   "wta": 0.56,
+   "topk": 1.181,
+   "where": 0.188,
+   "collect": 0.035,
+   "prop": 2.238,
+   "_total_ms_step": 6.296,
+   "_cand_avg": 16884.0
+  }
+ },
+ "step2_fire_idx": {
+  "tag": "step2_fire_idx",
+  "edge_min": 0.5,
+  "ts": "192333",
+  "evoke": {
+   "min_ms": 28.100869999616407,
+   "rounds": [
+    28.1,
+    28.3,
+    28.81
+   ]
+  },
+  "hit": {
+   "hit": 49,
+   "tot": 515,
+   "rate": 0.0951
+  },
+  "profile": {
+   "noise": 3.897,
+   "wta": 5.89,
+   "topk": 1.905,
+   "where": 0.292,
+   "collect": 0.059,
+   "prop": 4.687,
+   "_total_ms_step": 17.348,
+   "_cand_avg": 16884.0
+  }
+ },
+ "step3_spikes_buf": {
+  "tag": "step3_spikes_buf",
+  "edge_min": 0.5,
+  "ts": "192547",
+  "evoke": {
+   "min_ms": 27.212559999316,
+   "rounds": [
+    36.82,
+    33.61,
+    27.21
+   ]
+  },
+  "hit": {
+   "hit": 49,
+   "tot": 515,
+   "rate": 0.0951
+  },
+  "profile": {
+   "noise": 1.692,
+   "wta": 0.506,
+   "topk": 1.236,
+   "where": 0.201,
+   "collect": 0.037,
+   "prop": 2.163,
+   "_total_ms_step": 6.306,
+   "_cand_avg": 16884.0
+  }
+ },
+ "step4_localize": {
+  "tag": "step4_localize",
+  "edge_min": 0.5,
+  "ts": "193048",
+  "evoke": {
+   "min_ms": 25.63953000062611,
+   "rounds": [
+    30.11,
+    28.72,
+    25.64
+   ]
+  },
+  "hit": {
+   "hit": 49,
+   "tot": 515,
+   "rate": 0.0951
+  },
+  "profile": {
+   "noise": 1.422,
+   "wta": 0.44,
+   "topk": 0.745,
+   "where": 0.168,
+   "collect": 0.035,
+   "prop": 2.018,
+   "_total_ms_step": 5.216,
+   "_cand_avg": 16884.0
+  }
+ }
+}

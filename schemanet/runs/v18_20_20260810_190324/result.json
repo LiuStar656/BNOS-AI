@@ -1,0 +1,39 @@
+{
+ "version": "18.20",
+ "parent_version": "17.0",
+ "tag": "Stage 3 v20：s3.4 主动提问 + 反问/设问（《指南》5-6 岁主动提问 + 小学衔接预备）",
+ "ts": "20260810_190324",
+ "metrics": {
+  "tag": "s3.4 主动提问 + 反问/设问",
+  "base": "17.0",
+  "teacher": "LLM",
+  "stage1_ask": {
+   "ok": false,
+   "asked": 30
+  },
+  "stage2_rhet": true,
+  "eval": {
+   "hits": 19,
+   "tot": 19,
+   "rate": 1.0,
+   "cal_fallback": 0
+  },
+  "sec": 167.8
+ },
+ "meta": {
+  "version": "18.20",
+  "major": 18,
+  "minor": 20,
+  "parent_version": "17.0",
+  "ts": "20260810_190324",
+  "tag": "Stage 3 v20：s3.4 主动提问 + 反问/设问（《指南》5-6 岁主动提问 + 小学衔接预备）",
+  "net_kind": "sparse",
+  "n": 149068,
+  "slots": 4,
+  "learn_gate": true,
+  "data_fp": "",
+  "vocab_size": 37249,
+  "pats_size": 37117,
+  "cursor": 149068
+ }
+}
