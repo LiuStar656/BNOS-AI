@@ -1,7 +1,7 @@
 # [PLAN] 定式网络向大模型方向发展方案（SchemaNet → LLM-ish）
 
 > 日期：2026-08-09 | 版本：v1.3（Phase 3+ 开源真实语料 + 频率门控慢衰减纳入完成）| 状态：[PLAN]（Phase 1/2/3/4/4a 已完成；Phase 3+ 有偏语料/开源真实语料验证完成；频率门控慢衰减机制已纳入并验证）
-> 关联：[OK]-定式网络技术档案.md | [REPORT]-定式网络语言验证实验报告.md | [REPORT]-定式网络生成与解码实验报告.md（同目录 reports/）
+> 关联：[OK]-定式网络核心框架.md | [REPORT]-定式网络语言验证实验报告.md | [REPORT]-定式网络生成与解码实验报告.md（同目录 reports/）
 > 代码：`schemanet/schema_net.py` | 语料：`schemanet/data/corpus.json`
 > 基线：语言验证已通过（`--mode lang`，W聚合 0.500 ≈ bigram 0.526，留档 runs/20260809_022307）
 

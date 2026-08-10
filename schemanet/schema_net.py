@@ -1012,6 +1012,70 @@ def _learn_sentence(ng, seq, pats, slot=0):
         ng.step(np.zeros(ng.n), slot=slot)
 
 
+def consolidate_sentence(ng, pats, cursor, seq, k=4, w=64.0):
+    """句子固化（公式化语言 / 海马序列记忆，2026-08-11）：
+
+    语言发展：早期词对组合（bigram 走链）→ 高频句逐渐固化为固定
+    常用句（整块存取，不再逐词竞争）。一阶 bigram 边的局限——
+    "就→吃 vs 就→喝"无法区分"饿/渴"语境（语境污染）；教学把
+    中间桥推到饱和后下游全部触发收敛断链（权重悬崖）。固化句 =
+    句内每词分配 k 个新神经元（槽位），词 ↔ 槽位双向绑定（语义
+    触发 + 整句读出），槽位间独占强边（slot_i → slot_{i+1} 脊柱）：
+    起始词一经激活，整句沿脊柱逐槽读出——读出是"回忆一条神经
+    轨道"而非"组合"，序列完整性由脊柱保证，不受自由竞争干扰。
+
+    验证门（2026-08-11 用户："奖励和惩罚更像是直接削弱权重，而
+    不是批判对错"）：固化 = 教师（环境奖赏）验证通过后的结构记录
+    ——对错不做成权重增减，做成**结构存废**：对 = 脊柱存在（验证
+    门开启），错 = 入口移除（unconsolidate_sentence 关闭）。网络
+    "知道对错" = 查自己的结构。
+
+    返回 (slots, cursor)：slots[i] = seq[i] 的槽位神经元列表
+    （槽位不进词表 pats——是句子内部结构，非词汇）。
+    """
+    from sparse_net import allocate_pats
+    slots = []
+    for tok in seq:
+        p, cursor = allocate_pats(ng, [tok], k, cursor)
+        slots.append(p[tok])
+    # 词 ↔ 槽位双向绑定（触发 + 读出）
+    for i, tok in enumerate(seq):
+        for nid in slots[i]:
+            for j in pats[tok]:
+                ng.W_out[nid][0][j] = w          # 槽位 → 词（读出）
+                ng.W_out[j][0][nid] = w          # 词 → 槽位（触发）
+    # 脊柱：slot_i → slot_{i+1}（独占强边，整句序列推进）
+    for i in range(len(seq) - 1):
+        for a in slots[i]:
+            for b in slots[i + 1]:
+                ng.W_out[a][0][b] = w
+    return slots, cursor
+
+
+def unconsolidate_sentence(ng, pats, seq, slots):
+    """解除句子固化（验证门否定——2026-08-11）：
+
+    教师判"错" → 该句从结构移除：删除触发词 → 槽位[0] 的入口边
+    （词→槽位方向）——句子"关闭"（不可整句读出），槽位脊柱保留
+    但失去入口（孤儿轨道）。对错 = 结构存废：对 = 入口在（验证门
+    开启），错 = 入口移除（验证门关闭）。再次验证通过时可重固化
+    （consolidate_sentence 重建入口）。
+
+    返回移除的入口边数。
+    """
+    n = 0
+    trig = seq[0]
+    if trig in pats:
+        gate = set(slots[0])
+        for i in pats[trig]:
+            row = ng.W_out[i][0]
+            for j in list(row.keys()):
+                if j in gate:
+                    del row[j]
+                    n += 1
+    return n
+
+
 def _evoke_prefix(ng, prefix, pats, slot=0, steps=3):
     """注入前缀词序列，回响 steps 步，返回激活神经元集合。
     steps=1 → 只取直接后继（next-token 评估用：避免多步回响把二阶词

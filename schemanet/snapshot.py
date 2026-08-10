@@ -173,7 +173,8 @@ def _next_dir(base, name):
 
 
 def save_snapshot(ng, *, parent=None, tag="", data_fp=None, metrics=None,
-                  vocab=None, pats=None, cursor=None, base=None):
+                  vocab=None, pats=None, cursor=None, base=None,
+                  consolidated=None, validation=None):
     """训练后产生一个新版本：runs/v{M}_{N}_{时间戳}/net.npz + meta.json + result.json，
     追加追溯索引 runs/index.jsonl。
 
@@ -188,6 +189,11 @@ def save_snapshot(ng, *, parent=None, tag="", data_fp=None, metrics=None,
         vocab     词表 list
         pats      词→神经元模式字典 {word: [k 个神经元]}（v2.1 分配制）
         cursor    神经元分配游标 int（v2.1 扩容边界）
+        consolidated  句子固化表（训练沉淀，2026-08-11）：{触发词:
+                      [(toks, slots, ctype), ...]}
+        validation    条件化验证表（对错标准）：{(qtype, kw, 句): (对, 错)}
+        ——两者入 meta.json（load_consolidated 恢复）；槽位神经元随
+        net.npz 的 W_out 持久化（孤儿边 + 注册表 = 完整恢复）
     返回：快照目录 Path。
     """
     base = base or RUNS
@@ -219,6 +225,10 @@ def save_snapshot(ng, *, parent=None, tag="", data_fp=None, metrics=None,
             "learn_gate": ng.learn_gate, "data_fp": data_fp or "",
             "vocab_size": len(vocab or []), "pats_size": len(pats or {}),
             "cursor": int(cursor or 0)}
+    if consolidated:
+        meta["consolidated"] = consolidated
+    if validation:
+        meta["validation"] = [[list(k), list(v)] for k, v in validation.items()]
     (out / "meta.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "result.json").write_text(json.dumps(
@@ -262,6 +272,27 @@ def load_version(version, base=None):
     for r in snapshot_index(base):
         if r.get("version") == want:
             return load_snapshot(base / r["dir"] / "net.npz")
+    raise FileNotFoundError(f"版本 v{want} 不存在（见 runs/index.jsonl）")
+
+
+def load_consolidated(version, base=None):
+    """恢复训练沉淀（2026-08-11）：固化表 + 验证表（meta.json）。
+    返回 (consolidated, validation)；快照无沉淀 → ({}, {})。
+    与 load_version 配套：net.npz（W_out 槽位边）+ meta.json（注册表）
+    = 完整恢复训练后状态（固化句可读、对错标准可用）。"""
+    base = base or RUNS
+    want = _v_str(*_parse_version(version))
+    for r in snapshot_index(base):
+        if r.get("version") == want:
+            meta_fp = base / r["dir"] / "meta.json"
+            if not meta_fp.exists():
+                return {}, {}
+            meta = json.loads(meta_fp.read_text(encoding="utf-8"))
+            cons = meta.get("consolidated") or {}
+            cons = {k: [tuple(t) for t in v] for k, v in cons.items()}
+            val = meta.get("validation") or []
+            val = {(k[0], k[1], tuple(k[2])): (v[0], v[1]) for k, v in val}
+            return cons, val
     raise FileNotFoundError(f"版本 v{want} 不存在（见 runs/index.jsonl）")
 
 

@@ -116,7 +116,7 @@
 | _gen_rel_v2.py | v16 数据生成（扩量复用的结构参考） |
 | _probe_expose_prose.py | 探测/训练管线（散文收集 + 4 块并行 + 后教 + 校准 + 验收） |
 | snapshot.py | load_version/save_version（快照 v17.0） |
-| docs/reports/[REPORT]-定式网络Stage3v17先见后教探测与训练加速调查报告-散文暴露与rng切块并发.md | 探测报告（smoke+全量） |
+| docs/reports/04-语言教学与Stage成长/[REPORT]-定式网络Stage3v17先见后教探测与训练加速调查报告-散文暴露与rng切块并发.md | 探测报告（smoke+全量） |
 
 命令：
 - 数据扩量：`python _gen_rel_v3.py`（待开发，产出 stage3_rel_v3.json）

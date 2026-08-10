@@ -1,7 +1,7 @@
 # [PLAN] 定式网络语言验证方案（--mode lang）
 
 > 日期：2026-08-09 | 版本：v1.0 | 状态：[PLAN]（待评审后开发）
-> 关联：[OK]-定式网络技术档案.md（同目录）| 代码：`schemanet/schema_net.py`
+> 关联：[OK]-定式网络核心框架.md（同目录）| 代码：`schemanet/schema_net.py`
 
 ## 目录
 

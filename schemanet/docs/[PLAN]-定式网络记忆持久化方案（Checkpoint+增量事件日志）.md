@@ -163,6 +163,6 @@ class ExpLog:
 | `_net_log.py`（新增） | ExpLog 类：append_learn / append_edge / checkpoint / recover_latest |
 | `_probe_boundary.py` / `_speak.py` | 学习入口接入日志（薄封装，不入侵规则） |
 | `snapshot.py` | 仅补 `save_snapshot` 原子写（临时文件+rename），其余不动 |
-| `docs/[OK]-定式网络技术档案.md` | §九 路线补"记忆持久化"条目；§五 验证汇总补对拍结论 |
+| `docs/[OK]-定式网络核心框架.md` | §九 路线补"记忆持久化"条目；§五 验证汇总补对拍结论 |
 
 **不做**：不改 `_learn_sentence`/Hebbian 内核；不引入数据库/第三方库；不影响快照版本机制本身。

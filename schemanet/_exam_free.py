@@ -187,7 +187,7 @@ def _is_loop(seq):
 
 
 def free_read(ng, pats, n2w, front, domain, k=16, steps=8, teach_out=None,
-              trace=None):
+              trace=None, consolidated=None, ctx=None, validation=None):
     """域内自由读（教学链约束 + 内容优先 + 强桥中继）。
 
     自发表达 = 无提示地行走教学链：每步 top-k 中，内容词候选必须 ∈
@@ -196,10 +196,79 @@ def free_read(ng, pats, n2w, front, domain, k=16, steps=8, teach_out=None,
     泛化形态（教学验证 → 自发表达）。
     规则：内容词候选与桥词 top-1 比较——桥权 ≥ 内容 ×2 走桥
     （所以→我256 ≫ 所以→猫128 → 我→想→睡觉）；桥词中继 ≤4 跳；
-    收敛停止（权骤降 ×0.4）；循环检测（3 词模式重复 → [黑洞]）。"""
+    收敛停止（权骤降 ×0.4）；循环检测（3 词模式重复 → [黑洞]）。
+
+    consolidated（句子固化表，2026-08-11）：{起始词: [(句子, 槽位, 类型)]}
+    ——起始词命中固化句 → 沿槽位脊柱整句读出（公式化语言：固定常用
+    句整块调取；序列完整性由脊柱保证）。
+
+    思考环（2026-08-11 用户："网络缺少中间步骤是机械的寻找最优路
+    径"——自闭症干预的认知中介）：固化命中不直接输出——先"停住，
+    想一想"（时间延迟——PRT 时间延迟法）：trace 记录"想到整句"，
+    然后表达环逐词读出。回答路径 = 听到 → 理解 → 思考 → 表达。
+
+    validation（条件化验证，2026-08-11 用户："对错有多个维度，不
+    能单一化"）：{(qtype, 主题, 句子): (对, 错)}——"这句话作为该
+    类型问题（该主题）的回答"的对错——条件性区辨入网（同句不同
+    问法独立验证：饿了就吃饭答"怎么办"✅、答"想不想吃饭"❌，互不
+    污染）。选择：该条件下验证通过 → 读出；未验证 → 组合路径；
+    验证否定（错>对）→ 该条件下禁用（过度选择的修复——问法类型
+    维度显著化）。"""
     seq, cur = [], front[-1]
     last_w = None
     for _ in range(steps):
+        # 唤醒计数（2026-08-11 sleep 接入修复）：free_read 是静态读边
+        # 不走 step——slot_freq（唤醒频率）必须由读取路径自己更新，
+        # 否则 sleep_consolidate 会把"未被教学注入"的常用词全部当低频
+        # 弱化（实测一轮误弱化 5600 万边）。读取 = 唤醒。
+        if hasattr(ng, "slot_freq") and cur in pats:
+            ng.slot_freq[pats[cur]] += 1
+        # 整句固化读出：命中起始词 → 先思考环（内部激活），后表达环
+        if consolidated:
+            cands = consolidated.get(cur)
+            if cands:
+                # 条件性区辨：问法类型调制（样本刺激）+ 条件化验证
+                pool = [c for c in cands if not ctx or c[2] == ctx]
+                if not pool:
+                    pool = cands
+
+                def _vscore(c):
+                    v = (validation or {}).get(
+                        (ctx, cur, tuple(c[0])), (0, 0))
+                    return v[0] - v[1]
+
+                ok_pool = [c for c in pool if _vscore(c) > 0]
+                pick = None
+                if ok_pool:
+                    pick = ok_pool[0]        # 该条件下已验证通过 → 用
+                elif any(_vscore(c) < 0 for c in pool):
+                    pick = None              # 该条件下已验证否定 → 禁用
+                else:
+                    pick = pool[0]           # 未验证 → 组合路径（频率）
+                if pick is not None:
+                    # 思考环：内部激活候选——先想再说（trace 可见）
+                    if trace is not None:
+                        v = (validation or {}).get(
+                            (ctx, cur, tuple(pick[0])), (0, 0))
+                        trace.append({"state": cur,
+                                      "cands": ["整句「%s」验证%d/%d"
+                                                % ("".join(pick[0]),
+                                                   v[0], v[1])],
+                                      "chosen": "整句"})
+                    # 表达环：逐词读出（输出完整句——触发词可能在句中，
+                    # 确认句「我饿了」的触发词"饿"在位置 1，"我"不能丢）
+                    for tok in pick[0]:
+                        seq.append(f"{tok}({1024:g})")
+                        if trace is not None:
+                            trace.append({"state": "表达", "cands": [tok],
+                                          "chosen": tok})
+                        cur = tok
+                        last_w = 1024.0
+                        if _is_loop(seq):
+                            seq.append("[黑洞]")
+                            return seq
+                    break   # 表达收束：整句说完即完成（固定常用句——
+                            # 不漂移接自由链，杜绝"…就…[黑洞]"尾巴）
         top = direct_next_multi(ng, pats, n2w, [cur], k=k, domain=domain)
 
         def _filt(tp, src):
