@@ -67,3 +67,6 @@ schemanet/runs/_exp_logs/
 
 # 实验前快照备份（防改坏回滚用）
 schemanet/runs/_bak_*/
+
+# 模型快照（100~200MB，不入库；runs 下实验记录 json/md 仍跟踪）
+schemanet/runs/**/net*.npz
