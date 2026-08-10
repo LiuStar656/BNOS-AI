@@ -1,21 +1,14 @@
 # -*- coding: utf-8 -*-
-"""结构有序度诊断——"有向脉冲熵减"的可计算验证（2026-08-11）。
+"""结构有序度诊断 v2——"有向脉冲熵减"的可计算验证（全版本 + 段内分析）。
 
-对 runs/ 版本链（v1.0 → v34.0）做离线分析：
-  Phase 1（静态）：每个版本快照的
-    - H_strength：非零边强度分布的 Shannon 熵（log 空间，按 log(bins) 归一化）
-    - skew       ：强度分布偏度（正偏 = 少数强边 + 大量弱边的长尾分化）
-    - sat_ratio  ：w≥1.99 的饱和边占比（w_max=2.0 截断顶 bin）
-    - weak_ratio ：w<0.5 弱边占比
-    - H_deg / deg_top1pct_share：出度分布熵 / top1% 神经元出度占比（hub 长尾）
-  Phase 2（动态）：每个版本注入任意词，测候选数比率 σ（分支参数，
-    复用 archive/_debug_avalanche.py 方法）→ 观察 σ 随成长的收敛/发散。
-
-判定（若"有向脉冲熵减"成立）：
-  - 成熟期段内 H_strength 下降（强度分布分化 = 有序化）
-  - skew 上升 / top1% 出度占比上升（hub 结构形成 = 结构有序化）
-  - σ 保持在临界附近（≈1），不发散
-否定结果同样有效（说明"熵减"表述需修正）。
+Phase 1（静态，全版本链）：强度分布 Shannon 熵 H_strength / 偏度 skew /
+  饱和与弱边占比 / 出度 top1% 占比
+Phase 2（动态，全版本）：注入词测分支参数 σ（候选数比率）
+Phase 3（段内，稳定词跟踪）：各版本稳定词模式神经元的传出边强度
+  （fan-out / 平均强度 / 强边占比 / 强度熵）→ 关键路径是否随成长集中
+Phase 4（跃迁，共同边分析）：v16→v17（扩量）与 v32→v33（条件化验证门）
+  相邻版本的共同边强度变化（强化/弱化/不变 + 新增/删除）→ 经历是否在
+  强化既有路径（有向集中）而非制造随机新边
 
 用法：cd schemanet && python _probe_order_entropy.py
 输出：runs/_order_entropy.json + runs/fig_order_entropy.png + 控制台表格
@@ -37,6 +30,8 @@ from snapshot import RUNS, snapshot_index, load_snapshot
 BINS = 50
 OUT_JSON = RUNS / "_order_entropy.json"
 OUT_FIG = RUNS / "fig_order_entropy.png"
+STABLE_CANDIDATES = ("我", "吃", "了", "是", "的", "猫", "水", "喜欢", "不要")
+JUMP_PAIRS = [("16.0", "17.0"), ("32.0", "33.0")]
 
 
 # ────────────────────────────────────────────────────────────────
@@ -44,7 +39,9 @@ OUT_FIG = RUNS / "fig_order_entropy.png"
 # ────────────────────────────────────────────────────────────────
 
 def _strength_entropy(w):
-    """log 空间直方图 Shannon 熵（归一化 H/log(bins)）。全等值 → 0。"""
+    """log 空间直方图 Shannon 熵（归一化 H/log(bins)）。全等值 → 0。
+    只取 w>0（负边为 RL 归因处罚产物，统计上无意义且 log10 无定义）。"""
+    w = w[w > 0]
     if len(w) == 0:
         return 0.0
     lo, hi = np.log10(w.min()), np.log10(w.max())
@@ -66,7 +63,7 @@ def _skew(x):
     return float(np.mean((x - x.mean()) ** 3) / s ** 3)
 
 
-def static_metrics(npz_path):
+def static_metrics(npz_path, stable_idx=None):
     z = np.load(npz_path, allow_pickle=False)
     params = json.loads(z["params"].tobytes().decode("utf-8"))
     n = int(params.get("n", 0))
@@ -86,6 +83,7 @@ def static_metrics(npz_path):
         "w_max": float(vals.max()) if E else 0.0,
         "sat_ratio": float((vals >= 1.99).mean()) if E else 0.0,
         "weak_ratio": float((vals < 0.5).mean()) if E else 0.0,
+        "neg_edges": int((vals < 0).sum()),
         "skew": _skew(vals) if E else 0.0,
         "H_strength": _strength_entropy(vals) if E else 0.0,
     }
@@ -100,11 +98,20 @@ def static_metrics(npz_path):
     else:
         m["H_deg"] = 0.0
         m["deg_top1pct_share"] = 0.0
+    # Phase 3：稳定词传出边（静态直读，无需加载网络）
+    if stable_idx is not None and len(stable_idx) > 0 and E:
+        sel = np.isin(src_i, np.fromiter(stable_idx, dtype=np.int64))
+        if sel.sum() > 0:
+            ws = vals[sel]
+            m["pw_fanout"] = int(sel.sum())
+            m["pw_wmean"] = float(ws.mean())
+            m["pw_strong_ratio"] = float((ws >= 1.0).mean())
+            m["pw_H"] = _strength_entropy(ws)
     return m
 
 
 # ────────────────────────────────────────────────────────────────
-#  Phase 2：动态 σ（分支参数，候选数比率）
+#  Phase 2：动态 σ（全版本）
 # ────────────────────────────────────────────────────────────────
 
 def _cand_count(ng):
@@ -140,6 +147,53 @@ def dynamic_sigma(ng, pats, words, steps=4):
 
 
 # ────────────────────────────────────────────────────────────────
+#  Phase 4：共同边强度变化（关键跃迁）
+# ────────────────────────────────────────────────────────────────
+
+def _key(src, slot, dst, n_max):
+    return (src.astype(np.int64) * 16 + slot.astype(np.int64)) * (n_max + 1) + dst.astype(np.int64)
+
+
+def common_edge_delta(npz_a, npz_b, sample_mod=8, n_max=200000):
+    """抽样 src % sample_mod == 0 的边，统计共同边 w 变化与新增/删除。"""
+    za, zb = np.load(npz_a, allow_pickle=False), np.load(npz_b, allow_pickle=False)
+    if "vals" not in za or "vals" not in zb:
+        return None
+
+    def prep(z):
+        src = z["src_i"].astype(np.int64)
+        slot = z["slot_k"].astype(np.int64)
+        dst = z["dst_j"].astype(np.int64)
+        vals = z["vals"].astype(np.float64)
+        keep = src % sample_mod == 0
+        src, slot, dst, vals = src[keep], slot[keep], dst[keep], vals[keep]
+        k = _key(src, slot, dst, n_max)
+        o = np.argsort(k, kind="stable")
+        return k[o], vals[o]
+
+    ka, va = prep(za)
+    kb, vb = prep(zb)
+    common = np.intersect1d(ka, kb)
+    ia = np.searchsorted(ka, common)
+    ib = np.searchsorted(kb, common)
+    wa, wb = va[ia], vb[ib]
+    eps = 1e-9
+    up = int((wb - wa > eps).sum())
+    down = int((wa - wb > eps).sum())
+    same = len(common) - up - down
+    return {
+        "sampled_a": int(len(ka)), "sampled_b": int(len(kb)),
+        "common": int(len(common)),
+        "up_ratio": up / len(common) if len(common) else 0.0,
+        "down_ratio": down / len(common) if len(common) else 0.0,
+        "same_ratio": same / len(common) if len(common) else 0.0,
+        "mean_dw": float((wb - wa).mean()) if len(common) else 0.0,
+        "added_ratio": (len(kb) - len(common)) / len(kb) if len(kb) else 0.0,
+        "deleted_ratio": (len(ka) - len(common)) / len(ka) if len(ka) else 0.0,
+    }
+
+
+# ────────────────────────────────────────────────────────────────
 #  主流程
 # ────────────────────────────────────────────────────────────────
 
@@ -148,7 +202,6 @@ def main():
     if not rows:
         print("runs/index.jsonl 无版本记录")
         return
-    # 按主版本号排序（旧 → 新），取每个 major 的主链代表（minor=0 优先）
     versions = sorted(rows, key=lambda r: (r["major"], r["minor"]))
     reps = {}
     for r in versions:
@@ -156,42 +209,85 @@ def main():
             reps[r["major"]] = r
     chain = [reps[k] for k in sorted(reps)]
 
-    print("版本链（主版本 %d 个）" % len(chain))
+    # 稳定词：v2 起的 pats 交集
+    pats_sets = {}
+    for r in chain:
+        npz = RUNS / r["dir"] / "net.npz"
+        if not npz.exists():
+            continue
+        z = np.load(npz, allow_pickle=False)
+        if "pats" in z:
+            pats_sets[r["version"]] = set(json.loads(z["pats"].tobytes().decode("utf-8")).keys())
+    common_words = None
+    for w in STABLE_CANDIDATES:
+        if all(w in s for s in pats_sets.values()):
+            common_words = w
+            break
+    stable_idx = None
+    if common_words:
+        all_idx = set()
+        for r in chain:
+            npz = RUNS / r["dir"] / "net.npz"
+            if not npz.exists():
+                continue
+            z = np.load(npz, allow_pickle=False)
+            if "pats" in z:
+                all_idx.update(json.loads(z["pats"].tobytes().decode("utf-8")).get(common_words, []))
+        stable_idx = all_idx
+
+    print("版本链（主版本 %d 个） 稳定词=%s 模式神经元=%d"
+          % (len(chain), common_words, len(stable_idx or [])))
     results = []
     for i, r in enumerate(chain):
         npz = RUNS / r["dir"] / "net.npz"
         if not npz.exists():
             print("  跳过（无 net.npz）：v%s %s" % (r["version"], r["dir"]))
             continue
-        m = static_metrics(npz)
+        m = static_metrics(npz, stable_idx)
         rec = {
             "version": r["version"], "tag": r.get("tag", ""),
             "parent": r.get("parent_version"), "E": m["E"], "n": m["n"],
             "w_mean": m["w_mean"], "w_max": m["w_max"],
             "sat_ratio": m["sat_ratio"], "weak_ratio": m["weak_ratio"],
+            "neg_edges": m["neg_edges"],
             "skew": m["skew"], "H_strength": m["H_strength"],
             "H_deg": m["H_deg"], "deg_top1pct_share": m["deg_top1pct_share"],
         }
-        # Phase 2：动态 σ（每 2 个版本测一次，省时）
-        if i % 2 == 0 or i == len(chain) - 1:
-            ng, vocab, pats, cursor = load_snapshot(npz)
-            probe_words = [w for w in ("我", "吃", "石头", "痛", "不要", "了", "是", "的")
-                           if w in pats][:5]
-            if not probe_words:
-                probe_words = list(pats.keys())[:5]
-            rec["sigma"] = dynamic_sigma(ng, pats, probe_words)
-        else:
-            rec["sigma"] = None
+        if "pw_fanout" in m:
+            rec.update(pw_fanout=m["pw_fanout"], pw_wmean=m["pw_wmean"],
+                       pw_strong_ratio=m["pw_strong_ratio"], pw_H=m["pw_H"])
+        # Phase 2：全版本动态 σ
+        ng, vocab, pats, cursor = load_snapshot(npz)
+        pw = [w for w in ("我", "吃", "石头", "痛", "不要", "了", "是", "的", "猫", "水")
+              if w in pats][:5]
+        if not pw:
+            pw = list(pats.keys())[:5]
+        rec["sigma"] = dynamic_sigma(ng, pats, pw)
         results.append(rec)
-        print("v%-4s σ=%5.2f Hstr=%5.3f skew=%7.1f sat=%5.3f top1%%=%5.3f E=%8d n=%6d  %s"
-              % (rec["version"],
-                 rec["sigma"] if rec["sigma"] is not None else float("nan"),
-                 rec["H_strength"], rec["skew"], rec["sat_ratio"],
-                 rec["deg_top1pct_share"], rec["E"], rec["n"],
-                 (rec["tag"] or "")[:36]))
+        pwline = (" fanout=%8d pw_w=%.3f strong=%4.2f" % (rec["pw_fanout"], rec["pw_wmean"],
+                   rec["pw_strong_ratio"])) if "pw_fanout" in rec else ""
+        print("v%-4s σ=%6.2f Hstr=%.3f skew=%7.1f top1%%=%.3f E=%9d%s  %s"
+              % (rec["version"], rec["sigma"], rec["H_strength"], rec["skew"],
+                 rec["deg_top1pct_share"], rec["E"], pwline, (rec["tag"] or "")[:30]))
 
-    OUT_JSON.write_text(json.dumps(results, ensure_ascii=False, indent=1),
-                        encoding="utf-8")
+    # Phase 4：关键跃迁共同边
+    jumps = {}
+    by_v = {r["version"]: r for r in chain}
+    for va, vb in JUMP_PAIRS:
+        if va in by_v and vb in by_v:
+            na = RUNS / by_v[va]["dir"] / "net.npz"
+            nb = RUNS / by_v[vb]["dir"] / "net.npz"
+            j = common_edge_delta(na, nb)
+            if j:
+                jumps["%s→%s" % (va, vb)] = j
+                print("\n跃迁 %s→%s：共同边 %d 条（抽样 %d/%d）"
+                      % (va, vb, j["common"], j["sampled_a"], j["sampled_b"]))
+                print("  强化 %.1f%% / 弱化 %.1f%% / 不变 %.1f%%  Δw均值 %+.4f  新增占比 %.1f%% 删除占比 %.1f%%"
+                      % (j["up_ratio"] * 100, j["down_ratio"] * 100, j["same_ratio"] * 100,
+                         j["mean_dw"], j["added_ratio"] * 100, j["deleted_ratio"] * 100))
+
+    OUT_JSON.write_text(json.dumps({"versions": results, "jumps": jumps},
+                                   ensure_ascii=False, indent=1), encoding="utf-8")
     print("\n结果 → %s" % OUT_JSON)
 
     # 画图
@@ -199,9 +295,11 @@ def main():
         import matplotlib
         matplotlib.use("Agg")
         import matplotlib.pyplot as plt
+        plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei"]
+        plt.rcParams["axes.unicode_minus"] = False
         vers = [r["version"] for r in results]
         x = np.arange(len(vers))
-        fig, ax1 = plt.subplots(figsize=(11, 5))
+        fig, ax1 = plt.subplots(figsize=(11, 6))
         ax1.plot(x, [r["H_strength"] for r in results], "o-", color="tab:blue",
                  label="H_strength（归一化）")
         ax1.plot(x, [r["skew"] for r in results], "s-", color="tab:orange",
@@ -215,7 +313,7 @@ def main():
         ax1.set_xticks(x)
         ax1.set_xticklabels(vers, rotation=90, fontsize=8)
         ax1.set_xlabel("版本")
-        fig.suptitle("结构有序度诊断（有向脉冲熵减验证）")
+        fig.suptitle("结构有序度诊断 v2（全版本 + 稳定词跟踪）")
         fig.legend(loc="upper left", fontsize=8)
         fig.tight_layout()
         fig.savefig(OUT_FIG, dpi=130)
