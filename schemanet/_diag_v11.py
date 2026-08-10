@@ -64,7 +64,7 @@ for s, v, o in test_combos:
                     if jj in dst_n:
                         removed.append((i, jj, row[jj]))
                         del row[jj]
-                        ng._edge_dirty[i][0] = True
+                        ng.invalidate_edge_cache()
             if removed:
                 penalty_log.append({"src_word": src_w, "dst_word": bw,
                                     "src_type": src_type, "removed": removed})

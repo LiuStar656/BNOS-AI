@@ -1,0 +1,16 @@
+{
+ "version": "15.0",
+ "major": 15,
+ "minor": 0,
+ "parent_version": "14.0",
+ "ts": "20260810_121223",
+ "tag": "Stage 3 v15：定式对话/回答读取机制（direct_next 直接边接话 + 域内过滤 + 对话练习）",
+ "net_kind": "sparse",
+ "n": 148876,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 37201,
+ "pats_size": 37069,
+ "cursor": 148876
+}

@@ -27,10 +27,270 @@ from datetime import datetime
 from pathlib import Path
 
 import numpy as np
+from numba import njit
 
 from schema_net import (SchemaNet, _word_pattern, _learn_sentence, _evoke_prefix,
                         _BigramModel, _TrigramModel, _evaluate_ngram, build_pulse,
                         _generate)
+
+
+# ════════════════════════════════════════════════════════════════
+#  EdgeRow：稀疏行（数组事实源 + dict 兼容接口）
+# ════════════════════════════════════════════════════════════════
+
+# 共享空数组（60 万行共用，避免每行独立空数组的对象开销）
+_EMPTY_DST = np.zeros(0, dtype=np.int32)
+_EMPTY_W = np.zeros(0, dtype=np.float64)
+
+
+class EdgeRow:
+    """一行出边 {j: w} 的数组实现（dict 兼容接口）。
+
+    事实源 = dst(int32, 排序) + w(float64) 两个 numpy 数组（≈12B/边），
+    取代 dict（≈110B/边，见 docs/reports/[REPORT]-定式网络内存优化探针
+    实验报告-三种存储结构RSS实测.md）。w 用 float64 保证与 Python float
+    （原 dict 值）逐位一致——对拍铁律"结构不变≠性能不变"。
+
+    数组即事实源：传播镜像直接返回 (dst, w) 视图，dirty/懒重建机制废弃。
+
+    兼容外部对 `ng.W_out[i][k]` 的全部 dict 用法：
+        get / __getitem__ / __setitem__ / __delitem__ / __contains__ /
+        __iter__ / items / keys / values / clear / update / copy / pop /
+        __len__ / __bool__
+    """
+    __slots__ = ("dst", "w")
+
+    def __init__(self, dst=None, w=None):
+        self.dst = _EMPTY_DST if dst is None else dst
+        self.w = _EMPTY_W if w is None else w
+
+    # ── 读 ──
+    def __len__(self):
+        return len(self.dst)
+
+    def __bool__(self):
+        return len(self.dst) > 0
+
+    def get(self, j, default=0.0):
+        idx = np.searchsorted(self.dst, j)
+        if idx < len(self.dst) and self.dst[idx] == j:
+            return float(self.w[idx])
+        return default
+
+    def __getitem__(self, j):
+        idx = np.searchsorted(self.dst, j)
+        if idx < len(self.dst) and self.dst[idx] == j:
+            return float(self.w[idx])
+        raise KeyError(j)
+
+    def __contains__(self, j):
+        idx = np.searchsorted(self.dst, j)
+        return idx < len(self.dst) and self.dst[idx] == j
+
+    def __iter__(self):
+        return iter(self.dst.tolist())
+
+    def keys(self):
+        return iter(self.dst.tolist())
+
+    def values(self):
+        return iter(self.w.tolist())
+
+    def items(self):
+        return zip(self.dst.tolist(), self.w.tolist())
+
+    def to_dict(self):
+        return {int(j): float(w) for j, w in zip(self.dst.tolist(), self.w.tolist())}
+
+    # ── 写 ──
+    def __setitem__(self, j, w):
+        j = int(j)
+        w = float(w)
+        idx = np.searchsorted(self.dst, j)
+        if idx < len(self.dst) and self.dst[idx] == j:
+            self.w[idx] = w
+        else:
+            self.dst = np.insert(self.dst, idx, j)
+            self.w = np.insert(self.w, idx, w)
+
+    def __delitem__(self, j):
+        j = int(j)
+        idx = np.searchsorted(self.dst, j)
+        if idx < len(self.dst) and self.dst[idx] == j:
+            self.dst = np.delete(self.dst, idx)
+            self.w = np.delete(self.w, idx)
+        else:
+            raise KeyError(j)
+
+    def pop(self, j, default=None):
+        j = int(j)
+        idx = np.searchsorted(self.dst, j)
+        if idx < len(self.dst) and self.dst[idx] == j:
+            v = float(self.w[idx])
+            self.dst = np.delete(self.dst, idx)
+            self.w = np.delete(self.w, idx)
+            return v
+        if default is None:
+            raise KeyError(j)
+        return default
+
+    def clear(self):
+        self.dst = _EMPTY_DST
+        self.w = _EMPTY_W
+
+    def update(self, other):
+        for j, w in other.items():
+            self[j] = w
+
+    def copy(self):
+        return EdgeRow(self.dst.copy(), self.w.copy())
+
+    def batch_update(self, pairs):
+        """批量写入 {j: w}（Hebbian/STDP 每步合并用）。同 j 覆盖，新 j 插入。
+        数组即事实源——就地更新，无镜像置脏。返回改动条目数。"""
+        if not pairs:
+            return 0
+        js = np.fromiter(pairs.keys(), dtype=np.int32, count=len(pairs))
+        ws = np.fromiter(pairs.values(), dtype=np.float64, count=len(pairs))
+        if len(self.dst):
+            idx = np.searchsorted(self.dst, js)
+            # searchsorted 对大于全行最大值的键返回 len → safe 索引防越界
+            exist = (idx < len(self.dst)) & (self.dst[np.minimum(idx, len(self.dst) - 1)] == js)
+        else:
+            # 空行：全部新增（防空行越界）
+            idx = np.zeros(len(js), dtype=np.intp)
+            exist = np.zeros(len(js), dtype=bool)
+        n_new = int((~exist).sum())
+        if exist.any():
+            self.w[idx[exist]] = ws[exist]      # 先覆盖（数组未变，idx 仍有效）
+        if n_new:
+            self.dst = np.concatenate([self.dst, js[~exist]])
+            self.w = np.concatenate([self.w, ws[~exist]])
+            order = np.argsort(self.dst, kind="stable")
+            self.dst = self.dst[order]
+            self.w = self.w[order]
+        return n_new + int(exist.sum())
+
+    def scale(self, factor):
+        """全行权重 ×factor（weight_decay / sleep 弱化用，numpy 向量化）。"""
+        if len(self.w):
+            self.w *= factor
+
+    def prune_below(self, eps):
+        """删除权重 ≤eps 的条目（sleep 弱边回收）。返回删除条数。"""
+        if not len(self.w):
+            return 0
+        keep = self.w > eps
+        n = int((~keep).sum())
+        if n:
+            self.dst = self.dst[keep]
+            self.w = self.w[keep]
+        return n
+
+    def edge_view(self):
+        """传播镜像视图：(dst, w)——数组即事实源，零复制零置脏。"""
+        return self.dst, self.w
+
+
+# ════════════════════════════════════════════════════════════════
+#  numba 热路径内核（Hebbian/STDP 批量合并，2026-08-10 提速）
+#  ════════════════════════════════════════════════════════════════
+#  与 EdgeRow.batch_update 语义逐位一致：存在键 → w+delta 并截断
+#  （w_max 截高 / clip_low 截低，即 stdp_neg 的 <0 → 0）；不存在键 →
+#  插入并保持 dst 稳定有序（concat + stable argsort）。numba 只处理
+#  O(k²)/O(k×pre) 的行内合并，EdgeRow 数组操作仍由 Python 侧完成。
+
+@njit(cache=True)
+def _merge_row(dst, w, keys, deltas, w_max, clip_low):
+    """单行合并：现有 (dst,w) 有序；更新 keys[i]+deltas[i]（key 唯一）。
+    返回 (new_dst, new_w)，保持有序。语义对齐 batch_update。"""
+    n = len(dst)
+    m = len(keys)
+    ndst = np.empty(n + m, dtype=np.int32)
+    nw = np.empty(n + m, dtype=np.float64)
+    for j in range(n):
+        ndst[j] = dst[j]
+        nw[j] = w[j]
+    n_new = 0
+    for i in range(m):
+        key = keys[i]
+        dlt = deltas[i]
+        idx = np.searchsorted(dst, key)
+        if idx < n and dst[idx] == key:
+            nv = nw[idx] + dlt
+            if nv > w_max:
+                nv = w_max
+            if nv < clip_low:
+                nv = clip_low
+            nw[idx] = nv
+        else:
+            ndst[n + n_new] = key
+            nw[n + n_new] = dlt
+            n_new += 1
+    total = n + n_new
+    if n_new:
+        order = np.argsort(ndst[:total], kind="stable")
+        return ndst[:total][order], nw[:total][order]
+    return ndst[:total], nw[:total]
+
+
+@njit(cache=True)
+def _merge_rows(nr, offs, dsts, ws, koff, keys, deltas, w_max, clip_low,
+                out_offs, out_dst, out_w, out_len):
+    """多行批量合并（扁平化输入，nr 行一次算完）。
+    offs/dsts/ws：各行的现有 dst/w 拼接；koff/keys/deltas：各行的更新拼接。
+    out_offs/out_dst/out_w/out_len：预分配输出（容量 = 总现有 + 总更新）。"""
+    for r in range(nr):
+        dst = dsts[offs[r]:offs[r + 1]]
+        w = ws[offs[r]:offs[r + 1]]
+        key = keys[koff[r]:koff[r + 1]]
+        dlt = deltas[koff[r]:koff[r + 1]]
+        new_dst, new_w = _merge_row(dst, w, key, dlt, w_max, clip_low)
+        s = out_offs[r]
+        for j in range(len(new_dst)):
+            out_dst[s + j] = new_dst[j]
+            out_w[s + j] = new_w[j]
+        out_len[r] = len(new_dst)
+
+
+def _row_from_dict(d):
+    """dict 行 → EdgeRow（供 restore_w 等整体替换场景；d 为普通 dict）。"""
+    row = EdgeRow()
+    if d:
+        row.dst = np.fromiter(d.keys(), dtype=np.int32, count=len(d))
+        row.w = np.fromiter(d.values(), dtype=np.float64, count=len(d))
+        order = np.argsort(row.dst, kind="stable")
+        row.dst = row.dst[order]
+        row.w = row.w[order]
+    return row
+
+
+def _rows_from_arrays(ng, src_i, slot_k, dst_j, vals):
+    """边数组 → W_out 批量构建（替代逐条 setitem；load_net / snapshot 用）。
+
+    按 (i,k) 组合键全局排序后切块，行内按 dst 排序——1807 万边一次
+    argsort + 行内小 argsort，免去 dict 逐条插入的 O(n²) 复制。"""
+    if len(vals) == 0:
+        return
+    keys = src_i.astype(np.int64) * (ng.slots + 1) + slot_k
+    order = np.argsort(keys, kind="stable")
+    ko = keys[order]
+    si = src_i[order]
+    dj = dst_j[order]
+    va = vals[order]
+    group_end = np.where(np.diff(ko) != 0)[0] + 1
+    starts = np.concatenate([[0], group_end])
+    ends = np.concatenate([group_end, [len(vals)]])
+    for s, e in zip(starts, ends):
+        i = int(si[s])
+        k = int(ko[s]) - i * (ng.slots + 1)
+        row = EdgeRow()
+        row.dst = dj[s:e].astype(np.int32)
+        row.w = va[s:e].astype(np.float64)
+        o = np.argsort(row.dst, kind="stable")
+        row.dst = row.dst[o]
+        row.w = row.w[o]
+        ng.W_out[i][k] = row
 
 
 # ════════════════════════════════════════════════════════════════
@@ -121,41 +381,68 @@ class SparseSchemaNet:
         self.pre_trace = np.zeros(self.n)
         self.refractory_left = np.zeros(self.n, dtype=int)
         self.evictions = 0
-        # 稀疏出边：W_out[i][k] = {j: w}，语义 = 稠密 W[j, k, i]
-        self.W_out = [[{} for _ in range(self.slots)] for _ in range(self.n)]
+        # 稀疏出边：W_out[i][k] = EdgeRow（数组事实源，dict 兼容接口），
+        # 语义 = 稠密 W[j, k, i]。数组即事实源，传播镜像零复制（见 EdgeRow）。
+        self.W_out = [[EdgeRow() for _ in range(self.slots)] for _ in range(self.n)]
         # 唤醒计数（频率门控慢衰减用）：窗口内每个槽位被"发放神经元主导"的次数。
         # 只数真实发放（防静息 v≈0 的噪声性 argmax 污染）；冻结态不计数（纯检索零改动）。
         self.slot_freq = np.zeros((self.n, self.slots), dtype=np.int32)
-        # 出边镜像（Hebbian 传播加速，2026-08-09）：W_out[i][k] 的 numpy 视图
-        # （dst/w 数组），只加速 step() 内传播读；W_out dict 始终是唯一事实源，
-        # 写入侧（Hebbian/STDP/weight_decay）置 dirty，传播读时懒重建。
-        # 动力学逐位等价于直接遍历 dict（fancy-index 累加 = 逐条 +=）。
-        self._edge_cache = [[None for _ in range(self.slots)] for _ in range(self.n)]
-        self._edge_dirty = [[True for _ in range(self.slots)] for _ in range(self.n)]
 
     def _edge_row(self, i, k):
-        """返回 W_out[i][k] 的镜像 (dst, w) numpy 数组；dirty/缺失时懒重建。
-        空行返回 None（调用处 `if e is not None` 直接跳过）。"""
-        if self._edge_dirty[i][k]:
-            row = self.W_out[i][k]
-            if row:
-                dst = np.array(list(row.keys()), dtype=np.int64)
-                w = np.array(list(row.values()), dtype=np.float64)
-                self._edge_cache[i][k] = (dst, w)
-            else:
-                self._edge_cache[i][k] = None
-            self._edge_dirty[i][k] = False
-        return self._edge_cache[i][k]
+        """返回 W_out[i][k] 的 (dst, w) numpy 视图（传播读用）。
+        空行返回 None（调用处 `if e is not None` 直接跳过）。
+        数组即事实源——无 dirty/懒重建（EdgeRow 重构，2026-08-10）。"""
+        row = self.W_out[i][k]
+        if row:
+            return row.dst, row.w
+        return None
 
     def invalidate_edge_cache(self):
-        """外部直接写 W_out 后调用：全量置脏（传播读时懒重建）。
+        """[兼容占位] 外部写 W_out 后调用。数组即事实源，传播镜像零复制，
+        无需置脏——保留方法仅为兼容旧调用（GradReadout.sync_edges/restore_w）。"""
 
-        外部写路径：GradReadout.sync_edges/restore_w、sleep_consolidate。
-        只置已构建缓存的槽位（未构建的本来就是 None，无需动）。"""
-        for i in range(self.n):
-            for k in range(self.slots):
-                if self._edge_cache[i][k] is not None:
-                    self._edge_dirty[i][k] = True
+    def _apply_edge_updates(self, groups, w_max, clip_low=0.0):
+        """批量合并行更新（numba 热路径）。groups: [(row, keys(int32), deltas)]，
+        keys 每行唯一（Hebbian/STDP 的键集合天然唯一）。语义 = 逐行 batch_update。
+        行数组就地替换为合并结果（拷贝脱离大缓冲）。"""
+        if not groups:
+            return
+        nr = len(groups)
+        # 扁平化输入 + 前缀和（Python 层组装，量小：nr ≤ 行数，键总数 ≤ k²）
+        offs = np.empty(nr + 1, dtype=np.int64)
+        koff = np.empty(nr + 1, dtype=np.int64)
+        out_offs = np.empty(nr + 1, dtype=np.int64)
+        dst_parts, w_parts, key_parts, dlt_parts = [], [], [], []
+        o1 = o2 = o3 = 0
+        rows = [g[0] for g in groups]
+        for r, (row, keys, deltas) in enumerate(groups):
+            offs[r] = o1
+            dst_parts.append(row.dst)
+            w_parts.append(row.w)
+            o1 += len(row)
+            koff[r] = o2
+            key_parts.append(keys)
+            dlt_parts.append(deltas)
+            o2 += len(keys)
+            out_offs[r] = o3
+            o3 += len(row) + len(keys)
+        offs[nr] = o1
+        koff[nr] = o2
+        out_offs[nr] = o3
+        dsts = np.concatenate(dst_parts)
+        ws = np.concatenate(w_parts)
+        keys = np.concatenate(key_parts)
+        deltas = np.concatenate(dlt_parts)
+        out_dst = np.empty(o3, dtype=np.int32)
+        out_w = np.empty(o3, dtype=np.float64)
+        out_len = np.empty(nr, dtype=np.int64)
+        _merge_rows(nr, offs, dsts, ws, koff, keys, deltas, w_max, clip_low,
+                    out_offs, out_dst, out_w, out_len)
+        for r, row in enumerate(rows):
+            s = out_offs[r]
+            e = s + out_len[r]
+            row.dst = np.copy(out_dst[s:e])
+            row.w = np.copy(out_w[s:e])
 
     # ── W 访问兼容：稠密版读出函数用 ng.W[j, slot, i]，这里按需提供等价读取 ──
     def w_get(self, j, slot, i):
@@ -181,19 +468,32 @@ class SparseSchemaNet:
                 senders = np.where((self.spikes > 0) & (self.last_k_star == k))[0]
                 if len(senders):
                     drive = np.zeros(self.n)
+                    # 批量累加（2026-08-10 提速）：sender 循环 → 收集全部出边
+                    # 一次 np.add.at（目标侧全量调用，消除 Python 级逐行累加）。
+                    # 语义逐位一致：各 sender 行内顺序 + sender 顺序拼接后 add.at，
+                    # 与逐行 `drive[e[0]] += w` 的累加顺序完全相同。
+                    ds, ws = [], []
                     for i in senders:
                         e = self._edge_row(i, k)
                         if e is not None:
-                            w = e[1] * (1.0 - self.fat[i])
-                            if self.edge_min > 0:  # 层2 弱边修剪（弱边不参与驱动）
-                                keep = w >= self.edge_min
-                                if not keep.any():
-                                    continue
-                                drive[e[0][keep]] += w[keep]
+                            ds.append(e[0])
+                            if self.std_dep > 0:
+                                ws.append(e[1] * (1.0 - self.fat[i]))
                             else:
-                                # STD 发放者疲劳：出边按疲劳度降效（高频词持续发
-                                # 放 → 出边持续疲劳 → 互驱环削弱；低频链恢复满效）
-                                drive[e[0]] += w
+                                ws.append(e[1])
+                    if ds:
+                        all_dst = np.concatenate(ds)
+                        all_w = np.concatenate(ws)
+                        if self.edge_min > 0:  # 层2 弱边修剪（弱边不参与驱动）
+                            keep = all_w >= self.edge_min
+                            if keep.any():
+                                all_dst = all_dst[keep]
+                                all_w = all_w[keep]
+                            else:
+                                all_dst = all_dst[:0]
+                                all_w = all_w[:0]
+                        if len(all_dst):
+                            np.add.at(drive, all_dst, all_w)
                     if self.inh_norm > 0:  # 层1 全局活动抑制：除法归一化
                         tot = drive.sum()
                         if tot > self.inh_norm:
@@ -217,7 +517,10 @@ class SparseSchemaNet:
             # 增益调制：WTA 排序用 vmax×gain（候选判定仍用原始 v≥θ），
             # 高价值词（如"不要"）被驱动后优先发放
             key = vmax[candidates] * self.gain[candidates]
-            top = candidates[np.argsort(key)[::-1][: self.wta_k]]
+            # 提速（2026-08-10）：argsort 全排序 O(C log C) → argpartition 部分
+            # 选择 O(C)。只取 top-k，顺序无关（new_spikes/v 清零/Hebbian 均为集合语义）。
+            idx = np.argpartition(-key, self.wta_k - 1)[: self.wta_k]
+            top = candidates[idx]
         else:
             top = candidates
 
@@ -234,51 +537,61 @@ class SparseSchemaNet:
             if self.std_dep > 0:
                 self.fat[top] = self.std_dep   # 发放 → 疲劳（STD 突触前抑制）
             if self.learn_gate:
-                # Hebbian：共同发放对 (a, c) → W[a, kstar_a, c] += eta（排除自连接）
-                # 稀疏：W_out[c][kstar_a][a] += eta
-                for a in top:
+                # Hebbian/STDP 批量合并（2026-08-10 numba 提速）：原 O(k²)/O(k×pre)
+                # Python 双循环 + 每对 row.get() 全部移到 numba 内核 _merge_rows，
+                # 语义逐位一致：存在键累加 + w_max 截断 + stable 插入（= batch_update）。
+                top_arr = np.asarray(top, dtype=np.int32)
+                # Hebbian：共同发放对 (a, c) → W[c][k_star[a]][a] += eta（排除自连接）
+                # 行 (c, ka)，键 = {a ∈ top : k_star[a]==ka, a≠c}
+                row_to_a = {}
+                for a in top_arr:
                     ka = int(k_star[a])
-                    for c in top:
-                        if a == c:
-                            continue
-                        row = self.W_out[c][ka]
-                        nv = row.get(a, 0.0) + self.eta
-                        row[a] = nv if nv < self.w_max else self.w_max
-                        self._edge_dirty[c][ka] = True
+                    for c in top_arr:
+                        if a != c:
+                            row_to_a.setdefault((int(c), ka), []).append(int(a))
+                groups = [(self.W_out[c][ka],
+                           np.asarray(aset, dtype=np.int32),
+                           np.full(len(aset), self.eta))
+                          for (c, ka), aset in row_to_a.items()]
+                self._apply_edge_updates(groups, self.w_max)
                 # STDP：前驱痕迹 → 当前发放，学 W[后继 ← 前驱]（只正向）
                 if (self.stdp_pre > 0 or self.stdp_neg > 0) and self.pre_trace.any():
                     pre_idx = np.where(self.pre_trace > self.trace_thres)[0]
                     if self.stdp_pre > 0 and len(pre_idx):
-                        for jj in top:
+                        # 行 (pp, k_star[jj])，键 = {jj ∈ top : jj≠pp}
+                        row_to_a = {}
+                        for jj in top_arr:
                             kj = int(k_star[jj])
                             for pp in pre_idx:
-                                if jj == pp:
-                                    continue
-                                row = self.W_out[pp][kj]
-                                nv = row.get(jj, 0.0) + self.stdp_pre
-                                row[jj] = nv if nv < self.w_max else self.w_max
-                                self._edge_dirty[pp][kj] = True
+                                if jj != pp:
+                                    row_to_a.setdefault((int(pp), kj), []).append(int(jj))
+                        groups = [(self.W_out[pp][kj],
+                                   np.asarray(aset, dtype=np.int32),
+                                   np.full(len(aset), self.stdp_pre))
+                                  for (pp, kj), aset in row_to_a.items()]
+                        self._apply_edge_updates(groups, self.w_max)
                     if self.stdp_neg > 0 and len(pre_idx):
                         # LTD：当前发放（后发）→ 前驱入连接反序弱化
-                        # W[pre_i, kstar_pre_i, top_j] -= stdp_neg
+                        # W[pre_i, kstar_pre_i, top_j] -= stdp_neg（<0 → 0）
+                        # 行 (jj, k_star[pp])，键 = {pp ∈ pre_idx : pp≠jj}
+                        row_to_a = {}
                         for pp in pre_idx:
                             kp = int(k_star[pp])
-                            for jj in top:
-                                if pp == jj:
-                                    continue
-                                row = self.W_out[jj][kp]
-                                nv = row.get(pp, 0.0) - self.stdp_neg
-                                row[pp] = nv if nv > 0.0 else 0.0
-                                self._edge_dirty[jj][kp] = True
+                            for jj in top_arr:
+                                if pp != jj:
+                                    row_to_a.setdefault((int(jj), kp), []).append(int(pp))
+                        groups = [(self.W_out[jj][kp],
+                                   np.asarray(aset, dtype=np.int32),
+                                   np.full(len(aset), -self.stdp_neg))
+                                  for (jj, kp), aset in row_to_a.items()]
+                        self._apply_edge_updates(groups, self.w_max, clip_low=0.0)
                 if self.weight_decay:
+                    f = 1.0 - self.weight_decay
                     for i in range(self.n):
                         for k in range(self.slots):
                             row = self.W_out[i][k]
                             if row:
-                                for j, w in list(row.items()):
-                                    nv = w * (1.0 - self.weight_decay)
-                                    row[j] = nv if nv > 0.0 else 0.0
-                                self._edge_dirty[i][k] = True
+                                row.scale(f)   # 整行向量化（逐条语义一致：w×(1-decay)）
 
         self.v[top, :] = 0.0
         # 唤醒计数（频率门控慢衰减）：只数真实发放神经元的主导槽，仅学习态
@@ -314,15 +627,9 @@ class SparseSchemaNet:
                 if self.slot_freq[i, k] < min_wake:
                     row = self.W_out[i][k]
                     if row:
-                        for j, w in list(row.items()):
-                            nw = w * (1 - decay)
-                            if nw <= eps:
-                                del row[j]
-                                cleared += 1
-                            else:
-                                row[j] = nw
-                                weakened += 1
-                        self._edge_dirty[i][k] = True   # 外部写 W，传播镜像置脏
+                        row.scale(1 - decay)          # 整行向量化弱化（逐条语义一致）
+                        cleared += row.prune_below(eps)  # ≤eps 条目删除（稀疏回收）
+                        weakened += len(row)          # 保留条数（原语义逐条计数）
                 self.slot_freq[i, k] = 0  # 新窗口
         return cleared, weakened
 
@@ -344,9 +651,7 @@ class SparseSchemaNet:
         self.slot_freq = np.pad(self.slot_freq, ((0, pad), (0, 0)))
         self.gain = np.pad(self.gain, (0, pad))   # 增益数组随扩容对齐（2026-08-10 填充教学
                                                   # 落位扩容时未 pad → step() IndexError）
-        self.W_out += [[{} for _ in range(self.slots)] for _ in range(pad)]
-        self._edge_cache += [[None] * self.slots for _ in range(pad)]
-        self._edge_dirty += [[True] * self.slots for _ in range(pad)]
+        self.W_out += [[EdgeRow() for _ in range(self.slots)] for _ in range(pad)]
         self.n = n_new
 
 
@@ -827,8 +1132,7 @@ def load_net(path, seed=42, return_ctx=False):
     vocab = json.loads(z["vocab"].tobytes().decode("utf-8"))
     ng = SparseSchemaNet(rng=np.random.default_rng(seed), **params)
     src_i, slot_k, dst_j, vals = z["src_i"], z["slot_k"], z["dst_j"], z["vals"]
-    for i, k, j, w in zip(src_i, slot_k, dst_j, vals):
-        ng.W_out[int(i)][int(k)][int(j)] = float(w)
+    _rows_from_arrays(ng, src_i, slot_k, dst_j, vals)   # 批量构建（免逐条 dict 插入）
     ctx_wgt = z["ctx_wgt"] if "ctx_wgt" in z else None
     if ctx_wgt is not None and ctx_wgt.size == 0:
         ctx_wgt = None

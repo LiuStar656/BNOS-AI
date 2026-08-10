@@ -1,0 +1,968 @@
+{
+ "tag": "v16 训练量缩放探测（并发训练 × 轮次缩放）",
+ "base": "15.0",
+ "data": "stage3_rel_v2.json（108 条）",
+ "points": [
+  {
+   "rs": 1,
+   "n": 149068,
+   "pre": 0.842,
+   "pre_hits": 16,
+   "pre_tot": 19,
+   "post": 1.0,
+   "post_hits": 19,
+   "post_tot": 19,
+   "cal_fixes": 2,
+   "chain1": [
+    {
+     "front": "因为今天下雨",
+     "back": "所以我带伞",
+     "gen": "所以他想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然他生病了",
+     "back": "但是他上课",
+     "gen": "在他生病",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      false,
+      true,
+      false
+     ],
+     "match": 1,
+     "tot": 3
+    },
+    {
+     "front": "先吃饭",
+     "back": "然后我写作业",
+     "gen": "然后我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "因为他累",
+     "back": "所以他睡觉",
+     "gen": "所以他生病",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      false
+     ],
+     "match": 2,
+     "tot": 3
+    },
+    {
+     "front": "虽然下雨",
+     "back": "但是我们去公园",
+     "gen": "但是他吃饭公园",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true,
+      true
+     ],
+     "match": 4,
+     "tot": 4
+    },
+    {
+     "front": "因为饿",
+     "back": "所以我吃饭",
+     "gen": "所以他想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    }
+   ],
+   "chain4": [
+    {
+     "front": "因为今天下雨",
+     "back": "所以我带伞",
+     "gen": "所以他想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然他生病了",
+     "back": "但是他上课",
+     "gen": "但是他上课",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "先吃饭",
+     "back": "然后我写作业",
+     "gen": "然后我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "因为他累",
+     "back": "所以他睡觉",
+     "gen": "所以他上课",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然下雨",
+     "back": "但是我们去公园",
+     "gen": "但是他吃饭公园",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true,
+      true
+     ],
+     "match": 4,
+     "tot": 4
+    },
+    {
+     "front": "因为饿",
+     "back": "所以我吃饭",
+     "gen": "所以他想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    }
+   ],
+   "fixes": [
+    {
+     "step": "虽然他生病了",
+     "expect": "但是",
+     "role": "REL2",
+     "rounds": 2,
+     "before": "但是"
+    },
+    {
+     "step": "虽然他生病了但是他",
+     "expect": "上课",
+     "role": "PRED",
+     "rounds": 1,
+     "before": "上课"
+    }
+   ],
+   "learn_sec": 35.6,
+   "total_sec": 38.9
+  },
+  {
+   "rs": 2,
+   "n": 149068,
+   "pre": 0.895,
+   "pre_hits": 17,
+   "pre_tot": 19,
+   "post": 1.0,
+   "post_hits": 19,
+   "post_tot": 19,
+   "cal_fixes": 1,
+   "chain1": [
+    {
+     "front": "因为今天下雨",
+     "back": "所以我带伞",
+     "gen": "所以他想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然他生病了",
+     "back": "但是他上课",
+     "gen": "但是他生病",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      false
+     ],
+     "match": 2,
+     "tot": 3
+    },
+    {
+     "front": "先吃饭",
+     "back": "然后我写作业",
+     "gen": "然后我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "因为他累",
+     "back": "所以他睡觉",
+     "gen": "所以他生病",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      false
+     ],
+     "match": 2,
+     "tot": 3
+    },
+    {
+     "front": "虽然下雨",
+     "back": "但是我们去公园",
+     "gen": "但是他吃饭公园",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true,
+      true
+     ],
+     "match": 4,
+     "tot": 4
+    },
+    {
+     "front": "因为饿",
+     "back": "所以我吃饭",
+     "gen": "所以他想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    }
+   ],
+   "chain4": [
+    {
+     "front": "因为今天下雨",
+     "back": "所以我带伞",
+     "gen": "所以他想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然他生病了",
+     "back": "但是他上课",
+     "gen": "但是他上课",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "先吃饭",
+     "back": "然后我写作业",
+     "gen": "然后我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "因为他累",
+     "back": "所以他睡觉",
+     "gen": "所以他上课",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然下雨",
+     "back": "但是我们去公园",
+     "gen": "但是他吃饭公园",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true,
+      true
+     ],
+     "match": 4,
+     "tot": 4
+    },
+    {
+     "front": "因为饿",
+     "back": "所以我吃饭",
+     "gen": "所以他想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    }
+   ],
+   "fixes": [
+    {
+     "step": "虽然他生病了但是他",
+     "expect": "上课",
+     "role": "PRED",
+     "rounds": 2,
+     "before": "上课"
+    }
+   ],
+   "learn_sec": 70.8,
+   "total_sec": 73.7
+  },
+  {
+   "rs": 4,
+   "n": 149068,
+   "pre": 0.895,
+   "pre_hits": 17,
+   "pre_tot": 19,
+   "post": 1.0,
+   "post_hits": 19,
+   "post_tot": 19,
+   "cal_fixes": 1,
+   "chain1": [
+    {
+     "front": "因为今天下雨",
+     "back": "所以我带伞",
+     "gen": "所以我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然他生病了",
+     "back": "但是他上课",
+     "gen": "但是他生病",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      false
+     ],
+     "match": 2,
+     "tot": 3
+    },
+    {
+     "front": "先吃饭",
+     "back": "然后我写作业",
+     "gen": "然后我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "因为他累",
+     "back": "所以他睡觉",
+     "gen": "所以我生病",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      false
+     ],
+     "match": 2,
+     "tot": 3
+    },
+    {
+     "front": "虽然下雨",
+     "back": "但是我们去公园",
+     "gen": "但是他吃饭公园",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true,
+      true
+     ],
+     "match": 4,
+     "tot": 4
+    },
+    {
+     "front": "因为饿",
+     "back": "所以我吃饭",
+     "gen": "所以我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    }
+   ],
+   "chain4": [
+    {
+     "front": "因为今天下雨",
+     "back": "所以我带伞",
+     "gen": "所以我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然他生病了",
+     "back": "但是他上课",
+     "gen": "但是他上课",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "先吃饭",
+     "back": "然后我写作业",
+     "gen": "然后我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "因为他累",
+     "back": "所以他睡觉",
+     "gen": "所以我上课",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然下雨",
+     "back": "但是我们去公园",
+     "gen": "但是他吃饭公园",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true,
+      true
+     ],
+     "match": 4,
+     "tot": 4
+    },
+    {
+     "front": "因为饿",
+     "back": "所以我吃饭",
+     "gen": "所以我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    }
+   ],
+   "fixes": [
+    {
+     "step": "虽然他生病了但是他",
+     "expect": "上课",
+     "role": "PRED",
+     "rounds": 3,
+     "before": "上课"
+    }
+   ],
+   "learn_sec": 132.5,
+   "total_sec": 135.7
+  },
+  {
+   "rs": 8,
+   "n": 149068,
+   "pre": 0.895,
+   "pre_hits": 17,
+   "pre_tot": 19,
+   "post": 1.0,
+   "post_hits": 19,
+   "post_tot": 19,
+   "cal_fixes": 1,
+   "chain1": [
+    {
+     "front": "因为今天下雨",
+     "back": "所以我带伞",
+     "gen": "所以我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然他生病了",
+     "back": "但是他上课",
+     "gen": "但是我生病",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      false
+     ],
+     "match": 2,
+     "tot": 3
+    },
+    {
+     "front": "先吃饭",
+     "back": "然后我写作业",
+     "gen": "然后我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "因为他累",
+     "back": "所以他睡觉",
+     "gen": "所以我生病",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      false
+     ],
+     "match": 2,
+     "tot": 3
+    },
+    {
+     "front": "虽然下雨",
+     "back": "但是我们去公园",
+     "gen": "但是我吃饭公园",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true,
+      true
+     ],
+     "match": 4,
+     "tot": 4
+    },
+    {
+     "front": "因为饿",
+     "back": "所以我吃饭",
+     "gen": "所以我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    }
+   ],
+   "chain4": [
+    {
+     "front": "因为今天下雨",
+     "back": "所以我带伞",
+     "gen": "所以我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然他生病了",
+     "back": "但是他上课",
+     "gen": "但是我上课",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "先吃饭",
+     "back": "然后我写作业",
+     "gen": "然后我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "因为他累",
+     "back": "所以他睡觉",
+     "gen": "所以我上课",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    },
+    {
+     "front": "虽然下雨",
+     "back": "但是我们去公园",
+     "gen": "但是我吃饭公园",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true,
+      true
+     ],
+     "match": 4,
+     "tot": 4
+    },
+    {
+     "front": "因为饿",
+     "back": "所以我吃饭",
+     "gen": "所以我想",
+     "roles": [
+      "REL2",
+      "SUBJ",
+      "PRED"
+     ],
+     "hits": [
+      true,
+      true,
+      true
+     ],
+     "match": 3,
+     "tot": 3
+    }
+   ],
+   "fixes": [
+    {
+     "step": "虽然他生病了但是他",
+     "expect": "上课",
+     "role": "PRED",
+     "rounds": 3,
+     "before": "上课"
+    }
+   ],
+   "learn_sec": 244.4,
+   "total_sec": 247.3
+  }
+ ],
+ "concurrent": {
+  "wall_sec": 247.7,
+  "serial_sec": 495.6,
+  "speedup": 2.0,
+  "workers": 4,
+  "crash": false
+ },
+ "toutiao_stats": {
+  "miss<=2·5-22词": 62,
+  "miss<=2·3-30词": 66,
+  "miss<=4·5-22词": 67,
+  "miss<=4·3-30词": 71,
+  "miss<=8·5-22词": 67,
+  "miss<=8·3-30词": 71,
+  "miss<=99·5-22词": 67,
+  "miss<=99·3-30词": 71
+ },
+ "wall_total_sec": 250.6
+}

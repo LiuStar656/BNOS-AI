@@ -18,15 +18,26 @@
   ⑤ 其余（V 无搭配类别 / O 无类别归属 / 结构证据不足）→ 不知道
      （诚实留白：语义合法性交给教师，网络只判结构）
 
-双轨（同 v11）：DEEPSEEK_API_KEY → LLM 教师批改（判断+原因）；
-无 key → 规则验证器回退（标注[模板占位]）。
+教师基准（smoke 实测修正，2026-08-10）：
+  - 基础/巩固档 ground truth = **规则验证器**（与 v10/v11 教学验收同源，
+    稳定可复现；LLM 判"看公园/鸟看学校"错是真实语义偏好，不是网络错）
+  - 拓展档：规则判"不可造"的临界题 → **LLM 裁决**（规则类别不匹配但语义
+    合法：买石头/看石头——LLM 教师的价值放大点）
+  - LLM 通用于批改讲评（自判错误给自然语言原因），不影响基准判定
+
+修正原则（smoke 实测修正，2026-08-10）：
+  - 一致（自判=教师）→ 不动作（结构已支持判断；原"一致就固化"会与
+    "不一致就删边"互相抵消，且固化对象句会把"不可造"教成"可造"）
+  - 误放行（自判可造、教师不可造）→ 删 o 的来源边
+  - 误拒绝（自判不可造/不知道、教师可造）→ 固化 [s,v,o]（建立正确路径）
+  - 保守诚实（自判不知道、教师不可造）→ 不修正（无结构证据，诚实留白）
 
 流程（在 v11.2 快照上迭代，不重训）：
   load_version("11.2")
-    → ⑤a 判断方法教学（示范判断过程 + 诊断样本校准阈值）
-    → ⑤b 课后练习（三档×变式×穿插题集 → 网络自判 → 教师批改
-       → 归因修正：误放行删来源边 / 误拒绝固化作答句）
-    → 验收（一致率分档 + 错误收敛 + 继承 v11 全验收）
+    → ⑤a 判断方法教学（示范样本覆盖判断路径模板 + 修正校准）
+    → ⑤b 课后练习（三档×变式×穿插题集 → 自判 → 教师批改
+       → 修正 → 错题复测 → 全题复测）
+    → 验收（分档一致率 + 错误收敛 + 继承 v11 全验收）
     → save_snapshot(parent="11.2") → v12.0
 
 诚实边界（方案 §四）：
@@ -58,7 +69,6 @@ from _grow_v11 import (attributed_sentence, rule_verifier, edge_between,
 
 # ── 自判阈值（初值；阈值标定 = 校准读数刻度，判断依据仍是网络边）──
 DIRECT_TH = 0.5          # V→O 直连边 ≥ 此值 → 可造（强判断）
-GENERALIZE_DISC = 0.3    # 类别泛化二跳折扣（与 attributed_sentence 同款）
 TOP_WIN = 8              # O 进 top-8 → 置信升档
 
 DATA = Path(__file__).parent / "data" / "curriculum"
@@ -89,48 +99,51 @@ def self_judge(ng, pats, n2w, s, v, o, vo_pairs, cat_members):
     if direct >= DIRECT_TH:
         conf = "高" if (o_rank is not None and o_rank < TOP_WIN) else "中"
         return "可造", conf, f"直连（{v}→{o} 边 {direct:.1f}）"
+    if not allow:                                  # ⑤a 无搭配类别 → 诚实留白
+        return "不知道", "低", "诚实留白（V 无搭配类别）"
     if reach2:
         conf = "低" if (o_rank is None or o_rank >= TOP_WIN) else "中"
         return "可造", conf, f"类别泛化（{v} 搭配 {'、'.join(sorted(allow))}）"
-    if allow and o_has_cat:
-        return "不可造", "中", (f"类别冲突（{o} 属 "
-                                f"{'、'.join(t for t in O_TAGS if o in cat_members.get(t, set()))}"
-                                f"，不在 {v} 搭配 {'、'.join(sorted(allow))}）")
+    if o_has_cat:
+        cat_own = "、".join(t for t in O_TAGS if o in cat_members.get(t, set()))
+        return "不可造", "中", (f"类别冲突（{o} 属 {cat_own}，"
+                                f"不在 {v} 搭配 {'、'.join(sorted(allow))}）")
     if o_rank is not None and o_rank < TOP_WIN:
         return "不可造", "低", "强度够但结构不可达（进 top 却无搭配边）"
     return "不知道", "低", "诚实留白（无结构证据）"
 
 
-# ── 教师判断（批改口径：LLM 优先，规则回退）────────────────────
-# 把教师判断映射到自判三元 verdict，供一致率对比
+# ── 教师判断（批改口径：基础/巩固=规则基准，拓展=LLM 裁决）──────
+# use_llm=True（拓展档）：规则判"不可造"的临界题由 LLM 裁决（语义临界）；
+# use_llm=False（基础/巩固档）：规则为基准，LLM 只出讲评原因（不影响判定）。
 
 
-def teacher_verdict(ng, pats, s, v, o, vo_pairs, cat_members, has_llm):
-    """教师判断 → (verdict, reason)。LLM 判断（对/错）or 规则验证器回退。"""
+def teacher_verdict(ng, pats, s, v, o, vo_pairs, cat_members, has_llm,
+                    use_llm=False):
+    """教师判断 → (verdict, reason)。"""
     ok_path, top, allow, _ = attributed_sentence(
         ng, pats, {}, s, v, vo_pairs, cat_members)
     kind, _, allow_mem = rule_verifier(
         ng, pats, s, v, o, allow, cat_members, top)
+    base = {"ok": "可造", "bad": "不可造"}.get(kind, "不知道")
     diag = {"S": s, "V": v, "O": o, "kind": kind, "allow": sorted(allow),
             "top": top, "principles": {}, "allow_mem": sorted(allow_mem)[:8],
             "penalized": None}
-    if has_llm and kind != "plain":
+    llm_reason = None
+    if has_llm:
         res = llm_judge(diag)
         if res:
             jg, reason = res
-            return ("可造" if jg == "对" else "不可造"), reason
-    reason = template_reason(diag)
-    if kind == "ok":
-        return "可造", reason
-    if kind == "bad":
-        return "不可造", reason
-    return "不知道", reason
+            llm_reason = reason
+            if use_llm and kind == "bad":         # 拓展档临界：规则否定 → LLM 裁决
+                base = "可造" if jg == "对" else "不可造"
+    reason = llm_reason or template_reason(diag)
+    return base, reason
 
 
-# ── ⑤a 判断方法教学：示范判断过程 + 诊断样本校准 ────────────────
+# ── ⑤a 判断方法教学：示范判断过程 + 修正校准 ────────────────────
 # 示范 = 教师演示"怎么判"（先查直连、再查二跳、再判强度、判不出说不知道）；
-# 判断正确的对象句固化（_learn_sentence，V→O 直连增强 → 判断依据变强），
-# 判断错误的来源边处罚（归因修正），校准"该判可造的要有边、不该造的没边"。
+# 修正原则同 ⑤b（一致不动作 / 误放行删边 / 误拒绝固化 / 保守诚实不动）。
 
 
 def method_lesson(ng, pats, n2w, vo_pairs, cat_members, has_llm, s="我"):
@@ -142,31 +155,50 @@ def method_lesson(ng, pats, n2w, vo_pairs, cat_members, has_llm, s="我"):
     for sv, v, o in samples:
         vd, conf, path = self_judge(ng, pats, n2w, sv, v, o,
                                     vo_pairs, cat_members)
+        use_llm = (v == "看")                    # 临界样本（看+石头）→ LLM 裁决
         tv, reason = teacher_verdict(ng, pats, sv, v, o,
-                                     vo_pairs, cat_members, has_llm)
-        print(f"  示范「{sv}{v}{o}」：网络自判={vd}({conf}, {path})"
-              f" | 教师={tv} — {reason[:30]}")
+                                     vo_pairs, cat_members, has_llm,
+                                     use_llm=use_llm)
+        agree = (vd == tv)
+        print(f"  示范「{sv}{v}{o}」：自判={vd}({conf}, {path})"
+              f" | 教师={tv} {'✓' if agree else '✗'} — {reason[:28]}")
+        fix = apply_fix(ng, pats, n2w, sv, v, o, vd, tv, vo_pairs, cat_members)
         log.append({"s": sv, "v": v, "o": o, "self": vd, "conf": conf,
-                    "path": path, "teacher": tv, "reason": reason})
-        # 校准：自判对 → 固化判断对象句（直连增强）；自判错 → 归因修正
-        if vd == tv:
-            _learn_sentence(ng, [sv, v, o], pats, slot=0)
-            print(f"    ✓ 判断正确 → 对象句固化（{v}→{o} 直连增强）")
-        else:
-            _, top, allow, sources = attributed_sentence(
-                ng, pats, n2w, sv, v, vo_pairs, cat_members)
-            pen = penalize_bad_word(ng, pats, n2w, o, sources, allow, log)
-            if pen:
-                print(f"    ✗ 判断不一致 → 归因修正（删除 {o} 的来源边 {pen}）")
-            else:
-                print(f"    ✗ 判断不一致 → 无来源边可修（诚实留白，交由教师裁决）")
+                    "path": path, "teacher": tv, "agree": agree,
+                    "reason": reason, "fix": fix})
+        if fix:
+            print(f"    ✗ 不一致 → {fix}")
     return log
 
 
+# ── 修正（三类不一致的统一落点）──────────────────────────────────
+
+
+def apply_fix(ng, pats, n2w, s, v, o, vd, tv, vo_pairs, cat_members):
+    """按不一致类型修正：
+    误放行（自判可造、教师不可造）→ 删 o 来源边；
+    误拒绝（自判不可造/不知道、教师可造）→ 固化 [s,v,o]；
+    保守诚实（自判不知道、教师不可造）→ 不动。
+    一致 → 不动（结构已支持判断；固化会与删边抵消、把不可造教成可造）。
+    返回修正描述（None = 无动作）。
+    """
+    if vd == tv:
+        return None
+    if vd == "可造" and tv == "不可造":
+        _, top, allow, sources = attributed_sentence(
+            ng, pats, n2w, s, v, vo_pairs, cat_members)
+        pen = penalize_bad_word(ng, pats, n2w, o, sources, allow, [])
+        return f"误放行 → 删除 {o} 来源边 {pen or '（无来源）'}"
+    if tv == "可造":
+        _learn_sentence(ng, [s, v, o], pats, slot=0)
+        return f"误拒绝 → 固化正确路径（学 {s}{v}{o} 1 次）"
+    return None                                   # 保守诚实：不建立错误边
+
+
 # ── ⑤b 课后练习题集：三档 × 变式 × 穿插 ─────────────────────────
-# 基础档 = 训练组合复测（V→O 直连）；巩固档 = 三词单训过的新组合；
-# 拓展档 = 类别泛化二跳 + 跨类临界（无类别词，LLM 裁决）。
-# 变式：正（可造）/ 逆（不可造/不知道）；穿插：V 交错混出。
+# 基础档 = 训练组合复测 + 明确类别冲突逆例；巩固档 = 三词单训过的新组合；
+# 拓展档 = 类别泛化二跳 + 跨类临界（LLM 裁决）。
+# 穿插：按 V 交错混出（防同 V 连片 → "O 槽保底"定式）。
 
 
 def exercise_set(s_words, v_words, o_words, train_combos, test_combos,
@@ -179,7 +211,6 @@ def exercise_set(s_words, v_words, o_words, train_combos, test_combos,
                 if o in vo_pairs.get(v, [])]
     rng.shuffle(ok_train)
     items += [(s, v, o, "基础") for s, v, o in ok_train[:n_each]]
-    # 逆例：O 有明确类别归属但不在 V 搭配类别（网络能判"不可造"）
     for v in v_words[:n_each]:
         allow = set()
         for o in vo_pairs.get(v, []):
@@ -206,10 +237,9 @@ def exercise_set(s_words, v_words, o_words, train_combos, test_combos,
         gen = [o for o in allow_mem if o not in vo_pairs.get(v, [])]
         if gen:
             items.append((s_words[0], v, gen[0], "拓展"))
-    # 跨类临界：无类别归属词（如石头）+ 无搭配动词 → LLM 裁决，网络判不知道
     for v in ["吃", "看", "买"]:
         items.append((s_words[0], v, "石头", "拓展"))
-    # 穿插：按 V 交错排列（防同 V 连片 → "O 槽保底"定式）
+    # 穿插：按 V 交错排列
     by_v = {}
     for it in items:
         by_v.setdefault(it[1], []).append(it)
@@ -224,78 +254,78 @@ def exercise_set(s_words, v_words, o_words, train_combos, test_combos,
     return out
 
 
-# ── ⑤b 课后练习：网络自判 → 教师批改 → 归因修正 ──────────────────
-# 一致 → 固化判断对象句；误放行（自判可造、教师不可造）→ 删来源边；
-# 误拒绝（自判不可造/不知道、教师可造）→ 固化正确路径（作答句）。
+# ── ⑤b 课后练习：自判 → 教师批改 → 修正 → 复测 ──────────────────
+# 阶段1 全题自判+批改（纯读）→ 阶段2 统一修正（仅不一致）→
+# 阶段3 错题复测（收敛）→ 阶段4 全题复测（最终一致率）。
 
 
 def homework_loop(ng, pats, n2w, items, vo_pairs, cat_members, has_llm):
-    """⑤b 课后练习循环。返回 (一致统计, 修正记录, 逐题记录)。"""
-    stat = Counter()
-    fixes = []
+    """⑤b 课后练习。返回 (阶段1统计, 修正记录, 阶段4统计, 逐题记录)。"""
+    # 阶段1：全题自判 + 教师批改（纯读，不改边）
+    stat1 = Counter()
     detail = []
     for s, v, o, level in items:
         vd, conf, path = self_judge(ng, pats, n2w, s, v, o,
                                     vo_pairs, cat_members)
         tv, reason = teacher_verdict(ng, pats, s, v, o,
-                                     vo_pairs, cat_members, has_llm)
+                                     vo_pairs, cat_members, has_llm,
+                                     use_llm=(level == "拓展"))
         agree = (vd == tv)
-        stat[(level, "agree")] += agree
-        stat[(level, "total")] += 1
-        fix = None
-        if agree:
-            _learn_sentence(ng, [s, v, o], pats, slot=0)   # 一致 → 固化判断依据
-        elif vd == "可造" and tv == "不可造":                # 误放行 → 删来源边
-            _, top, allow, sources = attributed_sentence(
-                ng, pats, n2w, s, v, vo_pairs, cat_members)
-            pen = penalize_bad_word(ng, pats, n2w, o, sources, allow, [])
-            fix = f"误放行 → 删除 {o} 来源边 {pen or '（无来源）'}"
-        else:                                               # 误拒绝 → 固化正确路径
-            _learn_sentence(ng, [s, v, o], pats, slot=0)
-            fix = "误拒绝 → 固化正确路径（作答句学习 1 次）"
-        if fix:
-            fixes.append({"s": s, "v": v, "o": o, "level": level,
-                          "self": vd, "teacher": tv, "fix": fix})
+        stat1[(level, "agree")] += agree
+        stat1[(level, "total")] += 1
         detail.append({"s": s, "v": v, "o": o, "level": level,
                        "self": vd, "conf": conf, "path": path,
                        "teacher": tv, "agree": agree,
-                       "teacher_reason": reason[:40], "fix": fix})
-    return stat, fixes, detail
-
-
-def grade_report(stat, fixes, detail):
-    """分档一致率统计 + 错误样本清单（错误收敛 = 修正后重测判对）。"""
-    print("\n【⑤b 课后练习批改】分档一致率（网络自判 vs 教师判断）")
-    lines = {}
-    for level in ["基础", "巩固", "拓展"]:
-        a, t = stat[(level, "agree")], stat[(level, "total")]
-        rate = a / t if t else 1.0
-        lines[level] = rate
-        tag = ("≈1.0 ✅" if level == "基础" and rate >= 0.9 else
-               "≥0.9 ✅" if level == "巩固" and rate >= 0.9 else
-               "泛化边界" if level == "拓展" else "")
-        print(f"  {level}档：{a}/{t} = {rate:.3f} {tag}")
-    print(f"  修正：{len(fixes)} 次（误放行删边 / 误拒绝固化作答句）")
-    return lines
-
-
-# ── 错误收敛复测：修正后重测错题，验证判对 ───────────────────────
-
-
-def error_reconverge(ng, pats, n2w, fixes, vo_pairs, cat_members):
-    """自判错误样本修正后重测：错题应判对（错误收敛）。"""
+                       "teacher_reason": reason[:40]})
+    # 阶段2：统一修正（仅不一致）
+    fixes = []
+    for d in detail:
+        fix = apply_fix(ng, pats, n2w, d["s"], d["v"], d["o"],
+                        d["self"], d["teacher"], vo_pairs, cat_members)
+        if fix:
+            d["fix"] = fix
+            fixes.append(d)
+    # 阶段3：错题复测（收敛）
     n_fix_ok = 0
-    out = []
+    fix_retest = []
     for f in fixes:
         vd, conf, path = self_judge(ng, pats, n2w, f["s"], f["v"], f["o"],
                                     vo_pairs, cat_members)
         ok = (vd == f["teacher"])
         n_fix_ok += ok
-        out.append({**f, "retest": vd, "fixed": ok})
+        f["retest"] = vd
+        f["fixed"] = ok
+        fix_retest.append(f)
         print(f"  错题复测「{f['s']}{f['v']}{f['o']}」({f['level']}档)："
               f"修正前自判 {f['self']} vs 教师 {f['teacher']}"
               f" → 修正后自判 {vd} {'✓ 收敛' if ok else '✗ 未收敛'}")
-    return n_fix_ok, out
+    # 阶段4：全题复测（最终一致率，验收口径 = 修正后网络）
+    stat4 = Counter()
+    for s, v, o, level in items:
+        vd, _, _ = self_judge(ng, pats, n2w, s, v, o, vo_pairs, cat_members)
+        tv, _ = teacher_verdict(ng, pats, s, v, o,
+                                vo_pairs, cat_members, has_llm,
+                                use_llm=(level == "拓展"))
+        stat4[(level, "agree")] += (vd == tv)
+        stat4[(level, "total")] += 1
+    return stat1, fixes, stat4, detail
+
+
+def grade_report(stat, fixes, stage="阶段1（修正前）"):
+    """分档一致率统计。"""
+    print(f"\n【⑤b 课后练习批改 {stage}】分档一致率（网络自判 vs 教师判断）")
+    rates = {}
+    for level in ["基础", "巩固", "拓展"]:
+        a, t = stat[(level, "agree")], stat[(level, "total")]
+        rate = a / t if t else 1.0
+        rates[level] = rate
+        tag = ("≈1.0 ✅" if level == "基础" and rate >= 0.9 else
+               "≥0.9 ✅" if level == "巩固" and rate >= 0.9 else
+               "泛化边界" if level == "拓展" else "")
+        print(f"  {level}档：{a}/{t} = {rate:.3f} {tag}")
+    if stage.startswith("阶段1"):
+        print(f"  修正：{len(fixes)} 次（误放行删边 / 误拒绝固化作答句）")
+    return rates
 
 
 # ── 继承 v11 验收（字/词/句 + 2.5 类别 + hold-out 零遗忘）──────────
@@ -364,7 +394,7 @@ def main():
     has_llm = bool(_load_key())
     t0 = time.time()
     print("═══ Stage 2.6 v12：网络自判（判断内化到网络结构）═══\n")
-    print(f"[LLM] {'DEEPSEEK_API_KEY 已配置 → LLM 教师批改讲评'
+    print(f"[LLM] {'DEEPSEEK_API_KEY 已配置 → LLM 教师批改讲评（拓展档临界裁决）'
             if has_llm else '无 API key → 规则验证器回退（标注[模板占位]）'}")
 
     # ── 1. 加载 v11.2（动宾搭配 + 连接级处罚 + LLM 教师最新）──
@@ -399,29 +429,23 @@ def main():
     test_combos = [all_combos[i] for i in perm[n_train:n_train + n_test]]
     print(f"[组合] 总 {len(all_combos)}，训练 {len(train_combos)}，测试 {len(test_combos)}")
 
-    # ── 4. ⑤a 判断方法教学（示范 + 校准）──
+    # ── 4. ⑤a 判断方法教学（示范 + 修正校准）──
     t1 = time.time()
     method_log = method_lesson(ng, pats, n2w, vo_pairs, cat_members, has_llm)
 
-    # ── 5. ⑤b 课后练习（题集 → 自判 → 批改 → 归因修正）──
+    # ── 5. ⑤b 课后练习（题集 → 自判 → 批改 → 修正 → 复测）──
     items = exercise_set(s_words, v_words, o_words, train_combos, test_combos,
                          vo_pairs, cat_members, noun_pool, n_each=n_each)
     print(f"\n【⑤b 课后练习】题集 {len(items)} 道（三档 × 变式 × 穿插）")
-    stat, fixes, detail = homework_loop(ng, pats, n2w, items,
-                                        vo_pairs, cat_members, has_llm)
-    rates = grade_report(stat, fixes, detail)
+    stat1, fixes, stat4, detail = homework_loop(
+        ng, pats, n2w, items, vo_pairs, cat_members, has_llm)
+    rates1 = grade_report(stat1, fixes, stage="阶段1（修正前）")
+    rates4 = grade_report(stat4, fixes, stage="阶段4（修正后复测）")
+    r_fix = sum(1 for f in fixes if f["fixed"]) / len(fixes) if fixes else 1.0
+    print(f"[错误收敛] 错题复测 {sum(1 for f in fixes if f['fixed'])}/{len(fixes)}"
+          f" = {r_fix:.3f} {'✅' if r_fix >= 0.8 or not fixes else '❌'}")
 
-    # ── 6. 错误收敛复测 ──
-    n_fix_ok = 0
-    fix_retest = []
-    if fixes:
-        n_fix_ok, fix_retest = error_reconverge(
-            ng, pats, n2w, fixes, vo_pairs, cat_members)
-    r_fix = n_fix_ok / len(fixes) if fixes else 1.0
-    print(f"[错误收敛] 修正后复测 {n_fix_ok}/{len(fixes) or 0} = {r_fix:.3f}"
-          f" {'✅' if r_fix >= 0.8 or not fixes else '❌'}")
-
-    # ── 7. 继承 v11 验收（零遗忘）──
+    # ── 6. 继承 v11 验收（零遗忘）──
     words_old = [w for w in vocab if w not in set(hanzi)]
     eval_hanzi = list(np.random.default_rng(7).choice(hanzi, 200, replace=False))
     eval_words = list(np.random.default_rng(8).choice(words_old, 300, replace=False))
@@ -436,38 +460,38 @@ def main():
           f" | 2.5 类别 {inh['cat25']:.4f} | hold {inh['hold25_ok']}/{inh['hold25_tot']}"
           f" {'✅' if ok_inh else '❌ 回退!'}")
 
-    # ── 8. 自判 vs 教师对照样例（报告显式并列）──
-    print("\n[自判样例]（网络自判 vs 教师判断）")
-    for d in detail[:8]:
+    # ── 7. 自判 vs 教师对照样例（报告显式并列）──
+    print("\n[自判样例]（网络自判 vs 教师判断，阶段4 修正后）")
+    for d in detail[:10]:
         m = "✓" if d["agree"] else "✗"
         print(f"  {m}「{d['s']}{d['v']}{d['o']}」({d['level']}档) "
               f"自判={d['self']}({d['conf']}) vs 教师={d['teacher']}"
-              f" — {d['path']}")
+              f" — {d['path']}{' | ' + d['fix'] if d.get('fix') else ''}")
 
-    # ── 9. 验收 ──
-    r_base = rates["基础"]
-    r_firm = rates["巩固"]
-    ok_base = r_base >= 0.9
-    ok_firm = r_firm >= 0.9
+    # ── 8. 验收（口径 = 阶段4 修正后一致率）──
+    ok_base = rates4["基础"] >= 0.9
+    ok_firm = rates4["巩固"] >= 0.9
     ok_fix = r_fix >= 0.8 or not fixes
     ok_all = bool(ok_base and ok_firm and ok_fix and ok_inh)
-    print(f"\n[验收] 基础档一致率 {r_base:.3f} {'✅ ≥0.9' if ok_base else '❌'}"
-          f" | 巩固档 {r_firm:.3f} {'✅ ≥0.9' if ok_firm else '❌'}"
-          f" | 拓展档 {rates['拓展']:.3f}（泛化边界）"
+    print(f"\n[验收] 基础档 {rates4['基础']:.3f} {'✅ ≥0.9' if ok_base else '❌'}"
+          f" | 巩固档 {rates4['巩固']:.3f} {'✅ ≥0.9' if ok_firm else '❌'}"
+          f" | 拓展档 {rates4['拓展']:.3f}（泛化边界，LLM 裁决）"
           f" | 错误收敛 {r_fix:.3f} {'✅' if ok_fix else '❌'}"
           f" | 继承 {'✅' if ok_inh else '❌'}")
     print(f"\n═══ v12 验收: {'全部通过 ✅' if ok_all else '有失败 ❌'} "
           f"（{time.time() - t0:.0f}s）═══")
 
-    # ── 10. 快照（parent=11.2 → v12.0；冒烟不存）──
+    # ── 9. 快照（parent=11.2 → v12.0；冒烟不存）──
     metrics = {"self_judge": True,
-               "base_agree": round(r_base, 4), "firm_agree": round(r_firm, 4),
-               "extend_agree": round(rates["拓展"], 4),
-               "level_agree": {k: round(stat[(k, "agree")] / max(1, stat[(k, "total")]), 4)
-                               for k in ["基础", "巩固", "拓展"]},
-               "fix_actions": len(fixes), "fix_reconverge": round(r_fix, 4),
+               "base_agree_1": round(rates1["基础"], 4),
+               "firm_agree_1": round(rates1["巩固"], 4),
+               "extend_agree_1": round(rates1["拓展"], 4),
+               "base_agree_4": round(rates4["基础"], 4),
+               "firm_agree_4": round(rates4["巩固"], 4),
+               "extend_agree_4": round(rates4["拓展"], 4),
+               "fix_actions": len(fixes),
+               "fix_reconverge": round(r_fix, 4),
                "method_lesson": method_log, "exercise": detail,
-               "fix_retest": fix_retest,
                "llm_enabled": has_llm,
                "char_recall": inh["char"], "char_before": inh["char_before"],
                "word_recall": inh["word"], "word_before": inh["word_before"],

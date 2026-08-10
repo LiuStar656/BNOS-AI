@@ -288,7 +288,7 @@ def penalize_edge(ng, pats, src_w, dst_w):
             if j in dst_n:
                 removed.append((i, j, row[j]))
                 del row[j]
-                ng._edge_dirty[i][0] = True
+                ng.invalidate_edge_cache()
     return removed
 
 

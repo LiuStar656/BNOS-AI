@@ -90,12 +90,10 @@ def _restore_net(z):
         ng = SchemaNet(rng=rng, **params)
         ng.W = z["W"].astype(np.float64)
     else:
-        from sparse_net import SparseSchemaNet
+        from sparse_net import SparseSchemaNet, _rows_from_arrays
         ng = SparseSchemaNet(rng=rng, **params)
         src_i, slot_k, dst_j, vals = z["src_i"], z["slot_k"], z["dst_j"], z["vals"]
-        for i, k, j, w in zip(src_i, slot_k, dst_j, vals):
-            ng.W_out[int(i)][int(k)][int(j)] = float(w)
-        ng.invalidate_edge_cache()
+        _rows_from_arrays(ng, src_i, slot_k, dst_j, vals)   # 批量构建（免逐条 dict 插入）
     return ng
 
 

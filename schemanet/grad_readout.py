@@ -36,7 +36,7 @@ import time
 import numpy as np
 
 from schema_net import _learn_sentence
-from sparse_net import _out_edges_accum
+from sparse_net import _out_edges_accum, _row_from_dict
 
 
 # ════════════════════════════════════════════════════════════════
@@ -253,9 +253,8 @@ class GradReadout:
         """回滚 W 到最近快照（梯度破坏了定式时启用）。"""
         if self._snap is None:
             raise RuntimeError("GradReadout.restore_w: 无快照，先调 snapshot_w()")
-        self.ng.W_out = [[{j: w for j, w in row.items()} for row in rows]
-                         for rows in self._snap]
-        self.ng.invalidate_edge_cache()   # W_out 整体替换，传播镜像置脏
+        self.ng.W_out = [[_row_from_dict(d) for d in rows] for rows in self._snap]
+        self.ng.invalidate_edge_cache()   # [兼容占位] 数组即事实源，无实际置脏
 
     def nnz(self):
         """W 非零连接总数（结构度量）。"""
@@ -283,29 +282,29 @@ class GradReadout:
 
     def build_edge_mirror(self):
         """把 W_out 槽0 出边转成 numpy 数组镜像（训练提速）。
-        每神经元：_edge_dst[i]=出边目标数组、_edge_w[i]=出边权重数组。
-        语义与 dict 完全等价；_apply 只更新镜像，train_w 结束后 _sync_edges 写回。"""
+        每神经元：_edge_dst[i]=出边目标数组、_edge_w[i]=出边权重数组（副本，
+        训练只改镜像；train_w 结束后 _sync_edges 写回）。EdgeRow 重构后
+        镜像直接取自数组事实源（dst int32、w float64），零重建开销。"""
         n = self.ng.n
         self._edge_dst = [None] * n
         self._edge_w = [None] * n
         for i in range(n):
             row = self.ng.W_out[i][0]
             if row:
-                dst = np.fromiter(row.keys(), dtype=np.int64, count=len(row))
-                self._edge_dst[i] = dst
-                self._edge_w[i] = np.fromiter(row.values(), dtype=np.float64,
-                                              count=len(row))
+                self._edge_dst[i] = row.dst.copy()      # int32（fancy-index 兼容）
+                self._edge_w[i] = row.w.copy()          # float64（与 Python float 一致）
 
     def sync_edges(self):
-        """把镜像权重写回 dict（train_w 结束后调用一次）。"""
+        """把镜像权重写回 EdgeRow（train_w 结束后调用一次）。
+        镜像 dst 序与行内排序一致（build 时拷贝、训练只改 w）→ 整行数组替换。"""
         for i in range(self.ng.n):
             dst, w = self._edge_dst[i], self._edge_w[i]
             if dst is None:
                 continue
             row = self.ng.W_out[i][0]
-            for k, j in enumerate(dst):
-                row[int(j)] = float(w[k])
-        self.ng.invalidate_edge_cache()   # 外部写 W，传播镜像（SparseSchemaNet._edge_cache）置脏
+            row.dst = dst.astype(np.int32)
+            row.w = np.clip(w, 0.0, self.ng.w_max)
+        self.ng.invalidate_edge_cache()   # [兼容占位] 数组即事实源，无实际置脏
 
     def _out_edges_accum_fast(self, src_idxs, slot=0):
         """镜像版出边聚合（= _out_edges_accum，fancy-index 向量化）。"""

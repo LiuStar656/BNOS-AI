@@ -62,10 +62,10 @@ from sparse_net import allocate_pats
 from snapshot import load_version, load_snapshot, RUNS, _pack_net, _net_params
 from _grow_v11 import (VO_PAIRS, V_SET, O_FOOD, O_PLACE, O_TAGS,
                        PERS_MANUAL, S_ANIMALS,
-                       attributed_sentence, rule_verifier,
                        sent_recall, _llm_chat, _load_key,
                        edge_between, penalize_edge)
 from _grow_cat import build_cats
+from _grow_v12 import self_judge
 
 DATA = Path(__file__).parent / "data" / "curriculum"
 
@@ -593,7 +593,7 @@ def decay_path(ng, pats, path, factor=REPEAT_DECAY):
             for j in list(row):
                 if j in dst_n:
                     row[j] *= factor
-                    ng._edge_dirty[i][0] = True
+                    ng.invalidate_edge_cache()
 
 
 def reward_apply(ng, pats, net_out, score, independent=False, ptype=None):
@@ -1402,23 +1402,24 @@ def save_experiment(env, logs, edge_before, edge_after, seeds, has_llm,
 
 
 # ════════════════════════════════════════════════════════════════
-#  ③ 自判应答（Intraverbal，复用 v11 结构自判，非网络生成）
+#  ③ 自判应答（Intraverbal，v12 网络结构自判，非网络生成）
 # ════════════════════════════════════════════════════════════════
 
 def speak_judge(ng, pats, n2w, s, v, o, vo_pairs, cat_members):
-    """教师问"能说 X 吗？" → 网络结构自判 → 说出判断+依据（v11 规则）。"""
-    ok, top, allow, _ = attributed_sentence(ng, pats, n2w, s, v,
-                                            vo_pairs, cat_members)
-    kind, principles, allow_mem = rule_verifier(ng, pats, s, v, o,
-                                                allow, cat_members, top)
+    """教师问"能说 X 吗？" → v12 网络结构自判 → 说出判断+依据。
+
+    v12（2026-08-10）：判断从代码规则（rule_verifier 查搭配类别）升级为
+    网络自判（self_judge：直连→二跳→强度→类别冲突→诚实留白）——判断
+    依据来自网络边结构，改网络（教学/处罚）就改判断。"""
+    verdict, conf, path = self_judge(ng, pats, n2w, s, v, o,
+                                     vo_pairs, cat_members)
     sent = f"{s}{v}{o}"
-    if kind == "plain":
-        return f"「{sent}」能配什么？「{v}」的搭配我还没学过，诚实说：我不知道。"
-    if kind == "ok":
-        return (f"能说「{sent}」。「{o}」属于「{v}」的搭配类别"
-                f"（{('、'.join(allow))}），我能唤起它。")
-    return (f"不能说「{sent}」。「{o}」不在「{v}」的搭配类别"
-            f"（{('、'.join(allow))}），不是一句自然的句子。")
+    if verdict == "可造":
+        return f"能说「{sent}」。（{path}，置信 {conf}）"
+    if verdict == "不知道":
+        return (f"「{sent}」能配什么？我凭网络结构查不到依据"
+                f"（{path}），诚实说：我不知道。")
+    return f"不能说「{sent}」。（{path}，置信 {conf}）"
 
 
 # ════════════════════════════════════════════════════════════════
