@@ -1,0 +1,16 @@
+{
+ "version": "53.0",
+ "major": 53,
+ "minor": 0,
+ "parent_version": "52.1",
+ "ts": "20260811_183718",
+ "tag": "涌现起点+1000空神经元池：v52.1 + 1000 个未注册空神经元（随机基底涌现实验的中间节点池）——词表不变",
+ "net_kind": "sparse",
+ "n": 150396,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 0,
+ "pats_size": 37145,
+ "cursor": 150396
+}

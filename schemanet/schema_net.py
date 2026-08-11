@@ -281,9 +281,9 @@ def jaccard(a, b):
     return len(a & b) / len(a | b)
 
 
-def build_pulse(n, idxs):
+def build_pulse(n, idxs, amp=1.0):
     p = np.zeros(n)
-    p[idxs] = 1.0
+    p[idxs] = amp
     return p
 
 
@@ -1735,8 +1735,28 @@ def _consolidate_shared(ng, pats, cursor, seq, k, w):
             return pats[sk["fixed"][i]]
         return sk["content"].get(i)
 
-    # 同构定式检测（长度相同——first 作为基准）
-    sk = next((s for s in skeletons.values() if s["len"] == len(seq)), None)
+    # 同构定式检测（长度相同 + **互斥保护**——2026-08-11 用户："互斥怎么办"）
+    # 幼儿机制（Clark 对比原则 / Markman 互斥）：不同入口默认不同意义——
+    # 只有"论元槽相同"才接受等同（跟我一起说X / 和我一起说X——X 相同→
+    # 入口可共享；叫我 / 要我——论元虽同为"我"但语义功能不同——**不共享**）。
+    # 实现：候选定式 = 长度相同 且 非入口位（位置 1..）绑定词有交集——
+    # 论元槽证据。无交集（叫我/要我——位置1都是"我"？）——注意：若论元
+    # 完全相同（叫我 vs 要我——位置 1 都是"我"）——交集存在——需额外
+    # 判据：**入口词不同且论元完全重叠 → 疑似不同功能 → 保守不共享**？
+    # 幼儿实际：称呼"叫我"和请求"要我"功能不同——靠语义区分——网络无
+    # 语义通道——保守策略：**入口不同时，论元完全重叠的也不共享**
+    # （防 叫/要 等同）；论元部分重叠（跟/和——都是"跟我一起说"+内容）
+    # 才共享。简化实现：仅当"入口词不同但其他位绑定词完全相同"时——
+    # 若 new 入口与候选 first 入口不同 → 不共享（互斥——新入口新框架）。
+    sk = None
+    for cand in skeletons.values():
+        if cand["len"] != len(seq):
+            continue
+        # 互斥：新句入口 ≠ 候选 first 入口 → 不共享（默认新框架）
+        if seq[0] != cand.get("first", [None])[0]:
+            continue
+        sk = cand
+        break
     if sk is None:
         # 第一句：建定式——全部位 = 内容位槽
         slots = []

@@ -283,19 +283,22 @@ def _merge_rows(nr, offs, dsts, ws, koff, keys, deltas, w_max, clip_low,
 
 
 @njit(cache=True, parallel=True)
-def _update_v(n, slots, v, fat, raw, inp_idx, slot, decay, noise_p, noise_amp,
-              std_dep, std_rec):
+def _update_v(n, slots, v, fat, raw, inp_idx, inp_amp, slot, decay, noise_p,
+              noise_amp, std_dep, std_rec):
     """融合 v 更新（唤起路径）：膜电位衰减 + 噪声（逐槽，prange）+ 注入 + STD 恢复。
     噪声内化（2026-08-10 第五波）：raw = rng.random(n) 原始值，`(raw<p)*amp`
     与 numpy 位级一致（IEEE 比较/乘法确定性）——与 _train_core 同款，
     省 numpy 比较+乘两 pass（推理步 ~1.2ms → ~0.3ms）。
-    语义与 `v*decay + (raw<p)*amp` + `v[:,slot]+=pulse` + `fat*=std_rec` 逐位一致。"""
+    语义与 `v*decay + (raw<p)*amp` + `v[:,slot]+=pulse` + `fat*=std_rec` 逐位一致。
+    注入幅度（2026-08-11 韵律强调）：inp_amp[j] = 注入强度——轻声 0.5 /
+    强调 1.5（教师韵律引导注意力——"叫(轻声) 爸爸(强调)"——小孩注意
+    在目标词）。amp 全 1 时与旧 `+= 1.0` 位级一致。"""
     for i in prange(n):
         nz = (raw[i] < noise_p) * noise_amp
         for s in range(slots):
             v[i, s] = v[i, s] * decay + nz
     for j in range(len(inp_idx)):
-        v[inp_idx[j], slot] += 1.0
+        v[inp_idx[j], slot] += inp_amp[j]
     if std_dep > 0:
         for i in prange(n):
             fat[i] *= std_rec
@@ -330,9 +333,9 @@ def _wta_cand(n, slots, v, last_k_star, ref_left, theta,
 
 
 @njit(cache=True, parallel=True)
-def _train_core(n, slots, v, fat, raw, inp_idx, slot, decay, noise_p, noise_amp,
-                theta, ref_left, last_k_star, is_cand, cand_idx, cand_val,
-                refract_clear, std_dep, std_rec):
+def _train_core(n, slots, v, fat, raw, inp_idx, inp_amp, slot, decay, noise_p,
+                noise_amp, theta, ref_left, last_k_star, is_cand, cand_idx,
+                cand_val, refract_clear, std_dep, std_rec):
     """学习路径三段合一（2026-08-10 第二波提速）：衰减+噪声 → 注入 → STD 疲劳
     恢复 → refract_clear → argmax+候选收集 → ref_left 基础 -1，单 prange 内核。
     语义 = _update_v + refract_clear + _wta_cand 逐位一致（spikes 为空时传播
@@ -340,13 +343,14 @@ def _train_core(n, slots, v, fat, raw, inp_idx, slot, decay, noise_p, noise_amp,
       - 噪声内化：raw = rng.random(n) 原始值，`(raw<p)*amp` 与 numpy 位级一致
         （IEEE 比较/乘法确定性）；
       - refract_clear 在 argmax 前（= 原传播后、WTA 前的位置）；
-      - 候选判定用未递减 ref_left，与旧时序一致。"""
+      - 候选判定用未递减 ref_left，与旧时序一致。
+    注入幅度（2026-08-11 韵律强调）：inp_amp[j]——轻声/强调两档。"""
     for i in prange(n):
         nz = (raw[i] < noise_p) * noise_amp
         for s in range(slots):
             v[i, s] = v[i, s] * decay + nz
     for j in range(len(inp_idx)):
-        v[inp_idx[j], slot] += 1.0
+        v[inp_idx[j], slot] += inp_amp[j]
     if std_dep > 0:
         for i in prange(n):
             fat[i] *= std_rec
@@ -498,6 +502,10 @@ class SparseSchemaNet:
         self.da_decay = 0.9
         self.elig_decay = 0.9
         self.da_max = 2.0
+        # 惩罚力度系数（2026-08-11 用户："惩罚效果不是一时半会就出现的，
+        # 加大力度"）：da<0 时资格迹兑现增量 ×punish_factor（默认 3——
+        # 比奖励陡——惩罚反应更快）
+        self.punish_factor = 3.0
         # edge_min：层2 弱边修剪（weak-edge pruning，2026-08-10）。传播时
         # 边权重 < edge_min 的出边不参与驱动——阻止"数千条弱边汇聚过阈"
         # 的雪崩扇出（实测 11.2 网络 80% 边 < 0.5，高频词"我"出边 1.7 万条、
@@ -525,6 +533,19 @@ class SparseSchemaNet:
         self.rng = rng or np.random.default_rng()
         self.reset()
 
+    def _decay_elig_pairs(self):
+        """突触级资格迹指数衰减（τ_e——"刚活动过"的临时记忆）：
+        每拍 ×elig_decay；跌破阈值清除（防无限膨胀——只留最近活跃配对）。"""
+        if not self._elig_pairs:
+            return
+        ep = self._elig_pairs
+        for k in list(ep):
+            v = ep[k] * self.elig_decay
+            if v < 0.05:
+                del ep[k]
+            else:
+                ep[k] = v
+
     def release_da(self, amount):
         """外部唯一奖惩接口（间接触发——不直接改边）：注入多巴胺调质。
         正 = 奖赏（后续学习强化）、负 = 惩罚（抑制学习）。瞬时脉冲，
@@ -533,33 +554,105 @@ class SparseSchemaNet:
         RPE = da − da_expected → TD 更新预期（预期跟踪实际）——网络对
         "这样说会得到多少好处"形成预期——稳定奖励 RPE 趋 0（熟悉——
         对话本身成为奖赏源）、意外奖励正 RPE（新奇——强化学）、
-        落空负 RPE（失望——抑制学）。"""
+        落空负 RPE（失望——抑制学）。
+        资格迹兑现（2026-08-11——R-STDP 三因子补全，Izhikevich 2007
+        Δw = DA × e）：奖励/惩罚到达时——对"刚才活动过"的神经元
+        （elig>阈值——最近发放过）的**出边**按 RPE×elig 兑现——
+        **时间信用分配**：行为发生在几拍前、奖励延迟到达——凭资格
+        迹归因到当时的突触（distal reward problem 的解——之前 elig
+        只写不读——三因子缺兑现环节）。正 RPE 强化出边（这个行为
+        被奖励）、负 RPE 压制出边（这个行为被惩罚——LTD）。"""
         self.da = max(-self.da_max, min(self.da_max, self.da + amount))
         self.last_rpe = self.da - self.da_expected
         self.da_expected += self.td_rate * self.last_rpe
+        # 突触级资格迹兑现（2026-08-11——Izhikevich 2007 Δw = η·DA·e_ij）：
+        # 奖惩到达 → 只对"刚活动过的配对"（_elig_pairs 有标）的边操作——
+        # da>0 强化该配对、da<0 压制该配对（LTD）。**配对级**——压
+        # 「拿→香蕉」（错配——刚配对有标）不碰「拿→苹果」（未配对无标）
+        # ——不误伤（用户："不怕说错，怕用机制改不过来"——错误可逆且精准）。
+        # 门控用 da 本身（v4——RPE 只内化不门控——防预期抬高后无奖励
+        # 教学误压旧知识）。神经元级 elig 兑现已废弃（误伤根因——不再使用）。
+        # 惩罚力度（2026-08-11 用户："惩罚效果不是一时半会就出现的，加大
+        # 力度"）：da<0（惩罚）时增量 ×punish_factor（默认 3——比奖励陡——
+        # 生物对应：惩罚/负反馈反应更快——Anderson 2022 抑制诱发遗忘 SIF——
+        # 被压的联想快速变弱）。正奖励保持 eta 原力度。
+        if abs(self.da) > 0.05 and self._elig_pairs:
+            mod = self.da_gain * self.da
+            factor = self.punish_factor if mod < 0.0 else 1.0
+            dlt_base = self.eta * mod * factor
+            for (pre, post), e in list(self._elig_pairs.items()):
+                row = self.W_out[pre][0]
+                if post in row:
+                    row[post] = min(self.w_max,
+                                    max(0.0, row[post] + dlt_base * e))
 
     def build_track_map(self, pats, skeletons=None):
         """轨道映射构建：定式词神经元 → 其槽位神经元（上下文消歧用）。
         由持有词表的调用方（场景/教学）在定式注册后调用。
-        返回 self.track_map（dict: 词神经元 id → 槽位神经元集合）。"""
+        返回 self.track_map（dict: 词神经元 id → 槽位神经元集合）。
+
+        结构下沉 v2（2026-08-11 用户："结构怎么放到网络上"——从 dict
+        元数据到突触结构）：轨道信息**从突触边结构重建**——不读 skeletons
+        dict（dict 仅构建脚手架）：
+          · 槽位神经元 = 有"词→它"入边 且 "它→词/槽"出边的中间神经元
+            （synfire chain 节点——角色神经元 role）
+          · 词→槽 强边 = 入口（词是入口词）
+          · 槽→词 强边 = 绑定（role-filler binding——"词在槽"= 边存在）
+          · 槽→槽 强边 = 主干（轨道推进）
+        实现：收集 W_out 中 w≥主干强度（64 档）的边——源是词（pats 有）
+        → 目标为槽（入边来自词、出边到词）——重建 track_map/readout。
+        无 skeletons 时（纯突触）也能工作——dict 剥离后网络仍运行。"""
         self.track_map = {}
         self._track_slots = set()
         self._track_readout = {}
-        for sk in (skeletons if skeletons is not None
-                   else getattr(self, "skeletons", {}) or {}).values():
-            content = sk.get("content", {})
-            bound = sk.get("bound", {})
-            for w, idx in bound.items():
-                ns = pats.get(w)
-                if not ns or idx not in content:
-                    continue
-                slots = set(content[idx])
-                self._track_slots |= slots
-                wns = set(ns)
-                for i in ns:
-                    self.track_map.setdefault(int(i), set()).update(slots)
-                for s in slots:
-                    self._track_readout.setdefault(int(s), set()).update(wns)
+        self._track_readout_nwords = {}
+        # ── 从突触结构识别轨道（不依赖 skeletons）──
+        # 强边（w ≥ 16——主干/绑定档）参与轨道；弱边（联想）不参与
+        STRONG = 16.0
+        # ① 收集强边：src → dst（slot0）
+        strong = {}    # src -> set(dst)
+        for i in range(self.n):
+            row = self.W_out[i][0]
+            if not row:
+                continue
+            dsts = {int(j) for j, w in row.items() if w >= STRONG}
+            if dsts:
+                strong[i] = dsts
+        # ② 识别槽位神经元：有"词→它"入边（src 是词）且"它→词"出边
+        #    或"它→槽"出边（轨道中间节点）
+        #    槽 = 不是词表词（不在 pats 反查）但有强出边的神经元
+        #    （词神经元在 pats 里——槽神经元不在——结构识别）
+        pats_set = set()
+        for w, ns in pats.items():
+            pats_set.update(int(x) for x in ns)
+        # 槽候选：有入边的非词神经元
+        for src, dsts in strong.items():
+            if src in pats_set:
+                continue      # src 是词——不是槽
+            # src 是槽候选（非词但有强出边）
+            self._track_slots.add(src)
+        # ③ 轨道映射：词 → 其直连槽（词→槽 强边）
+        for src, dsts in strong.items():
+            if src not in pats_set:
+                continue      # src 是槽——跳过（主干边）
+            # src 是词：出边目标是槽（轨道入口）
+            for d in dsts:
+                if d in self._track_slots:
+                    self.track_map.setdefault(int(src), set()).add(int(d))
+        # ④ 读出映射：槽 → 绑定词（槽→词 强边）
+        for src in self._track_slots:
+            row = self.W_out[src][0]
+            words = {int(j) for j, w in row.items()
+                     if w >= STRONG and int(j) in pats_set}
+            if words:
+                self._track_readout[src] = words
+                # 绑定词数 = 词数（按 pats 分组——每词 k 神经元）
+                k_word = max((len(pats.get(w, [])) for w in
+                              (next((w for w, ns in pats.items()
+                                     if int(x) in ns), None)
+                               for x in words) if w), default=4)
+                self._track_readout_nwords[src] = \
+                    max(1, len(words) // k_word) if k_word else len(words)
         self._track_slots_list = np.array(sorted(self._track_slots),
                                            dtype=np.int64)
         return self.track_map
@@ -591,6 +684,20 @@ class SparseSchemaNet:
         self._track_readout = {}        # 槽位神经元 → 绑定词神经元（词读出）
         self._track_slots_list = np.array([], dtype=np.int64)
         self._last_inp = np.array([], dtype=np.int64)   # 上一拍注入（词终端判定）
+        # 本句注入上下文（2026-08-11 论元消歧）：本句累积注入的词（叫X→回答X
+        # 的 X 来自输入）——空闲 5 拍视为句边界清空（跨句不残留论元）。
+        self._ctx_inp = set()
+        self._ctx_idle = 0
+        # 上一注入拍记录（2026-08-11 相邻配对打标用——不被间隔拍清空）
+        self._prev_inp = set()
+        # 突触级资格迹（2026-08-11 用户："不怕说错，怕用机制改不过来"——
+        # 神经元级 elig 惩罚误伤：压「拿香蕉」时把 拿→苹果 也压了。Izhikevich
+        # 2007 / Florian 2007：资格迹是**每条突触的配对标记**（synaptic tag）
+        # ——e_ij（pre→post 对）——奖惩只作用于"刚活动过的配对"——惩罚只
+        # 压错配、不误伤。稀疏 dict：{(pre, post): 资格值}——STDP/Hebbian
+        # 写边时对实际修改的配对打标；每拍衰减；release_da 兑现 Δw=η×RPE×e
+        # （只对有标的边操作）。神经元级 self.elig 保留作兼容（不再用于兑现）。
+        self._elig_pairs = {}
         self.evictions = 0
         # 稀疏出边：W_out[i][k] = EdgeRow（数组事实源，dict 兼容接口），
         # 语义 = 稠密 W[j, k, i]。数组即事实源，传播镜像零复制（见 EdgeRow）。
@@ -693,9 +800,51 @@ class SparseSchemaNet:
             self._sig_spikes[:] = 0.0
         raw = self.rng.random(n)   # 原始均匀值（内核内做 <p / ×amp，位级一致）
         inp_idx = np.nonzero(input_pulse)[0]
+        # 本句注入上下文维护（2026-08-11）：有注入 → 累积论元 + 空闲计数归零；
+        # 无注入 → 空闲 +1，超 5 拍视为句边界 → 清空（跨句不残留——防
+        # 「叫爷爷」后隔很久输入「爸爸」时爷爷仍算论元）。
+        if len(inp_idx):
+            # 新行为开始（上一拍空闲或首拍注入）→ 清突触级资格迹
+            # （2026-08-11）：每个行为 = 新的配对窗口——旧行为配对标
+            # 清零——奖惩只作用于本次行为的配对（拿→香蕉），不误伤历史
+            # 配对（拿→苹果——上次教学残留标）——精准惩罚（用户："不怕
+            # 说错，怕用机制改不过来"——错误可逆且不误伤）。同句内连续
+            # 注入（论元补充）不重清（_ctx_idle==0 保持累积）。
+            if self._ctx_idle > 0:
+                self._elig_pairs.clear()
+            # 句内序列配对打标（2026-08-11——资格迹不依赖 pre_trace——
+            # trace 半衰期 1 拍撑不到下一词）：**相邻注入词**配对（当前词
+            # ↔ 上一注入词——本次行为的序列配对）——「叫 爸爸」标 (叫,爸爸)；
+            # 不与历史 ctx 词配对（防惩罚「叫爷爷」误压历史 叫→爸爸——
+            # 用户 2026-08-11："建边是正常的"——配对=本次行为窗口）。
+            # 配对窗口（_prev_inp——上一注入拍记录，不被间隔拍清空）
+            # 独立于论元上下文（_ctx_inp——累积——论元回声用）。
+            if self._ctx_idle > 0:
+                self._prev_inp = set()     # 新行为开始——清上一词
+            for w_new in inp_idx:
+                for w_old in self._prev_inp:
+                    # 标"本次活跃的相邻配对"（新旧都标——2026-08-11 颗粒度
+                    # 修正：用户"出现爸爸/叫为什么不惩罚"——惩罚应作用于
+                    # 本次活跃的边（叫→爸爸——无论元提前答=错→惩罚压制）；
+                    # 奖励强化同边（叫爸爸→爸爸=对→强化）——**靠场景比例
+                    # 决定净效果**（正确教学多→净强化；错误场景多→净弱化
+                    # ——Izhikevich Δw=DA×活跃边原语义）。不误伤靠教学
+                    # 协议（只在错误场景惩罚）——不是引擎过滤。
+                    if int(w_old) != int(w_new):
+                        self._elig_pairs[(int(w_old), int(w_new))] = 1.0
+            self._prev_inp = set(int(x) for x in inp_idx)
+            self._ctx_inp.update(int(x) for x in inp_idx)
+            self._ctx_idle = 0
+        else:
+            self._ctx_idle += 1
+            if self._ctx_idle > 5:
+                self._ctx_inp = set()
+        # 注入幅度（2026-08-11 韵律强调）：脉冲值即强度——轻声 0.5 /
+        # 强调 1.5；默认全 1（= 旧 +1.0 注入，位级一致）
+        inp_amp = input_pulse[inp_idx] if len(inp_idx) else np.zeros(0)
         if not spikes.any():
             n_c = _train_core(n, slots, v, fat, raw,
-                              inp_idx, slot, self.membrane_decay,
+                              inp_idx, inp_amp, slot, self.membrane_decay,
                               self.noise_p, self.noise_amp, self.theta,
                               ref_left, last_k,
                               self._is_cand, self._cand_idx, self._cand_val,
@@ -704,7 +853,7 @@ class SparseSchemaNet:
         else:
             # 第五波：噪声内化进 _update_v（raw 直传，内核内 <p/×amp，位级一致）
             _update_v(n, slots, v, fat, raw,
-                      inp_idx, slot, self.membrane_decay,
+                      inp_idx, inp_amp, slot, self.membrane_decay,
                       self.noise_p, self.noise_amp,
                       self.std_dep, self.std_rec)
 
@@ -713,6 +862,11 @@ class SparseSchemaNet:
             # 按主导槽掩码分桶（掩码保序 → senders 集合与 np.where 相同）
             fire_idx = np.where(spikes > 0)[0]
             if len(fire_idx):
+                # 联想/推理分域（2026-08-11）：on_track 在传播前判定——
+                # 本拍发放含槽位/定式词 = 轨道激活 → 传播只走主干档边
+                # （联想边被 edge_min 过滤）；无轨道 = 思考（自由联想）。
+                on_track = any(s in self._track_slots for s in fire_idx) \
+                    or any(s in self.track_map for s in fire_idx)
                 # 词读出终端（2026-08-11 模式完成即止）：轨道上（senders
                 # 含槽位）时——绑定词（定式词）是"读出终端"——不传播
                 # （读出即止——不驱动语料漂移——海马重放读完即收敛）。
@@ -758,7 +912,14 @@ class SparseSchemaNet:
                             if len(all_dst):
                                 # 第二波提速：add.at → numba 单 pass（edge_min 过滤内嵌，
                                 # 免 concat 后过滤 pass；累加顺序一致 → 位级一致）
-                                _prop_accum(all_dst, all_w, self.edge_min, drive_k)
+                                # 联想/推理分域（2026-08-11 下沉②——用户："突触连接连的
+                                # 是联想链，推理链走主干"）：**轨道激活时**传播只走主干档
+                                # 边（≥16——联想边弱档被过滤——联想不出现在推理 k）；
+                                # 无轨道（思考/自由联想）→ 全量传播（联想可用）。
+                                _prop_accum(all_dst, all_w,
+                                            self.edge_min if not on_track
+                                            else max(self.edge_min, 16.0),
+                                            drive_k)
                         if self.inh_norm > 0:  # 层1 全局活动抑制：除法归一化
                             tot = drive_k.sum()
                             if tot > self.inh_norm:
@@ -787,6 +948,63 @@ class SparseSchemaNet:
             inp_mask = np.zeros(n, dtype=bool)
             inp_mask[inp_idx] = True
             keep = (self._drive_any > 0) | inp_mask
+            # 轨道硬过滤（2026-08-11 用户："就算突触权重有多高，推理链
+            # 的时候不符合都不应该出现在 k 里"）：轨道上（本拍发放含
+            # 定式词或槽位——推理链已激活）→ k 只收推理链候选：
+            #   ① 槽位（主干推进——k-(k-1) 逐拍）
+            #   ② 注入词（论元回声——X 来自输入）
+            #   ③ 轨道绑定词（当前槽位读出——固定内容补全 / 论元）
+            #   联想边（词→词共现——思考用）权重再高也被硬剔——
+            #   推理链时联想不参与（Vreeswijk 上下文消歧硬版——
+            #   "轨道上只走轨道"从"压倒"升级为"排除"）。
+            # 轨道未激活（无定式词/槽位发放）→ 联想照常（思考场景）。
+            if self.track_map:
+                senders_set = set(np.where(spikes > 0)[0])
+                on_track = any(s in self._track_slots for s in senders_set) \
+                    or any(s in self.track_map for s in senders_set)
+                if on_track:
+                    # 当前槽位绑定词（2026-08-11 修正——用户："这不是补全，
+                    # 也是指令啊"）：轨道读出**统一论元回声**——无论绑定
+                    # 几个词（唯一/多绑定同构）——「跟我一起说X」和「叫X」
+                    # 一样是动词框架+论元：内容/论元来自输入（_ctx_inp），
+                    # 不是"补全历史绑定"。输入动词单独（「跟我一起说」）
+                    # → 无论元 → 只出动词（不补全内容——与「叫」单独只
+                    # 出「叫」一致）。
+                    track_words = set()
+                    for s in senders_set:
+                        track_words |= self._track_readout.get(s, set())
+                    cur_inp = set(self._ctx_inp)
+                    if cur_inp:
+                        track_words &= cur_inp    # 论元回声：只读当前注入
+                    # cur_inp 空（无注入的空拍——轨道补全读出）→ 保持
+                    # track_words（不剔内容——槽1→内容 传播拍无注入时
+                    # 内容该读出——2026-08-11 修复：空拍取交集把内容剔了）
+                    is_slot = np.isin(candidates, self._track_slots_list)
+                    is_inp = np.isin(candidates, inp_idx)
+                    is_track_word = np.isin(
+                        candidates,
+                        np.array(sorted(track_words), dtype=np.int64)) \
+                        if track_words else np.zeros(len(candidates),
+                                                     dtype=bool)
+                    keep_track = is_slot | is_inp | is_track_word
+                    # keep 全长（n）→ 用候选神经元 id 置 False（联想硬剔）
+                    keep[candidates[~keep_track]] = False
+                    # 生成链修复（2026-08-11 用户："带出绑定词很明显就是
+                    # 生成链出现问题"）：被剔联想候选**同步清零膜电位**——
+                    # 联想词被剔但 v 残留 → 下一拍学习路径（全局 WTA 无
+                    # 轨道过滤）把它放出——生成链泄漏（输入「叫爷爷」带
+                    # 出妈妈/爸爸）。剔 = 清 v（与词层消歧 keep2 的
+                    # v[drop]=0 一致——联想不出现在生成链，也不残留）。
+                    drop_track = candidates[~keep_track]
+                    if len(drop_track):
+                        v[drop_track, :] = 0.0
+                    # 被剔联想候选记录（2026-08-11 惩罚压制目标）：推理时
+                    # 被轨道剔除的联想词（爸爸——不该出现在 k）——惩罚
+                    # 到达时压它们的入边（见学习块 LTD——"惩罚压制不掉
+                    # 说明惩罚机制有问题"——被剔候选=错误联想=惩罚对象）
+                    if hasattr(self, "_punish_cands"):
+                        self._punish_cands.update(
+                            int(x) for x in drop_track)
             # 轨道优先（上下文消歧 2026-08-11）：当前发放词是定式词 →
             # 其槽位候选加权（×10——在轨道上只走轨道——Vreeswijk 消歧 /
             # Sejnowski 定向流）。非轨道候选不被排除，仅被轨道压倒。
@@ -809,6 +1027,19 @@ class SparseSchemaNet:
             # ① 过渡拍（senders 全是词）：词候选全剔（只走轨道槽位）
             # ② 轨道上（senders 含槽位）：词候选只保留当前槽位绑定词
             #    （槽→词读出——轨道上只读轨道内容；教学链词/语料剔除）
+            # 消歧 v2（2026-08-11 用户："叫X→回答X"规则）：allowed 限定为
+            #   **当前注入词 ∩ 绑定词**——听到「叫妈妈」→ 注入{叫,妈妈}
+            #   → 槽1 绑定词 {爸爸,妈妈} ∩ 注入 = {妈妈} → 只读妈妈
+            #   （爸爸是历史绑定——不读出）。轨道上的词读出 = 论元回声
+            #   （X 已注入——回答 X——不是死记历史绑定词）。
+            # 论元保留 v3（2026-08-11 用户测试叫爷爷/奶奶）：**当前注入的
+            #   词无条件保留**（is_inp）——论元 X（妈妈/爷爷/奶奶）不是
+            #   绑定词时不能被轨道过滤剔掉（"叫X→回答X"的 X 来自输入——
+            #   回答 = 论元回声）。过滤只剔"非注入的语料词"。
+            # 固定内容型 v4（2026-08-11 用户"跟我一起说→我的名字叫守一"）：
+            #   槽位绑定词（2026-08-11 修正——用户："这不是补全，也是指令
+            #   啊"）：统一论元回声——无论绑定几个词，「跟我一起说X」和
+            #   「叫X」同构（动词框架+论元）——内容/论元来自输入，不补全。
             if self._track_readout:
                 senders_set = set(np.where(spikes > 0)[0])
                 has_slot = any(s in self._track_slots for s in senders_set)
@@ -816,15 +1047,33 @@ class SparseSchemaNet:
                 if has_slot or has_track_word:
                     allowed = set()
                     if has_slot:
+                        # 当前句注入词（本句累积——论元——叫X的X）
+                        cur_inp = set(self._ctx_inp)
                         for s in senders_set:
                             allowed |= self._track_readout.get(s, set())
+                        if cur_inp:
+                            # 论元回声：只读当前注入的绑定词（统一——
+                            # 唯一/多绑定同构；输入动词单独→无论元→
+                            # 不读出内容——不补全）
+                            allowed &= cur_inp
+                        # cur_inp 空（无注入空拍——轨道补全读出）→ 保持
+                        # allowed（内容该读出——与硬过滤一致修复）
                     is_slot = np.isin(candidates, self._track_slots_list)
                     is_word = np.isin(
                         candidates,
                         np.array(sorted(allowed), dtype=np.int64)) \
                         if allowed else np.zeros(len(candidates), dtype=bool)
-                    keep2 = is_slot | is_word
+                    is_inp = np.isin(candidates, inp_idx)  # 论元无条件保留
+                    keep2 = is_slot | is_word | is_inp
                     if not keep2.all():
+                        # 消歧剔除的候选清零膜电位（2026-08-11 框架语义：
+                        # 历史绑定词非当前论元 → 彻底清零——×0.05 不够
+                        # （64×0.05=3.2 仍过阈——下一拍学习路径全局 WTA
+                        # 无轨道消歧会放出）；清零 = 槽位填充语义——槽被
+                        # 当前论元实例化，历史填充物不参与读出）。
+                        drop = candidates[~keep2]
+                        if len(drop):
+                            v[drop, :] = 0.0
                         candidates = candidates[keep2]
                         vmax_c = vmax_c[keep2]
         k_star = last_k                 # 内核已就地写入本步 argmax
@@ -883,42 +1132,91 @@ class SparseSchemaNet:
                         # Hebbian/STDP 批量合并（2026-08-10 numba 提速）：原 O(k²)/O(k×pre)
                         # Python 双循环 + 每对 row.get() 全部移到 numba 内核 _merge_rows，
                         # 语义逐位一致：存在键累加 + w_max 截断 + stable 插入（= batch_update）。
-                        # R-STDP 三因子（2026-08-11）：学习增量 × (1 + DA_GAIN×da)——
-                        # 多巴胺乘法门控 LTP（Yusoffa & Grüning 2012 形式）；资格迹：
-                        # 发放神经元 elig 置 1（"刚才活动过"——奖励时间信用分配）。
-                        # R-STDP 三因子（2026-08-11）：学习增量 × (1 + DA_GAIN×RPE)——
-                        # 多巴胺乘法门控 LTP（Yusoffa & Grüning 2012 形式）——RPE =
-                        # 实际 − 预期（治疗三内化：稳定奖赏不强化、意外奖赏强化）
-                        mod = 1.0 + self.da_gain * (self.da - self.da_expected)
+                        # R-STDP 三因子（2026-08-11 修复 v3）：学习增量 × DA 门控
+                        # ——Δw = STDP × DA_GAIN×RPE，**双极调制**：
+                        #   · da≈0（无奖励）→ mod=0 → 不建边（训狗语义：
+                        #     零食是学习开关——无奖励纯复读零改动）
+                        #   · da>0（奖励）→ mod>0 → 强化（LTP）
+                        #   · da<0（惩罚）→ mod<0 → **压制（LTD——负向
+                        #     学习压边）**——用户（2026-08-11）："应该用
+                        #     惩罚给压制掉，如果惩罚压制不掉说明惩罚机制
+                        #     就有问题"。原 v2 把负 mod 归零（惩罚=不学）
+                        #     ——惩罚形同虚设——联想边（叫→爸爸）永远压
+                        #     不掉。v3：负 RPE → 负增量 → 边权重下降。
+                        # v4 门控用 DA 本身（2026-08-11——Izhikevich 原式
+                        # Δw = DA×e）：RPE（da−da_expected）在预期被抬高后
+                        # （教学苹果时多次给零食）——无奖励教学（da=0）会
+                        # 产生负 RPE → **无意的惩罚**——教学新内容（香蕉）
+                        # 时把旧知识（苹果边）压掉。门控改用 **da 本身**：
+                        # da=0 不学、da>0 强化、da<0 惩罚——预期（RPE）
+                        # 只用于 da_expected 的 TD 内化，不参与门控。
+                        mod = self.da_gain * self.da
+                        # 负 mod 保留（LTD 压边）；0 保持（无奖励不学）
+                        # 惩罚压制被剔联想（2026-08-11 用户："应该用惩罚给
+                        # 压制掉"）：da<0 时——推理中被轨道剔除的联想候选
+                        # （_punish_cands——错误联想）的**入边**被负向调制
+                        # （LTD——压边）。被剔候选=不该出现的联想=惩罚对象
+                        # ——压它的驱动边（如 叫→爸爸——叫爷爷时爸爸被剔
+                        # → 压 叫→爸爸 → 联想被惩罚压制，边保留但变弱）。
+                        if mod < 0.0 and getattr(self, "_punish_cands", None):
+                            pc = np.array(sorted(self._punish_cands),
+                                          dtype=np.int32)
+                            self._punish_cands.clear()
+                            for j in pc:
+                                for i in range(self.n):
+                                    row = self.W_out[i][0]
+                                    if j in row:
+                                        row[j] = max(0.0,
+                                                     row[j] + mod * 0.1)
+                        else:
+                            self._punish_cands = set()
                         # Hebbian：共同发放对 (a, c) → W[c][k_star[a]][a] += eta（排除自连接）
                         # 行 (c, ka)，键 = {a ∈ top : k_star[a]==ka, a≠c}
-                        row_to_a = {}
-                        for a in top_arr:
-                            ka = int(k_star[a])
-                            for c in top_arr:
-                                if a != c:
-                                    row_to_a.setdefault((int(c), ka), []).append(int(a))
-                        groups = [(self.W_out[c][ka],
-                                   np.asarray(aset, dtype=np.int32),
-                                   np.full(len(aset), self.eta * mod))
-                                  for (c, ka), aset in row_to_a.items()]
-                        self._apply_edge_updates(groups, self.w_max)
+                        # 惩罚安全（2026-08-11 用户："建边是正常的"）：mod<0
+                        # （惩罚）时 Hebbian 跳过——**不压历史已学边**（叫→
+                        # 爸爸——不是本次行为的错）——惩罚只经资格迹作用于
+                        # "本次新建的配对"（_elig_pairs——不存在的边）——
+                        # 精准惩罚不误伤（正 mod 照常强化共发放对）。
+                        if mod >= 0.0:
+                            row_to_a = {}
+                            for a in top_arr:
+                                ka = int(k_star[a])
+                                for c in top_arr:
+                                    if a != c:
+                                        row_to_a.setdefault((int(c), ka), []).append(int(a))
+                            groups = [(self.W_out[c][ka],
+                                       np.asarray(aset, dtype=np.int32),
+                                       np.full(len(aset), self.eta * mod))
+                                      for (c, ka), aset in row_to_a.items()]
+                            self._apply_edge_updates(groups, self.w_max)
+                            # 突触级资格迹打标（2026-08-11）：实际被写边的配对
+                            # (pre→post)——Hebbian 是 top 内互连（双向——c→a）
+                            for (c, ka), aset in row_to_a.items():
+                                for a in aset:
+                                    self._elig_pairs[(int(c), int(a))] = 1.0
                         # STDP：前驱痕迹 → 当前发放，学 W[后继 ← 前驱]（只正向）
                         if (self.stdp_pre > 0 or self.stdp_neg > 0) and self.pre_trace.any():
                             pre_idx = np.where(self.pre_trace > self.trace_thres)[0]
                             if self.stdp_pre > 0 and len(pre_idx):
                                 # 行 (pp, k_star[jj])，键 = {jj ∈ top : jj≠pp}
-                                row_to_a = {}
-                                for jj in top_arr:
-                                    kj = int(k_star[jj])
-                                    for pp in pre_idx:
-                                        if jj != pp:
-                                            row_to_a.setdefault((int(pp), kj), []).append(int(jj))
-                                groups = [(self.W_out[pp][kj],
-                                           np.asarray(aset, dtype=np.int32),
-                                           np.full(len(aset), self.stdp_pre * mod))
-                                          for (pp, kj), aset in row_to_a.items()]
-                                self._apply_edge_updates(groups, self.w_max)
+                                # 惩罚安全（2026-08-11）：mod<0 时 STDP 跳过
+                                # （不压历史前驱边——惩罚只经资格迹作用）
+                                if mod >= 0.0:
+                                    row_to_a = {}
+                                    for jj in top_arr:
+                                        kj = int(k_star[jj])
+                                        for pp in pre_idx:
+                                            if jj != pp:
+                                                row_to_a.setdefault((int(pp), kj), []).append(int(jj))
+                                    groups = [(self.W_out[pp][kj],
+                                               np.asarray(aset, dtype=np.int32),
+                                               np.full(len(aset), self.stdp_pre * mod))
+                                              for (pp, kj), aset in row_to_a.items()]
+                                    self._apply_edge_updates(groups, self.w_max)
+                                    # 打标：前驱→当前发放（pre→post 配对）
+                                    for (pp, kj), aset in row_to_a.items():
+                                        for jj in aset:
+                                            self._elig_pairs[(int(pp), int(jj))] = 1.0
                             if self.stdp_neg > 0 and len(pre_idx):
                                 # LTD：当前发放（后发）→ 前驱入连接反序弱化
                                 # W[pre_i, kstar_pre_i, top_j] -= stdp_neg（<0 → 0）
@@ -955,6 +1253,7 @@ class SparseSchemaNet:
                     self._last_inp = inp_idx.copy()
                     self.da *= self.da_decay
                     self.elig *= self.elig_decay
+                    self._decay_elig_pairs()
                     pre_trace *= self.trace_decay
                     if self.refractory > 0:
                         ref_left[top] = self.refractory
@@ -968,6 +1267,7 @@ class SparseSchemaNet:
         # 神经调质衰减（2026-08-11）：多巴胺瞬时脉冲回基线——无外部表
         self.da *= self.da_decay
         self.elig *= self.elig_decay
+        self._decay_elig_pairs()
         # 第六波 Step1：痕迹就地更新（省 1.2MB 分配/步；乘后加顺序与原来
         # `a*decay + b` 相同 → 位级一致）。衰减无条件（间隔拍/空拍痕迹持续
         # 衰减——STDP 前驱判定用上一步衰减后的值）；"加"学习态只加信号
@@ -1030,6 +1330,170 @@ class SparseSchemaNet:
                     self.W_out[i][0][j] = w
             made += 1
         return made, cursor
+
+    def sleep_chunk_rank(self, pats, cursor, top_pct=0.2, k=4, w=64.0,
+                         max_len=6):
+        """相对分值组块化（2026-08-11 用户设计："固定主干的句式里的词语
+        之间的突触权重相加后的总数除以所有固定句式的突触的总数之和——
+        分值在前百分之几就固化到词表里"）。
+
+        判据（用进废退的相对统计形式——用户）：
+          score(句式) = Σ 该句式绑定词之间的突触权重   （"词语之间的
+                        突触权重相加后的总数"——句内词对边权总和）
+          score_norm  = score(句式) / Σ 所有句式 score   （"除以所有
+                        固定句式的突触的总数之和"）
+          排名前 top_pct%（分值占比前百分之几）→ 固化进词表
+
+        与 min_calls 版（绝对次数）的区别：**相对分值**——不依赖"教了
+        多少次"的绝对量，看句式在全部句式中的相对地位——用得多的句式
+        占比高 → 固化；用得少的占比低 → 保持组合（换主体仍泛化）。
+
+        动作：达标定式 first 实例 → allocate_pats 整句 token + 入口词
+        → token 强边（1 拍读出整句——k 压力缓解）。
+
+        返回 (新增 token 数, cursor)。"""
+        if not self.learn_gate:
+            return 0, cursor
+        skeletons = getattr(self, "skeletons", None) or {}
+        # ── 计算每个"框架实例"的权重分值 ──
+        # 共享定式（叫X）是**一个框架**（bound 多绑定）——固化单位是
+        # **实例**（入口词 + 具体绑定词组合——「叫爸爸」「叫爷爷」）。
+        # 实例分值 = 该实例的词间突触权重总和（入口→绑定 边权——
+        # "固定主干的句式里的词语之间的突触权重"）。
+        scores = []        # (score, token_seq)
+        for sig, sk in skeletons.items():
+            L = sk.get("len", 0)
+            if L < 2 or L > max_len:
+                continue
+            bound = sk.get("bound", {})
+            entry = sk.get("first", [None])[0] if sk.get("first") else None
+            if entry is None or entry not in bound:
+                continue
+            ns_entry = pats.get(entry)
+            if not ns_entry:
+                continue
+            # 实例 = 入口词 + 位置 i 的绑定词（first 的其余位用固定词/
+            # 绑定词——按位取：位置 0=入口，其余位取该位绑定词）
+            # 简化：实例 = 入口词 + 每个其他位绑定词（枚举组合）
+            other_slots = [i for i in range(L) if i != 0]
+            for slot_i in other_slots:
+                # 该槽位的绑定词（可能多个——爸爸/爷爷/妹妹）
+                slot_words = [w for w, idx in bound.items() if idx == slot_i]
+                for wb in slot_words:
+                    ns_b = pats.get(wb)
+                    if not ns_b:
+                        continue
+                    # 实例分值 = 入口→绑定 边权（词间突触权重）
+                    score = sum(self.W_out[i][0].get(j, 0.0)
+                                for i in ns_entry for j in ns_b)
+                    seq = [entry] + [wb if idx == slot_i
+                                     else next((w for w, ix in bound.items()
+                                                if ix == idx), w)
+                                     for idx in range(1, L)]
+                    scores.append((score, seq))
+        if not scores:
+            return 0, cursor
+        # ── 归一化：实例分值 / 全部分值总和 ──
+        grand = sum(s for s, _ in scores)
+        if grand <= 0:
+            return 0, cursor
+        ranked = sorted(scores, key=lambda kv: -kv[0])
+        # ── 排名前 top_pct% 的实例固化 ──
+        n_chunk = max(1, int(round(len(ranked) * top_pct)))
+        made = 0
+        for score, seq in ranked[:n_chunk]:
+            token = "".join(seq)
+            if token in pats:
+                continue
+            alloc, cursor = allocate_pats(self, [token], k, cursor)
+            pats[token] = alloc[token]
+            for i in pats.get(seq[0], []):
+                for j in pats[token]:
+                    self.W_out[i][0][j] = w
+            made += 1
+        return made, cursor
+
+    def sleep_prune_words(self, pats, cursor, min_calls=2, n2w=None,
+                          keep_top=30000, max_len=6):
+        """词表用进废退淘汰（2026-08-11 用户："词表里的词是阶段性的，
+        随时间推移就不用了——词表上的词应该用进废退——常用词的数量是
+        固定的，但词的数量是会增加的"）。
+
+        ⚠️ 已冻结（2026-08-11 用户决策）：**不启用**——词淘汰会把词移出
+        词表（神经元变孤儿、边清零）——但阶段性词在对话中会复现——淘汰
+        后 k 窗口少了可用词 → 表达压力增大。代码保留（可回溯），调用方
+        不应启用。未来若启用：需分批淘汰（remove_word O(n) 全表扫描——
+        37k 词全表淘汰过慢）。
+
+        语义（用户）：词表容量有限（常用词数量固定——keep_top）——
+        新词持续加入（allocate_pats——词数增加）→ 必须淘汰低频词——
+        **用进废退**（对应大脑突触修剪 synaptic pruning / 词频遗忘）：
+        阶段性词（时事词——"特朗普/军运会"）随时间不使用 → 唤醒计数低
+        → 移出词表（remove_word——边/定式/固化全清）。
+
+        判据：词级唤醒 = 该词所有神经元 slot_freq 总和（窗口内使用次数）
+        ——低频词（< min_calls）且不在高频保护区 → 淘汰；词表超 keep_top
+        → 强制淘汰最低频。
+
+        返回 (淘汰词数, cursor)。"""
+        if not self.learn_gate:
+            return 0, cursor
+        from schema_net import remove_word
+        n2w = n2w if n2w is not None else {}
+        # 词级唤醒计数
+        word_freq = {}
+        for w, ns in pats.items():
+            if len(w) > max_len:
+                continue          # 长 token（固化句）不参与词表淘汰
+            freq = sum(int(self.slot_freq[i, :].sum()) for i in ns)
+            word_freq[w] = freq
+        if not word_freq:
+            return 0, cursor
+        # 排序：低频在前
+        ranked = sorted(word_freq.items(), key=lambda kv: kv[1])
+        pruned = 0
+        # ① 低频淘汰：唤醒 < min_calls（阶段性词——不再使用）
+        for w, freq in ranked:
+            if freq >= min_calls:
+                break
+            if w in pats:
+                cursor = remove_word(self, pats, w, n2w=n2w)
+                pruned += 1
+        # ② 容量控制：词表超 keep_top → 强制淘汰最低频（常用词数量固定）
+        over = len(pats) - keep_top
+        if over > 0:
+            for w, freq in ranked:
+                if over <= 0:
+                    break
+                if w in pats:
+                    remove_word(self, pats, w, n2w=n2w)
+                    over -= 1
+                    pruned += 1
+        return pruned, cursor
+        """频率门控慢衰减（睡眠记忆巩固）：低频唤醒槽位的连接逐步衰减为 0。
+
+        - 唤醒频率判据：当前窗口内槽位被发放神经元主导的次数 slot_freq[i][k]。
+          窗口长度由调用时机保证（每 window 步或显式 sleep 调用一次）。
+        - 高频槽（≥ min_wake）：**不动**（活跃定式永不衰减）。
+        - 低频槽：连接逐周期 ×(1-decay) 渐进弱化——期间被唤醒即可被 Hebbian/STDP
+          强化抵消（**可复活**）；最终 ≤ eps 的连接条目删除（稀疏回收空间）。
+        - 冻结态（learn_gate=False）拒绝执行：纯检索物理零改动。
+        - 调用后全部计数重置（新窗口从零开始）。
+
+        返回 (删除条目数, 被弱化条目数)。"""
+        if not self.learn_gate:
+            return 0, 0
+        cleared = weakened = 0
+        for i in range(self.n):
+            for k in range(self.slots):
+                if self.slot_freq[i, k] < min_wake:
+                    row = self.W_out[i][k]
+                    if row:
+                        row.scale(1 - decay)          # 整行向量化弱化（逐条语义一致）
+                        cleared += row.prune_below(eps)  # ≤eps 条目删除（稀疏回收）
+                        weakened += len(row)          # 保留条数（原语义逐条计数）
+                self.slot_freq[i, k] = 0  # 新窗口
+        return cleared, weakened
 
     def sleep_consolidate(self, min_wake=5, decay=0.3, eps=1e-4):
         """频率门控慢衰减（睡眠记忆巩固）：低频唤醒槽位的连接逐步衰减为 0。
