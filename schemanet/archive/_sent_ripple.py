@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """整句涟漪——句级复述/唤起（回应"整个句子进入网络产生的涟漪"）。
 
 哲学：不把句子稀碎成"前缀→下一个词"的概率，而是整句进网络泛起一片
@@ -21,7 +24,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import _word_pattern
 from sparse_net import load_net

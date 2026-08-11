@@ -1012,7 +1012,24 @@ def _learn_sentence(ng, seq, pats, slot=0):
         ng.step(np.zeros(ng.n), slot=slot)
 
 
-def consolidate_sentence(ng, pats, cursor, seq, k=4, w=64.0):
+def consolidate_sentence(ng, pats, cursor, seq, k=4, w=64.0, shared=True):
+    """句子固化（公式化语言 / 海马序列记忆，2026-08-11）。
+
+    shared=True（迭代版——默认）：**共享槽位定式**（句式模板内化，
+    2026-08-11 对照实验 [REPORT]-共享槽位迭代对照实验报告）：
+      第一句建定式（全部位 = 内容位槽 + first 记录）；后续同构句
+      （长度相同）逐位比较——相同位 → 固定位（复用词）、不同位 →
+      内容位（新词方向化绑定）。方向化：位置 0 = 入口（词→槽）、
+      其他内容位 = 出口（槽→词）、定式边相邻前向（主干强度）——
+      压过语料边（猫→饿 131.6）与词级竞争（"的"11.2）。
+      泛化 = 词位绑定一次多句可用（主体替换——从背句子到长句式）。
+    shared=False：旧行为（句私有槽位——兼容旧调用）。
+
+    返回 (slots, cursor)：slots[i] = seq[i] 的槽位神经元列表。
+    """
+    if not shared:
+        return _consolidate_private(ng, pats, cursor, seq, k, w)
+    return _consolidate_shared(ng, pats, cursor, seq, k, w)
     """句子固化（公式化语言 / 海马序列记忆，2026-08-11）：
 
     语言发展：早期词对组合（bigram 走链）→ 高频句逐渐固化为固定
@@ -1020,19 +1037,21 @@ def consolidate_sentence(ng, pats, cursor, seq, k=4, w=64.0):
     "就→吃 vs 就→喝"无法区分"饿/渴"语境（语境污染）；教学把
     中间桥推到饱和后下游全部触发收敛断链（权重悬崖）。固化句 =
     句内每词分配 k 个新神经元（槽位），词 ↔ 槽位双向绑定（语义
-    触发 + 整句读出），槽位间独占强边（slot_i → slot_{i+1} 脊柱）：
-    起始词一经激活，整句沿脊柱逐槽读出——读出是"回忆一条神经
-    轨道"而非"组合"，序列完整性由脊柱保证，不受自由竞争干扰。
+    触发 + 整句读出），槽位间独占强边（slot_i → slot_{i+1} 主干）：
+    起始词一经激活，整句沿主干逐槽读出——读出是"回忆一条神经
+    轨道"而非"组合"，序列完整性由主干保证，不受自由竞争干扰。
 
     验证门（2026-08-11 用户："奖励和惩罚更像是直接削弱权重，而
     不是批判对错"）：固化 = 教师（环境奖赏）验证通过后的结构记录
-    ——对错不做成权重增减，做成**结构存废**：对 = 脊柱存在（验证
+    ——对错不做成权重增减，做成**结构存废**：对 = 主干存在（验证
     门开启），错 = 入口移除（unconsolidate_sentence 关闭）。网络
     "知道对错" = 查自己的结构。
 
     返回 (slots, cursor)：slots[i] = seq[i] 的槽位神经元列表
     （槽位不进词表 pats——是句子内部结构，非词汇）。
     """
+def _consolidate_private(ng, pats, cursor, seq, k, w):
+    """旧行为：句私有槽位（每句独立轨道——背句子）。"""
     from sparse_net import allocate_pats
     slots = []
     for tok in seq:
@@ -1044,7 +1063,7 @@ def consolidate_sentence(ng, pats, cursor, seq, k=4, w=64.0):
             for j in pats[tok]:
                 ng.W_out[nid][0][j] = w          # 槽位 → 词（读出）
                 ng.W_out[j][0][nid] = w          # 词 → 槽位（触发）
-    # 脊柱：slot_i → slot_{i+1}（独占强边，整句序列推进）
+    # 主干：slot_i → slot_{i+1}（独占强边，整句序列推进）
     for i in range(len(seq) - 1):
         for a in slots[i]:
             for b in slots[i + 1]:
@@ -1056,7 +1075,7 @@ def unconsolidate_sentence(ng, pats, seq, slots):
     """解除句子固化（验证门否定——2026-08-11）：
 
     教师判"错" → 该句从结构移除：删除触发词 → 槽位[0] 的入口边
-    （词→槽位方向）——句子"关闭"（不可整句读出），槽位脊柱保留
+    （词→槽位方向）——句子"关闭"（不可整句读出），槽位主干保留
     但失去入口（孤儿轨道）。对错 = 结构存废：对 = 入口在（验证门
     开启），错 = 入口移除（验证门关闭）。再次验证通过时可重固化
     （consolidate_sentence 重建入口）。
@@ -1687,3 +1706,218 @@ if __name__ == "__main__":
         print_report(result)
     run_dir = save_run(result)
     print(f"结果已留档: {run_dir}")
+
+
+def _consolidate_shared(ng, pats, cursor, seq, k, w):
+    """迭代版：共享槽位定式（句式模板内化——句法压缩）。
+
+    定式 = {len, first, fixed{位:词}, content{位:槽}, bound{词:位}}
+      fixed  固定位：复用词（词神经元即槽）
+      content 内容位：槽概念神经元（跨句共享）
+      bound  内容位绑定词（词→位映射——读出/触发）
+    方向化绑定：位置 0 = 入口（词→槽）；其他内容位 = 出口（槽→词）；
+    定式边（相邻位）前向强边——轨道只走前向（双向会回环串扰）。
+    """
+    skeletons = getattr(ng, "skeletons", None)
+    if skeletons is None:
+        skeletons = ng.skeletons = {}
+    from sparse_net import allocate_pats
+
+    def _edge(a_ns, b_ns, strength):
+        """前向强边：a 神经元组 → b 神经元组。"""
+        for a in a_ns:
+            for b in b_ns:
+                ng.W_out[a][0][b] = strength
+
+    def _node_of(sk, i):
+        """位置 i 的神经元组：固定位=词神经元；内容位=槽。"""
+        if i in sk["fixed"]:
+            return pats[sk["fixed"][i]]
+        return sk["content"].get(i)
+
+    # 同构定式检测（长度相同——first 作为基准）
+    sk = next((s for s in skeletons.values() if s["len"] == len(seq)), None)
+    if sk is None:
+        # 第一句：建定式——全部位 = 内容位槽
+        slots = []
+        for tok in seq:
+            p, cursor = allocate_pats(ng, [tok], k, cursor)
+            slots.append(p[tok])
+        sk = {"len": len(seq), "first": list(seq), "fixed": {},
+              "content": {i: slots[i] for i in range(len(seq))},
+              "bound": {tok: i for i, tok in enumerate(seq)}}
+        skeletons[f"L{len(seq)}:{'|'.join(seq)}"] = sk
+        # 方向化绑定：位置 0 入口（词→槽）；其他出口（槽→词）
+        for i, tok in enumerate(seq):
+            if i == 0:
+                _edge(pats[tok], slots[i], w)
+            else:
+                _edge(slots[i], pats[tok], w)
+        # 定式边：相邻前向
+        for i in range(len(seq) - 1):
+            _edge(_node_of(sk, i), _node_of(sk, i + 1), w)
+        # 兼容：返回全部槽位（第一句 = 全部内容位）
+        return slots, cursor
+
+    # 同构句：逐位分化固定/内容 + 新词绑定
+    for i, tok in enumerate(seq):
+        if tok == sk["first"][i]:
+            sk["fixed"][i] = tok          # 固定位（复用词——不绑槽）
+        else:
+            slot = sk["content"].get(i)
+            if slot is None:
+                p, cursor = allocate_pats(ng, [tok], k, cursor)
+                slot = p[tok]
+                sk["content"][i] = slot
+            if i == 0:
+                _edge(pats[tok], slot, w)     # 入口（词→槽）
+            else:
+                _edge(slot, pats[tok], w)     # 出口（槽→词）
+            sk["bound"][tok] = i
+    # 定式边补齐（新内容位 ↔ 相邻位）
+    for i in range(len(seq) - 1):
+        ln, rn = _node_of(sk, i), _node_of(sk, i + 1)
+        if ln is not None and rn is not None:
+            _edge(ln, rn, w)
+    # 返回该句各位置节点（兼容调用方）
+    return [_node_of(sk, i) for i in range(len(seq))], cursor
+
+
+def read_skeleton(ng, pats, n2w, front, skeletons=None):
+    """定式轨道读出（共享槽位——迭代版）：front 词绑定某定式内容位
+    → 沿定式前向输出（固定位=词 / 内容位=绑定词）。
+    泛化 = 词位绑定一次多句可用（主体替换）。未绑定 → None。"""
+    skeletons = skeletons if skeletons is not None else getattr(
+        ng, "skeletons", {})
+    for sk in skeletons.values():
+        if front in sk.get("bound", {}):
+            start = sk["bound"][front]
+            out = [front]
+            for i in range(start + 1, sk["len"]):
+                if i in sk["fixed"]:
+                    nxt = sk["fixed"][i]
+                else:
+                    slot = sk["content"].get(i)
+                    if slot is None:
+                        break
+                    top = sorted(ng.W_out[slot[0]][0].items(),
+                                 key=lambda kv: -kv[1])
+                    nxt = next((n2w.get(j) for j, v in top
+                                if n2w.get(j)), None)
+                if nxt is None or nxt in out:
+                    break
+                out.append(nxt)
+            return out
+    return None
+
+
+def remove_word(ng, pats, word, consolidated=None, validation=None,
+                n2w=None):
+    """彻底抹除词（2026-08-11 用户："从里面彻底抹除某个词"）。
+
+    词在网络里的 7 处痕迹全部清除：
+      ① 出边（词神经元行清空）② 入边（所有行删指向它的边）
+      ③ 固化句（cons 含词条目删除）④ 定式（bound 删/固定位词→删定式）
+      ⑤ 验证门（kw=词 或 句含词条目删除）⑥ 词表+n2w ⑦ slot_freq
+    返回删除的边数。注意：词神经元变孤儿（无映射无边）——不再被
+    分配（游标不回退——防神经元冲突）。
+    """
+    if word not in pats:
+        return 0
+    ns = set(pats[word])
+    n_edges = 0
+    # ① 出边：词神经元行清空
+    for i in ns:
+        row = ng.W_out[i][0]
+        n_edges += len(row)
+        row.clear()
+    # ② 入边：所有行删指向词神经元的边（O(n) 扫描）
+    for i in range(ng.n):
+        row = ng.W_out[i][0]
+        if not row:
+            continue
+        for j in ns:
+            if j in row:
+                del row[j]
+                n_edges += 1
+    # ③ 固化句：kw=词 或 句含词 → 删除条目（整条删——句子失去该词
+    #    无法完整，含词即废）
+    if consolidated:
+        for kw in list(consolidated):
+            items = consolidated[kw]
+            consolidated[kw] = [it for it in items
+                                if word not in it[0]]
+            if kw == word or not consolidated[kw]:
+                del consolidated[kw]
+    # ④ 定式：绑定词删；固定位词 → 定式整体删除（句式失去固定词）
+    sk = getattr(ng, "skeletons", None)
+    if sk:
+        for sig in list(sk):
+            s_ = sk[sig]
+            s_["bound"].pop(word, None)
+            if word in s_["fixed"].values():
+                del sk[sig]      # 固定位词被抹除——句式残废——整体删
+    # ⑤ 验证门：kw=词 或 句含词 → 删除
+    if validation:
+        for k in list(validation):
+            if k[1] == word or word in k[2]:
+                del validation[k]
+    # ⑥ 词表 + n2w 逆映射
+    del pats[word]
+    if n2w is not None:
+        for i in ns:
+            n2w.pop(i, None)
+    # ⑦ slot_freq 唤醒计数清零
+    if hasattr(ng, "slot_freq"):
+        ng.slot_freq[list(ns), :] = 0
+    return n_edges
+
+
+def swap_words(ng, pats, a, b):
+    """词义交换（语义身份互换——2026-08-11 用户："苹果的词义变成
+    我，我的词义变成苹果"）。
+
+    词的"语义" = 神经元的出入边集合——交换 = 边互换：
+      ① 出边交换：a 神经元行 ↔ b 神经元行（dst/w 互换——a 从此
+         引出 b 原来的联想，b 引出 a 原来的）
+      ② 入边重指向：指向 a 的边 → b（同权重）；指向 b 的边 → a
+      ③ 固化句/定式/验证门：**词序不变**（词还是那个词——「我去
+         吃苹果」照常读出）——但每个词的语义变了（"我"表达苹果
+         概念、"苹果"表达我概念）——句子语义随词义变（读出来
+         是「我去吃苹果」，意义是"苹果去吃我"——表达层不变、
+         概念层互换）
+
+    返回交换的边数。"""
+    if a not in pats or b not in pats:
+        return 0
+    na, nb = pats[a], pats[b]
+    n_sw = 0
+    # ① 出边交换（一一对应行互换）
+    for i, j in zip(na, nb):
+        ra, rb = ng.W_out[i][0], ng.W_out[j][0]
+        da, wa = ra.dst, ra.w
+        ra.dst, ra.w = rb.dst, rb.w
+        rb.dst, rb.w = da, wa
+        n_sw += 2
+    # ② 入边重指向（指向 a 的 → b；指向 b 的 → a）
+    sa, sb = set(na), set(nb)
+    for i in range(ng.n):
+        row = ng.W_out[i][0]
+        if not row:
+            continue
+        for j in list(row.keys()):
+            if j in sa:
+                v = row[j]
+                del row[j]
+                nj = nb[na.index(j)]
+                if nj not in row:
+                    row[nj] = v
+                    n_sw += 1
+            elif j in sb:
+                v = row[j]
+                del row[j]
+                nj = na[nb.index(j)]
+                if nj not in row:
+                    row[nj] = v
+                    n_sw += 1
+    return n_sw

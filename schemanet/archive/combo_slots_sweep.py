@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """combo 对照实验：变量 = 神经元内部槽数量（13 → 8192），并行运行。
 
 对照组 = 13 槽（combo 所需最小槽数：原子 0/1/2 + 排列共享 3 + 组合 4..12），
@@ -19,7 +22,7 @@ from pathlib import Path
 
 from schema_net import CONFIG, run_combo_experiment
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent
 
 # 尽可能大：基线 13 槽 → 每档翻倍 → 8192（每进程 W≈64MB，10 进程并行）
 SLOTS_LIST = [13, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]

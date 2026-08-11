@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """trace β 扫描：有偏语料下放大混合分支非末词权重，验证 trace 破局是否参数问题。
 
 加载 runs/20260809_064139/net.npz（train_w 精调后 W，与 _accept_gen 同源），
@@ -12,7 +15,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import jieba
 
 from schema_net import _word_pattern

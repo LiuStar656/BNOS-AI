@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """step() 热点 profile：跑 200 句 Hebbian 训练，定位时间分布。
 用法：python _bench_step.py
 """
@@ -11,7 +14,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import _word_pattern, _learn_sentence
 from sparse_net import SparseSchemaNet

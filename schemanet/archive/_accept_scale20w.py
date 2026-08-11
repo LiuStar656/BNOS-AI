@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """Phase 2 L1：数据放大（2 万 → 20 万句）训练 + 成长基线三件套 + 对照 L0。
 
 对照基线 L0（runs/20260809_103532，2 万句，干净口径留出 2000 句）：
@@ -29,7 +32,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import _word_pattern, _learn_sentence, build_pulse
 from sparse_net import (SparseSchemaNet, _pats_matrix, outsum_sparse,

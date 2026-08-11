@@ -12,7 +12,7 @@
   - 无 key → 规则验证器（类别比对，v10 已验）+ 模板解释器（标注"模板占位"）
   冒烟/全量无 key 可跑通；LLM 接入为配置项（环境变量）。
 
-流程（在 v10.0 快照上迭代，不重训绑定/骨架/动宾）：
+流程（在 v10.0 快照上迭代，不重训绑定/定式/动宾）：
   load_version("10.0")
     → 归因（候选词得分来源边追踪，make_sentence 升级版）
     → 验证器（原则级二元判断，RLBFF 粒度；LLM 教师 or 规则）
@@ -49,8 +49,8 @@ from _grow_cat import build_cats, edge_sum, CATS_MANUAL
 
 K = 4
 R = 5                    # 判断轮数（槽位绑定/类别）
-R_SVO = 3                # 骨架跟读轮数（"读的越多印象越足"）
-N_TRAIN = 800            # 骨架训练组合数
+R_SVO = 3                # 定式跟读轮数（"读的越多印象越足"）
+N_TRAIN = 800            # 定式训练组合数
 N_TEST = 400             # 测试组合数（造句验收，组合从未训练）
 N_MAKE = 10              # 示例造句条数
 EVAL_HANZI = 200
@@ -97,7 +97,7 @@ def attributed_sentence(ng, pats, n2w, s, v, vo_pairs, cat_members):
     """造句 + 归因（v10 make_sentence 升级版）：每个候选词记录得分来源。
 
     返回 (ok, top, allow, sources)：
-      ok      = 路径通否（同 v10：绑定/骨架/槽位类别约束）
+      ok      = 路径通否（同 v10：绑定/定式/槽位类别约束）
       top     = top-8 词
       allow   = V 的搭配类别集
       sources = {词: [(源类型, 源词, 目标神经元, 权重), ...]}——
@@ -199,9 +199,11 @@ def _load_key():
     return None
 
 
-def _llm_chat(messages):
+def _llm_chat(messages, timeout=30):
     """DeepSeek chat API（标准库 urllib，无第三方依赖）。
-    密钥缺失（环境变量 / .env 均无）→ 返回 None（调用方回退）。"""
+    密钥缺失（环境变量 / .env 均无）→ 返回 None（调用方回退）。
+    timeout：请求超时秒数（2026-08-11 场景发现连续请求会变慢
+    拖死实验——调用方可传短超时快速回退）。"""
     key = _load_key()
     if not key:
         return None
@@ -213,7 +215,7 @@ def _llm_chat(messages):
             "https://api.deepseek.com/chat/completions", data=body,
             headers={"Content-Type": "application/json",
                      "Authorization": f"Bearer {key}"})
-        with urllib.request.urlopen(req, timeout=30) as r:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
             data = json.loads(r.read())
         return data["choices"][0]["message"]["content"]
     except Exception as e:                     # 网络/超时/额度 → 回退，不崩实验

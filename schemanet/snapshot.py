@@ -87,7 +87,10 @@ def _pack_net(ng):
                     # 新学边（f64 增量）存载后截断 → 日志重放/版本恢复无法逐位
                     # 一致（对拍 8895 差异边实证）。旧快照（f32）载入兼容。
                     vals=np.array(vals, dtype=np.float64),
-                    gain=np.array(ng.gain, dtype=np.float64))   # 增益调制数组（2026-08-10：此前不入快照，载后丢失）
+                    gain=np.array(ng.gain, dtype=np.float64),   # 增益调制数组（2026-08-10：此前不入快照，载后丢失）
+                    skeletons=json.dumps(getattr(ng, "skeletons", {}),
+                                         ensure_ascii=False).encode("utf-8")
+                    if hasattr(ng, "skeletons") else b"")   # 共享槽位定式表（2026-08-11 迭代版）
     return dict(W=ng.W.astype(np.float32))
 
 
@@ -105,6 +108,17 @@ def _restore_net(z):
         _rows_from_arrays(ng, src_i, slot_k, dst_j, vals)   # 批量构建（免逐条 dict 插入）
         if "gain" in z:   # 旧快照无 gain 字段 → 保持默认全 1（向后兼容）
             ng.gain = z["gain"].astype(np.float64)
+    if "skeletons" in z and z["skeletons"].tobytes():
+        # json 序列化把 int 键变字符串——恢复时转回 int（fixed/content/bound）
+        def _fix_keys(d):
+            return {int(k) if str(k).lstrip("-").isdigit() else k: v
+                    for k, v in d.items()}
+        ng.skeletons = {
+            sig: {**sk, "fixed": _fix_keys(sk["fixed"]),
+                  "content": _fix_keys(sk["content"]),
+                  "bound": _fix_keys(sk["bound"])}
+            for sig, sk in json.loads(
+                z["skeletons"].tobytes().decode("utf-8")).items()}
     return ng
 
 

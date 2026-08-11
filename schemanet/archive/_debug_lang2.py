@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """二次诊断：'无聊' 14.0 的根源 —— 真连接 vs 共享神经元污染。
 
 核心问题：语料中'无聊'只出现在"我觉得无聊"一句，且该句里'我'与'无聊'
@@ -16,7 +19,7 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import numpy as np
 import jieba
 

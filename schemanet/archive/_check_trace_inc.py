@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """对拍：增量 trace 评估（evaluate_schemanet_trace_inc）vs 重放 trace
 （evaluate_schemanet_sparse readout='trace'）——验证语义逐位一致。"""
 import json
@@ -9,7 +12,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import jieba
 
 from schema_net import _word_pattern, _learn_sentence

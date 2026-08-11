@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """Phase 4 前置：开源真实语料规模验证验收（C 路线第二阶段，c3）。
 
 语料：data/corpus_open.json（20263 句，已分词 + OOV→<UNK>，词表 3000）
@@ -25,7 +28,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import _word_pattern, _learn_sentence
 from sparse_net import (SparseSchemaNet, _pats_matrix, outsum_sparse,

@@ -171,6 +171,16 @@ class EdgeRow:
             self.w = self.w[order]
         return n_new + int(exist.sum())
 
+    def scale_below(self, thr, factor):
+        """部分缩放（sleep downscaling——de Vivo 2017）：w < thr 的条目
+        ×factor（最强边豁免——"spared the largest ones"）。"""
+        mask = self.w < thr
+        if mask.any():
+            self.w = self.w.copy()
+            self.w[mask] *= factor
+            return int(mask.sum())
+        return 0
+
     def scale(self, factor):
         """全行权重 ×factor（weight_decay / sleep 弱化用，numpy 向量化）。"""
         if len(self.w):
@@ -427,7 +437,7 @@ class SparseSchemaNet:
     """
 
     def __init__(self, n=8192, slots=4, theta=1.0, membrane_decay=0.9, eta=0.1,
-                 w_max=16.0, wta_k=16, noise_p=0.06, noise_amp=0.5,
+                 w_max=16.0, wta_k=16, noise_p=0.06, noise_amp=0.2,
                  weight_decay=0.0, slot_cap=0.0, learn_gate=True,
                  stdp_pre=0.5, stdp_neg=0.0, trace_decay=0.5, refractory=1,
                  inh_loose=0.3, std_dep=0.0, std_rec=0.85,
@@ -469,6 +479,25 @@ class SparseSchemaNet:
         self.std_dep = std_dep
         self.std_rec = std_rec
         self.fat = np.zeros(n)   # 每神经元疲劳度（0=满效；1=出边全失效）
+        # ── 神经调质（2026-08-11 R-STDP 三因子——用户："神经元本身就有
+        #    奖惩机制"）──
+        # da：多巴胺水平（全局调质——外部 release_da 间接触发；瞬时脉冲
+        # 每 step 衰减回基线）。elig：神经元级资格迹（"刚才活动过"的临时
+        # 记忆——指数衰减——奖励时凭它做时间信用分配）。
+        # 学习调制：Δw = STDP × (1 + DA_GAIN × RPE)——RPE（奖赏预测误差）
+        # 正强化 LTP、负抑制——三因子规则（Izhikevich 2007 / Florian 2007）；
+        # RPE 内化（2026-08-11 治疗三）：da_expected 为 TD 预期——网络
+        # 预期奖赏——RPE = 实际 − 预期——稳定奖励 RPE→0（熟悉）、意外
+        # 奖励正 RPE（新奇）、落空负 RPE（失望）——对话奖赏内化为预期。
+        self.da = 0.0
+        self.da_expected = 0.0    # 奖赏预期（TD——历史平均）
+        self.td_rate = 0.1        # 预期学习率（Schultz 1997——TD 更新）
+        self.last_rpe = 0.0       # 最近奖赏预测误差（学习调制用）
+        self.elig = np.zeros(n)
+        self.da_gain = 1.0
+        self.da_decay = 0.9
+        self.elig_decay = 0.9
+        self.da_max = 2.0
         # edge_min：层2 弱边修剪（weak-edge pruning，2026-08-10）。传播时
         # 边权重 < edge_min 的出边不参与驱动——阻止"数千条弱边汇聚过阈"
         # 的雪崩扇出（实测 11.2 网络 80% 边 < 0.5，高频词"我"出边 1.7 万条、
@@ -496,6 +525,45 @@ class SparseSchemaNet:
         self.rng = rng or np.random.default_rng()
         self.reset()
 
+    def release_da(self, amount):
+        """外部唯一奖惩接口（间接触发——不直接改边）：注入多巴胺调质。
+        正 = 奖赏（后续学习强化）、负 = 惩罚（抑制学习）。瞬时脉冲，
+        随后每 step 指数衰减回基线。
+        RPE 内化（2026-08-11 治疗三）：实际 DA 到达 → 计算奖赏预测误差
+        RPE = da − da_expected → TD 更新预期（预期跟踪实际）——网络对
+        "这样说会得到多少好处"形成预期——稳定奖励 RPE 趋 0（熟悉——
+        对话本身成为奖赏源）、意外奖励正 RPE（新奇——强化学）、
+        落空负 RPE（失望——抑制学）。"""
+        self.da = max(-self.da_max, min(self.da_max, self.da + amount))
+        self.last_rpe = self.da - self.da_expected
+        self.da_expected += self.td_rate * self.last_rpe
+
+    def build_track_map(self, pats, skeletons=None):
+        """轨道映射构建：定式词神经元 → 其槽位神经元（上下文消歧用）。
+        由持有词表的调用方（场景/教学）在定式注册后调用。
+        返回 self.track_map（dict: 词神经元 id → 槽位神经元集合）。"""
+        self.track_map = {}
+        self._track_slots = set()
+        self._track_readout = {}
+        for sk in (skeletons if skeletons is not None
+                   else getattr(self, "skeletons", {}) or {}).values():
+            content = sk.get("content", {})
+            bound = sk.get("bound", {})
+            for w, idx in bound.items():
+                ns = pats.get(w)
+                if not ns or idx not in content:
+                    continue
+                slots = set(content[idx])
+                self._track_slots |= slots
+                wns = set(ns)
+                for i in ns:
+                    self.track_map.setdefault(int(i), set()).update(slots)
+                for s in slots:
+                    self._track_readout.setdefault(int(s), set()).update(wns)
+        self._track_slots_list = np.array(sorted(self._track_slots),
+                                           dtype=np.int64)
+        return self.track_map
+
     def reset(self):
         self.v = np.zeros((self.n, self.slots))
         self.spikes = np.zeros(self.n)
@@ -511,6 +579,18 @@ class SparseSchemaNet:
         self._spikes_buf = np.zeros(self.n)
         # 传播 drive 缓冲（第七波：预分配 (slots, n)，每槽清零复用，免每步分配）
         self._drive = np.zeros((self.slots, self.n))
+        # 定向传播链缓冲（2026-08-11）：跨槽 drive 累计——唤起路径 WTA
+        # 候选过滤用（"被当前词驱动到的神经元"）
+        self._drive_any = np.zeros(self.n)
+        # 轨道映射（2026-08-11 上下文消歧）：定式词神经元 → 其槽位神经元。
+        # 唤起时当前发放词是定式词 → 槽位候选加权（轨道优先——在轨道上
+        # 只走轨道——Vreeswijk 上下文消歧 / Sejnowski 定向流）。由持有词表
+        # 的调用方在定式注册后调 build_track_map 构建；空 = 关闭。
+        self.track_map = {}
+        self._track_slots = set()
+        self._track_readout = {}        # 槽位神经元 → 绑定词神经元（词读出）
+        self._track_slots_list = np.array([], dtype=np.int64)
+        self._last_inp = np.array([], dtype=np.int64)   # 上一拍注入（词终端判定）
         self.evictions = 0
         # 稀疏出边：W_out[i][k] = EdgeRow（数组事实源，dict 兼容接口），
         # 语义 = 稠密 W[j, k, i]。数组即事实源，传播镜像零复制（见 EdgeRow）。
@@ -601,6 +681,16 @@ class SparseSchemaNet:
         # 学习路径（spikes 为空）→ 单 prange 内核完成 衰减+噪声+注入+疲劳恢复+
         # refract_clear+argmax+候选+ref-1；唤起路径（spikes 非空）→ 保持分步
         # （传播必须插在 update_v 与 WTA 之间）。两路径与参考实现逐位一致。
+        # 底噪学习门控（2026-08-11 底噪过度设计诊断）：_drive_any 统一在本步
+        # 开头清零——学习路径（不传播）不残留上一拍驱动值，保证"本拍是否有
+        # 信号来源"判定准确（注入 or 传播驱动；噪声越阈发放两者皆无→不学）。
+        self._drive_any[:] = 0.0
+        # _sig_spikes：本拍"信号发放"掩码（学习态 pre_trace 只加信号发放——
+        # 噪声词不入痕迹；间隔拍 top 空 → 全 0 → 痕迹只衰减不添加）
+        if not hasattr(self, "_sig_spikes"):
+            self._sig_spikes = np.zeros(n)
+        else:
+            self._sig_spikes[:] = 0.0
         raw = self.rng.random(n)   # 原始均匀值（内核内做 <p / ×amp，位级一致）
         inp_idx = np.nonzero(input_pulse)[0]
         if not spikes.any():
@@ -623,6 +713,25 @@ class SparseSchemaNet:
             # 按主导槽掩码分桶（掩码保序 → senders 集合与 np.where 相同）
             fire_idx = np.where(spikes > 0)[0]
             if len(fire_idx):
+                # 词读出终端（2026-08-11 模式完成即止）：轨道上（senders
+                # 含槽位）时——绑定词（定式词）是"读出终端"——不传播
+                # （读出即止——不驱动语料漂移——海马重放读完即收敛）。
+                # 槽位继续传播（主干推进）；注入的定式词（入口）不受影响
+                # （senders 不含槽位时不过滤）。
+                if self.track_map:
+                    # 词读出终端（2026-08-11 模式完成即止）：
+                    # ① 槽位：总是传播（主干推进）
+                    # ② 定式词：仅当"上一拍注入"（入口词进轨道）可传播；
+                    #    读出的绑定词 → 终端（不传播——不驱动语料/不回读）
+                    # ③ 非定式词（语料）：自由联想——照常传播
+                    last_inp_set = set(int(x) for x in self._last_inp)
+                    keep_mask = [
+                        int(s) in self._track_slots or
+                        int(s) not in self.track_map or
+                        int(s) in last_inp_set
+                        for s in fire_idx]
+                    fire_idx = fire_idx[keep_mask]
+                self._drive_any[:] = 0.0   # 定向链：跨槽 drive 累计（本拍清零）
                 for k in range(slots):
                     senders = fire_idx[last_k[fire_idx] == k]
                     if len(senders):
@@ -655,6 +764,7 @@ class SparseSchemaNet:
                             if tot > self.inh_norm:
                                 drive_k *= self.inh_norm / tot
                         v[:, k] += drive_k
+                        self._drive_any += drive_k   # 定向链：跨槽累计
 
             # 不应期硬清：处于不应期的神经元膜电位清零（防组装自振复燃——
             # 刚发放过的组装被自身模式内互连驱动，不应期一过立即复燃）
@@ -667,6 +777,56 @@ class SparseSchemaNet:
                             self._is_cand, self._cand_idx, self._cand_val)
         candidates = self._cand_idx[:n_c]
         vmax_c = self._cand_val[:n_c]   # = v[candidates, k_star[candidates]]，神经元号升序
+        # ── 定向传播链（2026-08-11 用户："动力学传播链应该按突触权重来实现"）──
+        # 唤起路径（spikes 非空）时：候选 = 被当前发放词驱动到的神经元
+        # （drive > 0——当前词出边按权重驱动）∪ 本拍注入目标（外部输入）。
+        # 取代"全网络汇聚竞争"——传播链沿突触权重定向流动，不被高频 hub
+        # （入边汇聚统计）劫持（Vreeswijk 上下文消歧 / Sejnowski 定向流）。
+        # 学习路径（spikes 空）保持全局 WTA（训练需共同发放竞争）。
+        if spikes.any() and len(candidates):
+            inp_mask = np.zeros(n, dtype=bool)
+            inp_mask[inp_idx] = True
+            keep = (self._drive_any > 0) | inp_mask
+            # 轨道优先（上下文消歧 2026-08-11）：当前发放词是定式词 →
+            # 其槽位候选加权（×10——在轨道上只走轨道——Vreeswijk 消歧 /
+            # Sejnowski 定向流）。非轨道候选不被排除，仅被轨道压倒。
+            track_boost = np.zeros(len(candidates), dtype=bool)
+            if self.track_map:
+                for s in np.where(spikes > 0)[0]:
+                    slots = self.track_map.get(int(s))
+                    if slots:
+                        for ci in range(len(candidates)):
+                            if candidates[ci] in slots:
+                                track_boost[ci] = True
+            keep_idx = keep[candidates]
+            if not keep_idx.all():
+                candidates = candidates[keep_idx]
+                vmax_c = vmax_c[keep_idx]
+                track_boost = track_boost[keep_idx]
+            if track_boost.any():
+                vmax_c = vmax_c * np.where(track_boost, 10.0, 1.0)
+            # 词层上下文消歧（2026-08-11）：定式词/轨道上时——
+            # ① 过渡拍（senders 全是词）：词候选全剔（只走轨道槽位）
+            # ② 轨道上（senders 含槽位）：词候选只保留当前槽位绑定词
+            #    （槽→词读出——轨道上只读轨道内容；教学链词/语料剔除）
+            if self._track_readout:
+                senders_set = set(np.where(spikes > 0)[0])
+                has_slot = any(s in self._track_slots for s in senders_set)
+                has_track_word = any(s in self.track_map for s in senders_set)
+                if has_slot or has_track_word:
+                    allowed = set()
+                    if has_slot:
+                        for s in senders_set:
+                            allowed |= self._track_readout.get(s, set())
+                    is_slot = np.isin(candidates, self._track_slots_list)
+                    is_word = np.isin(
+                        candidates,
+                        np.array(sorted(allowed), dtype=np.int64)) \
+                        if allowed else np.zeros(len(candidates), dtype=bool)
+                    keep2 = is_slot | is_word
+                    if not keep2.all():
+                        candidates = candidates[keep2]
+                        vmax_c = vmax_c[keep2]
         k_star = last_k                 # 内核已就地写入本步 argmax
         if len(candidates) > self.wta_k:
             # 增益调制：WTA 排序用 vmax×gain（候选判定仍用原始 v≥θ），
@@ -696,74 +856,128 @@ class SparseSchemaNet:
                     v[losers, :] *= self.inh_loose
             new_spikes[top] = 1.0
             if self.std_dep > 0:
-                fat[top] = self.std_dep   # 发放 → 疲劳（STD 突触前抑制）
+                # 发放 → 疲劳累积（2026-08-11 sAHP 语义修正：原"设置"fat=std_dep
+                # 无累积——高频发放无法形成临界频率抑制；改为 += 累积（每次发放
+                # +Δ——后超极化式）——std_rec 恢复与其竞争——临界频率动力学）
+                fat[top] = np.minimum(fat[top] + self.std_dep, 1.0)
             if self.learn_gate:
-                # Hebbian/STDP 批量合并（2026-08-10 numba 提速）：原 O(k²)/O(k×pre)
-                # Python 双循环 + 每对 row.get() 全部移到 numba 内核 _merge_rows，
-                # 语义逐位一致：存在键累加 + w_max 截断 + stable 插入（= batch_update）。
-                top_arr = np.asarray(top, dtype=np.int32)
-                # Hebbian：共同发放对 (a, c) → W[c][k_star[a]][a] += eta（排除自连接）
-                # 行 (c, ka)，键 = {a ∈ top : k_star[a]==ka, a≠c}
-                row_to_a = {}
-                for a in top_arr:
-                    ka = int(k_star[a])
-                    for c in top_arr:
-                        if a != c:
-                            row_to_a.setdefault((int(c), ka), []).append(int(a))
-                groups = [(self.W_out[c][ka],
-                           np.asarray(aset, dtype=np.int32),
-                           np.full(len(aset), self.eta))
-                          for (c, ka), aset in row_to_a.items()]
-                self._apply_edge_updates(groups, self.w_max)
-                # STDP：前驱痕迹 → 当前发放，学 W[后继 ← 前驱]（只正向）
-                if (self.stdp_pre > 0 or self.stdp_neg > 0) and self.pre_trace.any():
-                    pre_idx = np.where(self.pre_trace > self.trace_thres)[0]
-                    if self.stdp_pre > 0 and len(pre_idx):
-                        # 行 (pp, k_star[jj])，键 = {jj ∈ top : jj≠pp}
+                # 底噪学习门控（2026-08-11 底噪过度设计诊断）：只有本拍有
+                # 信号来源（注入脉冲 或 传播驱动）的发放才参与学习——噪声
+                # 越阈发放（无注入无 drive——纯底噪）不写边：防止
+                # 「注入词→随机词」STDP 污染（30 次教学 712 条随机边实证，
+                # 见 docs/reports/05/[REPORT]-底噪过度设计诊断）。
+                signal = len(inp_idx) > 0 or bool(self._drive_any.any())
+                if signal:
+                    # 信号过滤：top 里只保留"有信号"的发放神经元——学习路径
+                    # （spikes 空）是全局 WTA，注入拍 top 会混入同拍噪声越阈词
+                    # （Hebbian 两两互连 → 猫↔随机词 w=1.2/次的污染链）；
+                    # 唤起路径 top 已被 drive|注入过滤，再滤等价无变化。
+                    inp_mask = np.zeros(n, dtype=bool)
+                    inp_mask[inp_idx] = True
+                    sig_mask = inp_mask | (self._drive_any > 0)
+                    top_sig = top[sig_mask[top]]
+                    if not len(top_sig):
+                        signal = False      # 理论不发生（signal 来源必在 top）
+                    else:
+                        top_arr = np.asarray(top_sig, dtype=np.int32)
+                        # Hebbian/STDP 批量合并（2026-08-10 numba 提速）：原 O(k²)/O(k×pre)
+                        # Python 双循环 + 每对 row.get() 全部移到 numba 内核 _merge_rows，
+                        # 语义逐位一致：存在键累加 + w_max 截断 + stable 插入（= batch_update）。
+                        # R-STDP 三因子（2026-08-11）：学习增量 × (1 + DA_GAIN×da)——
+                        # 多巴胺乘法门控 LTP（Yusoffa & Grüning 2012 形式）；资格迹：
+                        # 发放神经元 elig 置 1（"刚才活动过"——奖励时间信用分配）。
+                        # R-STDP 三因子（2026-08-11）：学习增量 × (1 + DA_GAIN×RPE)——
+                        # 多巴胺乘法门控 LTP（Yusoffa & Grüning 2012 形式）——RPE =
+                        # 实际 − 预期（治疗三内化：稳定奖赏不强化、意外奖赏强化）
+                        mod = 1.0 + self.da_gain * (self.da - self.da_expected)
+                        # Hebbian：共同发放对 (a, c) → W[c][k_star[a]][a] += eta（排除自连接）
+                        # 行 (c, ka)，键 = {a ∈ top : k_star[a]==ka, a≠c}
                         row_to_a = {}
-                        for jj in top_arr:
-                            kj = int(k_star[jj])
-                            for pp in pre_idx:
-                                if jj != pp:
-                                    row_to_a.setdefault((int(pp), kj), []).append(int(jj))
-                        groups = [(self.W_out[pp][kj],
+                        for a in top_arr:
+                            ka = int(k_star[a])
+                            for c in top_arr:
+                                if a != c:
+                                    row_to_a.setdefault((int(c), ka), []).append(int(a))
+                        groups = [(self.W_out[c][ka],
                                    np.asarray(aset, dtype=np.int32),
-                                   np.full(len(aset), self.stdp_pre))
-                                  for (pp, kj), aset in row_to_a.items()]
+                                   np.full(len(aset), self.eta * mod))
+                                  for (c, ka), aset in row_to_a.items()]
                         self._apply_edge_updates(groups, self.w_max)
-                    if self.stdp_neg > 0 and len(pre_idx):
-                        # LTD：当前发放（后发）→ 前驱入连接反序弱化
-                        # W[pre_i, kstar_pre_i, top_j] -= stdp_neg（<0 → 0）
-                        # 行 (jj, k_star[pp])，键 = {pp ∈ pre_idx : pp≠jj}
-                        row_to_a = {}
-                        for pp in pre_idx:
-                            kp = int(k_star[pp])
-                            for jj in top_arr:
-                                if pp != jj:
-                                    row_to_a.setdefault((int(jj), kp), []).append(int(pp))
-                        groups = [(self.W_out[jj][kp],
-                                   np.asarray(aset, dtype=np.int32),
-                                   np.full(len(aset), -self.stdp_neg))
-                                  for (jj, kp), aset in row_to_a.items()]
-                        self._apply_edge_updates(groups, self.w_max, clip_low=0.0)
-                if self.weight_decay:
-                    f = 1.0 - self.weight_decay
-                    for i in range(self.n):
-                        for k in range(self.slots):
-                            row = self.W_out[i][k]
-                            if row:
-                                row.scale(f)   # 整行向量化（逐条语义一致：w×(1-decay)）
+                        # STDP：前驱痕迹 → 当前发放，学 W[后继 ← 前驱]（只正向）
+                        if (self.stdp_pre > 0 or self.stdp_neg > 0) and self.pre_trace.any():
+                            pre_idx = np.where(self.pre_trace > self.trace_thres)[0]
+                            if self.stdp_pre > 0 and len(pre_idx):
+                                # 行 (pp, k_star[jj])，键 = {jj ∈ top : jj≠pp}
+                                row_to_a = {}
+                                for jj in top_arr:
+                                    kj = int(k_star[jj])
+                                    for pp in pre_idx:
+                                        if jj != pp:
+                                            row_to_a.setdefault((int(pp), kj), []).append(int(jj))
+                                groups = [(self.W_out[pp][kj],
+                                           np.asarray(aset, dtype=np.int32),
+                                           np.full(len(aset), self.stdp_pre * mod))
+                                          for (pp, kj), aset in row_to_a.items()]
+                                self._apply_edge_updates(groups, self.w_max)
+                            if self.stdp_neg > 0 and len(pre_idx):
+                                # LTD：当前发放（后发）→ 前驱入连接反序弱化
+                                # W[pre_i, kstar_pre_i, top_j] -= stdp_neg（<0 → 0）
+                                # 行 (jj, k_star[pp])，键 = {pp ∈ pre_idx : pp≠jj}
+                                row_to_a = {}
+                                for pp in pre_idx:
+                                    kp = int(k_star[pp])
+                                    for jj in top_arr:
+                                        if pp != jj:
+                                            row_to_a.setdefault((int(jj), kp), []).append(int(pp))
+                                groups = [(self.W_out[jj][kp],
+                                           np.asarray(aset, dtype=np.int32),
+                                           np.full(len(aset), -self.stdp_neg))
+                                          for (jj, kp), aset in row_to_a.items()]
+                                self._apply_edge_updates(groups, self.w_max, clip_low=0.0)
+                        if self.weight_decay:
+                            f = 1.0 - self.weight_decay
+                            for i in range(self.n):
+                                for k in range(self.slots):
+                                    row = self.W_out[i][k]
+                                    if row:
+                                        row.scale(f)   # 整行向量化（逐条语义一致：w×(1-decay)）
+                        # 信号发放掩码（pre_trace 只加信号发放——语义链前驱
+                        # 用；噪声词不入痕迹——下一拍 STDP 学"前驱→后继"）
+                        self._sig_spikes[top_sig] = 1.0
+                        self.slot_freq[top_sig, k_star[top_sig]] += 1
+                        self.elig[top_sig] = 1.0
+                if not signal:
+                    # 底噪拍：跳过全部学习（Hebbian/STDP/资格迹/唤醒计数/
+                    # pre_trace 记录——底噪发放不留痕——防"底噪词→下一拍
+                    # 注入词"STDP 反向污染）
+                    v[top, :] = 0.0
+                    self.spikes = new_spikes
+                    self._last_inp = inp_idx.copy()
+                    self.da *= self.da_decay
+                    self.elig *= self.elig_decay
+                    pre_trace *= self.trace_decay
+                    if self.refractory > 0:
+                        ref_left[top] = self.refractory
+                    return new_spikes
 
         v[top, :] = 0.0
-        # 唤醒计数（频率门控慢衰减）：只数真实发放神经元的主导槽，仅学习态
-        # （冻结态纯检索，不改变任何状态，含计数——sleep 时冻结态也拒绝执行）
-        if self.learn_gate and len(top):
-            self.slot_freq[top, k_star[top]] += 1
+        # 唤醒计数/资格迹已在门控块内完成（学习态信号拍）；冻结态不计数
+        # （纯检索零改动——含计数——sleep 时冻结态也拒绝执行）
         self.spikes = new_spikes
+        self._last_inp = inp_idx.copy()   # 记录本拍注入（下一拍词终端判定用）
+        # 神经调质衰减（2026-08-11）：多巴胺瞬时脉冲回基线——无外部表
+        self.da *= self.da_decay
+        self.elig *= self.elig_decay
         # 第六波 Step1：痕迹就地更新（省 1.2MB 分配/步；乘后加顺序与原来
-        # `a*decay + b` 相同 → 位级一致）
+        # `a*decay + b` 相同 → 位级一致）。衰减无条件（间隔拍/空拍痕迹持续
+        # 衰减——STDP 前驱判定用上一步衰减后的值）；"加"学习态只加信号
+        # 发放（_sig_spikes——噪声词不入痕迹），冻结态保持原逻辑
+        # （冻结态 pre_trace 无 STDP 读取者——仅保持原对拍语义）。
         pre_trace *= self.trace_decay
-        pre_trace += new_spikes
+        if self.learn_gate:
+            pre_trace += self._sig_spikes
+        else:
+            pre_trace += new_spikes
         if self.refractory > 0:
             # 基础 -1 已由 _wta_cand/_train_core 内核完成（2026-08-10 第二波：
             # 删除原尾部 np.maximum(ref-1,0)——双递减在 refractory≥2 时语义分叉
@@ -771,6 +985,51 @@ class SparseSchemaNet:
             if len(top):
                 ref_left[top] = self.refractory
         return new_spikes
+
+    def sleep_chunking(self, pats, cursor, min_calls=10, k=4, w=64.0,
+                       max_len=6):
+        """用进废退组块化（2026-08-11）：主干被调用 ≥ min_calls → 整句 token。
+
+        判据（用户："不能单纯看突触权重，要从主干来看——主干被调用了
+        多少次"）：**主干（定式槽位轨道）调用次数**——不是突触权重。
+        理由：长难句教 100 次边权照样高，但主干是稀疏组合、从不重复
+        （用进废退——不被调用不固化）；高频短句反复走同一主干（槽位
+        发放计数累积）——固化（组块化）。
+
+        动作：达标定式的 first 实例 → allocate_pats 整句 token（进词表）
+        + 入口词 → token 强边。之后注入入口词 → 1 拍读出整句
+        （逐词传播 3k → 组块读出 1k）。原词链保留（组合性——换主体
+        仍走链泛化）。
+
+        返回 (新增 token 数, cursor)。"""
+        if not self.learn_gate:
+            return 0, cursor
+        skeletons = getattr(self, "skeletons", None) or {}
+        made = 0
+        for sk in skeletons.values():
+            L = sk.get("len", 0)
+            if L < 2 or L > max_len:
+                continue
+            content = sk.get("content", {})
+            if 0 not in content:
+                continue
+            # 主干调用次数 = 入口槽（位置 0）发放计数（每次走轨道必发槽0）
+            calls = int(self.slot_freq[content[0][0], 0])
+            if calls < min_calls:
+                continue
+            seq = list(sk.get("first", []))
+            if len(seq) != L:
+                continue
+            token = "".join(seq)
+            if token in pats:
+                continue                      # 已组块（幂等）
+            alloc, cursor = allocate_pats(self, [token], k, cursor)
+            pats[token] = alloc[token]
+            for i in pats.get(seq[0], []):    # 入口词 → 整句 token
+                for j in pats[token]:
+                    self.W_out[i][0][j] = w
+            made += 1
+        return made, cursor
 
     def sleep_consolidate(self, min_wake=5, decay=0.3, eps=1e-4):
         """频率门控慢衰减（睡眠记忆巩固）：低频唤醒槽位的连接逐步衰减为 0。
@@ -798,6 +1057,79 @@ class SparseSchemaNet:
                 self.slot_freq[i, k] = 0  # 新窗口
         return cleared, weakened
 
+    def sleep_downscale(self, keep_ratio=0.2, factor=0.82, eps=0.01):
+        """SHY 睡眠（2026-08-11 治疗五——对齐 de Vivo 2017 / Tononi-Cirelli
+        突触稳态假说——"先缩放、跌破生存阈值的才修剪"）：
+
+          ① 豁免：最强 keep_ratio（20%）突触不动（de Vivo: spared the
+             largest——最大最稳定的突触保护）
+          ② 乘性缩放：其余 ×factor（0.82——所有突触按比例降权——相对
+             结构保留——强的仍强；缩放把最弱的推到生存阈值以下）
+          ③ 阈值删除：缩放后跌破生存阈值（eps——极小）的边删除（小胶质
+             细胞修剪对应——删除是缩放的结果——不是排序删弱）
+          ④ gain 归一化：神经元权重（兴奋性）回基线（内在可塑性重置）
+          ⑤ fat 清零（睡眠压力释放）+ slot_freq 重置（新窗口）
+        词汇转正（临时身份 → 正式）由调用方 sleep 后调
+        promote_oov_words（pats 在外部）。
+
+        返回 (删除条目数, 缩放条目数, 豁免条目数, 豁免阈值, gain归一数)。
+        """
+        if not self.learn_gate:
+            return 0, 0, 0, 0.0, 0
+        # ① 动态豁免阈值：边总数蓄水池采样（每条边等概率）
+        rng = np.random.default_rng(42)
+        K = 40000
+        pool = np.empty(K, dtype=np.float64)
+        _total = 0
+        for i in range(self.n):
+            for k in range(self.slots):
+                row = self.W_out[i][k]
+                n = len(row)
+                if not n:
+                    continue
+                ww = row.w
+                if _total + n <= K:
+                    pool[_total:_total + n] = ww
+                else:
+                    m = np.arange(_total + 1, _total + n + 1)
+                    mask = rng.random(n) < K / m
+                    if mask.any():
+                        pos = rng.integers(0, K, size=int(mask.sum()))
+                        pool[pos] = ww[mask]
+                _total += n
+        thr = float(np.quantile(pool[:_total], 1 - keep_ratio)) if _total else 0.0
+        cleared = scaled = spared = 0
+        for i in range(self.n):
+            for k in range(self.slots):
+                row = self.W_out[i][k]
+                if not row:
+                    continue
+                ww = row.w
+                spared += int((ww >= thr).sum())      # ① 豁免（最强 20%——不动）
+                m = ww < thr                          # ② 乘性缩放（其余 ×factor）
+                if m.any():
+                    row.w = row.w.copy()
+                    row.w[m] *= factor
+                    scaled += int(m.sum())
+                cleared += row.prune_below(eps)       # ③ 缩放后跌破生存阈值 → 删
+                self.slot_freq[i, k] = 0              # ⑤ 唤醒计数重置
+        # ④ gain 归一化（神经元兴奋性回基线——内在可塑性重置）
+        n_gain = int((self.gain != 1.0).sum())
+        self.gain[:] = 1.0
+        self.fat[:] = 0.0                             # ⑤ 睡眠压力释放
+        self.da = 0.0
+        self.da_expected = 0.0
+        return cleared, scaled, spared, thr, n_gain
+
+    def sleep_pressure(self):
+        """内生睡眠压力（Borbély Process S——2026-08-11 治疗五）：
+        slot_freq 总和（唤醒计数累积——活动量——sleep 时重置）。
+        白天活动越多压力越高——达到阈值 → 触发睡眠（SHY 缩放+重置）
+        ——活动驱动的睡眠节律（不是外部定时）。"""
+        if not self.learn_gate:
+            return 0.0
+        return float(self.slot_freq.sum())
+
     def expand(self, n_new):
         """神经元逐步扩容（v2.1 分配制配套，纯追加、任意粒度含 n+1）。
 
@@ -818,9 +1150,24 @@ class SparseSchemaNet:
         self._cand_val = np.pad(self._cand_val, (0, pad))
         self._spikes_buf = np.pad(self._spikes_buf, (0, pad))
         self._drive = np.pad(self._drive, ((0, 0), (0, pad)))
+        # 定向链跨槽 drive 累计缓冲（2026-08-11 新增——此前扩容遗漏 →
+        # consolidate 分配新槽位后长度不齐 → 底噪门控 sig_mask 广播崩溃，
+        # 且 WTA 定向链候选过滤读旧数组——轨道永远无法激活）
+        self._drive_any = np.pad(self._drive_any, (0, pad))
+        # fat/elig 随扩容对齐（std_dep 疲劳 + R-STDP 资格迹——老数组传播
+        # 时长度不齐会索引错位）
+        self.fat = np.pad(self.fat, (0, pad))
+        self.elig = np.pad(self.elig, (0, pad))
         self.slot_freq = np.pad(self.slot_freq, ((0, pad), (0, 0)))
-        self.gain = np.pad(self.gain, (0, pad))   # 增益数组随扩容对齐（2026-08-10 填充教学
-                                                  # 落位扩容时未 pad → step() IndexError）
+        # gain 随扩容对齐（2026-08-11 修复：np.pad 默认填充 0 → 扩容新增
+        # 神经元（身份词/定式槽位）gain=0 → 传播路径 WTA key=vmax×gain=0
+        # → 永久排除——模式轨道永远无法激活（推理链物理断裂）。填充 1
+        # （新神经元正常参与竞争）。）
+        self.gain = np.pad(self.gain, (0, pad), constant_values=1)
+        # _sig_spikes 随扩容对齐（2026-08-11 底噪门控新增字段——consolidate
+        # 分配新槽位神经元后长度不齐 → pre_trace += _sig_spikes 广播崩溃）
+        if hasattr(self, "_sig_spikes"):
+            self._sig_spikes = np.pad(self._sig_spikes, (0, pad))
         self.W_out += [[EdgeRow() for _ in range(self.slots)] for _ in range(pad)]
         self.n = n_new
 
@@ -984,7 +1331,7 @@ def evaluate_trace_smat(ng, toks_list, S, pats, vocab, norm_base, slot=0,
                         delta_off=0.05, trace_beta=0.1, n_samples=8):
     """S 矩阵版增量 trace 评估。
 
-    动力学注入骨架保留（单句内 pre_trace 自然累积），读出走 S 矩阵直读
+    动力学注入定式保留（单句内 pre_trace 自然累积），读出走 S 矩阵直读
     （δ 判定 + 平局痕迹混合全 numpy），替代 _trace_cands_from_state 里
     逐源神经元 Python 出边循环——词表/连接规模大时几十倍加速。
     语义与原版一致：learn_gate 冻结下不写 W，仅推进膜电位状态。"""
@@ -1402,3 +1749,65 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def promote_oov_words(ng, pats, cursor, oov_words, freeze_thr=0.0,
+                      k=4, w=64.0):
+    """词汇巩固：临时身份（字组合并集）→ 正式身份（独立神经元）。
+
+    转正条件（2026-08-11 用户："两个字变成词要不要进入前 20% 的
+    强边才转化？"→ 要——转正 = 冻结的延续）：
+      词的边权 ≥ 前 20% 冻结阈值（freeze_thr——sleep_downscale
+      动态计算返回的网络保护线）——进入冻结区 = 网络认为重要
+      （豁免压缩）→ 正式化；没进入 = 被压缩 → 自然遗忘（生词
+      没记熟 sleep 就压没了——对应人：没记住就忘了）。
+    阈值以下不转正（"还没熟"——继续字组合身份观察）。
+
+    语义边**迁移**（改进 _grow_oov v1 的不迁移——转正不丢语义）：
+      入边重指向：所有指向字神经元的边 → 改指向正式神经元（同权重）
+      出边复制：字神经元的出边复制到正式神经元
+
+    返回 (pats, cursor, promoted_words)。
+    """
+    import numpy as _np
+    promoted = []
+    for w, chars in list(oov_words.items()):
+        if w not in pats:
+            continue
+        ns = set(pats[w])
+        # 转正信号：进入前 20% 冻结区（边权 ≥ 网络保护线）
+        edges = [v for i in ns for v in ng.W_out[i][0].values()]
+        if not edges:
+            continue
+        edge_max = float(_np.max(edges))
+        if freeze_thr <= 0 or edge_max < freeze_thr:
+            continue
+        # 正式身份：分配独立神经元
+        p_new, cursor = allocate_pats(ng, [w], k, cursor)
+        new_ns = p_new[w]
+        # 语义边迁移：入边重指向（指向字神经元 → 指向正式神经元）
+        for i in range(ng.n):
+            row = ng.W_out[i][0]
+            if not row:
+                continue
+            for j in list(row.keys()):
+                if j in ns:
+                    v = row[j]
+                    del row[j]
+                    for nj in new_ns:
+                        if nj not in row:
+                            row[nj] = v
+                            break
+        # 出边复制：字神经元出边 → 正式神经元（同权重）
+        for i in ns:
+            src = ng.W_out[i][0]
+            for j, v in src.items():
+                for ni in new_ns:
+                    if j not in ng.W_out[ni][0]:
+                        ng.W_out[ni][0][j] = v
+                        break
+        # 词表换新模式（正式身份）
+        pats[w] = new_ns
+        del oov_words[w]
+        promoted.append(w)
+    return pats, cursor, promoted

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """Phase 4 完整验收：梯度在线学习（Hebbian 预训练 + 稀疏梯度精调）双轨落地。
 
 对照方案 [PLAN]-定式网络向大模型方向发展方案.md 7.3 验收项：
@@ -25,7 +28,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import (_word_pattern, _learn_sentence, _BigramModel,
                         _TrigramModel, _evaluate_ngram)
@@ -306,7 +309,7 @@ def cost_report(phase2, phase3):
 
 def run_regression():
     """abc / seq 回归（子进程，独立环境，梯度模块不影响静态实验）。"""
-    root = Path(__file__).parent
+    root = Path(__file__).resolve().parent.parent
     out = {}
     for mode, extra in [("abc", []), ("seq", ["--stdp-pre", "0.1"])]:
         r = subprocess.run([sys.executable, "schema_net.py", "--mode", mode] + extra,
@@ -449,7 +452,7 @@ def main():
     r = {"phases": {"small": p1, "ctx": p2, "long": p3},
          "cost": cost, "regression": reg, "verdict": {
              "j1": j1, "j2": j2, "j3": j3, "j5": j5, "all": all_ok}}
-    runs = Path(__file__).parent / "runs"
+    runs = Path(__file__).resolve().parent.parent / "runs"
     runs.mkdir(exist_ok=True)
     out = runs / datetime.now().strftime("%Y%m%d_%H%M%S")
     out.mkdir(exist_ok=True)

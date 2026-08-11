@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """Phase 0：PAHE（位置感知混合引擎）验证——短前缀 wsum + 长前缀 trace。
 
 背景（成长路线方案 §3.1）：诊断 runs/20260809_113206 证明——trace（无参数
@@ -32,7 +35,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import _word_pattern, build_pulse
 from sparse_net import (load_net, _pats_matrix, outsum_sparse, build_score_mat,

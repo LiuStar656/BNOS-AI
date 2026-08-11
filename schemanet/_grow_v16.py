@@ -197,7 +197,7 @@ def clause_next(ng, pats, n2w, prefix, k=6, domain=None):
 
 
 def legal_for(expect, rel1):
-    """目标词 → 合法读出集：REL2 用配对约束（因为→所以，严格句式骨架），
+    """目标词 → 合法读出集：REL2 用配对约束（因为→所以，严格句式定式），
     SUBJ/PRED 用角色词集（主语位任何人称、谓语位任何动作/宾语都算接对，
     尊重内容多样性——句式接对了，具体说哪个词是内容自由）。
     """

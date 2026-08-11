@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """Phase 2 L1 干净对照：train_w 前后三路 + 同语料纯量（2 万子集 vs 20 万全量）。
 
 回答三个口径问题（L1 报告 §五）：
@@ -26,7 +29,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from _accept_scale20w import (CORPUS, DELTA_SCAN, GRP_TAGS, K, KV, MAXLEN, N,
                               SEED, SCAN_SUB, SKIP_TRAIN_CTX, SWITCH_T,

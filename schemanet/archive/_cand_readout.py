@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """候选 B/C 读出引擎 + 主题保持/切换测试（基于 score 全表 S[V,V]）。
 
 候选 B 精度加权（预测编码）：来源信任 ∝ 该来源条件分布的尖锐度（1/熵）。

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """并行 Hebbian 训练可行性验证：分块训练 + W 合并 vs 顺序训练，对比 top-1。
 
 背景：Hebbian 学习是加法可交换的（同对共现多次 = 强度累加），句子间顺序
@@ -22,7 +25,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import _word_pattern, _learn_sentence
 from sparse_net import (SparseSchemaNet, _pats_matrix, outsum_sparse,

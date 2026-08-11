@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """诊断4：训练 max_steps=1（注入一步共发放即学）vs 传播的边数与混入。"""
 import json
 import time
@@ -9,7 +12,7 @@ import numpy as np
 from schema_net import build_pulse
 from sparse_net import SparseSchemaNet, allocate_pats
 
-DATA = Path(__file__).parent / "data" / "curriculum"
+DATA = Path(__file__).resolve().parent.parent / "data" / "curriculum"
 K, SEED = 4, 42
 
 

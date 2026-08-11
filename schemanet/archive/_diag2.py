@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """逐句对比：新旧 trace 评估在完全相同 rng 下逐位置 pred 对比（可传句数）。
 
 注意：ng.step 内 Hebbian 会改 W，run_old/run_new 必须从同一初始 W 出发，
@@ -10,7 +13,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import _word_pattern, build_pulse
 from sparse_net import _pats_matrix, build_score_mat, load_net, outsum_sparse

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """对拍验证：SparseSchemaNet 与稠密 SchemaNet 行为一致（Phase 2 验收项 2）。
 
 同 seed 同噪声序列 → 学习结果逐值一致：
@@ -12,7 +15,7 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import numpy as np
 import jieba
 

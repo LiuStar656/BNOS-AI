@@ -1,0 +1,16 @@
+{
+ "version": "2.0",
+ "major": 2,
+ "minor": 0,
+ "parent_version": "1.0",
+ "ts": "20260811_060031",
+ "tag": "2.0 = a+1 续训（跟读 +10 轮）",
+ "net_kind": "dense",
+ "n": 256,
+ "slots": 4,
+ "learn_gate": true,
+ "data_fp": "",
+ "vocab_size": 12,
+ "pats_size": 12,
+ "cursor": 24
+}

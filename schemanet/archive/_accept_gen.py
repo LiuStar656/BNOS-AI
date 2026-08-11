@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """Phase 3+ 完整验收：生成与解码（有偏语料版，B 阶段）。
 
 流程：corpus_biased.json（15100 句，条件偏斜）→ Hebbian 预训练 → train_ctx
@@ -20,7 +23,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import jieba
 
 from schema_net import _word_pattern, _learn_sentence

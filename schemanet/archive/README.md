@@ -29,6 +29,26 @@
 | `snapshot.py` | 模型版本链快照（增量成长硬前提，2026-08-09 落地） |
 | `grad_readout.py` | grad 可微读出模块（v2.0 §七 可选项） |
 | `generator.py` | 语料生成器 |
-| `_data_curriculum.py` | Phase A 分级数据抽取（当前工作） |
-| `_sanzi_jing.py` | 三字经第二层验证：人之初→性本善（当前工作） |
-| `_version_demo.py` | 模型版本链演示（当前工作） |
+
+> 注：以上"根目录保留"表为 2026-08-09 旧版。2026-08-11 已全面整理为三层结构（根目录=基础设施 27 个 / `stage/`=阶段性脚本 85 个 / `archive/`=已无用），完整索引见根目录 `README.md`。下表第 2 批中的 `_data_curriculum.py` 已移至 `stage/`，`_sanzi_jing.py`、`_version_demo.py` 已归档（本表）。
+
+---
+
+## 第二批归档（2026-08-11，19 个 .py + 2 个剖析数据）
+
+> 原因：脚本三层整理（根=基础设施 / stage=阶段性 / archive=已无用）。本批 = 临时、一次性、自述"用完即删"、已被取代的脚本。归档文件头部已加 bootstrap（项目根入 import 路径），复现时 `python archive/_xxx.py` 即可。
+
+| 类别 | 文件 | 归档理由 |
+|---|---|---|
+| 临时验证（4） | `_tmp_eval_after.py` `_tmp_verify_branches.py` `_tmp_verify_eo.py` `_tmp_verify_netlog.py` | 一次性对拍/崩溃恢复验证，测完即弃 |
+| 临时诊断（2） | `_diag_stage2.py` `_diag_v11.py` | 定位后删除（自述） |
+| 一次性验证（3） | `_verify_chunk.py` `_verify_diag.py` `_verify_inherit_v17.py` | rng 切块/差异定位/v17 继承验收，结论已吸收 |
+| 用完即删探针（4） | `_probe_llm.py` `_probe_demo.py` `_probe_qa.py` `_probe_vo.py` | API 连通/教师演示/词表覆盖/动宾共现，跑完即删（自述） |
+| 历史验证/演示（5） | `_sanzi_jing.py` `_version_demo.py` `_trace_reverb.py` `_unify_terms.py` `_merge_branch.py` | 三字经验证/版本链演示/回响追踪/术语替换/分支合流——均一次性完成 |
+| 被取代工具（1） | `_check_speed_opt.py` | numba 对拍模块，唯一引用者 `_tmp_verify_branches` 已同批归档 |
+| 剖析数据（2） | `_prof.prof` `_prof2.prof` | 早期性能剖析产物（非 .py） |
+
+## 第二批归档时顺带修复（2026-08-11）
+
+- `stage/_rl_gate_stress.py` remove_word：`row.pop(j, None)` 在 SparseRow 的 default=None 哨兵下仍抛 KeyError（边缓存重构引入的潜伏 bug，与归档无关）→ 改为 `if j in row: row.pop(j)`，修复后 L1-L5 全部 ✅
+

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """Phase 4a 梯度可行性实验：定式网络获得参数级梯度学习能力的最小验证。
 
 前向（可微读出）：
@@ -361,7 +364,7 @@ def print_report(r):
 
 
 def save_run(r):
-    runs = Path(__file__).parent / "runs"
+    runs = Path(__file__).resolve().parent.parent / "runs"
     runs.mkdir(exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     out = runs / f"{ts}"

@@ -199,8 +199,8 @@ def free_read(ng, pats, n2w, front, domain, k=16, steps=8, teach_out=None,
     收敛停止（权骤降 ×0.4）；循环检测（3 词模式重复 → [黑洞]）。
 
     consolidated（句子固化表，2026-08-11）：{起始词: [(句子, 槽位, 类型)]}
-    ——起始词命中固化句 → 沿槽位脊柱整句读出（公式化语言：固定常用
-    句整块调取；序列完整性由脊柱保证）。
+    ——起始词命中固化句 → 沿槽位主干整句读出（公式化语言：固定常用
+    句整块调取；序列完整性由主干保证）。
 
     思考环（2026-08-11 用户："网络缺少中间步骤是机械的寻找最优路
     径"——自闭症干预的认知中介）：固化命中不直接输出——先"停住，
@@ -223,6 +223,16 @@ def free_read(ng, pats, n2w, front, domain, k=16, steps=8, teach_out=None,
         # 弱化（实测一轮误弱化 5600 万边）。读取 = 唤醒。
         if hasattr(ng, "slot_freq") and cur in pats:
             ng.slot_freq[pats[cur]] += 1
+        # 共享槽位定式读出（迭代版——2026-08-11）：front 词绑定内容位
+        # → 沿定式轨道输出（主体替换泛化——从背句子到长句式）
+        if not consolidated or cur not in consolidated:
+            from schema_net import read_skeleton
+            sk_out = read_skeleton(ng, pats, n2w, cur,
+                                   skeletons=getattr(ng, "skeletons", None))
+            if sk_out:
+                for tok in sk_out:
+                    seq.append(f"{tok}({1024:g})")
+                return seq
         # 整句固化读出：命中起始词 → 先思考环（内部激活），后表达环
         if consolidated:
             cands = consolidated.get(cur)

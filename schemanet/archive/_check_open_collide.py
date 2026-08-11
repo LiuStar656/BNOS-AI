@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """c2a：开源语料编码碰撞预检（corpus_open.json 词表模式全等对统计）。
 
 n=8192/k=16 下两词模式交集期望 k²/n=0.031；碰撞 = 模式完全相同的词对
@@ -11,11 +14,11 @@ import time
 from collections import Counter
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from schema_net import _word_pattern
 
 N, K = 8192, 16
-DATA = Path(__file__).parent / "data"
+DATA = Path(__file__).resolve().parent.parent / "data"
 UNK = "<UNK>"
 
 

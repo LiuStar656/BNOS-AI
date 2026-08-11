@@ -54,7 +54,7 @@
 真实语料词表 3000 → 原 `_out_edges_accum` Python 传出突触字典循环（每位置 >100ms）不可行。新增：
 
 - `build_score_mat(ng, pats, vocab, pats_mat)` → S[V,V]（V=3000 → 72MB float64），一次性构建后评估/扫描**纯 numpy 直读**（`S[:, src]` 即 score(w, src)）
-- `evaluate_wsum_smat` / `evaluate_trace_smat`：S 版评估，读出 O(V) numpy；trace 保留动力学注入骨架（单句内 pre_trace 自然累积），只把逐源神经元 Python 传出突触循环换成 S 直读
+- `evaluate_wsum_smat` / `evaluate_trace_smat`：S 版评估，读出 O(V) numpy；trace 保留动力学注入定式（单句内 pre_trace 自然累积），只把逐源神经元 Python 传出突触循环换成 S 直读
 - 对拍验证（`_check_smat.py`，小语料 n=2048/k=8）：S 版 vs 原版**逐位一致**（wsum 97/200、trace 91/200）——提速不改变语义
 
 > trace 曾试纯模拟版（跳过 step() 直接累积 pre_trace）→ 对拍失败（91 vs 97）：空拍传播驱动 WTA 选出后继神经元，pre_trace 含一步转移动力学无法纯模拟，已删除该方案。

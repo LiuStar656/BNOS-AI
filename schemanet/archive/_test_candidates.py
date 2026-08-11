@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """grad + 候选 B/C 对照测试（v1.1 方向：主引擎候选谱系）。
 
 对同一干净 W（--model，默认预验证净 W，20 万定案后可换）：
@@ -18,7 +21,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import _word_pattern
 from sparse_net import _pats_matrix, load_net, outsum_sparse

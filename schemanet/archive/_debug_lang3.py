@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """三次诊断：修复后语言实验读出的实际行为。"""
 import json, sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import numpy as np
 import jieba
 from schema_net import SchemaNet, _word_pattern, _learn_sentence, _predict_cands, _predict_cands_wsum, _evoke_prefix

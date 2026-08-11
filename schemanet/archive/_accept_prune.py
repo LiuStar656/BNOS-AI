@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """Phase 2 最小验证：频率门控慢衰减（sleep_consolidate）。
 
 验证 A/B 定式（同池不同槽）→ 高频复习 A、低频复习 B → sleep 整理：
@@ -17,7 +20,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import build_pulse
 from sparse_net import SparseSchemaNet

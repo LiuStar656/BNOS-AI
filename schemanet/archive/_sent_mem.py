@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# 整理归档：项目根目录加入 import 路径（引擎/共享模块在根目录）
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 """句记忆检索注意力——概念验证（回应"注意力不应该是一整个句子吗"）。
 
 核心：定式网络训练时句子被压成词→词转移（W），句子单元被抹平。本脚本给网络
@@ -21,7 +24,7 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from schema_net import _word_pattern, build_pulse
 from sparse_net import _pats_matrix, load_net

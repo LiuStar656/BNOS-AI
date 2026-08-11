@@ -37,7 +37,7 @@ SELF = {"饿": "吃", "渴": "喝", "累": "睡", "冷": "穿", "困": "睡"}
 
 class LiveNet:
     def __init__(self):
-        self.ng, self.vocab, self.pats, self.cursor = load_version("34.0")
+        self.ng, self.vocab, self.pats, self.cursor = load_version("35.0")
         self.cons, self.validation = load_consolidated("34.0")
         self.ng.w_max = 64.0
         self.n2w = {j: w for w, ns in self.pats.items() for j in ns}
