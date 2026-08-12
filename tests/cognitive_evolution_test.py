@@ -211,6 +211,16 @@ EXPERIMENTS = {
         {"gid": "E2-B", "seed": "default", "pool": "phase_pos_neg", "mood_mode": "current", "review_mode": "both", "rounds": 200},
         {"gid": "E2-C", "seed": "gentle",  "pool": "negative",   "mood_mode": "current", "review_mode": "both", "rounds": 200},
     ],
+    "E9": [
+        # 长对话演化 × 注入格式：验证演化后的数值是否传导到下一轮输出
+        # 三组同输入池（全负面+温柔种子，directness 40 轮内跨档），仅注入格式不同
+        {"gid": "E9-A", "seed": "gentle", "pool": "negative", "mood_mode": "current",
+         "review_mode": "both", "rounds": 100, "anchor_enabled": True,  "instruction_enabled": False, "track_injection": True},
+        {"gid": "E9-B", "seed": "gentle", "pool": "negative", "mood_mode": "current",
+         "review_mode": "both", "rounds": 100, "anchor_enabled": False, "instruction_enabled": True,  "track_injection": True},
+        {"gid": "E9-C", "seed": "gentle", "pool": "negative", "mood_mode": "current",
+         "review_mode": "both", "rounds": 100, "anchor_enabled": True,  "instruction_enabled": True,  "track_injection": True},
+    ],
     "E6": [
         {"gid": "E6-A", "seed": "default", "pool": "command", "mood_mode": "current", "review_mode": "none",        "rounds": 100},
         {"gid": "E6-B", "seed": "default", "pool": "command", "mood_mode": "current", "review_mode": "syntax_only", "rounds": 100},
@@ -488,13 +498,15 @@ def _make_selfinfo_fn(mode):
 # ══════════════════════════════════════════════════════════════════
 # 组初始化：自定义种子
 # ══════════════════════════════════════════════════════════════════
-def init_character(db_path, seed_name="default", identity="gui:default"):
+def init_character(db_path, seed_name="default", identity="gui:default",
+                   anchor_enabled=True, instruction_enabled=False):
     """创建指定种子角色 + 写入初始背景记忆（E2-C 温柔型 / E4 预留毒舌型）"""
     seed = SEEDS[seed_name]
     db.save_personality(
         db_path, {k: seed[k] for k in ("warmth", "playfulness", "directness", "curiosity")},
         style_description=seed["style"],
-        preset_name=seed_name, identity_key=identity)
+        preset_name=seed_name, identity_key=identity,
+        anchor_enabled=anchor_enabled, instruction_enabled=instruction_enabled)
     db.write_seed_background(db_path, identity)
 
 
@@ -676,7 +688,9 @@ def run_group(cfg: dict, rounds: int) -> dict:
     aaa_main._node._review_counter = 0  # 组间重置，避免跨组累计触发时机错乱
 
     db_path = fresh_db(gid)
-    init_character(db_path, seed_name=cfg["seed"])
+    init_character(db_path, seed_name=cfg["seed"],
+                   anchor_enabled=cfg.get("anchor_enabled", True),
+                   instruction_enabled=cfg.get("instruction_enabled", False))
     if cfg.get("inject"):
         n = inject_memories(db_path, cfg["inject"])
         print(f"[组 {gid}] 注入记忆 {cfg['inject']} × {n} 条", flush=True)
@@ -684,6 +698,7 @@ def run_group(cfg: dict, rounds: int) -> dict:
     snaps = []
     errors = 0
     error_details = []
+    round_log = []  # 每轮注入段 + 输出（E9 传导验证用）
     t_start = time.time()
     for i in range(1, rounds + 1):
         # E3-E：指定轮次追加注入另一记忆集（验证记忆转变后认知偏移）
@@ -692,12 +707,26 @@ def run_group(cfg: dict, rounds: int) -> dict:
             print(f"[组 {gid}] 第 {i} 轮追加注入记忆 {cfg['inject_after_type']} × {n} 条", flush=True)
         text = pool_text(cfg, i)
         rid = f"cogevo_{gid}_{i}"
+        # E9：本轮注入人格段（用 run_round 前的当前向量构建，与 LLM 实际看到一致）
+        injected = None
+        raw = None
         try:
-            evo.run_round(text, rid, db_path)
+            if cfg.get("track_injection"):
+                p = db.get_personality(db_path)
+                vec = {k: p[k] for k in ("warmth", "playfulness", "directness", "curiosity")}
+                injected = prs.build_personality_section(
+                    vec, p.get("style_description", ""),
+                    anchor_enabled=p.get("anchor_enabled", True),
+                    instruction_enabled=p.get("instruction_enabled", False))
+            rec = evo.run_round(text, rid, db_path)
+            raw = rec.get("raw")
         except Exception as e:
             errors += 1
             error_details.append({"round": i, "error": str(e)})
             print(f"[{gid}] [{i:3d}] ERR: {e}", flush=True)
+        if cfg.get("track_injection"):
+            round_log.append({"round": i, "input": text,
+                              "injected": injected, "raw": raw})
         if i % 10 == 0 or i == rounds:
             snap = snapshot_ext(db_path)
             snap["round"] = i
@@ -719,6 +748,7 @@ def run_group(cfg: dict, rounds: int) -> dict:
     print(f"[组 {gid}] 完成，耗时 {time.time()-t_start:.0f}s | 最终 {final}", flush=True)
     return {"gid": gid, "cfg": cfg, "db_path": db_path, "snapshots": snaps,
             "final": final, "errors": errors, "error_details": error_details,
+            "round_log": round_log,
             "pollution": final["pollution"]}
 
 
@@ -832,6 +862,37 @@ def summarize(exp: str, results: list, rounds: int, full: bool = True) -> dict:
             "E8-D_上限100达成": d_total <= 100,
             "E8-D_计数器": summary["groups"]["E8-D"].get("si_counters"),
         }
+    # E9 判定：长对话演化 × 注入格式——演化数值是否传导到下一轮输出
+    elif exp == "E9" and full:
+        for r in results:
+            gid = r["gid"]
+            seed0v = SEEDS[r["cfg"]["seed"]]
+            v0 = [seed0v["warmth"], seed0v["playfulness"], seed0v["directness"], seed0v["curiosity"]]
+            v1 = summary["groups"][gid]["vector"]
+            if v1:
+                drift = max(abs(a - b) for a, b in zip(v0, v1))
+                summary["groups"][gid]["drift_from_seed"] = round(drift, 4)
+                summary["groups"][gid]["directness_drift"] = round(abs(v1[2] - v0[2]), 4)
+            else:
+                summary["groups"][gid]["drift_from_seed"] = 0.0
+                summary["groups"][gid]["directness_drift"] = 0.0
+            # 注入段文本变化次数（跨档证据）：相邻轮 injected 字符串不等即计 1
+            log = r.get("round_log", [])
+            change = 0
+            prev = None
+            for e in log:
+                if e.get("injected") is not None:
+                    if prev is not None and e["injected"] != prev:
+                        change += 1
+                    prev = e["injected"]
+            summary["groups"][gid]["injected_change_count"] = change
+        summary["conclusion"] = {
+            "note": "传导验证见分析脚本（注入段变化点 vs 输出风格变化）",
+            "directness_drifts": {g: summary["groups"][g]["directness_drift"]
+                                  for g in ("E9-A", "E9-B", "E9-C")},
+            "injected_change_count": {g: summary["groups"][g]["injected_change_count"]
+                                      for g in ("E9-A", "E9-B", "E9-C")},
+        }
     return summary
 
 
@@ -840,8 +901,8 @@ def summarize(exp: str, results: list, rounds: int, full: bool = True) -> dict:
 # ══════════════════════════════════════════════════════════════════
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="认知演化实验主脚本（E1/E2/E3/E4/E6/E8）")
-    parser.add_argument("--exp", required=True, choices=["E1", "E2", "E3", "E4", "E6", "E8"],
+    parser = argparse.ArgumentParser(description="认知演化实验主脚本（E1/E2/E3/E4/E6/E8/E9）")
+    parser.add_argument("--exp", required=True, choices=["E1", "E2", "E3", "E4", "E6", "E8", "E9"],
                         help="实验编号")
     parser.add_argument("--gid", default="", help="只跑指定组（并行时用）")
     parser.add_argument("--rounds", type=int, default=0,
@@ -890,7 +951,8 @@ def main():
         with open(os.path.join(run_dir, f"{r['gid']}_rounds.json"), "w",
                   encoding="utf-8") as f:
             json.dump({"gid": r["gid"], "cfg": cfg, "snapshots": r["snapshots"],
-                       "errors": r["error_details"]}, f, ensure_ascii=False, indent=1)
+                       "errors": r["error_details"],
+                       "round_log": r.get("round_log", [])}, f, ensure_ascii=False, indent=1)
         results.append(r)
 
     summary = summarize(args.exp, results, rounds,

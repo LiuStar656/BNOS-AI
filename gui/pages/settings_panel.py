@@ -388,7 +388,9 @@ class SettingsPanel(QWidget):
             preset_name = current.get("preset_name", "默认")
             style = current.get("style_description", "") or (
                 db.PERSONALITY_PRESETS.get("默认", {}).get("style_description", ""))
-            db.save_personality(self._get_db_path(), vector, style, preset_name)
+            db.save_personality(self._get_db_path(), vector, style, preset_name,
+                                anchor_enabled=current.get("anchor_enabled", True),
+                                instruction_enabled=current.get("instruction_enabled", False))
             QMessageBox.information(self, "保存成功", "性格参数已更新，下次对话生效。")
             self._load_personality_ui()
         except Exception as e:

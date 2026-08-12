@@ -1,0 +1,9 @@
+{
+ "rounds": 10,
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "anchor": false,
+ "instruction": true,
+ "observation": "model self-reported signed score (-1~+1)",
+ "time": "2026-08-12 21:48:06"
+}

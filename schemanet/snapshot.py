@@ -107,7 +107,7 @@ def _restore_net(z):
         src_i, slot_k, dst_j, vals = z["src_i"], z["slot_k"], z["dst_j"], z["vals"]
         _rows_from_arrays(ng, src_i, slot_k, dst_j, vals)   # 批量构建（免逐条 dict 插入）
         if "gain" in z:   # 旧快照无 gain 字段 → 保持默认全 1（向后兼容）
-            ng.gain = z["gain"].astype(np.float64)
+            ng.gain = z["gain"].astype(np.float32)   # 统一 float32 域（860 亿规模内存优化）
     if "skeletons" in z and z["skeletons"].tobytes():
         # json 序列化把 int 键变字符串——恢复时转回 int（fixed/content/bound）
         def _fix_keys(d):

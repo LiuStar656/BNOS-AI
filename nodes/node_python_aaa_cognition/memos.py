@@ -6,7 +6,6 @@ MemOS 语义记忆检索模块 — 替换 memory.py
 """
 import os
 import json
-import re
 import sqlite3
 import threading
 import numpy as np
@@ -19,29 +18,6 @@ _entry_ids = []      # list[int]: 对应各表的 id
 _entry_tables = []   # list[str]: 条目来源表名
 _entry_identity_keys = []  # list[str]: 每条记忆所属 identity_key
 _index_path = ""     # 持久化路径
-
-# v4.0: 索引全局变量写锁 —— 后台 rebuild（sync_turn/diary 通道）与
-# 主线程 rebuild 并发会重复 append 条目，必须串行化。
-# 用 RLock：rebuild_index 持锁期间调用 save_index 需可重入。
-_index_lock = threading.RLock()
-
-# v6.6 数据采集 P0-1：检索命中埋点（线程本地，后台 review 线程的检索
-# 不会覆盖主流程决策的命中记录）
-_retrieve_hits = threading.local()
-
-
-def get_last_hits() -> list[dict]:
-    """返回当前线程最近一次检索的命中条目（供 decisions.jsonl 埋点）。
-
-    Returns:
-        [{id, table, score, adopted}]：adopted=True 表示该条已被采纳
-        （注入 prompt 上下文）；被相似度/身份过滤掉的条目不在此列。
-    """
-    return list(getattr(_retrieve_hits, "hits", []))
-
-
-def _record_hits(hits: list[dict]):
-    _retrieve_hits.hits = hits
 
 
 def _get_model(timeout: float = -1) -> object | None:
@@ -98,69 +74,6 @@ def _encode(text: str) -> np.ndarray | None:
     return np.asarray(v, dtype=np.float32)
 
 
-def _core(text: str) -> str:
-    """去空白/标点后的文本核心（供逐字命中检测）"""
-    return re.sub(r"[\s。！？，、；：,.!?;:（）()【】\[\]「」\"'“”]", "",
-                  text or "")
-
-
-def _query_echo_penalty(query: str, content: str) -> float:
-    """query 逐字命中惩罚：query 原文出现在记忆内容里（历史 exchange 回放）
-    说明该条是「重复提问的历史」而非「答案记忆」，降权让位给真正知识记忆。
-
-    E4 idx44 实证：问「你还记得我喜欢什么电影吗？」时，历史里逐字相同的
-    exchange 条目相似度 0.65+ 霸榜 top5，种子「星际穿越」仅 0.405 被挤出。
-    """
-    q_core = _core(query)
-    c_core = _core(content[:120])
-    if len(q_core) >= 4 and q_core in c_core:
-        return 0.2
-    return 0.0
-
-
-# v7.3 停用字/词（gram 提权噪声过滤）：意图词与通用高频词无内容判别力
-_GRAM_STOP_CHARS = frozenset(
-    "什么怎么一个这个那个没有不是就是但是所以因为如果可以还是现在知道记得喜欢"
-    "我们你们他们这些那些时候地方东西事情觉得感觉我的你有什么在我不你有他她它"
-    "和与及就都也很还又再才只最着过吧吗呢啊了")
-_GRAM_NOISE = frozenset(
-    {"今天", "现在", "什么", "这个", "那个", "我们", "你们", "他们", "自己",
-     "时候", "真的", "还是", "没有", "觉得", "感觉", "地方", "东西", "知道",
-     "这样", "那样", "怎么", "因为", "所以", "但是", "如果", "就是", "不是",
-     "可以", "有些", "其实", "可能", "比较", "应该", "最近", "之前", "以后"})
-
-
-def _grams(chars: list[str], noise: bool) -> set:
-    """连续双字 gram 集（噪声 gram 可剔除）"""
-    out = set()
-    for i in range(len(chars) - 1):
-        g = chars[i] + chars[i + 1]
-        if len(g) == 2 and (not noise or g not in _GRAM_NOISE):
-            out.add(g)
-    return out
-
-
-def _gram_boost(query: str, content: str) -> float:
-    """query 词元提权：query 去停用字后的双字 gram 与记忆内容重叠时提权。
-
-    中文语义模型（all-MiniLM-L6-v2）相似度饱和 + 语义坍塌下，纯余弦排序
-    对唯一性记忆失效（E4 idx44 种子星际穿越 0.405 vs 无关 exchange 0.65+），
-    词元重叠是更可靠的相关性信号。上限 +0.4 防单条记忆过度拔高。
-    """
-    qc = _core(query)
-    cc = _core(content[:120])
-    qchars = [c for c in qc if c not in _GRAM_STOP_CHARS]
-    cchars = [c for c in cc if c not in _GRAM_STOP_CHARS]
-    if len(qchars) < 2 or len(cchars) < 2:
-        return 0.0
-    q_grams = _grams(qchars, noise=False)
-    c_grams = _grams(cchars, noise=True)
-    overlap = q_grams & c_grams
-    if not overlap:
-        return 0.0
-    return min(0.2 * len(overlap), 0.4)
-
-
 # ════════════════════════════════════════════════════════════════
 #  索引管理
 # ════════════════════════════════════════════════════════════════
@@ -174,41 +87,39 @@ def _index_path_for(db_path: str) -> str:
 def load_index(db_path: str):
     """从磁盘加载 MemOS 索引"""
     global _embeddings, _entry_ids, _entry_tables, _entry_identity_keys, _index_path
-    with _index_lock:
-        _index_path = _index_path_for(db_path)
-        p = Path(_index_path)
-        if p.exists():
-            data = np.load(_index_path, allow_pickle=True)
-            _embeddings = data["embeddings"]
-            _entry_ids = data["entry_ids"].tolist()
-            if "entry_tables" in data:
-                _entry_tables = data["entry_tables"].tolist()
-            else:
-                _entry_tables = ["long_term_memory"] * len(_entry_ids)
-            if "identity_keys" in data:
-                _entry_identity_keys = data["identity_keys"].tolist()
-            else:
-                _entry_identity_keys = ["gui:default"] * len(_entry_ids)
+    _index_path = _index_path_for(db_path)
+    p = Path(_index_path)
+    if p.exists():
+        data = np.load(_index_path, allow_pickle=True)
+        _embeddings = data["embeddings"]
+        _entry_ids = data["entry_ids"].tolist()
+        if "entry_tables" in data:
+            _entry_tables = data["entry_tables"].tolist()
         else:
-            _embeddings = np.empty((0, 384), dtype=np.float32)
-            _entry_ids = []
-            _entry_tables = []
-            _entry_identity_keys = []
+            _entry_tables = ["long_term_memory"] * len(_entry_ids)
+        if "identity_keys" in data:
+            _entry_identity_keys = data["identity_keys"].tolist()
+        else:
+            _entry_identity_keys = ["gui:default"] * len(_entry_ids)
+    else:
+        _embeddings = np.empty((0, 384), dtype=np.float32)
+        _entry_ids = []
+        _entry_tables = []
+        _entry_identity_keys = []
 
 
 def save_index():
     """持久化 MemOS 索引到磁盘"""
-    with _index_lock:
-        if _embeddings is None or _entry_ids is None:
-            return
-        os.makedirs(os.path.dirname(_index_path) or ".", exist_ok=True)
-        np.savez_compressed(
-            _index_path,
-            embeddings=_embeddings,
-            entry_ids=np.array(_entry_ids, dtype=np.int64),
-            entry_tables=np.array(_entry_tables, dtype=object),
-            identity_keys=np.array(_entry_identity_keys, dtype=object),
-        )
+    if _embeddings is None or _entry_ids is None:
+        return
+    os.makedirs(os.path.dirname(_index_path) or ".", exist_ok=True)
+    np.savez_compressed(
+        _index_path,
+        embeddings=_embeddings,
+        entry_ids=np.array(_entry_ids, dtype=np.int64),
+        entry_tables=np.array(_entry_tables, dtype=object),
+        identity_keys=np.array(_entry_identity_keys, dtype=object),
+    )
 
 
 def rebuild_index(db_path: str):
@@ -216,70 +127,64 @@ def rebuild_index(db_path: str):
 
     注意：user_messages（原始对话）不再建索引——对话已以合并 QA 形式写入
     long_term_memory（source='exchange'），双源会导致同一内容被索引两次。
-
-    线程安全：整个函数持 _index_lock —— 后台 rebuild（sync_turn/diary 通道）
-    与主线程 rebuild 并发时串行执行，防止基于同一旧状态重复 append 条目。
     """
     global _embeddings, _entry_ids, _entry_tables, _entry_identity_keys
-    with _index_lock:
-        conn = sqlite3.connect(db_path)
-        try:
-            # 已有索引条目集合（用于去重）——注意元组顺序为 (id, table)，
-            # 与下方检查 (eid, "long_term_memory") 保持一致（zip 顺序反了会导致
-            # 去重永久失效，每次 rebuild 重复索引全部条目）。
-            existing = set(zip(_entry_ids, _entry_tables)) if _entry_tables else set()
-            all_new = []  # (id, table, content, identity_key)
+    conn = sqlite3.connect(db_path)
+    try:
+        # 已有索引条目集合（用于去重）
+        existing = set(zip(_entry_tables, _entry_ids)) if _entry_tables else set()
+        all_new = []  # (id, table, content, identity_key)
 
-            rows = conn.execute(
-                "SELECT id, content, identity_key FROM long_term_memory WHERE content IS NOT NULL AND content != '' ORDER BY id"
-            ).fetchall()
-            for row in rows:
-                eid, content, key = row
-                if (eid, "long_term_memory") not in existing:
-                    all_new.append((eid, "long_term_memory", content[:500], key or "gui:default"))
+        rows = conn.execute(
+            "SELECT id, content, identity_key FROM long_term_memory WHERE content IS NOT NULL AND content != '' ORDER BY id"
+        ).fetchall()
+        for row in rows:
+            eid, content, key = row
+            if (eid, "long_term_memory") not in existing:
+                all_new.append((eid, "long_term_memory", content[:500], key or "gui:default"))
 
-            rows = conn.execute(
-                "SELECT id, content, mood, identity_key FROM diaries WHERE content IS NOT NULL AND content != '' ORDER BY id"
-            ).fetchall()
-            for row in rows:
-                eid, content, mood, key = row
-                text = f"[diary] {content}"[:500]
-                if mood:
-                    text += f" (心情: {mood})"
-                if (eid, "diaries") not in existing:
-                    all_new.append((eid, "diaries", text, key or "gui:default"))
-        finally:
-            conn.close()
+        rows = conn.execute(
+            "SELECT id, content, mood, identity_key FROM diaries WHERE content IS NOT NULL AND content != '' ORDER BY id"
+        ).fetchall()
+        for row in rows:
+            eid, content, mood, key = row
+            text = f"[diary] {content}"[:500]
+            if mood:
+                text += f" (心情: {mood})"
+            if (eid, "diaries") not in existing:
+                all_new.append((eid, "diaries", text, key or "gui:default"))
+    finally:
+        conn.close()
 
-        if not all_new:
-            if _embeddings is None:
-                _embeddings = np.empty((0, 384), dtype=np.float32)
-                _entry_ids = []
-                _entry_tables = []
-                _entry_identity_keys = []
-                save_index()
-            return
+    if not all_new:
+        if _embeddings is None:
+            _embeddings = np.empty((0, 384), dtype=np.float32)
+            _entry_ids = []
+            _entry_tables = []
+            _entry_identity_keys = []
+            save_index()
+        return
 
-        model = _get_model()
-        texts = [r[2] for r in all_new]
-        new_vecs = model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
-        new_vecs = np.asarray(new_vecs, dtype=np.float32)
-        new_ids = [r[0] for r in all_new]
-        new_tables = [r[1] for r in all_new]
-        new_keys = [r[3] for r in all_new]
+    model = _get_model()
+    texts = [r[2] for r in all_new]
+    new_vecs = model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
+    new_vecs = np.asarray(new_vecs, dtype=np.float32)
+    new_ids = [r[0] for r in all_new]
+    new_tables = [r[1] for r in all_new]
+    new_keys = [r[3] for r in all_new]
 
-        if _embeddings is None or len(_entry_ids) == 0:
-            _embeddings = new_vecs
-            _entry_ids = new_ids
-            _entry_tables = new_tables
-            _entry_identity_keys = new_keys
-        else:
-            _embeddings = np.vstack([_embeddings, new_vecs])
-            _entry_ids.extend(new_ids)
-            _entry_tables.extend(new_tables)
-            _entry_identity_keys.extend(new_keys)
+    if _embeddings is None or len(_entry_ids) == 0:
+        _embeddings = new_vecs
+        _entry_ids = new_ids
+        _entry_tables = new_tables
+        _entry_identity_keys = new_keys
+    else:
+        _embeddings = np.vstack([_embeddings, new_vecs])
+        _entry_ids.extend(new_ids)
+        _entry_tables.extend(new_tables)
+        _entry_identity_keys.extend(new_keys)
 
-        save_index()
+    save_index()
 
 
 # ════════════════════════════════════════════════════════════════
@@ -303,35 +208,18 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
         格式化记忆文本，空串表示无结果
     """
     if _embeddings is None or len(_entry_ids) == 0:
-        _record_hits([])
         return ""
 
     qv = _encode(query)
     if qv is None:
-        _record_hits([])
         return ""  # 模型未就绪，跳过检索
     sims = _embeddings @ qv  # 余弦相似度
-    # v7.1 阶段0-bug3：候选池 top_k*3 → top_k*20。中文语义模型相似度饱和
-    # （E4 idx44：种子星际穿越 0.405 在 85 条库里排 70 名外），候选池过小
-    # 会让高 importance 种子记忆永远进不了排序，加权无从生效。
-    top_idx = set(np.argsort(-sims)[:top_k * 20].tolist())
+    top_idx = np.argsort(-sims)[:top_k * 3]
 
-    cands = []  # (weighted_score, line, hit)  v7.1 收集后按加权分排序
-    hits = []  # v6.6 数据采集 P0-1：实际返回（采纳）的命中条目
+    results = []
     conn = sqlite3.connect(db_path) if db_path else None
     try:
-        # v7.3 高重要记忆保底：importance>=5 的记忆无条件进候选
-        # （相似度饱和下靠 top_idx 永远捞不到它们，加权无从生效）
-        if conn:
-            id_to_idx = {eid: i for i, eid in enumerate(_entry_ids)}
-            for (eid,) in conn.execute(
-                "SELECT id FROM long_term_memory WHERE identity_key=? "
-                "AND importance>=5 AND (status IS NULL OR status='active')",
-                (identity_key,)):
-                i = id_to_idx.get(int(eid))
-                if i is not None:
-                    top_idx.add(i)
-        for idx in sorted(top_idx):
+        for idx in top_idx:
             eid = _entry_ids[idx]
             table = _entry_tables[idx] if idx < len(_entry_tables) else "long_term_memory"
             score = float(sims[idx])
@@ -340,9 +228,9 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
             if idx < len(_entry_identity_keys) and _entry_identity_keys[idx] != identity_key:
                 continue
             if not conn:
-                cands.append((score, f"[{score:.3f}] (匹配条目)",
-                              {"id": int(eid), "table": table,
-                               "score": round(score, 3), "adopted": True}))
+                results.append(f"[{score:.3f}] (匹配条目)")
+                if len(results) >= top_k:
+                    break
                 continue
 
             if table == "diaries":
@@ -356,115 +244,52 @@ def retrieve(query: str, top_k: int = 5, db_path: str = "", identity_key: str = 
                 line = f"[{ts} | {score:.2f}] [日记] {content[:200]}"
                 if mood:
                     line += f" (心情: {mood})"
-                cands.append((score, line,
-                              {"id": int(eid), "table": table,
-                               "score": round(score, 3), "adopted": True}))
+                results.append(line)
             else:
                 # long_term_memory
                 row = conn.execute(
-                    "SELECT content, created_at, status, importance, source FROM long_term_memory WHERE id=?", (eid,)
+                    "SELECT content, created_at, status FROM long_term_memory WHERE id=?", (eid,)
                 ).fetchone()
                 if not row:
                     continue
-                content, created_at, status, importance, source = row
+                content, created_at, status = row
                 # v4.0: 过滤掉 superseded 的记录
                 if status and status != "active":
                     continue
                 content = content[:200] if content else ""
                 created_at = created_at[:10] if created_at else ""
-                line = f"[{created_at} | {score:.2f}] {content}"
-                # v7.1 阶段0-bug3：importance 弱加权（0.02/级，仅同分决胜，
-                # 防止高重要种子反超真正答案记忆——见 dbg_side 实测）；
-                # v7.2 对话回放降权 + 逐字命中降权；
-                # v7.3 query 词元提权（中文语义坍塌下词元重叠才是可靠相关性）。
-                imp = int(importance or 3)
-                w = score + 0.02 * (imp - 3)
-                if source == "exchange":
-                    w -= 0.10
-                w -= _query_echo_penalty(query, content)
-                w += _gram_boost(query, content)
-                cands.append((w, line,
-                              {"id": int(eid), "table": table,
-                               "score": round(score, 3), "adopted": True}))
+                results.append(f"[{created_at} | {score:.2f}] {content}")
 
+            if len(results) >= top_k:
+                break
     finally:
         if conn:
             conn.close()
 
-    # v7.1 按加权分降序取 top_k（diaries 无 importance，加权分 = 原始分）
-    cands.sort(key=lambda c: c[0], reverse=True)
-    selected = cands[:top_k]
-    results = [c[1] for c in selected]
-    hits = [c[2] for c in selected]
-
-    _record_hits(hits)
     return "\n".join(results) if results else ""
 
 
-def retrieve_raw(query: str, top_k: int = 5, identity_key: str = "gui:default", db_path: str = "") -> list[dict]:
-    """语义检索，返回结构化结果（供程序内部使用）。
-
-    v7.1 阶段0-bug3：与 retrieve 对齐——候选池 top_k*5 + importance 加权
-    （db_path 提供时可读 importance，否则退化为纯相似度排序）。
-    """
+def retrieve_raw(query: str, top_k: int = 5, identity_key: str = "gui:default") -> list[dict]:
+    """语义检索，返回结构化结果（供程序内部使用）"""
     if _embeddings is None or len(_entry_ids) == 0:
-        _record_hits([])
         return []
 
     qv = _encode(query)
     if qv is None:
-        _record_hits([])
         return []  # 模型未就绪，跳过检索
     sims = _embeddings @ qv
-    # v7.1 阶段0-bug3：候选池 top_k*12 + v7.3 高重要保底（与 retrieve 对齐）
-    top_idx = set(np.argsort(-sims)[:top_k * 12].tolist())
+    top_idx = np.argsort(-sims)[:top_k * 3]
 
-    conn = sqlite3.connect(db_path) if db_path else None
-    cands = []  # (weighted_score, hit_dict)
-    try:
-        # v7.3 高重要记忆保底（importance>=5 无条件进候选）
-        if conn:
-            id_to_idx = {eid: i for i, eid in enumerate(_entry_ids)}
-            for (eid,) in conn.execute(
-                "SELECT id FROM long_term_memory WHERE identity_key=? "
-                "AND importance>=5 AND (status IS NULL OR status='active')",
-                (identity_key,)):
-                i = id_to_idx.get(int(eid))
-                if i is not None:
-                    top_idx.add(i)
-        for idx in sorted(top_idx):
-            score = float(sims[idx])
-            if score < 0.3:
-                continue
-            if idx < len(_entry_identity_keys) and _entry_identity_keys[idx] != identity_key:
-                continue
-            table = _entry_tables[idx] if idx < len(_entry_tables) else "long_term_memory"
-            hit = {"entry_id": _entry_ids[idx], "table": table, "score": score}
-            w = score
-            if conn and table == "long_term_memory":
-                row = conn.execute(
-                    "SELECT importance, content, source FROM long_term_memory WHERE id=?", (hit["entry_id"],)
-                ).fetchone()
-                if row:
-                    imp = int(row[0] or 3)
-                    # v7.3 与 retrieve 对齐：importance 弱加权 + 回放降权 +
-                    # 逐字命中降权 + query 词元提权
-                    w = score + 0.02 * (imp - 3)
-                    if row[2] == "exchange":
-                        w -= 0.10
-                    w -= _query_echo_penalty(query, str(row[1] or ""))
-                    w += _gram_boost(query, str(row[1] or ""))
-            cands.append((w, hit))
-    finally:
-        if conn:
-            conn.close()
-
-    cands.sort(key=lambda c: c[0], reverse=True)
-    results = [c[1] for c in cands[:top_k]]
-    # v6.6 数据采集 P0-1：同步埋点命中条目（与 retrieve 一致，供决策埋点）
-    _record_hits([{"id": int(r["entry_id"]), "table": r["table"],
-                   "score": round(r["score"], 3), "adopted": True}
-                  for r in results])
+    results = []
+    for idx in top_idx:
+        if float(sims[idx]) < 0.3:
+            continue
+        if idx < len(_entry_identity_keys) and _entry_identity_keys[idx] != identity_key:
+            continue
+        table = _entry_tables[idx] if idx < len(_entry_tables) else "long_term_memory"
+        results.append({"entry_id": _entry_ids[idx], "table": table, "score": float(sims[idx])})
+        if len(results) >= top_k:
+            break
     return results
 
 
@@ -473,15 +298,9 @@ def retrieve_raw(query: str, top_k: int = 5, identity_key: str = "gui:default", 
 #  支持增量构建 + 缓存检测 + 可配置 max_edges_per_node
 # ════════════════════════════════════════════════════════════════
 
-# 记忆图谱数据源：多表聚合（v4.0，语义记忆过滤）
+# 记忆图谱数据源：多表聚合（v2.0，从单一 event_summary 扩展）
 # 每项: (表名, SQL) — SQL 返回 (id, content[, category, created_at])
-#
-# 图谱只呈现"AI 对用户和自己的长期语义记忆"，剔除三类噪音：
-#   - 原始对话 (user_messages) — 噪音大，对话已合并为 QA 进 long_term_memory
-#   - 瞬时/元数据 (location_history, fixed_cognition, self_info,
-#     personality_seed, mood_trend, mood_value) — 非语义内容，另有独立可视化
-#   - 低区分度记录 — feelings 空 thought 的纯情绪词、long_term_memory 的
-#     tool 工具返回 / diary 整篇日记（日记由 diaries 表统一承载，避免双源）
+# 注意：不纳入 user_messages（原始对话噪音大）和 location_history（定位数据）
 MEMORY_QUERIES = {
     "event_summary": ("event_summary",
         "SELECT id, summary AS content, 'event_summary' AS category, "
@@ -504,33 +323,21 @@ MEMORY_QUERIES = {
         "WHERE content IS NOT NULL AND content != '' "
         "ORDER BY id DESC LIMIT 200"),
     "feelings": ("feelings",
-        # 只保留 mood + thought 都有内容的记录；纯情绪词（如只有"开心"）
-        # 无语义区分度，进图谱只会产生互相重叠的噪声节点
-        # category 统一为 'feelings'（GUI 显示"想法"），不再用情绪词作分类
-        "SELECT id, thought AS content, 'feelings' AS category, created_at "
+        "SELECT id, thought AS content, mood AS category, created_at "
         "FROM feelings "
         "WHERE thought IS NOT NULL AND thought != '' "
         "ORDER BY id DESC LIMIT 200"),
     "long_term_memory": ("long_term_memory",
-        # 剔除 tool 工具返回（如"结果"）和 diary 整篇日记（由 diaries 表
-        # 统一承载），保留 exchange 合并 QA / seed 种子背景等真实语义记忆
         "SELECT id, content, 'long_term_memory' AS category, created_at "
         "FROM long_term_memory "
         "WHERE content IS NOT NULL AND content != '' AND status='active' "
-        "AND role != 'tool' AND source != 'diary' AND LENGTH(content) > 10 "
-        "ORDER BY id DESC LIMIT 200"),
-    "diaries": ("diaries",
-        "SELECT id, content, 'diary' AS category, "
-        "COALESCE(date, created_at) AS created_at "
-        "FROM diaries "
-        "WHERE content IS NOT NULL AND content != '' AND LENGTH(content) > 10 "
         "ORDER BY id DESC LIMIT 200"),
 }
 
 # 图谱配置常量
 GRAPH_DEFAULT_MAX_EDGES = 5
 GRAPH_DEFAULT_THRESHOLD = 0.6
-GRAPH_INDEX_VERSION = 5  # 格式版本号，变更时触发全量重建（v5: feelings 分类统一为"想法"）
+GRAPH_INDEX_VERSION = 3  # 格式版本号，变更时触发全量重建（v3: 多表数据源）
 
 
 def _knowledge_index_path_for(db_path: str) -> str:

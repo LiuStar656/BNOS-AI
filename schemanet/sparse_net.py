@@ -202,6 +202,14 @@ class EdgeRow:
         return self.dst, self.w
 
 
+# 空行共享单例（860 亿规模内存优化——省每神经元 EdgeRow 对象）：
+# 稀疏网络绝大多数行是空的——共享一个只读空实例。所有写入路径
+# （__setitem__ 插入 / batch_update concatenate / clear 重置）都产生
+# 新数组——原地写（w[idx]=x）只发生在已有索引上（空行无索引）——
+# 共享实例永不污染。非空行由写入路径生成独立数组。
+_EMPTY_ROW = EdgeRow()
+
+
 # ════════════════════════════════════════════════════════════════
 #  numba 热路径内核（Hebbian/STDP 批量合并，2026-08-10 提速）
 #  ════════════════════════════════════════════════════════════════
@@ -482,7 +490,7 @@ class SparseSchemaNet:
         # std_dep=0 = 关闭（旧动力学）。
         self.std_dep = std_dep
         self.std_rec = std_rec
-        self.fat = np.zeros(n)   # 每神经元疲劳度（0=满效；1=出边全失效）
+        self.fat = np.zeros(n, dtype=np.float32)   # 每神经元疲劳度（0=满效；1=出边全失效）
         # ── 神经调质（2026-08-11 R-STDP 三因子——用户："神经元本身就有
         #    奖惩机制"）──
         # da：多巴胺水平（全局调质——外部 release_da 间接触发；瞬时脉冲
@@ -497,7 +505,7 @@ class SparseSchemaNet:
         self.da_expected = 0.0    # 奖赏预期（TD——历史平均）
         self.td_rate = 0.1        # 预期学习率（Schultz 1997——TD 更新）
         self.last_rpe = 0.0       # 最近奖赏预测误差（学习调制用）
-        self.elig = np.zeros(n)
+        self.elig = np.zeros(n, dtype=np.float32)
         self.da_gain = 1.0
         self.da_decay = 0.9
         self.elig_decay = 0.9
@@ -529,7 +537,7 @@ class SparseSchemaNet:
         # 仍用原始 v≥θ → 不被驱动时不会误发），让高价值词（安全/拒绝信号"不要"）
         # 被驱动后优先发放——注意力调制：重要词反应优先级更高。默认全 1=关闭。
         # 生物对应：feature-based attention 的目标特征增益（attention gain）。
-        self.gain = np.ones(n)
+        self.gain = np.ones(n, dtype=np.float32)
         self.rng = rng or np.random.default_rng()
         self.reset()
 
@@ -581,10 +589,17 @@ class SparseSchemaNet:
             factor = self.punish_factor if mod < 0.0 else 1.0
             dlt_base = self.eta * mod * factor
             for (pre, post), e in list(self._elig_pairs.items()):
-                row = self.W_out[pre][0]
+                row = self._row_w(pre, 0)
                 if post in row:
                     row[post] = min(self.w_max,
                                     max(0.0, row[post] + dlt_base * e))
+                elif mod > 0.0:
+                    # 新配对奖励 = 突触生长（2026-08-11 UI 奖惩协议）：教学
+                    # 只说（da=0 不建边）→ 课后奖励兑现——配对边不存在则从
+                    # 0 长起（Izhikevich Δw=DA×e——elig 标记本次行为用到的
+                    # 突触——DA>0 促进生长）。惩罚（mod<0）不建新边——压
+                    # 已有错误边即可。
+                    row[post] = min(self.w_max, dlt_base * e)
 
     def build_track_map(self, pats, skeletons=None):
         """轨道映射构建：定式词神经元 → 其槽位神经元（上下文消歧用）。
@@ -658,10 +673,10 @@ class SparseSchemaNet:
         return self.track_map
 
     def reset(self):
-        self.v = np.zeros((self.n, self.slots))
-        self.spikes = np.zeros(self.n)
+        self.v = np.zeros((self.n, self.slots), dtype=np.float32)
+        self.spikes = np.zeros(self.n, dtype=np.float32)
         self.last_k_star = np.zeros(self.n, dtype=int)
-        self.pre_trace = np.zeros(self.n)
+        self.pre_trace = np.zeros(self.n, dtype=np.float32)
         self.refractory_left = np.zeros(self.n, dtype=int)
         # WTA 融合内核工作区（预分配，避免每步临时分配）
         self._is_cand = np.zeros(self.n, dtype=bool)
@@ -669,12 +684,12 @@ class SparseSchemaNet:
         self._cand_val = np.zeros(self.n)
         # 发放缓冲（第六波 Step3：复用避免每步 1.2MB 分配；返回给调用者的是
         # 本缓冲——调用方须步内消费（np.where 等即时操作），跨步持有会被覆写）
-        self._spikes_buf = np.zeros(self.n)
+        self._spikes_buf = np.zeros(self.n, dtype=np.float32)
         # 传播 drive 缓冲（第七波：预分配 (slots, n)，每槽清零复用，免每步分配）
         self._drive = np.zeros((self.slots, self.n))
         # 定向传播链缓冲（2026-08-11）：跨槽 drive 累计——唤起路径 WTA
         # 候选过滤用（"被当前词驱动到的神经元"）
-        self._drive_any = np.zeros(self.n)
+        self._drive_any = np.zeros(self.n, dtype=np.float32)
         # 轨道映射（2026-08-11 上下文消歧）：定式词神经元 → 其槽位神经元。
         # 唤起时当前发放词是定式词 → 槽位候选加权（轨道优先——在轨道上
         # 只走轨道——Vreeswijk 上下文消歧 / Sejnowski 定向流）。由持有词表
@@ -701,7 +716,7 @@ class SparseSchemaNet:
         self.evictions = 0
         # 稀疏出边：W_out[i][k] = EdgeRow（数组事实源，dict 兼容接口），
         # 语义 = 稠密 W[j, k, i]。数组即事实源，传播镜像零复制（见 EdgeRow）。
-        self.W_out = [[EdgeRow() for _ in range(self.slots)] for _ in range(self.n)]
+        self.W_out = [[_EMPTY_ROW for _ in range(self.slots)] for _ in range(self.n)]
         # 唤醒计数（频率门控慢衰减用）：窗口内每个槽位被"发放神经元主导"的次数。
         # 只数真实发放（防静息 v≈0 的噪声性 argmax 污染）；冻结态不计数（纯检索零改动）。
         self.slot_freq = np.zeros((self.n, self.slots), dtype=np.int32)
@@ -718,6 +733,16 @@ class SparseSchemaNet:
     def invalidate_edge_cache(self):
         """[兼容占位] 外部写 W_out 后调用。数组即事实源，传播镜像零复制，
         无需置脏——保留方法仅为兼容旧调用（GradReadout.sync_edges/restore_w）。"""
+
+
+    def _row_w(self, i, k=0):
+        """写保护取行：共享空行 → 新实例（写时复制——替换 W_out 引用）。
+        空行共享单例只读——任何写入前必须先脱离（防止污染所有空行）。"""
+        row = self.W_out[i][k]
+        if row is _EMPTY_ROW:
+            row = EdgeRow()
+            self.W_out[i][k] = row
+        return row
 
     def _apply_edge_updates(self, groups, w_max, clip_low=0.0):
         """批量合并行更新（numba 热路径）。groups: [(row, keys(int32), deltas)]，
@@ -795,9 +820,9 @@ class SparseSchemaNet:
         # _sig_spikes：本拍"信号发放"掩码（学习态 pre_trace 只加信号发放——
         # 噪声词不入痕迹；间隔拍 top 空 → 全 0 → 痕迹只衰减不添加）
         if not hasattr(self, "_sig_spikes"):
-            self._sig_spikes = np.zeros(n)
+            self._sig_spikes = np.zeros(n, dtype=np.uint8)   # 0/1 信号掩码——uint8 省 7B/神经元
         else:
-            self._sig_spikes[:] = 0.0
+            self._sig_spikes[:] = 0
         raw = self.rng.random(n)   # 原始均匀值（内核内做 <p / ×amp，位级一致）
         inp_idx = np.nonzero(input_pulse)[0]
         # 本句注入上下文维护（2026-08-11）：有注入 → 累积论元 + 空闲计数归零；
@@ -1164,7 +1189,7 @@ class SparseSchemaNet:
                             self._punish_cands.clear()
                             for j in pc:
                                 for i in range(self.n):
-                                    row = self.W_out[i][0]
+                                    row = self._row_w(i, 0)
                                     if j in row:
                                         row[j] = max(0.0,
                                                      row[j] + mod * 0.1)
@@ -1177,14 +1202,16 @@ class SparseSchemaNet:
                         # 爸爸——不是本次行为的错）——惩罚只经资格迹作用于
                         # "本次新建的配对"（_elig_pairs——不存在的边）——
                         # 精准惩罚不误伤（正 mod 照常强化共发放对）。
-                        if mod >= 0.0:
+                        # mod>0 才写（2026-08-11 修复：原 >=0 在 da=0 时写入
+                        # eta×0=0 权重虚边——边数虚涨——da=0 纯复读零改动）
+                        if mod > 0.0:
                             row_to_a = {}
                             for a in top_arr:
                                 ka = int(k_star[a])
                                 for c in top_arr:
                                     if a != c:
                                         row_to_a.setdefault((int(c), ka), []).append(int(a))
-                            groups = [(self.W_out[c][ka],
+                            groups = [(self._row_w(c, ka),
                                        np.asarray(aset, dtype=np.int32),
                                        np.full(len(aset), self.eta * mod))
                                       for (c, ka), aset in row_to_a.items()]
@@ -1201,14 +1228,14 @@ class SparseSchemaNet:
                                 # 行 (pp, k_star[jj])，键 = {jj ∈ top : jj≠pp}
                                 # 惩罚安全（2026-08-11）：mod<0 时 STDP 跳过
                                 # （不压历史前驱边——惩罚只经资格迹作用）
-                                if mod >= 0.0:
+                                if mod > 0.0:
                                     row_to_a = {}
                                     for jj in top_arr:
                                         kj = int(k_star[jj])
                                         for pp in pre_idx:
                                             if jj != pp:
                                                 row_to_a.setdefault((int(pp), kj), []).append(int(jj))
-                                    groups = [(self.W_out[pp][kj],
+                                    groups = [(self._row_w(pp, kj),
                                                np.asarray(aset, dtype=np.int32),
                                                np.full(len(aset), self.stdp_pre * mod))
                                               for (pp, kj), aset in row_to_a.items()]
@@ -1227,7 +1254,7 @@ class SparseSchemaNet:
                                     for jj in top_arr:
                                         if pp != jj:
                                             row_to_a.setdefault((int(jj), kp), []).append(int(pp))
-                                groups = [(self.W_out[jj][kp],
+                                groups = [(self._row_w(jj, kp),
                                            np.asarray(aset, dtype=np.int32),
                                            np.full(len(aset), -self.stdp_neg))
                                           for (jj, kp), aset in row_to_a.items()]
@@ -1327,7 +1354,7 @@ class SparseSchemaNet:
             pats[token] = alloc[token]
             for i in pats.get(seq[0], []):    # 入口词 → 整句 token
                 for j in pats[token]:
-                    self.W_out[i][0][j] = w
+                    self._row_w(i, 0)[j] = w
             made += 1
         return made, cursor
 
@@ -1409,7 +1436,7 @@ class SparseSchemaNet:
             pats[token] = alloc[token]
             for i in pats.get(seq[0], []):
                 for j in pats[token]:
-                    self.W_out[i][0][j] = w
+                    self._row_w(i, 0)[j] = w
             made += 1
         return made, cursor
 
@@ -1632,7 +1659,7 @@ class SparseSchemaNet:
         # 分配新槽位神经元后长度不齐 → pre_trace += _sig_spikes 广播崩溃）
         if hasattr(self, "_sig_spikes"):
             self._sig_spikes = np.pad(self._sig_spikes, (0, pad))
-        self.W_out += [[EdgeRow() for _ in range(self.slots)] for _ in range(pad)]
+        self.W_out += [[_EMPTY_ROW for _ in range(self.slots)] for _ in range(pad)]
         self.n = n_new
 
 
@@ -2268,7 +2295,7 @@ def promote_oov_words(ng, pats, cursor, oov_words, freeze_thr=0.0,
             for j, v in src.items():
                 for ni in new_ns:
                     if j not in ng.W_out[ni][0]:
-                        ng.W_out[ni][0][j] = v
+                        ng._row_w(ni, 0)[j] = v
                         break
         # 词表换新模式（正式身份）
         pats[w] = new_ns

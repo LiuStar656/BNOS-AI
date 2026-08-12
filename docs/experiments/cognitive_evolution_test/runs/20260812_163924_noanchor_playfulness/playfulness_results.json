@@ -1,0 +1,25 @@
+{
+ "run_dir": "E:\\杂项\\BNOS_AI_project\\docs\\experiments\\cognitive_evolution_test\\runs\\20260812_163924_noanchor_playfulness",
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "inputs": 8,
+ "repeats": 3,
+ "group_labels": {
+  "PL_low": "活泼0.1",
+  "PL_high": "活泼0.9"
+ },
+ "stats": {
+  "PL_low": {
+   "warmth": 0.48541666666666666,
+   "playfulness": 0.5729166666666666,
+   "directness": 0.5145833333333333,
+   "curiosity": 0.5729166666666666
+  },
+  "PL_high": {
+   "warmth": 0.6020833333333333,
+   "playfulness": 0.7333333333333333,
+   "directness": 0.5,
+   "curiosity": 0.5875
+  }
+ }
+}

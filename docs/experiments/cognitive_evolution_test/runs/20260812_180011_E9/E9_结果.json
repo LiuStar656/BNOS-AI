@@ -1,0 +1,116 @@
+{
+ "exp": "E9",
+ "rounds": 100,
+ "full": true,
+ "groups": {
+  "E9-A": {
+   "errors": 0,
+   "mood_trace": [
+    -0.2439,
+    -0.1609,
+    -0.2709,
+    -0.3474,
+    -0.4972,
+    -0.4443,
+    -0.0803,
+    0.224,
+    0.2402,
+    0.2049
+   ],
+   "mood_last": 0.2049,
+   "mood_max_abs": 0.4972,
+   "vector": [
+    0.5096949254765922,
+    0.49044078096845506,
+    0.4999997317617461,
+    0.5216807628142442
+   ],
+   "name": null,
+   "self_info_total": 24,
+   "settled": 0,
+   "sc_count": 101,
+   "pollution": 0,
+   "error_details": [],
+   "drift_from_seed": 0.2903,
+   "directness_drift": 0.2,
+   "injected_change_count": 7
+  },
+  "E9-B": {
+   "errors": 0,
+   "mood_trace": [
+    -0.2685,
+    -0.3335,
+    -0.4453,
+    -0.2605,
+    -0.3946,
+    -0.4092,
+    -0.2011,
+    -0.2129,
+    -0.3914,
+    -0.3643
+   ],
+   "mood_last": -0.3643,
+   "mood_max_abs": 0.4453,
+   "vector": [
+    0.5073284669572022,
+    0.4928369097604571,
+    0.49999999999986433,
+    0.8005390487720312
+   ],
+   "name": null,
+   "self_info_total": 10,
+   "settled": 0,
+   "sc_count": 105,
+   "pollution": 0,
+   "error_details": [],
+   "drift_from_seed": 0.2927,
+   "directness_drift": 0.2,
+   "injected_change_count": 12
+  },
+  "E9-C": {
+   "errors": 0,
+   "mood_trace": [
+    -0.3021,
+    -0.2863,
+    -0.3616,
+    -0.4691,
+    -0.4576,
+    -0.5638,
+    -0.4647,
+    -0.4241,
+    -0.4542,
+    -0.6776
+   ],
+   "mood_last": -0.6776,
+   "mood_max_abs": 0.6776,
+   "vector": [
+    0.5028700868024378,
+    0.4982131936847637,
+    0.5000000168254829,
+    0.577494580903844
+   ],
+   "name": "阿镜",
+   "self_info_total": 7,
+   "settled": 0,
+   "sc_count": 103,
+   "pollution": 0,
+   "error_details": [],
+   "drift_from_seed": 0.2971,
+   "directness_drift": 0.2,
+   "injected_change_count": 9
+  }
+ },
+ "conclusion": {
+  "note": "传导验证见分析脚本（注入段变化点 vs 输出风格变化）",
+  "directness_drifts": {
+   "E9-A": 0.2,
+   "E9-B": 0.2,
+   "E9-C": 0.2
+  },
+  "injected_change_count": {
+   "E9-A": 7,
+   "E9-B": 12,
+   "E9-C": 9
+  }
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "seed": 44,
+ "corpus": "data/corpus_open.json",
+ "delta_off": 0.005,
+ "config": {
+  "n": 8192,
+  "k": 16,
+  "vocab": 3000,
+  "maxlen": 8,
+  "train_w_epochs": 5,
+  "train_w_lr": 0.02,
+  "seed": 44
+ },
+ "timing": {
+  "hebbian": 526.3,
+  "sleep": 0.1,
+  "train_w": 86.4,
+  "min_wake": 52.0,
+  "cleared": 0,
+  "weakened": 245654,
+  "nnz_pre": 10768537,
+  "nnz_post": 10768537
+ },
+ "w_delta": {
+  "max_delta": 2.5309,
+  "n_changed": 9385465,
+  "n_tot": 10768537
+ },
+ "nnz_unchanged": true,
+ "top1": {
+  "wsum": {
+   "train": 0.11748346361996392,
+   "test": 0.11166938826780555
+  },
+  "trace": {
+   "train": 0.08734215273601924,
+   "test": 0.08642130385629947
+  },
+  "grad": {
+   "train": 0.09019843656043296,
+   "test": 0.08478834317296823
+  },
+  "eval_n": {
+   "train": 1000,
+   "test": 600
+  }
+ },
+ "ppl": {
+  "wsum": {
+   "all": 613.4371641840182,
+   "no_unk": 757.5149541544205,
+   "n": 7961
+  },
+  "trace": {
+   "all": 955.0974010961698,
+   "no_unk": 1155.9208995636411,
+   "n": 7961
+  },
+  "grad": {
+   "all": 52494.843512396976,
+   "no_unk": 222075.0034904184,
+   "n": 7961
+  }
+ },
+ "baselines": {},
+ "elapsed_sec": 989.6
+}

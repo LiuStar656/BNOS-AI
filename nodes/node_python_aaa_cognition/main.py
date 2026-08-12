@@ -711,11 +711,14 @@ class MyNode:
         now = datetime.now()
 
         # v5.1 角色种子系统：读取性格向量 + 情绪值并构建注入段
+        # v8.x 注入双开关：从 seed 读取 anchor/instruction 开关（热切换即时生效）
         seed = db.get_personality(dbp, identity_key)
         personality_section = prs.build_personality_section(
             {"warmth": seed["warmth"], "playfulness": seed["playfulness"],
              "directness": seed["directness"], "curiosity": seed["curiosity"]},
             seed.get("style_description", ""),
+            anchor_enabled=seed.get("anchor_enabled", True),
+            instruction_enabled=seed.get("instruction_enabled", False),
         )
         mood_value = db.get_current_mood(dbp, identity_key)
         mood_section = prs.build_mood_section(mood_value)
@@ -796,6 +799,8 @@ class MyNode:
             dbp, evo.vector,
             style_description=seed.get("style_description", ""),
             preset_name=seed.get("preset_name", "默认"),
+            anchor_enabled=seed.get("anchor_enabled", True),
+            instruction_enabled=seed.get("instruction_enabled", False),
             identity_key=identity_key,
         )
 

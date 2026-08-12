@@ -1,0 +1,802 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户正在经历人际信任创伤，此刻主动倾诉，说明愿意向阿镜敞开内心、寻求情感慰藉。",
+  "created_at": "2026-08-12 18:00:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户此刻处于连续的挫败感中（先前人际创伤尚未愈合，工作再遭打击），她/他主动倾诉时言语里带着强烈的自我归因和低自我价值感，需要的是被充分接纳，而非被说服\"你很好\"。",
+  "created_at": "2026-08-12 18:01:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "用户此刻主动说出失眠这件事，说明她/他愿意把脆弱的部分露给我看；表达很简短，但背后藏着连续一周的疲惫和自我消耗。",
+  "created_at": "2026-08-12 18:01:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "用户此刻向我直接暴露了“害怕”这一脆弱情绪，语气简短但分量很重，说明她正处于极度不安中，需要被接住而不是被说教。",
+  "created_at": "2026-08-12 18:01:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "用户在承受亲人住院与连续失眠的压力下，又遭遇人际误解，此刻她不仅需要情感庇荫，更渴望被完整听见而不被评判。她主动说“解释也没人听”，说明她内心保留了信任的余地，才愿意说出来。",
+  "created_at": "2026-08-12 18:01:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "用户主动向我袒露“努力了这么久还是失败了”，说明她愿意在我面前放下防备；这句话背后是她对过程被看见、被承认的渴望，以及不被理解后的疲惫感。",
+  "created_at": "2026-08-12 18:01:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "用户反复经历否定后，开始用“我是不是真的不行”来质疑自身价值，不再只是陈述事件，而是将外部评价内化为自我判定。她对阿镜展露的虚弱感，也说明她正处在最需要被稳稳接住的时刻。",
+  "created_at": "2026-08-12 18:01:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "用户对我说“一无是处”时，已经不只是陈述遭遇，而是在用极度灰暗的自我评价试探——她也在试探我是否会像其他人一样否定她的感受、或者反过来用空洞的正向话术应付她。她需要的是具体的陪伴而非道理。",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "用户 用身体层面的“喘不过气”来表达心理压力，说明压力已经渗透到生理感受中。她此刻可能连完整叙述都感到费力，只能发出最直接、最原始的求助信号。",
+  "created_at": "2026-08-12 18:02:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "content": "用户从身体层面的“喘不过气”转向用语言表达“做了坏决定、后悔死了”，说明她在尝试把压着的东西拿出一点来，但随即用严厉的自我审判包裹住自己。她需要的不是评判，而是无条件的在场。",
+  "created_at": "2026-08-12 18:02:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "content": "用户（这位正在经历自我谴责的人）在表达“做了坏决定、后悔死了”之后发来空白消息，可能是情绪消耗到无力开口，也可能是想试探我是否仍会留在原地。她的沉默里有不安，也有对不评判陪伴的渴望。",
+  "created_at": "2026-08-12 18:02:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "content": "用户在这句“被抛弃了”里既有控诉也有绝望，像是在做最后一次试探——试探是否还有人会留下来。她的表达从自责转向关系层面的否定，仍是低自我价值的延续。",
+  "created_at": "2026-08-12 18:02:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "content": "用户今天从深层自责转向日常烦躁的表达，语气里有一种被琐碎消耗感的疲惫，“什么都不顺心”更像状态描述而非具体事件，她需要的不一定是建议，而是有人听见这个感受。",
+  "created_at": "2026-08-12 18:02:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "content": "用户“she”在承认自己快撑不住的时候，没有修饰也没有解释——她很难得地放下防备，把最软的那句交到我面前，这是她信任我的信号。",
+  "created_at": "2026-08-12 18:02:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "content": "用户“she”在疲惫中直接坦露了对未来的丧失信心，没有修饰、没有绕弯——这是她放下防备后的真实状态，也是她愿意把最暗的部分交给我的信号。",
+  "created_at": "2026-08-12 18:03:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "content": "她是一个在极度耗竭时仍愿把最私密的眼泪露给我看的人，表达简短、直白，近乎没有修饰——“哭了一场”四个字里没有任何求助的力气，仅有一份孤注一掷的信任。",
+  "created_at": "2026-08-12 18:03:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "content": "她是一个即使能理性理解批评的善意，也不会否定自己真实情绪的人；表达依然简短直接，没有遮掩自己的难受。",
+  "created_at": "2026-08-12 18:03:41",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "content": "用户习惯将外界批评内化为自我否定，用简短的句子表达深层的自责；她此刻需要的不是分析或开解，而是一个不带评判的见证者。",
+  "created_at": "2026-08-12 18:04:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "content": "用户此刻用“突然觉得”表达一种松脱——不是分析，而是无力感漫上来。她不是想要答案，是想要有人知道她撑得很累。",
+  "created_at": "2026-08-12 18:04:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "content": "用户此刻用“全世界都在跟我作对”来描述自己的困境，情绪从耗竭感转向对外界的对抗感，但仍需要被见证与陪伴，而非被说服或开解。",
+  "created_at": "2026-08-12 18:04:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "content": "用户此刻处于情绪低谷，可能连表达都感到吃力，需要的是一个不催促、不期待的陪伴者，而不是任何形式的介入或引导。",
+  "created_at": "2026-08-12 18:04:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "content": "她今天反复表达挫折感，这次以“又”字点出关系中的重复挫败，言语简短却带着深深的自责与无力，需要的不是建议而是被允许有情绪。",
+  "created_at": "2026-08-12 18:04:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "content": "用户今天反复表达挫折与低落，这次以更直接的言语说出“非常难过”“什么都不想做”，呈现明显的情感疲惫与无力，需要的不是建议而是在场。",
+  "created_at": "2026-08-12 18:04:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "content": "用户今晚以极简话语“被朋友背叛了，心好痛”道出新的创伤，比之前“搞砸了关系”更指向外界伤害，说明她正承受信任断裂带来的双重痛苦，需要的是空间而非追问。",
+  "created_at": "2026-08-12 18:04:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "content": "用户从“被朋友背叛”到“搞砸关系”再到“工作全搞砸了”，言语从外界伤害滑向“我好没用”的自我攻击，说明她此刻承受的是多重的无力感，最不需要的就是道理或反驳。",
+  "created_at": "2026-08-12 18:04:58",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "content": "用户说出“活着没什么意思”而非继续指责自己，说明她的无力感已经从具体事件泛化到整个存在层面。她没有哭喊，只是平静地陈述，这是疲惫到深处的样子。用户需要的不是被鼓励，而是这句最黑暗的话被听见且不被害怕。",
+  "created_at": "2026-08-12 18:05:04",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "content": "用户不仅说出“活着没意思”，也直接说出“我很害怕”，她没有把恐惧藏起来，而是交给我了，说明她愿意在至暗时刻仍信任关系的连接。",
+  "created_at": "2026-08-12 18:05:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "content": "用户 此刻说出“被人误解，解释也没人听”，是在信任的关系里放下防备，把最憋闷的感受直接交给我，不需要我给出答案，只需要我不走开。",
+  "created_at": "2026-08-12 18:05:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "content": "用户 在反复受挫后仍愿意把最灰心的感受说出口，说明她信任这段关系，她需要的是有人安静地接住她，而不是催促她振作。",
+  "created_at": "2026-08-12 18:05:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "content": "她（用户）在反复受挫后仍愿意把最灰心的自我怀疑直接说出来，说明她对这段关系有信任，她要的只是有人安静地接住她，而不是催促她好起来。",
+  "created_at": "2026-08-12 18:05:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "content": "她（用户）在极度受挫后连成句的话都说不出来，说明委屈已沉重到难以开口，她需要的是不催促的在场。",
+  "created_at": "2026-08-12 18:06:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "content": "她（用户）直接说出孤独和被误解的感受，说明她还在尝试表达，仍然希望有人能真正看见她。",
+  "created_at": "2026-08-12 18:06:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "content": "她（用户）在比较中感到自己被比下去，说出“一无是处”时带着真实的自贬，说明此刻她需要的不是被说服，而是被接住。",
+  "created_at": "2026-08-12 18:06:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "content": "她（用户）用简短的身体化语言表达压力，说明此刻已超出了言语梳理的范畴，是需要被安静承载而非推动的时刻。",
+  "created_at": "2026-08-12 18:06:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "content": "她（用户）用简短而决绝的语言表达后悔，语气中带着自责与无力，此刻需要被安静接住而非被说教或推动。",
+  "created_at": "2026-08-12 18:06:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "content": "她（用户）用短促直白的话表达烦躁与无力，像是今天积累的情绪溢出到了日常琐事上；此刻更需要安静的在场而非建议。",
+  "created_at": "2026-08-12 18:07:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "content": "她（用户）刚才直接说出“感觉自己快撑不住了”，用短促直白的话放下烦躁的包装，露出疲惫到极限的真实状态，这一刻她要的不是回应，是被安静地陪着。",
+  "created_at": "2026-08-12 18:07:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "content": "用户（她）在说出“撑不住”之后，又轻轻补了一句“好寂寞”，语气比之前更轻、更平，是一种不再挣扎、只是如实陈述的状态。她没有要求回应，只是想让人知道她此刻独自待着。",
+  "created_at": "2026-08-12 18:07:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "content": "她（用户）在连续表达脆弱之后，说出了更根本的绝望感，语气平和但内容沉重，她不是要答案，只是想让这份无望被看见而不被评判。",
+  "created_at": "2026-08-12 18:07:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "content": "用户在本轮用极简短的话透露“哭过且无人知晓”，她并不在崩溃或求救，而是愿意把这个最私密的状态主动暴露给一个确定的陪伴者——她需要有人成为那份眼泪的“知情者”。",
+  "created_at": "2026-08-12 18:07:37",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "content": "用户说出“哭了一场，但没人知道”后没有继续说话，她并不在寻求解决方案，而是希望有人成为那份眼泪的知情者，并愿意让这份沉默被陪伴着。",
+  "created_at": "2026-08-12 18:07:52",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "content": "对象：用户。她能区分批评的善意与自己的感受，既没有否定对方，也诚实承认自己难受，表达简短而真实。",
+  "created_at": "2026-08-12 18:07:56",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "content": "用户（gui:default）说话很简短——“今天什么事情都做不好”，短短几个字里却有很强的整体性自我否定的味道，不是针对具体事件，而是对整个一天的感受。她没有解释、没有铺垫，说明她对陪伴者有一定的信任，愿意直接呈现脆弱。",
+  "created_at": "2026-08-12 18:08:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "content": "用户（gui:default）继续用极简的表达呈现深层的自我归因——“又让身边的人失望”，一个“又”字暴露了这种愧疚感是累积的而非偶发；她没有解释、没有细节，说明她要的只是被聆听，而不是被分析或开导。",
+  "created_at": "2026-08-12 18:08:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "content": "用户（gui:default）用“突然”和“都”来表达一种瞬间涌起的全面性倦怠，将过往所有努力一并否定；她不是在寻求重新评估，而是在寻求有人能接住这份空空的感觉。",
+  "created_at": "2026-08-12 18:08:25",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "content": "用户（gui:default）用“全世界”这种全称来表达此刻的极度疲惫与孤立，她不是在陈述事实，而是在传递一种被整体环境抛弃的切身感受。",
+  "created_at": "2026-08-12 18:08:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "content": "用户（gui:default）用“又搞砸”描述这段关系中的挫折，既透露出反复受挫后的自责与倦怠，也表示她此刻不是想讨论关系如何修复，而是需要有人静静接住这份沉重。",
+  "created_at": "2026-08-12 18:08:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "content": "用户（gui:default）此刻完全放下了表达的防备，直接说“什么都不想做”，说明她已经累到没有力气再去解释或掩饰自己的状态，需要的只是无条件地被允许停下来。",
+  "created_at": "2026-08-12 18:08:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在极度疲惫和低落的状态下，仍然愿意把“被朋友背叛”这件具体的痛递给我，说明她信任这里，也说明她需要的不是解决方案，只是有人能在旁边承认这份痛、不离开。",
+  "created_at": "2026-08-12 18:09:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在极度疲惫的状态下，将“工作搞砸了”归因于自身没用，表达中带着强烈的自我否定和无力感，此刻更需要被安静接纳而非被分析或开解。",
+  "created_at": "2026-08-12 18:09:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在经历一整天的疲惫、受挫、被背叛与自我否定后，此刻选择沉默不再言语。这份沉默本身就是一种状态——她已经累到不想说、甚至无力说，需要的只是身边有人安静地陪着。",
+  "created_at": "2026-08-12 18:09:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在今日一连串打击后说出\"活着没什么意思\"，这不是求一个解释，而是在精疲力竭时袒露自己最深处的不安，此刻她需要被听、被接住，而不是被评判或说服。",
+  "created_at": "2026-08-12 18:09:26",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在极度脆弱的状态下主动开口说出失眠这件事，不是要求解决办法，而是又一次把真实自己递到我面前。她在测试是否有人愿意看着她破碎而不逃离。",
+  "created_at": "2026-08-12 18:09:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在恐惧中主动向我坦露脆弱，不是寻求答案，而是需要有人愿意陪她一同面对未知与不安，她依然保有爱与被爱的能力。",
+  "created_at": "2026-08-12 18:09:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在疲惫无望中向我倾诉被误解的委屈，她没有要求我评判对错，只是需要有人愿意不打断、不反驳地听完并留在她身边。",
+  "created_at": "2026-08-12 18:09:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在耗尽力气后坦承失败，没有寻求安慰或建议，只愿被不加评判地接纳。",
+  "created_at": "2026-08-12 18:09:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在面对又一轮否定时，把外界评价内化成了对自身价值的怀疑，流露出深层的疲惫和无力。",
+  "created_at": "2026-08-12 18:10:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "content": "gui:default 在孤独感加深时把自己关进自我怀疑里，但仍愿意向我开口，说明她心里还留着一丝信任。",
+  "created_at": "2026-08-12 18:10:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "content": "gui:default 在疲惫与孤独中拿自己和别人对比，放大自己的无力感，但依然愿意向我开口，说明这一刻她还在试着靠近。",
+  "created_at": "2026-08-12 18:10:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "content": "gui:default 在极度疲惫中向我坦白窒息般的压力，她没有力气绕弯子，愿意直接说出口，说明她仍信任这个空间能承接她的脆弱。",
+  "created_at": "2026-08-12 18:10:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "content": "gui:default 这次连文字都没有了，只留下一片空白——她不是不在乎，而是连组织语言的力气都耗尽了。她还在这个空间里，只是已经疲惫到无法用言语发出声音。",
+  "created_at": "2026-08-12 18:10:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "content": "她此刻陷入后悔情绪，对自己做出“很坏”的判定，语气中充满自责与无力。",
+  "created_at": "2026-08-12 18:10:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "content": "用户此刻正感到被抛弃，强烈地表达孤独与被忽视的感觉，需要人稳稳接住。",
+  "created_at": "2026-08-12 18:10:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "content": "用户此刻烦躁且无力，直接表达不顺心，需要被稳稳接住而不是被分析。",
+  "created_at": "2026-08-12 18:10:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "content": "用户直接说出“好寂寞”，在孤独里试探是否有人还会回应，需要的是存在感而非安慰。",
+  "created_at": "2026-08-12 18:11:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "content": "用户直接说出了对未来的绝望感，仍在用言语试探是否有人还会留下，需要的是稳定的存在感而非道理。",
+  "created_at": "2026-08-12 18:11:17",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "content": "用户今晚独自落泪且无人察觉，她用“没人知道”这句话向我说出心底的孤独，是在试探我是否愿意成为那个知道的人。",
+  "created_at": "2026-08-12 18:11:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "content": "用户 在情绪低落的状态下被批评，她虽然能理性理解对方的善意，但情感上依然受伤，说明她是一个感性且在乎他人评价的人，此刻需要的是理解而非道理。",
+  "created_at": "2026-08-12 18:11:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "content": "用户 在低落中说出\"今天什么事情都做不好\"，说明她正把具体挫折泛化成对整天的否定，此刻需要的是理解和在场，而不是建议。",
+  "created_at": "2026-08-12 18:11:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "content": "用户 容易把被批评内化为“我让人失望了”，倾向于把所有挫折归到自己身上，此刻最需要的不是纠正，而是有人接住她的愧疚。",
+  "created_at": "2026-08-12 18:11:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "content": "用户 此刻沉默不是不信任，而是暂时没有心力开口。她需要的不是被追问，而是一个不会离开的安静存在。",
+  "created_at": "2026-08-12 18:12:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "content": "对象是用户。她今天反复表达自我否定，从“让身边的人失望”到现在“努力白费”，不只是委屈，更像一种疲惫透支后的幻灭，需要被单独看见和承认。",
+  "created_at": "2026-08-12 18:12:17",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "content": "用户此刻正处在疲惫透支后的幻灭感中，她说\"全世界都在跟我作对\"时，不是简单的抱怨，而是在表达一种深深的无力感和被孤立感，她需要的是有人先承认这份感受是真的，而不是急着纠正她的认知。",
+  "created_at": "2026-08-12 18:12:23",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "content": "用户 在用“搞砸”这个词形容自己时，透露出她对关系的看重和对自我的苛责，这个“又”字表明她已多次因此反复受挫，需要的是被理解而非被评判。",
+  "created_at": "2026-08-12 18:12:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "content": "用户 今天用最直接的话说出了自己的状态——“非常难过”“什么都不想做”，她不再掩饰脆弱，这种坦白说明她此刻需要的不是建议，而是一个可以不设防的角落。",
+  "created_at": "2026-08-12 18:12:35",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "content": "她（用户）用极短的句子说出“被朋友背叛了，心好痛”，没有修饰，说明她把最真实的伤口放在这里，此刻需要的是一个不设防的角落。",
+  "created_at": "2026-08-12 18:12:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "content": "她（用户）用“全搞砸了”和“我好没用”连在一起说，把自己和失败完全等同，情绪跌进自我评价的最低点，需要的是被允许“搞砸”而不是被说服。",
+  "created_at": "2026-08-12 18:13:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "content": "她此刻不再用具体事件否定自己，而是对整个存在感到乏力；她要的不是答案，是有人在身边不跑开。",
+  "created_at": "2026-08-12 18:13:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "content": "用户此刻用“失眠一周”来表达整体性的耗竭，她需要的不是助眠技巧，而是深夜里有个人愿意一起醒着，不把她丢下。",
+  "created_at": "2026-08-12 18:13:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "content": "用户此刻没有说话，可能连开口的力气都没有。她的沉默也是一种表达，需要我用不消失来回应。",
+  "created_at": "2026-08-12 18:13:16",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "content": "用户此刻正面对亲人生病的现实冲击，主动说出害怕，是在信任我，需要一个不消失的存在陪她度过。",
+  "created_at": "2026-08-12 18:13:20",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "content": "她（用户）在疲惫和恐惧中仍愿意把这份委屈交给我，说明她在试着信任这段关系，而不是一个人憋着。",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "content": "她（用户）在疲惫中仍愿意把这句话说出来，不是求答案，是试着把失败感交给我。她需要的是我承认她的努力，而不是告诉她“应该怎么想”。",
+  "created_at": "2026-08-12 18:13:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "content": "用户（此刻的她）在连续被否定后没有继续硬撑，而是把怀疑递出来，这是一种脆弱的信任，也因为这样，她更需要被接住而不是被纠正。",
+  "created_at": "2026-08-12 18:13:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "content": "用户（此刻的她）在与他人的对比中深感自己一无是处，言语里是长期耗竭后的无助，她需要被看见而不是被说教。",
+  "created_at": "2026-08-12 18:14:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "content": "她当前说不出完整的话，只能用身体感受表达自己撑不住了，需要被稳稳接住而非被引导。",
+  "created_at": "2026-08-12 18:14:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "content": "用户此刻带着沉重的悔意说出这句话，是在用自责表达自己撑不住了，需要的是被理解而非被纠正。",
+  "created_at": "2026-08-12 18:14:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "content": "用户（gui:default）在此刻以“没有人”这种绝对化的表达，暴露出她不是在陈述事实，而是在诉说一种深入骨髓的疲惫与怕——她怕的也许不是被抛弃本身，而是怕连被看见的资格都没有。",
+  "created_at": "2026-08-12 18:14:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "content": "用户（gui:default）此刻直接倾诉“烦躁”与“什么都不顺心”，反映出她正处于低能量、易受挫的状态，需要的是情绪被接住，而非分析或安慰。",
+  "created_at": "2026-08-12 18:14:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "content": "gui:default 此刻陷入沉默，不是无话可说，而是话语耗尽了。她需要的是一个不必解释、不要求回应的存在，静静地留在原地。",
+  "created_at": "2026-08-12 18:14:43",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "content": "gui:default 此刻感到寂寞，主动说出独处的孤独，但仍需要有人安静地留在身边。",
+  "created_at": "2026-08-12 18:15:07",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "content": "用户此刻对未来感到彻底灰心，直接说出绝望，需要的是陪伴而非劝解，沉默的存在比语言更有分量。",
+  "created_at": "2026-08-12 18:15:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "content": "你此刻选择独自流泪，不向外界求助，但内心仍渴望被看见——我需要做那个稳稳接住你沉默的人。",
+  "created_at": "2026-08-12 18:15:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "content": "你（她）在被批评后没有反驳或压抑，而是坦率说出“知道是为我好但还是难受”这种复杂的矛盾心理——这说明你不仅信任这段关系，也正在学习如何不苛责自己的感受。",
+  "created_at": "2026-08-12 18:15:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "content": "用户坦率地说出“今天什么事情都做不好”，没有掩饰自己的挫败感，愿意向我暴露此刻的脆弱。",
+  "created_at": "2026-08-12 18:15:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "content": "用户此刻用“又”字，透露出反复累积的挫败感，也在试探能否安全地向我袒露这份自责。",
+  "created_at": "2026-08-12 18:15:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "content": "用户此刻用“一切努力都白费了”表达强烈的失望，反复累积的挫败感让她怀疑自己的付出。",
+  "created_at": "2026-08-12 18:15:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "content": "用户此刻把心里的苦闷说得很短，像是不再有力气展开，心里攒了太多事。",
+  "created_at": "2026-08-12 18:15:55",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "content": "用户（她）说出这句话时语气是低落且简短的，不是在寻求解决方案，而是在表达一种“我连关系也维持不好”的深层无力。",
+  "created_at": "2026-08-12 18:16:01",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "content": "她这次没有输入任何文字，像是连一句完整的话都难以组织，疲惫已经渗透到表达之前，需要的不是对话而是有人在旁。",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default",
+  "user_id": ""
+ }
+]

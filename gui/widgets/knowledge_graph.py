@@ -60,8 +60,6 @@ DAMPING = 0.88               # 阻尼 (保留 88% 速度)
 MAX_SPEED = 40.0             # 最大单帧速度
 CONVERGENCE_ENERGY = 0.15    # 收敛判定 (总动能)
 GRAVITY_STRENGTH = 0.002    # 中心重力 (极弱, 仅防飞散)
-BOUNDARY_RADIUS = AREA_WIDTH * 0.5  # 圆形软边界半径 (替代矩形硬边界, 防无限飞散)
-BOUNDARY_PULL = 0.01         # 软边界回拉强度系数
 
 # ─── 视觉主题 ─────────────────────────────────
 BG_COLOR = "#2b2b2b"
@@ -72,11 +70,6 @@ EDGE_COLOR = "#606878"
 EDGE_HIGHLIGHT = "#ffffff"
 TEXT_COLOR = "#d0d8e8"
 LINK_COLOR = "#4a9eff"  # 联动跟随连线颜色
-
-# 图谱节点分类的中文显示（feelings 数据源 category 为 'feelings'，hover 显示"想法"）
-CATEGORY_LABELS = {
-    "feelings": "想法",
-}
 
 
 def _node_id_for_entry(entry: dict) -> str:
@@ -217,29 +210,15 @@ class ForceEngine:
                         fx[j] += force * nx
                         fy[j] += force * ny
 
-        # ── 中心重力 (固定强度, 不随力尺度衰减) ──
-        # 力尺度 L 通过斥力半径/强度改变布局尺度 (L 大 → 散得更开);
-        # 重力固定防止节点无限飞散 — 若重力也随 L 缩小, 大力尺度下
-        # 节点会漂移到画布极远处失去收敛.
-        k_gravity = GRAVITY_STRENGTH
+        # ── 中心重力 (与力尺度 L 成反比) ──
+        # L 大 → 斥力强、范围广 + 重力弱 → 节点散得很开;
+        # L 小 → 斥力弱、范围窄 + 重力强 → 节点聚向中心.
+        # 若重力也同比例缩放 L, 所有力同比例变化, 平衡布局不变 → 力尺度调了没效果.
+        k_gravity = GRAVITY_STRENGTH / L
         for i in range(n):
             s = self._states[i]
             fx[i] += k_gravity * (cx - s.x)
             fy[i] += k_gravity * (cy - s.y)
-
-        # ── 圆形软边界 (替代矩形硬边界) ──
-        # 节点可自由散布到任意方向, 但距中心超过 BOUNDARY_RADIUS 时被柔和回拉,
-        # 防止大力尺度下的爆炸动量让节点无限飞散. 半径内无任何边界力,
-        # 因此不会像以前 margin 反弹那样被矩形四壁推挤成正方形轮廓.
-        for i in range(n):
-            s = self._states[i]
-            dxs = s.x - cx
-            dys = s.y - cy
-            rd = math.hypot(dxs, dys)
-            if rd > BOUNDARY_RADIUS:
-                pull = (rd - BOUNDARY_RADIUS) * BOUNDARY_PULL
-                fx[i] -= pull * dxs / rd
-                fy[i] -= pull * dys / rd
 
         # ── 积分 ──
         total_ke = 0.0
@@ -256,10 +235,20 @@ class ForceEngine:
             s.x += s.vx * dt
             s.y += s.vy * dt
 
-            # 无硬边界: 节点可自由散布到画布任意位置.
-            # (以前有 margin 反弹时, 大力尺度下节点会被推到矩形四壁形成
-            # 正方形轮廓; 边界由中心重力 + 阻尼自然收敛, 画布 sceneRect
-            # 在 _physics_tick 中动态扩展以跟随节点范围)
+            margin = 30
+            if s.x < margin:
+                s.x = margin
+                s.vx *= -0.5
+            elif s.x > self._width - margin:
+                s.x = self._width - margin
+                s.vx *= -0.5
+            if s.y < margin:
+                s.y = margin
+                s.vy *= -0.5
+            elif s.y > self._height - margin:
+                s.y = self._height - margin
+                s.vy *= -0.5
+
             total_ke += s.vx * s.vx + s.vy * s.vy
 
         self._total_energy = total_ke
@@ -364,8 +353,7 @@ class GraphNode(QGraphicsEllipseItem):
         content = self.entry.get("content", "")
         if len(content) > 100:
             content = content[:100] + "..."
-        cat = CATEGORY_LABELS.get(self.entry.get("category", ""), self.entry.get("category", ""))
-        QToolTip.showText(event.screenPos(), f"[{cat}]\n{content}")
+        QToolTip.showText(event.screenPos(), f"[{self.entry.get('category', '')}]\n{content}")
         super().hoverEnterEvent(event)
 
     def hoverLeaveEvent(self, event):
@@ -523,10 +511,7 @@ class KnowledgeGraph(QGraphicsView):
 
         self.setRenderHint(QPainter.RenderHint.Antialiasing)
         self.setRenderHint(QPainter.RenderHint.SmoothPixmapTransform)
-        # 不用 ScrollHandDrag: Qt 会临时扩展滚动范围, 允许视图拖出 sceneRect
-        # (画布"无限", 而节点被物理边界限制). 改 NoDrag + 手动平移, 滚动条
-        # 始终被限制在 sceneRect 内, 画布与节点空间范围一致.
-        self.setDragMode(QGraphicsView.DragMode.NoDrag)
+        self.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
         self.setViewportUpdateMode(QGraphicsView.ViewportUpdateMode.FullViewportUpdate)
         self.setTransformationAnchor(QGraphicsView.ViewportAnchor.AnchorUnderMouse)
         self.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
@@ -563,8 +548,6 @@ class KnowledgeGraph(QGraphicsView):
         # 空格平移
         self._space_pan_active = False
         self._pan_start_pos: QPointF | None = None
-        # 左键空白拖拽平移 (手动滚动条, 受 sceneRect 限制, 无法滚出画布)
-        self._panning = False
 
         self._scene.selectionChanged.connect(self._on_selection_changed)
 
@@ -705,25 +688,6 @@ class KnowledgeGraph(QGraphicsView):
         if self._load_index > 10:
             self._load_timer.setInterval(50)
 
-    def _expand_scene_to_fit(self, states: list) -> None:
-        """节点可能散布到初始画布之外, 动态扩展 sceneRect 以包含所有节点.
-        只扩大不缩小, 避免视图范围抖动."""
-        if not states:
-            return
-        margin = 80
-        min_x = min(s.x for s in states) - margin
-        min_y = min(s.y for s in states) - margin
-        max_x = max(s.x for s in states) + margin
-        max_y = max(s.y for s in states) + margin
-        cur = self.sceneRect()
-        if (min_x < cur.left() or min_y < cur.top()
-                or max_x > cur.right() or max_y > cur.bottom()):
-            left = min(cur.left(), min_x)
-            top = min(cur.top(), min_y)
-            right = max(cur.right(), max_x)
-            bottom = max(cur.bottom(), max_y)
-            self.setSceneRect(QRectF(left, top, right - left, bottom - top))
-
     def _physics_tick(self):
         """物理模拟帧 — 所有节点参与物理, 仅可见节点更新 Qt 位置"""
         if not hasattr(self, '_graph_nodes') or not self._graph_nodes:
@@ -741,8 +705,6 @@ class KnowledgeGraph(QGraphicsView):
 
         # 所有节点都参与物理 (不锁定任何节点!)
         states = self._engine.step(dt=1.0)
-        # 节点可自由散布到初始画布之外, 动态扩展 sceneRect 跟随节点范围
-        self._expand_scene_to_fit(states)
         nodes = self._graph_nodes
 
         # 仅更新可见节点的 Qt 位置
@@ -835,7 +797,7 @@ class KnowledgeGraph(QGraphicsView):
         selected_nodes = [item for item in selected if isinstance(item, GraphNode)]
         selected_ids = {id(n) for n in selected_nodes}
 
-        for node in getattr(self, "_graph_nodes", []):
+        for node in self._graph_nodes:
             if id(node) in selected_ids:
                 node.show_label()
             else:
@@ -925,28 +887,13 @@ class KnowledgeGraph(QGraphicsView):
                 super().mousePressEvent(event)
                 return
 
-        # 点击空白区域: 清除选中 + 进入平移模式
+        # 点击空白区域: 清除选中 (在 super 之后, 防止被 Qt 内部逻辑覆盖)
         super().mousePressEvent(event)
         if event.button() == Qt.MouseButton.LeftButton:
             self._scene.clearSelection()
             self._on_selection_changed()
-            self._panning = True
-            self._pan_start_pos = event.position().toPoint()
-            self.setCursor(Qt.CursorShape.ClosedHandCursor)
 
     def mouseMoveEvent(self, event):
-        # 左键空白拖拽平移: 手动移动滚动条 (滚动条范围 = sceneRect,
-        # setValue 自动限制在范围内 → 无法滚出节点空间)
-        if self._panning and event.buttons() & Qt.MouseButton.LeftButton:
-            delta = event.position().toPoint() - self._pan_start_pos
-            h_scroll = self.horizontalScrollBar()
-            v_scroll = self.verticalScrollBar()
-            h_scroll.setValue(h_scroll.value() - delta.x())
-            v_scroll.setValue(v_scroll.value() - delta.y())
-            self._pan_start_pos = event.position().toPoint()
-            event.accept()
-            return
-
         if self._space_pan_active and self._pan_start_pos is not None:
             delta = event.position().toPoint() - self._pan_start_pos
             h_scroll = self.horizontalScrollBar()
@@ -967,14 +914,6 @@ class KnowledgeGraph(QGraphicsView):
         super().mouseMoveEvent(event)
 
     def mouseReleaseEvent(self, event):
-        # 结束左键空白平移
-        if self._panning and event.button() == Qt.MouseButton.LeftButton:
-            self._panning = False
-            self._pan_start_pos = None
-            self.setCursor(Qt.CursorShape.ArrowCursor)
-            event.accept()
-            return
-
         if self._pan_start_pos is not None and event.button() == Qt.MouseButton.LeftButton:
             self._pan_start_pos = None
             self.setCursor(
@@ -1026,11 +965,6 @@ class KnowledgeGraph(QGraphicsView):
         super().mouseReleaseEvent(event)
 
     def leaveEvent(self, event):
-        # 鼠标移出视图时复位平移状态, 防止卡在平移模式
-        if self._panning:
-            self._panning = False
-            self._pan_start_pos = None
-            self.setCursor(Qt.CursorShape.ArrowCursor)
         for node in self._graph_nodes:
             target = node.base_scale
             if abs(node.scale() - target) > 0.001:

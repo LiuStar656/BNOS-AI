@@ -40,7 +40,7 @@ TABLE_LABELS: dict[str, str] = {
     "all":               "全部",
     "diaries":           "日记",
     "event_summary":     "事件摘要",
-    "feelings":          "想法",
+    "feelings":          "情感",
     "fixed_cognition":   "固定认知",
     "location_history":  "定位历史",
     "long_term_memory":  "长期记忆（归档）",

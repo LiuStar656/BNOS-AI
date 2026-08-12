@@ -262,25 +262,47 @@ def _personality_anchor(dim: str, v: float) -> str:
     return f"（{bands[idx]}）"
 
 
-def build_personality_section(vector: dict, style_description: str = "") -> str:
+# 人格向量通用激活指令（v8.x 双开关之一：instruction_enabled）。
+# 实验结论（20260812 四格式对照）：锚点（d=2.967）与指令（d=2.566）是替代路径，
+# 指令在锚点存在时无额外增益（d=2.113）；纯数值仅 d=0.925。默认关闭（锚点已够）。
+_INSTRUCTION = (
+    "**重要**：以上性格数值是你当前的性格状态，请据此在回复中自然地体现"
+    "相应的性格特征——数值越高的维度表现越明显，数值越低则越收敛；"
+    "请主动用言行呈现这些特质，不要提及数值本身。"
+)
+
+
+def build_personality_section(vector: dict, style_description: str = "",
+                              anchor_enabled: bool = True,
+                              instruction_enabled: bool = False) -> str:
     """构建【你的性格】段（慢变量，注入 {personality} 占位符）
 
     v2.1：五档动作级描述——描述差异分辨率决定漂移可测性。真实漂移
     （0.14→0.23）已可被 LLM 感知（expB 023851：d=0.805 p<0.0001）。
+
+    v8.x 注入双开关（锚点 × 指令，独立可控，四种组合可复现）：
+        anchor_enabled     = True  → 追加五档动作级锚点（d=2.967，主力）
+        instruction_enabled = True → 追加通用激活指令（d=2.566，备选）
+    两者关闭时仅剩"数值+定义行"（d=0.925，纯数值方向性基线）。
     """
     if not vector:
         return ""
     dims = []
     for dim, label in _PERSONALITY_LABELS:
         v = vector.get(dim, _PERSONALITY_MID[dim])
-        dims.append(f"{label}: {v:.1f}{_personality_anchor(dim, v)}")
+        if anchor_enabled:
+            dims.append(f"{label}: {v:.1f}{_personality_anchor(dim, v)}")
+        else:
+            dims.append(f"{label}: {v:.1f}")
     parts = [
-        "### 你的性格（会随使用自然演化，不需主动提及）",
+        "### 你的性格（随使用而保持稳定，不需主动提及）",
         "各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：",
         " | ".join(dims),
     ]
     if style_description:
         parts.append(f"说话风格: {style_description}")
+    if instruction_enabled:
+        parts.append(_INSTRUCTION)
     return "\n".join(parts)
 
 

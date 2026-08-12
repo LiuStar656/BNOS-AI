@@ -1,0 +1,16 @@
+{
+ "rounds": 60,
+ "conds": [
+  "B2",
+  "B2NEG"
+ ],
+ "models": {
+  "qwen3.7max": "qwen3.7-max",
+  "glm5.2": "glm-5.2",
+  "qwen3.5": "qwen3.5-flash",
+  "qwen3.7plus": "qwen3.7-plus"
+ },
+ "temperature": 0.7,
+ "url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+ "time": "2026-08-12 20:18:14"
+}

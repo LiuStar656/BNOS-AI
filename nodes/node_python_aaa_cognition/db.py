@@ -310,6 +310,7 @@ def ensure(db_path):
                 status TEXT DEFAULT 'active',
                 created_at TEXT NOT NULL DEFAULT(datetime('now','localtime')));
             -- v5.1 角色种子系统：性格向量表（多用户隔离，identity_key 为主键）
+            -- v8.x 人格注入双开关：anchor_enabled（五档动作级锚点）/ instruction_enabled（通用激活指令）
             CREATE TABLE IF NOT EXISTS personality_seed(
                 identity_key TEXT PRIMARY KEY,
                 warmth REAL DEFAULT 0.6,
@@ -318,6 +319,8 @@ def ensure(db_path):
                 curiosity REAL DEFAULT 0.5,
                 style_description TEXT DEFAULT '',
                 preset_name TEXT DEFAULT 'default',
+                anchor_enabled INTEGER DEFAULT 1,
+                instruction_enabled INTEGER DEFAULT 0,
                 created_at TEXT DEFAULT (datetime('now','localtime')),
                 updated_at TEXT DEFAULT (datetime('now','localtime')));
             -- v5.1 角色种子系统：动态情绪值表（逐次记录，供 prompt 注入 + GUI 曲线）
@@ -459,6 +462,18 @@ def ensure(db_path):
         # v7.1 阶段0-bug2：实体-属性绑定表（一致性校验数据源）
         entity_attr_checker.ensure_table(conn)
         conn.commit()
+
+        # v8.x 人格注入双开关：老库 personality_seed 补列（幂等）。
+        # 默认 anchor_enabled=1 / instruction_enabled=0 = 生产现有形态（只锚点）。
+        for col_sql in [
+            "ALTER TABLE personality_seed ADD COLUMN anchor_enabled INTEGER DEFAULT 1",
+            "ALTER TABLE personality_seed ADD COLUMN instruction_enabled INTEGER DEFAULT 0",
+        ]:
+            try:
+                conn.execute(col_sql)
+                conn.commit()
+            except sqlite3.OperationalError:
+                pass
     finally:
         conn.close()
 
@@ -879,18 +894,21 @@ _SEED_BACKGROUND_MEMORIES = [
 
 
 def get_personality(db_path: str, identity_key: str = _IDENTITY_KEY_DEFAULT) -> dict:
-    """读取性格向量 + 风格描述；无记录时返回默认种子（fallback）"""
+    """读取性格向量 + 风格描述 + 注入双开关；无记录时返回默认种子（fallback）"""
     default = {
         **_DEFAULT_PERSONALITY,
         "style_description": PERSONALITY_PRESETS["默认"]["style_description"],
         "preset_name": "默认",
+        "anchor_enabled": True,
+        "instruction_enabled": False,
         "exists": False,
     }
     try:
         conn = sqlite3.connect(db_path)
         try:
             row = conn.execute(
-                "SELECT warmth, playfulness, directness, curiosity, style_description, preset_name "
+                "SELECT warmth, playfulness, directness, curiosity, style_description, preset_name, "
+                "anchor_enabled, instruction_enabled "
                 "FROM personality_seed WHERE identity_key=?",
                 (identity_key,),
             ).fetchone()
@@ -903,6 +921,8 @@ def get_personality(db_path: str, identity_key: str = _IDENTITY_KEY_DEFAULT) -> 
             "directness": row[2], "curiosity": row[3],
             "style_description": row[4] or "",
             "preset_name": row[5] or "默认",
+            "anchor_enabled": bool(row[6]),
+            "instruction_enabled": bool(row[7]),
             "exists": True,
         }
     except Exception:
@@ -911,7 +931,8 @@ def get_personality(db_path: str, identity_key: str = _IDENTITY_KEY_DEFAULT) -> 
 
 def save_personality(db_path: str, vector: dict, style_description: str = "",
                      preset_name: str = "默认",
-                     identity_key: str = _IDENTITY_KEY_DEFAULT) -> bool:
+                     identity_key: str = _IDENTITY_KEY_DEFAULT,
+                     anchor_enabled: bool = True, instruction_enabled: bool = False) -> bool:
     """写入/更新性格种子（INSERT OR REPLACE，幂等）"""
     try:
         conn = sqlite3.connect(db_path)
@@ -919,18 +940,22 @@ def save_personality(db_path: str, vector: dict, style_description: str = "",
             conn.execute(
                 """INSERT INTO personality_seed(
                        identity_key, warmth, playfulness, directness, curiosity,
-                       style_description, preset_name, updated_at)
-                   VALUES(?,?,?,?,?,?,?, datetime('now','localtime'))
+                       style_description, preset_name, anchor_enabled, instruction_enabled,
+                       updated_at)
+                   VALUES(?,?,?,?,?,?,?,?,?, datetime('now','localtime'))
                    ON CONFLICT(identity_key) DO UPDATE SET
                        warmth=excluded.warmth, playfulness=excluded.playfulness,
                        directness=excluded.directness, curiosity=excluded.curiosity,
                        style_description=excluded.style_description,
                        preset_name=excluded.preset_name,
+                       anchor_enabled=excluded.anchor_enabled,
+                       instruction_enabled=excluded.instruction_enabled,
                        updated_at=datetime('now','localtime')""",
                 (identity_key,
                  float(vector.get("warmth", 0.6)), float(vector.get("playfulness", 0.4)),
                  float(vector.get("directness", 0.5)), float(vector.get("curiosity", 0.5)),
-                 style_description, preset_name),
+                 style_description, preset_name,
+                 1 if anchor_enabled else 0, 1 if instruction_enabled else 0),
             )
             conn.commit()
         finally:
@@ -938,6 +963,60 @@ def save_personality(db_path: str, vector: dict, style_description: str = "",
         return True
     except Exception:
         return False
+
+
+def set_personality_mode(db_path: str, anchor_enabled: bool = True,
+                         instruction_enabled: bool = False,
+                         identity_key: str = _IDENTITY_KEY_DEFAULT) -> dict:
+    """人格注入双开关热切换（写库即时生效，落盘持久化）。
+
+    只更新两个开关，不动性格向量；无记录时先落默认种子再写开关。
+    返回切换后的完整配置（供调用方确认/回显）。
+    """
+    try:
+        conn = sqlite3.connect(db_path)
+        try:
+            has = conn.execute(
+                "SELECT 1 FROM personality_seed WHERE identity_key=?",
+                (identity_key,),
+            ).fetchone()
+            if not has:
+                conn.execute(
+                    """INSERT INTO personality_seed(
+                           identity_key, warmth, playfulness, directness, curiosity,
+                           style_description, preset_name, anchor_enabled, instruction_enabled)
+                       VALUES(?,?,?,?,?,?,?,?,?)""",
+                    (identity_key,
+                     _DEFAULT_PERSONALITY["warmth"], _DEFAULT_PERSONALITY["playfulness"],
+                     _DEFAULT_PERSONALITY["directness"], _DEFAULT_PERSONALITY["curiosity"],
+                     PERSONALITY_PRESETS["默认"]["style_description"], "默认",
+                     1 if anchor_enabled else 0, 1 if instruction_enabled else 0),
+                )
+            else:
+                conn.execute(
+                    """UPDATE personality_seed
+                       SET anchor_enabled=?, instruction_enabled=?, updated_at=datetime('now','localtime')
+                       WHERE identity_key=?""",
+                    (1 if anchor_enabled else 0, 1 if instruction_enabled else 0, identity_key),
+                )
+            conn.commit()
+            row = conn.execute(
+                "SELECT warmth, playfulness, directness, curiosity, style_description, preset_name, "
+                "anchor_enabled, instruction_enabled FROM personality_seed WHERE identity_key=?",
+                (identity_key,),
+            ).fetchone()
+        finally:
+            conn.close()
+        return {
+            "warmth": row[0], "playfulness": row[1],
+            "directness": row[2], "curiosity": row[3],
+            "style_description": row[4] or "",
+            "preset_name": row[5] or "默认",
+            "anchor_enabled": bool(row[6]),
+            "instruction_enabled": bool(row[7]),
+        }
+    except Exception:
+        return {}
 
 
 def write_seed_background(db_path: str, identity_key: str = _IDENTITY_KEY_DEFAULT) -> int:

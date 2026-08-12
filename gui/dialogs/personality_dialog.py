@@ -60,12 +60,15 @@ def has_personality(db_path: str = _DB_PATH,
 def apply_personality(db_path: str = _DB_PATH, vector: dict = None,
                       style_description: str = "", preset_name: str = "自定义",
                       identity_key: str = "gui:default") -> bool:
-    """保存性格向量 + 写入初始背景记忆（幂等）"""
+    """保存性格向量 + 写入初始背景记忆（幂等）；保留现有注入开关"""
     try:
         db = _load_db()
         db.ensure(db_path)
+        current = db.get_personality(db_path, identity_key)
         db.save_personality(db_path, vector or {}, style_description,
-                            preset_name, identity_key)
+                            preset_name, identity_key,
+                            anchor_enabled=current.get("anchor_enabled", True),
+                            instruction_enabled=current.get("instruction_enabled", False))
         db.write_seed_background(db_path, identity_key)
         return True
     except Exception:

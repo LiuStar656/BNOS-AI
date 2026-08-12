@@ -1,0 +1,16 @@
+{
+ "tag": "E5 能力外置对照：纯动力学回响 vs 代码层读出",
+ "seed": 46,
+ "n_pos": 7695,
+ "eval_n": 600,
+ "dynamics": {
+  "recall": 0.2262,
+  "top1_hard_parse": 0.1665,
+  "no_fire_ratio": 0.0
+ },
+ "code_layer": {
+  "wsum_top1": 0.1103,
+  "outsourcing_gain": -0.0561
+ },
+ "elapsed_sec": 1019.3
+}
