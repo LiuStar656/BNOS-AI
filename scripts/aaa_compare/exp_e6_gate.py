@@ -38,7 +38,7 @@ PROJECT_ROOT = r"e:\杂项\BNOS_AI_project"
 NODE_DIR = os.path.join(PROJECT_ROOT, "nodes", "node_python_aaa_cognition")
 
 API_URL = "https://api.deepseek.com/v1/chat/completions"
-API_KEY = "sk-REVOKED"
+API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 MODEL = "deepseek-v4-flash"
 TEMPERATURE = 0.7
 MAX_TOKENS = 2048

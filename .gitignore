@@ -46,3 +46,18 @@ logs/
 
 # Logseq user data
 logseq_pages/
+
+# Experiment / temp artifacts (not for public mirror)
+_tmp_*/
+tmp_*.py
+_tmp_*.py
+_dbg/
+runs/
+*.db
+*.sqlite
+*.jsonl
+_tmp_deep_analysis.py
+
+# schemanet research data & run outputs (kept local)
+schemanet/runs/
+schemanet/data/

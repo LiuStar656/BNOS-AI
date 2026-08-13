@@ -52,7 +52,7 @@ N_ROUNDS = int(sys.argv[1]) if len(sys.argv) > 1 else 100
 
 # ── DeepSeek 直连（与 llm 节点 CloudApiBackend 相同模型/参数）──────────
 API_URL = "https://api.deepseek.com/v1/chat/completions"
-API_KEY = "sk-REVOKED"
+API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 MODEL = "deepseek-v4-flash"
 TEMPERATURE = 0.7
 MAX_TOKENS = 2048

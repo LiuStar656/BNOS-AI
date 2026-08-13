@@ -26,7 +26,7 @@ import urllib.request
 
 # ── 真实 LLM 直连（DeepSeek，与 self_evolution_test / llm 节点同源配置）──
 API_URL = "https://api.deepseek.com/v1/chat/completions"
-API_KEY = "sk-REVOKED"
+API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 MODEL = "deepseek-v4-flash"
 TEMPERATURE = 0.7
 MAX_TOKENS = 2048

@@ -25,7 +25,7 @@ OUT_DIR = os.path.join(ROOT, "docs", "experiments", "cognitive_evolution_test",
 os.makedirs(OUT_DIR, exist_ok=True)
 
 API_URL = "https://api.deepseek.com/v1/chat/completions"
-API_KEY = os.environ.get("DEEPSEEK_API_KEY", "sk-REVOKED")
+API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
 TEMPERATURE = 0.7
 MAX_TOKENS = 2048

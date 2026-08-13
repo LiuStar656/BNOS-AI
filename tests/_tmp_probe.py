@@ -2,7 +2,7 @@
 """探测真实模型名可用性（DashScope）"""
 import json, os, urllib.request, urllib.error
 
-KEY = os.environ.get("QWEN_API_KEY", "sk-ebf313d84a9e45ce9529dc197e2ea848")
+KEY = os.environ.get("QWEN_API_KEY", "")
 URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
 MODELS = ["qwen3.7-max", "glm-5.2", "qwen3.5-flash", "qwen3.7-plus"]
 

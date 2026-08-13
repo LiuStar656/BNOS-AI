@@ -69,7 +69,7 @@ GROUP_IDS = ["main", "controlA", "controlB"]
 # v2: key/model 支持环境变量覆盖（DEEPSEEK_API_KEY / DEEPSEEK_MODEL），
 # 402 余额不足或换模型时无需改代码，直接设环境变量。
 API_URL = "https://api.deepseek.com/v1/chat/completions"
-API_KEY = os.environ.get("DEEPSEEK_API_KEY", "sk-REVOKED")
+API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
 TEMPERATURE = 0.7
 MAX_TOKENS = 2048

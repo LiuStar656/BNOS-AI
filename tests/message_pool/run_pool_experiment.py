@@ -66,7 +66,7 @@ from message_pool.topic_report import generate_topic_report
 
 # ── DeepSeek 直连（与 self_evolution_test 相同模型/参数）────────────
 API_URL = "https://api.deepseek.com/v1/chat/completions"
-API_KEY = "sk-REVOKED"
+API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 MODEL = "deepseek-v4-flash"
 TEMPERATURE = 0.7
 # v6.5 截断修复：2048 偶发截断（自我介绍等长文本），提升到 4096
