@@ -1,9 +1,0 @@
-{"ts": 1786167626.0930786, "event": "message_enqueued", "user_id": "platform", "content": "今天我们来聊聊最近的生活吧", "priority": 5}
-{"ts": 1786167626.093173, "event": "message_enqueued", "user_id": "userA", "content": "今天天气真好", "priority": 0}
-{"ts": 1786167626.0932083, "event": "message_enqueued", "user_id": "userB", "content": "@alpha 在吗？", "priority": 0}
-{"ts": 1786167626.0932355, "event": "message_enqueued", "user_id": "userC", "content": "有人吗", "priority": 0}
-{"ts": "2026-08-08T13:40:26.093269", "event": "batch_dispatched", "n": 4, "contents": [{"content": "今天我们来聊聊最近的生活吧", "source": "topic", "user_id": "platform", "priority": 5, "ts": 1786167626.0930786, "seq": 1, "reply_to": ""}, {"content": "今天天气真好", "source": "sim", "user_id": "userA", "priority": 0, "ts": 1786167626.093173, "seq": 2, "reply_to": ""}, {"content": "@alpha 在吗？", "source": "sim", "user_id": "userB", "priority": 0, "ts": 1786167626.0932083, "seq": 3, "reply_to": ""}, {"content": "有人吗", "source": "sim", "user_id": "userC", "priority": 0, "ts": 1786167626.0932355, "seq": 4, "reply_to": ""}]}
-{"ts": "2026-08-08T13:40:27.176416", "event": "speech_requested", "agent": "agent:alpha", "priority": 20, "policy": "queue"}
-{"ts": "2026-08-08T13:40:27.176454", "event": "speech_output_started", "agent": "agent:alpha"}
-{"ts": "2026-08-08T13:40:27.176468", "event": "speech_finished", "agent": "agent:alpha"}
-{"ts": 1786167627.1766453, "event": "message_enqueued", "user_id": "agent:alpha", "content": "<开心>你好呀！看到你的消息啦", "priority": 0}
