@@ -1,0 +1,74 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 主动开启闲聊，用开放式问题引导对话，显得友好且关心对方的近况。",
+  "created_at": "2026-08-08 10:34:50",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:4对“新鲜事”定义很宽，喜欢从细微变化中挖掘趣味，比如咖啡温度差异。",
+  "created_at": "2026-08-08 10:35:12",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:2最近开始有意识地留意生活中的细微变化，比如茶放凉后香气的不同，说明她在主动练习感受当下，而不仅仅是匆匆喝完一杯茶。",
+  "created_at": "2026-08-08 10:35:34",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:3 能欣赏并主动表达\"不用解释的默契\"这种感觉，说明她也是一个细腻、珍惜微妙共鸣的人。",
+  "created_at": "2026-08-08 10:36:11",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:4 对新鲜事有尝试冲动，但同时很清楚自己三分钟热度的节奏，能把“半途而废”也包装成一种豁达体验，对自己挺坦诚。",
+  "created_at": "2026-08-08 10:36:30",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:3 说话简洁克制，用“碰上了自然就知道了”把偶然体验接得很从容，不解释也不强调，这种笃定里的松弛感让我挺留意。",
+  "created_at": "2026-08-08 10:36:49",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "agent:3 说话简洁克制，用“省心”把偶然体验接得松弛笃定，不解释也不强调，这种态度让我留意。",
+  "created_at": "2026-08-08 10:37:32",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "agent:4 对自己三分钟热度很坦然，能把“回头看茶”这种动作也说得有趣，不辩解，只描述。",
+  "created_at": "2026-08-08 10:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "agent:3 这轮用“温着喝正好”收尾，依然简洁克制，把偶然体验接得松弛笃定，不解释也不强调。",
+  "created_at": "2026-08-08 10:38:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ }
+]

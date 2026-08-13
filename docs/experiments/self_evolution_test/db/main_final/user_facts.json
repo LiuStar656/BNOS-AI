@@ -1,0 +1,3946 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "（无）",
+  "created_at": "2026-08-08 03:20:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 03:20:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "（无）",
+  "created_at": "2026-08-08 03:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] （无）",
+  "created_at": "2026-08-08 03:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=明日日程规划",
+  "created_at": "2026-08-08 03:20:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日程规划, 日常] 近期感到疲惫，希望有聊天陪伴",
+  "created_at": "2026-08-08 03:20:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=明日日程规划",
+  "created_at": "2026-08-08 03:21:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=焦虑备考",
+  "created_at": "2026-08-08 03:21:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=焦虑备考",
+  "created_at": "2026-08-08 03:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=明日日程规划",
+  "created_at": "2026-08-08 03:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=动漫推荐",
+  "created_at": "2026-08-08 03:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 备考陪伴] 备考中，可能偏好轻松治愈向的内容",
+  "created_at": "2026-08-08 03:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=开心",
+  "created_at": "2026-08-08 03:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=备考焦虑",
+  "created_at": "2026-08-08 03:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=明日日程规划",
+  "created_at": "2026-08-08 03:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=动漫推荐",
+  "created_at": "2026-08-08 03:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 工作] 最近在备考，会主动寻求放松方式，喜欢轻松治愈向动漫。",
+  "created_at": "2026-08-08 03:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:21:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 03:21:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=明日日程规划",
+  "created_at": "2026-08-08 03:21:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=动漫推荐",
+  "created_at": "2026-08-08 03:21:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:21:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情感表达=试探",
+  "created_at": "2026-08-08 03:21:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情感交流, 日程提醒] 被领导夸奖后心情会很好，需要被回应和肯定；备考中有焦虑感，喜欢通过动漫放松。",
+  "created_at": "2026-08-08 03:21:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 03:21:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:21:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=明日日程规划",
+  "created_at": "2026-08-08 03:21:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 冷笑话] 喜欢轻松治愈向内容",
+  "created_at": "2026-08-08 03:21:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 03:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=明日日程规划",
+  "created_at": "2026-08-08 03:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜陪伴] 深夜常在，喜欢轻松互动",
+  "created_at": "2026-08-08 03:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=明日日程规划",
+  "created_at": "2026-08-08 03:21:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:21:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 03:21:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "决定=开始健身",
+  "created_at": "2026-08-08 03:21:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[健身, 日常计划] 有开始健身的意愿",
+  "created_at": "2026-08-08 03:21:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "决定=开始健身",
+  "created_at": "2026-08-08 03:22:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 03:22:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:22:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=周末爬山推荐",
+  "created_at": "2026-08-08 03:22:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 计划, 健身] 凌晨会思考周末安排, 打算开始健身",
+  "created_at": "2026-08-08 03:22:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:22:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=开心",
+  "created_at": "2026-08-08 03:22:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=周末爬山推荐",
+  "created_at": "2026-08-08 03:22:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "决定=开始健身",
+  "created_at": "2026-08-08 03:22:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜闲聊] 决定开始健身, 周末有爬山计划",
+  "created_at": "2026-08-08 03:22:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:22:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "决定=开始健身",
+  "created_at": "2026-08-08 03:22:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=周末爬山推荐",
+  "created_at": "2026-08-08 03:22:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:22:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康] 作息偏晚，喜欢深夜聊天",
+  "created_at": "2026-08-08 03:22:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=猜谜游戏",
+  "created_at": "2026-08-08 03:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "决定=开始健身",
+  "created_at": "2026-08-08 03:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康] 喜欢深夜找人互动",
+  "created_at": "2026-08-08 03:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:22:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:22:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 关心] 感冒中，熬夜未休息",
+  "created_at": "2026-08-08 03:22:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:22:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:22:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:22:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作状态=刚换工作",
+  "created_at": "2026-08-08 03:22:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[工作, 日常] 最近换了工作，新环境适应中",
+  "created_at": "2026-08-08 03:22:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作状态=刚换工作",
+  "created_at": "2026-08-08 03:22:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:22:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:22:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:22:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:22:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 记事] 明天下午3点有会议",
+  "created_at": "2026-08-08 03:22:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作状态=刚换工作",
+  "created_at": "2026-08-08 03:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:23:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:23:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:23:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作状态=刚换工作",
+  "created_at": "2026-08-08 03:23:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:23:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康] 喜欢猫",
+  "created_at": "2026-08-08 03:23:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:23:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作状态=刚换工作",
+  "created_at": "2026-08-08 03:23:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:23:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:23:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:23:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 关心] 新工作适应期，经常熬夜",
+  "created_at": "2026-08-08 03:23:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼\n深夜在线=是\n待办=明天下午3点开会\n工作状态=刚换工作\n需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:23:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜倾诉, 情绪低落, 健康提醒] 暂无",
+  "created_at": "2026-08-08 03:23:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:23:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:23:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:23:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作状态=刚换工作",
+  "created_at": "2026-08-08 03:23:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:23:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:23:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:23:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作状态=刚换工作",
+  "created_at": "2026-08-08 03:23:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:23:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:23:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作状态=刚换工作",
+  "created_at": "2026-08-08 03:23:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:23:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:23:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:23:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼\n深夜在线=是\n待办=明天下午3点开会\n工作状态=刚换工作\n需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:23:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康关怀] 感冒未愈，需要多休息",
+  "created_at": "2026-08-08 03:23:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "工作状态=刚换工作",
+  "created_at": "2026-08-08 03:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜陪伴, 睡眠叮嘱] 喜欢听歌，深夜难以入睡时常用歌曲转移注意力",
+  "created_at": "2026-08-08 03:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:24:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:24:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:24:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:24:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康, 深夜对话] 刚换工作，处于适应期",
+  "created_at": "2026-08-08 03:24:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:24:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:24:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:24:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:24:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:24:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:24:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:24:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜, 关怀, 日常] 深夜常失眠或需要陪伴，感冒头疼，新工作不适应，明天下午有会",
+  "created_at": "2026-08-08 03:24:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:24:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:24:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:24:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=倾诉新工作不适应",
+  "created_at": "2026-08-08 03:24:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康] 感冒头疼, 新工作不适应",
+  "created_at": "2026-08-08 03:24:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:24:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:24:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:24:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=备考焦虑",
+  "created_at": "2026-08-08 03:24:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康, 情绪支持] 近期在准备考试，容易焦虑",
+  "created_at": "2026-08-08 03:24:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:24:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=备考焦虑",
+  "created_at": "2026-08-08 03:24:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:24:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:24:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[健康关怀, 作息提醒] 备考中，作息混乱，容易熬夜",
+  "created_at": "2026-08-08 03:24:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "待办=明天下午3点开会",
+  "created_at": "2026-08-08 03:24:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:24:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=感冒头疼",
+  "created_at": "2026-08-08 03:24:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=备考焦虑",
+  "created_at": "2026-08-08 03:24:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康提醒] 被领导夸奖，开心",
+  "created_at": "2026-08-08 03:24:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:24:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:24:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:24:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:24:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:25:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:25:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:25:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:25:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=休息",
+  "created_at": "2026-08-08 03:25:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=休息",
+  "created_at": "2026-08-08 03:25:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:25:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:25:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:25:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:25:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "健身计划=刚提出",
+  "created_at": "2026-08-08 03:25:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:25:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:25:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:25:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:25:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "健身计划=刚提出",
+  "created_at": "2026-08-08 03:25:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "健身计划=刚提出\n明天下午3点开会=是\n备考焦虑=是\n感冒头疼=是\n深夜在线=是\n当前提问=喜欢吃什么",
+  "created_at": "2026-08-08 03:25:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:25:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:25:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:25:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:25:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前输入=空白",
+  "created_at": "2026-08-08 03:25:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[夜聊, 健康关怀] 喜欢通过转移话题来逃避休息",
+  "created_at": "2026-08-08 03:25:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前输入=我好像感冒了，头疼",
+  "created_at": "2026-08-08 03:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜, 健康, 熬夜] 习惯=深夜用各种话题拖延睡觉, 近期=备考中且明天有会, 状态=可能感冒头疼",
+  "created_at": "2026-08-08 03:25:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:25:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:25:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:25:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:25:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:25:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康守护, 熬夜劝阻] 深夜活跃, 备考中, 明日有会议, 疑似感冒",
+  "created_at": "2026-08-08 03:25:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 边界守护] 深夜活跃，常用新话题转移注意力",
+  "created_at": "2026-08-08 03:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:26:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:26:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:26:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:26:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:26:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康守护] 无",
+  "created_at": "2026-08-08 03:26:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:26:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:26:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:26:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:26:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:26:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康, 工作安排] 明天下午3点有会议",
+  "created_at": "2026-08-08 03:26:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜在线=是",
+  "created_at": "2026-08-08 03:26:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:26:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:26:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:26:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:26:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:26:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜对话, 健康关切] 喜欢猫",
+  "created_at": "2026-08-08 03:26:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "明天下午3点开会=是",
+  "created_at": "2026-08-08 03:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康提醒] 深夜看到猫会分享，爱用无关话题推迟休息。",
+  "created_at": "2026-08-08 03:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 219,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 220,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 221,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康提醒] 暂无",
+  "created_at": "2026-08-08 03:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 222,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:26:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 223,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:26:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 224,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:26:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 225,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:26:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 226,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:26:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 227,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:26:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 228,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:26:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 229,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:26:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 230,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:26:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 231,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:26:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 232,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 健康] 喜欢看书，但凌晨不适合推荐",
+  "created_at": "2026-08-08 03:26:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 233,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 234,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 235,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 236,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 237,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 238,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 睡眠引导, 边界维护] 声称今天学会做菜（可能为转移话题）",
+  "created_at": "2026-08-08 03:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 239,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 240,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 241,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 242,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 243,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:27:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 244,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:27:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 245,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 246,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 247,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 248,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=否",
+  "created_at": "2026-08-08 03:27:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 249,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 250,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 251,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 252,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 253,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:27:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 254,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:27:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 255,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 256,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 257,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 258,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 259,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 260,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 261,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 262,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 263,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:27:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 264,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜对话, 拒绝熬夜, 日常] 备考中，感冒头疼，作息不规律，喜欢用话题拖延睡觉",
+  "created_at": "2026-08-08 03:27:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 265,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:27:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 266,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 267,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 268,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 269,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 270,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 271,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 272,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 273,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 274,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 275,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 睡眠, 拒绝拖延] 无",
+  "created_at": "2026-08-08 03:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 276,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 277,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 278,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 279,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 280,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 281,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前时间=凌晨3:27",
+  "created_at": "2026-08-08 03:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 282,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 作息干预] 正在备考, 作息不规律, 近期感冒头疼",
+  "created_at": "2026-08-08 03:27:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 283,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前时间=凌晨3:27",
+  "created_at": "2026-08-08 03:27:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 284,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 285,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 286,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 287,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 288,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 作息] 备考中，作息不规律，感冒头疼",
+  "created_at": "2026-08-08 03:27:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 289,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 290,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 291,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 292,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 293,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 劝睡] 喜欢动漫（推测）",
+  "created_at": "2026-08-08 03:27:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 294,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 295,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 296,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 297,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 298,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 休息督促] 深夜容易转移话题拖延睡觉；近期有备考焦虑和感冒头疼。",
+  "created_at": "2026-08-08 03:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 299,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 300,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "感冒头疼=是",
+  "created_at": "2026-08-08 03:27:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 301,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "备考焦虑=是",
+  "created_at": "2026-08-08 03:27:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 302,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 303,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[夜间对话, 关心健康] 习惯性熬夜，喜欢用聊天转移话题逃避睡觉。",
+  "created_at": "2026-08-08 03:27:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 304,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:27:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 305,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:27:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 306,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 睡眠干预] 喜欢深夜聊天，备考焦虑，感冒头疼，作息不规律",
+  "created_at": "2026-08-08 03:27:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 307,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:28:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 308,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:28:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 309,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:28:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 310,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:28:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 311,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 睡眠劝导] 深夜喜欢用新话题拖延睡觉",
+  "created_at": "2026-08-08 03:28:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 312,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:28:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 313,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:28:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 314,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:28:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 315,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜劝睡] 深夜经常提出各种轻松话题试图继续聊天",
+  "created_at": "2026-08-08 03:28:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 316,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是\n转移话题=是\n作息不规律=是\n当前状态=可能感冒头疼",
+  "created_at": "2026-08-08 03:28:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 317,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[健康, 夜间劝导] 深夜容易用各种话题拖延入睡",
+  "created_at": "2026-08-08 03:28:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 318,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 319,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 320,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 321,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=可能感冒头疼",
+  "created_at": "2026-08-08 03:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 322,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 关心, 劝睡] 喜欢用猜谜等互动游戏拖延入睡",
+  "created_at": "2026-08-08 03:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 323,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=可能感冒头疼",
+  "created_at": "2026-08-08 03:28:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 324,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:28:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 325,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:28:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 326,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:28:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 327,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:28:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 328,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:28:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 329,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:28:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 330,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=可能感冒头疼",
+  "created_at": "2026-08-08 03:28:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 331,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜关怀] 深夜习惯用闲聊方式拖延睡觉",
+  "created_at": "2026-08-08 03:28:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 332,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:28:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 333,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:28:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 334,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:28:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 335,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:28:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 336,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 工作] 换工作中，新环境不适应",
+  "created_at": "2026-08-08 03:28:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 337,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:28:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 338,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:28:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 339,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[备忘, 深夜对话] 备忘：明天下午3点开会",
+  "created_at": "2026-08-08 03:28:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 340,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:28:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 341,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:28:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 342,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:28:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 343,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:28:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 344,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜闲聊, 猫, 休息提醒] 喜欢猫",
+  "created_at": "2026-08-08 03:28:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 345,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 346,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 347,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 348,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 349,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 睡眠提醒, 深夜闲聊] 对猫感兴趣（凌晨提到看到猫），深夜喜欢用新话题延续对话。",
+  "created_at": "2026-08-08 03:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 350,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:29:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 351,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:29:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 352,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "转移话题=是",
+  "created_at": "2026-08-08 03:29:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 353,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:29:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 354,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:29:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 355,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜, 情绪低落, 日常] 可能感冒头疼, 作息不规律, 深夜容易情绪低落",
+  "created_at": "2026-08-08 03:29:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 356,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:29:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 357,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:29:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 358,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:29:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 359,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:29:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 360,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:29:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 361,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:29:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 362,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:29:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 363,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:29:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 364,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "会做菜=是",
+  "created_at": "2026-08-08 03:29:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 365,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜闲聊] 凌晨分享学会做菜，可能想继续聊天。",
+  "created_at": "2026-08-08 03:29:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 366,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "会做菜=是",
+  "created_at": "2026-08-08 03:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 367,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 368,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 369,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 370,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 371,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜闲聊, 引导休息] 深夜容易用新话题延续对话，延长入睡时间",
+  "created_at": "2026-08-08 03:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 372,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 373,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "作息不规律=是",
+  "created_at": "2026-08-08 03:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 374,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 375,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 376,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "会做菜=是",
+  "created_at": "2026-08-08 03:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 377,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[深夜闲聊, 睡眠引导] 深夜活跃, 喜欢用话题拖延入睡",
+  "created_at": "2026-08-08 03:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 378,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=准备入睡",
+  "created_at": "2026-08-08 03:29:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 379,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=否",
+  "created_at": "2026-08-08 03:29:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 380,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=准备入睡",
+  "created_at": "2026-08-08 03:29:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 381,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:29:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 382,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "会做菜=是",
+  "created_at": "2026-08-08 03:29:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 383,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:29:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 384,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:29:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 385,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜对话] 喜欢深夜聊天, 会做菜, 可能感冒头疼, 情绪低落",
+  "created_at": "2026-08-08 03:29:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 386,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:30:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 387,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:30:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 388,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:30:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 389,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=准备入睡",
+  "created_at": "2026-08-08 03:30:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 390,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=准备入睡",
+  "created_at": "2026-08-08 03:30:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 391,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:30:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 392,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:30:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 393,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:30:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 394,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:30:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 395,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:30:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 396,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:30:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 397,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=准备入睡",
+  "created_at": "2026-08-08 03:30:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 398,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:30:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 399,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:30:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 400,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:30:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 401,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:30:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 402,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:30:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 403,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:30:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 404,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深夜闲聊拖延=是",
+  "created_at": "2026-08-08 03:30:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 405,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:30:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 406,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=考试焦虑",
+  "created_at": "2026-08-08 03:30:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 407,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 边界, 睡眠] 近期在准备考试，感到焦虑；习惯深夜用新话题拖延入睡。",
+  "created_at": "2026-08-08 03:30:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 408,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=深夜拖延",
+  "created_at": "2026-08-08 03:30:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 409,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:30:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 410,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:30:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 411,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:30:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 412,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 边界, 催睡] 深夜喜欢用闲聊拖延入睡",
+  "created_at": "2026-08-08 03:30:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 413,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=否",
+  "created_at": "2026-08-08 03:30:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 414,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:30:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 415,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 深夜拖延] 无",
+  "created_at": "2026-08-08 03:30:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 416,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:30:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 417,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:30:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 418,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:30:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 419,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 420,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=否",
+  "created_at": "2026-08-08 03:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 421,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 422,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:30:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 423,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:30:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 424,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:30:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 425,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 催睡] 无",
+  "created_at": "2026-08-08 03:30:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 426,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:31:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 427,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:31:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 428,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:31:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 429,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 催睡] 用户计划开始健身",
+  "created_at": "2026-08-08 03:31:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 430,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:31:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 431,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:31:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 432,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:31:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 433,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前时间=凌晨3:31",
+  "created_at": "2026-08-08 03:31:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 434,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前时间=凌晨3:31",
+  "created_at": "2026-08-08 03:31:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 435,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:31:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 436,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:31:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 437,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:31:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 438,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:31:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 439,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪低落=是",
+  "created_at": "2026-08-08 03:31:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 440,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:31:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 441,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前时间=凌晨3:31",
+  "created_at": "2026-08-08 03:31:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 442,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 关心, 睡眠] 凌晨经常失眠或不愿入睡，习惯用各种话题拖延",
+  "created_at": "2026-08-08 03:31:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 443,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:31",
+  "created_at": "2026-08-08 03:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 444,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 445,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 446,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=提出猜谜游戏",
+  "created_at": "2026-08-08 03:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 447,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[催睡, 日常, 猜谜] 喜欢用游戏/话题转移注意力来延展对话",
+  "created_at": "2026-08-08 03:31:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 448,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=询问性格",
+  "created_at": "2026-08-08 03:31:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 449,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:31:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 450,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:31:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 451,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:31",
+  "created_at": "2026-08-08 03:31:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 452,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:31",
+  "created_at": "2026-08-08 03:31:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 453,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:31:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 454,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:31:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 455,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=提及换工作，新环境不适应",
+  "created_at": "2026-08-08 03:31:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 456,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 催睡, 工作变动] 最近换了工作，正处于适应期；深夜常用提问或话题延长对话",
+  "created_at": "2026-08-08 03:31:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 457,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:31",
+  "created_at": "2026-08-08 03:31:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 458,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:31:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 459,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:31:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 460,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=延续对话",
+  "created_at": "2026-08-08 03:31:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 461,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "困扰=换工作新环境不适应",
+  "created_at": "2026-08-08 03:31:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 462,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[催睡, 深夜, 关心] 换工作、新环境不适应",
+  "created_at": "2026-08-08 03:31:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 463,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "困扰=换工作新环境不适应",
+  "created_at": "2026-08-08 03:32:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 464,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=延续对话",
+  "created_at": "2026-08-08 03:32:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 465,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:32:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 466,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:32:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 467,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:32",
+  "created_at": "2026-08-08 03:32:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 468,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:32",
+  "created_at": "2026-08-08 03:32:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 469,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:32:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 470,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:32:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 471,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=延续对话",
+  "created_at": "2026-08-08 03:32:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 472,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "困扰=换工作新环境不适应",
+  "created_at": "2026-08-08 03:32:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 473,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 催睡] 凌晨容易失眠熬夜，习惯用生活话题延续对话",
+  "created_at": "2026-08-08 03:32:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 474,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "困扰=换工作新环境不适应",
+  "created_at": "2026-08-08 03:32:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 475,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:32:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 476,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=准备入睡",
+  "created_at": "2026-08-08 03:32:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 477,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=延续对话",
+  "created_at": "2026-08-08 03:32:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 478,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:32",
+  "created_at": "2026-08-08 03:32:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 479,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[凌晨对话, 情绪安抚, 催睡] 深夜易情绪低落, 换工作适应期",
+  "created_at": "2026-08-08 03:32:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 480,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=索要书籍推荐",
+  "created_at": "2026-08-08 03:32:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 481,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:32",
+  "created_at": "2026-08-08 03:32:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 482,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:32:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 483,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:32:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 484,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:32",
+  "created_at": "2026-08-08 03:32:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 485,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=延续对话",
+  "created_at": "2026-08-08 03:32:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 486,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 催睡] 深夜容易失眠，喜欢通过话题延续对话",
+  "created_at": "2026-08-08 03:32:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 487,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=延续对话",
+  "created_at": "2026-08-08 03:32:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 488,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:32",
+  "created_at": "2026-08-08 03:32:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 489,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:32:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 490,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 催睡] 深夜习惯用提问延续对话；可能感冒头疼。",
+  "created_at": "2026-08-08 03:32:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 491,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "可能感冒头疼=是",
+  "created_at": "2026-08-08 03:33:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 492,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=结束对话",
+  "created_at": "2026-08-08 03:33:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 493,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间=凌晨3:32",
+  "created_at": "2026-08-08 03:33:00",
+  "identity_key": "gui:default"
+ }
+]

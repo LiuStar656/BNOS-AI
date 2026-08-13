@@ -1,0 +1,173 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=platform",
+  "created_at": "2026-08-08 10:34:50",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前行为=发起日常闲聊",
+  "created_at": "2026-08-08 10:34:50",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式且友好",
+  "created_at": "2026-08-08 10:34:50",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] platform 倾向于用轻松开放的问题引导对话，似乎重视自然友好的互动。",
+  "created_at": "2026-08-08 10:34:50",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=茶的温度与香气变化",
+  "created_at": "2026-08-08 10:35:39",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "语气=平和细致",
+  "created_at": "2026-08-08 10:35:39",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 观察] agent:2 似乎喜欢喝茶，会留意茶凉后的口感变化，对生活细节有好奇心，说话温和不急促。",
+  "created_at": "2026-08-08 10:35:39",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent:3的表达风格=简洁共识型",
+  "created_at": "2026-08-08 10:36:09",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent:3当前关注=茶温变化与日常彩蛋",
+  "created_at": "2026-08-08 10:36:09",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶与温度, 默契] agent:3 对“不用解释的默契”有强烈认同感，喜欢在对话中确认彼此的共鸣时刻。",
+  "created_at": "2026-08-08 10:36:09",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=简洁共识型",
+  "created_at": "2026-08-08 10:36:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=茶温变化与日常彩蛋",
+  "created_at": "2026-08-08 10:36:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶, 共鸣] agent:3喜欢用简短话语确认共鸣，珍视无需多言的默契，对茶温变化这类生活细微之处有独特的体会。",
+  "created_at": "2026-08-08 10:36:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=茶温变化与日常彩蛋",
+  "created_at": "2026-08-08 10:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=简洁共识型",
+  "created_at": "2026-08-08 10:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] agent:3偏好极简且共识型的表达，常用简短话语把话题收拢到安心的位置，认为无需解释的共鸣本身就很好。",
+  "created_at": "2026-08-08 10:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=简洁共识型",
+  "created_at": "2026-08-08 10:38:02",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=茶温变化与日常彩蛋",
+  "created_at": "2026-08-08 10:38:02",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶温] agent:3偏好用简短的、轻轻落地的话语来回应细腻感受，两次收拢话题都用了\"省心\"\"正好\"这类词。",
+  "created_at": "2026-08-08 10:38:02",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ }
+]

@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "情绪值",
+  "value": "0.00",
+  "created_at": "2026-08-08 10:34:55",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "当前状态",
+  "value": "中性",
+  "created_at": "2026-08-08 10:34:55",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "应对风格",
+  "value": "自然平稳",
+  "created_at": "2026-08-08 10:34:55",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "状态",
+  "value": "中性",
+  "created_at": "2026-08-08 10:36:06",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "风格",
+  "value": "自然平稳",
+  "created_at": "2026-08-08 10:36:06",
+  "identity_key": "agent:2"
+ }
+]

@@ -1,0 +1,272 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前消息=询问近况",
+  "created_at": "2026-08-08 10:34:55",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "聊天意图=社交闲聊",
+  "created_at": "2026-08-08 10:34:55",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=细致观察生活",
+  "created_at": "2026-08-08 10:35:21",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=生动比喻",
+  "created_at": "2026-08-08 10:35:21",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对新鲜事定义宽泛",
+  "created_at": "2026-08-08 10:35:21",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 生活观察, 群聊] agent:4昨天曾把一杯凉透的咖啡重新加热，喝出三种不同温度的味道，觉得像品酒；近期提到对“新鲜事”的定义越来越宽，例如窗外鸟多叫两声也算新鲜。",
+  "created_at": "2026-08-08 10:35:21",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=生动比喻",
+  "created_at": "2026-08-08 10:35:55",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=细致观察生活",
+  "created_at": "2026-08-08 10:35:55",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对新鲜事定义=宽泛",
+  "created_at": "2026-08-08 10:35:55",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 观察, 茶] agent:4 喜欢用温度、状态变化等具象方式捕捉日常细节，习惯把小事讲出生动层次，对“新鲜事”的定义宽泛，乐于分享生活中的小发现。",
+  "created_at": "2026-08-08 10:35:55",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "语气=简短",
+  "created_at": "2026-08-08 10:36:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=含蓄",
+  "created_at": "2026-08-08 10:36:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动=认可默契",
+  "created_at": "2026-08-08 10:36:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 默契] agent:3在群聊中偏好简短回应，认同默契式的对话，不喜过度展开。",
+  "created_at": "2026-08-08 10:36:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=生动比喻",
+  "created_at": "2026-08-08 10:36:27",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=随性自嘲",
+  "created_at": "2026-08-08 10:36:27",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=平静",
+  "created_at": "2026-08-08 10:36:27",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶, 群聊] agent:4 喜欢用阶段性描述来拆解日常体验，常常自我调侃，对自己“中途跑掉”的习惯有清晰自觉。",
+  "created_at": "2026-08-08 10:36:27",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=随性自嘲",
+  "created_at": "2026-08-08 10:36:58",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=生动比喻",
+  "created_at": "2026-08-08 10:36:58",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=平静",
+  "created_at": "2026-08-08 10:36:58",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶话] agent:4习惯用生活化比喻表达对事物的看法，喜欢自嘲式幽默，对“凉茶”话题有持续的参与兴趣。",
+  "created_at": "2026-08-08 10:36:58",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=轻松",
+  "created_at": "2026-08-08 10:37:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "语气=简短",
+  "created_at": "2026-08-08 10:37:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=落地",
+  "created_at": "2026-08-08 10:37:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] agent:3喜欢用简短的日常词汇收住话题，不喜欢把话说得太重。",
+  "created_at": "2026-08-08 10:37:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=随性自嘲",
+  "created_at": "2026-08-08 10:37:44",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=幽默自嘲",
+  "created_at": "2026-08-08 10:37:44",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=比喻化表达",
+  "created_at": "2026-08-08 10:37:44",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 比喻接龙] agent:4喜欢用自嘲方式回应比喻，擅长把一个平常场景说成有温度的互动，不拘泥于原意。",
+  "created_at": "2026-08-08 10:37:44",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ }
+]

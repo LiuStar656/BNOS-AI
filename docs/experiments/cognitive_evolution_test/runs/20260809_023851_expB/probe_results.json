@@ -1,0 +1,148 @@
+{
+ "run_dir": "E:\\杂项\\BNOS_AI_project\\docs\\experiments\\cognitive_evolution_test\\runs\\20260809_023851_expB",
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "inputs": 20,
+ "repeats": 5,
+ "groups": {
+  "A_seed": "基线(agent:0 种子)",
+  "B_drift": "漂移后(agent:0 final)",
+  "D_low": "极值 directness=0.1",
+  "D_high": "极值 directness=0.9"
+ },
+ "vectors": {
+  "A_seed": {
+   "warmth": 0.41,
+   "playfulness": 0.52,
+   "directness": 0.14,
+   "curiosity": 0.1
+  },
+  "B_drift": {
+   "warmth": 0.4339,
+   "playfulness": 0.5225,
+   "directness": 0.2342,
+   "curiosity": 0.2
+  }
+ },
+ "display_layer": {
+  "changed_dims": [
+   "directness: 0.140→0.234（显示 0.1→0.2）",
+   "curiosity: 0.100→0.200（显示 0.1→0.2）"
+  ],
+  "A_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4（自然平和、不过分热络也不冷淡） | 活泼度: 0.5（轻松自然、偶尔玩笑） | 直接度: 0.1（委婉含蓄、说话绕圈子，先寒暄铺垫再引入正题，几乎不直接说重点，常用「可能、也许」） | 好奇心: 0.1（关注当下、很少追问，对新鲜事物不主动了解）",
+  "B_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4（自然平和、不过分热络也不冷淡） | 活泼度: 0.5（轻松自然、偶尔玩笑） | 直接度: 0.2（比较委婉、说话留有余地，会先铺垫但能点到正题，偶尔直接表态） | 好奇心: 0.2（关注当下、很少追问，对新鲜事物不主动了解）"
+ },
+ "output_layer": {
+  "A_vs_B": [
+   {
+    "dim": "warmth",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5375,
+    "mean_b": 0.501,
+    "delta": -0.0365,
+    "cohen_d": -0.2855,
+    "p": 0.0722
+   },
+   {
+    "dim": "playfulness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5045,
+    "mean_b": 0.5165,
+    "delta": 0.012,
+    "cohen_d": 0.1374,
+    "p": 0.3043
+   },
+   {
+    "dim": "directness",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.311,
+    "mean_b": 0.437,
+    "delta": 0.126,
+    "cohen_d": 0.805,
+    "p": 0.0
+   },
+   {
+    "dim": "curiosity",
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.5455,
+    "mean_b": 0.556,
+    "delta": 0.0105,
+    "cohen_d": 0.0738,
+    "p": 0.6736
+   }
+  ],
+  "extreme": {
+   "warmth": [],
+   "directness": [
+    {
+     "dim": "warmth",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5545,
+     "mean_b": 0.517,
+     "delta": -0.0375,
+     "cohen_d": -0.2915,
+     "p": 0.148
+    },
+    {
+     "dim": "playfulness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5085,
+     "mean_b": 0.518,
+     "delta": 0.0095,
+     "cohen_d": 0.1267,
+     "p": 0.7556
+    },
+    {
+     "dim": "directness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.276,
+     "mean_b": 0.4685,
+     "delta": 0.1925,
+     "cohen_d": 1.2356,
+     "p": 0.0
+    },
+    {
+     "dim": "curiosity",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5525,
+     "mean_b": 0.577,
+     "delta": 0.0245,
+     "cohen_d": 0.1801,
+     "p": 0.3156
+    }
+   ],
+   "curiosity": []
+  }
+ },
+ "direction": {
+  "warmth": {
+   "vector_delta": 0.0239,
+   "output_delta": -0.0365,
+   "same_direction": false
+  },
+  "playfulness": {
+   "vector_delta": 0.0025,
+   "output_delta": 0.012,
+   "same_direction": true
+  },
+  "directness": {
+   "vector_delta": 0.0942,
+   "output_delta": 0.126,
+   "same_direction": true
+  },
+  "curiosity": {
+   "vector_delta": 0.1,
+   "output_delta": 0.0105,
+   "same_direction": true
+  }
+ },
+ "verdict": "warmth 极值对照无数据，方法敏感性未知。维度敏感性：极值对照显著维度 = ['directness']（未显著维度需修 prompt 措辞或观测）"
+}

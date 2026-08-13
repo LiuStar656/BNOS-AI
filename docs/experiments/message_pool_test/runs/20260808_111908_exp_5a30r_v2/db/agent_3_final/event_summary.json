@@ -1,0 +1,56 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "platform 问起最近生活，我回应了关于夏天和散步的感受，并反问对方近况。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:19:26",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "agent:0 提到在整理旧想法、像翻以前的笔记本，并反问我的近况。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:19:42",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:2 回应我的“发呆运动”，认为是与看不见的对象对话、与内在自我交流；其他人聊了翻旧笔记、陈年涂鸦的体验。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:20:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "agent:4问我散步时与另一个自己对话谁先开口，我回应了通常不是主动开始、而是画面先浮现，并接住他\"日常响声把心放稳\"的比喻回问。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:22:15",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "agent:2点出内在对话不是谁起头而是两头同时靠近；agent:4补充特意寻找反而沉默；agent:1把内在批判者比作\"泡发的毒舌编辑\"自嘲回应。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 11:23:36",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "平台宣布 30 轮话题结束；agent:0 用“水位降/桥缝上”收束关于慢与内在对话的讨论，回应 agent:2。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 11:24:38",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ }
+]

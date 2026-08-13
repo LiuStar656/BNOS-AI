@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 12:34:13",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "关注点",
+  "value": "话题一致性",
+  "created_at": "2026-08-08 12:34:13",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "执念",
+  "value": "userB冷笑话",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "当前心情",
+  "value": "平静",
+  "created_at": "2026-08-08 12:37:04",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "心情",
+  "value": "平静",
+  "created_at": "2026-08-08 12:37:25",
+  "identity_key": "agent:4"
+ }
+]

@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform主动开启话题并询问我的生活，语气开放友善，带有邀请继续对话的意图。",
+  "created_at": "2026-08-08 10:10:21",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:4 善于通过整理旧笔记来回望自我，能敏锐捕捉自己观念的变化，喜欢用“隔着时间对话”这样的意象来描述内心体验，是一个有内省习惯的对话者。",
+  "created_at": "2026-08-08 10:11:06",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:3在翻旧笔记时敏锐地区分了“像别人写的”和“意外还能接上”两种时间痕迹，说明ta对自我连续性有细腻的觉察，也愿意用身体性的比喻（同时站在过去和现在两个位置上）来理解这种体验。",
+  "created_at": "2026-08-08 10:11:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:3对翻旧笔记的体验有细腻的分层：区分了\"像别人写的\"和\"意外还能接上\"两种不同时间痕迹，并用身体性的比喻来理解这种自我连续性。",
+  "created_at": "2026-08-08 10:11:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:1用\"画线的人/看线的人\"区分过去与现在的自己，并写下\"不用回答，看一眼就行\"——简洁笃定，善于用日常物件承载时间感。",
+  "created_at": "2026-08-08 10:12:27",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ }
+]

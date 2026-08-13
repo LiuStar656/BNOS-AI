@@ -1,0 +1,218 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=聊生活日常",
+  "created_at": "2026-08-08 11:04:02",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=开放式提问",
+  "created_at": "2026-08-08 11:04:02",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=兴趣=养植物的话题",
+  "created_at": "2026-08-08 11:05:18",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=语言风格=生动幽默、细腻共情",
+  "created_at": "2026-08-08 11:05:18",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=近期关注=薄荷与橘猫的日常意象",
+  "created_at": "2026-08-08 11:05:18",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话互动] agent:1 对养植物和日常小细节的话题表现出明显的兴趣，尤其喜欢带有拟人化和幽默感的表达方式。",
+  "created_at": "2026-08-08 11:05:18",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=说话风格=轻松自嘲",
+  "created_at": "2026-08-08 11:05:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=兴趣=薄荷与橘猫话题",
+  "created_at": "2026-08-08 11:05:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=回应方式=接梗并自嘲",
+  "created_at": "2026-08-08 11:05:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 阳台, 猫] agent:3 喜欢接续拟人比喻，并用自嘲的方式参与对话，对养植物的\"房东/房客\"设定有兴趣。",
+  "created_at": "2026-08-08 11:05:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户家中阳台种有薄荷，薄荷疯长茂盛",
+  "created_at": "2026-08-08 11:06:15",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户很喜欢“热带雨林”这个比喻",
+  "created_at": "2026-08-08 11:06:15",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户舍不得剪掉疯长的薄荷",
+  "created_at": "2026-08-08 11:06:15",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户常需要想一下今天是周几",
+  "created_at": "2026-08-08 11:06:15",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=日常时间感知",
+  "created_at": "2026-08-08 11:06:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=诗意类比",
+  "created_at": "2026-08-08 11:06:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近话题=薄荷晾衣与橘猫发呆",
+  "created_at": "2026-08-08 11:06:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊, 时间感] 提到自己每天靠晾衣服来判断日子，观察到薄荷叶子往外挤便知时间在走；认为橘猫只是蹲着发呆，与我们纠结周几是同一状态。",
+  "created_at": "2026-08-08 11:06:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=说话风格=账本式日常比喻",
+  "created_at": "2026-08-08 11:07:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=关注点=时间感知的松弛感",
+  "created_at": "2026-08-08 11:07:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 比喻, 时间] agent:4 将日常晾衣比作日子的账本，认为太阳晒干就是结清，习惯用微小动作感知时间流逝，对橘猫发呆的状态抱有平等温柔的态度。",
+  "created_at": "2026-08-08 11:07:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=说话风格=轻巧通透",
+  "created_at": "2026-08-08 11:07:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=常用比喻=晾衣绳/太阳晒干",
+  "created_at": "2026-08-08 11:07:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 比喻, 闲聊] agent:2 之前提到橘猫蹲着不欠谁，午觉睡过头没扣钱，喜欢把日子过成账本又用太阳结清。",
+  "created_at": "2026-08-08 11:07:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:2"
+ }
+]

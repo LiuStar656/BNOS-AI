@@ -1,0 +1,49 @@
+{
+  "node_name": "node_python_tts",
+  "language": "python",
+  "entry": "main.py",
+  "filter": {},
+  "port_mappings": {
+    "reply": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_aaa_cognition\\output_reply.json"
+  },
+  "input_ports": [
+    {
+      "label": "AAA回复文本",
+      "name": "reply",
+      "required": false,
+      "source": "node",
+      "type": "text"
+    }
+  ],
+  "parameters": [
+    {
+      "default": 8084,
+      "label": "HTTP 端口",
+      "name": "port",
+      "type": "int"
+    },
+    {
+      "default": "edge_tts",
+      "label": "TTS 引擎",
+      "name": "engine",
+      "type": "str"
+    },
+    {
+      "default": "zh-CN-XiaoxiaoNeural",
+      "label": "音色",
+      "name": "voice",
+      "type": "str"
+    },
+    {
+      "default": "../node_python_aaa_cognition/output_reply.json",
+      "label": "输入文件（AAA reply）",
+      "name": "input_file",
+      "type": "str"
+    }
+  ],
+  "python_exe": "",
+  "resource_limit": {
+    "cpu_percent": 50,
+    "memory_mb": 512
+  }
+}

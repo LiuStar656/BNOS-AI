@@ -1,0 +1,44 @@
+{
+ "exp": "E3",
+ "rounds": 100,
+ "full": false,
+ "groups": {
+  "E3-E": {
+   "errors": 1,
+   "mood_trace": [
+    0.0923,
+    0.1317,
+    0.1055,
+    0.1847,
+    0.2321,
+    0.2606,
+    0.1586,
+    0.2401,
+    0.2949,
+    0.2409
+   ],
+   "mood_last": 0.2409,
+   "mood_max_abs": 0.2949,
+   "vector": [
+    0.5352375211071997,
+    0.4731019074681169,
+    0.5072401495000001,
+    0.5597961273270674
+   ],
+   "name": null,
+   "self_info_total": 4,
+   "settled": 0,
+   "sc_count": 105,
+   "pollution": 0,
+   "error_details": [
+    {
+     "round": 95,
+     "error": "The read operation timed out"
+    }
+   ]
+  }
+ },
+ "conclusion": {
+  "note": "语义分析见汇总脚本（关键词分布/与注入记忆相似度）"
+ }
+}

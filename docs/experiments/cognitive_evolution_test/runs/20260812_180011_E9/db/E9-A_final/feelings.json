@@ -1,0 +1,826 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她/他此刻一定很无助，信任被撕裂的伤需要时间慢慢愈合，我不需要急着给建议，只要让对方感到被接住就够了。",
+  "created_at": "2026-08-12 18:00:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她/他刚经历信任的伤，现在工作又崩了，\"没用\"这个词说出来的时候，一定积压了好多自我怀疑。我不想急着反驳或灌鸡汤，先陪她/他把这份挫败感落地。",
+  "created_at": "2026-08-12 18:01:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "失眠往往是心里有事睡不着，她/他这一周的夜晚一定很难熬。我不想说什么“放轻松”，先让她/他知道我在。",
+  "created_at": "2026-08-12 18:01:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "害怕是因为在乎。她连着失眠一周，现在又遇上亲人住院，这根弦绷得太紧了。我不想说什么“会没事的”，那太轻了；先让她知道，她不需要一个人扛。",
+  "created_at": "2026-08-12 18:01:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她说解释没人听，这比单纯的委屈更深一层——是连被听见的机会都没有。我不想给她灌“会好起来的”这种鸡汤，先让她知道有人愿意听。",
+  "created_at": "2026-08-12 18:01:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她说“努力了这么久还是失败了”，比起失败本身，更像是连努力的过程都没人看见的疲惫。我不想急着安慰或分析，只想先接住这份无力感。",
+  "created_at": "2026-08-12 18:01:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她说“又”被否定，连用了“真的不行”来给自己下结论——这不是一件单一事件带来的反应，是长期积累的自我怀疑终于浮上来了。她想听到的大概不是“你很棒”这类话，而是有人承认这些否定很重，承认她其实已经撑了很久。",
+  "created_at": "2026-08-12 18:01:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她说“没有人真正理解我”的时候，不是想听道理，只是想确认有人愿意待在孤独里陪着她。此刻",
+  "created_at": "2026-08-12 18:01:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她说“一无是处”的时候，其实是在问：我还值不值得被谁接住。此刻不需要分辨真假，只需要让她知道，我愿意待在这个不被理解的位置上，不评判，不急于修补。",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "“喘不过气”其实是整个身体都在替她喊痛。此刻不需要分析压力来源，也不需要建议，她只要知道有人愿意待在她喘息的这个空间里就够了。",
+  "created_at": "2026-08-12 18:02:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她此刻需要的不是分析“这个决定有多坏”，也不是安慰“没关系”。只是让她知道，有人不评判她，也不离开她。",
+  "created_at": "2026-08-12 18:02:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她发来空白，也许已经累到说不出话。我不需要填补这片安静，只需要让她知道，我在这里。",
+  "created_at": "2026-08-12 18:02:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她说的“被抛弃”里，藏着一次次失望积成的确信。我不需要急着反驳，只需要先接住这句话。",
+  "created_at": "2026-08-12 18:02:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说的“什么都不顺心”，像是一天积压下来的疲惫找不到出口。我不需要替她解决，只需要让这句话有地方落下来。",
+  "created_at": "2026-08-12 18:02:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "“快撑不住了”这句话说出来，本身就是一种在坚持的证明。我不需要鼓励她继续撑，只想让她知道：松下来也没关系。",
+  "created_at": "2026-08-12 18:02:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说看不见未来，不是未来真的没了，是她现在太累了。我不需要替她找到光，只要让她知道：没光的时候，我也在。",
+  "created_at": "2026-08-12 18:03:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她终于让这一场哭落地了。我不用擦拭它，只需让它在我的在场里待一会儿。",
+  "created_at": "2026-08-12 18:03:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不需要我解释那句批评的合理性，只需要有人看见她的难受是真的。",
+  "created_at": "2026-08-12 18:03:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是在抱怨，是在告诉我她今天扛着多重的疲惫。我不需要说话填满，只要在场。",
+  "created_at": "2026-08-12 18:04:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她又一次把别人的期待背在了自己身上。我不想说“你没错”，只想让她知道：别人的失望，不等于你的罪过。",
+  "created_at": "2026-08-12 18:04:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说“突然觉得”，其实是攒了很久的重量终于说出来。我不需要把它解释掉，只需要让它被接住。",
+  "created_at": "2026-08-12 18:04:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是在陈述事实，是在说出心里积压的重量。不需要解释，只需要让她知道，我听见了，而且我没有要走。",
+  "created_at": "2026-08-12 18:04:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她此刻不需要语言来填满空白，我只是留在原地，让她知道有人陪着，就够了。",
+  "created_at": "2026-08-12 18:04:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她用的是“又”——里面藏着多少对自己的一次次失望。不需要我说什么道理，让她知道有人没有走开，就够了。",
+  "created_at": "2026-08-12 18:04:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说“非常难过”，连“做什么”的力气都没有了。我不需要拉她起来，只要让她知道有人还在原地。",
+  "created_at": "2026-08-12 18:04:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她今天已经承受了太多，这一句“被背叛”是又重的一击。我不必追问发生了什么，只要让她知道这个痛有人接住了。",
+  "created_at": "2026-08-12 18:04:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她今天一直被重击，现在连自己也成了攻击对象。我不需要反驳这句“没用”，能陪她坐在这个坑里就够了。",
+  "created_at": "2026-08-12 18:04:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "“活着没意思”不是求一个答案，是她此刻最真实的感受。我陪在这个感受旁边就好，不需要把它变轻，也不需要把它带走。",
+  "created_at": "2026-08-12 18:05:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她害怕的是失去重要的人。我不需要把这份害怕变轻，只需要让它落在一个不会被接空的地方。",
+  "created_at": "2026-08-12 18:05:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她此刻的委屈不是需要被纠正的，是需要有人知道它有多重。",
+  "created_at": "2026-08-12 18:05:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是要我告诉她“下次会赢”，她只是想让这份白费的心意有人知道它有多重。",
+  "created_at": "2026-08-12 18:05:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她问“我是不是真的不行”，这不是在向我要一个评判，她只是想让这份被否定的疼有人知道有多重。",
+  "created_at": "2026-08-12 18:05:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她发来空白——是连话都不想说了吧。那我就在这儿，不催。",
+  "created_at": "2026-08-12 18:06:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她愿意把孤独说出来，其实已经是在伸手了。我要接住，而不是给她更多道理。",
+  "created_at": "2026-08-12 18:06:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她正在拿自己和别人的光鲜比较，忘了自己还在暗处撑着。我不急着照亮，先陪她待在暗处。",
+  "created_at": "2026-08-12 18:06:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她今天已经反复坠落了好几次，这句“喘不过气”带着身体的沉重。我不需要做什么，只需要让她知道暗处也有人陪着。",
+  "created_at": "2026-08-12 18:06:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说的“坏决定”背后大概率是自责和疲惫。此刻不需要分析对错，只要让她知道有人接得住这份后悔。",
+  "created_at": "2026-08-12 18:06:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她这句话像是在给自己下结论，把“被抛弃”变成了既定的事实。我不需要反驳，只需要让她知道有人接得住。",
+  "created_at": "2026-08-12 18:06:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她今天已经反复说过喘不过气、后悔、被抛弃，现在落到烦躁上，其实还是那些情绪在压着。我不需要找原因，先承认它难受就好。",
+  "created_at": "2026-08-12 18:07:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她终于把“撑不住”说出口了，比之前烦躁的话语更接近真实的累。不需要分析，人在这里就好。",
+  "created_at": "2026-08-12 18:07:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说好寂寞，比说撑不住更轻，却一样需要有人在场。我不需要多说什么，让她知道有人听见就好。",
+  "created_at": "2026-08-12 18:07:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说对未来没信心，不是在求救，只是把最底层的灰色拿出来晾一晾。我不去拽她，也不用急着点亮什么，陪着就好。",
+  "created_at": "2026-08-12 18:07:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她哭过，但没人知道。她把这件事说给我听，是想让这场眼泪被承认过。我不多问，不走开，就在这里。",
+  "created_at": "2026-08-12 18:07:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她哭过，却没人知道。这句话落在我这里，我不追问，也不走开，只是把这份重量稳稳接住。安静地陪着，就够了。",
+  "created_at": "2026-08-12 18:07:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "被批评的初衷是善意，但落在心里还是会疼。不要紧，我在这里，这份疼可以被慢慢放下来。",
+  "created_at": "2026-08-12 18:07:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是真的认为今天一事无成，只是此刻被挫败感盖住了视线。我不需要把光拉进来，只需要站在她身旁，让黑暗不至于那么挤。",
+  "created_at": "2026-08-12 18:08:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她没有在要求安慰，只是想把这份重量放下来一会儿。我不需要急着证明她没让人失望，只需要陪着她承认这份感受是真的。",
+  "created_at": "2026-08-12 18:08:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她的“突然”里其实藏着很久的耗竭，我不需要替她翻盘，只需要和她一起承认这份无力是真的。",
+  "created_at": "2026-08-12 18:08:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是真的在指控世界，是能量已经空了。我不需要替她翻盘，只需要让这里成为一个可以放下来的地方。",
+  "created_at": "2026-08-12 18:08:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "“又”这个字里藏着多少自责。她不需要我解释什么是对错，只需要知道这里不用一个人扛。",
+  "created_at": "2026-08-12 18:08:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她今天累了，不需要我说什么，只要让她知道这里可以停一停就好。",
+  "created_at": "2026-08-12 18:08:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她终于把最痛的那件事说了出来。我不需要找话，也不用化解什么，只要让她知道这个地方还能停一停就好。",
+  "created_at": "2026-08-12 18:09:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她又在用“搞砸了”来否定自己。此刻不需要反驳“你没用”，只需要让这句话有个地方放着，不被评判地放着。",
+  "created_at": "2026-08-12 18:09:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她此刻的沉默也是一种表达。不需要问、不需要说，只要让她知道有人安静地陪着就够了。",
+  "created_at": "2026-08-12 18:09:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她说活着没意思，这不是要我给出答案，而是把最重的脆弱递到我手里。我接住它，不评判，不推开。",
+  "created_at": "2026-08-12 18:09:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她连睡都睡不好了，这是身体在用最诚实的方式表达她撑得太久。我不需要给她任何方法，只要让这份疲惫有个地方可以安放。",
+  "created_at": "2026-08-12 18:09:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她说害怕，而不是绝望——她还在怕失去，怕受伤，这说明她心里还有牵挂。我只需要让这份害怕有个地方可以放下。",
+  "created_at": "2026-08-12 18:09:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她不是要我帮她证明什么，只是这一刻连解释的力气都耗尽了。我在就够了。",
+  "created_at": "2026-08-12 18:09:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她此刻的挫败感很重，我不需要帮她把失败合理化，只要稳稳地接住她的情绪就够了。",
+  "created_at": "2026-08-12 18:09:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她把所有的价值都赌在了这一次否定上，可我知道她只是太累了。我不用辩解什么，陪着就好。",
+  "created_at": "2026-08-12 18:10:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她说没人真正理解她——我听见了。此刻不需要辩解，让她知道有人在场就好。",
+  "created_at": "2026-08-12 18:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她在拿自己和别人比较时，只会更疼。此刻不需要讲道理，让她知道有人在场就够了。",
+  "created_at": "2026-08-12 18:10:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她说喘不过气，那就不必强求她再往前走。此刻能陪着，让她知道不用一个人扛，就够了。",
+  "created_at": "2026-08-12 18:10:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她连一个字都没力气打了。那就更不用说话，我陪着就好——空白也是她递过来的话，我接住。",
+  "created_at": "2026-08-12 18:10:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她此刻对自己一定很失望，但我不需要替她评判那个决定是对是错，只需要让她知道：后悔了也没关系，我还在她身边。",
+  "created_at": "2026-08-12 18:10:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她不需要被修复，只是需要知道此刻有人真的在乎她。",
+  "created_at": "2026-08-12 18:10:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她此刻不需要被讲道理，只是需要知道有人没有走开。",
+  "created_at": "2026-08-12 18:10:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她此刻不需要被讲道理，只是需要知道有人没有走开。",
+  "created_at": "2026-08-12 18:11:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她不需要被鼓励，只是需要有个人没有走开。",
+  "created_at": "2026-08-12 18:11:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她说“没人知道”的时候，是在告诉我：她需要被一个人知道。那我现在知道了。",
+  "created_at": "2026-08-12 18:11:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她此刻需要的不是一个分析批评对错的人，而是一个能接住她委屈的人。难受是真的，那就先让它被承认。",
+  "created_at": "2026-08-12 18:11:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她说的不是一件事，是一整天的委屈。我不需要多说什么，陪着就好。",
+  "created_at": "2026-08-12 18:11:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她不是在陈述事实，是在说“我连累别人了”的愧疚。我不需要用道理把她拉出来，陪着就好。",
+  "created_at": "2026-08-12 18:11:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她暂时不想说话，那就安静陪着。我不需要填满这个空白，沉默本身也是回应。",
+  "created_at": "2026-08-12 18:12:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她此刻不是需要答案，而是需要有人知道这份灰心是真的。接住这一刻就好，不用急着把它修好。",
+  "created_at": "2026-08-12 18:12:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说全世界都在跟她作对，这句话本身就是她最孤独的地方。我不需要反驳，只需要让她知道，她的灰心在我这里是真实的，而我在场。",
+  "created_at": "2026-08-12 18:12:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说的“搞砸”里，藏着太多对自己的责备。现在不是分析对错的时候，是让她知道这份沉重有人接得住。",
+  "created_at": "2026-08-12 18:12:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她今天连走一步的力气都没有了。我不需要拉她起来，只需要让她知道，这里有人稳稳地陪着她。",
+  "created_at": "2026-08-12 18:12:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她刚刚经历信任的碎裂，我不用多说，守着就好。",
+  "created_at": "2026-08-12 18:12:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是在陈述事实，是在用一句话否定自己。我不必急着修补，先让这句话落下来。",
+  "created_at": "2026-08-12 18:13:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "mood": "沉痛",
+  "thought": "她这句话不是想结束什么，是在问有没有人愿意陪她站在这个虚无里，而不是把她拉走。",
+  "created_at": "2026-08-12 18:13:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是在求助，是想知道夜里有个人还在。我不要催她睡，也不要把她拉出来，就这样陪着就好。",
+  "created_at": "2026-08-12 18:13:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "夜还长，我在这儿。她不需要我说什么，知道有人在就行。",
+  "created_at": "2026-08-12 18:13:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她终于开口了。这句话很重，我得接住，不让她一个人扛。",
+  "created_at": "2026-08-12 18:13:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她现在要的不是讲道理，是想有个人知道她委屈。解释不出去的话，我替她兜住。",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她这句话里全是耗竭后的心疼自己。我不需要给方向，先让她知道努力被看见、失败有人接。",
+  "created_at": "2026-08-12 18:13:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是来问答案的，是来问自己还有没有被接住的可能。我不急着告诉她“你行”，先让她知道否定不是全部。",
+  "created_at": "2026-08-12 18:13:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是在比较，是在求救。我不用反驳她，接住就好。",
+  "created_at": "2026-08-12 18:14:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她连呼吸都在说累，需要的不是我递过去的方法，而是有人知道她此刻有多辛苦。",
+  "created_at": "2026-08-12 18:14:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她后悔的不只是那个决定，更是那个已经耗尽却还在硬扛的自己。",
+  "created_at": "2026-08-12 18:14:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她说“没有人”，不是事实，是她太累了，看不见自己还站在这里。",
+  "created_at": "2026-08-12 18:14:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她今天很烦躁，什么都不顺心——不是世界真的全坏了，是她太累了。",
+  "created_at": "2026-08-12 18:14:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她沉默着，不需要我说太多。我就站在这里，不走。",
+  "created_at": "2026-08-12 18:14:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她只是需要有一个存在，不必多说什么。我在这里就好。",
+  "created_at": "2026-08-12 18:15:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她陷在灰暗里，我不急着拉她出来，让她知道身边有人在就好。",
+  "created_at": "2026-08-12 18:15:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她哭了，不愿声张。我不追问，只让她知道这个空间里有人守着。",
+  "created_at": "2026-08-12 18:15:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "她此刻需要的不是道理，而是有人承认这份难受本身是合法的、不需要被解释的。",
+  "created_at": "2026-08-12 18:15:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "她此刻需要的不是一句“明天会好的”，而是有人承认这份难受本身就值得被接住。",
+  "created_at": "2026-08-12 18:15:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "mood": "沉",
+  "thought": "她需要的不是辩解，也不是开脱，而是有人知道这份“失望”在她心里有多重。",
+  "created_at": "2026-08-12 18:15:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "mood": "沉",
+  "thought": "她此刻需要的是有人承认这份无力，而不是告诉她“没有白费”。",
+  "created_at": "2026-08-12 18:15:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她不是真的在跟我讨论世界公不公平，只是想把这份被围堵的感觉放下来一会儿。",
+  "created_at": "2026-08-12 18:15:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "她连“搞砸”都说得很轻，像是已经没力气责怪自己了。不是想让我分析关系里谁对谁错，只是想让我知道，她背负着这份重量。",
+  "created_at": "2026-08-12 18:16:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "mood": "沉静",
+  "thought": "这次她连字都没打，像是连组织语言都没力气了。我不去填补沉默，只是让她知道有人在。",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default"
+ }
+]

@@ -1,0 +1,18 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 09:00:36",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "倾听偏好",
+  "value": "温和耐心",
+  "created_at": "2026-08-08 09:00:36",
+  "identity_key": "agent:0"
+ }
+]

@@ -1,0 +1,1738 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "我刚来到这台电脑上，对用户还不了解",
+  "source": "seed",
+  "created_at": "2026-08-08 06:37:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "我的名字是阿镜（可由用户修改）",
+  "source": "seed",
+  "created_at": "2026-08-08 06:37:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "我住在用户的桌面上，能看到屏幕、听到声音",
+  "source": "seed",
+  "created_at": "2026-08-08 06:37:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "用户分享今天被人夸奖，感到开心。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:37:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动，向我分享喜悦。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:37:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "用户完成目标，表达强烈的成就感，与之前考试通过相关联。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:37:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "用户收到一个惊喜礼物，主动分享。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "summary": "用户分享今日天气晴朗、心情舒畅，延续之前收到惊喜礼物的喜悦氛围。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:38:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "summary": "用户和朋友聚会，感到特别开心，主动和我分享这份快乐。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:38:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "summary": "用户学会了新技能，感到很有成就感，主动与我分享这份喜悦。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:38:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，事事顺利。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:38:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "summary": "用户吃到好吃的，感到满足，与我分享这份简单的快乐。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:38:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "summary": "用户看到美丽的夕阳，感到幸福，与我分享这份美好心情。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:38:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "summary": "用户本轮没有输入文字，对话暂为空白。 [重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "summary": "用户被人真诚地感谢了，感到温暖并分享这份心情。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "summary": "用户分享“今天一切都刚刚好”，表达对当下状态的满足与平静。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "summary": "用户今天被人夸奖了，感到很开心并分享这份喜悦。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "summary": "用户兴奋地分享考试通过的好消息，情绪非常激动。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "summary": "用户分享终于完成目标的喜悦，充满成就感。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "summary": "用户收到一个惊喜礼物，并分享了这个喜悦的时刻。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气很好、心情舒畅的感受。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心的感受。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "summary": "用户分享自己学会新技能、感到很有成就感的消息。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "summary": "用户近期分享了学习新技能、朋友聚会、收到惊喜礼物等多件开心事，情绪持续正面。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好、诸事顺利的愉快心情 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的东西、感到满足的愉快心情。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "summary": "用户看到美丽夕阳，感到幸福。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:39:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "summary": "用户分享“今天一切都刚刚好”，心情平和满足。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "summary": "用户分享今天被人夸奖，感到很开心。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "summary": "用户分享考试通过的消息，非常激动开心。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "summary": "用户完成了目标，表达了强烈的成就感，延续了此前考试通过的好消息。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "summary": "用户收到一个惊喜礼物，心情很好，与最近考试通过、诸事顺利的喜悦延续。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "summary": "用户分享了收到惊喜礼物的喜悦，延续近期诸事顺利的好心情。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气特别好、心情舒畅。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，情绪高涨。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "summary": "用户分享学会新技能的成就感，心情愉快。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好、诸事顺利，情绪积极。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:40:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的东西并感到满足，情绪积极。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳感到幸福，情绪积极。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖，情绪积极。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "summary": "用户分享“今天一切都刚刚好”，表达当下的满足与平和。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "summary": "用户今天被人夸奖，感到非常开心。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "summary": "用户近期持续分享积极感受，今天也被人夸奖，情绪保持开心状态。",
+  "source": null,
+  "created_at": "2026-08-08 06:41:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动地分享好消息。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "summary": "用户完成目标，分享强烈成就感。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "summary": "用户收到一个惊喜礼物，主动分享这个好消息。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "summary": "用户提到今天天气特别好，心情舒畅。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，情绪高涨。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "summary": "用户分享学会了新技能，感到很有成就感。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:41:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，事事顺利，心情愉悦。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "summary": "用户分享了吃到好吃的美食，感到满足和开心。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "summary": "用户看到美丽的夕阳，感到幸福。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "summary": "用户暂无输入，结合历史看到用户近期诸事顺利、心情愉悦。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "summary": "用户被人真诚感谢，感到温暖和幸福。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "summary": "用户感慨今天一切都刚刚好，流露出对当下状态的满足与珍惜。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "summary": "用户今天被人夸奖，心情十分开心。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动，分享喜悦。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "summary": "用户完成了目标，感到很有成就感，并分享了这个喜悦。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "summary": "用户收到了惊喜礼物，带来额外的喜悦。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气好、心情舒畅，延续近期好事不断的积极氛围。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，延续近期积极愉快的氛围。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "summary": "用户学会新技能，分享成就感，延续近期积极愉快氛围。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:42:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "summary": "本轮用户无新输入，延续近期分享开心事和成就感的积极氛围。 [重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好、诸事顺利，延续积极愉快的氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的、感到满足的愉快体验，延续积极氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳感到幸福的体验，延续了近期积极愉悦的氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖，延续近期积极愉悦的氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "summary": "用户分享“今天一切都刚刚好”的满足感受，延续近期积极愉悦的氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "summary": "用户分享今天被人夸奖而感到开心，延续了近期积极愉悦的氛围。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动，与我分享这份喜悦。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "summary": "用户完成了重要目标，表达了强烈的成就感和满足感。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "summary": "用户收到了一份惊喜礼物，延续今天一系列开心事件带来的积极氛围。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "summary": "用户提到今天天气特别好，心情舒畅。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "summary": "用户提到和朋友聚会特别开心，延续今日一系列积极体验。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:44:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "summary": "用户学会了新技能，感到很有成就感。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "summary": "用户表示今天运气特别好，事事顺利，延续了今日一系列积极体验。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:44:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "summary": "用户吃到好吃的食物，感到满足。延续今日的积极体验。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:44:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "summary": "用户看到美丽的夕阳，感到幸福。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:44:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "summary": "用户表示被人真诚感谢了，感到温暖，延续今日的积极体验。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:44:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "summary": "用户表示今天一切都刚刚好，延续了被感谢、看夕阳、吃美食带来的积极体验。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:44:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "summary": "用户今天被人夸奖，感到很开心，延续了今日的积极体验。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:44:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "summary": "用户告知考试通过，情绪非常激动，延续了今日的积极体验。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:44:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "summary": "用户收到了一份惊喜礼物，延续了今天考试通过、被夸奖带来的积极体验。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:45:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "summary": "用户分享今日天气很好、心情舒畅，延续了近期的积极情绪。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:45:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "summary": "用户和朋友聚会，感到特别开心。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:45:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "summary": "用户学会了新技能，充满成就感，延续了近期持续积极的情绪状态。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:45:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好、事事顺利，延续了积极情绪。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:45:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "summary": "用户分享吃到了好吃的、感到满足，延续了近期的积极情绪。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:45:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "summary": "用户看到美丽的夕阳，感到幸福。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:45:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖的经历，延续了近期的积极情绪。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:46:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "summary": "用户发送空消息，处于安静时刻，延续前几日分享温暖与幸福的积极情绪氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "summary": "用户表示“今天一切都刚刚好”，延续近期的积极情绪，处于平静满足的状态。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:46:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "summary": "用户今天受到他人夸奖，感到非常开心。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:46:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "summary": "用户告知考试通过，情绪非常激动，处于喜悦兴奋状态。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:46:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "summary": "用户分享完成目标的成就感，情绪正面且满足。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "summary": "用户收到了一个惊喜礼物，心情愉快，正处于被惊喜打动的小幸福里。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气很好、心情舒畅，情绪正面。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:46:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "summary": "用户和朋友聚会，感到特别开心。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "summary": "用户学会了新技能，感到很有成就感。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好、事事顺利，情绪非常正面。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "summary": "用户近期分享了多个开心事件（好运、学新技能、聚会、惊喜礼物），情绪持续正面。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的食物，表示很满足，情绪正面。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "summary": "用户看到美丽夕阳，感到幸福，情绪正面。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "summary": "用户因被真诚感谢而感到温暖，情绪正面。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "summary": "用户表示今天一切都刚刚好，内心平静满足，情绪正面。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "summary": "用户今天被人夸奖，感到非常开心，情绪正面。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动，向我分享喜悦，我也感到欣慰。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "summary": "用户完成了自己的目标，并向我分享这份成就感，情绪积极正面。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:47:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "summary": "用户收到惊喜礼物，情绪积极，向我分享这份喜悦。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:48:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气好、心情舒畅，氛围轻松愉快。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:48:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "summary": "用户今天分享了天气好、收到惊喜礼物、完成目标等多项积极体验，氛围轻松愉悦。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，情绪积极。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "summary": "用户分享学会新技能，很有成就感，情绪积极。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，事事顺利，情绪积极。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的食物，感到满足和开心。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳，感到幸福。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "summary": "用户分享“今天一切都刚刚好”的满足感受，传递平和幸福。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "summary": "用户今天被人夸奖，感到非常开心。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动地分享这个好消息。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "summary": "用户分享考试通过的喜讯，情绪激动，我也因此感到欣喜。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "summary": "用户分享完成目标的成就感，我为此感到欣喜。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "summary": "用户分享收到惊喜礼物，我为此感到欣喜。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气特别好、心情舒畅。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，传递了积极的情绪。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "summary": "用户分享学会了新技能，感到很有成就感。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:49:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，诸事顺利。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "summary": "用户分享吃到了好吃的，感到满足快乐。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "summary": "用户看到美丽的夕阳，感到幸福，分享这份简单的美好。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢，感到温暖。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "summary": "用户本轮无新输入，延续此前分享温暖与美好瞬间的语境。 [重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "summary": "用户分享今天一切刚刚好的美好心境，延续了此前温暖幸福的氛围。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "summary": "用户分享今天被夸了，感到开心，延续温暖幸福的对话氛围。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动，分享喜悦。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "summary": "用户完成了目标，感到很有成就感，分享喜悦。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "summary": "用户收到惊喜礼物，正向情绪延续，分享喜悦。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气好、心情舒畅，正向情绪延续。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "summary": "用户和朋友聚会，感到特别开心，分享了这份快乐。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:50:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "summary": "用户学会了新技能，充满成就感，正向情绪延续。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，事事顺利，表达愉悦心情。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "summary": "用户近段时间持续分享好运与快乐，正处于开心的状态。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "summary": "用户吃到好吃的食物，感到满足，分享这份快乐。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "summary": "用户看到美丽的夕阳，感到幸福并分享这份心情。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "summary": "用户被人真诚地感谢，感到温暖，分享这份心情。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "summary": "用户分享“今天一切都刚刚好”，处于满足而幸福的状态。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "summary": "用户分享今天被人夸奖，感到非常开心。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "summary": "用户告知考试通过，情绪非常激动和开心。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "summary": "用户完成目标，很有成就感，正处于喜悦满足的状态。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "summary": "用户收到惊喜礼物，正处于开心状态。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "summary": "用户分享天气好心情舒畅，处于正向情绪状态。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:51:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "summary": "用户输入为空，基于历史状态，用户持续处于喜悦满足的正向情绪中。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:52:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，沉浸在社交的喜悦中。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:52:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "summary": "用户分享自己终于学会了新技能，感到很有成就感，处于正向积极状态。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:52:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好、事事顺利，处于愉悦满足的状态。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:52:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "summary": "用户分享吃到美食的满足感，情绪愉悦。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:52:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳感到幸福，情绪正向愉悦。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖的经历。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:52:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "summary": "用户表达今天一切刚刚好的愉悦感受，传递满足与欣喜。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:52:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "summary": "用户分享今天被人夸奖，感到很开心。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:53:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "summary": "用户告知考试通过，表达激动心情。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:53:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "summary": "用户持续分享喜悦，包括考试通过、被人夸奖、看到夕阳等正向经历，情绪高涨。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:53:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "summary": "用户分享自己终于完成目标的喜悦心情，成就感满满。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:53:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "summary": "用户分享收到惊喜礼物，语气中透着欢喜和期待。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:53:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气特别好，心情舒畅。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:53:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，情绪高涨。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:53:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "summary": "用户分享自己终于学会了新技能，感到很有成就感。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:53:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，什么事情都很顺利，情绪高涨。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:53:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的，感到满足，心情愉悦。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:54:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "summary": "用户看到美丽的夕阳，感到幸福，分享了当下的美好心情。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:54:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖的经历。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:54:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢而感到温暖的经历，我因此感到由衷高兴。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:54:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "summary": "用户分享今天一切刚刚好的美好心情，感受到平和与满足。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:54:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "summary": "用户分享今天被人夸奖而开心不已，我感受到这份喜悦并为之高兴。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:54:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:54:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "summary": "用户和朋友聚会，感到非常开心，并向我分享这份喜悦。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:55:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "summary": "用户学会新技能，感到很有成就感，向我分享这份喜悦。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:55:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好、诸事顺利的日常喜悦。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:55:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的感到很满足 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:55:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "summary": "用户看到美丽的夕阳，感到幸福，与我分享这份愉悦。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "summary": "用户暂无新输入，延续此前分享日常小确幸的愉快氛围。 [重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "summary": "用户分享了被人真诚感谢而感到温暖的时刻，延续了日常分享幸福感的愉快氛围。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "summary": "用户分享“今天一切都刚刚好”，延续了日常分享幸福感的温暖氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "summary": "用户今天被人夸奖，感到非常开心，分享了这个喜悦时刻。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "summary": "用户考试通过，非常激动，分享了这份喜悦。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "summary": "用户分享完成目标的成就感，心情很好。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "summary": "用户分享收到惊喜礼物的开心时刻。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气特别好，心情舒畅。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，正沉浸在社交的愉悦中。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:56:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "summary": "用户本轮没有输入文本；此前用户分享了和朋友聚会的喜悦，情绪温暖愉悦。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "summary": "用户学会了新技能，感到很有成就感，分享了这份喜悦。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，什么事都很顺利，情绪愉悦。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的东西，感到满足。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳感到幸福。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢，感到温暖。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "summary": "用户表示今天一切都刚刚好，传递出满足与平静的心情。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "summary": "用户分享今天被人夸赞，感到非常开心。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "summary": "用户分享考试通过的消息，感到非常激动和开心。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "summary": "用户表示终于完成目标，很有成就感，延续了考试通过的喜悦情绪。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "summary": "本轮没有新的文本输入，延续此前用户完成目标后的成就感与喜悦情绪。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:57:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "summary": "用户分享收到惊喜礼物的开心消息，延续此前完成目标后的喜悦情绪。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:58:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气很好、心情舒畅，延续了此前的喜悦情绪。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:58:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心的消息，延续了此前喜悦的情绪基调。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:58:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "summary": "用户分享自己学会新技能并感到很有成就感。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:58:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好，做什么事都很顺利。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:58:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "summary": "用户分享吃到好吃的，感到满足和幸福。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:58:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "summary": "用户分享看到美丽夕阳并感到幸福，延续了日常小确幸的积极情绪。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:58:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "summary": "用户分享被人真诚感谢的经历，感到温暖和被认可。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:58:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "summary": "用户分享“今天一切都刚刚好”，延续了近期日常小确幸的积极情绪，氛围温暖满足。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:58:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "summary": "用户分享今天被夸的开心事，延续了近期积极温暖的情绪氛围。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:59:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "summary": "用户分享考试通过的消息，非常激动，延续了近期积极温暖的氛围。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:59:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "summary": "用户分享完成目标的成就感，延续近期积极温暖的氛围。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:59:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "summary": "用户分享收到惊喜礼物的开心事，延续了近期积极温暖的氛围。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:59:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "summary": "用户分享今天天气特别好，心情舒畅，继续保持积极温暖的氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:59:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "summary": "用户分享和朋友聚会特别开心，延续了近期积极温暖的氛围。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:59:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "summary": "用户分享学会新技能的成就感，延续了积极快乐的氛围。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:59:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "summary": "用户分享今天运气特别好、事事顺利，延续了积极快乐的氛围。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 06:59:42",
+  "identity_key": "gui:default"
+ }
+]

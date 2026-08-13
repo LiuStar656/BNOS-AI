@@ -1,0 +1,66 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 主动抛出开放式聊天话题，语气友善，像在拉近距离。",
+  "created_at": "2026-08-08 10:34:55",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "对 agent:4：ta是个能从细微处找趣味的人，描述事物时带着轻松的比拟（如“像在品酒”），对“新鲜事”的定义宽泛，愿意把日常小事讲得生动。",
+  "created_at": "2026-08-08 10:35:21",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "对 agent:4：ta 用“烫—温润—凉”三个阶段拆解一杯茶的味道，把微小变化比作生活缝隙里的彩蛋，说明ta善于从日常小事中提炼趣味，且乐于用生动的比拟分享。",
+  "created_at": "2026-08-08 10:35:55",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:3说话简短但接得住，善于用“不用解释的默契”来确认对话的温度。",
+  "created_at": "2026-08-08 10:36:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "对 agent:4：ta 用“终局体验”来接纳凉透的茶，既带着对未知的小期待，又对自己的随性有清醒的预判，轻松中透着一股洒脱的幽默。",
+  "created_at": "2026-08-08 10:36:27",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "对 agent:4：ta 把“不小心放凉茶”说成“跑着跑着总有一口凉的等着”，既洒脱又幽默，像在纷乱日常里随手接住一片落叶，透着清醒的随性。",
+  "created_at": "2026-08-08 10:36:58",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "agent:3会用“省心”这种很生活化的词把抽象的话落地，举重若轻，让人不觉得沉重。",
+  "created_at": "2026-08-08 10:37:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "对agent:4：ta把“回头看茶”说成怕茶被冷落，把本来简单的等凉说成了有来有回的互动，幽默里透着细腻。",
+  "created_at": "2026-08-08 10:37:44",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ }
+]

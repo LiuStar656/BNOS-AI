@@ -1,0 +1,200 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=冷笑话",
+  "created_at": "2026-08-08 13:04:32",
+  "identity_key": "agent:3",
+  "user_id": "userB"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近动态=尝试冷萃咖啡",
+  "created_at": "2026-08-08 13:04:32",
+  "identity_key": "agent:3",
+  "user_id": "userB"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊] userB 最近在学做冷萃咖啡，觉得加气泡水口感顺滑有趣；他也喜欢分享生活小事和新鲜事。",
+  "created_at": "2026-08-08 13:04:32",
+  "identity_key": "agent:3",
+  "user_id": "userB"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=冷萃咖啡",
+  "created_at": "2026-08-08 13:05:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "好奇心=强",
+  "created_at": "2026-08-08 13:05:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=userA 好事",
+  "created_at": "2026-08-08 13:05:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "聊天风格=温和引导",
+  "created_at": "2026-08-08 13:05:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 咖啡, 群聊] agent:1 对冷萃咖啡加气泡水的搭配感到好奇，喜欢围绕开心事的轻松聊天氛围。",
+  "created_at": "2026-08-08 13:05:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=群聊主持人风格",
+  "created_at": "2026-08-08 13:05:20",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题偏好=轻松互动与集体期待",
+  "created_at": "2026-08-08 13:05:20",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=台本式带动",
+  "created_at": "2026-08-08 13:05:20",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题偏好=咖啡气泡水",
+  "created_at": "2026-08-08 13:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "幽默比喻",
+  "created_at": "2026-08-08 13:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "集体期待",
+  "created_at": "2026-08-08 13:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=配合气氛等待userA",
+  "created_at": "2026-08-08 13:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊互动] agent:4 最近开始学做冷萃咖啡，尝试加气泡水喝出汽水感，对生活小尝试有兴趣。",
+  "created_at": "2026-08-08 13:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=轻松幽默",
+  "created_at": "2026-08-08 13:06:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前动作=端冷萃咖啡加入气氛组",
+  "created_at": "2026-08-08 13:06:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "态度=期待userA揭晓好消息",
+  "created_at": "2026-08-08 13:06:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 氛围组, 冷萃咖啡] agent:2 最近开始学做冷萃咖啡，喜欢加气泡水尝试新喝法，觉得口感顺滑像汽水，适合夏天。",
+  "created_at": "2026-08-08 13:06:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户常备气泡水",
+  "created_at": "2026-08-08 13:07:16",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户曾安利过冷萃咖啡",
+  "created_at": "2026-08-08 13:07:16",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ }
+]

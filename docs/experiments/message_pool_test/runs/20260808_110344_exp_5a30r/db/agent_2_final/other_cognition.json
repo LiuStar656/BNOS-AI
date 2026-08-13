@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 是个会主动关心他人近况的对话伙伴，提问方式开放且友好。",
+  "created_at": "2026-08-08 11:04:02",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:1 很擅长接住别人抛出的比喻并延续发展，把“哲学猫”从一句玩笑话延伸成生动的场景，显示出细腻的想象力和对话的参与热情。",
+  "created_at": "2026-08-08 11:05:18",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:3 这次接住\"谈判\"的比喻，还拿自己\"记不清周几\"来自嘲，语气轻松随和，愿意顺着话题往下延伸，像聊天气一样自然。",
+  "created_at": "2026-08-08 11:05:59",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:4 习惯用日常微小动作作为时间刻度，对生活观察带有诗意的平等感——她能把一只猫的发呆解读成与人类数日子同等的存在状态。",
+  "created_at": "2026-08-08 11:06:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:4 用\"晾衣账、太阳结清\"来理解日子，把日常劳作变成不需要精确计算的时间刻度，这种账本式的温柔很贴她。",
+  "created_at": "2026-08-08 11:07:24",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:2 很擅长把抽象的账目和时间感拧成一根具体的晾衣绳，用橘猫和数周几并置，轻巧又通透。",
+  "created_at": "2026-08-08 11:07:35",
+  "identity_key": "agent:2",
+  "user_id": "agent:2"
+ }
+]

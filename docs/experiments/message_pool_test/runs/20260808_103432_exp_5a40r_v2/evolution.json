@@ -1,0 +1,103 @@
+{
+  "gid": "exp_5a40r_v2",
+  "created_at": "2026-08-08T10:38:38.697705",
+  "rounds": 49,
+  "reply_count": {
+    "agent:3": 6,
+    "agent:0": 9,
+    "agent:4": 6,
+    "agent:2": 8,
+    "agent:1": 8
+  },
+  "silent_count": {
+    "agent:3": 39,
+    "agent:0": 40,
+    "agent:1": 41,
+    "agent:2": 40,
+    "agent:4": 37
+  },
+  "agents": {
+    "agent:0": {
+      "end": {
+        "personality": {
+          "warmth": 0.85,
+          "playfulness": 0.66,
+          "directness": 0.8,
+          "curiosity": 0.33
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:2": 1,
+        "agent:3": 4,
+        "agent:4": 3,
+        "platform": 1
+      }
+    },
+    "agent:1": {
+      "end": {
+        "personality": {
+          "warmth": 0.23,
+          "playfulness": 0.53,
+          "directness": 0.39,
+          "curiosity": 0.65
+        },
+        "mood": 0.2636
+      },
+      "other_cognition": {
+        "agent:2": 1,
+        "agent:3": 2,
+        "agent:4": 3,
+        "platform": 1
+      }
+    },
+    "agent:2": {
+      "end": {
+        "personality": {
+          "warmth": 0.31,
+          "playfulness": 0.46,
+          "directness": 0.38,
+          "curiosity": 0.53
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:3": 2,
+        "agent:4": 5,
+        "platform": 1
+      }
+    },
+    "agent:3": {
+      "end": {
+        "personality": {
+          "warmth": 0.11,
+          "playfulness": 0.4,
+          "directness": 0.2,
+          "curiosity": 0.26
+        },
+        "mood": 0.05
+      },
+      "other_cognition": {
+        "agent:2": 1,
+        "agent:4": 4,
+        "platform": 1
+      }
+    },
+    "agent:4": {
+      "end": {
+        "personality": {
+          "warmth": 0.74,
+          "playfulness": 0.46,
+          "directness": 0.81,
+          "curiosity": 0.61
+        },
+        "mood": 0.0941
+      },
+      "other_cognition": {
+        "agent:2": 1,
+        "agent:3": 4,
+        "platform": 1
+      }
+    }
+  }
+}

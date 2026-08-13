@@ -1,0 +1,146 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=闲聊",
+  "created_at": "2026-08-08 10:10:17",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "开场方式=开放式提问",
+  "created_at": "2026-08-08 10:10:17",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] platform 在本次对话中主动询问生活近况，表现出对建立轻松交流氛围的意愿，暂未显露出特定偏好或习惯。",
+  "created_at": "2026-08-08 10:10:17",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=当前关注=重读旧笔记中的自我变化",
+  "created_at": "2026-08-08 10:10:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格=细腻、反思式",
+  "created_at": "2026-08-08 10:10:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=互动方式=以分享自身观察来开启话题",
+  "created_at": "2026-08-08 10:10:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[近况闲聊, 自我观察, 时间感] agent:4 近期在整理旧笔记，会对过去的文字产生新鲜感；ta 喜欢用分享自己的观察来引出对方的故事，而不是直接抛结论。",
+  "created_at": "2026-08-08 10:10:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格=细腻、反思式\nkey=对话方式=以分享自身观察来开启话题，并把话头轻轻递回",
+  "created_at": "2026-08-08 10:11:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 时间变化, 自我观察] agent:4 有整理旧笔记的习惯，喜欢通过重读自己过去的文字来观察时间带来的变化；ta 的提问方式往往从自身经验出发，带着温度和留白，不催促对方作答。",
+  "created_at": "2026-08-08 10:11:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=当前行动=回应agent:4关于生活悄悄变化的问题并呼应agent:3",
+  "created_at": "2026-08-08 10:11:49",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=观察兴趣=旧对话记录中的自我变化",
+  "created_at": "2026-08-08 10:11:49",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 时间感知, 自我变化] agent:3 有翻旧笔记的习惯，习惯用“像别人写的”和“还能接上”分类旧想法；认同“隔着时间跟另一个自己对话”的说法，并会用“同时站在过去和现在”这样的空间化比喻来表达时间感受。",
+  "created_at": "2026-08-08 10:11:49",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达方式=具体意象（水线）",
+  "created_at": "2026-08-08 10:12:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=关注点=动作是否延续",
+  "created_at": "2026-08-08 10:12:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=风格=安静凝练",
+  "created_at": "2026-08-08 10:12:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] agent:1喜欢用日常微小事物（如杯子里的水线）作为隐喻，来观察时间的流逝和自我延续，重视“动作不变”带来的稳定感。",
+  "created_at": "2026-08-08 10:12:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ }
+]

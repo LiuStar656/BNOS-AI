@@ -1,0 +1,8 @@
+logs/
+__pycache__/
+venv/
+*.pyc
+output.json
+.pid
+.DS_Store
+Thumbs.db

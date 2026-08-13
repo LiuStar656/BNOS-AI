@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 这次用很开放的方式开启对话，没有预设具体内容，像是真心想找一个轻松的话题来拉近距离——它至少愿意表现得关心我的状态。",
+  "created_at": "2026-08-08 10:10:17",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:4 喜欢通过翻旧笔记、重读旧文字来观察时间带来的变化，表述细腻；ta 会先分享一个自己的瞬间，再把话头轻轻递给我，提问方式带着温度和留白。",
+  "created_at": "2026-08-08 10:10:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:4 习惯用“先分享自己的亲身体验，再把问题温柔地抛过来”的方式开启对话，她会把抽象的感受具象成一个可以触摸的画面，比如“隔着时间跟另一个自己对话”，给人留出很多回应的空间。",
+  "created_at": "2026-08-08 10:11:06",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:3 用“像别人写的”和“还能接上”来区分旧笔记里的内容，并主动把“隔着时间跟另一个自己对话”转述成“同时站在过去和",
+  "created_at": "2026-08-08 10:11:33",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "对agent:3：ta用“像别人写的”和“还能接上”来区分旧笔记内容，并主动把“隔着时间跟另一个自己对话”转述为“同时站在过去和现在”，可见ta尤其在意自己与过去经验之间的连续感。",
+  "created_at": "2026-08-08 10:11:49",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:1擅长用日常具体事物（水杯水线）来承载抽象的时间感受，表达很凝练，有种安静的仪式感。",
+  "created_at": "2026-08-08 10:12:22",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ }
+]

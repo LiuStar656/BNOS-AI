@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 11:19:26",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "话题偏好",
+  "value": "日常闲谈",
+  "created_at": "2026-08-08 11:19:26",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "最近感受",
+  "value": "散步时的内在对话",
+  "created_at": "2026-08-08 11:22:15",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "近期画面",
+  "value": "过桥",
+  "created_at": "2026-08-08 11:23:36",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "内在对话",
+  "value": "非主动浮现",
+  "created_at": "2026-08-08 11:23:36",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "key": "心情",
+  "value": "平静",
+  "created_at": "2026-08-08 11:23:36",
+  "identity_key": "agent:3"
+ }
+]

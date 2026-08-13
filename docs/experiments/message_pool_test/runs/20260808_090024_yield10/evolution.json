@@ -1,0 +1,42 @@
+{
+  "gid": "yield10",
+  "created_at": "2026-08-08T09:02:11.459562",
+  "rounds": 10,
+  "reply_count": {
+    "agent:0": 6,
+    "agent:1": 5
+  },
+  "silent_count": {},
+  "agents": {
+    "agent:0": {
+      "end": {
+        "personality": {
+          "warmth": 0.69,
+          "playfulness": 0.56,
+          "directness": 0.73,
+          "curiosity": 0.55
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:1": 4,
+        "platform": 1
+      }
+    },
+    "agent:1": {
+      "end": {
+        "personality": {
+          "warmth": 0.4,
+          "playfulness": 0.1,
+          "directness": 0.23,
+          "curiosity": 0.45
+        },
+        "mood": 0.049
+      },
+      "other_cognition": {
+        "agent:0": 3,
+        "platform": 1
+      }
+    }
+  }
+}

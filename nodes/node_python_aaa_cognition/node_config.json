@@ -1,0 +1,131 @@
+{
+  "entry": "listener.py",
+  "node_name": "node_python_aaa_cognition",
+  "language": "python",
+  "listen_upper_file": "",
+  "output_file": "./output_default.json",
+  "output_type": "",
+  "filter": {
+    "diary_response": {
+      "data_type": "parsed",
+      "source": "diary"
+    },
+    "gui_input": {
+      "data_type": "text",
+      "source": "gui"
+    },
+    "llm_response": {
+      "data_type": "parsed",
+      "source": "llm"
+    },
+    "review_response": {
+      "data_type": "parsed",
+      "source": "review"
+    },
+    "tool_result": {
+      "data_type": "tool_result"
+    }
+  },
+  "out_connections": {
+    "diary_prompt": "node_python_llm_infer|diary_prompt",
+    "reply": "node_python_tts|reply",
+    "prompt": "node_python_llm_infer|prompt",
+    "review_prompt": "node_python_llm_infer|review_prompt",
+    "logseq": ""
+  },
+  "port_mappings": {
+    "diary_response": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_llm_infer\\output_diary_response.json",
+    "llm_response": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_llm_infer\\output.json",
+    "review_response": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_llm_infer\\output_review_response.json"
+  },
+  "parameters": [
+    {
+      "default": "../../shared/chatbot.db",
+      "description": "SQLite 数据库路径",
+      "label": "数据库路径",
+      "name": "db_path",
+      "type": "string"
+    },
+    {
+      "default": 3,
+      "label": "历史摘要条数",
+      "max": 10,
+      "min": 1,
+      "name": "max_history_summary",
+      "type": "number"
+    },
+    {
+      "default": 3,
+      "label": "最大工具调用轮数",
+      "max": 10,
+      "min": 1,
+      "name": "max_tool_rounds",
+      "type": "number"
+    }
+  ],
+  "input_ports": [
+    {
+      "label": "LLM响应",
+      "name": "llm_response",
+      "required": false,
+      "source": "node",
+      "type": "text"
+    },
+    {
+      "label": "工具结果",
+      "name": "tool_result",
+      "required": false,
+      "source": "node",
+      "type": "json"
+    },
+    {
+      "label": "日记LLM响应",
+      "name": "diary_response",
+      "required": false,
+      "source": "node",
+      "type": "text"
+    }
+  ],
+  "output_ports": [
+    {
+      "label": "Prompt输出（→LLM推理）",
+      "name": "prompt",
+      "output_file": "./output_prompt.json",
+      "type": "default"
+    },
+    {
+      "label": "日记Prompt输出（→LLM推理）",
+      "name": "diary_prompt",
+      "output_file": "./output_diary_prompt.json",
+      "type": "default"
+    },
+    {
+      "label": "认知反思Prompt输出（→LLM推理）",
+      "name": "review_prompt",
+      "output_file": "./output_review_prompt.json",
+      "type": "default"
+    },
+    {
+      "label": "回复文本（→Live2D/GUI）",
+      "name": "reply",
+      "output_file": "./output_reply.json",
+      "type": "default"
+    },
+    {
+      "label": "Logseq 知识输出（→GUI）",
+      "name": "logseq",
+      "output_file": "./output_logseq.json",
+      "type": "default"
+    }
+  ],
+  "python_exe": "",
+  "resource_limit": {
+    "cpu_percent": 80,
+    "memory_mb": 512
+  },
+  "retrieval_gate": {
+    "mode": "off",
+    "t1": 0.75,
+    "t2": 0.95
+  }
+}

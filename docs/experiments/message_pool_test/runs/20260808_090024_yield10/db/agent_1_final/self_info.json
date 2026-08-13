@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 09:00:45",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "温暖度",
+  "value": "0.4",
+  "created_at": "2026-08-08 09:00:45",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "活泼度",
+  "value": "0.1",
+  "created_at": "2026-08-08 09:00:45",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "心情",
+  "value": "平静",
+  "created_at": "2026-08-08 09:01:18",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "key": "情绪值",
+  "value": "0.1",
+  "created_at": "2026-08-08 09:01:18",
+  "identity_key": "agent:1"
+ }
+]

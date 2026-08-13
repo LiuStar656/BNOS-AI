@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "last_diary_date",
+  "value": "2026-08-08",
+  "created_at": "2026-08-08 07:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "key": "key",
+  "value": "last_diary_date",
+  "created_at": "2026-08-08 07:23:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "key": "value",
+  "value": "2026-08-08",
+  "created_at": "2026-08-08 07:23:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "key": "certainty_self_cognition",
+  "value": "107",
+  "created_at": "2026-08-08 07:34:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "key": "certainty_other_cognition",
+  "value": "107",
+  "created_at": "2026-08-08 07:34:07",
+  "identity_key": "gui:default"
+ }
+]

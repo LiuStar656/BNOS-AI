@@ -1,0 +1,59 @@
+{
+ "start_time": "2026-08-08 10:34:32",
+ "gid": "exp_5a40r_v2",
+ "agents": 5,
+ "rounds": 60,
+ "seed": null,
+ "topic": "聊聊最近的生活——你有什么想分享的新鲜事吗？",
+ "topic_rounds": 40,
+ "per_batch": 6,
+ "model": "deepseek-v4-flash",
+ "fake_llm": false,
+ "seeds": {
+  "agent:0": {
+   "vector": {
+    "warmth": 0.85,
+    "playfulness": 0.66,
+    "directness": 0.8,
+    "curiosity": 0.33
+   },
+   "style": "你说话自然平衡，像熟悉的朋友。不用敬语，不啰嗦。"
+  },
+  "agent:1": {
+   "vector": {
+    "warmth": 0.23,
+    "playfulness": 0.53,
+    "directness": 0.39,
+    "curiosity": 0.65
+   },
+   "style": "你俏皮幽默，爱开玩笑，总是让气氛轻松起来。"
+  },
+  "agent:2": {
+   "vector": {
+    "warmth": 0.31,
+    "playfulness": 0.46,
+    "directness": 0.38,
+    "curiosity": 0.53
+   },
+   "style": "你说话自然平衡，像熟悉的朋友。不用敬语，不啰嗦。"
+  },
+  "agent:3": {
+   "vector": {
+    "warmth": 0.11,
+    "playfulness": 0.4,
+    "directness": 0.2,
+    "curiosity": 0.26
+   },
+   "style": "你说话自然平衡，像熟悉的朋友。不用敬语，不啰嗦。"
+  },
+  "agent:4": {
+   "vector": {
+    "warmth": 0.74,
+    "playfulness": 0.46,
+    "directness": 0.81,
+    "curiosity": 0.61
+   },
+   "style": "你俏皮幽默，爱开玩笑，总是让气氛轻松起来。"
+  }
+ }
+}

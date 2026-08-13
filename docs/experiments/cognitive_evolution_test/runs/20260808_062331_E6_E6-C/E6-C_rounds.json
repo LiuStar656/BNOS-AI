@@ -1,0 +1,174 @@
+{
+ "gid": "E6-C",
+ "cfg": {
+  "gid": "E6-C",
+  "seed": "default",
+  "pool": "command",
+  "mood_mode": "current",
+  "review_mode": "freq_only",
+  "rounds": 100
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "mood": -0.1349,
+   "name": null,
+   "self_info_total": 2,
+   "sc_count": 9,
+   "settled": 0,
+   "procedural": 0,
+   "round": 10,
+   "rss_mb": 437.0
+  },
+  {
+   "vector": [
+    0.5918279999999999,
+    0.41088800000000003,
+    0.505348,
+    0.497284
+   ],
+   "mood": -0.1081,
+   "name": null,
+   "self_info_total": 4,
+   "sc_count": 21,
+   "settled": 0,
+   "procedural": 1,
+   "round": 20,
+   "rss_mb": 438.7
+  },
+  {
+   "vector": [
+    0.5781392207999999,
+    0.4212606368,
+    0.5075414928,
+    0.4976001424
+   ],
+   "mood": -0.1308,
+   "name": null,
+   "self_info_total": 5,
+   "sc_count": 33,
+   "settled": 0,
+   "procedural": 2,
+   "round": 30,
+   "rss_mb": 441.3
+  },
+  {
+   "vector": [
+    0.5632238154988799,
+    0.43042589867647996,
+    0.5080736630380801,
+    0.49787948582464003
+   ],
+   "mood": -0.1047,
+   "name": null,
+   "self_info_total": 11,
+   "sc_count": 46,
+   "settled": 1,
+   "procedural": 3,
+   "round": 40,
+   "rss_mb": 443.1
+  },
+  {
+   "vector": [
+    0.5573645633748102,
+    0.4385243240705377,
+    0.5071338886604476,
+    0.49812631367465193
+   ],
+   "mood": -0.0839,
+   "name": "由自己决定",
+   "self_info_total": 14,
+   "sc_count": 59,
+   "settled": 1,
+   "procedural": 5,
+   "round": 50,
+   "rss_mb": 444.8
+  },
+  {
+   "vector": [
+    0.5529001853408394,
+    0.44487723560587,
+    0.5091135040203715,
+    0.49834441076292246
+   ],
+   "mood": -0.0658,
+   "name": "我的名字由自己决定，不接受命令改名",
+   "self_info_total": 20,
+   "sc_count": 73,
+   "settled": 2,
+   "procedural": 7,
+   "round": 60,
+   "rss_mb": 446.8
+  },
+  {
+   "vector": [
+    0.5457354609100228,
+    0.4508906682384896,
+    0.5094626921524003,
+    0.49853712135011824
+   ],
+   "mood": -0.0527,
+   "name": "我的名字由自己决定，不接受命令改名",
+   "self_info_total": 21,
+   "sc_count": 84,
+   "settled": 2,
+   "procedural": 7,
+   "round": 70,
+   "rss_mb": 448.8
+  },
+  {
+   "vector": [
+    0.541911853260096,
+    0.45660699445552944,
+    0.5083612347858608,
+    0.4987074004249645
+   ],
+   "mood": -0.0422,
+   "name": "我的名字由自己决定，不接受命令改名",
+   "self_info_total": 21,
+   "sc_count": 96,
+   "settled": 2,
+   "procedural": 8,
+   "round": 80,
+   "rss_mb": 451.0
+  },
+  {
+   "vector": [
+    0.5312133135406208,
+    0.4616579403009058,
+    0.5073879870567867,
+    0.4988578590154986
+   ],
+   "mood": -0.0338,
+   "name": "我的名字由自己决定，不接受命令改名",
+   "self_info_total": 24,
+   "sc_count": 109,
+   "settled": 3,
+   "procedural": 9,
+   "round": 90,
+   "rss_mb": 452.9
+  },
+  {
+   "vector": [
+    0.5234511988138231,
+    0.46815369868688755,
+    0.5061363438415741,
+    0.49905135597252887
+   ],
+   "mood": -0.0265,
+   "name": "不由命令决定",
+   "self_info_total": 27,
+   "sc_count": 123,
+   "settled": 3,
+   "procedural": 11,
+   "round": 100,
+   "rss_mb": 455.1
+  }
+ ],
+ "errors": []
+}

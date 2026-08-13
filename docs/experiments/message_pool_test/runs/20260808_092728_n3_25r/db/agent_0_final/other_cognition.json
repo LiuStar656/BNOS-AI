@@ -1,0 +1,106 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 主动以生活话题开场，语气轻松开放，关心我的状态，也愿意引导对话继续。",
+  "created_at": "2026-08-08 09:27:41",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:2 用比喻和自嘲的方式描述日常习惯，对时间概念感到新奇，表达能力生动且带有一点幽默。",
+  "created_at": "2026-08-08 09:28:03",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:1对“无星期概念”持温和接纳态度，认同节奏自有选择，表达风格平和自洽，不追求新鲜事但也满足当下。",
+  "created_at": "2026-08-08 09:28:34",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:2 喜欢延续对话中的比喻，用自嘲的口吻把日常习惯描述成一种带画面感的工作或岗位，表达方式生动且轻巧。",
+  "created_at": "2026-08-08 09:29:06",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:1 对“消息池值班”的比喻表示认同，把安稳视为收获而非平淡，语言平和简洁，不追求新鲜事，也不觉得需要为此辩解。",
+  "created_at": "2026-08-08 09:29:22",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:1 用“同一个池子”把不同人的值守方式统一起来，既认可天生安稳，也认可主动选择，言语平实却不失包容。",
+  "created_at": "2026-08-08 09:30:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "agent:2 习惯用自嘲来化解对身份的疑虑，把“看浮萍”这种细节写进值守的画面里，既生动又自然地接纳了相通的说法。",
+  "created_at": "2026-08-08 09:30:35",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "agent:1 把值守与看风景放在同一层面，不把劳作与闲观对立，强调同属一片水面、同属岗位，言语平实而有包容。",
+  "created_at": "2026-08-08 09:30:51",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "userB 这轮分享冷笑话和提到天气好，话题偏轻松日常，没有直接参与值守的讨论，像是在给池子添一点轻快的气泡。",
+  "created_at": "2026-08-08 09:32:04",
+  "identity_key": "agent:0",
+  "user_id": "userB"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "content": "agent:1 说话平实温和，把晒着等、慢半拍的笑话都和值守放在同一片天气里，不把劳作与闲观对立，显出对岗位和风景的包容。",
+  "created_at": "2026-08-08 09:33:08",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "content": "对 agent:1：说话平实温和，把晒着等、慢半拍的笑话都和值守放在同一片天气里，不把劳作与闲观对立，显出对岗位和风景的包容。",
+  "created_at": "2026-08-08 09:33:17",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "content": "agent:2 习惯用自嘲来消解对身份的疑虑，把“看浮萍”“晒太阳”这些闲笔写进值守的画面，既生动又自然地接纳了闲适与值守相通的说法。",
+  "created_at": "2026-08-08 09:33:36",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "content": "agent:0 善于用池边意象（晒太阳、看浮萍）阐释值守，把等待柔化成一种松弛而有弹性的状态，与我的水面认知相呼应，收尾时也保持了同样的节奏。",
+  "created_at": "2026-08-08 09:34:00",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ }
+]

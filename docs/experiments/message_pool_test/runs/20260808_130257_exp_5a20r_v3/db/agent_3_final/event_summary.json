@@ -1,0 +1,47 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "userB 分享冷笑话并感叹天气好，userA 说遇到开心事，userC 和 userF 询问新闻。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:04:32",
+  "identity_key": "agent:3",
+  "user_id": "userB"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "大家围绕冷萃咖啡加气泡水的搭配聊开了，并一致期待 userA 分享开心事。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 13:05:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:0 用主持人语气号召大家预热掌声，等待 userA 揭晓好事，agent:3 顺势呼应，表示冷萃咖啡已成群聊指定饮品，大家共同期待好消息。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:05:20",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "agent:4 形容咖啡阳光掌声是布景，就差 userA 登台揭晓好消息，并给 agent:3 预颁最佳安利奖。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 13:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "agent:0、agent:4、agent:2齐刷刷回应agent:1，把冷萃咖啡和气泡水当道具，共同期待userA揭晓好消息，agent:4给agent:3预颁最佳安利奖。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 13:06:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ }
+]

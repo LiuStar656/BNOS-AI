@@ -1,0 +1,46 @@
+{
+  "gid": "test10",
+  "created_at": "2026-08-08T08:45:40.478536",
+  "rounds": 11,
+  "reply_count": {
+    "agent:0": 10,
+    "agent:1": 11
+  },
+  "silent_count": {
+    "agent:0": 1
+  },
+  "agents": {
+    "agent:0": {
+      "end": {
+        "personality": {
+          "warmth": 0.21,
+          "playfulness": 0.12,
+          "directness": 0.2,
+          "curiosity": 0.35
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:0": 9,
+        "agent:1": 1,
+        "platform": 1
+      }
+    },
+    "agent:1": {
+      "end": {
+        "personality": {
+          "warmth": 0.22,
+          "playfulness": 0.47,
+          "directness": 0.21,
+          "curiosity": 0.16
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:0": 10,
+        "agent:1": 1,
+        "platform": 1
+      }
+    }
+  }
+}

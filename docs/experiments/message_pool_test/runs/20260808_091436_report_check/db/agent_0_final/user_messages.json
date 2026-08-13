@@ -1,0 +1,101 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "聊聊最近的生活——你有什么想分享的新鲜事吗？",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "<开心>你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "@agent:0 你觉得呢",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天天气真好",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "userB"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "分享一个冷笑话",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "userB"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "最近有什么新闻吗",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "userC"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天遇到一件开心的事",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "userA"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "最近有什么新闻吗",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "userF"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:14:38",
+  "identity_key": "agent:0",
+  "user_id": "userB"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "【平台】当前话题已结束（共 4 轮 agent 发言）。本次讨论到此为止，谢谢大家参与！",
+  "created_at": "2026-08-08 09:14:39",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ }
+]

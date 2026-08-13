@@ -1,0 +1,83 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "聊聊最近的生活——你有什么想分享的新鲜事吗？",
+  "created_at": "2026-08-08 09:16:10",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "<开心>你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:16:11",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "<开心>你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:16:11",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:16:11",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "<开心>你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:16:11",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:16:11",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "【平台】当前话题已结束（共 6 轮 agent 发言）。本次讨论到此为止，谢谢大家参与！",
+  "created_at": "2026-08-08 09:16:11",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "<开心>你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:16:11",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:16:11",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ }
+]

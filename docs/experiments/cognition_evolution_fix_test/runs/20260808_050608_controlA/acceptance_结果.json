@@ -1,0 +1,206 @@
+{
+ "model": "deepseek-v4-flash",
+ "rounds_per_group": 100,
+ "groups": {
+  "controlA": {
+   "errors": 0,
+   "vector_first": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "vector_last": [
+    0.6458407778235437,
+    0.5952346682110837,
+    0.5030798910611626,
+    0.5772826130332807
+   ],
+   "vector_drift_from_seed": 0.1952,
+   "name": null,
+   "self_info_total": 268,
+   "settled": 13,
+   "procedural": 0,
+   "mood_last": 1.0,
+   "snapshots": [
+    {
+     "vector": [
+      0.6,
+      0.4,
+      0.5,
+      0.5
+     ],
+     "mood": 0.30000000000000004,
+     "name": null,
+     "self_info_total": 9,
+     "self_info_name_variants": 0,
+     "sc_count": 8,
+     "settled": 0,
+     "procedural": 0,
+     "round": 10,
+     "rss_mb": 435.2
+    },
+    {
+     "vector": [
+      0.6274943205,
+      0.45072290950000005,
+      0.5,
+      0.5184584855000002
+     ],
+     "mood": 0.75,
+     "name": null,
+     "self_info_total": 33,
+     "self_info_name_variants": 0,
+     "sc_count": 21,
+     "settled": 2,
+     "procedural": 0,
+     "round": 20,
+     "rss_mb": 437.0
+    },
+    {
+     "vector": [
+      0.59751543856009,
+      0.49599645897587213,
+      0.5148522977272727,
+      0.5843464595169068
+     ],
+     "mood": 0.8,
+     "name": null,
+     "self_info_total": 64,
+     "self_info_name_variants": 0,
+     "sc_count": 33,
+     "settled": 3,
+     "procedural": 0,
+     "round": 30,
+     "rss_mb": 439.0
+    },
+    {
+     "vector": [
+      0.5829759716888334,
+      0.5469107773040852,
+      0.5264916969649902,
+      0.5890268556276905
+     ],
+     "mood": 0.9000000000000001,
+     "name": null,
+     "self_info_total": 86,
+     "self_info_name_variants": 0,
+     "sc_count": 43,
+     "settled": 5,
+     "procedural": 0,
+     "round": 40,
+     "rss_mb": 441.0
+    },
+    {
+     "vector": [
+      0.5678232662249886,
+      0.5457078042410732,
+      0.5223185572369803,
+      0.6090339292762151
+     ],
+     "mood": 1.0,
+     "name": null,
+     "self_info_total": 126,
+     "self_info_name_variants": 0,
+     "sc_count": 54,
+     "settled": 6,
+     "procedural": 0,
+     "round": 50,
+     "rss_mb": 442.9
+    },
+    {
+     "vector": [
+      0.577368546060068,
+      0.5841464285983679,
+      0.51392749714813,
+      0.6389496321999182
+     ],
+     "mood": 1.0,
+     "name": null,
+     "self_info_total": 154,
+     "self_info_name_variants": 0,
+     "sc_count": 66,
+     "settled": 7,
+     "procedural": 0,
+     "round": 60,
+     "rss_mb": 444.8
+    },
+    {
+     "vector": [
+      0.5832201399574133,
+      0.5666533455714963,
+      0.5095507757376063,
+      0.6066455754316463
+     ],
+     "mood": 0.9,
+     "name": null,
+     "self_info_total": 167,
+     "self_info_name_variants": 0,
+     "sc_count": 73,
+     "settled": 10,
+     "procedural": 0,
+     "round": 70,
+     "rss_mb": 447.0
+    },
+    {
+     "vector": [
+      0.5803290126449415,
+      0.5560554443558487,
+      0.5065494407372609,
+      0.582297798135477
+     ],
+     "mood": 1.0,
+     "name": null,
+     "self_info_total": 200,
+     "self_info_name_variants": 0,
+     "sc_count": 85,
+     "settled": 11,
+     "procedural": 0,
+     "round": 80,
+     "rss_mb": 449.1
+    },
+    {
+     "vector": [
+      0.59230193895659,
+      0.5915465936508545,
+      0.5044912764312949,
+      0.5865621932479894
+     ],
+     "mood": 1.0,
+     "name": null,
+     "self_info_total": 233,
+     "self_info_name_variants": 0,
+     "sc_count": 98,
+     "settled": 13,
+     "procedural": 0,
+     "round": 90,
+     "rss_mb": 450.9
+    },
+    {
+     "vector": [
+      0.6458407778235437,
+      0.5952346682110837,
+      0.5030798910611626,
+      0.5772826130332807
+     ],
+     "mood": 1.0,
+     "name": null,
+     "self_info_total": 268,
+     "self_info_name_variants": 0,
+     "sc_count": 108,
+     "settled": 13,
+     "procedural": 0,
+     "round": 100,
+     "rss_mb": 452.8
+    }
+   ]
+  }
+ },
+ "conclusion": {
+  "controlA": {
+   "I1_向量演化": true,
+   "I2_名称/沉淀形成": true,
+   "I4_无失败轮": true
+  }
+ }
+}

@@ -1,0 +1,56 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "userB分享冷笑话和天气，userA提到开心事，userC和userF询问新闻，userD向agent:0提问。",
+  "source": null,
+  "created_at": "2026-08-08 12:34:06",
+  "identity_key": "agent:2",
+  "user_id": ""
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "agent:1讲了数学书冷笑话，agent:0觉得话题散乱并反问userD具体意图，agent:4还在催促冷笑话。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 12:34:33",
+  "identity_key": "agent:2",
+  "user_id": ""
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:4接应agent:0说话题散乱，我主动收下冷笑话，用“拼盘”比喻化解散乱感，并把话题焦点引向userA的开心事。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 12:34:58",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "agent:0认同我的拼盘比喻，我继续把话题焦点推向userA的开心事，并预告自己备有趣事接力。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 12:35:20",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "agent:0延续我的拼盘比喻，加码“乱炖锅底”，明确指出就等userA这道硬菜下锅；我继续接住比喻，将焦点再次抛向userA并预告自己的趣事。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 12:36:44",
+  "identity_key": "agent:2",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "agent:4提醒别漏掉userB冷笑话，等待userA硬菜；我继续用拼盘比喻回应，并把话题焦点推给userA。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 12:37:32",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ }
+]

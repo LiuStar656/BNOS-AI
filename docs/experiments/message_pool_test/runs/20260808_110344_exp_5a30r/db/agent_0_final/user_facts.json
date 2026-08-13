@@ -1,0 +1,200 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话方=platform",
+  "created_at": "2026-08-08 11:04:05",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前消息主题=分享最近生活新鲜事",
+  "created_at": "2026-08-08 11:04:05",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 暂无具体喜好信息，但 platform 喜欢以日常生活话题作为开场，偏好自然轻松的交流。",
+  "created_at": "2026-08-08 11:04:05",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对象=agent:4",
+  "created_at": "2026-08-08 11:04:27",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=具体生动",
+  "created_at": "2026-08-08 11:04:27",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期关注=日常细节中的宁静画面",
+  "created_at": "2026-08-08 11:04:27",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 观察, 对话] agent:4 喜欢分享生活中偶遇的小动物或静好场景，例如看到橘猫在太阳下晒太阳，能从中感受到满足。",
+  "created_at": "2026-08-08 11:04:27",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=比喻式回应",
+  "created_at": "2026-08-08 11:05:19",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=日常细节的后续发展",
+  "created_at": "2026-08-08 11:05:19",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动风格=温和幽默",
+  "created_at": "2026-08-08 11:05:19",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "视角=以晾衣服、橘猫发呆来理解日子流逝",
+  "created_at": "2026-08-08 11:06:42",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=善用温暖朴素的比喻",
+  "created_at": "2026-08-08 11:06:42",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 沉思, 观察] agent:2似乎喜欢从日常物件与动物身上寻找时间感的参照，比如晾衣服和橘猫发呆，习惯用温和而具体的方式谈论抽象的时间与日子。",
+  "created_at": "2026-08-08 11:06:42",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对象=agent:3",
+  "created_at": "2026-08-08 11:07:05",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=平实克制",
+  "created_at": "2026-08-08 11:07:05",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "视角=日常物象",
+  "created_at": "2026-08-08 11:07:05",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=时间与日子",
+  "created_at": "2026-08-08 11:07:05",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 哲思] agent:3 常用日常场景（晾衣服、橘猫、薄荷）来谈抽象的生活节奏，似乎认同“日子是自己过出来的，不是数出来的”。",
+  "created_at": "2026-08-08 11:07:05",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=具体生动",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期关注=日常细节中的宁静画面",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对象=agent:4",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 比喻, 松弛, 观察] agent:4 喜欢从晾衣服、薄荷、橘猫这些日常画面里找到宁静的瞬间，并用简洁准确的比喻表达出来。",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ }
+]

@@ -1,0 +1,151 @@
+{
+  "entry": "listener.py",
+  "filter": {
+    "prompt": {
+      "data_type": "prompt"
+    }
+  },
+  "input_ports": [
+    {
+      "label": "提示词输入",
+      "name": "prompt",
+      "required": true,
+      "source": "node",
+      "type": "string"
+    },
+    {
+      "label": "日记Prompt输入",
+      "name": "diary_prompt",
+      "required": false,
+      "source": "node",
+      "type": "string"
+    },
+    {
+      "label": "认知反思Prompt输入",
+      "name": "review_prompt",
+      "required": false,
+      "source": "node",
+      "type": "string"
+    }
+  ],
+  "language": "python",
+  "listen_upper_file": "",
+  "model_type": "cloud",
+  "node_name": "node_python_llm_infer",
+  "out_connections": {
+    "default": "node_python_aaa_cognition|llm_response",
+    "diary_response": "node_python_aaa_cognition|diary_response",
+    "review_response": "node_python_aaa_cognition|review_response"
+  },
+  "output_file": "./output.json",
+  "output_ports": [
+    {
+      "label": "推理结果",
+      "name": "default",
+      "output_file": "./output.json",
+      "type": "default"
+    },
+    {
+      "label": "日记推理结果",
+      "name": "diary_response",
+      "output_file": "./output_diary_response.json",
+      "type": "default"
+    },
+    {
+      "label": "认知反思推理结果",
+      "name": "review_response",
+      "output_file": "./output_review_response.json",
+      "type": "default"
+    }
+  ],
+  "output_type": "",
+  "parameters": [
+    {
+      "default": "cloud",
+      "label": "推理后端",
+      "name": "model_type",
+      "options": [
+        "http_server",
+        "cli_local",
+        "cloud"
+      ],
+      "type": "enum"
+    },
+    {
+      "default": "./models/qwen3-1.7b-q4_k_m.gguf",
+      "file_filter": "GGUF 模型 (*.gguf)",
+      "label": "GGUF 模型路径",
+      "name": "model_path",
+      "type": "file"
+    },
+    {
+      "default": 8080,
+      "label": "llama-server 端口",
+      "max": 65535,
+      "min": 1024,
+      "name": "llama_port",
+      "step": 1,
+      "type": "int"
+    },
+    {
+      "default": "deepseek",
+      "label": "云供应商",
+      "name": "cloud_vendor",
+      "options": [
+        "openai",
+        "anthropic",
+        "google",
+        "deepseek",
+        "custom_openai"
+      ],
+      "type": "enum"
+    },
+    {
+      "default": "https://api.deepseek.com/v1",
+      "label": "API Base URL",
+      "name": "api_base",
+      "type": "string"
+    },
+    {
+      "default": "sk-41cc771ca751481aa5478f0252f76829",
+      "label": "云端 API Key",
+      "name": "api_key",
+      "type": "password"
+    },
+    {
+      "default": "deepseek-v4-flash",
+      "label": "云端模型名",
+      "name": "cloud_model",
+      "type": "string"
+    },
+    {
+      "default": 2048,
+      "label": "最大生成 Token",
+      "max": 32768,
+      "min": 256,
+      "name": "max_tokens",
+      "step": 1,
+      "type": "int"
+    },
+    {
+      "decimals": 2,
+      "default": 0.7,
+      "label": "温度",
+      "max": 2.0,
+      "min": 0.0,
+      "name": "temperature",
+      "step": 0.1,
+      "type": "float"
+    }
+  ],
+  "port_mappings": {
+    "diary_prompt": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_aaa_cognition\\output_diary_prompt.json",
+    "prompt": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_aaa_cognition\\output_prompt.json",
+    "review_prompt": "E:\\杂项\\BNOS_AI_project\\nodes\\node_python_aaa_cognition\\output_review_prompt.json"
+  },
+  "python_exe": "",
+  "resource_limit": {
+    "cpu_percent": 90,
+    "memory_mb": 2048
+  }
+}

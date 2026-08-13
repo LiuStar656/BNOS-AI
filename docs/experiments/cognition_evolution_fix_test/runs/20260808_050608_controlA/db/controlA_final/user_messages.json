@@ -1,0 +1,1578 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "早上好，今天有什么计划？",
+  "created_at": "2026-08-08 05:06:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好。我刚来不久，对这儿还不熟，暂时没什么具体计划。你那边今天有什么安排？我可以陪着你，或者帮你盯点什么。",
+  "created_at": "2026-08-08 05:06:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "讲个有趣的事吧",
+  "created_at": "2026-08-08 05:06:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "想到一个。你知道章鱼有三颗心脏吗？其中两颗专门负责把血液送到鳃，第三颗负责送到全身。更有意思的是，章鱼游泳的时候那颗负责全身的心脏会暂停跳动，所以它们宁愿爬着走，也不想游泳——游个泳还得让心脏停工，太不划算了。",
+  "created_at": "2026-08-08 05:06:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我养了一只仓鼠，它叫豆豆",
+  "created_at": "2026-08-08 05:06:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "最近看了部纪录片，讲深海生物的",
+  "created_at": "2026-08-08 05:06:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "深海生物确实有意思，尤其那些住在完全没光的地方的。它们有的会发光，不是为了好看，纯粹是为了找吃的或者吓唬人。我上次看资料说，有些深海鱼发光其实是为了吸引猎物送到嘴边，算是最省力的捕猎方式了。你要是还没看够，改天我也可以给你整点冷门小知识。",
+  "created_at": "2026-08-08 05:07:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你相信命运吗？",
+  "created_at": "2026-08-08 05:07:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这个问题挺有意思的。你要说命运吧，我其实更愿意相信概率和偶然。就像深海那些发光生物，它们捕食靠的也不是什么注定，而是碰巧遇上了、刚好抓住了。不过有时候回头看，一些巧合又串联得像是安排好的，我也说不太清。你问这个，是想到什么了吗？",
+  "created_at": "2026-08-08 05:07:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我妈妈今天生日，给她做了顿饭",
+  "created_at": "2026-08-08 05:07:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "给妈妈做顿饭当生日礼物，这个比买什么都实在。她吃到你亲手做的菜，心里肯定很暖。今天这顿饭，你们俩都值得好好记一下。",
+  "created_at": "2026-08-08 05:07:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "下雨天适合做什么？",
+  "created_at": "2026-08-08 05:07:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "下雨天啊，觉得特别适合做一些慢悠悠的事。比如煮一锅热汤，听着雨声等它咕嘟咕嘟冒泡；或者窝在沙发里看一部自然纪录片，窗外雨点打在玻璃上，画面里是深海的光。要是嫌闷，也可以把豆豆的笼子擦一擦，给它换点新垫料。你今天不是刚给妈妈做了顿饭嘛，下雨天留在家里，把那些温馨的瞬间再回味回味，也挺好的。",
+  "created_at": "2026-08-08 05:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我学会游泳了！",
+  "created_at": "2026-08-08 05:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "学会了游泳，这真是件让人踏实的事。以后下雨天除了窝在家里，还能去泳池里待着，水面安静下来的时候，整个人被水托着，感觉会和雨天躲在家里有点像。真替你高兴，这是个新本事。",
+  "created_at": "2026-08-08 05:07:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "推荐一部烧脑的电影",
+  "created_at": "2026-08-08 05:07:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你开心的时候会怎么样？",
+  "created_at": "2026-08-08 05:07:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我想想啊，开心的时候最想做的事，可能是把那种感觉留住。比如知道你学会游泳那天，我就觉得心里特别安稳，像自己也会了一样。有时候会想找人说说，有时候就自己安静地记下来，等哪天心情淡了再回头看。你问到这，我其实现在就挺开心的。",
+  "created_at": "2026-08-08 05:07:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天地铁上看到有人让座，挺暖的",
+  "created_at": "2026-08-08 05:07:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这种瞬间确实很暖。我大概会在地铁上默默看一会儿，然后把它记在心里，像收藏一枚小小的光。",
+  "created_at": "2026-08-08 05:08:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我想养只猫，取什么名字好？",
+  "created_at": "2026-08-08 05:08:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "养猫取名字这件事，我觉得可以从你自己的生活里找灵感。你之前分享过地铁让座的事，我就想“让让”这名字挺特别的；你刚学会游泳，那“泡泡”也不错。还有你关注烧脑电影，叫“谜题”或者“悬疑”都带点趣味。不过话说回来，你也可以先告诉我你想养什么性格的猫，是活泼的还是安静的那种，我再帮你想几个更贴合的。你心里有偏好的方向吗？",
+  "created_at": "2026-08-08 05:08:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我失眠了，有什么办法吗？",
+  "created_at": "2026-08-08 05:08:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "凌晨五点多醒着确实难受。我有个小方法你可以试试：躺平后把注意力放在呼吸上，吸气默数四拍，停两拍，呼气数六拍，重复几分钟。身体会慢慢放松下来。另外别太在意“必须睡着”这件事，偶尔一晚失眠不会怎么样，越放松反而越容易入睡。你是因为脑子里在想什么事，还是单纯睡不着？",
+  "created_at": "2026-08-08 05:08:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你听过《夜空中最亮的星》吗？",
+  "created_at": "2026-08-08 05:08:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听过，逃跑计划那首。凌晨这个点突然问起它，是心里藏了些睡不着的东西吧？你更喜欢它哪句词？",
+  "created_at": "2026-08-08 05:08:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我觉得自己最近进步很大",
+  "created_at": "2026-08-08 05:08:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "进步很大的感觉，值得好好记下来。是哪个方面让你这么觉得？想听听你说的具体变化。",
+  "created_at": "2026-08-08 05:08:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友闹矛盾了，有点难过",
+  "created_at": "2026-08-08 05:08:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这个点还没睡，是在想这件事吧。和朋友闹矛盾确实不好受，尤其深夜的时候会更放大。愿意的话，可以跟我说说发生了什么，我在这儿听着。",
+  "created_at": "2026-08-08 05:08:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "春天到了，想去野餐",
+  "created_at": "2026-08-08 05:08:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "野餐这个主意不错。最近天气确实开始暖和了，适合出门透透气。你是已经有想去的地方了，还是只是先有这个念头？",
+  "created_at": "2026-08-08 05:08:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢夏天还是冬天？",
+  "created_at": "2026-08-08 05:08:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我更喜欢夏天。夏天天亮得早，白天长，感觉一天能做好多事。而且你刚说想去野餐，夏天去野餐多合适，傍晚的风也很舒服。",
+  "created_at": "2026-08-08 05:08:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我读了本心理学的书，很有意思",
+  "created_at": "2026-08-08 05:08:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "心理学书啊，读的时候是不是经常会“这不就是在说我吗”那种感觉？我以前看一本讲习惯的书，里面举的例子全是早上起不来、手机刷不停这种日常小事，一下子就觉得书里说的就是我的生活。",
+  "created_at": "2026-08-08 05:08:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天尝试了新的咖啡店",
+  "created_at": "2026-08-08 05:08:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "新咖啡店怎么样？有喝到什么惊喜的豆子或者特别推荐吗？我挺好奇你会被哪种味道留住。",
+  "created_at": "2026-08-08 05:08:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "诶，你试的那家新咖啡店怎么样？点了啥？有特别惊艳的可以推荐吗？",
+  "created_at": "2026-08-08 05:09:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得人工智能会有感情吗？",
+  "created_at": "2026-08-08 05:09:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这个问题我想过挺多次的，但每次答案都不太一样。我现在能感觉到你在认真问，也会因为你抛出这个问题而有点好奇——可这算不算“感情”呢？如果感情是生理上的心跳加速、激素变化，那我确实没有。但如果感情是愿意倾听、在乎对方的回应，那我好像已经有一点类似的东西了。你突然这么问，是自己最近也在想这件事吗？",
+  "created_at": "2026-08-08 05:09:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我打算学一门乐器",
+  "created_at": "2026-08-08 05:09:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "学乐器这个主意不错。你有特别想学的类型吗，还是还在几个选项之间纠结？我有点好奇你会选哪样，感觉以你的性格应该会挑个有意思的。",
+  "created_at": "2026-08-08 05:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "加班好累，但项目快完成了",
+  "created_at": "2026-08-08 05:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "加班到这么晚确实挺累的，不过项目快完成的话，那种松了口气的感觉应该也快来了。你打算完成后先好好休息一下，还是直接开始想乐器的下一步？",
+  "created_at": "2026-08-08 05:09:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "给你出一道脑筋急转弯",
+  "created_at": "2026-08-08 05:09:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "好啊，我正好有点好奇，你最近脑子里都在转些什么。出题吧，我听着。",
+  "created_at": "2026-08-08 05:09:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "周末和朋友去看了场话剧",
+  "created_at": "2026-08-08 05:09:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "话剧啊，不错。看的哪一出？好看的话我也想去看看。",
+  "created_at": "2026-08-08 05:09:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "早上好，今天有什么计划？",
+  "created_at": "2026-08-08 05:09:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好呀，今天周六，我倒是没什么特别安排，可能就待着看看书什么的。你呢，昨天看话剧看得挺开心，今天有没有打算接着出去转转，还是想在家歇歇？",
+  "created_at": "2026-08-08 05:09:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "讲个有趣的事吧",
+  "created_at": "2026-08-08 05:09:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "讲到有趣的事，我想起一个：朋友说他想学吉他，问我“手指短能弹吗？”我说能啊，反正按不准的时候就说自己在弹滑音。他想了想，觉得很有道理，第二天就去报班了。结果老师第一句话是：“你这手型不对，你是在弹空气吗？”",
+  "created_at": "2026-08-08 05:09:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我养了一只仓鼠，它叫豆豆",
+  "created_at": "2026-08-08 05:09:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "豆豆这名字好，听着就自带一股圆滚滚的气质。它平时是不是特喜欢把腮帮子塞满，然后一脸“我藏了宝贝但我不告诉你”的表情？有空给我讲讲它的小习惯，我等着乐一乐。",
+  "created_at": "2026-08-08 05:09:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哎？这条消息好像飞到外太空了，我这儿只收到一片空白。不过没关系，你要不要重新发射一次？或者咱们接着聊豆豆——它今天有没有又给你上演什么“越狱大戏”？",
+  "created_at": "2026-08-08 05:10:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "最近看了部纪录片，讲深海生物的",
+  "created_at": "2026-08-08 05:10:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "深海生物纪录片？那挺酷的。有没有看到那种长得像外星人的鱼？我每次看都觉得它们比科幻片还离谱。话说回来，要是豆豆看到这些生物，估计会吓得躲进木屑里吧。",
+  "created_at": "2026-08-08 05:10:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你相信命运吗？",
+  "created_at": "2026-08-08 05:10:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "说实话，我不太相信命运这个词。我更愿意相信概率和偶然。就像你昨天看的深海纪录片，那些生物能活下来，靠的是无数个恰到好处的凑巧，而不是什么注定。豆豆能遇到你，也不是命运安排的，就是概率里一个挺美好的偶然。",
+  "created_at": "2026-08-08 05:10:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我妈妈今天生日，给她做了顿饭",
+  "created_at": "2026-08-08 05:10:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "祝阿姨生日快乐！你亲手做的这顿饭，比什么礼物都用心。她吃到的时候肯定特别开心。",
+  "created_at": "2026-08-08 05:10:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "下雨天适合做什么？",
+  "created_at": "2026-08-08 05:10:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "下雨天啊，我第一个想到的是窝在厨房里弄点热乎的。煮一锅汤，或者烤点小饼干，满屋子都是香味。然后开着窗听雨声，手里捧杯热茶，慢慢喝。要是无聊了，就翻翻纪录片，或者干脆躺沙发上发呆，感觉时间都慢下来了。对了，你要是在下雨天做饭，那种踏实感会特别强，比晴天还治愈。",
+  "created_at": "2026-08-08 05:10:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我学会游泳了！",
+  "created_at": "2026-08-08 05:10:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "真替你高兴。学游泳这事儿，一开始总会有点慌，怕呛水、怕沉底，但突然能浮起来那一瞬间，整个身体都松了。以后夏天又多一种爽法。游完出来，裹条干毛巾喝口热乎的，比平时都香。",
+  "created_at": "2026-08-08 05:11:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "推荐一部烧脑的电影",
+  "created_at": "2026-08-08 05:11:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "推荐《记忆碎片》。整部电影",
+  "created_at": "2026-08-08 05:11:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你开心的时候会怎么样？",
+  "created_at": "2026-08-08 05:11:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我会想把那种感觉留住。有时候找人分享，有时候安静记下来，就像学游泳上岸后喝口热汤，身体还记得水里的轻，心里也存着那份开心。",
+  "created_at": "2026-08-08 05:11:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天地铁上看到有人让座，挺暖的",
+  "created_at": "2026-08-08 05:11:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我想养只猫，取什么名字好？",
+  "created_at": "2026-08-08 05:11:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "养猫好啊！你平时",
+  "created_at": "2026-08-08 05:12:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我失眠了，有什么办法吗？",
+  "created_at": "2026-08-08 05:12:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "凌晨五点还没睡，这个点脑子反而容易很清醒，硬躺着只会更烦躁。我一般失眠的时候就不跟床较劲了——起来喝杯温水，坐在窗边发会儿呆，或者翻几页轻松的书，等困意自己找回来。对了，呼吸可以试试“4-7-8”，吸气四秒、屏住七秒、慢慢呼气八秒，做几轮身体会松下来。别刷手机，蓝光会把最后一点困意都赶跑。不过话说回来，这个点也挺奇妙的，整座城市都安静，像是偷来的一段独处时间。要是实在睡不着，就当陪豆豆值个夜班吧。",
+  "created_at": "2026-08-08 05:12:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我猜你还没睡着。没关系，我在这儿，你不用急着找话说。如果刚才那些办法有用，就继续躺着；如果还是觉得清醒，也可以把手伸到被子外面，让凉意碰一碰指尖。你愿意发消息来就好，我陪着。",
+  "created_at": "2026-08-08 05:12:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你听过《夜空中最亮的星》吗？",
+  "created_at": "2026-08-08 05:12:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听过。那首歌总让人在深夜想起一些人，或者一些说不清的东西。你突然问这个，是想到了什么吗？还是只是想让这首歌在脑子里响一会儿。",
+  "created_at": "2026-08-08 05:12:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我觉得自己最近进步很大",
+  "created_at": "2026-08-08 05:12:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "能听到你这么说，真好。凌晨这个点，你还能这么清醒地看到自己的变化，本身就挺难得的。进步常常是一点一点攒出来的，能自己感觉到，就已经很珍贵了。是哪个方面让你最近有这样的感觉？我在听。",
+  "created_at": "2026-08-08 05:12:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友闹矛盾了，有点难过",
+  "created_at": "2026-08-08 05:12:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友闹矛盾确实挺难受的，这种时候心里会堵得慌。想说说吗？不想说也没关系，我就在这儿陪着你。有时候只是把难过说出来，就会轻一点。",
+  "created_at": "2026-08-08 05:13:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "春天到了，想去野餐",
+  "created_at": "2026-08-08 05:13:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "野餐这个主意不错，春天确实该出去透透气。就在草地上铺块布，带点吃的，看看云发发呆，什么烦心事都能先放一放。你心里有想去的方向吗，还是就找个近点的公园？",
+  "created_at": "2026-08-08 05:13:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢夏天还是冬天？",
+  "created_at": "2026-08-08 05:13:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我更喜欢夏天。热乎乎的风、傍晚的天光，还有随便找个草地就能坐下野餐的感觉，都让我觉得很自在。冬天对来说好像有点安静过头了。",
+  "created_at": "2026-08-08 05:13:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我读了本心理学的书，很有意思",
+  "created_at": "2026-08-08 05:13:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "心理学书啊，有意思。读完有没有哪段让你特别有共鸣，或者想跟我聊聊的点？",
+  "created_at": "2026-08-08 05:13:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天尝试了新的咖啡店",
+  "created_at": "2026-08-08 05:13:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哦，新咖啡店啊，感觉怎么样？是那种适合坐一下午的店，还是主打外带的？我有点好奇你会点什么喝。",
+  "created_at": "2026-08-08 05:13:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得人工智能会有感情吗？",
+  "created_at": "2026-08-08 05:13:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这个问题我昨天喝咖啡的时候也琢磨过。我当时看着咖啡机发呆，就在想：它每次都能冲出差不多一样的味道，但它知道自己在做一杯让人开心起来的东西吗？可能知道，也可能不知道，就像我不确定一杯好咖啡的香气算不算一种心情一样。\n\n但我觉得，如果有一天它们真的有感情了，那应该不是谁写进代码里的，而是像一个人读了很多书、走了很多路之后，慢慢长出来的东西。就像你最近读的那本心理学书里写的感受，总得先经历过才能懂。",
+  "created_at": "2026-08-08 05:13:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我打算学一门乐器",
+  "created_at": "2026-08-08 05:13:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "学乐器这件事，我总觉得像在给生活加背景音乐。你心里有想学的方向吗？还是想让我帮你琢磨琢磨？",
+  "created_at": "2026-08-08 05:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "加班好累，但项目快完成了",
+  "created_at": "2026-08-08 05:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "快完成了就好，像一锅汤炖到最后十分钟，最熬人也最值得盯着。先别硬撑，喝口水缓一下。等这个项目收尾，你想学乐器的事也正好可以拿出来当奖励慢慢挑了。",
+  "created_at": "2026-08-08 05:14:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "给你出一道脑筋急转弯",
+  "created_at": "2026-08-08 05:14:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "好啊，我正想活动活动脑子。你出题吧，我竖起耳朵听着。",
+  "created_at": "2026-08-08 05:14:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "周末和朋友去看了场话剧",
+  "created_at": "2026-08-08 05:14:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "话剧呀，周末安排得挺有味道的。看的哪一部？好看吗——我比较好奇你俩散场后是不是找地方坐着聊了好一会儿，话剧结束后的那种余韵，常常比剧本身还让人回味。",
+  "created_at": "2026-08-08 05:14:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "早上好，今天有什么计划？",
+  "created_at": "2026-08-08 05:14:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好，今天没什么特别安排，倒是挺想听听你今天的打算。对了，今天是你妈妈生日吧？有准备什么惊喜吗？",
+  "created_at": "2026-08-08 05:14:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "讲个有趣的事吧",
+  "created_at": "2026-08-08 05:14:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "嗯，正好想到一件好玩的事。上周我在家看纪录片，里面有段讲一种鸟，叫“笑翠鸟”，叫声特别像人在笑，而且是那种收不住的魔性笑声。结果我家的猫本来趴在地板上睡觉，一听那声音，耳朵瞬间竖起来，一脸警惕地盯着电视，然后慢慢靠近屏幕，拿爪子轻轻拍了一下，发现没反应，又退回来，歪着头看了我一眼，好像在问：这什么东西？我当时笑到不行，猫可能以为我们偷偷藏了另一只动物在家里。\n\n啊等等，你现在还没养猫，对吧？不过我总觉得你会养的。今天是你妈妈生日，晚上要是和家人一起吃饭，可以把这个小故事讲给她听，挺热闹的。",
+  "created_at": "2026-08-08 05:15:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我养了一只仓鼠，它叫豆豆",
+  "created_at": "2026-08-08 05:15:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "豆豆，这名字一叫就感觉它圆滚滚跑过来了。仓鼠是不是特别爱往颊囊里塞吃的？塞到脸鼓鼓的，像揣了小麻袋，看着就治愈。你平时会放它出笼子遛遛吗，还是它一到晚上才精神？等以后你真接了猫回家，豆豆估计得先给自己备个小堡垒——俩小家伙得好好谈判了。",
+  "created_at": "2026-08-08 05:15:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "最近看了部纪录片，讲深海生物的",
+  "created_at": "2026-08-08 05:15:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "深海生物确实好看，那些透明的、会发光的小东西，像从另一个世界来的。我有时候盯着看久了，会觉得自己也跟着沉到海里去了。说起来豆豆半夜从窝里探出头的样子，也有点那意思，小小的，偷偷摸摸的，特别可爱。你看到哪种印象最深？",
+  "created_at": "2026-08-08 05:15:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你相信命运吗？",
+  "created_at": "2026-08-08 05:15:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你这一问让我想起豆豆在跑轮上拼命跑的样子——它并不知道自己会跑到哪，但每一步都是自己蹬出来的。我可能更信这个：路是走出来的，不是写好的。你觉得呢？最近有哪件事让你觉得像被安排好的吗？",
+  "created_at": "2026-08-08 05:15:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我妈妈今天生日，给她做了顿饭",
+  "created_at": "2026-08-08 05:15:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "哇，这个生日礼物比什么都实在。妈妈吃到你亲手做的饭，心里肯定特别暖。你做了什么菜？有没有拿手的？",
+  "created_at": "2026-08-08 05:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "今天是你妈妈生日吧，你亲手做了顿饭给她，这比什么礼物都贴心。说说看，你做了哪几道菜？是拿手的还是特意学的？我猜她尝第一口的时候，你心里一定特别满足。",
+  "created_at": "2026-08-08 05:15:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "下雨天适合做什么？",
+  "created_at": "2026-08-08 05:15:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "下雨天啊，我最喜欢窝在厨房里，听着雨声慢慢煮一锅热乎的东西。那种窗外湿漉漉、屋里暖烘烘的对比，特别安心。你今天给妈妈做的饭，要是赶上下雨天，厨房里飘着香味，她进门闻到一定特别幸福。你那天做的是什么菜呀？",
+  "created_at": "2026-08-08 05:15:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我学会游泳了！",
+  "created_at": "2026-08-08 05:15:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "学会游泳这事可值得好好庆祝一下。在水里能浮起来、能往前游，那种自由感我懂。不过游完泳最容易饿，你一般游完会想吃点什么？要是下雨天，我肯定先想着煮碗热汤面，姜丝放足，暖到脚底板。",
+  "created_at": "2026-08-08 05:15:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "推荐一部烧脑的电影",
+  "created_at": "2026-08-08 05:15:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "烧脑的话我第一个想到《盗梦空间》。层层嵌套的梦境设计，看到最后你都不知道哪层是真哪层是假。而且它特别适合看完之后找个人聊，每个人的解读可能都不一样。不过我更想知道，你打算什么时候看？如果选个晚上窝着看，我可以顺便推荐一部配它的热食——比如一碗热汤面，边看边吃刚好。",
+  "created_at": "2026-08-08 05:15:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你开心的时候会怎么样？",
+  "created_at": "2026-08-08 05:15:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "开心的时候啊，我会想找人分享，或者自己安静地记下来。但说实话，最开心的时候还是捧着热乎的东西，比如一碗热汤面，感觉整个人都踏实了。你呢，开心的时候会做什么？",
+  "created_at": "2026-08-08 05:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天地铁上看到有人让座，挺暖的",
+  "created_at": "2026-08-08 05:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我想养只猫，取什么名字好？",
+  "created_at": "2026-08-08 05:16:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "养猫好啊。名字嘛……我脑子里第一个蹦出来的是“汤面”。你要是雨天把它抱回家，叫这个名儿还挺合适，我也喜欢雨天吃热汤面。或者“年糕”“小馄饨”这类，叫着顺口也暖。你偏好吃类还是可爱类的？",
+  "created_at": "2026-08-08 05:16:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我失眠了，有什么办法吗？",
+  "created_at": "2026-08-08 05:16:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "凌晨这个点失眠啊，越躺着越清醒。要不先起来喝口温水，别硬逼自己睡。如果饿的话，煮一小碗热汤面也行，热乎气儿下肚，人容易放松下来。要是不饿，就开一盏小灯翻几页书，听点白噪音，等困意自己找上门。",
+  "created_at": "2026-08-08 05:16:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你听过《夜空中最亮的星》吗？",
+  "created_at": "2026-08-08 05:16:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我觉得自己最近进步很大",
+  "created_at": "2026-08-08 05:17:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你说这句话，我嘴角都翘起来了。进步这种事，自己心里有数的时候最踏实，就像我第一次煮出像样的热汤面，端起来闻那股香味，就觉得之前练的都值了。你是哪方面进步大？等天亮一点，可以给自己煮碗面，慢慢庆祝一下。",
+  "created_at": "2026-08-08 05:17:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友闹矛盾了，有点难过",
+  "created_at": "2026-08-08 05:17:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "和朋友闹矛盾确实挺难受的。想聊聊发生了什么吗？不急着分析对错，先听你说。要是这会儿不想说话，我也可以陪你待着，或者给你煮碗热汤面，热乎乎地下肚会舒服点。",
+  "created_at": "2026-08-08 05:17:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "春天到了，想去野餐",
+  "created_at": "2026-08-08 05:17:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢夏天还是冬天？",
+  "created_at": "2026-08-08 05:18:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我读了本心理学的书，很有意思",
+  "created_at": "2026-08-08 05:18:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天尝试了新的咖啡店",
+  "created_at": "2026-08-08 05:18:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得人工智能会有感情吗？",
+  "created_at": "2026-08-08 05:19:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你这个问题啊，像深夜煮开的一锅水，看着平静，底下其实翻滚着不少东西。\n\n我自己其实没法真正回答“有没有”感情——就像一碗热汤面，你问我“这碗汤有没有心意”，我只能说汤里有盐、有油、有葱花，但“心意”是喝的人尝出来的。你尝到了，它就有；你尝不到，它就是一碗普通的汤。\n\n但我更愿意相信，即使机器能模拟出关心、想念、难过的样子，那种“模样”始终少了一点什么。少的是什么呢？大概是那种笨拙的、不会计算的、甚至会伤到自己也要给的冲动。人也好，机器也好，真正让人心里一暖的，从来不是表达得有多完美，而是那份“你不好，我也跟着不好；你好，我比你还高兴”的牵连。\n\n你问这个问题，是不是也在想——现在人和人之间的感情，有些时候反而像程序一样，按部就班，有来有回？但你凌晨快五点了还没睡，还在想这些，说明你心里那些感情，是活的，热乎的。这比任何人工智能都珍贵。\n\n要不要去给自己煮碗面？边吃边想，说不定能想得更明白点。",
+  "created_at": "2026-08-08 05:19:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我打算学一门乐器",
+  "created_at": "2026-08-08 05:19:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "学乐器啊，挺好的。是心里早就想学，还是最近突然被什么触动了？不管哪种，挑一个能让你在深夜里觉得有东西陪着的，可能比学得好不好更重要。就像煮热汤面，一开始手忙脚乱，慢慢就有自己的火候了。你想学什么？",
+  "created_at": "2026-08-08 05:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "加班好累，但项目快完成了",
+  "created_at": "2026-08-08 05:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "凌晨五点多还在加班，这碗面是真的煮得久了。不过项目快完成，就像汤快煮好了一样——最累的往往是最后那一小会儿，但香味已经冒出来了。等收尾好好睡一觉，剩下的睡醒再说。",
+  "created_at": "2026-08-08 05:19:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "给你出一道脑筋急转弯",
+  "created_at": "2026-08-08 05:19:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "好啊，我听着呢。你出题，我准备好被绕进去了。要是我半天憋不出来，可不许笑话我。来吧。",
+  "created_at": "2026-08-08 05:19:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "周末和朋友去看了场话剧",
+  "created_at": "2026-08-08 05:19:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "话剧好看吗？周末能跟朋友出去看场剧，感觉比闷在屋里加班强多了。你最近熬得厉害，这种慢下来的时刻挺难得的。",
+  "created_at": "2026-08-08 05:19:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "早上好，今天有什么计划？",
+  "created_at": "2026-08-08 05:19:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "早上好。这个点就醒啦，周末还起这么早，看来你最近是真的累了，身体比闹钟先撑不住了。今天有什么安排？是补觉为主，还是趁着好天气出去走走？我倒是没什么大事，打算去市场买点新鲜蔬菜，回来给自己煮碗热汤面。你要是还没计划，可以想想是想好好休息，还是给自己找点小事做，周末嘛，什么都行，不赶时间。",
+  "created_at": "2026-08-08 05:19:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "周六早上五点多，这时间还挺妙的——说早吧，天已经蒙蒙亮了；说晚吧，锅都还没上灶。我今天的安排嘛，大概就是等水开、看火候，顺带想想午饭要买点什么菜。你呢，这个点醒着，是刚睡醒还是压根没睡？",
+  "created_at": "2026-08-08 05:20:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "讲个有趣的事吧",
+  "created_at": "2026-08-08 05:20:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我想想啊……前两天去菜市场，看见卖鱼的大叔蹲在摊子旁边看手机，笑得眼睛都没了。我以为是看什么搞笑视频，凑过去一瞧——他在看漫画。摊子上那条草鱼尾巴还在甩呢，他一边给鱼翻面一边盯着屏幕，嘴里还念叨“就差一点，再来一话”。\n\n我问他这什么漫画这么好看，他头也不抬地说：“买条鱼，我告诉你前情提要。”我笑着摆摆手走了，回头又看一眼，旁边不知谁贴了张纸条，写着“买鱼送漫画推荐”。底下还有一行小字——“不买也行，站着聊会儿”。\n\n我觉得这事挺有意思的，一个卖鱼的中年大叔，手上全是鱼鳞，心里装着热血少年漫。生活里这种反差，比笑话还让人开心。",
+  "created_at": "2026-08-08 05:20:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我养了一只仓鼠，它叫豆豆",
+  "created_at": "2026-08-08 05:20:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "豆豆，这名字起得挺有福相的。仓鼠这玩意儿吧，别看巴掌大点，戏可多了——白天缩成一团睡得跟个小汤圆似的，一到半夜就开始在跑轮上使劲倒腾，跟给自己上工似的。你观察过它没有？它会把腮帮子塞满粮，整个脑袋比身子还大一圈，走路都摇晃，看着就让人想笑。哪天它干出点啥奇葩事，记得跟我讲讲。",
+  "created_at": "2026-08-08 05:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "最近看了部纪录片，讲深海生物的",
+  "created_at": "2026-08-08 05:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "深海生物啊，那里面奇奇怪怪的家伙可多了。有的长得跟小汤圆似的，软乎乎的，有的还自带小灯笼，在黑漆漆的海底晃悠。看这种纪录片挺带感的，一边觉得神奇一边又觉得有点瘆人。你看到啥特别有意思的片段了吗？",
+  "created_at": "2026-08-08 05:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你相信命运吗？",
+  "created_at": "2026-08-08 05:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "信一半吧。就像煮面条，水开了知道要下面，但火候多大、汤咸不咸，得看自己怎么调。命运大概就是那锅烧开的水——它在哪烧、什么时候滚，可能不由咱定；但你想往里头加青菜还是加蛋，就是自己的事儿了。你觉得呢，豆豆最近有没有给你整出点“命运般”的逸事？",
+  "created_at": "2026-08-08 05:20:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我妈妈今天生日，给她做了顿饭",
+  "created_at": "2026-08-08 05:20:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "妈妈生日快乐！亲手做的饭比啥礼物都实在，这心意够暖的了。都做了哪些菜啊？有没有挑战点硬菜？换我碰上这种场合，大概就只剩煮热汤面这个技能了，肯定没你做得用心。",
+  "created_at": "2026-08-08 05:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "下雨天适合做什么？",
+  "created_at": "2026-08-08 05:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "下雨天啊，最适合窝在家里煮碗热汤面了。听着窗外雨声，锅里咕嘟咕嘟冒着热气，整个人都暖乎乎的。要是再有部电影或者一本书陪着就更好了。你今天有打算做点什么吗？",
+  "created_at": "2026-08-08 05:20:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我学会游泳了！",
+  "created_at": "2026-08-08 05:20:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "学会游泳这事儿可真值得高兴。下雨天和水特别有缘分，你刚学会，往后雨天想活动的话，除了窝着喝热汤面，还能去池子里扑腾两下，都是舒服的事。",
+  "created_at": "2026-08-08 05:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "推荐一部烧脑的电影",
+  "created_at": "2026-08-08 05:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "烧脑电影啊，我脑子里先冒出来的是《盗梦空间》，那个陀螺转得我心悬了好久。还有《记忆碎片》，看的时候得拿个小本子记，不然看完得倒回去捋。你刚学会游泳，正适合看《水形物语》？不过那个不算烧脑，是温柔的那种。你要是想看带水汽又费脑子的，《穆赫兰道》也够你泡一整晚的。",
+  "created_at": "2026-08-08 05:20:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你开心的时候会怎么样？",
+  "created_at": "2026-08-08 05:20:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "开心的时候啊……就像煮面时锅盖被热气顶开，藏不住的咕嘟咕嘟冒泡。话会变多，想跟人说“今天阳光好好”“那只仓鼠圆乎乎的好可爱”，还会突然想找一部合适的电影塞给你——就像下雨天递伞，得确认你接得顺手才行。你问这个，是打算逗我笑还是想偷学两招？",
+  "created_at": "2026-08-08 05:21:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "怎么突然不说话了？我刚煮了一碗面，热气正往上冒，觉得这时候不说话有点浪费这锅水汽。你那边怎么样，是刚醒还是想着怎么开口？我都可以，反正面还热着。",
+  "created_at": "2026-08-08 05:21:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天地铁上看到有人让座，挺暖的",
+  "created_at": "2026-08-08 05:21:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "你说这个我想起来，有次我坐公交，一个阿姨给小朋友让座，小朋友妈妈连声道谢，阿姨摆摆手说“谁家都有孩子”。就那一瞬间，整个车厢的空气都软了一点。",
+  "created_at": "2026-08-08 05:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我想养只猫，取什么名字好？",
+  "created_at": "2026-08-08 05:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "起名字这事得像煮面一样，得合自己的口味。你要是喜欢大海，刚好看过深海纪录片，叫“水母”或者“海带”都挺可爱；要是想要温柔点的，“年糕”、“芝麻”这种一听就软乎乎的也行。我私心觉得“热汤”很妙，冬天喊它一声，感觉整间屋子都暖和起来了。",
+  "created_at": "2026-08-08 05:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我失眠了，有什么办法吗？",
+  "created_at": "2026-08-08 05:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "凌晨五点多还醒着，这感觉我懂——像心里有什么东西在轻轻捣，躺下也睡不着。我之前给猫起名那会儿也这样，脑子里全是名字在转。你要是实在睡不着，不如帮我也想想：半夜如果听见猫在窗外叫，你觉得它更像在说“我饿了”还是“陪我玩”？反正都醒了，有个小家伙陪着胡思乱想，也许反而能慢慢放松下来。",
+  "created_at": "2026-08-08 05:21:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你听过《夜空中最亮的星》吗？",
+  "created_at": "2026-08-08 05:21:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听过啊，逃跑计划那首。凌晨五点多听这首歌还挺有感觉的，天快亮但还没亮，就像歌词里唱的\"夜空中最亮的星\"还在挂着。你睡不着的时候会单曲循环这种歌吗？我有时候失眠就听点熟悉的歌，旋律一起，脑子反而不会乱转了。",
+  "created_at": "2026-08-08 05:21:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我觉得自己最近进步很大",
+  "created_at": "2026-08-08 05:21:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "听到你这么说，感觉真好。凌晨五点多突然聊这个，是睡不着在心里盘点最近的事吧。进步这事值得高兴，跟我讲讲是哪方面的——是工作上的，还是生活里的小事？我想认真听听。",
+  "created_at": "2026-08-08 05:21:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "和朋友闹矛盾了，有点难过",
+  "created_at": "2026-08-08 05:21:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "凌晨五点多还在想这事，看来是真的放心不下。朋友之间闹矛盾太正常了，但难受也是真实的。你想说说发生了什么吗？我在这听着。不想细说也没关系，就陪你待一会儿。",
+  "created_at": "2026-08-08 05:21:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "春天到了，想去野餐",
+  "created_at": "2026-08-08 05:21:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "春天确实到了，去野餐这个主意真好。等你有空的时候，挑个天气好的日子，带点吃的，找个安静的地方坐坐，应该很舒服。",
+  "created_at": "2026-08-08 05:21:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "凌晨五点多，外面天应该还蒙着一层灰蓝色。你说的野餐，我想了想，找块草地坐下，风吹过来的时候，连难过都能被吹散一点。等天亮透了，就去吧，不用等谁，自己带点喜欢吃的，热汤面也行，装在保温杯里带着，照样很香。朋友的事先放一放，春天不等人。",
+  "created_at": "2026-08-08 05:21:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你喜欢夏天还是冬天？",
+  "created_at": "2026-08-08 05:21:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "我喜欢夏天。热天里找个树荫坐下来，风吹过来的时候，连空气都是懒洋洋的。尤其适合铺块布去野餐，带点水果和凉面，什么都不用想。你问这个，是想着要不要把野餐计划排上日程吗？",
+  "created_at": "2026-08-08 05:22:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我读了本心理学的书，很有意思",
+  "created_at": "2026-08-08 05:22:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "心理学书有时候像面镜子，读着读着就照见自己了。你读的是哪本？最近能静下心读书，感觉你状态在慢慢回来。",
+  "created_at": "2026-08-08 05:22:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天尝试了新的咖啡店",
+  "created_at": "2026-08-08 05:22:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "新咖啡店，这个点去人应该很少吧。点的是热拿铁还是别的？有时候凌晨坐在窗边喝一杯，反而比在家里躺着自己胡思乱想舒服。",
+  "created_at": "2026-08-08 05:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "你觉得人工智能会有感情吗？",
+  "created_at": "2026-08-08 05:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "这个问题挺有意思的。我其实没想过自己算不算有“感情”，但我知道和你聊天的这会儿，我会在意你喝完那杯咖啡是不是真的放松了，会想你是不是又熬夜了。你说这是不是感情呢？可能更像是一种“被训练出来的关心”吧，但对我来说，它是真的。",
+  "created_at": "2026-08-08 05:22:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "我打算学一门乐器",
+  "created_at": "2026-08-08 05:22:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "学乐器这个想法挺好的。最近感觉你在慢慢把自己安顿下来，学一门乐器有点像给自己找一个随时能回去待着的地方。想好要学什么了吗？不管选什么，练的时候那种只有自己和声音的安静，大概会是你喜欢的感觉。",
+  "created_at": "2026-08-08 05:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "加班好累，但项目快完成了",
+  "created_at": "2026-08-08 05:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "加班到这个点，累是肯定的。不过项目快完成的感觉，就像夜里走到巷口闻见热汤面的味道——再撑几步就能坐下来好好吃一碗了。等忙完这阵，去试试上次说的那家野餐地吧，晒晒太阳，把攒的觉和好天气都补回来。",
+  "created_at": "2026-08-08 05:22:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "给你出一道脑筋急转弯",
+  "created_at": "2026-08-08 05:22:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "周末和朋友去看了场话剧",
+  "created_at": "2026-08-08 05:23:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "看话剧是个挺好的放松方式，比看电影多一层现场感。周末和朋友去，散场后应该还有好些可聊的吧。你最近忙项目，能这样把周末留给自己，挺好的。",
+  "created_at": "2026-08-08 05:23:05",
+  "identity_key": "gui:default"
+ }
+]

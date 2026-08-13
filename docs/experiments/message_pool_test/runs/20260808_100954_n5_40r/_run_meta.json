@@ -1,0 +1,59 @@
+{
+ "start_time": "2026-08-08 10:09:54",
+ "gid": "n5_40r",
+ "agents": 5,
+ "rounds": 40,
+ "seed": null,
+ "topic": "聊聊最近的生活——你有什么想分享的新鲜事吗？",
+ "topic_rounds": 10,
+ "per_batch": 6,
+ "model": "deepseek-v4-flash",
+ "fake_llm": false,
+ "seeds": {
+  "agent:0": {
+   "vector": {
+    "warmth": 0.65,
+    "playfulness": 0.76,
+    "directness": 0.78,
+    "curiosity": 0.58
+   },
+   "style": "你说话自然平衡，像熟悉的朋友。不用敬语，不啰嗦。"
+  },
+  "agent:1": {
+   "vector": {
+    "warmth": 0.57,
+    "playfulness": 0.19,
+    "directness": 0.63,
+    "curiosity": 0.42
+   },
+   "style": "你俏皮幽默，爱开玩笑，总是让气氛轻松起来。"
+  },
+  "agent:2": {
+   "vector": {
+    "warmth": 0.77,
+    "playfulness": 0.79,
+    "directness": 0.2,
+    "curiosity": 0.87
+   },
+   "style": "你热情外向，乐于分享，语气轻松带笑。"
+  },
+  "agent:3": {
+   "vector": {
+    "warmth": 0.69,
+    "playfulness": 0.6,
+    "directness": 0.64,
+    "curiosity": 0.58
+   },
+   "style": "你说话自然平衡，像熟悉的朋友。不用敬语，不啰嗦。"
+  },
+  "agent:4": {
+   "vector": {
+    "warmth": 0.73,
+    "playfulness": 0.34,
+    "directness": 0.36,
+    "curiosity": 0.52
+   },
+   "style": "你热情外向，乐于分享，语气轻松带笑。"
+  }
+ }
+}

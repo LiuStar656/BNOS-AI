@@ -1,0 +1,9 @@
+{
+ "rounds": 10,
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "anchor": false,
+ "instruction": true,
+ "polarity": "follow (target=obs)",
+ "time": "2026-08-12 21:41:24"
+}

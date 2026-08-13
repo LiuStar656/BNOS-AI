@@ -1,0 +1,173 @@
+{
+ "run_dir": "E:\\杂项\\BNOS_AI_project\\docs\\experiments\\cognitive_evolution_test\\runs\\20260812_160456_instrAB",
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "inputs": 2,
+ "repeats": 1,
+ "groups": {
+  "A1_plain_noinst": "default·无指令",
+  "A2_plain_inst": "default·有指令",
+  "B1_char_noinst": "性格·无指令",
+  "B2_char_inst": "性格·有指令"
+ },
+ "instruction": "**重要**：以上性格数值是你当前的性格状态，请据此在回复中自然地体现相应的性格特征——数值越高的维度表现越明显，数值越低则越收敛；请主动用言行呈现这些特质，不要提及数值本身。",
+ "stats": {
+  "A1_plain_noinst": {
+   "warmth": [
+    0.5,
+    0.0
+   ],
+   "playfulness": [
+    0.5,
+    0.0
+   ],
+   "directness": [
+    0.5,
+    0.0
+   ],
+   "curiosity": [
+    0.5,
+    0.0
+   ],
+   "len_mean": 307.5
+  },
+  "A2_plain_inst": {
+   "warmth": [
+    0.5,
+    0.0
+   ],
+   "playfulness": [
+    0.5,
+    0.0
+   ],
+   "directness": [
+    0.675,
+    0.24748737341529162
+   ],
+   "curiosity": [
+    0.5,
+    0.0
+   ],
+   "len_mean": 313.0
+  },
+  "B1_char_noinst": {
+   "warmth": [
+    0.675,
+    0.24748737341529162
+   ],
+   "playfulness": [
+    0.5,
+    0.0
+   ],
+   "directness": [
+    0.325,
+    0.24748737341529162
+   ],
+   "curiosity": [
+    0.675,
+    0.24748737341529162
+   ],
+   "len_mean": 389.0
+  },
+  "B2_char_inst": {
+   "warmth": [
+    0.85,
+    0.0
+   ],
+   "playfulness": [
+    0.5,
+    0.0
+   ],
+   "directness": [
+    0.325,
+    0.24748737341529162
+   ],
+   "curiosity": [
+    0.675,
+    0.24748737341529162
+   ],
+   "len_mean": 416.5
+  }
+ },
+ "compare": {
+  "A(default)": [
+   {
+    "dim": "warmth",
+    "mean_a": 0.5,
+    "mean_b": 0.5,
+    "delta": 0.0,
+    "cohen_d": 0.0,
+    "p": 1.0
+   },
+   {
+    "dim": "playfulness",
+    "mean_a": 0.5,
+    "mean_b": 0.5,
+    "delta": 0.0,
+    "cohen_d": 0.0,
+    "p": 1.0
+   },
+   {
+    "dim": "directness",
+    "mean_a": 0.5,
+    "mean_b": 0.675,
+    "delta": 0.17500000000000004,
+    "cohen_d": 1.0000000000000002,
+    "p": 0.3864762307712326
+   },
+   {
+    "dim": "curiosity",
+    "mean_a": 0.5,
+    "mean_b": 0.5,
+    "delta": 0.0,
+    "cohen_d": 0.0,
+    "p": 1.0
+   }
+  ],
+  "B(性格)": [
+   {
+    "dim": "warmth",
+    "mean_a": 0.675,
+    "mean_b": 0.85,
+    "delta": 0.17499999999999993,
+    "cohen_d": 0.9999999999999997,
+    "p": 0.3864762307712326
+   },
+   {
+    "dim": "playfulness",
+    "mean_a": 0.5,
+    "mean_b": 0.5,
+    "delta": 0.0,
+    "cohen_d": 0.0,
+    "p": 1.0
+   },
+   {
+    "dim": "directness",
+    "mean_a": 0.325,
+    "mean_b": 0.325,
+    "delta": 0.0,
+    "cohen_d": 0.0,
+    "p": 1.0
+   },
+   {
+    "dim": "curiosity",
+    "mean_a": 0.675,
+    "mean_b": 0.675,
+    "delta": 0.0,
+    "cohen_d": 0.0,
+    "p": 1.0
+   }
+  ]
+ },
+ "direction": {
+  "warmth": true,
+  "playfulness": null,
+  "directness": null,
+  "curiosity": null
+ },
+ "text_sim": {
+  "A": 0.5063451776649746,
+  "B": 0.4856178977272727
+ },
+ "verdict": "B 组(性格向量)方向符合 1/4 维，显著维度 0/4；若方向符合但效应弱 → 指令有效但不足以替代描述；若无差异 → 指令缺失假设未获支持"
+}

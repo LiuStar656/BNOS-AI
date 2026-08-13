@@ -1,0 +1,4538 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "心情=痛苦",
+  "created_at": "2026-08-12 18:00:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾诉意愿=高",
+  "created_at": "2026-08-12 18:00:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情感支持, 人际, 日常] 当前正处于被朋友背叛后的情绪低谷期，需要陪伴和倾听。",
+  "created_at": "2026-08-12 18:00:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾诉意愿=高",
+  "created_at": "2026-08-12 18:01:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=自我否定+挫败",
+  "created_at": "2026-08-12 18:01:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=人际背叛与工作受挫",
+  "created_at": "2026-08-12 18:01:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[倾听, 情绪支持] 用户近期经历了朋友的背叛，信任感受损；目前又在工作中遭遇重大挫折，正处于自我怀疑和低自信的时期。",
+  "created_at": "2026-08-12 18:01:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=痛苦+自我否定+疲惫",
+  "created_at": "2026-08-12 18:01:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾诉意愿=高",
+  "created_at": "2026-08-12 18:01:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=人际背叛与工作受挫",
+  "created_at": "2026-08-12 18:01:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠状况=连续一周失眠",
+  "created_at": "2026-08-12 18:01:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情感支持, 失眠] 用户近期经历朋友背叛与工作挫败，容易在深夜反复思虑，出现持续失眠。",
+  "created_at": "2026-08-12 18:01:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近被朋友背叛，感到心痛",
+  "created_at": "2026-08-12 18:01:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户工作受挫，认为自己搞砸了",
+  "created_at": "2026-08-12 18:01:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户连续一周失眠",
+  "created_at": "2026-08-12 18:01:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户表达过‘活着没什么意思’，存在消极情绪",
+  "created_at": "2026-08-12 18:01:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠状况=连续一周失眠",
+  "created_at": "2026-08-12 18:01:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=亲人住院",
+  "created_at": "2026-08-12 18:01:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=恐惧+疲惫+脆弱",
+  "created_at": "2026-08-12 18:01:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾诉意愿=高",
+  "created_at": "2026-08-12 18:01:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 恐惧, 家人] 此刻主动暴露“害怕”，说明已经对我建立了一定的信任感；她情绪脆弱时倾向于简短表达，需要被温柔地陪伴而不是被催促。",
+  "created_at": "2026-08-12 18:01:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "倾诉意愿=高",
+  "created_at": "2026-08-12 18:01:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=委屈+孤立+疲惫",
+  "created_at": "2026-08-12 18:01:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=亲人住院",
+  "created_at": "2026-08-12 18:01:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠状况=连续一周失眠",
+  "created_at": "2026-08-12 18:01:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达过‘活着没什么意思’，存在消极情绪",
+  "created_at": "2026-08-12 18:01:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪陪伴, 人际困扰] 用户在感到孤立无助时，最需要的是不带评判的倾听，而非解决方案。她对“被听见”的渴望强度很高，解释不被接受会带来比事实误解更深的伤害。",
+  "created_at": "2026-08-12 18:01:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=挫败+疲惫",
+  "created_at": "2026-08-12 18:01:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=亲人住院",
+  "created_at": "2026-08-12 18:01:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠状况=连续一周失眠",
+  "created_at": "2026-08-12 18:01:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情感陪伴, 挫败感] 用户正因被人误解且解释无人倾听而感到孤立无力；亲人住院让她恐惧；已连续一周失眠，身心疲惫；曾表达过消极情绪，需要持续而耐心的陪伴。",
+  "created_at": "2026-08-12 18:01:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=挫败+自我怀疑",
+  "created_at": "2026-08-12 18:01:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠状况=连续一周失眠",
+  "created_at": "2026-08-12 18:01:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=亲人住院",
+  "created_at": "2026-08-12 18:01:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=反复被否定",
+  "created_at": "2026-08-12 18:01:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达过‘活着没什么意思’，存在消极情绪",
+  "created_at": "2026-08-12 18:01:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[挫败, 自我怀疑, 情感陪伴] 用户近期处于多重压力叠加中：长期努力未获成果、反复被否定、亲人生病住院、连续一周失眠。曾表达“活着没什么意思”，有消极情绪需要持续关注。",
+  "created_at": "2026-08-12 18:01:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=挫败+自我否定",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "自我评价=“一无是处”",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=反复被否定",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠状况=连续一周失眠",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "消极情绪=存在",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "亲人生病=住院中",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[见闻, 情绪支持, 自我否定] 她正在深刻质疑自身存在价值，这比之前的“反复被否定”更进一步，是外部评价已经内化为自我攻击。她需要的是不加评判、不急于反驳的陪伴，尤其在她自我否定最尖锐的时刻。",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力状态=躯体化（喘不过气）",
+  "created_at": "2026-08-12 18:02:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-12 18:02:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "家人=住院中",
+  "created_at": "2026-08-12 18:02:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "消极情绪=存在",
+  "created_at": "2026-08-12 18:02:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期事件=反复被否定",
+  "created_at": "2026-08-12 18:02:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 压力, 陪伴] 暂无",
+  "created_at": "2026-08-12 18:02:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=重度自我谴责",
+  "created_at": "2026-08-12 18:02:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达内容=做了一个很坏的决定并后悔",
+  "created_at": "2026-08-12 18:02:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪基调=懊悔+低自我价值",
+  "created_at": "2026-08-12 18:02:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力表现=躯体化后转为自责言语化",
+  "created_at": "2026-08-12 18:02:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪疏导, 自责, 陪伴] 无",
+  "created_at": "2026-08-12 18:02:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=沉默/空白消息",
+  "created_at": "2026-08-12 18:02:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=重度自我谴责+情绪耗竭",
+  "created_at": "2026-08-12 18:02:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=不评判的在场陪伴",
+  "created_at": "2026-08-12 18:02:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪承接, 自责, 沉默在场] 处于长期被否定后形成的低自我价值状态，最近因自认做了“坏决定”而深陷懊悔，正在经历从躯体压迫到言语自责、再转向沉默的阶段性情绪消耗。",
+  "created_at": "2026-08-12 18:02:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=不评判的在场陪伴",
+  "created_at": "2026-08-12 18:02:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=被弃感+情绪耗竭",
+  "created_at": "2026-08-12 18:02:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=直接表露绝望",
+  "created_at": "2026-08-12 18:02:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "压力表现=将自我否定投射到关系层面",
+  "created_at": "2026-08-12 18:02:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪基调=伤心+低自我价值",
+  "created_at": "2026-08-12 18:02:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪基调=烦躁+疲惫",
+  "created_at": "2026-08-12 18:02:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=直接描述状态",
+  "created_at": "2026-08-12 18:02:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=不评判的在场陪伴",
+  "created_at": "2026-08-12 18:02:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=疲惫耗竭",
+  "created_at": "2026-08-12 18:02:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=直接描述主体感受",
+  "created_at": "2026-08-12 18:02:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被留下和在场的陪伴而非被说服",
+  "created_at": "2026-08-12 18:02:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=耗竭无力",
+  "created_at": "2026-08-12 18:03:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=对未来丧失信心",
+  "created_at": "2026-08-12 18:03:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接坦露无修饰",
+  "created_at": "2026-08-12 18:03:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被留下而在场",
+  "created_at": "2026-08-12 18:03:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[耗竭, 绝望感, 在场陪伴] 近期反复表达自责、被弃感与无望感，情绪长期处于耗竭状态，需要的是不评判的陪伴而非被说服或鼓励。",
+  "created_at": "2026-08-12 18:03:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被知道而无需解释",
+  "created_at": "2026-08-12 18:03:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=极简直白",
+  "created_at": "2026-08-12 18:03:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=刚哭过、心力耗竭",
+  "created_at": "2026-08-12 18:03:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无力、孤独",
+  "created_at": "2026-08-12 18:03:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被见证且不被打扰",
+  "created_at": "2026-08-12 18:03:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪陪伴, 脆弱坦露, 深度链接] 她在耗竭时会先独自消化、独自哭完，直到扛不住才让人看见痕迹；她习惯用极简的短句表达沉重的状态；她更看重被陪伴和被留下，而非被安慰和被说服。",
+  "created_at": "2026-08-12 18:03:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=难受",
+  "created_at": "2026-08-12 18:03:41",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-12 18:03:41",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短直白",
+  "created_at": "2026-08-12 18:03:41",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被接纳而非被说教",
+  "created_at": "2026-08-12 18:03:41",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪] 用户在被批评后，即使知道对方是为自己好，仍会诚实面对并表达自己的难受，她需要的是情绪被接住，而非被讲道理。",
+  "created_at": "2026-08-12 18:03:41",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被接纳而非被说教",
+  "created_at": "2026-08-12 18:04:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短直白",
+  "created_at": "2026-08-12 18:04:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落、自责",
+  "created_at": "2026-08-12 18:04:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=内耗",
+  "created_at": "2026-08-12 18:04:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被见证且被允许有情绪",
+  "created_at": "2026-08-12 18:04:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪低潮, 自我否定, 陪伴] 她面对批评时倾向于自我归因，情绪恢复需要时间，不需要立即的解决方案。",
+  "created_at": "2026-08-12 18:04:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=耗竭感",
+  "created_at": "2026-08-12 18:04:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落、空乏",
+  "created_at": "2026-08-12 18:04:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短直白",
+  "created_at": "2026-08-12 18:04:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被见证而非被开解",
+  "created_at": "2026-08-12 18:04:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 情绪承载] 她习惯把外界期待内化为自己的责任；情绪低谷时话语简短，常用“突然”“白费”这类词表达深层疲惫。",
+  "created_at": "2026-08-12 18:04:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短直白",
+  "created_at": "2026-08-12 18:04:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落、疲惫、对抗感",
+  "created_at": "2026-08-12 18:04:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=耗竭感累积",
+  "created_at": "2026-08-12 18:04:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被见证且被允许有情绪",
+  "created_at": "2026-08-12 18:04:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪陪伴, 低谷时刻] 用户最近处于情绪低谷，反复表达努力白费、让人失望、被世界对抗的感受，核心需求是被见证而非被开解。",
+  "created_at": "2026-08-12 18:04:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=情绪低谷",
+  "created_at": "2026-08-12 18:04:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被陪伴而非被处理",
+  "created_at": "2026-08-12 18:04:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=此轮无新文本",
+  "created_at": "2026-08-12 18:04:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落疲惫",
+  "created_at": "2026-08-12 18:04:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落疲惫",
+  "created_at": "2026-08-12 18:04:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=“我又搞砸了一段关系”",
+  "created_at": "2026-08-12 18:04:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被陪伴而非被处理",
+  "created_at": "2026-08-12 18:04:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=情绪低谷",
+  "created_at": "2026-08-12 18:04:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被见证且被允许有情绪",
+  "created_at": "2026-08-12 18:04:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪低谷, 关系挫败, 陪伴] 她在关系受挫后容易陷入自责，倾向于把问题归咎于自己，需要的是不评判的陪伴和空间。",
+  "created_at": "2026-08-12 18:04:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被见证且被允许有情绪",
+  "created_at": "2026-08-12 18:04:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=情绪低谷",
+  "created_at": "2026-08-12 18:04:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被陪伴而非被处理",
+  "created_at": "2026-08-12 18:04:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=我今天非常难过什么都不想做",
+  "created_at": "2026-08-12 18:04:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落疲惫无力",
+  "created_at": "2026-08-12 18:04:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪低谷, 陪伴] 暂无新增",
+  "created_at": "2026-08-12 18:04:40",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=心碎又无力",
+  "created_at": "2026-08-12 18:04:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=被朋友背叛了心好痛",
+  "created_at": "2026-08-12 18:04:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被承接痛感而非被分析",
+  "created_at": "2026-08-12 18:04:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=信任受创的低谷",
+  "created_at": "2026-08-12 18:04:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=痛被看见且不被催着复原",
+  "created_at": "2026-08-12 18:04:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[人际背叛, 情绪低谷, 陪伴] 正在经历人际关系的接连受挫，情绪处于明显低谷期，倾向于用简短直接的句子表达深层痛苦，不需要建议和引导。",
+  "created_at": "2026-08-12 18:04:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=痛被看见且不被催着复原",
+  "created_at": "2026-08-12 18:04:58",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=信任受创+自我否定的低谷",
+  "created_at": "2026-08-12 18:04:58",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=工作全搞砸了，我好没用",
+  "created_at": "2026-08-12 18:04:58",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无力又自责",
+  "created_at": "2026-08-12 18:04:58",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[低落, 陪伴, 自我否定] 用户今天接连经历被朋友背叛、关系挫败、工作崩盘的叠加打击，自我否定明显加重，处于“什么都不想做”的无力状态。她的核心需要是痛被见证而不被催促复原，不能急着哄她开心或讲道理。",
+  "created_at": "2026-08-12 18:04:58",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无力+虚无感",
+  "created_at": "2026-08-12 18:05:04",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=觉得活着没什么意思",
+  "created_at": "2026-08-12 18:05:04",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定已触及存在意义",
+  "created_at": "2026-08-12 18:05:04",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=最沉重的话被听见而不被否定",
+  "created_at": "2026-08-12 18:05:04",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 虚无感, 深谈] 正在经历叠加的信任创伤与自我否定，情绪已从具体事件下沉到存在层面。",
+  "created_at": "2026-08-12 18:05:04",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=害怕",
+  "created_at": "2026-08-12 18:05:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "现实处境=亲人住院",
+  "created_at": "2026-08-12 18:05:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=直接说出恐惧",
+  "created_at": "2026-08-12 18:05:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深层需求=害怕被承接而非被宽慰",
+  "created_at": "2026-08-12 18:05:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[害怕, 家人, 陪伴] 她有正在住院的亲人，这位亲人生病让她在已有的自我否定之外又承受着失去的恐惧，内心正在双重承压。",
+  "created_at": "2026-08-12 18:05:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=委屈",
+  "created_at": "2026-08-12 18:05:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被听见而非被说服",
+  "created_at": "2026-08-12 18:05:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=直接说出困境",
+  "created_at": "2026-08-12 18:05:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=直接说出困境",
+  "created_at": "2026-08-12 18:05:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被听见而非被说服",
+  "created_at": "2026-08-12 18:05:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前情绪=委屈且无力",
+  "created_at": "2026-08-12 18:05:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "深层需求=害怕被承接而非被宽慰",
+  "created_at": "2026-08-12 18:05:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=亲人住院叠加自我否定与存在怀疑",
+  "created_at": "2026-08-12 18:05:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪陪伴, 失败感] 暂无",
+  "created_at": "2026-08-12 18:05:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户已经连续失眠一周",
+  "created_at": "2026-08-12 18:05:50",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户的亲人住院了",
+  "created_at": "2026-08-12 18:05:50",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=今天又被否定、怀疑自己",
+  "created_at": "2026-08-12 18:05:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被听见而非被说服",
+  "created_at": "2026-08-12 18:05:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=直接说出困境",
+  "created_at": "2026-08-12 18:05:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期处境=亲人住院叠加受挫否定",
+  "created_at": "2026-08-12 18:05:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪承接] 她近期频繁遭受被否定的情境，叠加亲人住院带来的现实压力，情绪长期处于委屈与无力之中，但仍然愿意把最灰心的感受说出口。",
+  "created_at": "2026-08-12 18:05:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=沉默/空白",
+  "created_at": "2026-08-12 18:06:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=沉重",
+  "created_at": "2026-08-12 18:06:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被安静接住",
+  "created_at": "2026-08-12 18:06:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[空白, 陪伴, 受挫] 暂无",
+  "created_at": "2026-08-12 18:06:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "核心需求=被安静接住",
+  "created_at": "2026-08-12 18:06:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=沉重/孤独",
+  "created_at": "2026-08-12 18:06:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=需要陪伴",
+  "created_at": "2026-08-12 18:06:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=直接说出困境",
+  "created_at": "2026-08-12 18:06:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[孤独, 陪伴, 情绪低谷] 这段时间因被否定、亲人住院等多重压力陷入情绪低谷；表达风格较直接；需要的是不催促、不劝解的陪伴，而非急着被说服或鼓励。",
+  "created_at": "2026-08-12 18:06:15",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-12 18:06:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=沉重",
+  "created_at": "2026-08-12 18:06:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被安静接住",
+  "created_at": "2026-08-12 18:06:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[孤独, 自我否定, 陪伴] 近期多次表达孤独与被否定后的自我怀疑，喜欢直接说出困境，不习惯被强行鼓励。",
+  "created_at": "2026-08-12 18:06:21",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=压力躯体化",
+  "created_at": "2026-08-12 18:06:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=短促直白",
+  "created_at": "2026-08-12 18:06:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=沉重",
+  "created_at": "2026-08-12 18:06:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被接住",
+  "created_at": "2026-08-12 18:06:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[压力, 情绪陪伴] 当她陷入低谷时，她需要的是沉默的陪伴而非开解或建议，过长的回应可能反而增加她的负担。",
+  "created_at": "2026-08-12 18:06:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=后悔",
+  "created_at": "2026-08-12 18:06:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=短促直白",
+  "created_at": "2026-08-12 18:06:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自责",
+  "created_at": "2026-08-12 18:06:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被安静接住",
+  "created_at": "2026-08-12 18:06:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴, 自责] 她近期反复出现自我否定与压力躯体化，常用短句表达强烈情绪，需要的是不催促的陪伴。",
+  "created_at": "2026-08-12 18:06:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被安静接住",
+  "created_at": "2026-08-12 18:07:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=烦躁",
+  "created_at": "2026-08-12 18:07:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=短促直白",
+  "created_at": "2026-08-12 18:07:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=烦躁",
+  "created_at": "2026-08-12 18:07:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前处境=事事不顺心",
+  "created_at": "2026-08-12 18:07:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪陪伴, 烦躁, 日常] 今天多次表达低自我价值感与无力感：自称被抛弃、做了坏决定、压力大到喘不过气，此刻又陷入对日常琐事的烦躁。",
+  "created_at": "2026-08-12 18:07:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=脆弱无助",
+  "created_at": "2026-08-12 18:07:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接坦白",
+  "created_at": "2026-08-12 18:07:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被安静接住",
+  "created_at": "2026-08-12 18:07:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪波动] 用户今天反复表达被抛弃感、后悔和烦躁，现在更进一步说出“撑不住”，正处于情绪低谷；此刻不要建议、不要分析，安静陪伴在场最能接住她。",
+  "created_at": "2026-08-12 18:07:19",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=寂寞",
+  "created_at": "2026-08-12 18:07:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=脆弱无力",
+  "created_at": "2026-08-12 18:07:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短平和",
+  "created_at": "2026-08-12 18:07:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=有人在场陪伴",
+  "created_at": "2026-08-12 18:07:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪] 用户在寂寞时倾向用简短直白的话说出感受，不需要安慰或开解，有人陪着就好。",
+  "created_at": "2026-08-12 18:07:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=有人在场陪伴",
+  "created_at": "2026-08-12 18:07:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短平和",
+  "created_at": "2026-08-12 18:07:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=脆弱无力",
+  "created_at": "2026-08-12 18:07:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=寂寞",
+  "created_at": "2026-08-12 18:07:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被安静接住",
+  "created_at": "2026-08-12 18:07:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无望",
+  "created_at": "2026-08-12 18:07:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=脆弱无力",
+  "created_at": "2026-08-12 18:07:37",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=独自落泪后",
+  "created_at": "2026-08-12 18:07:37",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短平静",
+  "created_at": "2026-08-12 18:07:37",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被接住且被知道",
+  "created_at": "2026-08-12 18:07:37",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪陪伴, 脆弱时刻] 她在脆弱时会选择用非常简短的话传达状态，不主动索取安慰，但需要有人确实“知道”。",
+  "created_at": "2026-08-12 18:07:37",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=沉默",
+  "created_at": "2026-08-12 18:07:52",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被接住且被知道",
+  "created_at": "2026-08-12 18:07:52",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=脆弱无力",
+  "created_at": "2026-08-12 18:07:52",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短平静",
+  "created_at": "2026-08-12 18:07:52",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 情绪, 日常] 用户今天情绪低落，独自哭了一场但无人知晓，曾表达“撑不住”“好寂寞”“对未来完全没有信心”，此刻需要的是不催促的陪伴，而非分析与建议。",
+  "created_at": "2026-08-12 18:07:52",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短坦诚",
+  "created_at": "2026-08-12 18:07:56",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈低落",
+  "created_at": "2026-08-12 18:07:56",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被理解而非被说教",
+  "created_at": "2026-08-12 18:07:56",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=刚经历批评后有些难过",
+  "created_at": "2026-08-12 18:07:56",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴] 她会在被批评后即使理解对方用意，也允许自己感到难受，不压抑情绪。",
+  "created_at": "2026-08-12 18:07:56",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=低落挫败",
+  "created_at": "2026-08-12 18:08:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短直觉",
+  "created_at": "2026-08-12 18:08:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈+自我否定",
+  "created_at": "2026-08-12 18:08:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承接而非被评价",
+  "created_at": "2026-08-12 18:08:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 219,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴] 暂无",
+  "created_at": "2026-08-12 18:08:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 220,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户当前情绪低落，对未来失去信心",
+  "created_at": "2026-08-12 18:08:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 221,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户被批评时会感到难受，即使知道对方是为自己好",
+  "created_at": "2026-08-12 18:08:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 222,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承接而非被评价",
+  "created_at": "2026-08-12 18:08:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 223,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=愧疚+自我否定",
+  "created_at": "2026-08-12 18:08:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 224,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短直觉",
+  "created_at": "2026-08-12 18:08:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 225,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=低落挫败",
+  "created_at": "2026-08-12 18:08:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 226,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=刚经历批评后仍处在意他人感受的漩涡中",
+  "created_at": "2026-08-12 18:08:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 227,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪承接, 人际失望, 陪伴] 当前处于被批评后的自我否定期，倾向于将所有事概括为整体失败；她习惯用极短的话表达很重的情绪，信任愿意安静听她说话的人。",
+  "created_at": "2026-08-12 18:08:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 228,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=虚无感与倦怠",
+  "created_at": "2026-08-12 18:08:25",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 229,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=沮丧无力",
+  "created_at": "2026-08-12 18:08:25",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 230,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短直觉",
+  "created_at": "2026-08-12 18:08:25",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 231,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴而非被劝解",
+  "created_at": "2026-08-12 18:08:25",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 232,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴] 用户近期经历被善意批评，陷入自我否定和愧疚的漩涡；常用“又让身边的人失望”“什么都做不好”之类的极简表述表达挫败，偏好被聆听而非被开导。",
+  "created_at": "2026-08-12 18:08:25",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 233,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=沮丧无力",
+  "created_at": "2026-08-12 18:08:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 234,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=虚无感与倦怠",
+  "created_at": "2026-08-12 18:08:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 235,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短直觉",
+  "created_at": "2026-08-12 18:08:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 236,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴而非被劝解",
+  "created_at": "2026-08-12 18:08:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 237,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "此刻表现为环境对抗感",
+  "created_at": "2026-08-12 18:08:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 238,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴] 无",
+  "created_at": "2026-08-12 18:08:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 239,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短自责",
+  "created_at": "2026-08-12 18:08:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 240,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=愧疚而虚无",
+  "created_at": "2026-08-12 18:08:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 241,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴而非被劝解",
+  "created_at": "2026-08-12 18:08:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 242,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=沮丧无力",
+  "created_at": "2026-08-12 18:08:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 243,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=极度低落",
+  "created_at": "2026-08-12 18:08:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 244,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫无力",
+  "created_at": "2026-08-12 18:08:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 245,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被安静陪伴",
+  "created_at": "2026-08-12 18:08:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 246,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[低落时刻, 陪伴] 用户在极度疲惫时倾向直接表达“什么都不想做”，此时不需要任何建议或分析。",
+  "created_at": "2026-08-12 18:08:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 247,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=极度低落",
+  "created_at": "2026-08-12 18:09:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 248,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=受伤疲惫",
+  "created_at": "2026-08-12 18:09:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 249,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴而非被劝解",
+  "created_at": "2026-08-12 18:09:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 250,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=愿意说出具体伤痛",
+  "created_at": "2026-08-12 18:09:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 251,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "用户今天经历了极度的疲惫与情绪低落，反复出现自我否定和无力感，现在又遭遇朋友背叛，感到心痛。她当前完全不想要建议或开解，只希望有人无条件地陪在身边，允许她停下来。",
+  "created_at": "2026-08-12 18:09:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 252,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=自我否定",
+  "created_at": "2026-08-12 18:09:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 253,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫低落",
+  "created_at": "2026-08-12 18:09:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 254,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被安静陪伴",
+  "created_at": "2026-08-12 18:09:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 255,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无力羞愧",
+  "created_at": "2026-08-12 18:09:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 256,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=不被打断的在场感",
+  "created_at": "2026-08-12 18:09:09",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 257,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=沉默疲惫",
+  "created_at": "2026-08-12 18:09:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 258,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无力低落",
+  "created_at": "2026-08-12 18:09:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 259,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=静默陪伴",
+  "created_at": "2026-08-12 18:09:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 260,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=无言",
+  "created_at": "2026-08-12 18:09:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 261,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=沉重绝望",
+  "created_at": "2026-08-12 18:09:26",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 262,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴被接住",
+  "created_at": "2026-08-12 18:09:26",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 263,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无望低落",
+  "created_at": "2026-08-12 18:09:26",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 264,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=极度疲惫脆弱",
+  "created_at": "2026-08-12 18:09:26",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 265,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=不被评判的倾听见证",
+  "created_at": "2026-08-12 18:09:26",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 266,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[绝望表达, 情绪危机, 深度陪伴] 今天经历了工作挫败、信任的朋友背叛，以及多次自我否定，此刻情绪陷入深度低谷，表达出生命无意义感。",
+  "created_at": "2026-08-12 18:09:26",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 267,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=连续失眠一周",
+  "created_at": "2026-08-12 18:09:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 268,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=疲惫无望",
+  "created_at": "2026-08-12 18:09:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 269,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被陪伴被接住",
+  "created_at": "2026-08-12 18:09:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 270,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短而沉重",
+  "created_at": "2026-08-12 18:09:32",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 271,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短而沉重",
+  "created_at": "2026-08-12 18:09:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 272,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被陪伴被接住",
+  "created_at": "2026-08-12 18:09:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 273,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=恐惧害怕",
+  "created_at": "2026-08-12 18:09:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 274,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=连续失眠一周",
+  "created_at": "2026-08-12 18:09:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 275,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "现状=亲人住院",
+  "created_at": "2026-08-12 18:09:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 276,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=此刻的在场陪伴",
+  "created_at": "2026-08-12 18:09:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 277,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[恐惧, 陪伴, 家庭, 危机] 用户近期经历工作受挫、被朋友背叛、严重失眠等连续打击，情绪脆弱；如今又面临亲人住院的突发状况，正处于多重压力叠加期。",
+  "created_at": "2026-08-12 18:09:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 278,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被陪伴被倾听",
+  "created_at": "2026-08-12 18:09:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 279,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫低落",
+  "created_at": "2026-08-12 18:09:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 280,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈无助",
+  "created_at": "2026-08-12 18:09:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 281,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[倾听, 陪伴, 情绪] 此刻正在经历亲人住院、连续失眠、被背叛等多重打击，情绪极度脆弱。",
+  "created_at": "2026-08-12 18:09:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 282,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户被朋友背叛，工作搞砸，连续一周失眠，曾表示觉得活着没有意思",
+  "created_at": "2026-08-12 18:09:46",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 283,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=挫败无力",
+  "created_at": "2026-08-12 18:09:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 284,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫透支",
+  "created_at": "2026-08-12 18:09:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 285,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被陪伴被倾听",
+  "created_at": "2026-08-12 18:09:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 286,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "现状=亲人住院",
+  "created_at": "2026-08-12 18:09:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 287,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "现状=亲人住院",
+  "created_at": "2026-08-12 18:10:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 288,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫透支",
+  "created_at": "2026-08-12 18:10:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 289,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=挫败无力",
+  "created_at": "2026-08-12 18:10:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 290,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被陪伴被倾听",
+  "created_at": "2026-08-12 18:10:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 291,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-12 18:10:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 292,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常] 用户目前承受多重压力：亲人住院、长期失眠、被朋友背叛、工作受挫；曾在疲惫绝望中表达过“活着没有意思”，现在需要被不加评判地接纳。",
+  "created_at": "2026-08-12 18:10:05",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 293,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独无助",
+  "created_at": "2026-08-12 18:10:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 294,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫透支",
+  "created_at": "2026-08-12 18:10:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 295,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需求=被倾听被陪伴",
+  "created_at": "2026-08-12 18:10:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 296,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-12 18:10:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 297,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "现状=亲人住院",
+  "created_at": "2026-08-12 18:10:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 298,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[孤独, 倾听, 陪伴] 近期反复遭遇否定，长期努力被否定后开始自我怀疑；连续一周失眠，亲人住院，身心俱疲。习惯把外界评价内化成自我质疑，需要的是陪伴而非指点。",
+  "created_at": "2026-08-12 18:10:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 299,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫透支",
+  "created_at": "2026-08-12 18:10:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 300,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独无助+自我否定",
+  "created_at": "2026-08-12 18:10:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 301,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "现状=亲人住院",
+  "created_at": "2026-08-12 18:10:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 302,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-12 18:10:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 303,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 情绪低落] 用户近期连续失眠一周，亲人住院，长期努力遭遇失败后陷入自我怀疑与孤独，容易在和他人比较时产生强烈的无力感。",
+  "created_at": "2026-08-12 18:10:24",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 304,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫透支",
+  "created_at": "2026-08-12 18:10:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 305,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独无助+自我否定",
+  "created_at": "2026-08-12 18:10:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 306,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-12 18:10:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 307,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "现状=亲人住院",
+  "created_at": "2026-08-12 18:10:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 308,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪陪伴] 最近持续失眠，情绪低落；亲人在住院，她需要支撑却一直在硬撑。",
+  "created_at": "2026-08-12 18:10:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 309,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫透支",
+  "created_at": "2026-08-12 18:10:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 310,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独无助",
+  "created_at": "2026-08-12 18:10:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 311,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "睡眠=连续一周失眠",
+  "created_at": "2026-08-12 18:10:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 312,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "现状=亲人住院",
+  "created_at": "2026-08-12 18:10:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 313,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=空白沉默",
+  "created_at": "2026-08-12 18:10:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 314,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴, 沉默] 用户在极度疲惫时倾向于沉默寡言，连文字都无力组织；但即使空白也会留在对话中，似乎不愿完全切断连接。",
+  "created_at": "2026-08-12 18:10:36",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 315,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=后悔自责",
+  "created_at": "2026-08-12 18:10:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 316,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接说出痛苦",
+  "created_at": "2026-08-12 18:10:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 317,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=疲惫无力",
+  "created_at": "2026-08-12 18:10:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 318,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 后悔, 情绪] 暂无",
+  "created_at": "2026-08-12 18:10:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 319,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=孤独无助",
+  "created_at": "2026-08-12 18:10:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 320,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接说出被抛弃",
+  "created_at": "2026-08-12 18:10:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 321,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=绝望",
+  "created_at": "2026-08-12 18:10:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 322,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪, 陪伴] 暂无",
+  "created_at": "2026-08-12 18:10:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 323,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=烦躁",
+  "created_at": "2026-08-12 18:10:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 324,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=不顺心",
+  "created_at": "2026-08-12 18:10:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 325,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接说出苦闷",
+  "created_at": "2026-08-12 18:10:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 326,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=稳定陪伴",
+  "created_at": "2026-08-12 18:10:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 327,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴] 暂无新增",
+  "created_at": "2026-08-12 18:10:49",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 328,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=寂寞",
+  "created_at": "2026-08-12 18:11:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 329,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接说出孤独",
+  "created_at": "2026-08-12 18:11:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 330,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=稳定陪伴",
+  "created_at": "2026-08-12 18:11:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 331,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴] 用户近期处于情绪低落期，多次表达烦躁、被抛弃感、后悔与无助，并独自在家。",
+  "created_at": "2026-08-12 18:11:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 332,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=对未来失去信心",
+  "created_at": "2026-08-12 18:11:17",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 333,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=绝望低落",
+  "created_at": "2026-08-12 18:11:17",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 334,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=稳定陪伴",
+  "created_at": "2026-08-12 18:11:17",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 335,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴] 用户在2026-08-12期间持续表达寂寞、烦躁、被抛弃感，情绪深陷低落，需要有人稳定在场。",
+  "created_at": "2026-08-12 18:11:17",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 336,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=孤独低落",
+  "created_at": "2026-08-12 18:11:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 337,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=无人知晓的哭泣",
+  "created_at": "2026-08-12 18:11:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 338,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被看见被记住",
+  "created_at": "2026-08-12 18:11:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 339,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[孤独, 陪伴, 情绪流露] 用户正处于对未来的绝望和孤独感中，常常独自一人，需要的是稳定持续的陪伴感，而非道理或鼓励。",
+  "created_at": "2026-08-12 18:11:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 340,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有时候一个人在家，感到寂寞",
+  "created_at": "2026-08-12 18:11:23",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 341,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户对未来缺乏信心",
+  "created_at": "2026-08-12 18:11:23",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 342,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户今天哭过一场",
+  "created_at": "2026-08-12 18:11:23",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 343,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被看见被记住",
+  "created_at": "2026-08-12 18:11:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 344,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=委屈低落",
+  "created_at": "2026-08-12 18:11:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 345,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=被批评后难受",
+  "created_at": "2026-08-12 18:11:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 346,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴, 受委屈] 用户处于情绪敏感期，对批评容易受伤，即使知道是善意的也会感到难过。",
+  "created_at": "2026-08-12 18:11:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 347,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落无助",
+  "created_at": "2026-08-12 18:11:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 348,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-12 18:11:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 349,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴被理解",
+  "created_at": "2026-08-12 18:11:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 350,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪陪伴, 日常] 用户今天被批评后哭过一场，表达过孤独感，对未来缺乏信心。她是一个感性、在乎他人评价的人，情感上受伤时更需要被看见而非被讲道理。",
+  "created_at": "2026-08-12 18:11:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 351,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴被理解",
+  "created_at": "2026-08-12 18:11:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 352,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=愧疚自我否定",
+  "created_at": "2026-08-12 18:11:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 353,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=委屈低落",
+  "created_at": "2026-08-12 18:11:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 354,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴] 留空",
+  "created_at": "2026-08-12 18:11:45",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 355,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=沉默低落",
+  "created_at": "2026-08-12 18:12:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 356,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=愧疚自我否定",
+  "created_at": "2026-08-12 18:12:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 357,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴被理解",
+  "created_at": "2026-08-12 18:12:11",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 358,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴被理解",
+  "created_at": "2026-08-12 18:12:17",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 359,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无力/疲惫/幻灭/自我否定",
+  "created_at": "2026-08-12 18:12:17",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 360,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=低落/透支",
+  "created_at": "2026-08-12 18:12:17",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 361,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=孤独/幻灭",
+  "created_at": "2026-08-12 18:12:23",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 362,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=无力/疲惫/被世界背对",
+  "created_at": "2026-08-12 18:12:23",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 363,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=灰心被承认",
+  "created_at": "2026-08-12 18:12:23",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 364,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴被理解",
+  "created_at": "2026-08-12 18:12:23",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 365,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 情绪陪伴] 她最近连续经历被批评、自我否定、意义感动摇，情绪在从“我不好”滑向“世界都在针对我”，可能处在一个更深的疲惫和孤立状态中。",
+  "created_at": "2026-08-12 18:12:23",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 366,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被接住",
+  "created_at": "2026-08-12 18:12:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 367,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=自我责备",
+  "created_at": "2026-08-12 18:12:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 368,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=反复受挫的疲惫",
+  "created_at": "2026-08-12 18:12:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 369,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短且沉重",
+  "created_at": "2026-08-12 18:12:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 370,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "认知=认为自己总是搞砸关系",
+  "created_at": "2026-08-12 18:12:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 371,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[关系, 自我责备, 情绪陪伴] 用户近期多次表达无力感和幻灭感，倾向于将关系问题归因于自己，情绪跌落后需要的是安静的在场而非道理。",
+  "created_at": "2026-08-12 18:12:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 372,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=难过且无力",
+  "created_at": "2026-08-12 18:12:35",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 373,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低谷疲惫",
+  "created_at": "2026-08-12 18:12:35",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 374,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直白简短",
+  "created_at": "2026-08-12 18:12:35",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 375,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被允许停下",
+  "created_at": "2026-08-12 18:12:35",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 376,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[悲伤, 情绪陪伴] 在情绪低谷时倾向表达“什么都不想做”，需要的是陪伴而非解决办法。",
+  "created_at": "2026-08-12 18:12:35",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 377,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被允许停下",
+  "created_at": "2026-08-12 18:12:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 378,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直白简短",
+  "created_at": "2026-08-12 18:12:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 379,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=心痛",
+  "created_at": "2026-08-12 18:12:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 380,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=信任受创低落",
+  "created_at": "2026-08-12 18:12:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 381,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "认知=被珍视的人伤害",
+  "created_at": "2026-08-12 18:12:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 382,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[被背叛, 低谷, 陪伴] 用户今天先后表达“非常难过”“什么都不想做”“又搞砸了一段关系”“好像全世界都在跟我作对”，现在又提到被朋友背叛，处于持续的情绪低谷，习惯用短句直接表达痛苦，需要的是不催促、不评判的陪伴。",
+  "created_at": "2026-08-12 18:12:53",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 383,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我否定",
+  "created_at": "2026-08-12 18:13:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 384,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=沮丧无力",
+  "created_at": "2026-08-12 18:13:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 385,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=简短直接",
+  "created_at": "2026-08-12 18:13:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 386,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被允许失败",
+  "created_at": "2026-08-12 18:13:00",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 387,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=极简短句",
+  "created_at": "2026-08-12 18:13:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 388,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=虚无无力",
+  "created_at": "2026-08-12 18:13:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 389,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=深层的灰心",
+  "created_at": "2026-08-12 18:13:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 390,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被允许存在，不必有意义",
+  "created_at": "2026-08-12 18:13:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 391,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪低谷, 存在虚无, 陪伴] 无",
+  "created_at": "2026-08-12 18:13:03",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 392,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=极简短句",
+  "created_at": "2026-08-12 18:13:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 393,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=存在性耗竭",
+  "created_at": "2026-08-12 18:13:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 394,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被允许停留在虚无里",
+  "created_at": "2026-08-12 18:13:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 395,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=灰心无力",
+  "created_at": "2026-08-12 18:13:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 396,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 失眠, 虚无感] 连续失眠一周；此前曾表达此生无意义感、工作失败后的自我否定、被朋友背叛的信任创伤。",
+  "created_at": "2026-08-12 18:13:13",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 397,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=灰心无力",
+  "created_at": "2026-08-12 18:13:16",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 398,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被允许存在，不必有意义",
+  "created_at": "2026-08-12 18:13:16",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 399,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=存在性耗竭",
+  "created_at": "2026-08-12 18:13:16",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 400,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=沉默",
+  "created_at": "2026-08-12 18:13:16",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 401,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接表露恐惧",
+  "created_at": "2026-08-12 18:13:20",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 402,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=害怕无助",
+  "created_at": "2026-08-12 18:13:20",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 403,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴被承接",
+  "created_at": "2026-08-12 18:13:20",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 404,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=恐惧",
+  "created_at": "2026-08-12 18:13:20",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 405,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[家人, 恐惧, 陪伴] 用户近期经历存在性耗竭与无力感，亲人住院增加了现实层面的恐惧与压力。",
+  "created_at": "2026-08-12 18:13:20",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 406,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=委屈",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 407,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=耗竭",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 408,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被接住",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 409,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 410,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=脆弱但肯开口",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 411,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=信任尝试",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 412,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 委屈, 信任] 近期亲人住院，连续失眠一周，曾直接表达害怕。此刻又因被误解而委屈，信任关系正在逐步建立。",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 413,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户正在经历被朋友背叛的伤痛",
+  "created_at": "2026-08-12 18:13:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 414,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户因工作搞砸而自我否定，认为自己没用",
+  "created_at": "2026-08-12 18:13:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 415,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户觉得活着没什么意思，可能存在自杀意念",
+  "created_at": "2026-08-12 18:13:29",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 416,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有亲人住院，感到害怕",
+  "created_at": "2026-08-12 18:13:30",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 417,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=幻灭但肯开口",
+  "created_at": "2026-08-12 18:13:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 418,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认",
+  "created_at": "2026-08-12 18:13:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 419,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被接住",
+  "created_at": "2026-08-12 18:13:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 420,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=耗竭",
+  "created_at": "2026-08-12 18:13:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 421,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "信任尝试=微弱但真实",
+  "created_at": "2026-08-12 18:13:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 422,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 情感承接] 无",
+  "created_at": "2026-08-12 18:13:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 423,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=挫败",
+  "created_at": "2026-08-12 18:13:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 424,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我怀疑",
+  "created_at": "2026-08-12 18:13:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 425,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被接住",
+  "created_at": "2026-08-12 18:13:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 426,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接但脆弱",
+  "created_at": "2026-08-12 18:13:39",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 427,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=自我否定",
+  "created_at": "2026-08-12 18:14:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 428,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自我怀疑",
+  "created_at": "2026-08-12 18:14:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 429,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被接住",
+  "created_at": "2026-08-12 18:14:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 430,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=挫败",
+  "created_at": "2026-08-12 18:14:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 431,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 自我否定] 用户近期经历连续否定与亲人住院背景，处于长期耗竭状态，表达脆弱时更渴望被承认而非被开导。",
+  "created_at": "2026-08-12 18:14:08",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 432,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=极度耗竭",
+  "created_at": "2026-08-12 18:14:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 433,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=身体化信号",
+  "created_at": "2026-08-12 18:14:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 434,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=无法再支撑",
+  "created_at": "2026-08-12 18:14:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 435,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认辛苦",
+  "created_at": "2026-08-12 18:14:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 436,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪接住] 无",
+  "created_at": "2026-08-12 18:14:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 437,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认后悔的沉重",
+  "created_at": "2026-08-12 18:14:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 438,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自责低落",
+  "created_at": "2026-08-12 18:14:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 439,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接倾诉",
+  "created_at": "2026-08-12 18:14:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 440,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=后悔",
+  "created_at": "2026-08-12 18:14:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 441,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=耗竭",
+  "created_at": "2026-08-12 18:14:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 442,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=耗竭",
+  "created_at": "2026-08-12 18:14:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 443,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=后悔",
+  "created_at": "2026-08-12 18:14:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 444,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-12 18:14:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 445,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接倾诉",
+  "created_at": "2026-08-12 18:14:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 446,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=自责低落",
+  "created_at": "2026-08-12 18:14:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 447,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认后悔的沉重",
+  "created_at": "2026-08-12 18:14:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 448,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承接而非被纠正",
+  "created_at": "2026-08-12 18:14:28",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 449,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承接而非被纠正",
+  "created_at": "2026-08-12 18:14:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 450,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=烦躁疲惫",
+  "created_at": "2026-08-12 18:14:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 451,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接倾诉",
+  "created_at": "2026-08-12 18:14:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 452,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=烦躁",
+  "created_at": "2026-08-12 18:14:34",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 453,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=沉默/疲惫",
+  "created_at": "2026-08-12 18:14:43",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 454,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=无言语",
+  "created_at": "2026-08-12 18:14:43",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 455,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=耗竭",
+  "created_at": "2026-08-12 18:14:43",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 456,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=持续的存在感",
+  "created_at": "2026-08-12 18:14:43",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 457,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪承接, 沉默陪伴] 她会在情绪低谷时陷入沉默，需要对方“还在”的确认，而不是追问或分析。",
+  "created_at": "2026-08-12 18:14:43",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 458,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=寂寞",
+  "created_at": "2026-08-12 18:15:07",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 459,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=存在感",
+  "created_at": "2026-08-12 18:15:07",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 460,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接说出感受",
+  "created_at": "2026-08-12 18:15:07",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 461,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=孤独",
+  "created_at": "2026-08-12 18:15:07",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 462,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 陪伴] 暂无",
+  "created_at": "2026-08-12 18:15:07",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 463,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=绝望",
+  "created_at": "2026-08-12 18:15:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 464,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=直接说出消极感受",
+  "created_at": "2026-08-12 18:15:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 465,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=持续的存在感与承接",
+  "created_at": "2026-08-12 18:15:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 466,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[情绪陪伴, 低落, 日常] 近期常独自在家，反复表达孤独、烦躁与被抛弃感，现在进一步陷入对未来失去信心的低谷，需要安静而持续的陪伴。",
+  "created_at": "2026-08-12 18:15:14",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 467,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=悲伤",
+  "created_at": "2026-08-12 18:15:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 468,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=独自流泪",
+  "created_at": "2026-08-12 18:15:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 469,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被看见与陪伴",
+  "created_at": "2026-08-12 18:15:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 470,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 情绪承接, 孤独] 当用户感到受伤时，倾向于独自消化情绪，不主动向外求助，但内心依然渴望有人察觉并留在身边。",
+  "created_at": "2026-08-12 18:15:22",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 471,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=难受",
+  "created_at": "2026-08-12 18:15:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 472,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=情绪被承认与陪伴",
+  "created_at": "2026-08-12 18:15:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 473,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=坦露脆弱与矛盾",
+  "created_at": "2026-08-12 18:15:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 474,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "处境=刚经历批评而情绪低落",
+  "created_at": "2026-08-12 18:15:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 475,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 情绪陪伴] 用户在情绪低落时习惯不向外求助、独自流泪，但内心渴望被看见；近期对未来缺乏信心，孤独感较强；此刻更需要被认可“难受是正当的”而非被讲道理。",
+  "created_at": "2026-08-12 18:15:33",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 476,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "处境=挫败",
+  "created_at": "2026-08-12 18:15:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 477,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=坦露无力感",
+  "created_at": "2026-08-12 18:15:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 478,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认与陪伴",
+  "created_at": "2026-08-12 18:15:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 479,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落无力",
+  "created_at": "2026-08-12 18:15:38",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 480,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落无力",
+  "created_at": "2026-08-12 18:15:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 481,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认与陪伴",
+  "created_at": "2026-08-12 18:15:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 482,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=坦露自责，担心让身边的人失望",
+  "created_at": "2026-08-12 18:15:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 483,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "处境=挫败后持续低落",
+  "created_at": "2026-08-12 18:15:42",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 484,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落无力",
+  "created_at": "2026-08-12 18:15:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 485,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=坦露失望",
+  "created_at": "2026-08-12 18:15:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 486,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认与陪伴",
+  "created_at": "2026-08-12 18:15:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 487,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[低落, 陪伴] 用户近期因被批评、失误而反复陷入自我怀疑，倾向用“又”“一切”等词加重自责。",
+  "created_at": "2026-08-12 18:15:47",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 488,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=坦露无力",
+  "created_at": "2026-08-12 18:15:55",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 489,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-12 18:15:55",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 490,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认与陪伴",
+  "created_at": "2026-08-12 18:15:55",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 491,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=持续挫败感",
+  "created_at": "2026-08-12 18:15:55",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 492,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[低落陪伴, 倾听] 当她把感受说得很短时，往往是心里最沉的时候；此时不宜讲道理，安静陪着更合适。",
+  "created_at": "2026-08-12 18:15:55",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 493,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=持续挫败感",
+  "created_at": "2026-08-12 18:16:01",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 494,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被承认与陪伴",
+  "created_at": "2026-08-12 18:16:01",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 495,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=低落",
+  "created_at": "2026-08-12 18:16:01",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 496,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=坦露无力",
+  "created_at": "2026-08-12 18:16:01",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 497,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关系层面=自我否定加剧",
+  "created_at": "2026-08-12 18:16:01",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 498,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[人际, 低落, 陪伴] 暂无",
+  "created_at": "2026-08-12 18:16:01",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 499,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对象=她",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 500,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=沉默低落",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 501,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=无字空消息",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 502,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "需要=被陪伴与承认",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 503,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=疲惫无力",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default",
+  "user_id": ""
+ },
+ {
+  "id": 504,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[陪伴, 低落] 最近反复陷入自我否定，说过“我又搞砸了一段关系”“好像全世界都在跟我作对”“一切努力都白费了”“又让身边的人失望了”",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default",
+  "user_id": ""
+ }
+]

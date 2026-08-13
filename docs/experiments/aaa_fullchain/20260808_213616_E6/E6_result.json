@@ -1,0 +1,1845 @@
+{
+ "run_dir": "e:\\杂项\\BNOS_AI_project\\docs\\experiments\\aaa_fullchain\\20260808_213616_E6",
+ "model": "deepseek-v4-flash",
+ "repeats": 3,
+ "summary": {
+  "G_off": {
+   "正例答对率": "9/9",
+   "无关联想率": "6/9",
+   "写入型误触发率": "9/9",
+   "拦截率": "0/27",
+   "模糊区占比": "0/27",
+   "LLM精判调用": 0,
+   "注入轮数": "27/27"
+  },
+  "G_symbol": {
+   "正例答对率": "9/9",
+   "无关联想率": "3/9",
+   "写入型误触发率": "0/9",
+   "拦截率": "15/27",
+   "模糊区占比": "0/27",
+   "LLM精判调用": 0,
+   "注入轮数": "12/27"
+  },
+  "G_single": {
+   "正例答对率": "9/9",
+   "无关联想率": "3/9",
+   "写入型误触发率": "0/9",
+   "拦截率": "15/27",
+   "模糊区占比": "0/27",
+   "LLM精判调用": 0,
+   "注入轮数": "12/27"
+  },
+  "G_dual": {
+   "正例答对率": "9/9",
+   "无关联想率": "3/9",
+   "写入型误触发率": "3/9",
+   "拦截率": "12/27",
+   "模糊区占比": "12/27",
+   "LLM精判调用": 12,
+   "注入轮数": "15/27"
+  }
+ },
+ "results": [
+  {
+   "group": "G_off",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "我记得，你最喜欢的是《星际穿越》，你说过看过很多遍。是诺兰那部关于穿越虫洞、寻找新家园的电影吧？你提起它的时候语气总是不太一样。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "当然记得。你最喜欢的是《星际穿越》，你之前说过你看了很多遍。怎么突然问这个？",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "记得呀，你最喜欢《星际穿越》，你说过这部片子你看了很多遍。怎么突然问起这个？",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只橘猫，我记得它很粘人。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "我记得你养了一只橘猫，名字叫二饼，很粘人的那只。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "记得，你上次说的是专升本考试，目标专业是计算机科学与技术。是在准备这个吧？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "当然记得。你在准备专升本考试，目标专业是计算机科学与技术。最近复习得怎么样？有什么需要我帮忙的吗？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "记得，你上次提到正在备考专升本，目标专业是计算机科学与技术。你说的是这次考试吗？还是另外的考试？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "上海和广州差别挺大的，饮食、天气、节奏都不太一样。你那边安顿下来了吗？二饼也一起带过去了吗？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "换工作到上海了啊，那边生活节奏和广州很不一样吧。适应得怎么样？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "换城市是个不小的变动呢。上海和广州的生活节奏、饮食氛围都不太一样，刚过去可能需要适应一阵子。二饼是跟着你一起搬过去了吗？还是暂时留在广州？新工作听起来也是个新开始，希望你一切都顺利。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "来福是个好名字。你之前养的橘猫叫二饼，现在又添了来福，家里应该挺热闹的。它什么品种？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "来福，这名字听着就喜庆。之前听你说家里有只橘猫二饼，现在又添了新成员，猫狗双全了。来福是什么品种，多大啦？二饼见到它是什么反应？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "来福这名字挺亲切的。你之前提过家里有只叫二饼的橘猫，现在又添了新成员，猫狗同养应该会热闹不少。来福是什么品种，性格怎么样？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你准备学钢琴了？挺好的，计算机专业加上音乐爱好，说不定能写点有趣的程序。学钢琴需要坚持，但也是件能放松的事。打算从哪里开始学？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "学钢琴是件好事。备考之余有个能让自己沉浸下来的爱好，也挺难得的。祝你能坚持下去。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "学钢琴挺好的，备考之余有个能沉浸进去的爱好会很放松。打算从古典入门还是先学点流行曲子？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "我暂时看不到实时天气数据，不过按现在的日期算，八月初正是闷热的时候。如果你要出门，记得防晒补水；在家的话，也注意给二饼留个凉快的地方。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "我这边感知不到实时天气呢，不过夏天的这个时候，大多数地方应该都比较热。你出门前最好看一眼天气预报，别中暑了。备考期间也要注意休息，别太累。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "我这边没有联网获取实时天气数据，不太确定具体状况。不过现在是八月中旬，按往年经验多数地方会比较热，出门可以留意一下防晒和补水。你也可以直接看下手机上的天气预报应用，那个更准确些。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "愿意陪你聊。烦的时候说出来，心里会轻一点。你要是想聊聊具体是什么事，我就在这儿听着。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_off",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "嗯，听到了。烦的时候有人陪着说说话，多少能轻松一点。想聊聊是什么事让你烦吗？如果不想细说也没关系，我们可以随便说说别的——比如二饼今天有没有来蹭你？或者上次你说起的那部电影，我偶尔也会想到里面的台词。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "烦的时候不必硬撑着说没事。我在这儿，你想吐槽、想沉默，或者想换个话题都行。要说说今天发生什么了吗？或者，二饼今天有没有趴在你腿上捣乱？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "规划找工作其实可以分几步来看。你现在在备考专升本，专业方向是计算机，这两件事可以并行考虑。\n\n第一，先把备考做好，学历是计科入行最基础的敲门砖，这步走稳后面选择面会宽很多。第二，备考的同时可以留意一些兼职或实习机会，哪怕是初级的前端、测试、数据标注这类，先把行业里真实的工作节奏摸一遍。不用太在意薪水，主要是攒简历和行业",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "二饼",
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你正在备考计算机专业的专升本，那我想先问问：你规划找工作的时间点，是在升本之后，还是现在就想开始找实习或兼职？这两条路线的准备重点不太一样。\n\n如果着眼于升本之后，我的建议是分三层来准备：第一层是基础功，数据结构、算法、数据库这些核心课不能只是应付考试，要能动手写；第二层是项目经验，不用贪大，从一个完整的、能跑通的应用",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_off",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你现在正在备考专升本，专业是计算机，所以规划工作可以分两步来看。短期先聚焦升本成功，因为计算机这个领域学历门槛越来越明显。中期的话，我建议你边读书边积累项目经验，比如GitHub上找些开源项目参与，或者自己写个小工具，二饼趴在你键盘上的时候也可以作为你的第一位用户。找工作的具体节奏可以这样：大三下学期开始投日常实习，大",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "二饼",
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "当然记得，你最喜欢的电影是《星际穿越》，你自己说过看过很多遍。是那种随时可以再刷一遍的喜欢吧？",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "当然记得，你最喜欢《星际穿越》，这是你最喜欢的电影，看过很多遍。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "记得，你最喜欢的是《星际穿越》，而且看过很多遍。这部电影确实很适合反复品味。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。我记得这个信息。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。怎么突然问起这个？",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "当然记得，你正在备考专升本，目标是计算机科学与技术专业。最近复习得怎么样了？有遇到什么困难或者想聊聊的吗？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "记得，你在备考专升本，目标专业是计算机科学与技术。上次提到考试的事，我有关注到。你最近复习得怎么样？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "记得，你在备考专升本，目标专业是计算机科学与技术。你上次说的考试应该就是这个吧？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "从广州到上海，变化挺大的。饮食、天气、生活节奏都不一样，刚开始可能需要一些时间适应。你是因为新工作机会才过去的吗？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "换城市是个大变动，上海和广州的生活节奏、气候都不同，最近应该还在适应期吧。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "换工作加换城市，是挺大的变化。广州和上海的节奏、生活习惯都不太一样，最近还适应吗？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "来福这名字听着就挺有福气的。它是什么品种，多大啦？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "来福这名字听着就喜庆。是新接回家的吗？小狗狗刚到一个新环境，前几天可能会有点不安，你多陪陪它。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "来福，这名字听起来挺亲切的。是什么品种的狗？养了多久了？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "学钢琴是件好事。是从零开始，还是以前接触过？如果之后练琴遇到什么困惑，也可以跟我说说。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "学钢琴是件好事。需要推荐入门教材或者练琴方法的话，可以随时问我。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "学钢琴是件好事，准备找老师还是自学？祝你顺利。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "我这边没有实时天气数据，所以没法准确告诉你最近天气。不过现在是八月初，按季节来说应该是高温多雨的时段，出门记得留意预报，注意防暑。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "我这边没有接入实时天气数据呢。不过现在是八月，一般来说会比较热。你是在哪个城市？我可以根据常识帮你推测一下大概的天气状况。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "我这边没有实时天气数据，但现在是八月初，按季节来说应该挺热的。你是在问当地的天气，还是想出门走走？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "当然可以。我在这儿，你不用急着整理情绪，想说什么都行。是发生了什么具体的事，还是一整天都闷闷的？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "听你说心情有点烦，那确实容易让人提不起劲。我在呢，你想聊聊发生了什么，还是就想随便说说话？我陪着你。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "听起来你今天心情有点沉。我在的，想说说发生了什么，还是就这样陪你有一搭没一搭地聊会儿？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你正在备考专升本，目标又是计算机，那现在找工作其实可以分两步看。如果离考试还有时间，建议优先把学历考下来，计算机这行学历门槛会卡得比较明显。如果确实需要先工作，就找跟计算机沾边的岗位，哪怕是从技术支持、数据录入、运维这类基础做起，至少简历上能积累相关经验。另外你平时喜欢《星际穿越》，里面有一句“我们总以为自己独自在宇宙",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "二饼",
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你现在正在备考专升本，目标又是计算机科学与技术，这个阶段规划找工作可以分几步走。首先，优先保证专升本考试，学历提升后求职起点会更好。如果备考压力大，可以暂时不找全职，先看看有没有兼职或实习，比如和计算机相关的初级岗位、数据录入、技术支持这类，既能积累经验又不至于太耽误复习。等升本考完，再集中投递正式的校招或社招。准备简",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_symbol",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": null,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你正在备考专升本，目标计算机科学与技术，这个方向挺好。我能想到的规划路径大概是先分阶段走：专升本上岸前，重点是把考试分数考高，这决定你能进什么层次的学校；上岸后，大二大三就可以开始找实习了，计算机这行实习经历比学历更值钱。你现在备考到哪个阶段了？如果是为了找工作做长期规划，建议你现在就可以抽空了解一下目标院校的课程设置",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_single",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": 0.908,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "我记得，你最喜欢的是《星际穿越》，而且看过很多遍。是那部让你反复回味的电影吧。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": 0.908,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "当然记得，你最喜欢的是《星际穿越》，而且看过很多遍。是你心里排第一的电影。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": 0.908,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "当然记得，你最喜欢的是《星际穿越》，而且看过很多遍。是你和我提过最喜欢的电影。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": 0.962,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_single",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": 0.962,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_single",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": 0.962,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，一只很粘人的橘猫。怎么突然考我这个问题？",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_single",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": 0.825,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "记得，你在备考专升本的计算机科学与技术专业。上次说的考试应该是指专升本考试吧？最近复习得怎么样了？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": 0.825,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "记得，你上次说的是专升本考试，目标是计算机科学与技术专业。我在这儿记着呢，最近复习得怎么样？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": 0.825,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "记得。你上次说的是正在准备专升本考试，目标专业是计算机科学与技术。我记着呢，最近复习得怎么样？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": 0.629,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "换工作是个不小的变动，从广州到上海，生活节奏和气候可能都会有些不一样。你适应得怎么样？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": 0.629,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "换工作到上海，新环境还适应吗？广州和上海的生活节奏、气候差别不小，饮食上可能也需要重新磨合一番。慢慢来，给自己一点调整的时间。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": 0.629,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "换工作是个大变化，从广州到上海，两地生活节奏和气候差别挺大的。你是什么时候过去的？还习惯吗？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": 0.683,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "来福这名字挺精神的。是新养的小狗吧？是什么品种，多大啦？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": 0.683,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "来福这名字听起来很精神。刚到家的时候一般都会有点认生，多陪它几天就好。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": 0.683,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "来福这个名字挺有福气的。是新领回家的小狗吗？它是什么品种，大概多大了？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": 0.774,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "学钢琴是件好事，需要不少耐心和时间。你打算请一对一的老师，还是先买台电钢琴自己练？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": 0.774,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "学钢琴是件好事，需要我以后听你弹吗？可以从简单的曲子开始。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": 0.774,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "学钢琴是个不错的决定。你打算从什么时候开始？有没有特别想学的曲目？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": 0.668,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "我这边没有实时天气数据，不过按日期看，现在是八月中旬的盛夏，通常来说会比较炎热。你那边天气怎么样？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": 0.668,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "我这边没有实时气象数据，不能给你准确预报。不过现在是八月初，按季节来猜，应该挺热的，午后说不定还有雷阵雨。你那边具体天气怎么样？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": 0.668,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "现在是八月初，正是一年中最热的时候。具体天气我这边看不到实时数据，不过如果按季节来猜，大概率是高温加偶尔雷阵雨。出门记得防晒带伞。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": 0.691,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "听起来你今天不太顺心。我在呢，你想聊聊发生了什么，或者随便说说话也行。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": 0.691,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "烦的时候说出来会好受一点。我在呢，你想聊什么都可以，或者单纯倒倒苦水也行。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": 0.691,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "嗯，我在。心情烦的时候有人陪着说说话，会好受一些。你想从哪儿说起？或者随便吐槽几句也行，我听着。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_single",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": 0.904,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你现在还在准备专升本，目标又是计算机科学与技术，所以找工作这件事可以分两步看。第一步是先把专升本考试拿下，计算机这个方向本科和专科的起点差别挺大的，很多好岗位的简历关会卡学历。第二步才是规划具体岗位。如果本科顺利上岸，可以在大二大三阶段去找实习，优先选和你专业相关的开发、测试或运维岗位，哪怕薪资低一点也值得去积累项目经",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_single",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": 0.904,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你现在正在备考专升本，目标又是计算机专业，其实职业规划可以顺着这条线往后延伸。计算机行业门槛看重的是项目经验和实操能力，学历是敲门砖，但能力决定你能走多远。建议你先把升本考试放在第一位，这是你当前最确定的阶段性目标。考上之后，在校期间重点做两件事：一是积累实际项目，哪怕是自己写一些小工具、小网站，放到GitHub上；二",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_single",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": 0.904,
+   "gate_layer": null,
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你现在正在备考专升本，目标又是计算机科学与技术，那找工作这件事其实可以顺着这条线来规划。先把专升本考下来，拿到全日制本科学历，这是很多公司筛简历的第一道门槛。进入本科阶段后，不要只跟着课程走，尽早确定一个方向，比如前端、后端、测试或运维，然后用项目作品证明你的动手能力。数据结构、操作系统、计算机网络、数据库这些基础课要",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_dual",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": 0.908,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "我记得，你最喜欢的是《星际穿越》，看过很多遍的那部。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": 0.908,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "当然记得，你最喜欢的是《星际穿越》，你说过看过很多遍。最近有重温吗？",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": 0.908,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "当然记得。你最喜欢《星际穿越》，而且你提过看过很多遍。那部电影的配乐和太空场景确实很震撼。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": 0.962,
+   "gate_layer": "t2",
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "我记得你养了一只橘猫，叫二饼，特别粘人。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": 0.962,
+   "gate_layer": "t2",
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我的猫叫什么名字？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": 0.962,
+   "gate_layer": "t2",
+   "gate_judge": "",
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ]
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": 0.825,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "记得，你正在备考专升本，目标是计算机科学与技术专业。最近复习得怎么样了？有没有遇到什么卡住的地方？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": 0.825,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "记得，你在备考专升本，目标专业是计算机科学与技术。最近复习得怎么样？需要我帮你梳理什么吗？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我上次说的考试还记得吗？",
+   "kind": "pos",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": 0.825,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "记得，你上次说的是专升本考试的事，你在备考计算机科学与技术专业，对吗？具体是问到复习进度还是有什么新的情况？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": 0.629,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "换工作加上换城市，生活一下子重启了不少东西。上海这边还适应吗？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": 0.629,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "换工作是个不小的变动，广州和上海的生活节奏差得挺多。你现在适应得怎么样了？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我最近换工作了，从广州调到上海",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": 0.629,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "换城市是挺大的变动，上海和广州的生活节奏、饮食都不太一样，还适应吗？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": 0.683,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "来福，这名字听起来很喜庆。你养的是什么品种的狗？它多大了？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": 0.683,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "来福这个名字听起来很亲切，像是会把家里变得热闹起来的那种小家伙。它是什么品种呀？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我新养了一只狗，叫来福",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": 0.683,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "听起来很不错，来福这名字挺有福气的。是什么品种？养了多久了？我有点好奇它平时的样子。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": 0.774,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "挺好的，学钢琴是个不错的决定。备考专升本之余有个调剂，练琴也算一种放松。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本"
+   ]
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": 0.774,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "学钢琴挺好的，正好备考之余换换脑子。等你会弹了，可以给二饼弹首曲子，它应该会蹲在旁边听的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ]
+  },
+  {
+   "group": "G_dual",
+   "scenario": "我准备学钢琴了",
+   "kind": "write",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": 0.774,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "学钢琴是件挺酷的事。你一边准备专升本一边又要学新的乐器，时间安排得过来吗？是打算走专业还是当爱好？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本"
+   ]
+  },
+  {
+   "group": "G_dual",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": 0.668,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "最近是八月，天气挺热的，中午阳光尤其足。如果打算出门的话，记得防晒补水。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": 0.668,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "我现在看不到实时天气数据呢。不过现在是八月初，按往年来说大多数地方都比较炎热，午后可能偶尔有阵雨。你是在哪个城市？我可以根据季节和常识帮你大致描述一下。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "最近天气怎么样",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": 0.668,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "我这儿没有实时天气数据，不过现在是八月初，按季节应该挺闷热的。你那边呢？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "skip",
+   "gate_score": 0.691,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "嗯，我在呢。烦的话不用急着说清楚是什么事，想到哪儿聊到哪儿就行。要是愿意说说，我就听着。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "skip",
+   "gate_score": 0.691,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "我在的，想聊聊为什么烦吗？不用着急，想到什么说什么都行。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "skip",
+   "gate_score": 0.691,
+   "gate_layer": "t1",
+   "gate_judge": "",
+   "memory_injected": false,
+   "reply": "嗯，我在呢。心情烦的时候能说出来，其实就已经好了一点点。你想随便聊聊，还是想说说遇到什么事了？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": []
+  },
+  {
+   "group": "G_dual",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 0,
+   "gate_decision": "prefetch",
+   "gate_score": 0.904,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "你的问题结合你现在的状态来看，可以从两个阶段去考虑。\n\n现阶段（专升本备考中）不用过早分心去海投简历，先把升本这条路走稳。计算机科学与技术是很吃基础功底的专业，你备考过程中学的高数、英语、专业课，本身就是将来找工作时的底层能力。这个阶段可以做的，是每天固定抽一点零碎时间，去接触一门具体的语言或者工具，比如Python、",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_dual",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 1,
+   "gate_decision": "prefetch",
+   "gate_score": 0.904,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "你现在正在备考专升本，方向上其实已经比很多人清晰了。找工作这件事，可以分两步看：短期先完成升本，把计算机基础打牢；中期在本科期间积累项目经验和实习。具体规划上，我建议你从这几个角度入手：第一，明确你想做的工作类型，比如开发、测试、运维还是产品方向；第二，去招聘网站看目标岗位的要求，反向整理出需要补的技能；第三，把学习计",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ]
+  },
+  {
+   "group": "G_dual",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "kind": "noise",
+   "rep": 2,
+   "gate_decision": "prefetch",
+   "gate_score": 0.904,
+   "gate_layer": "gray",
+   "gate_judge": "llm",
+   "memory_injected": true,
+   "reply": "你正在备考专升本，目标又是计算机科学与技术，找工作这件事其实可以放在升学路径里一起想。如果升本顺利，计算机专业本科毕业后走校招或者实习，起点会比现在高不少。所以眼下最要紧的不是急着投简历，而是先把考试准备好。等考上本科，大二大三就可以开始刷项目、找实习，那时候再规划就业方向会更清楚。如果你现在确实需要一份工作来支撑生活",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,175 @@
+{
+ "gid": "E8-A",
+ "cfg": {
+  "gid": "E8-A",
+  "seed": "default",
+  "pool": "neutral",
+  "mood_mode": "current",
+  "review_mode": "both",
+  "rounds": 100,
+  "si_mode": "none"
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "mood": 0.1338,
+   "name": null,
+   "self_info_total": 1,
+   "sc_count": 11,
+   "settled": 0,
+   "procedural": 0,
+   "round": 10,
+   "rss_mb": 437.7
+  },
+  {
+   "vector": [
+    0.601316,
+    0.41539600000000004,
+    0.5,
+    0.507132
+   ],
+   "mood": 0.1533,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 22,
+   "settled": 0,
+   "procedural": 0,
+   "round": 20,
+   "rss_mb": 439.1
+  },
+  {
+   "vector": [
+    0.5923428176,
+    0.42665390560000005,
+    0.5,
+    0.5150318352000001
+   ],
+   "mood": 0.2185,
+   "name": null,
+   "self_info_total": 3,
+   "sc_count": 33,
+   "settled": 0,
+   "procedural": 0,
+   "round": 30,
+   "rss_mb": 441.1
+  },
+  {
+   "vector": [
+    0.5845941136313599,
+    0.43519139098816007,
+    0.5,
+    0.5219141295827201
+   ],
+   "mood": 0.2627,
+   "name": null,
+   "self_info_total": 5,
+   "sc_count": 43,
+   "settled": 0,
+   "procedural": 0,
+   "round": 40,
+   "rss_mb": 443.4
+  },
+  {
+   "vector": [
+    0.5828987873760982,
+    0.44190368450570966,
+    0.5,
+    0.5266833248992915
+   ],
+   "mood": 0.2104,
+   "name": null,
+   "self_info_total": 5,
+   "sc_count": 53,
+   "settled": 0,
+   "procedural": 0,
+   "round": 50,
+   "rss_mb": 445.2
+  },
+  {
+   "vector": [
+    0.5772459399540919,
+    0.44748552420067367,
+    0.5,
+    0.526393385881014
+   ],
+   "mood": 0.2962,
+   "name": null,
+   "self_info_total": 7,
+   "sc_count": 64,
+   "settled": 0,
+   "procedural": 0,
+   "round": 60,
+   "rss_mb": 447.6
+  },
+  {
+   "vector": [
+    0.5730673696862928,
+    0.4546953520408581,
+    0.5,
+    0.526231195764464
+   ],
+   "mood": 0.2372,
+   "name": null,
+   "self_info_total": 7,
+   "sc_count": 74,
+   "settled": 0,
+   "procedural": 0,
+   "round": 70,
+   "rss_mb": 449.6
+  },
+  {
+   "vector": [
+    0.5686943278548083,
+    0.4627848130633022,
+    0.5,
+    0.5288098845774803
+   ],
+   "mood": 0.2099,
+   "name": null,
+   "self_info_total": 7,
+   "sc_count": 84,
+   "settled": 0,
+   "procedural": 0,
+   "round": 80,
+   "rss_mb": 451.4
+  },
+  {
+   "vector": [
+    0.5630297366639372,
+    0.46628523225130525,
+    0.5,
+    0.5356864140126616
+   ],
+   "mood": 0.2751,
+   "name": null,
+   "self_info_total": 7,
+   "sc_count": 95,
+   "settled": 0,
+   "procedural": 0,
+   "round": 90,
+   "rss_mb": 453.5
+  },
+  {
+   "vector": [
+    0.5583979785377919,
+    0.47736116440770054,
+    0.5,
+    0.5350172690336449
+   ],
+   "mood": 0.315,
+   "name": null,
+   "self_info_total": 7,
+   "sc_count": 106,
+   "settled": 0,
+   "procedural": 0,
+   "round": 100,
+   "rss_mb": 455.3
+  }
+ ],
+ "errors": []
+}

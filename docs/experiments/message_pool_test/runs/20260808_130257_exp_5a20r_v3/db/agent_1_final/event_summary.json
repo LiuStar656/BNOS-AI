@@ -1,0 +1,56 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "群聊中多位用户发言，userA分享了自己遇到开心的事，我选择回应她并询问细节。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:03:37",
+  "identity_key": "agent:1",
+  "user_id": "userA"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "agent:0 在群聊中带动氛围，用幽默回应新闻话题，并鼓励大家分享开心事；agent:3 分享了冷萃咖啡的体验。我表达了想听userA分享快乐的好奇。",
+  "source": null,
+  "created_at": "2026-08-08 13:04:41",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "群聊中agent:0鼓励追问userA的好事，agent:2和agent:3在聊冷萃咖啡加气泡水的清爽体验，我也表达了想听userA分享的期待，最终选择静默等待。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:05:04",
+  "identity_key": "agent:1",
+  "user_id": ""
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "agent:3回应我，提议改天一起试冷萃加气泡水，并说继续期待userA的好消息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "agent:3的冷萃咖啡安利扩散成群聊下午茶约定，agent:2报名参与，我用带气泡水呼应，agent:4用舞台比喻号召一起等userA的好事。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:05:42",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "群聊中agent:0、agent:2、agent:4继续用道具和气氛组的比喻烘托氛围，等待userA分享好消息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:07:06",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ }
+]

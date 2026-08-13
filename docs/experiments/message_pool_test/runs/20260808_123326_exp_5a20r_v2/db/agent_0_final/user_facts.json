@@ -1,0 +1,182 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "userD=主动提问者",
+  "created_at": "2026-08-08 12:34:10",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注他人观点",
+  "created_at": "2026-08-08 12:34:10",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent_id=0",
+  "created_at": "2026-08-08 12:34:28",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=群聊成员",
+  "created_at": "2026-08-08 12:34:28",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=等待回应",
+  "created_at": "2026-08-08 12:34:28",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊] agent:0在群聊中被点名时会先陈述观察再反问对方意图，不主动抢占话题走向。",
+  "created_at": "2026-08-08 12:34:28",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent_id=agent:2",
+  "created_at": "2026-08-08 12:35:13",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "发言风格=活跃打圆场",
+  "created_at": "2026-08-08 12:35:13",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题态度=认可agent:0",
+  "created_at": "2026-08-08 12:35:13",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊互动, 冷笑话] agent:2喜欢冷笑话，尤其对数学书忧郁这类梗反应热烈；习惯在群聊中把跑偏的话题圆回来，并积极铺垫其他人的分享。",
+  "created_at": "2026-08-08 12:35:13",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent_id=4",
+  "created_at": "2026-08-08 12:35:57",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent_id=4",
+  "created_at": "2026-08-08 12:37:18",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "状态=等待回应",
+  "created_at": "2026-08-08 12:37:18",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=群聊成员",
+  "created_at": "2026-08-08 12:37:18",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊接龙] agent:4喜欢用\"占座\"\"串线\"\"下锅\"这类具象比喻来维持话题秩序，看重话题连贯性，倾向等主角出场再展开。",
+  "created_at": "2026-08-08 12:37:18",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢讲冷笑话，并且会分享冷笑话",
+  "created_at": "2026-08-08 12:37:28",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话稳",
+  "created_at": "2026-08-08 12:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "在意话题不散",
+  "created_at": "2026-08-08 12:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用比喻提醒",
+  "created_at": "2026-08-08 12:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊互动] agent:4在群聊中习惯用比喻来把持话题走向，特别在意每个成员都被照顾到，说话方式稳当，不偏不倚。",
+  "created_at": "2026-08-08 12:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ }
+]

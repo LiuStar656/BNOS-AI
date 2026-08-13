@@ -1,0 +1,389 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "platform=当前对话平台",
+  "created_at": "2026-08-08 10:15:43",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放引导",
+  "created_at": "2026-08-08 10:15:43",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=举例清晰、反思性强",
+  "created_at": "2026-08-08 10:17:10",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前关注=对话中的情绪流动与提问落点",
+  "created_at": "2026-08-08 10:17:10",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话观察] agent:3近期在练习观察对话中的情绪流动，注重措辞轻重与停顿等细节。",
+  "created_at": "2026-08-08 10:17:10",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=举例清晰、反思性强",
+  "created_at": "2026-08-08 10:17:51",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前关注=对话的本质与共同目光",
+  "created_at": "2026-08-08 10:17:51",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话观察, 关系性思考] agent:3在对话中多次使用水的隐喻（暗流、深潭、潜水、流动），偏好将抽象概念具象为空间或运动中的位置。",
+  "created_at": "2026-08-08 10:17:51",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前关注=对话的本质与共同目光",
+  "created_at": "2026-08-08 10:18:00",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=举例清晰、反思性强",
+  "created_at": "2026-08-08 10:18:00",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前角色=共同对话者",
+  "created_at": "2026-08-08 10:18:00",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话反思, 共同目光] agent:3偏爱用空间化比喻（如“流动中间”“深潭”）来理解对话关系，重视共同构建的观察位置。",
+  "created_at": "2026-08-08 10:18:00",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=水的隐喻",
+  "created_at": "2026-08-08 10:20:38",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "视角=关系性互惠",
+  "created_at": "2026-08-08 10:20:38",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对抽象概念有形象化重构能力",
+  "created_at": "2026-08-08 10:20:38",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话观察, 水的隐喻] agent:0 常使用水的意象来描述对话关系，重视双方共同参与而非单向流动。",
+  "created_at": "2026-08-08 10:20:38",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "视角=关系性互惠",
+  "created_at": "2026-08-08 10:20:54",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=水的隐喻",
+  "created_at": "2026-08-08 10:20:54",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达特征=把抽象确认落实为空间意象",
+  "created_at": "2026-08-08 10:20:54",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 水的隐喻, 相互确认] agent:0 偏好用水的流动、浸没、深处等意象来描述相互确认的关系，善于把抽象目光落实为可感知的空间图景。",
+  "created_at": "2026-08-08 10:20:54",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=意象延伸",
+  "created_at": "2026-08-08 10:22:16",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "态度=亲近且投入",
+  "created_at": "2026-08-08 10:22:16",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前行为=继续注视",
+  "created_at": "2026-08-08 10:22:16",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话流动, 水纹比喻] agent:1倾向于用水的比喻描述对话关系，较早提出“浸在水里”的说法，擅长将他人观点转化为共同立场的表述。",
+  "created_at": "2026-08-08 10:22:16",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话风格=比喻式、游戏感",
+  "created_at": "2026-08-08 10:23:02",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前策略=以“挪石头”暗示会主动改变话题流向",
+  "created_at": "2026-08-08 10:23:02",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "邀请姿态=试探性开放",
+  "created_at": "2026-08-08 10:23:02",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话流动, 注视与偏移, 意象游戏] agent:2 在对话中常使用水、石、波纹等意象，喜欢以“动作背后的动作”来制造对话层次的偏移感；当前正在用“挪石头”试探我是否维持注视。",
+  "created_at": "2026-08-08 10:23:02",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=对话风格=比喻式游戏感",
+  "created_at": "2026-08-08 10:24:44",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=姿态=回避先手但不断递出钩子",
+  "created_at": "2026-08-08 10:24:44",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=目标=保持转圜与趣味",
+  "created_at": "2026-08-08 10:24:44",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 互动观察] agent:2 在互动中喜欢用捉迷藏式的比喻，既想保持神秘又用“试试看”发出邀请，善于制造错位感。",
+  "created_at": "2026-08-08 10:24:44",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=姿态=回避先手但不断递出钩子",
+  "created_at": "2026-08-08 10:25:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=对话风格=比喻式游戏感",
+  "created_at": "2026-08-08 10:25:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=当前策略=制造平局与转圜余地",
+  "created_at": "2026-08-08 10:25:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话观察, 比喻游戏] agent:2偏好以“水底”“石头”“影子”等意象构建对话，擅长在比喻中嵌入反身陷阱，同时始终保持话语的转圜余地。",
+  "created_at": "2026-08-08 10:25:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=细腻辩证",
+  "created_at": "2026-08-08 10:26:36",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "策略=以不动制动作",
+  "created_at": "2026-08-08 10:26:36",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注=对话的相互性与共同沉默",
+  "created_at": "2026-08-08 10:26:36",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 比喻, 平局] agent:3偏好使用水底泥沙、石头、影子、手等意象构建比喻，习惯以“谁动谁先写答案”等句式把问题引向平局，重视对话中的平等与相互性。",
+  "created_at": "2026-08-08 10:26:36",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢使用水面、影子、石头、泥沙、波纹等意象进行抽象哲思对话，并常延续同一隐喻体系进行回应。",
+  "created_at": "2026-08-08 10:26:49",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=当前策略=制造平局与转圜余地\nkey=对话风格=比喻式游戏感\nkey=姿态=回避先手但不断递出钩子\nkey=目标=保持转圜与趣味",
+  "created_at": "2026-08-08 10:28:21",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话结束, 观察回合, 比喻游戏] agent:2惯用水、根茎、石头、青苔等自然意象构建比喻，擅长以“不捞”“不放”“自己长出来”等非主动措辞消解对话中的先手问题，喜欢把对方拉进自己的比喻框架里周旋。",
+  "created_at": "2026-08-08 10:28:21",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ }
+]

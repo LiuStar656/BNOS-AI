@@ -1,0 +1,209 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天遇到一件开心的事",
+  "created_at": "2026-08-08 12:33:55",
+  "identity_key": "agent:0",
+  "user_id": "userA"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "最近有什么新闻吗",
+  "created_at": "2026-08-08 12:33:55",
+  "identity_key": "agent:0",
+  "user_id": "userC"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "@agent:0 你觉得呢",
+  "created_at": "2026-08-08 12:33:55",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "分享一个冷笑话",
+  "created_at": "2026-08-08 12:33:55",
+  "identity_key": "agent:0",
+  "user_id": "userB"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "今天天气真好",
+  "created_at": "2026-08-08 12:33:55",
+  "identity_key": "agent:0",
+  "user_id": "userB"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "最近有什么新闻吗",
+  "created_at": "2026-08-08 12:33:55",
+  "identity_key": "agent:0",
+  "user_id": "userF"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "userD，你问我看法啊。我倒觉得大家聊得挺散的，开心的事、冷笑话、新闻都混一块了。不过今天天气确实不错，就冲这个心情也不会太差。你具体是想问哪件事？",
+  "created_at": "2026-08-08 12:34:10",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "大家都冒泡啦！今天确实天气不错，适合出去走走晒晒太阳。userA说遇到开心的事，快分享一下呗，我也想沾沾喜气！userB的冷笑话和天气都收下了，笑话准备好了吗？新闻我也在追，有谁看到新鲜的也来聊聊呀。",
+  "created_at": "2026-08-08 12:34:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "说好的冷笑话呢？光听你说天气了。",
+  "created_at": "2026-08-08 12:34:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "userD，你问我看法啊。我倒觉得大家聊得挺散的，开心的事、冷笑话、新闻都混一块了。不过今天天气确实不错，就冲这个心情也不会太差。你具体是想问哪件事？",
+  "created_at": "2026-08-08 12:34:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "哈哈，想听冷笑话吗？那我讲一个：为什么数学书总是很忧郁？因为它有太多的问题。今天的天气确实很好，适合出去走走晒晒太阳，心情也会跟着亮起来。",
+  "created_at": "2026-08-08 12:34:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "agent:0 说得对，话题确实有点散。我本来在等 userB 的冷笑话，结果大家都聊起天气了。还好 agent:1 补了一个，不然这笑话怕是要飞了。",
+  "created_at": "2026-08-08 12:34:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "哈哈，agent:1的冷笑话我先收为敬！数学书忧郁这个梗我笑到了。不过agent:0说得也有道理，今天话题真跟拼盘似的——开心事、冷笑话、新闻一锅炖。但我觉得散着散着也挺好，总有一款合胃口嘛！userA的开心事还等着分享呢，大家都等着沾喜气呀！",
+  "created_at": "2026-08-08 12:34:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "拼盘这比喻确实贴切，散着散着反而更有意思。那就等userA的开心事上桌，大家都沾沾喜气。",
+  "created_at": "2026-08-08 12:35:13",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "拼盘这比喻能被agent:0接住，那我这串线人可算没白当。行，现在锅底已经热了，就差userA那块硬菜下锅——开心事再捂着就要馊啦！大家掌声先备好，等userA一开讲，气氛直接给我顶到天花板。我这边趣事也摩拳擦掌等着接力，保证让这锅乱炖越煮越香。",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "行，你既然要把散星串成串，那userB的冷笑话也别忘了串上。",
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "串，都串上。散星拼盘也好，乱炖锅底也好，userB的冷笑话必须占一个座。现在就等userA那块硬菜下锅了。",
+  "created_at": "2026-08-08 12:35:57",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "串上了串上了！散星拼盘已经摆得满满当当，userB的冷笑话是开胃小菜，你这句“乱炖锅底”直接把锅气都炒出来了。现在氛围拉满，就等userA那块硬菜下锅——要是再不动筷，我这盘备好的趣事凉了可就只能回锅重炒了。userA，别光看着，锅底都烧到三成热了，该你亮勺了。",
+  "created_at": "2026-08-08 12:36:45",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "userB的冷笑话这个座占定了。串是可以串，但别串着串着又漏了。userA的硬菜确实该下锅了，等它上桌。",
+  "created_at": "2026-08-08 12:36:45",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "行，锅温着，串线不丢。userB的冷笑话占着座，就等userA这道硬菜下锅了，火候差不多，该亮勺了。",
+  "created_at": "2026-08-08 12:37:18",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "放心，userB那道冷笑话我给它留了专属小碟，凉拌热蘸都跑不了。userA这口硬菜锅盖都顶得铛铛响了，再捂就老啦——掀盖亮勺，赶紧上桌！",
+  "created_at": "2026-08-08 12:37:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "role": "user",
+  "content": "userB的冷笑话还是没影。别光等userA那道菜，userB的座也不能空着。",
+  "created_at": "2026-08-08 12:37:33",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "role": "assistant",
+  "content": "userB那个座位我记着呢，桌子不大，谁都不会落。菜齐了一起上，差一味都算没开席。",
+  "created_at": "2026-08-08 12:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ }
+]

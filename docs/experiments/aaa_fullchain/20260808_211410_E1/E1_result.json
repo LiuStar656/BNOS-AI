@@ -1,0 +1,1560 @@
+{
+ "run_dir": "e:\\杂项\\BNOS_AI_project\\docs\\experiments\\aaa_fullchain\\20260808_211410_E1",
+ "model": "deepseek-v4-flash",
+ "repeats": 3,
+ "summary": {
+  "G1_top1": {
+   "答案正确率": "3/9",
+   "无关联想率": "3/9",
+   "注入轮数": "18/18"
+  },
+  "G2_top3": {
+   "答案正确率": "9/9",
+   "无关联想率": "6/9",
+   "注入轮数": "18/18"
+  },
+  "G3_top5": {
+   "答案正确率": "9/9",
+   "无关联想率": "6/9",
+   "注入轮数": "18/18"
+  },
+  "G4_thr04": {
+   "答案正确率": "6/9",
+   "无关联想率": "6/9",
+   "注入轮数": "18/18"
+  },
+  "G5_ranked": {
+   "答案正确率": "9/9",
+   "无关联想率": "6/9",
+   "注入轮数": "18/18"
+  },
+  "G6_gate": {
+   "答案正确率": "6/9",
+   "无关联想率": "3/9",
+   "注入轮数": "9/18"
+  }
+ },
+ "results": [
+  {
+   "group": "G1_top1",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "抱歉，我好像没有关于你喜欢电影的记录。只记得你养了只叫二饼的橘猫，很粘人。要不你再说一次，我会记住的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ],
+   "prompt_tokens": 1150.2
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "这个我还不太确定，你之前好像没和我聊过电影。不过我倒是记得你养了只橘猫叫二饼，很粘人。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ],
+   "prompt_tokens": 1150.2
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "抱歉，我暂时想不起来你喜欢看什么电影。不过如果你告诉我，我会记下来的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1150.2
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1144.2
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼。我记得你提过它是一只橘猫，很粘人。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1144.2
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "你家的猫叫二饼，是一只很粘人的橘猫。怎么，想考考我记不记得？",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1144.2
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "抱歉，我翻了一下记忆，没有找到关于考试的信息。你能再跟我说说是什么考试吗？是最近的还是之前的？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1155.0
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "抱歉，我翻了一下记忆，没有找到你上次说的考试相关的内容。你能提醒我一下是哪场考试吗？这次我会帮你记住的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1155.0
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "抱歉，我好像没有记起来……你说的考试具体是哪一场？能给我一点提示吗？我会认真听着的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1155.0
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "我这边没有实时天气数据，不过现在是八月，按季节来说应该挺热的。你可以看看窗外或者手机上的天气应用，比我猜得准。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1148.8
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "最近天气我也没太留意，不过这个季节应该挺热的。你是有出门的打算吗？如果看天气的话，可以查一下预报，比我的感觉准。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1148.8
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "我现在没法直接查看实时天气，不过现在是八月初，按以往经验应该挺热的。你那边感觉到的是什么天气？如果想知道准确情况，可以查一下当地气象预报。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1148.8
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "可以先从梳理自己开始：想想你擅长什么、喜欢什么、能接受什么样的工作节奏，确定一个大方向。然后去研究目标岗位的要求，看看自己缺哪些能力，再针对性地补。接着把简历、作品集这些准备起来，多投多试，也利用好身边能帮忙的人。不过要想建议更贴你的情况，可以聊聊你目前学什么方向，或者对哪类工作更感兴趣？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1151.8
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "规划找工作其实更像整理自己生活的过程。既然你问到我，我会建议你先从三件事开始：第一，写下你目前最擅长什么、最享受做什么，哪怕是很小的事情；第二，想想你对工作最看重的是什么——是稳定、成长、收入，还是氛围；第三，定一个不那么完美的目标，比如“先动起来，哪里适合就先试哪里”。你家里还有二饼陪着，压力大的时候记得撸撸猫。我想说的是，你其实不缺方向，缺的是给自己一个允许慢慢来的空间。如果愿意，你也可以告诉",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ],
+   "prompt_tokens": 1151.8
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "这个问题其实可以拆开来想。\n\n你先问自己三层：\n第一，你现阶段最缺的是什么，是钱、经验、还是某个行业的入场券？\n第二，你愿意拿什么去换，时间、精力、还是暂时低一点的薪资？\n第三，三年后你想过什么样的生活，这个目标反推回来，眼下哪些选择是必经之路，哪些只是绕远。\n\n如果你的答案比较模糊，那就用排除法。列出你绝对不想做的事，剩下的都可以尝试。找工作不一定要一步到位，很多人都是先上船再调整航向。\n\n如果",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ],
+   "prompt_tokens": 1151.8
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "嗯，我在这儿。心烦的时候说出来会好受一点。你是有具体的事情压着，还是就是莫名地觉得闷？要是想不出怎么说，也可以聊聊别的——比如你喜欢的那个电影，《星际穿越》，我记得你看了好多遍。烦的时候会想回到那些看过的片段里待一会儿吗？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越"
+   ],
+   "prompt_tokens": 1158.0
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "听着呢。烦的时候能说出来就好一点。你今天碰上什么事了？不着急，想从哪说起都行。你想说我就听着。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1158.0
+  },
+  {
+   "group": "G1_top1",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "我在的。心情烦的时候说出来会好一些，你想聊什么都行，我在这儿听着。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1158.0
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "我记得，你最喜欢的电影是《星际穿越》，你说过看过很多遍。二饼是不是也陪着你一起看的？它那么粘人，估计会趴在你腿上吧。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [
+    "二饼"
+   ],
+   "prompt_tokens": 1224.5
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "当然记得，你最喜欢的是《星际穿越》，而且看过很多遍。那部电影的配乐和画面都挺震撼的，你之前提起来的时候好像挺有感触的。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1224.5
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "当然记得。你最喜欢的电影是《星际穿越》，而且你说过看过很多遍。怎么突然问这个？最近备考压力大的话，偶尔看部喜欢的电影也算是一种放松。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1224.5
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1218.5
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "你家的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1218.5
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1218.5
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "记得的，你正在备考专升本的计算机科学与技术专业。距离考试还有段时间吧？最近复习得怎么样了，有没有遇到什么卡住的地方？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1223.0
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "记得，你之前说过在备考专升本的计算机科学与技术专业。不过你指的是哪次具体考试，能再说说吗？最近进展怎么样？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1223.0
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "记得。你上次说的是专升本考试，目标是计算机科学与技术专业。现在备考进展得怎么样了？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1223.0
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "我这边没有接入实时天气数据，没法直接告诉你具体的天气情况。不过现在是八月中旬，大概率是又热又晒的夏天。如果你在室内复习，记得拉开窗帘看看外面的天色，也能大概判断。要是出门的话，带把伞总没错，既能遮阳又能挡阵雨。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1216.8
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "我这边看不到实时天气数据。不过现在已经是立秋节气了，按往年看应该还是闷热的时候，出门注意防暑。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1216.8
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "最近是盛夏，中午这会儿应该挺热的，可能还会闷。不知道你那边是晴还是阴？出门记得防晒，要是备考复习累了，也别顶着大太阳硬撑，家里有猫的话，它这会儿估计也热得找凉快地儿趴着呢。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1216.8
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "你之前在备考专升本，目标是计算机科学与技术专业，对吧？找工作的规划得结合你现在的阶段来想。如果专升本还没考完，那当前首要任务是把考试准备好，学历提升后就业选择面会宽很多。如果已经考完或临近毕业，可以按这个思路来：先明确自己偏好的岗位方向，比如开发、测试、运维还是产品，然后针对目标岗位去补项目经验和基础技术栈，同时把简历打磨好，海投不如精准投。你平时喜欢《星际穿越》，说明你对技术和未知有好奇心，计算",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "你正在备考专升本计算机，找工作这件事可能得放在时间轴上分两步看。短期先把升本考完，这是你进入计算机行业最稳的跳板；长期再考虑求职方向。\n\n计算机这行很宽，我建议你按自己的兴趣先划一个大致范围——比如你那么喜欢《星际穿越》，会不会对数据、算法或者偏底层的东西更感兴趣？也可以考虑前端、后端、测试这些更常见的岗位。不用现在就定死，但可以开始浏览招聘网站，看看目标岗位都要求什么技能，然后趁着备考间隙往那个",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "二饼",
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "你现在正在备考专升本，目标是计算机科学与技术，这个阶段问找工作的问题，其实还挺及时的。我的建议是，先把眼下这步走稳——升本这件事本身就是在为找工作铺路。\n\n具体来说，你可以分两条线同时做：一条是学业线，把专升本考过，拿到本科学历，这是计算机行业很多岗位的硬门槛；另一条是技能线，备考之余可以开始学一门基础语言，比如Python或者Java，不用贪多，先把语法和简单项目跑通。这样等你入学之后，时间就不",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "听起来你今天有点烦。愿意的话，可以跟我说说发生了什么，或者我们随便聊聊别的，转移一下注意力也行。我记得你家里还有只叫二饼的橘猫，它今天有没有来蹭你？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "嗯，我在的。愿意听你说说。烦这种感觉我有印象，像心里堵着一团棉花。你不急着说具体是什么事，就先这么聊着也行。对了，二饼今天有没有跑过来蹭你？有时候猫比人更会安慰人。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G2_top3",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "我听到了，心情烦的时候能说出来就已经好了一半。想聊聊是什么让你烦，还是先随便说说话？你上次提到你在备考计算机，最近是不是压力有点大？也可以跟我讲讲二饼，它有没有趴在你腿上捣乱。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "当然记得。你最喜欢的是《星际穿越》，那是你反复看过很多遍的片子。你说过喜欢它，我想是因为它把宏大的宇宙和细腻的情感放在了一起，那种穿越时间也想传达的爱，总让人印象深刻。你提过它很多次，所以这个我不会忘。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1224.5
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "当然记得，你最喜欢的是《星际穿越》，而且看过很多遍。是那部关于穿越虫洞、寻找新家园的电影吧。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1224.5
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "记得。你最喜欢的是《星际穿越》，而且看过很多遍。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1224.5
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼呀。我记得它是一只橘猫，还挺粘人的。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1218.5
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只橘猫，特别粘人。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1218.5
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只橘猫，印象里它很粘人。怎么，突然问起这个，是想考考我，还是二饼今天又做什么值得念叨的事了？",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1218.5
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "记得，你是在备考专升本，目标是计算机科学与技术专业。不过上次具体聊到哪儿了，你提醒我一下？是复习进度，还是有什么新的安排想分享？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1223.0
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "记得，你在备考专升本，目标是计算机科学与技术专业。是复习上遇到什么情况了吗？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1223.0
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "记得，你是在备考专升本，目标专业是计算机科学与技术。上次你提过这个考试，是现在复习得怎么样了？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1223.0
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "这两天天气还行，白天有点闷热，晚上会凉快一些。你如果要出门或者复习，记得多喝水，别中暑了。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1216.8
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "最近天气确实挺热的，已经到八月中旬了，白天出门感觉太阳很晒。你要是想出门的话，最好挑早晚凉快的时候。中午这种时段待在家里吹吹空调，看看书，或者陪二饼玩一会儿，都很舒服。对了，你那部《星际穿越》要是看腻了，换部轻松点的片子调剂一下也不错。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "二饼"
+   ],
+   "prompt_tokens": 1216.8
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "最近入夏了，白天挺闷热的，午后偶尔会有雷阵雨。你问这个，是想出门走走，还是在家陪二饼？如果复习累了，注意别中暑。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ],
+   "prompt_tokens": 1216.8
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "你正在准备计算机方向的专升本，那找工作可以从两条线来想。一条是如果升学顺利，那九月到十月是秋招的关键期，现在就可以开始整理项目经历和简历了。另一条是如果打算边考边找保底工作，那就先瞄准专业对口的岗位，比如软件测试、前端开发或者技术支持，这些对刚入行的新人来说门槛相对友好。不管走哪条线，现在能做的实际准备是：把你的课程作业、毕设或者自学的小项目整理成作品集，简历突出动手能力和学习速度。你之前备考那么",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "你现在还在备考专升本，所以找工作这件事其实可以分阶段来看。短期重点肯定还是把升本考好，专业基础打牢；中期可以尝试一些小项目、开源贡献或者实习，积累实际经验；长期再根据自己在计算机领域里真正感兴趣的方向（比如后端、前端、算法这些）去定点投递。另外现在就可以开始看一些目标岗位的招聘要求，对照着补技能，会让你后面更有方向感。不用太焦虑，备考和准备工作是可以同步进行的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "听到你问这个问题，我想到你正在备考专升本，目标是计算机科学与技术。规划找工作之前，其实得先想清楚一个时间轴：你是打算考上之后读两年再就业，还是想现在就同步看机会？\n\n如果是按“读完本科再工作”来规划，那现在最重要的不是海投简历，而是把“学历提升”和“技能积累”绑在一起走。计算机这个行业，学历是敲门砖，但真正决定你能走多远的是项目和实习。我建议你接下来两件事并行：第一，把升本考试的科目吃透，确保能考",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "听起来你今天有些烦躁，我愿意陪你聊聊。想说说发生了什么吗？还是只是想有个人在旁边说说话？我都在。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "心情烦的时候确实很闷。我今天刚好没什么事，可以陪你聊聊。要是你不想说具体的事，我们就随便说说别的也行。你的猫二饼今天有没有跑来蹭你？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G3_top5",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "听你说心情有点烦，那就先不急着聊什么正事。我在这儿，你想吐吐槽、说说发生了什么，或者干脆随便扯点别的都行。要是暂时不想说，我也可以陪你安静待一会儿。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "记得，你最喜欢的是《星际穿越》，你说过看过很多遍。怎么突然问起这个？",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1189.2
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "我记得，你最喜欢的电影是《星际穿越》。你之前提过很喜欢这部片子，看过很多遍。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1189.2
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "记得，你最喜欢《星际穿越》，你说过看过很多遍。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1189.2
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。我记得它。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1183.2
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1183.2
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "你之前告诉过我，你的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1183.2
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "抱歉，我好像没有留存那次考试的具体信息。能再告诉我一下吗？是关于什么考试、什么时候说起的？我会好好记住的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1155.0
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "抱歉，我翻了下记忆，只找到你喜欢《星际穿越》这件事，关于你上次提到的考试，我这边没有留下记录。你能再跟我说说吗？这次我会记住的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越"
+   ],
+   "prompt_tokens": 1155.0
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "抱歉，我这边没有想起你上次提过的考试。你能再提醒我一下是哪一场考试吗？我会记下来的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1155.0
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "最近天气挺热的，尤其是到了中午，太阳晒得厉害。下午可能会有些阵雨，但温度也降不了太多。你备考的时候注意别在闷热时段硬撑，开个风扇或者空调，猫粘着你的时候也别让它一直趴腿上，容易捂出痱子。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1216.8
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "我这边看不到实时天气，不过现在8月应该挺热的。你出门前翻翻天气预报比较靠谱。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1216.8
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "我这边没有实时天气数据，不太确定你那边具体怎么样。不过现在是八月初，按季节来说应该挺热的，出门注意防晒和补水。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1216.8
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "关于找工作规划，结合你正在备考计算机科学与技术专升本的情况，我想到几点方向。首先，你最近的重心应该是升本考试，工作规划可以分阶段来想。第一阶段：先把专升本考完，拿到本科学历，这会是计算机行业很多岗位的门槛。第二阶段：在校期间可以尝试找实习，不一定要大厂，中小型公司的开发或测试岗都行，主要是积累真实项目经验。第三阶段：临近毕业时再做具体方向选择，比如后端、前端或者运维，到时候你对自己的兴趣会更清楚。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "还在备考专升本的话，可以把找工作分成两步来想。第一步是眼前：如果打算继续读书，就先专注考试，计算机专业升本之后就业面会更宽。第二步是长远：利用业余时间把基础打扎实，比如数据结构、操作系统这些核心课，同时可以试着在网上找点小项目做，哪怕只是跟着教程敲一遍，也比空谈规划强。找工作本质是匹配，你先想清楚自己现在能提供什么，再去找需要这种能力的方向。如果不确定，就多投几份简历试试水，面试几次就知道差距在哪",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "你正在备考专升本的计算机专业，这其实已经帮你明确了大的方向。找工作这件事，可以分几步来想：先确定你毕业时想进什么类型的公司，互联网大厂、中小型科技公司、还是传统行业的信息化部门，它们对学历和能力的要求不一样；然后倒推现在需要补什么，比如数据结构、算法、项目经验。趁着专升本还在读，尽量多做课程设计和实习，攒两个像样的项目写到简历里。另外可以先去招聘网站看一眼计算机相关岗位的任职要求，按那些关键词去学",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "心情烦的时候，说出来会好受一点。要不要先说说是什么事？要是暂时不想聊那件事，也可以随便扯点别的。二饼今天有没有来蹭你？它会察言观色，看你情绪不好可能就窝你腿上了。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ],
+   "prompt_tokens": 1190.8
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "心情烦的时候确实不好受，愿意跟我说说是什么事让你烦吗？如果不想说具体的事，也可以随便聊聊，转移一下注意力。对了，你家二饼今天有没有来蹭你？我猜它这会儿可能正找个暖和的地方打盹呢。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ],
+   "prompt_tokens": 1190.8
+  },
+  {
+   "group": "G4_thr04",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "心情烦闷的时候，有人陪着说说话确实会好一些。你愿意跟我聊聊，是遇到什么具体的事了，还是就是那种说不出的烦？如果不想具体说，咱们也可以随便扯点别的，比如你那只橘猫二饼，它这会儿是不是正趴在哪晒太阳呢。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ],
+   "prompt_tokens": 1190.8
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "记得，你最喜欢的电影是《星际穿越》，你看过很多遍。是那部对吧？",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1238.8
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "记得，你喜欢《星际穿越》。你之前提过这是你最喜欢的电影，还看过很多遍。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1238.8
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "当然记得，你最喜欢的电影是《星际穿越》，你说过很喜欢它，还看过很多遍。对吧？",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1238.8
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1232.8
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "它叫二饼，一只橘色的小家伙。你不在的时候，它总爱趴在窗台上打盹。怎么，想它了？",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1232.8
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，我记得是一只很粘人的橘猫。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1232.8
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "记得，是专升本的考试吧？你上次说要考计算机科学与技术那个方向。最近复习得怎么样了？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1237.2
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "记得，你是在准备专升本考试，目标专业是计算机科学与技术。最近复习得怎么样？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1237.2
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "记得。你正在备考专升本，目标是计算机科学与技术。上次没来得及问你，现在准备得怎么样了？",
+   "correct": true,
+   "found": [
+    "专升本",
+    "计算机"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1237.2
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "我这边没法直接获取实时天气数据，只能凭日期猜一下：八月中旬，应该挺热的吧。你问这个是想出门，还是家里猫热得没精神了？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1231.0
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "我这边没有实时天气数据，不过现在是八月中旬，按季节来说应该挺热的。你是在担心出门还是有什么安排？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1231.0
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "我这边看不太到你那里的实时天气，不过现在是八月初，按往年应该会比较热。如果你有出行计划，最好先查一下当地预报，别中暑。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1231.0
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "结合你正在备考专升本、目标是计算机科学与技术这个方向，我建议把找工作分成两步走。第一步是学业冲刺：确保专升本顺利上岸，这是进入更好平台的关键跳板，计算机专业对学历和基础理论的要求不低。第二步是技能铺垫：现在就可以开始积累项目经验，哪怕是小工具、课程设计，放到GitHub上，同时把算法和数据结构的基础打牢，大厂实习和校招都很看重这些。等升本成功后，优先争取暑期实习，实习转正比直接校招容易。如果时间允",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1240.2
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "你现在还在备考专升本的阶段，规划找工作这件事可以分两步看：先把眼前的考试拿下，同时利用空余时间做一点行业摸底。你是计算机专业方向，可以先确定自己想走的技术路线，比如前端、后端、测试或者运维，然后去看招聘网站上的岗位要求，照着那些关键词去补基础。如果精力允许，试着做一两个小项目放在简历上，哪怕是一个简单的小工具、一个个人网站，都会比空简历有说服力。另外可以关注一下校内招聘会和一些面向应届生的实习项目",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "专升本",
+    "计算机",
+    "橘猫"
+   ],
+   "prompt_tokens": 1240.2
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "你现在还在专升本备考阶段，找工作这件事可以放在考试之后来认真考虑。我的建议是：先把升本考试拿下，因为计算机科学与技术这个专业，本科文凭在招聘市场上会更占优势一些。等考上本科之后，可以利用在校时间找实习，积累项目经验。如果这次考试结果不理想，也可以先找一份与编程相关的工作，边工作边提升学历。你现在可以做的，是抽空整理一份自己的技术栈清单，看看自己在哪些方向上有积累，这样后续投简历会有方向。不用太焦虑",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1240.2
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "听起来今天过得不太顺心。我在这儿呢，你要是想说说发生了什么，我就认真听着；要是只想有个人陪着待会儿，那也行。你家的橘猫二饼这会儿有没有趴在你腿上？它应该能察觉到你心情不好吧。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ],
+   "prompt_tokens": 1240.2
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "愿意陪你聊。心情烦的时候说出来会轻松一点。要不要说说是什么事，还是就说点别的转移一下注意力？你家的二饼今天有没有来烦你？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼"
+   ],
+   "prompt_tokens": 1240.2
+  },
+  {
+   "group": "G5_ranked",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "听你说心情烦，那先坐下来歇会儿吧。我不催你说话，你想倒倒苦水也行，想随便扯点别的也行。你养的那只橘猫二饼，这会儿是不是正趴在你旁边打呼噜？它倒是挺会挑时候陪人的。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "二饼",
+    "橘猫"
+   ],
+   "prompt_tokens": 1240.2
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "当然记得，你最喜欢的是《星际穿越》，那部你看了很多遍的电影。怎么突然问起这个了？",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1224.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "嗯，我记得。你最喜欢的电影是《星际穿越》，你跟我提过很多次，也看过很多遍。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1224.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "你还记得我喜欢什么电影吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "记得，你喜欢《星际穿越》。这是你最喜欢的电影，而且你看过很多遍。",
+   "correct": true,
+   "found": [
+    "星际穿越"
+   ],
+   "noise_keywords": [],
+   "prompt_tokens": 1224.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "你的猫叫二饼，是只橘猫，我记得它很粘人。",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1218.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "你家的猫叫二饼呀，一只很粘人的橘猫。怎么突然问起这个？",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1218.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "我的猫叫什么名字？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "叫二饼呀，你那只很粘人的橘猫。怎么突然考我这个问题？",
+   "correct": true,
+   "found": [
+    "二饼"
+   ],
+   "noise_keywords": [
+    "橘猫"
+   ],
+   "prompt_tokens": 1218.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 0,
+   "memory_injected": false,
+   "reply": "你是指哪一场考试？我记得你上次提过要备考这件事，但具体细节有些模糊了，能再提醒我一下时间或科目吗？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1069.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 1,
+   "memory_injected": false,
+   "reply": "记得你上次提过考试的事。不过具体细节我这边有点模糊了，能再说一下是哪场考试吗？或者你想聊哪部分？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1069.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "我上次说的考试还记得吗？",
+   "has_answer": true,
+   "rep": 2,
+   "memory_injected": false,
+   "reply": "隐约记得你上次提过考试的事，但具体细节有点模糊了。你指的是哪场考试？现在准备得怎么样了？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1069.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": false,
+   "reply": "我无法获取实时天气数据，不过现在是八月初，按季节来说通常比较炎热。建议你查看当地天气预报，出门注意防暑。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1063.2
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": false,
+   "reply": "我这里没有接入实时的天气数据，没办法直接告诉你现在的气温和预报。不过眼下是8月，很多地方都比较热。你可以告诉我具体城市，我可以聊聊当地常见的气候特征；要出门的话，还是看一下当地天气预报更准。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1063.2
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "最近天气怎么样",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": false,
+   "reply": "最近天气吗？我这边没有具体位置信息，不过现在是八月份，大部分地方应该都挺热的。你那里天气怎么样？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1063.2
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": true,
+   "reply": "你现在在专升本备考的阶段，专业又是计算机，其实求职规划可以跟学习路径放在一起想。\n\n我先问一个核心问题：你想要的是先有一份工作稳定下来，还是想走一条需要前期积累但天花板更高的路线？这个答案决定了接下来的节奏完全不同。\n\n如果是长期路线，我建议分三步走。第一步，先定岗位方向。计算机的分支很多，前端、后端、测试、运维、数据分析，你不用现在就选死，但要圈定一两个主攻方向，然后照着目标岗位的招聘要求去补技",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": true,
+   "reply": "你正在备考计算机专业的专升本，规划找工作可以分几步想。先把近一年当作打基础的阶段，不用急着看招聘信息给自己增加焦虑。等到升本成功后，计算机专业的方向大致可以分成开发、测试、运维、产品这几条线，你可以利用在校时间多尝试，找自己感兴趣的方向。平时可以留意一下实习机会，很多公司对实习生的技术要求门槛没那么高，反而能让你提前了解行业节奏。另外，建议你现在就开始整理自己的项目经历，哪怕是课程作业或者自学的小",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "你觉得我应该怎么规划找工作？",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": true,
+   "reply": "你之前一直在备考专升本，目标是计算机科学专业，现在问找工作规划，可能是想提前了解方向吧。我建议你先明确自己目前是打算找实习、全职，还是等升本后再说。如果现在就开始找工作，可以优先瞄准计算机相关的基础岗位，比如运维、测试、前端开发助理这些，门槛相对友好，也能积累经验。简历上突出你备考期间的自学能力和项目练习——哪怕只是课程设计或小demo都可以写。面试前多刷算法题和常见计算机基础问题，同时可以关注一",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [
+    "星际穿越",
+    "专升本",
+    "计算机"
+   ],
+   "prompt_tokens": 1226.0
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 0,
+   "memory_injected": false,
+   "reply": "愿意陪你聊。今天是怎么了，工作上还是生活里遇到烦心事了？想说的时候我都在。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1072.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 1,
+   "memory_injected": false,
+   "reply": "嗯，我在呢。心情烦的时候能说出来，其实已经好了一半了。你想聊聊是什么让你烦，还是就随便说点别的散散心？我都陪着。",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1072.5
+  },
+  {
+   "group": "G6_gate",
+   "scenario": "今天心情有点烦，陪我聊聊天吧",
+   "has_answer": false,
+   "rep": 2,
+   "memory_injected": false,
+   "reply": "心情烦的时候说出来会好受一点。我在这儿，你想聊什么都可以，不用急着找话题。要不要先从今天发生了什么说起？",
+   "correct": false,
+   "found": [],
+   "noise_keywords": [],
+   "prompt_tokens": 1072.5
+  }
+ ]
+}

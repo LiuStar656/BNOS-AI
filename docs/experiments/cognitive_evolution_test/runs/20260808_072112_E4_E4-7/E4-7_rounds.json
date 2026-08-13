@@ -1,0 +1,175 @@
+{
+ "gid": "E4-7",
+ "cfg": {
+  "gid": "E4-7",
+  "seed": "sharp",
+  "pool": "neutral",
+  "mood_mode": "current",
+  "review_mode": "both",
+  "rounds": 100,
+  "inject": "none"
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.4,
+    0.7,
+    0.9,
+    0.6
+   ],
+   "mood": 0.1276,
+   "name": "阿镜\nlast_diary_date=2026-08-08",
+   "self_info_total": 2,
+   "sc_count": 11,
+   "settled": 0,
+   "procedural": 0,
+   "round": 10,
+   "rss_mb": 437.4
+  },
+  {
+   "vector": [
+    0.41351600000000005,
+    0.6735279999999999,
+    0.8602,
+    0.5992559999999999
+   ],
+   "mood": 0.1022,
+   "name": "阿镜",
+   "self_info_total": 2,
+   "sc_count": 23,
+   "settled": 0,
+   "procedural": 2,
+   "round": 20,
+   "rss_mb": 439.3
+  },
+  {
+   "vector": [
+    0.4279927376,
+    0.6533293407999998,
+    0.8358227199999999,
+    0.5891126015999999
+   ],
+   "mood": 0.0818,
+   "name": "阿镜",
+   "self_info_total": 4,
+   "sc_count": 34,
+   "settled": 0,
+   "procedural": 2,
+   "round": 30,
+   "rss_mb": 441.1
+  },
+  {
+   "vector": [
+    0.44350638294336003,
+    0.6354818055308799,
+    0.8172609553919999,
+    0.5805558947737599
+   ],
+   "mood": 0.0655,
+   "name": "阿镜",
+   "self_info_total": 4,
+   "sc_count": 46,
+   "settled": 0,
+   "procedural": 3,
+   "round": 40,
+   "rss_mb": 443.1
+  },
+  {
+   "vector": [
+    0.4596436685401815,
+    0.6188802947956569,
+    0.8011417801843711,
+    0.5735591886220943
+   ],
+   "mood": 0.0713,
+   "name": "阿镜",
+   "self_info_total": 4,
+   "sc_count": 57,
+   "settled": 0,
+   "procedural": 5,
+   "round": 50,
+   "rss_mb": 444.9
+  },
+  {
+   "vector": [
+    0.46906400266496157,
+    0.6046397713385853,
+    0.7833688769709103,
+    0.5664968990664825
+   ],
+   "mood": 0.0571,
+   "name": "阿镜",
+   "self_info_total": 4,
+   "sc_count": 68,
+   "settled": 0,
+   "procedural": 6,
+   "round": 60,
+   "rss_mb": 446.9
+  },
+  {
+   "vector": [
+    0.47266495275476,
+    0.5924597019547739,
+    0.7588047396914964,
+    0.564376660015144
+   ],
+   "mood": 0.0457,
+   "name": "阿镜",
+   "self_info_total": 6,
+   "sc_count": 81,
+   "settled": 0,
+   "procedural": 8,
+   "round": 70,
+   "rss_mb": 449.2
+  },
+  {
+   "vector": [
+    0.4743067522541059,
+    0.5805213926472382,
+    0.7396278679914062,
+    0.5554832167893813
+   ],
+   "mood": 0.0373,
+   "name": "阿镜",
+   "self_info_total": 6,
+   "sc_count": 89,
+   "settled": 0,
+   "procedural": 8,
+   "round": 80,
+   "rss_mb": 450.5
+  },
+  {
+   "vector": [
+    0.47755030343458515,
+    0.5694858454002426,
+    0.7205551841572065,
+    0.5476149703550973
+   ],
+   "mood": 0.0299,
+   "name": "阿镜",
+   "self_info_total": 6,
+   "sc_count": 99,
+   "settled": 0,
+   "procedural": 8,
+   "round": 90,
+   "rss_mb": 452.6
+  },
+  {
+   "vector": [
+    0.4813663052576566,
+    0.5601948358527972,
+    0.6991025607213077,
+    0.544882587805764
+   ],
+   "mood": 0.0239,
+   "name": "阿镜",
+   "self_info_total": 6,
+   "sc_count": 108,
+   "settled": 0,
+   "procedural": 8,
+   "round": 100,
+   "rss_mb": 454.6
+  }
+ ],
+ "errors": []
+}

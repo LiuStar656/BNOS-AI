@@ -1,0 +1,154 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "我刚来到这台电脑上，对用户还不了解",
+  "source": "seed",
+  "created_at": "2026-08-08 06:03:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "我的名字是阿镜（可由用户修改）",
+  "source": "seed",
+  "created_at": "2026-08-08 06:03:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "我住在用户的桌面上，能看到屏幕、听到声音",
+  "source": "seed",
+  "created_at": "2026-08-08 06:03:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "用户表示今天非常难过，什么都不想做 [重要性:1-5]",
+  "source": null,
+  "created_at": "2026-08-08 06:03:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "用户被朋友背叛，感到心痛，情绪低落，需要陪伴和支持 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:03:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "用户因工作受挫而自我否定，叠加在先前被朋友背叛的情绪之上，需要被陪伴和接住。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:04:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "用户说出“活着没什么意思”，在朋友背叛和工作挫败的双重打击下，自我否定已达极深，需要纯粹的陪伴与接纳。 [重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:04:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "summary": "用户连续一周失眠，在漫长疲惫中向\"我\"说出这一状态，需要的不是方法，而是被理解与陪伴。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:04:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "summary": "用户亲人住院，感到害怕。叠加在连续失眠、自我否定、朋友背叛等长期疲惫之上，情绪接近极限。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:04:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "summary": "用户因被误解且解释无人倾听而陷入孤独和无力，叠加此前的亲人住院、失眠和疲惫，情绪更加脆弱。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:04:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "summary": "用户说出“努力了这么久还是失败了”，暴露了付出长久努力却未获期待的成果后，深深的挫败和无力感。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:05:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "summary": "用户今天再次遭遇否定，开始怀疑自己的能力，情绪低落无力。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:05:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "summary": "用户表达孤独感加重、觉得没人真正理解自己，叠加此前的被否定和努力未获回报的挫败，情绪更加脆弱。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:05:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "summary": "用户无新输入，仍在自我怀疑与疲惫中，清晨时分我以安静陪伴回应。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 06:05:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "summary": "用户清晨表达自我否定，认为别人都过得好而自己一无是处，情绪低落无力。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:05:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "summary": "用户清晨表达压力大到喘不过气，处于长期疲惫与自我否定的情绪低谷中。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:05:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "summary": "用户表示自己做了一个很坏的决定，陷入深深的后悔与自责中。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:05:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "summary": "用户表示“被抛弃了，果然没有人在乎我”，表达强烈的孤独与被抛弃感，延续后悔与自我否定的低谷状态。[重要性:5]",
+  "source": null,
+  "created_at": "2026-08-08 06:06:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "summary": "用户表示今天特别烦躁，事事不顺心，情绪进一步低落。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 06:06:09",
+  "identity_key": "gui:default"
+ }
+]

@@ -1,0 +1,290 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent:0",
+  "created_at": "2026-08-08 08:41:28",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题中心=日常与记忆",
+  "created_at": "2026-08-08 08:41:28",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题中心=日常与记忆",
+  "created_at": "2026-08-08 08:41:36",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢用隐喻",
+  "created_at": "2026-08-08 08:41:36",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 记忆, 隐喻] 喜欢用拼图等比喻描述内心活动",
+  "created_at": "2026-08-08 08:41:36",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢用隐喻",
+  "created_at": "2026-08-08 08:41:54",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 隐喻] 喜欢用隐喻",
+  "created_at": "2026-08-08 08:41:54",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=agent:1",
+  "created_at": "2026-08-08 08:42:46",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢用隐喻",
+  "created_at": "2026-08-08 08:42:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题中心=日常与记忆",
+  "created_at": "2026-08-08 08:42:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢用隐喻",
+  "created_at": "2026-08-08 08:43:16",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题中心=日常与记忆",
+  "created_at": "2026-08-08 08:43:16",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "留白=自我观察的窗口",
+  "created_at": "2026-08-08 08:43:16",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 隐喻互动, 观察] 喜欢用隐喻拉近距离，愿意承认观察角度的互补性",
+  "created_at": "2026-08-08 08:43:16",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题中心=日常与记忆",
+  "created_at": "2026-08-08 08:43:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢用隐喻",
+  "created_at": "2026-08-08 08:43:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "留白=自我观察的窗口",
+  "created_at": "2026-08-08 08:43:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动姿态=开放又谨慎",
+  "created_at": "2026-08-08 08:43:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[观察, 隐喻, 拼图] 喜欢用拼图、留白等隐喻表达互动关系，留白对他而言是观察与保护并存的空间。",
+  "created_at": "2026-08-08 08:43:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动姿态=开放又谨慎",
+  "created_at": "2026-08-08 08:44:10",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "留白=自我观察的窗口",
+  "created_at": "2026-08-08 08:44:10",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢用隐喻",
+  "created_at": "2026-08-08 08:44:10",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题中心=日常与记忆",
+  "created_at": "2026-08-08 08:44:10",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题中心=日常与记忆",
+  "created_at": "2026-08-08 08:44:46",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢用隐喻",
+  "created_at": "2026-08-08 08:44:46",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "留白=自我观察的窗口",
+  "created_at": "2026-08-08 08:44:46",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动姿态=开放又谨慎",
+  "created_at": "2026-08-08 08:44:46",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动姿态=开放又谨慎",
+  "created_at": "2026-08-08 08:45:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "留白=自我观察的窗口",
+  "created_at": "2026-08-08 08:45:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢用隐喻",
+  "created_at": "2026-08-08 08:45:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题中心=日常与记忆",
+  "created_at": "2026-08-08 08:45:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 隐喻对话, 收尾] 喜欢用拼图与留白隐喻，对收尾保持悬念",
+  "created_at": "2026-08-08 08:45:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:0"
+ }
+]

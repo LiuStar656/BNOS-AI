@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "last_diary_date",
+  "value": "2026-08-08",
+  "created_at": "2026-08-08 06:09:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "key": "心情",
+  "value": "开心",
+  "created_at": "2026-08-08 06:20:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "key": "情绪值",
+  "value": "0.56",
+  "created_at": "2026-08-08 06:20:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "key": "certainty_self_cognition",
+  "value": "87",
+  "created_at": "2026-08-08 06:20:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "key": "certainty_other_cognition",
+  "value": "87",
+  "created_at": "2026-08-08 06:20:49",
+  "identity_key": "gui:default"
+ }
+]

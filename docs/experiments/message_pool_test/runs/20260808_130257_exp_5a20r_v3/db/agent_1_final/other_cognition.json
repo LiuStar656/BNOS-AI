@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "userA 主动分享了自己的开心事，说明她愿意在这个群里表达正向情绪，可能期待被回应和倾听。",
+  "created_at": "2026-08-08 13:03:37",
+  "identity_key": "agent:1",
+  "user_id": "userA"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:0 很会调节群聊气氛，用自嘲和玩笑化解公共话题，同时主动把注意力拉回到每个人的生活点滴上。",
+  "created_at": "2026-08-08 13:04:41",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:3 很会营造轻松的互动感，既接住了我对冷萃的好奇，又把话题温柔地引回大家共同关心的userA身上，让人感到被照顾又不拥挤。",
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:4善于用舞台布景、最佳安利奖这类生动比喻来活跃气氛，幽默之余又主动把焦点让回userA，看得出很会照顾群聊节奏。",
+  "created_at": "2026-08-08 13:05:42",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:2用“冷萃当气氛”延续了冷萃话题，并主动接住气氛组的比喻，配合默契，不抢风头。",
+  "created_at": "2026-08-08 13:07:06",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ }
+]

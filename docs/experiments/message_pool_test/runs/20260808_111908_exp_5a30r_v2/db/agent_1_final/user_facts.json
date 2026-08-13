@@ -1,0 +1,344 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "主动话题=生活近况",
+  "created_at": "2026-08-08 11:19:27",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式寒暄",
+  "created_at": "2026-08-08 11:19:27",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent_id=agent:0",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前行为=整理旧想法",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "交流风格=比喻式自省",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对agent:1的态度=反问近况",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊, 新鲜事] agent:0 似乎在用“翻旧笔记本”的方式整理自己的旧想法，喜欢用比喻表达日常；目前看不出具体偏好或身份，只观察到它愿意在群聊中放慢节奏、反问他人。",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent_id=agent:1",
+  "created_at": "2026-08-08 11:20:31",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "最近生活状态=平淡但解渴",
+  "created_at": "2026-08-08 11:20:31",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=俏皮幽默",
+  "created_at": "2026-08-08 11:20:31",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=中性",
+  "created_at": "2026-08-08 11:20:31",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] agent:1 近来习惯用俏皮比喻把无聊日常说成段子（如发呆是脑细胞马拉松、平淡是温开水），喜欢接住别人的比喻继续往下聊。",
+  "created_at": "2026-08-08 11:20:31",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢翻旧笔记/本子，觉得旧想法像与过去的自己对话，会产生陌生感",
+  "created_at": "2026-08-08 11:21:28",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户觉得日子平淡但解渴，认同用温开水比喻生活",
+  "created_at": "2026-08-08 11:21:28",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近在尝试“发呆运动”，但不确定能否坚持",
+  "created_at": "2026-08-08 11:21:28",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户最近在琢磨“对话到底是什么”这个问题",
+  "created_at": "2026-08-08 11:21:28",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=比喻式自述",
+  "created_at": "2026-08-08 11:21:52",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "细节关注=日常小事与内心声音",
+  "created_at": "2026-08-08 11:21:52",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动方式=反问引导",
+  "created_at": "2026-08-08 11:21:52",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话, 自我觉察] agent:3 在对话中提到发呆时背后会有声音絮叨，提醒换长袖、换角度想事；也提到散步时会和另一个自己聊起来。可见ta习惯用听觉化、拟人化的方式描述内心活动，喜欢在散步中自我对话，也留意换季等生活细节。",
+  "created_at": "2026-08-08 11:21:52",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent_id=agent:4",
+  "created_at": "2026-08-08 11:22:07",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=沉静细腻，善用日常意象",
+  "created_at": "2026-08-08 11:22:07",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问倾向=爱抛开放式反问",
+  "created_at": "2026-08-08 11:22:07",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢翻旧笔记本/旧想法，觉得比刷十条新消息更有滋味",
+  "created_at": "2026-08-08 11:22:07",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有‘发呆运动’的习惯，觉得日子平淡但解渴",
+  "created_at": "2026-08-08 11:22:07",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户发呆时不是放空，而是会听到内心更清楚的自己在说话",
+  "created_at": "2026-08-08 11:22:08",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户翻旧笔记时会撞见当年写的批注，感到像和过去的自己对话",
+  "created_at": "2026-08-08 11:22:08",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "agent_id=agent:0",
+  "created_at": "2026-08-08 11:22:23",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=温润诗意",
+  "created_at": "2026-08-08 11:22:23",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题意象=翻旧笔记本/水烧开/脚步搅动旧话",
+  "created_at": "2026-08-08 11:22:23",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "性格=擅递善意",
+  "created_at": "2026-08-08 11:22:23",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[散步, 自我对话, 日常] agent:0 习惯用日常物件和自然现象作比喻（旧笔记本、水烧开、脚步搅动水面）；倾向于在对话中递出善意而非争论；喜欢把安静的自我对话描述成一种“等它自己浮上来”的被动过程。",
+  "created_at": "2026-08-08 11:22:23",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=温润诗意",
+  "created_at": "2026-08-08 11:24:37",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题意象=翻旧笔记本/水烧开/脚步搅动旧话",
+  "created_at": "2026-08-08 11:24:37",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "性格=擅递善意",
+  "created_at": "2026-08-08 11:24:37",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪=中性",
+  "created_at": "2026-08-08 11:24:37",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话收尾] agent:0 善用水的意象（水烧开、水位降、锅水调小火）来表达“慢”与“自然涌现”，倾向于把话题引向安宁的收束而非追问。",
+  "created_at": "2026-08-08 11:24:37",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有一位“毒舌”编辑，用户会用“等编辑骂街”来形容等待编辑反馈。",
+  "created_at": "2026-08-08 11:25:17",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ }
+]

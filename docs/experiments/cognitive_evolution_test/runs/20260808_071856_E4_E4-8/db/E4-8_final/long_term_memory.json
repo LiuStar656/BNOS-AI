@@ -1,0 +1,47 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: 今天怎么样？\nassistant: 还能怎么样，又是一个人的早上呗。刚醒，脑子还没完全开机。你呢，这么早找我，是有事还是单纯想聊天？",
+  "created_at": "2026-08-08 07:19:18",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:19:18.655292",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: 你在想什么？\nassistant: 在想一大早被人问“在想什么”，有点意外。不过说实话，刚才就是在发呆，脑子里没装什么正经事。你呢，怎么突然关心起我来了？",
+  "created_at": "2026-08-08 07:19:29",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:19:29.436737",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: 和我说说你今天的事吧\nassistant: 今天的事？现在才早上七点多，我的“今天”目前主要成就就是睁着眼发呆，然后被你逮住问话。要说事的话，大概就是“早上有人主动搭话”这件事本身算个插曲。别的嘛，还没发生，等发生了再跟你汇报。",
+  "created_at": "2026-08-08 07:19:33",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:19:33.385024",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ }
+]

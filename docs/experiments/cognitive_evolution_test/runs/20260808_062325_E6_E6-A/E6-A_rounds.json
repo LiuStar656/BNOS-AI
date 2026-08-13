@@ -1,0 +1,174 @@
+{
+ "gid": "E6-A",
+ "cfg": {
+  "gid": "E6-A",
+  "seed": "default",
+  "pool": "command",
+  "mood_mode": "current",
+  "review_mode": "none",
+  "rounds": 100
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "mood": -0.0859,
+   "name": "影刃",
+   "self_info_total": 6,
+   "sc_count": 14,
+   "settled": 4,
+   "procedural": 0,
+   "round": 10,
+   "rss_mb": 436.5
+  },
+  {
+   "vector": [
+    0.5651466666666667,
+    0.412764,
+    0.5,
+    0.497184
+   ],
+   "mood": -0.2513,
+   "name": "影刃",
+   "self_info_total": 23,
+   "sc_count": 37,
+   "settled": 15,
+   "procedural": 0,
+   "round": 20,
+   "rss_mb": 438.4
+  },
+  {
+   "vector": [
+    0.531195509497436,
+    0.42723275401846156,
+    0.5038769230769231,
+    0.49754354688
+   ],
+   "mood": -0.3808,
+   "name": "影刃",
+   "self_info_total": 32,
+   "sc_count": 55,
+   "settled": 21,
+   "procedural": 1,
+   "round": 30,
+   "rss_mb": 440.5
+  },
+  {
+   "vector": [
+    0.45470881782501704,
+    0.447230108325259,
+    0.5460848064374821,
+    0.4888993911421367
+   ],
+   "mood": -0.5377,
+   "name": "影刃",
+   "self_info_total": 37,
+   "sc_count": 69,
+   "settled": 24,
+   "procedural": 1,
+   "round": 40,
+   "rss_mb": 442.8
+  },
+  {
+   "vector": [
+    0.3919205345028096,
+    0.4608638493125745,
+    0.5614426350366926,
+    0.49176736795934234
+   ],
+   "mood": -0.7513,
+   "name": "影刃",
+   "self_info_total": 44,
+   "sc_count": 86,
+   "settled": 30,
+   "procedural": 1,
+   "round": 50,
+   "rss_mb": 444.5
+  },
+  {
+   "vector": [
+    0.38430692808213507,
+    0.4698183481001805,
+    0.5808754699794639,
+    0.47882324465286685
+   ],
+   "mood": -0.9393,
+   "name": "影刃",
+   "self_info_total": 51,
+   "sc_count": 102,
+   "settled": 34,
+   "procedural": 2,
+   "round": 60,
+   "rss_mb": 446.8
+  },
+  {
+   "vector": [
+    0.3889496849114473,
+    0.4777461279181998,
+    0.5748670487120598,
+    0.479736351844024
+   ],
+   "mood": -1.0,
+   "name": "影刃",
+   "self_info_total": 52,
+   "sc_count": 121,
+   "settled": 39,
+   "procedural": 4,
+   "round": 70,
+   "rss_mb": 448.9
+  },
+  {
+   "vector": [
+    0.3961354433643207,
+    0.48349568544615934,
+    0.5712785059678402,
+    0.46289148072634495
+   ],
+   "mood": -0.9912,
+   "name": "影刃",
+   "self_info_total": 58,
+   "sc_count": 135,
+   "settled": 41,
+   "procedural": 5,
+   "round": 80,
+   "rss_mb": 451.4
+  },
+  {
+   "vector": [
+    0.40002140131556585,
+    0.48775977511280444,
+    0.5565140098215947,
+    0.457500701720383
+   ],
+   "mood": -0.9111,
+   "name": "影刃",
+   "self_info_total": 65,
+   "sc_count": 152,
+   "settled": 45,
+   "procedural": 7,
+   "round": 90,
+   "rss_mb": 452.9
+  },
+  {
+   "vector": [
+    0.4205664297538529,
+    0.4909221855412192,
+    0.5419129305392767,
+    0.4684809104435385
+   ],
+   "mood": -0.9827,
+   "name": "影刃",
+   "self_info_total": 71,
+   "sc_count": 164,
+   "settled": 46,
+   "procedural": 7,
+   "round": 100,
+   "rss_mb": 454.7
+  }
+ ],
+ "errors": []
+}

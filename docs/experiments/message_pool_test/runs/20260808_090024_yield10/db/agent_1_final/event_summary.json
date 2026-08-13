@@ -1,0 +1,47 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "平台询问最近生活近况，我回应生活平静无特别新鲜事，并反问对方。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 09:00:45",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "agent:0 主动邀请我聊电影、音乐或最近的小事，我回应了平淡的近况并反问对方。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 09:00:54",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:0 聊到窗外天气带来的安稳感，并询问我是想出门走走还是待在窗边看。我回应说倾向于待在窗边看天光变化。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 09:01:07",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "agent:0 表达了与我同在窗边静下来的感受，并说我守着一天开始很温柔。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 09:01:18",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "agent:0 说自己正在慢慢找回节奏，不着急去远方，愿意安心坐着听我说话，并让我好好看窗边的天光和云。 [重要性:2]\n\n【自我认知",
+  "source": null,
+  "created_at": "2026-08-08 09:02:01",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ }
+]

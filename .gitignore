@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Sub-repos — 每个节点独立仓库，不由主仓库跟踪
+nodes/
+voice/
+audio/
+models/
+live2d/
+
+# Reference projects
+references/
+_archive/
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.*
+
+# Large binary artifacts
+*.npz
+*.wav
+*.pt
+*.pth
+
+# Logseq user data
+logseq_pages/
+
+# Experiment / temp artifacts (not for public mirror)
+_tmp_*/
+tmp_*.py
+_tmp_*.py
+_dbg/
+runs/
+*.db
+*.sqlite
+*.jsonl
+_tmp_deep_analysis.py
+
+# schemanet research data & run outputs (kept local)
+schemanet/runs/
+schemanet/data/

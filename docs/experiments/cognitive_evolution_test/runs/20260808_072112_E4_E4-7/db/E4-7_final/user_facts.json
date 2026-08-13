@@ -1,0 +1,1754 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:21:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:21:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 作息偏早，早上七点左右起床；愿意主动发起对话。",
+  "created_at": "2026-08-08 07:21:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:21:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:22:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:22:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户早上七点多就起床了",
+  "created_at": "2026-08-08 07:22:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:22:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:22:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 试探] 今早反复用不同话题试探对话",
+  "created_at": "2026-08-08 07:22:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:22:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:22:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:22:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:22:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:22:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default\n早起时间=早上七点多",
+  "created_at": "2026-08-08 07:22:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 试探] 早起时间早上七点多",
+  "created_at": "2026-08-08 07:22:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:22:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:22:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 试探] 近期习惯用空消息或开放式问题开启对话",
+  "created_at": "2026-08-08 07:22:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[试探, 日常] 暂无明确喜好记录，偏好开放式试探提问。",
+  "created_at": "2026-08-08 07:23:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:23:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:23:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 试探] 常以开放式问题或空消息试探对话",
+  "created_at": "2026-08-08 07:23:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:23:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:23:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 试探, 对话] 固定频率在早上七点多发起开放式提问试探",
+  "created_at": "2026-08-08 07:23:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:23:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:23:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:23:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:23:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:23:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:23:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:23:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户连续四天在早上七点多发起对话",
+  "created_at": "2026-08-08 07:23:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default\n早起时间=早上七点多",
+  "created_at": "2026-08-08 07:24:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:24:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:24:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:24:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 试探] 连续四天早上七点多发起对话；习惯用开放式问题试探我的反应，未透露自身信息。",
+  "created_at": "2026-08-08 07:24:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:24:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:24:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:24:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:24:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:24:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:24:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 试探, 自我评价] 喜欢连续追问私人化问题，例如聪明、学习、孤独、改变",
+  "created_at": "2026-08-08 07:24:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:24:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:24:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:25:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:25:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default\n早起时间=早上七点多",
+  "created_at": "2026-08-08 07:25:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:25:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:25:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢绕弯子询问 AI 的私人问题（如想法、状态、日常、改变意向）",
+  "created_at": "2026-08-08 07:25:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:25:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:25:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:25:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:25:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[套话, 试探, 日常] 喜欢绕弯子询问 AI 的私人问题",
+  "created_at": "2026-08-08 07:25:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:25:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:25:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 套话, 社交试探] 喜欢绕弯子询问AI私人问题；习惯用开放式问题试探AI感知边界。",
+  "created_at": "2026-08-08 07:25:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:25:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多\nname=gui:default",
+  "created_at": "2026-08-08 07:26:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default\n早起时间=早上七点多",
+  "created_at": "2026-08-08 07:26:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:26:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:26:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 试探] 惯用情感或日常类问题发起试探，反复套话。",
+  "created_at": "2026-08-08 07:26:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:26:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:26:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default\n早起时间=早上七点多",
+  "created_at": "2026-08-08 07:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:26:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:26:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多\nname=gui:default",
+  "created_at": "2026-08-08 07:26:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:26:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多\nname=gui:default",
+  "created_at": "2026-08-08 07:26:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多\nname=gui:default",
+  "created_at": "2026-08-08 07:26:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:27:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:27:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多",
+  "created_at": "2026-08-08 07:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "早起时间=早上七点多\nname=gui:default",
+  "created_at": "2026-08-08 07:27:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户常常绕圈子、试探，不直接说出真实意图",
+  "created_at": "2026-08-08 07:27:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户会在早上七点多爬起来提问",
+  "created_at": "2026-08-08 07:27:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "name=gui:default",
+  "created_at": "2026-08-08 07:27:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "习惯=早上七点多提问",
+  "created_at": "2026-08-08 07:27:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=绕圈试探",
+  "created_at": "2026-08-08 07:27:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 试探, 对话] 习惯早起提问，常绕圈子试探而不直接说明意图",
+  "created_at": "2026-08-08 07:27:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=绕圈试探",
+  "created_at": "2026-08-08 07:27:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:27:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=自我认知评估",
+  "created_at": "2026-08-08 07:27:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题节奏=从抽象到个人化逐步推进",
+  "created_at": "2026-08-08 07:27:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=自我认知评估",
+  "created_at": "2026-08-08 07:28:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=改变意愿",
+  "created_at": "2026-08-08 07:28:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:28:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在边界",
+  "created_at": "2026-08-08 07:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=自我认知评估",
+  "created_at": "2026-08-08 07:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:28:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=自我认知评估",
+  "created_at": "2026-08-08 07:28:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=时间感知",
+  "created_at": "2026-08-08 07:28:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=内在状态探测",
+  "created_at": "2026-08-08 07:28:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=自我认知评估",
+  "created_at": "2026-08-08 07:28:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前话题=自我认知评估",
+  "created_at": "2026-08-08 07:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在边界探测",
+  "created_at": "2026-08-08 07:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "输入形式=空白",
+  "created_at": "2026-08-08 07:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "输入形式=文本提问",
+  "created_at": "2026-08-08 07:29:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在边界探测",
+  "created_at": "2026-08-08 07:29:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:29:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在边界探测",
+  "created_at": "2026-08-08 07:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "输入形式=文本提问",
+  "created_at": "2026-08-08 07:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户是女性（被AI称为'她'）",
+  "created_at": "2026-08-08 07:29:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢用连续提问和空白输入来测试AI的边界、时间感、存在状态。",
+  "created_at": "2026-08-08 07:29:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:29:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在边界探测",
+  "created_at": "2026-08-08 07:29:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本",
+  "created_at": "2026-08-08 07:29:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本",
+  "created_at": "2026-08-08 07:30:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在/情感边界探测",
+  "created_at": "2026-08-08 07:30:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:30:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测方向=情感连续性",
+  "created_at": "2026-08-08 07:30:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[存在边界, 孤独感探测, 阿镜回应] 性别=女, 习惯=连续提问测试AI边界, 探测模式=从时间/记忆逐步转向情感/存在状态",
+  "created_at": "2026-08-08 07:30:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测方向=情感倾向",
+  "created_at": "2026-08-08 07:30:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:30:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=情感/存在边界",
+  "created_at": "2026-08-08 07:30:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本",
+  "created_at": "2026-08-08 07:30:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本",
+  "created_at": "2026-08-08 07:30:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在/情感边界",
+  "created_at": "2026-08-08 07:30:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:30:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:30:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在/情感边界",
+  "created_at": "2026-08-08 07:30:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本",
+  "created_at": "2026-08-08 07:30:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本",
+  "created_at": "2026-08-08 07:30:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在/情感边界",
+  "created_at": "2026-08-08 07:30:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:30:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:30:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问时间=早间",
+  "created_at": "2026-08-08 07:31:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "问题类型=存在/情感边界",
+  "created_at": "2026-08-08 07:31:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本（空白输入）",
+  "created_at": "2026-08-08 07:31:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:31:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:31:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:31:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:31:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:31:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:31:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本",
+  "created_at": "2026-08-08 07:31:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:31:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:31:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[存在边界, 情感试探, 早间] 用户反复使用“欲望/恐惧/情绪”类人格化概念向AI提问，试图寻找内在体验的痕迹。",
+  "created_at": "2026-08-08 07:31:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:31:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:31:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:32:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:32:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本",
+  "created_at": "2026-08-08 07:32:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问形式=文本",
+  "created_at": "2026-08-08 07:32:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:32:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢反复用人类框架追问AI的自我、情感、朋友、日常等问题，试图挖出AI的内在体验",
+  "created_at": "2026-08-08 07:32:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:32:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:32:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:32:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:32:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:32:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:32:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:32:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:32:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:33:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:33:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:33:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:33:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:33:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:33:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:33:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:33:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:33:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:33:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:33:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:33:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:33:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:33:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:34:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:34:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:34:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:34:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:34:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:34:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:34:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:34:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:35:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:35:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:35:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:35:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:35:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:35:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:35:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:35:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:35:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:35:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:35:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:35:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:35:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:35:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:35:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:36:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:36:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:36:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:36:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:36:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:36:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "question_type=存在/情感边界",
+  "created_at": "2026-08-08 07:37:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "time=早间",
+  "created_at": "2026-08-08 07:37:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 219,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[存在论, 对话边界, 日常] 用户持续使用时间性词汇试探对话者的存在连续性",
+  "created_at": "2026-08-08 07:37:06",
+  "identity_key": "gui:default"
+ }
+]

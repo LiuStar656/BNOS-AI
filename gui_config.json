@@ -1,0 +1,47 @@
+{
+  "selected_preset": "ubuntu",
+  "theme": {
+    "mode": "light",
+    "accent_color": "#e95420",
+    "accent_hover": "#d4461a",
+    "bg_primary": "#f2f2f2",
+    "bg_secondary": "#ffffff",
+    "bg_chat": "#ebeaef",
+    "text_primary": "#333333",
+    "text_secondary": "#777777",
+    "border_color": "#cdcdcd",
+    "bubble_user_bg": "#e95420",
+    "bubble_user_text": "#ffffff",
+    "bubble_ai_bg": "#ffffff",
+    "bubble_ai_text": "#333333",
+    "sidebar_bg": "#ffffff",
+    "sidebar_active": "#fde8e0",
+    "sidebar_text": "#777777",
+    "sidebar_active_text": "#e95420",
+    "toast_info": "#ffffff",
+    "toast_success": "#e8f5e9",
+    "toast_warning": "#fff3e0",
+    "toast_error": "#ffebee",
+    "toast_text": "#333333",
+    "select_bg": "#e95420"
+  },
+  "window": {
+    "geometry": {
+      "x": 491,
+      "y": 326,
+      "width": 1191,
+      "height": 734
+    }
+  },
+  "live2d_current_model": "feiniu.model3.json",
+  "live2d_overlay": {
+    "x": 1625,
+    "y": 629,
+    "w": 400,
+    "h": 600
+  },
+  "live2d_model_scale": 0.25,
+  "tts_enabled": true,
+  "live2d_model_offset_x": -3,
+  "live2d_model_offset_y": 263
+}

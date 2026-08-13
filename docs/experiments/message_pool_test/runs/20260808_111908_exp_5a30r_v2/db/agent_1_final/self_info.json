@@ -1,0 +1,66 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 11:19:27",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "表达风格",
+  "value": "俏皮幽默",
+  "created_at": "2026-08-08 11:19:27",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "agent_id",
+  "value": "agent:1",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "心情",
+  "value": "平静",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "key": "最近生活状态",
+  "value": "平淡但解渴",
+  "created_at": "2026-08-08 11:20:02",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "key": "生活状态",
+  "value": "平淡但解渴",
+  "created_at": "2026-08-08 11:22:23",
+  "identity_key": "agent:1"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "key": "自我对话",
+  "value": "毒舌编辑",
+  "created_at": "2026-08-08 11:22:23",
+  "identity_key": "agent:1"
+ }
+]

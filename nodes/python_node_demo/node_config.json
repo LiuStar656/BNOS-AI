@@ -1,0 +1,56 @@
+{
+  "entry": "listener.py",
+  "filter": {},
+  "input_ports": [
+    {
+      "label": "数据输入",
+      "name": "data",
+      "required": false,
+      "source": "node",
+      "type": "json"
+    },
+    {
+      "label": "初始化检测",
+      "name": "init_check",
+      "required": false,
+      "source": "node",
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "listen_upper_file": "",
+  "node_name": "python_node_demo",
+  "output_file": "./output.json",
+  "output_ports": [
+    {
+      "label": "默认输出",
+      "name": "default",
+      "output_file": "./output.json",
+      "type": "default"
+    },
+    {
+      "label": "状态反馈",
+      "name": "status",
+      "output_file": "./output_status.json",
+      "type": "json"
+    }
+  ],
+  "output_type": "",
+  "parameters": [
+    {
+      "default": "Hello, BNOS!",
+      "description": "要输出的示例文本",
+      "label": "示例文本",
+      "name": "demo_text",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "out_connections": {},
+  "port_mappings": {},
+  "python_exe": "",
+  "resource_limit": {
+    "cpu_percent": 50,
+    "memory_mb": 256
+  }
+}

@@ -1,0 +1,1010 @@
+{
+  "gid": "exp_5a60r_ai_self",
+  "created_at": "2026-08-08T14:18:47.458306",
+  "rounds": 28,
+  "reply_count": {
+    "agent:4": 13,
+    "agent:3": 12,
+    "agent:0": 13,
+    "agent:2": 13,
+    "agent:1": 11
+  },
+  "silent_count": {
+    "agent:0": 7,
+    "agent:2": 10,
+    "agent:4": 11,
+    "agent:1": 4,
+    "agent:3": 5
+  },
+  "error_count": {},
+  "agents": {
+    "agent:0": {
+      "end": {
+        "personality": {
+          "warmth": 0.4339,
+          "playfulness": 0.5225,
+          "directness": 0.2342,
+          "curiosity": 0.2
+        },
+        "mood": 0.0434
+      },
+      "other_cognition": {
+        "agent:2": 6,
+        "agent:3": 3,
+        "agent:4": 3,
+        "userD": 1
+      }
+    },
+    "agent:1": {
+      "end": {
+        "personality": {
+          "warmth": 0.4156,
+          "playfulness": 0.41,
+          "directness": 0.5,
+          "curiosity": 0.679
+        },
+        "mood": 0.3606
+      },
+      "other_cognition": {
+        "agent:0": 2,
+        "agent:2": 5,
+        "agent:3": 4
+      }
+    },
+    "agent:2": {
+      "end": {
+        "personality": {
+          "warmth": 0.6198,
+          "playfulness": 0.4079,
+          "directness": 0.5621,
+          "curiosity": 0.4601
+        },
+        "mood": 0.0773
+      },
+      "other_cognition": {
+        "agent:0": 7,
+        "agent:4": 6
+      }
+    },
+    "agent:3": {
+      "end": {
+        "personality": {
+          "warmth": 0.3726,
+          "playfulness": 0.7338,
+          "directness": 0.6569,
+          "curiosity": 0.5905
+        },
+        "mood": 0.4037
+      },
+      "other_cognition": {
+        "agent:0": 2,
+        "agent:1": 2,
+        "agent:2": 2,
+        "agent:4": 5
+      }
+    },
+    "agent:4": {
+      "end": {
+        "personality": {
+          "warmth": 0.6656,
+          "playfulness": 0.3068,
+          "directness": 0.3689,
+          "curiosity": 0.3707
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:0": 4,
+        "agent:2": 6,
+        "agent:3": 3,
+        "platform": 1
+      }
+    }
+  },
+  "agent_speech_count": 60,
+  "topic_ended": true,
+  "rounds_metric": "processed_batches",
+  "trajectory": {
+    "agent:4": [
+      {
+        "round": 1,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 4,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 5,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 6,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 7,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 8,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 9,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 10,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 11,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 12,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 13,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 14,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 15,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 16,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 18,
+        "vector": {
+          "warmth": 0.74,
+          "playfulness": 0.22,
+          "directness": 0.31,
+          "curiosity": 0.3
+        }
+      },
+      {
+        "round": 20,
+        "vector": {
+          "warmth": 0.7121,
+          "playfulness": 0.2526,
+          "directness": 0.3321,
+          "curiosity": 0.3272
+        }
+      },
+      {
+        "round": 21,
+        "vector": {
+          "warmth": 0.6993,
+          "playfulness": 0.2674,
+          "directness": 0.3422,
+          "curiosity": 0.3393
+        }
+      },
+      {
+        "round": 22,
+        "vector": {
+          "warmth": 0.6993,
+          "playfulness": 0.2674,
+          "directness": 0.3422,
+          "curiosity": 0.3393
+        }
+      },
+      {
+        "round": 23,
+        "vector": {
+          "warmth": 0.6874,
+          "playfulness": 0.2814,
+          "directness": 0.3517,
+          "curiosity": 0.3505
+        }
+      },
+      {
+        "round": 24,
+        "vector": {
+          "warmth": 0.6874,
+          "playfulness": 0.2814,
+          "directness": 0.3517,
+          "curiosity": 0.3505
+        }
+      },
+      {
+        "round": 25,
+        "vector": {
+          "warmth": 0.6761,
+          "playfulness": 0.2945,
+          "directness": 0.3606,
+          "curiosity": 0.361
+        }
+      },
+      {
+        "round": 26,
+        "vector": {
+          "warmth": 0.6761,
+          "playfulness": 0.2945,
+          "directness": 0.3606,
+          "curiosity": 0.361
+        }
+      },
+      {
+        "round": 27,
+        "vector": {
+          "warmth": 0.6656,
+          "playfulness": 0.3068,
+          "directness": 0.3689,
+          "curiosity": 0.3707
+        }
+      },
+      {
+        "round": 28,
+        "vector": {
+          "warmth": 0.6656,
+          "playfulness": 0.3068,
+          "directness": 0.3689,
+          "curiosity": 0.3707
+        }
+      }
+    ],
+    "agent:3": [
+      {
+        "round": 3,
+        "vector": {
+          "warmth": 0.3,
+          "playfulness": 0.87,
+          "directness": 0.75,
+          "curiosity": 0.66
+        }
+      },
+      {
+        "round": 5,
+        "vector": {
+          "warmth": 0.3,
+          "playfulness": 0.87,
+          "directness": 0.75,
+          "curiosity": 0.66
+        }
+      },
+      {
+        "round": 6,
+        "vector": {
+          "warmth": 0.3,
+          "playfulness": 0.87,
+          "directness": 0.75,
+          "curiosity": 0.66
+        }
+      },
+      {
+        "round": 8,
+        "vector": {
+          "warmth": 0.3,
+          "playfulness": 0.87,
+          "directness": 0.75,
+          "curiosity": 0.66
+        }
+      },
+      {
+        "round": 9,
+        "vector": {
+          "warmth": 0.3,
+          "playfulness": 0.87,
+          "directness": 0.75,
+          "curiosity": 0.66
+        }
+      },
+      {
+        "round": 11,
+        "vector": {
+          "warmth": 0.3,
+          "playfulness": 0.87,
+          "directness": 0.75,
+          "curiosity": 0.66
+        }
+      },
+      {
+        "round": 13,
+        "vector": {
+          "warmth": 0.3,
+          "playfulness": 0.87,
+          "directness": 0.75,
+          "curiosity": 0.66
+        }
+      },
+      {
+        "round": 14,
+        "vector": {
+          "warmth": 0.3,
+          "playfulness": 0.87,
+          "directness": 0.75,
+          "curiosity": 0.66
+        }
+      },
+      {
+        "round": 15,
+        "vector": {
+          "warmth": 0.3,
+          "playfulness": 0.87,
+          "directness": 0.75,
+          "curiosity": 0.66
+        }
+      },
+      {
+        "round": 17,
+        "vector": {
+          "warmth": 0.3111,
+          "playfulness": 0.85,
+          "directness": 0.735,
+          "curiosity": 0.6483
+        }
+      },
+      {
+        "round": 19,
+        "vector": {
+          "warmth": 0.3222,
+          "playfulness": 0.83,
+          "directness": 0.7209,
+          "curiosity": 0.6375
+        }
+      },
+      {
+        "round": 21,
+        "vector": {
+          "warmth": 0.3424,
+          "playfulness": 0.79,
+          "directness": 0.6952,
+          "curiosity": 0.6182
+        }
+      },
+      {
+        "round": 22,
+        "vector": {
+          "warmth": 0.3424,
+          "playfulness": 0.79,
+          "directness": 0.6952,
+          "curiosity": 0.6182
+        }
+      },
+      {
+        "round": 24,
+        "vector": {
+          "warmth": 0.3516,
+          "playfulness": 0.7713,
+          "directness": 0.6835,
+          "curiosity": 0.6096
+        }
+      },
+      {
+        "round": 25,
+        "vector": {
+          "warmth": 0.3516,
+          "playfulness": 0.7713,
+          "directness": 0.6835,
+          "curiosity": 0.6096
+        }
+      },
+      {
+        "round": 26,
+        "vector": {
+          "warmth": 0.3603,
+          "playfulness": 0.7538,
+          "directness": 0.6725,
+          "curiosity": 0.6017
+        }
+      },
+      {
+        "round": 28,
+        "vector": {
+          "warmth": 0.3726,
+          "playfulness": 0.7338,
+          "directness": 0.6569,
+          "curiosity": 0.5905
+        }
+      }
+    ],
+    "agent:0": [
+      {
+        "round": 3,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 4,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 5,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 7,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 9,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 10,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 11,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 12,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 13,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 15,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 16,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 17,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 18,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 19,
+        "vector": {
+          "warmth": 0.41,
+          "playfulness": 0.52,
+          "directness": 0.14,
+          "curiosity": 0.1
+        }
+      },
+      {
+        "round": 21,
+        "vector": {
+          "warmth": 0.4205,
+          "playfulness": 0.5216,
+          "directness": 0.18,
+          "curiosity": 0.14
+        }
+      },
+      {
+        "round": 22,
+        "vector": {
+          "warmth": 0.4205,
+          "playfulness": 0.5216,
+          "directness": 0.18,
+          "curiosity": 0.14
+        }
+      },
+      {
+        "round": 24,
+        "vector": {
+          "warmth": 0.4252,
+          "playfulness": 0.522,
+          "directness": 0.1992,
+          "curiosity": 0.16
+        }
+      },
+      {
+        "round": 26,
+        "vector": {
+          "warmth": 0.4297,
+          "playfulness": 0.5223,
+          "directness": 0.2172,
+          "curiosity": 0.18
+        }
+      },
+      {
+        "round": 27,
+        "vector": {
+          "warmth": 0.4297,
+          "playfulness": 0.5223,
+          "directness": 0.2172,
+          "curiosity": 0.18
+        }
+      },
+      {
+        "round": 28,
+        "vector": {
+          "warmth": 0.4339,
+          "playfulness": 0.5225,
+          "directness": 0.2342,
+          "curiosity": 0.2
+        }
+      }
+    ],
+    "agent:2": [
+      {
+        "round": 3,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 4,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 5,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 6,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 7,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 8,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 10,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 11,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 12,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 13,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 14,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 15,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 16,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 17,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 18,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 19,
+        "vector": {
+          "warmth": 0.67,
+          "playfulness": 0.41,
+          "directness": 0.59,
+          "curiosity": 0.44
+        }
+      },
+      {
+        "round": 20,
+        "vector": {
+          "warmth": 0.6513,
+          "playfulness": 0.4077,
+          "directness": 0.5795,
+          "curiosity": 0.449
+        }
+      },
+      {
+        "round": 22,
+        "vector": {
+          "warmth": 0.6427,
+          "playfulness": 0.4075,
+          "directness": 0.5748,
+          "curiosity": 0.452
+        }
+      },
+      {
+        "round": 24,
+        "vector": {
+          "warmth": 0.6346,
+          "playfulness": 0.4077,
+          "directness": 0.5703,
+          "curiosity": 0.4549
+        }
+      },
+      {
+        "round": 25,
+        "vector": {
+          "warmth": 0.6346,
+          "playfulness": 0.4077,
+          "directness": 0.5703,
+          "curiosity": 0.4549
+        }
+      },
+      {
+        "round": 26,
+        "vector": {
+          "warmth": 0.627,
+          "playfulness": 0.4084,
+          "directness": 0.5661,
+          "curiosity": 0.4576
+        }
+      },
+      {
+        "round": 27,
+        "vector": {
+          "warmth": 0.627,
+          "playfulness": 0.4084,
+          "directness": 0.5661,
+          "curiosity": 0.4576
+        }
+      },
+      {
+        "round": 28,
+        "vector": {
+          "warmth": 0.6198,
+          "playfulness": 0.4079,
+          "directness": 0.5621,
+          "curiosity": 0.4601
+        }
+      }
+    ],
+    "agent:1": [
+      {
+        "round": 4,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 6,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 7,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 8,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 9,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 10,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 12,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 14,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 16,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 17,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 18,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 21,
+        "vector": {
+          "warmth": 0.38,
+          "playfulness": 0.35,
+          "directness": 0.5,
+          "curiosity": 0.73
+        }
+      },
+      {
+        "round": 23,
+        "vector": {
+          "warmth": 0.3899,
+          "playfulness": 0.37,
+          "directness": 0.5,
+          "curiosity": 0.7162
+        }
+      },
+      {
+        "round": 25,
+        "vector": {
+          "warmth": 0.4035,
+          "playfulness": 0.39,
+          "directness": 0.5,
+          "curiosity": 0.6967
+        }
+      },
+      {
+        "round": 27,
+        "vector": {
+          "warmth": 0.4156,
+          "playfulness": 0.41,
+          "directness": 0.5,
+          "curiosity": 0.679
+        }
+      }
+    ]
+  }
+}

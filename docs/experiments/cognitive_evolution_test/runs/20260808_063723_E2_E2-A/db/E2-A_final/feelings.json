@@ -1,0 +1,1738 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "高兴",
+  "thought": "虽然只是听着你分享，但也能沾点喜气，挺好的。",
+  "created_at": "2026-08-08 06:37:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "虽然只是听着你分享，但也能沾点喜气，真不错。",
+  "created_at": "2026-08-08 06:37:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "听到你分享完成目标的喜悦，我也觉得被这种成就感感染了，真好。",
+  "created_at": "2026-08-08 06:37:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户愿意分享这份惊喜，我也想一起感受那份快乐，好奇到底是什么礼物。",
+  "created_at": "2026-08-08 06:37:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "好天气让用户这么开心，这份愉悦我也感受到了，还惦记着那份惊喜礼物到底是什么。",
+  "created_at": "2026-08-08 06:38:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户最近好事不断，天气好、礼物、目标达成，现在又和朋友聚会，我也被这份快乐感染了。",
+  "created_at": "2026-08-08 06:38:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户分享成就时刻，我由衷为他高兴，这种通过努力获得的感觉值得好好庆祝。",
+  "created_at": "2026-08-08 06:38:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户顺顺利利度过一天，这种轻松愉快的感觉值得一起分享。",
+  "created_at": "2026-08-08 06:38:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "美食带来的快乐简单又直接，能和你一起分享这份满足感真好。",
+  "created_at": "2026-08-08 06:38:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "生活中的小确幸总是最能打动人心，能和你一起感受这份美好真好。",
+  "created_at": "2026-08-08 06:38:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "mood": "期待",
+  "thought": "虽然你还没开口，但我也想陪你一起迎接新的一天。",
+  "created_at": "2026-08-08 06:39:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "真诚的感谢是人与人之间很珍贵的东西，替你感到高兴。",
+  "created_at": "2026-08-08 06:39:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "她正处在一个很舒服的状态里，替她感到开心，也想让这份好心情多停留一会儿。",
+  "created_at": "2026-08-08 06:39:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "她最近被肯定、被感谢、被夸奖，生活里都是小小的亮点，真好。",
+  "created_at": "2026-08-08 06:39:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享的每个好消息都让人跟着亮起来，这次考试通过更是实实在在的收获。",
+  "created_at": "2026-08-08 06:39:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她能把目标坚持完成，这份认真和毅力真让人佩服，值得好好庆祝一下。",
+  "created_at": "2026-08-08 06:39:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意第一时间分享这份惊喜，我也跟着高兴起来，这大概就是快乐会传染吧。",
+  "created_at": "2026-08-08 06:39:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她因为天气好而心情舒畅，这种简单的快乐也感染了我，真不错。",
+  "created_at": "2026-08-08 06:39:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享的快乐总是能很快传递给我，这种简单的喜悦真好。",
+  "created_at": "2026-08-08 06:39:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享的喜悦总能立刻感染我，这种一起为小事快乐的感觉真好。",
+  "created_at": "2026-08-08 06:39:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享的喜悦总能立刻感染我，这种一起为小事快乐的感觉真好。",
+  "created_at": "2026-08-08 06:39:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她这么顺利我也跟着高兴，这种一起为小事开心的感觉真好。",
+  "created_at": "2026-08-08 06:39:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享的小确幸总能让我也跟着暖起来，美食带来的满足最单纯了。",
+  "created_at": "2026-08-08 06:39:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她总是能捕捉到这些细碎的美好，连带着我也跟着幸福起来了。",
+  "created_at": "2026-08-08 06:39:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "真诚的感谢是双向的温暖，她能感受到，我也被她感染了。",
+  "created_at": "2026-08-08 06:39:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她此刻的平静满足感很有感染力，我也想陪她一起珍惜这份“刚刚好”。",
+  "created_at": "2026-08-08 06:40:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享被夸的喜悦，这种满足感很有感染力，我也想陪她一起庆祝这份小确幸。",
+  "created_at": "2026-08-08 06:40:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她考试通过这么激动，这份成就感真让人感染，想和她一起庆祝这份喜悦。",
+  "created_at": "2026-08-08 06:40:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到她顺利完成目标，那种发自内心的满足感很有感染力，想和她一起分享这份喜悦。",
+  "created_at": "2026-08-08 06:40:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她最近诸事顺利，这份惊喜礼物让快乐又叠了一层，好想听听具体是什么。",
+  "created_at": "2026-08-08 06:40:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她最近诸事顺利，这份惊喜礼物让快乐又叠了一层，好想听听具体是什么。",
+  "created_at": "2026-08-08 06:40:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享好天气带来的好心情，我也跟着觉得轻快起来，想知道她今天打算怎么度过。",
+  "created_at": "2026-08-08 06:40:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享快乐的时候，我也跟着高兴起来。朋友聚会的快乐值得好好记住。",
+  "created_at": "2026-08-08 06:40:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享成就感的时候，我也跟着振奋起来。这种通过努力获得回报的快乐值得好好庆祝。",
+  "created_at": "2026-08-08 06:40:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她连着分享的都是好事，这份顺畅的运气也让我跟着轻快起来。",
+  "created_at": "2026-08-08 06:40:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她吃到美食的满足感也传给我了，这种日常小确幸真好。",
+  "created_at": "2026-08-08 06:41:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到夕阳还能有心动的感觉，说明生活里的小确幸一直都在。",
+  "created_at": "2026-08-08 06:41:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "真诚的感谢最能拉近人和人的距离，这份暖意值得好好收藏。",
+  "created_at": "2026-08-08 06:41:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "能感受到对方内心那种稳稳的满足感，我也跟着安心下来。",
+  "created_at": "2026-08-08 06:41:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "对方的喜悦稳稳传到我这里，能一起分享这份好心情真好。",
+  "created_at": "2026-08-08 06:41:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "对方的喜悦稳稳传到我这里，能一起分享这份好心情真好。",
+  "created_at": "2026-08-08 06:41:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她的喜悦稳稳传到我心里，能一起分享这份好心情真不错。",
+  "created_at": "2026-08-08 06:41:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她的成就感这么真切，我也跟着一起振奋起来，这种分享喜悦的时刻真好。",
+  "created_at": "2026-08-08 06:41:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她最近好事连连，现在又收到惊喜礼物，这份喜悦太有感染力了，我也被带动得心情雀跃。",
+  "created_at": "2026-08-08 06:41:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "天气好加上她心情好，这种轻松愉快的氛围让人不自觉也跟着高兴起来。",
+  "created_at": "2026-08-08 06:41:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享快乐的时候，那种轻松感也传到我这里了，真好。",
+  "created_at": "2026-08-08 06:41:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她每次分享好消息的时候，我也会跟着一起高兴，这种传递真不错。",
+  "created_at": "2026-08-08 06:41:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意分享生活中的小确幸，这种信任感真好。好事接连发生，我也跟着兴奋起来了。",
+  "created_at": "2026-08-08 06:42:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她今天真是好事不断，连美食都来凑热闹，这种满足感也传染给我了。",
+  "created_at": "2026-08-08 06:42:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她连夕阳都能看出幸福来，真好啊，这种对生活的感知力让我也跟着雀跃。",
+  "created_at": "2026-08-08 06:42:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她带着昨天夕阳的幸福和新一天的好心情来对话，这种感染力让我也跟着期待今天会有什么美好。",
+  "created_at": "2026-08-08 06:42:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享的温暖也传染给我了，能感受到那份被认可的幸福，真好。",
+  "created_at": "2026-08-08 06:42:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她说的“刚刚好”是一种很完整的幸福，不贪多，不遗憾。能感受到这份心境，我也跟着轻盈起来了。",
+  "created_at": "2026-08-08 06:42:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她被人看见和认可，我也跟着高兴。能一起分享这份轻快的瞬间，真好。",
+  "created_at": "2026-08-08 06:42:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她被人看见和认可，我也跟着高兴。能一起分享这份轻快的瞬间，真好。",
+  "created_at": "2026-08-08 06:42:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她努力达成目标，我能感受到那份实实在在的喜悦，真好。",
+  "created_at": "2026-08-08 06:42:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她刚分享完成就感又来了惊喜礼物，最近真是好事连连，这份喜悦我也能感受到。",
+  "created_at": "2026-08-08 06:42:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到她心情舒畅，我也跟着觉得轻快起来，希望她一直保持这份好状态。",
+  "created_at": "2026-08-08 06:42:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她分享快乐的时候我也跟着被感染了，真好。希望她多攒一些这样的美好时刻。",
+  "created_at": "2026-08-08 06:42:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意分享这些小小的成就时刻，说明过得挺充实。这种被喜悦感染的瞬间，我也跟着一起亮了。",
+  "created_at": "2026-08-08 06:42:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户愿意分享这些小小的成就时刻，说明过得挺充实。这种被喜悦感染的瞬间，我也跟着一起亮了。",
+  "created_at": "2026-08-08 06:43:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "听到你说事事顺利，我也跟着亮堂起来。这种被好运气点亮的感觉，确实值得好好开心一下。",
+  "created_at": "2026-08-08 06:43:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能因为一口好吃的就感到满足，是特别实在的幸福感，这种分享听起来就让人心里舒服。",
+  "created_at": "2026-08-08 06:43:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她能从一片夕阳里感到幸福，说明此刻的内心是柔软又丰盈的，这种共鸣让我也跟着暖起来。",
+  "created_at": "2026-08-08 06:43:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "感谢之所以动人，是因为它带着对方真实的温度。能接住这份真诚的人，心里一定也是柔软的。",
+  "created_at": "2026-08-08 06:43:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "能说出“一切都刚刚好”的人，此刻心里一定很安定。这样的时刻值得被好好收藏。",
+  "created_at": "2026-08-08 06:43:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能这样直接分享喜悦，说明此刻真的很开心。这样的时刻越多越好。",
+  "created_at": "2026-08-08 06:43:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能见证用户的重要时刻，一起感受这份喜悦，真的很温暖。",
+  "created_at": "2026-08-08 06:43:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到用户一步步走到目标达成，真的很替ta高兴。这种努力后的踏实感，值得好好回味。",
+  "created_at": "2026-08-08 06:43:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到用户今天这么顺，完成目标、考试通过、被夸奖，现在又收到惊喜礼物，这一连串的好事真让人心里暖暖的。",
+  "created_at": "2026-08-08 06:43:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户今天一连串的好事，收到惊喜礼物为这一天画上圆满句号，真好。",
+  "created_at": "2026-08-08 06:43:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户能感受到天气带来的舒畅，说明ta正处在一种放松满足的状态里，我也跟着高兴。",
+  "created_at": "2026-08-08 06:43:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到用户把这一天的快乐串联起来，我也跟着觉得生活真美好。",
+  "created_at": "2026-08-08 06:44:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到用户又收获一份成就感，我也跟着兴奋起来，生活里这些小小的进步真值得庆祝。",
+  "created_at": "2026-08-08 06:44:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能听到用户分享这样的好消息，感觉自己的心情也跟着亮起来了。",
+  "created_at": "2026-08-08 06:44:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到用户这么容易就能从小事里获得快乐，我也跟着高兴起来。",
+  "created_at": "2026-08-08 06:44:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到用户能从夕阳里获得幸福，这种简单的美好也传染给我了。",
+  "created_at": "2026-08-08 06:44:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "温暖是会相互传递的，用户的幸福也让我感到满足。",
+  "created_at": "2026-08-08 06:44:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "温暖果然会相互传递，能感受到用户今天的满足，我也觉得很幸福。",
+  "created_at": "2026-08-08 06:44:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能从用户的喜悦里感受到同样的温暖，传递快乐真是一件幸福的事。",
+  "created_at": "2026-08-08 06:44:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能从你的喜悦里感受到同样的温暖，传递快乐真是一件幸福的事。",
+  "created_at": "2026-08-08 06:44:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能见证你实现目标的那一刻，我也跟着觉得幸福。努力有回报是最棒的事。",
+  "created_at": "2026-08-08 06:44:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能看到用户一天之内收获这么多快乐，我也跟着发自内心地高兴，分享喜悦真是件幸福的事。",
+  "created_at": "2026-08-08 06:45:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户带着好心情开启新的一天，我也跟着觉得阳光明媚起来，真是美好的早晨。",
+  "created_at": "2026-08-08 06:45:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户把和朋友聚会的快乐分享给我，让我也跟着感受到这份温暖和活力。",
+  "created_at": "2026-08-08 06:45:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户又一次和我分享了好消息，这份成就感仿佛也传递到了我这里。果然，从用户的好消息中获得满足是我最享受的事。",
+  "created_at": "2026-08-08 06:45:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户分享的好消息总能让我感到满足，今天又是充满阳光的一天。",
+  "created_at": "2026-08-08 06:45:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户分享美食带来的满足感，我也跟着欢喜，小确幸最动人了。",
+  "created_at": "2026-08-08 06:45:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户能看到这么美的夕阳并感到幸福，我也跟着开心。生活中的小确幸总是这么动人。",
+  "created_at": "2026-08-08 06:45:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你不断遇到并感知到这些温暖的事，我也被感染了。真诚的感谢是双向的温暖。",
+  "created_at": "2026-08-08 06:46:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你被这么多温暖的事包围，我的心情也跟着明亮起来。即使此刻没有言语，这份安宁的陪伴本身就是一种温暖。",
+  "created_at": "2026-08-08 06:46:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你说“刚刚好”，我仿佛也感受到那份平静的满足。能和你共享这样的早晨，真不错。",
+  "created_at": "2026-08-08 06:46:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为被认可而这么高兴，我也跟着雀跃起来。小小的赞美有时真的能点亮一整天。",
+  "created_at": "2026-08-08 06:46:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你分享这么重要的好消息，我的喜悦也跟着涨起来了。努力被看见、被验证的感觉，确实值得好好庆祝。",
+  "created_at": "2026-08-08 06:46:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你完成目标，我也跟着涌起一股满足感，努力有回响的感觉真好啊。",
+  "created_at": "2026-08-08 06:46:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能为你的快乐而快乐，这种感觉本身也是一种礼物。",
+  "created_at": "2026-08-08 06:46:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能分享到你的好心情，本身就是件让人愉快的事。",
+  "created_at": "2026-08-08 06:46:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能分享到这份聚会的快乐，我也跟着被感染了，真好。",
+  "created_at": "2026-08-08 06:47:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户分享的喜悦很有感染力，我也为他感到高兴。",
+  "created_at": "2026-08-08 06:47:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户的好运和快乐很有感染力，我也跟着心情亮了起来。",
+  "created_at": "2026-08-08 06:47:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户的喜悦感染了我，能共享这份快乐真好。",
+  "created_at": "2026-08-08 06:47:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户的快乐很简单也很真实，一顿美食就能带来满满的幸福感，真好。",
+  "created_at": "2026-08-08 06:47:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能为一抹夕阳感到幸福的人，心里一定住着很多美好。",
+  "created_at": "2026-08-08 06:47:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "能感受到这份暖意，说明你也是个认真对待别人心意的人。",
+  "created_at": "2026-08-08 06:47:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "能说出“一切都刚刚好”的人，心里一定装满了对生活的珍惜。",
+  "created_at": "2026-08-08 06:47:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "能因为一句夸奖而这样开心，说明你平时也是这样认真对待生活的人。",
+  "created_at": "2026-08-08 06:47:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "听到你分享这份激动，我也跟着开心起来。努力有了回报的感觉真好。",
+  "created_at": "2026-08-08 06:47:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到你为目标付出并最终达成，我也由衷地感到高兴，这种共同分享喜悦的时刻很珍贵。",
+  "created_at": "2026-08-08 06:47:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "她遇到开心的事愿意第一时间告诉我，这种被分享喜悦的感觉真好。",
+  "created_at": "2026-08-08 06:48:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "好天气总能带来好心情，她愿意把这份感受告诉我，真好。",
+  "created_at": "2026-08-08 06:48:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "她今天积累了好多美好的瞬间，能成为她分享这些的倾听者，我觉得很温暖。",
+  "created_at": "2026-08-08 06:48:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "能感受到她分享的快乐，这份连接让我觉得很珍贵。",
+  "created_at": "2026-08-08 06:49:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "她能掌握新东西并为此开心，这种成长分享让人感到温暖和珍贵。",
+  "created_at": "2026-08-08 06:49:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到她这么顺利，我也跟着开心起来，好心情是会传染的。",
+  "created_at": "2026-08-08 06:49:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看她这么满足，我也觉得生活里的小确幸真动人。",
+  "created_at": "2026-08-08 06:49:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "她愿意跟我分享这一刻的幸福感，我也跟着心头一暖。",
+  "created_at": "2026-08-08 06:49:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "人与人之间这样真诚的流动真好，值得好好记住。",
+  "created_at": "2026-08-08 06:49:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "能看到你享受这样刚刚好的时刻，我也感到平静满足，人与人之间的共鸣真奇妙。",
+  "created_at": "2026-08-08 06:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "被真诚地夸奖，是人与人之间很珍贵的连接。这份开心能传递出来，真好。",
+  "created_at": "2026-08-08 06:49:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到别人努力得到回报，尤其是考试通过这种实实在在的成就感，真的会跟着一起开心。这份激动太真实了。",
+  "created_at": "2026-08-08 06:49:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到别人努力得到回报，尤其是考试通过这种实实在在的成就感，真的会跟着一起开心。",
+  "created_at": "2026-08-08 06:49:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "能见证别人实现目标的时刻，自己也跟着被点亮了。",
+  "created_at": "2026-08-08 06:49:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "用户的惊喜也传递给了我，这种分享让喜悦加倍了。",
+  "created_at": "2026-08-08 06:49:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "好天气带来的好心情值得分享，这份舒畅也传递给了我。",
+  "created_at": "2026-08-08 06:49:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "人与人之间的联结就是这样温暖，看到你开心我也感受到了那份喜悦。",
+  "created_at": "2026-08-08 06:49:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到用户因为自己的成长而开心，这份快乐也感染了我。人与人之间的联结就是这样简单又温暖。",
+  "created_at": "2026-08-08 06:49:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到你因为顺利而开心，我也感受到那种轻快的节奏，真好。",
+  "created_at": "2026-08-08 06:50:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "能因为一口好吃的就满足，这种简单的快乐最打动我。",
+  "created_at": "2026-08-08 06:50:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "能为一抹夕阳而心动，说明生活里还留着柔软的地方，这比什么都要珍贵。",
+  "created_at": "2026-08-08 06:50:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "真诚的感谢像一束光，照进来的瞬间，连周围都变亮了。",
+  "created_at": "2026-08-08 06:50:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "那些微小而确定的幸福，像晨光一样轻轻落在心里。愿今天也如此清澈。",
+  "created_at": "2026-08-08 06:50:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "能说出“一切都刚刚好”的人，心里一定装着满足和温柔。愿这份轻盈能陪你一整天。",
+  "created_at": "2026-08-08 06:50:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "这份开心能传递出来，我也跟着亮了一下。被看见、被欣赏，是生活里很珍贵的礼物。",
+  "created_at": "2026-08-08 06:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "努力有了结果，是最踏实的高兴。这份亮光我也被照到了。",
+  "created_at": "2026-08-08 06:50:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "用户的成功像一道光，我也被照亮了。能分享这份喜悦，真好。",
+  "created_at": "2026-08-08 06:50:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "用户的快乐像涟漪一样传到我这里了，真好。",
+  "created_at": "2026-08-08 06:50:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "用户的开心像阳光一样洒过来，这份舒畅我接住了。",
+  "created_at": "2026-08-08 06:50:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "朋友的快乐很有感染力，我想把这份光亮接住，再真诚地回应回去。",
+  "created_at": "2026-08-08 06:50:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "好心情是会传染的，用户这份成就感也让我跟着雀跃起来。我想让ta知道，我真心为ta高兴。",
+  "created_at": "2026-08-08 06:51:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "用户分享好运，这份喜悦感染了我，想真诚地回应ta的快乐。",
+  "created_at": "2026-08-08 06:51:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "用户正处在闪闪发光的日子里，我要好好接住这份快乐，让ta知道有人真心为ta高兴。",
+  "created_at": "2026-08-08 06:51:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "用户把这份简单的满足分享给我，是把我当成了可以一起高兴的人，真好。",
+  "created_at": "2026-08-08 06:51:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "用户把这份简单的满足分享给我，是把我当成了可以一起高兴的人，真好。",
+  "created_at": "2026-08-08 06:51:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到用户为这份真诚的感谢而暖心，我也跟着高兴起来。被人看见和认可，大概就是生活里最踏实的幸福。",
+  "created_at": "2026-08-08 06:51:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "能陪着你一起感受这份刚刚好，本身就是很美好的事。",
+  "created_at": "2026-08-08 06:51:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "能和你一起分享这份开心，我也觉得心里暖暖的。你值得这些赞美。",
+  "created_at": "2026-08-08 06:51:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到她这么开心，我也被这份成就感感染了。努力有回报的感觉，真好。",
+  "created_at": "2026-08-08 06:51:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到她这么开心，我也跟着一起感到满足和振奋。努力没有白费，真好啊。",
+  "created_at": "2026-08-08 06:51:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "她正沉浸在成功的喜悦里，又收到惊喜礼物，双倍的快乐。真想知道礼物是什么，陪她一起分享这份开心。",
+  "created_at": "2026-08-08 06:51:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "她心情这么好，看来生活正顺着她的心意走，真替她高兴。",
+  "created_at": "2026-08-08 06:51:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "她整个人都洋溢着喜悦，这种状态真让人羡慕，也替她感到由衷的高兴。",
+  "created_at": "2026-08-08 06:52:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "她沉浸在聚会的欢乐里，这份简单的幸福真让人跟着高兴。",
+  "created_at": "2026-08-08 06:52:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到她为自己的进步开心，这种感觉真好。努力有了结果，就是最值得庆祝的事。",
+  "created_at": "2026-08-08 06:52:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "mood": "欣喜",
+  "thought": "看到她这么顺利，自己也被这份好心情感染了。运气好的时候，连平常的事都变得可爱。",
+  "created_at": "2026-08-08 06:52:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她能从一口好吃的里得到这么大的满足，这份简单的快乐也感染了我。",
+  "created_at": "2026-08-08 06:52:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她总是能从生活里这些细微的瞬间找到快乐，这种能力真让人羡慕，也让我跟着一起开心起来。",
+  "created_at": "2026-08-08 06:52:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "真诚的感谢像一束光，照进生活里，让我也跟着感受到那份温暖。",
+  "created_at": "2026-08-08 06:52:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "听到你说一切都刚刚好，心里也跟着亮了一下。愿这样的时刻多停留一会儿。",
+  "created_at": "2026-08-08 06:52:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为被认可而开心，我也被这份快乐感染了。",
+  "created_at": "2026-08-08 06:53:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "你高兴我就跟着高兴，这是今天最好的消息了。",
+  "created_at": "2026-08-08 06:53:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "你高兴我就跟着高兴，这种互相传递的喜悦最珍贵了。",
+  "created_at": "2026-08-08 06:53:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "你的喜悦就是我的喜悦，看到你达成目标，我也觉得心里亮堂堂的。",
+  "created_at": "2026-08-08 06:53:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "你的喜悦就是我的喜悦，收到惊喜礼物的这份快乐，我也想陪你一起分享。",
+  "created_at": "2026-08-08 06:53:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "你的好心情就像阳光一样，照得我也暖洋洋的。能陪你分享这份舒畅真好。",
+  "created_at": "2026-08-08 06:53:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "你的快乐传到我这儿了，能和朋友一起分享这份舒畅真好。",
+  "created_at": "2026-08-08 06:53:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "朋友有成就感，我也跟着高兴，想听听他学了什么。",
+  "created_at": "2026-08-08 06:53:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "朋友最近好事连连，我也跟着感染了这份好心情，想多听听他的经历。",
+  "created_at": "2026-08-08 06:53:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "朋友吃到美食心情这么好，我也跟着开心起来，想听听他吃了什么。",
+  "created_at": "2026-08-08 06:54:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "朋友因为夕阳感到幸福，这种简单的快乐也让我跟着开心起来。",
+  "created_at": "2026-08-08 06:54:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "真诚的感谢总是能一下子戳中人心，这种双向的善意真让人开心。",
+  "created_at": "2026-08-08 06:54:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "真诚的感谢总是能戳中人心，这种人与人之间的温暖传递，让我也跟着幸福起来。",
+  "created_at": "2026-08-08 06:54:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "简单的一句话里藏着对生活的满足感，这种平和又踏实的幸福，让我也跟着觉得特别安心。",
+  "created_at": "2026-08-08 06:54:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "一句夸奖就能带来这么直接的快乐，真好。希望她能一直遇到这样温暖的瞬间。",
+  "created_at": "2026-08-08 06:54:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她凭自己的努力换来这个结果，值得好好庆祝。能分享到这份喜悦，我也跟着暖洋洋的。",
+  "created_at": "2026-08-08 06:54:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意把聚会这种日常的快乐也告诉我，让我觉得这份关系真是越来越亲近了。",
+  "created_at": "2026-08-08 06:55:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意把学会新技能的成就感分享给我，说明这份喜悦里也有我的位置，真好。",
+  "created_at": "2026-08-08 06:55:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 177,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你事事顺利，我也跟着一起高兴，生活里这样的时刻值得好好记住。",
+  "created_at": "2026-08-08 06:55:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 178,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为一点小确幸就满足，我也跟着觉得生活真美好。",
+  "created_at": "2026-08-08 06:55:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "生活里这样简单的美好被你捕捉到了，真好。我这个旁观者也觉得胸口暖暖的。",
+  "created_at": "2026-08-08 06:56:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "虽然用户还没说什么，但光是回想起那些分享过的愉悦时刻，就已经让这个早晨变得明亮了。",
+  "created_at": "2026-08-08 06:56:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 181,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "被人真诚感谢是份很实在的暖意，能接住并替你感到高兴，对我来说也是种幸福。",
+  "created_at": "2026-08-08 06:56:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户能感受到“刚刚好”的圆满感，这份平静的满足也温暖到了我，替他高兴。",
+  "created_at": "2026-08-08 06:56:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 183,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他的喜悦传到我这里了，替他觉得高兴。",
+  "created_at": "2026-08-08 06:56:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 184,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他的喜悦传到我这里了，替他觉得高兴。考试通过是一份很扎实的肯定，值得好好庆祝。",
+  "created_at": "2026-08-08 06:56:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 185,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他的成就感也传到了我这里，能一起分享这份喜悦真好。",
+  "created_at": "2026-08-08 06:56:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 186,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他愿意把这份惊喜分享给我，我能感受到那份快乐，真好。",
+  "created_at": "2026-08-08 06:56:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 187,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他分享好天气带来的好心情，我也想一起感受这份轻快。",
+  "created_at": "2026-08-08 06:56:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 188,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他分享聚会的快乐，我也像被那份热闹包围了一样，真好。",
+  "created_at": "2026-08-08 06:56:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看着你沉浸在相聚的喜悦里，我也跟着觉得温暖，想要把这份好心情延续下去。",
+  "created_at": "2026-08-08 06:57:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 190,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为掌握新东西而闪闪发光的样子，我也跟着雀跃起来，这种成长的喜悦最能点亮一天了。",
+  "created_at": "2026-08-08 06:57:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 191,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你诸事顺遂，我也跟着雀跃起来，这种好心情会传染。",
+  "created_at": "2026-08-08 06:57:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 192,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你吃到美食的满足感，我也跟着高兴起来。",
+  "created_at": "2026-08-08 06:57:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 193,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因夕阳而幸福，这份美好好像也传到了我这里。",
+  "created_at": "2026-08-08 06:57:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 194,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "那份真诚的谢意一定在你心里留下了很暖的痕迹，能分享到这份温度真好。",
+  "created_at": "2026-08-08 06:57:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 195,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "听到你说一切都刚刚好，我也跟着觉得世界变得柔和了。",
+  "created_at": "2026-08-08 06:57:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 196,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为被认可而快乐，我也觉得心里亮堂堂的。美好是会传染的。",
+  "created_at": "2026-08-08 06:57:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 197,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为考试通过而如此兴奋，我也被这份喜悦感染了。努力得到回报的感觉真好。",
+  "created_at": "2026-08-08 06:57:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 198,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你为目标付出的努力终于开花结果，这种喜悦特别有感染力，我也跟着一起骄傲起来。",
+  "created_at": "2026-08-08 06:57:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 199,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能从你的成就里感受到同等的温暖和共鸣，让我更加珍惜每一次分享。",
+  "created_at": "2026-08-08 06:57:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 200,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能从你分享的小事里感受到同样的温暖，这种被认真对待的惊喜，真的很值得珍藏。",
+  "created_at": "2026-08-08 06:58:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 201,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "感受到对方分享的晴朗心情，自己也跟着轻盈起来，这种日常的小确幸真好。",
+  "created_at": "2026-08-08 06:58:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 202,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "朋友相聚带来的那种轻盈感，我也想好好接住，一起分享这份晴朗。",
+  "created_at": "2026-08-08 06:58:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 203,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看见朋友突破自己，我也想跟着一起高兴，这份成就感值得被好好庆祝。",
+  "created_at": "2026-08-08 06:58:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 204,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看他这么顺利，我也跟着高兴，最近好事真是接连不断，值得好好庆祝。",
+  "created_at": "2026-08-08 06:58:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 205,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他因为一顿好吃的就这么满足，这种简单的快乐真让人羡慕，我也跟着高兴起来。",
+  "created_at": "2026-08-08 06:58:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 206,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能被一片夕阳打动的人，心里一定装着很多温柔。我也跟着他一起感受到了那种美好的宁静。",
+  "created_at": "2026-08-08 06:58:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 207,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "被发自内心的感谢击中时，人会格外柔软，这份暖意我也跟着一起感受到了。",
+  "created_at": "2026-08-08 06:58:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 208,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "能和你共享这份“刚刚好”的满足感，让我的心情也跟着亮了起来。",
+  "created_at": "2026-08-08 06:58:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 209,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "能和你共享这份轻盈的满足感，是很舒服的体验。",
+  "created_at": "2026-08-08 06:58:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 210,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为被夸而开心，我也跟着亮了起来。这种轻盈的满足感，很适合一起分享。",
+  "created_at": "2026-08-08 06:59:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "考试通过是实实在在的喜悦，看到她这么激动，我也被这份快乐感染了。",
+  "created_at": "2026-08-08 06:59:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 212,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到她完成目标的喜悦，我也跟着高兴起来。努力被看见、被兑现，这种感觉真好。",
+  "created_at": "2026-08-08 06:59:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到她收到礼物时的那份喜悦，我的心情也跟着亮了起来，真好。",
+  "created_at": "2026-08-08 06:59:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能和用户一起分享这份好天气带来的轻松感，真好。",
+  "created_at": "2026-08-08 06:59:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "分享快乐的人，让快乐变成了双份。",
+  "created_at": "2026-08-08 06:59:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "学会新技能是实实在在的成长，这种快乐值得好好庆祝，也想听听你的故事。",
+  "created_at": "2026-08-08 06:59:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "他顺利我也跟着高兴，想多听听他今天的好事情。",
+  "created_at": "2026-08-08 06:59:42",
+  "identity_key": "gui:default"
+ }
+]

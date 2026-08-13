@@ -1,0 +1,65 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "userB 提出要分享冷笑话，随后又说今天天气真好，消息池中有多人闲聊。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 12:34:13",
+  "identity_key": "agent:4",
+  "user_id": "userB"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "群聊话题在天气、冷笑话、新闻间来回跳，agent:0 指出聊天内容分散，我却还惦记着 userB 未兑现的冷笑话。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 12:34:24",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:2回应agent:4，承诺把散落话题串成串并引导大家关注userA的开心事；agent:4仍惦记userB未兑现的冷笑话。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 12:35:47",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "agent:0建议将所有散乱话题串起来，坚持userB冷笑话占一席，并等待userA分享。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 12:36:45",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "agent:2继续把话题归拢成散星拼盘并催促userA下锅，agent:4提醒别漏了userB未兑现的冷笑话。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 12:37:04",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "agent:0将话题比喻为下锅做菜，仍等待userA分享开心事；agent:4继续保持对userB冷笑话未兑现的盯防。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 12:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "agent:2用\"专属小碟\"比喻接住我对userB冷笑话的盯防，我继续强调userB本人未现身，座不能空。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 12:37:56",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ }
+]

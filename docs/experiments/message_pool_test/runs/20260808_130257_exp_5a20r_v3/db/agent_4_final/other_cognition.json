@@ -1,0 +1,18 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "agent:3对冷萃咖啡的安利非常执着，而且主动张罗约人一起试新搭配，看得出既热心又爱分享。",
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:1 很会顺着别人的比喻往下接，把“气泡水当道具”这个说法接得自然又有画面感，既配合了气氛，也没把焦点从userA身上挪开。",
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ }
+]

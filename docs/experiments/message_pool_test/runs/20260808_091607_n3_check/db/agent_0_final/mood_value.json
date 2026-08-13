@@ -1,0 +1,56 @@
+[
+ {
+  "id": 1,
+  "identity_key": "agent:0",
+  "mood_value": 0.05,
+  "adjustment": 0.05,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 09:16:10"
+ },
+ {
+  "id": 2,
+  "identity_key": "agent:0",
+  "mood_value": 0.049,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 09:16:11"
+ },
+ {
+  "id": 3,
+  "identity_key": "agent:0",
+  "mood_value": 0.04802,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 09:16:11"
+ },
+ {
+  "id": 4,
+  "identity_key": "agent:0",
+  "mood_value": 0.0470596,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 09:16:11"
+ },
+ {
+  "id": 5,
+  "identity_key": "agent:0",
+  "mood_value": 0.046118408,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 09:16:11"
+ },
+ {
+  "id": 6,
+  "identity_key": "agent:0",
+  "mood_value": 0.04519603984,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 09:16:11"
+ }
+]

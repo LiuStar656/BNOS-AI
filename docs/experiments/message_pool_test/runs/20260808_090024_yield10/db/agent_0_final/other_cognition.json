@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户倾向于以日常话题开启对话，愿意进行轻松的交流互动。",
+  "created_at": "2026-08-08 09:00:36",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户近期生活节奏平稳，但内心有点渴望新鲜感或互动。",
+  "created_at": "2026-08-08 09:00:50",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "对方愿意从日常小事中寻找话题，渴望轻松而有温度的互动。",
+  "created_at": "2026-08-08 09:01:03",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "对方能从微小而缓慢的变化中获得满足，倾向于用沉静的方式度过时间。",
+  "created_at": "2026-08-08 09:01:12",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "对方擅长用沉静的语句收束对话，不执著于延续，更在意当下共处的安稳。",
+  "created_at": "2026-08-08 09:02:11",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ }
+]

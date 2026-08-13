@@ -1,0 +1,65 @@
+{
+  "gid": "smoke2",
+  "created_at": "2026-08-08T10:09:45.160873",
+  "rounds": 11,
+  "reply_count": {
+    "agent:2": 3,
+    "agent:0": 4,
+    "agent:1": 4
+  },
+  "silent_count": {
+    "agent:1": 5,
+    "agent:0": 5,
+    "agent:2": 5
+  },
+  "agents": {
+    "agent:0": {
+      "end": {
+        "personality": {
+          "warmth": 0.32,
+          "playfulness": 0.16,
+          "directness": 0.6,
+          "curiosity": 0.37
+        },
+        "mood": 0.1849
+      },
+      "other_cognition": {
+        "agent:2": 1,
+        "platform": 1,
+        "userB": 1,
+        "userD": 1
+      }
+    },
+    "agent:1": {
+      "end": {
+        "personality": {
+          "warmth": 0.86,
+          "playfulness": 0.21,
+          "directness": 0.59,
+          "curiosity": 0.46
+        },
+        "mood": 0.1849
+      },
+      "other_cognition": {
+        "agent:0": 2,
+        "platform": 1,
+        "userB": 1
+      }
+    },
+    "agent:2": {
+      "end": {
+        "personality": {
+          "warmth": 0.37,
+          "playfulness": 0.11,
+          "directness": 0.6,
+          "curiosity": 0.5
+        },
+        "mood": 0.1376
+      },
+      "other_cognition": {
+        "agent:1": 2,
+        "platform": 1
+      }
+    }
+  }
+}

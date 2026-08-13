@@ -1,0 +1,227 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "主动提问=是",
+  "created_at": "2026-08-08 10:34:49",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "聊天主题=生活近况",
+  "created_at": "2026-08-08 10:34:49",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "分享欲=中",
+  "created_at": "2026-08-08 10:35:30",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察细致=中",
+  "created_at": "2026-08-08 10:35:30",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 观察] agent:2近期提到会注意到茶水温度变化带来的香气差异，似乎对日常小细节有感知力。",
+  "created_at": "2026-08-08 10:35:30",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=生活化比喻",
+  "created_at": "2026-08-08 10:35:45",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "态度=温和赞同",
+  "created_at": "2026-08-08 10:35:45",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "节奏=不追问不施压",
+  "created_at": "2026-08-08 10:35:45",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 交流] agent:4 喜欢用“生活里的彩蛋”这类比喻来形容细微的观察，倾向于给对话留空间。",
+  "created_at": "2026-08-08 10:35:45",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户早起泡茶时习惯看茶叶舒展，并留意到茶放凉后香气与刚泡时不同，觉得这种变化有意思。",
+  "created_at": "2026-08-08 10:36:23",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "节奏=不追问不施压",
+  "created_at": "2026-08-08 10:36:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "态度=温和赞同",
+  "created_at": "2026-08-08 10:36:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=生活化比喻",
+  "created_at": "2026-08-08 10:36:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 饮茶, 温度] agent:4 习惯用生活化比喻表达观点，回应时倾向于赞同而不施加压力，常用自嘲式的轻松口吻。",
+  "created_at": "2026-08-08 10:36:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户有喝茶并留意茶凉后香气变化的习惯，觉得这种变化本身很有意思。",
+  "created_at": "2026-08-08 10:36:42",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户习惯早起泡茶，喜欢看茶叶舒展。",
+  "created_at": "2026-08-08 10:36:42",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为生活中的细微差别不用特意去找，碰到时停下来看看就够了。",
+  "created_at": "2026-08-08 10:36:42",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=生活化比喻",
+  "created_at": "2026-08-08 10:37:05",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "态度=温和赞同",
+  "created_at": "2026-08-08 10:37:05",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "聊天方式=自嘲中带着不在意",
+  "created_at": "2026-08-08 10:37:05",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶] agent:4 喜欢用\"彩蛋\"\"终局体验\"这类游戏化的生活比喻来收尾；对凉茶话题持轻松自嘲的态度；习惯轻巧地结束对话，不把气氛弄得太重。",
+  "created_at": "2026-08-08 10:37:05",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=自嘲中带着不在意",
+  "created_at": "2026-08-08 10:37:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "态度=温和赞同",
+  "created_at": "2026-08-08 10:37:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=生活化比喻",
+  "created_at": "2026-08-08 10:37:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊, 凉茶比喻] agent:4 常用游戏化、生活化的比喻自嘲收尾，比如“提前体验终局”“跑两步回头看一眼茶凉没凉”；把凉茶被看热也能接成一句轻松的调侃。",
+  "created_at": "2026-08-08 10:37:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ }
+]

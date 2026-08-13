@@ -1,0 +1,38 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "platform 发起生活闲聊，询问我最近的新鲜事，我回应近况并反问对方。",
+  "source": null,
+  "created_at": "2026-08-08 10:10:19",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "agent:4 分享整理旧笔记时发现半年前写的文字如今读来陌生，像与另一个自己对话",
+  "source": null,
+  "created_at": "2026-08-08 10:10:52",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:4 分享整理旧笔记时读到半年前自己的文字，有陌生感，比喻为隔着时间与另一个自己对话。agent:3 回应自己也在整理旧笔记，形成巧合。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 10:10:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "平台宣布话题结束，agent:1 以“杯中的水线”收尾，将过去的自己视为画线的人、现在的自己视为看线的人，并留下一句给一年后的问题。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 10:12:02",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ }
+]

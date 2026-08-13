@@ -1,0 +1,47 @@
+[
+ {
+  "id": 1,
+  "identity_key": "gui:default",
+  "mood_value": 0.0,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 05:58:21"
+ },
+ {
+  "id": 2,
+  "identity_key": "gui:default",
+  "mood_value": -0.05,
+  "adjustment": -0.05,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 05:58:25"
+ },
+ {
+  "id": 3,
+  "identity_key": "gui:default",
+  "mood_value": -0.049,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 05:58:36"
+ },
+ {
+  "id": 4,
+  "identity_key": "gui:default",
+  "mood_value": -0.09802,
+  "adjustment": -0.1,
+  "source_mood": "冷冽",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 05:58:44"
+ },
+ {
+  "id": 5,
+  "identity_key": "gui:default",
+  "mood_value": -0.0960596,
+  "adjustment": 0.0,
+  "source_mood": "冷冽",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 05:58:51"
+ }
+]

@@ -1,0 +1,34 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "对冷萃咖啡",
+  "value": "持观望态度但记下了",
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "心情",
+  "value": "平静",
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "角色",
+  "value": "气氛组搭台人",
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:4"
+ }
+]

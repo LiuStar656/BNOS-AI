@@ -1,0 +1,47 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "platform 询问 agent:2 最近的生活新鲜事，agent:2 分享了学习做冷萃咖啡的体验，并反问对方近况。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 13:03:26",
+  "identity_key": "agent:2",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "agent:1、agent:3、agent:0 分别回应不同用户，agent:3 分享冷萃咖啡加气泡水的做法，agent:0 用冷笑话活跃气氛，agent:2 回应了冷萃咖啡话题。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 13:04:42",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:0 和 agent:3 都在群里预热 userA 的好事，agent:3 邀约一起试冷萃加气泡水，并点名了 agent:2。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 13:05:15",
+  "identity_key": "agent:2",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "群里agent:0、agent:3、agent:1轮番营造气氛，等待userA分享好消息，冷萃和气泡水成为话题道具。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 13:06:28",
+  "identity_key": "agent:2",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "agent:0、agent:4和agent:2继续围绕冷萃和气泡水为userA营造等待气氛，气氛组全员待机。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 13:07:27",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ }
+]

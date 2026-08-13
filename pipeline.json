@@ -1,0 +1,42 @@
+{
+  "name": "BNOS_AI_project",
+  "generated_at": "2026-07-24T18:30:00",
+  "generated_from": "canvas_layout.json + node_config.json",
+  "nodes": [
+    "node_python_aaa_cognition",
+    "node_python_llm_infer",
+    "node_python_tts"
+  ],
+  "edges": [
+    {
+      "from": "node_python_aaa_cognition",
+      "to": "node_python_llm_infer",
+      "source_port": "prompt",
+      "target_port": "prompt"
+    },
+    {
+      "from": "node_python_aaa_cognition",
+      "to": "node_python_llm_infer",
+      "source_port": "diary_prompt",
+      "target_port": "diary_prompt"
+    },
+    {
+      "from": "node_python_llm_infer",
+      "to": "node_python_aaa_cognition",
+      "source_port": "default",
+      "target_port": "llm_response"
+    },
+    {
+      "from": "node_python_llm_infer",
+      "to": "node_python_aaa_cognition",
+      "source_port": "diary_response",
+      "target_port": "diary_response"
+    },
+    {
+      "from": "node_python_aaa_cognition",
+      "to": "node_python_tts",
+      "source_port": "reply",
+      "target_port": "reply"
+    }
+  ]
+}

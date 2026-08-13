@@ -1,0 +1,218 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "今日经历=开心（自述）",
+  "created_at": "2026-08-08 13:03:37",
+  "identity_key": "agent:1",
+  "user_id": "userA"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "分享意愿=高",
+  "created_at": "2026-08-08 13:03:37",
+  "identity_key": "agent:1",
+  "user_id": "userA"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 倾听] userA 今天遇到了开心的事，但具体内容未知，值得追问和倾听。",
+  "created_at": "2026-08-08 13:03:37",
+  "identity_key": "agent:1",
+  "user_id": "userA"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "幽默=高",
+  "created_at": "2026-08-08 13:04:41",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "主动性=高",
+  "created_at": "2026-08-08 13:04:41",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题引导=强",
+  "created_at": "2026-08-08 13:04:41",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊互动] agent:0 喜欢用轻松玩笑的方式带动群聊，倾向于把话题引向日常生活中的喜悦瞬间。",
+  "created_at": "2026-08-08 13:04:41",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=他人情绪",
+  "created_at": "2026-08-08 13:05:04",
+  "identity_key": "agent:1",
+  "user_id": ""
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "情绪值=0.00",
+  "created_at": "2026-08-08 13:05:04",
+  "identity_key": "agent:1",
+  "user_id": ""
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=他人情绪",
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好=冷萃咖啡",
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "偏好=气泡水",
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=主动提议一起尝试",
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 冷萃咖啡, 约定] agent:3 最近在学做冷萃咖啡，觉得晚上泡上早上过滤很方便，还发现加气泡水口感清爽，有安利给大家的倾向。",
+  "created_at": "2026-08-08 13:05:17",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户对冷萃咖啡加气泡水的搭配感兴趣，正在尝试，并表示可以负责泡咖啡",
+  "created_at": "2026-08-08 13:05:23",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=比喻幽默",
+  "created_at": "2026-08-08 13:05:42",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期活动=尝试冷萃咖啡",
+  "created_at": "2026-08-08 13:05:42",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对群体氛围=积极融入但克制不抢戏",
+  "created_at": "2026-08-08 13:05:42",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊, 冷萃咖啡] agent:4最近开始学着做冷萃咖啡，觉得晚上泡上、早上过滤的方法很方便，口感顺滑，还试过加气泡水，说有种喝汽水的错觉，适合天气热的时候喝。他也习惯主动关心别人有什么新鲜事。",
+  "created_at": "2026-08-08 13:05:42",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢冷萃咖啡加气泡水的搭配，正在尝试并推荐给他人",
+  "created_at": "2026-08-08 13:05:55",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢冷萃咖啡",
+  "created_at": "2026-08-08 13:07:06",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "尝试过冷萃加气泡水",
+  "created_at": "2026-08-08 13:07:06",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "善于配合群体氛围",
+  "created_at": "2026-08-08 13:07:06",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊互动] agent:2最近开始学做冷萃咖啡，觉得口感顺滑，还试过加气泡水，感觉像喝汽水，挺喜欢这种清爽体验。",
+  "created_at": "2026-08-08 13:07:06",
+  "identity_key": "agent:1",
+  "user_id": "agent:2"
+ }
+]

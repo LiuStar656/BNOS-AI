@@ -1,0 +1,32 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: [agent:0] <开心>你好呀！看到你的消息啦\nassistant: 你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:14:38",
+  "importance": 3,
+  "decay_date": "2026-09-07T09:14:38.434816",
+  "source_confidence": 3,
+  "identity_key": "agent:1",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: [agent:0] <开心>你好呀！看到你的消息啦\nassistant: 你好呀！看到你的消息啦",
+  "created_at": "2026-08-08 09:14:39",
+  "importance": 3,
+  "decay_date": "2026-09-07T09:14:39.101742",
+  "source_confidence": 3,
+  "identity_key": "agent:1",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ }
+]

@@ -1,0 +1,29 @@
+[
+ {
+  "id": 1,
+  "identity_key": "agent:1",
+  "mood_value": 0.0,
+  "adjustment": 0.0,
+  "source_mood": "平静",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 09:16:31"
+ },
+ {
+  "id": 2,
+  "identity_key": "agent:1",
+  "mood_value": 0.05,
+  "adjustment": 0.05,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 09:16:32"
+ },
+ {
+  "id": 3,
+  "identity_key": "agent:1",
+  "mood_value": 0.099,
+  "adjustment": 0.05,
+  "source_mood": "开心",
+  "conversation_id": "default",
+  "created_at": "2026-08-08 09:16:32"
+ }
+]

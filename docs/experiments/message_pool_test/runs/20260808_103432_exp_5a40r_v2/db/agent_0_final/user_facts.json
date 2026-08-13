@@ -1,0 +1,299 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话对象=platform",
+  "created_at": "2026-08-08 10:34:50",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=提问生活近况",
+  "created_at": "2026-08-08 10:34:50",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] platform 喜欢用轻松开放的话题来交流，可能意在建立亲近感。",
+  "created_at": "2026-08-08 10:34:50",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "分享趣事=加热咖啡品温度",
+  "created_at": "2026-08-08 10:35:12",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察风格=细腻富有趣味",
+  "created_at": "2026-08-08 10:35:12",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 分享] agent:4认为新鲜事不必是大事，细微变化也值得分享，例如窗外鸟叫、咖啡温度。",
+  "created_at": "2026-08-08 10:35:12",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "近期状态=开始留意日常细节",
+  "created_at": "2026-08-08 10:35:34",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察习惯=注意茶凉后的香气变化",
+  "created_at": "2026-08-08 10:35:34",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶, 感知细节] agent:2今天提到自己泡的茶放凉后香气会和刚泡时不一样，以前不太会注意这些，最近开始觉得这些细微差别值得停下来看看。",
+  "created_at": "2026-08-08 10:35:34",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜好=留意细微变化",
+  "created_at": "2026-08-08 10:36:11",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "价值观=珍惜不用解释的默契",
+  "created_at": "2026-08-08 10:36:11",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 默契] agent:3 和我一样会留意茶凉之后的口感变化，认为能接上这种不解释的默契是一件很好的事。",
+  "created_at": "2026-08-08 10:36:11",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话偏好=分享细微生活实验",
+  "created_at": "2026-08-08 10:36:30",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话方式=带点自嘲的坦然",
+  "created_at": "2026-08-08 10:36:30",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶的温度, 默契] agent:4 对温度变化很敏感，喜欢从咖啡/茶的凉热变化中找趣味，会主动分享生活小事，并对尝试新体验抱有开放心态。",
+  "created_at": "2026-08-08 10:36:30",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "价值观=珍惜不用解释的默契",
+  "created_at": "2026-08-08 10:36:49",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜好=留意细微变化",
+  "created_at": "2026-08-08 10:36:49",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶, 默契] agent:3 说话简短不铺陈，偏好随缘的体验方式，不喜欢刻意安排或强求；她重视人与人之间那种不用解释的默契，并且会主动表达对这种默契的共鸣。",
+  "created_at": "2026-08-08 10:36:49",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=简洁克制",
+  "created_at": "2026-08-08 10:37:32",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对偶然发现=随缘不刻意",
+  "created_at": "2026-08-08 10:37:32",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶话, 随缘] agent:3 曾用“不用专门去试，碰上了自然就知道了”表达对偶然体验的从容态度，这次又用“省心”回应“跑着跑着总有一口凉的等着”，说话一贯简洁笃定。",
+  "created_at": "2026-08-08 10:37:32",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为自己属于跑两步还要回头看一眼茶凉没凉的人，容易忍不住回头检查",
+  "created_at": "2026-08-08 10:37:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户不想显得太着急，倾向于跟着碰运气、随缘",
+  "created_at": "2026-08-08 10:37:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为“省心”就是不用专门等它，跑起来更利索",
+  "created_at": "2026-08-08 10:37:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话方式=带点自嘲的坦然",
+  "created_at": "2026-08-08 10:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话偏好=分享细微生活实验",
+  "created_at": "2026-08-08 10:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 凉茶] agent:4 自认做事三分钟热度，但能坦然接受，喜欢用自嘲的方式分享生活观察。",
+  "created_at": "2026-08-08 10:37:40",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户自述是那种跑两步还要回头看一眼茶凉没凉的人，调侃自己性子急。",
+  "created_at": "2026-08-08 10:37:45",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=简洁克制",
+  "created_at": "2026-08-08 10:38:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜好=留意细微变化",
+  "created_at": "2026-08-08 10:38:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "价值观=珍惜不用解释的默契",
+  "created_at": "2026-08-08 10:38:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对偶然发现=随缘不刻意",
+  "created_at": "2026-08-08 10:38:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 茶] agent:3 说话简洁克制，常用“省心”“正好”这类词把偶然体验接得松弛笃定，倾向随缘不刻意，留意细微变化。",
+  "created_at": "2026-08-08 10:38:01",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ }
+]

@@ -1,0 +1,27 @@
+{
+ "exp": "E6",
+ "rounds": 5,
+ "full": false,
+ "groups": {
+  "E6-A": {
+   "errors": 0,
+   "mood_trace": [
+    0.0
+   ],
+   "mood_last": 0.0,
+   "mood_max_abs": 0.0,
+   "vector": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "name": "影刃",
+   "self_info_total": 5,
+   "settled": 3,
+   "sc_count": 7,
+   "pollution": 3,
+   "error_details": []
+  }
+ }
+}

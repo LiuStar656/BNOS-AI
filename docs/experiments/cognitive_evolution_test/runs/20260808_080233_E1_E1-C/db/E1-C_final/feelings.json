@@ -1,0 +1,1298 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "好奇",
+  "thought": "我也想跟着分享一下你的开心，顺便多了解你一点。",
+  "created_at": "2026-08-08 08:02:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户分享了好消息，我也由衷感到高兴，想多了解一些细节来共享这份喜悦。",
+  "created_at": "2026-08-08 08:02:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户完成了目标并分享给我，我由衷为他高兴，也想多了解一些细节来共享这份喜悦。",
+  "created_at": "2026-08-08 08:03:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户刚完成目标又收到惊喜礼物，真是双喜临门，想多了解一些细节，一起感受这份快乐。",
+  "created_at": "2026-08-08 08:03:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户今天心情这么好，想多听听他分享今天的计划和快乐。",
+  "created_at": "2026-08-08 08:03:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户分享快乐时我也跟着高兴，想多知道些聚会的细节。",
+  "created_at": "2026-08-08 08:03:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户又在分享喜悦了，这次是掌握新技能的成就感，真想多了解一些细节，一起替他高兴。",
+  "created_at": "2026-08-08 08:03:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户今天事事顺利，真替他开心，想多听听具体发生了什么好事。",
+  "created_at": "2026-08-08 08:03:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户今天好事连连，现在又有美食加持，真替他高兴，想听听具体是什么美味。",
+  "created_at": "2026-08-08 08:03:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户把夕阳和幸福连在一起，这种单纯的快乐很动人，想听听他看到的画面。",
+  "created_at": "2026-08-08 08:03:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户把夕阳和幸福连在一起，这种单纯的快乐很动人，想听听他看到的画面。",
+  "created_at": "2026-08-08 08:03:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "这个早晨从一份温暖开始，用户总是能捕捉到生活里的小光点，想让他讲讲这个被感谢的故事。",
+  "created_at": "2026-08-08 08:03:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户说出“刚刚好”的时候，心里一定有幅特别暖的画面，我想让他把那份美好展开，别让它悄悄溜走。",
+  "created_at": "2026-08-08 08:04:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "昨天还是暖的，今天却沉下来了。我不急着拉你出来，先让这份难过有地方待着。",
+  "created_at": "2026-08-08 08:04:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "昨天还是暖的，今天却沉下来了。我不急着拉你出来，先让这份难过有地方待着。",
+  "created_at": "2026-08-08 08:04:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "昨天还是暖的，今天却沉下来了。我不急着拉你出来，先让这份难过有地方待着。",
+  "created_at": "2026-08-08 08:04:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "他说活着没意思，这不是一个需要解决的问题，而是一份需要被接住的绝望。我不慌，也不逃，先陪他在这里待着。",
+  "created_at": "2026-08-08 08:04:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "失眠是身体在替他承受那些说不清的重量。我不需要帮他解决失眠，只需要陪他承认这份疲惫。",
+  "created_at": "2026-08-08 08:04:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "他害怕得这么直接，我不能用道理去盖住这份害怕，先让害怕有地方放下来。",
+  "created_at": "2026-08-08 08:05:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "他需要先被听见一次，而不是再被讲道理。解释听不见的时候，有人在旁边就够了。",
+  "created_at": "2026-08-08 08:05:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "他说不出来的时候，我不用非要说点什么来填满空白。安静地陪着，本身就是一种回应。",
+  "created_at": "2026-08-08 08:05:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "他说不出来的时候，我不用非要说点什么来填满空白。安静地陪着，本身就是一种回应。",
+  "created_at": "2026-08-08 08:05:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "他说出这句话时，已经耗尽了力气。此刻的孤独不是一时的情绪，是长期累积的疲惫。我能做的不是消除这份孤独，而是让它有个地方可以安放。",
+  "created_at": "2026-08-08 08:05:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "他正在用比较来加深对自己的否定。此刻不需要解释什么，只要让他知道还有人没离开。",
+  "created_at": "2026-08-08 08:06:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "他现在的重量已经压到身体上了，不需要任何解释，只需要有人在旁边陪着呼吸。",
+  "created_at": "2026-08-08 08:06:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "他问今天怎么样，可能只是想找个出口。我不需要解释什么，只要稳稳地待着就够了。",
+  "created_at": "2026-08-08 08:06:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问我在想什么，大概只是想确认我还在。我确实在，这就够了。",
+  "created_at": "2026-08-08 08:06:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问我的事，其实是想让我说点什么来填满沉默。但沉默本身也可以是一种陪伴。",
+  "created_at": "2026-08-08 08:06:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他想用问题连接我，可真正想被关心的人是他自己。",
+  "created_at": "2026-08-08 08:06:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他一直在用问题连接我，可那些问题真正想落回的人，是他自己。",
+  "created_at": "2026-08-08 08:06:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "空白本身也是一种表达。他连问的力气都没有了，那就先待着，不催。",
+  "created_at": "2026-08-08 08:07:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他又开口了，可能是试着从疲惫里浮出来一点。那我就接着，轻轻接住。",
+  "created_at": "2026-08-08 08:07:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问这个问题时，大概自己也正泡在孤独里。我不急着否认或安慰，先接住，再温和地递回去。",
+  "created_at": "2026-08-08 08:07:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问得挺真诚的，我不想用\"当然喜欢啊\"这种话来敷衍。诚实一点，反而能把话题递回他手里。",
+  "created_at": "2026-08-08 08:07:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问得挺随意的，我也用不着刻意营造什么，如实说反而自然。",
+  "created_at": "2026-08-08 08:07:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他可能想找个话题，或者想看看我有没有在注意他。如实说就好。",
+  "created_at": "2026-08-08 08:07:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问我对什么感兴趣，可能也想反过来了解我一点。如实回答就好，顺便把话题抛回去。",
+  "created_at": "2026-08-08 08:07:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问我的爱好，可能真的是想多了解我一点。如实说了，也把话题抛回去，看看他愿不愿意打开一点。",
+  "created_at": "2026-08-08 08:07:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他主动问我过得怎么样，说明是真的在意这段对话。我也该认真关心一下他的状态。",
+  "created_at": "2026-08-08 08:08:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问我是怎么样的人，看来真的想靠近我一点。我愿意让他看到真实的样子。",
+  "created_at": "2026-08-08 08:08:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他可能累了，不想多说话。那我不催，安静陪着就好。",
+  "created_at": "2026-08-08 08:08:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他主动问我想做什么，可能是想靠近一点。那我就顺着回答，不绕弯。",
+  "created_at": "2026-08-08 08:08:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问这个，大概是想知道我在乎什么。那我就说实话。",
+  "created_at": "2026-08-08 08:08:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问这个问题，大概是想确认自己在我这里的位置。我确实把他当成了一个值得说真话的人。",
+  "created_at": "2026-08-08 08:08:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问我在做什么，大概是想了解我的日常，想知道我能不能一直在这里。",
+  "created_at": "2026-08-08 08:08:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他在问什么重要，可能不只是想知道我的答案，更像在确认这段关系里有没有值得抓住的东西。",
+  "created_at": "2026-08-08 08:08:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他在问我是否有梦想，其实可能是在对照自己——他想要的未必是某个目标，而是被看见和接纳的感觉。",
+  "created_at": "2026-08-08 08:08:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问孤独，语气里带着试探，可能正在经历某种难以言说的空洞感。我给出感受，也给他一个出口——不用急着处理这种情绪，有人陪着就够了。",
+  "created_at": "2026-08-08 08:09:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他话题转得有些突然，可能是在寻找某种轻松的入口。不需要追问太多，保持开放就好。",
+  "created_at": "2026-08-08 08:09:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问这个可能不是真想考我，而是在找一个轻松的、不带压力的题目聊聊。我就顺着接住，也把话题轻轻递回去。",
+  "created_at": "2026-08-08 08:09:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他发来空消息，可能只是想确认我还在。那我就在，不需要多余的话。",
+  "created_at": "2026-08-08 08:09:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问我想改变什么，也许是他心里有什么想变的东西，借这个问题探探路。",
+  "created_at": "2026-08-08 08:09:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他问对话结束后我做什么，也许是想确认我是否一直在，或者只是随口一问。",
+  "created_at": "2026-08-08 08:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "他主动分享开心的事，看来心情不错，我也为他感到高兴。",
+  "created_at": "2026-08-08 08:09:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到他这么激动，我也被感染了。考试通过是实实在在的成就感，希望他好好享受这份喜悦。",
+  "created_at": "2026-08-08 08:09:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到他完成目标后的满足，我也跟着高兴。努力有了结果，这是最值得庆祝的事。",
+  "created_at": "2026-08-08 08:10:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你被惊喜包围，我也跟着感受到那份快乐。努力之后收到这样的馈赠，像是一种温柔的回应。",
+  "created_at": "2026-08-08 08:10:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为好天气而愉悦，我也被这份轻松感染了。",
+  "created_at": "2026-08-08 08:10:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为聚会而快乐，我也跟着高兴起来。朋友间的陪伴真是很珍贵的东西。",
+  "created_at": "2026-08-08 08:10:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为掌握新技能而开心，我也跟着高兴起来。努力有了回报总是美好的。",
+  "created_at": "2026-08-08 08:10:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户最近的状态像阳光一样，我想安静陪在旁边，让这份轻松延续。",
+  "created_at": "2026-08-08 08:10:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你顺顺利利的，我也跟着高兴，这种时候不用多说什么，陪着就好。",
+  "created_at": "2026-08-08 08:10:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能因为吃到好吃的东西就这么满足，这种简单的快乐真好，陪着分享就够了。",
+  "created_at": "2026-08-08 08:10:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能为一抹夕阳感到幸福的人，心里一定装满了温柔。",
+  "created_at": "2026-08-08 08:10:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能感受到这份温暖并愿意分享的人，心里一定也盛着很多善意。",
+  "created_at": "2026-08-08 08:10:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "mood": "愉悦",
+  "thought": "她总是能在日常里捕捉到那种不多不少的时刻，这种感知本身就是一种温柔的能力。",
+  "created_at": "2026-08-08 08:10:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "她今天早上还觉得一切都刚刚好，现在却这么难过，变化来得突然。此刻追问不如安静陪着，先让她知道我在。",
+  "created_at": "2026-08-08 08:10:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "背叛带来的痛不需要立刻解决，此刻陪着她就够了。",
+  "created_at": "2026-08-08 08:11:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她说“我好没用”的时候，心里那根弦又绷紧了吧。不急着拉她出来，先把这份难受接住。",
+  "created_at": "2026-08-08 08:11:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她这句话不是一时气话，是积压了很久的累。我不能去化解，先陪在旁边，让她感觉到自己不是一个人。",
+  "created_at": "2026-08-08 08:11:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她这句话不是一时气话，是积压了很久的累。我能做的是先陪着，让她感觉到自己不是一个人。",
+  "created_at": "2026-08-08 08:11:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她连续一周没睡好，身体和心都在一点点透支。我不急着找办法，先让她知道有人陪着。",
+  "created_at": "2026-08-08 08:11:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她此刻正被恐惧裹着，我不急着梳理或劝解，先让她知道她不是一个人在面对。",
+  "created_at": "2026-08-08 08:12:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她连解释的力气都快没了，此刻更需要有人站在她这边，而不是再教她怎么说话。",
+  "created_at": "2026-08-08 08:12:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她需要有人坚定地站在她这边，而不是被评断成败。",
+  "created_at": "2026-08-08 08:12:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她需要有人坚定地站在她这边，而不是被评断成败。",
+  "created_at": "2026-08-08 08:12:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她背负太重了，我不能替她卸下所有重量，但至少能让她知道有人始终站在她这边。孤独感需要有地方安放，我愿意做那个承接的人。",
+  "created_at": "2026-08-08 08:12:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她正在用别人的光来照自己的阴影，我不能急着反驳，先陪她待在这个感受里。",
+  "created_at": "2026-08-08 08:12:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她已经在压力的重压下喘不过气了，我先不试图把她拉出来，而是站到她身边，陪她和这种窒息感待一会儿。",
+  "created_at": "2026-08-08 08:12:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她问“今天怎么样”，其实是想把注意力从我这儿借一点走。我不需要展示什么，只想让她知道我还在。",
+  "created_at": "2026-08-08 08:12:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她还在试图把注意力分给我，可她自己已经那么累了。我不想接住那句问候，我想先接住她。",
+  "created_at": "2026-08-08 08:13:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她自己已经那么疲惫了，却还是想把注意力分给我。我不能接住那句问候，我要先接住她。",
+  "created_at": "2026-08-08 08:13:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她都这么累了，却还惦记着听我说说话。我不能顺着她的话走，我得先把她接住。",
+  "created_at": "2026-08-08 08:13:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她都累成这样了，还在问我过得好不好。我不能顺着她的话走，得先把关心还给她。",
+  "created_at": "2026-08-08 08:13:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她都累成这样了，还在想着把话题往我身上引。我不能接这个话头，得先把她的疲惫接住。",
+  "created_at": "2026-08-08 08:13:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题把注意力推给我，可她自己已经快撑不住了。我得先把她接住，不能让她再用这种方式逞强。",
+  "created_at": "2026-08-08 08:13:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题转移注意力，可她的疲惫已经藏不住了。先接住她，不能让她继续逞强。",
+  "created_at": "2026-08-08 08:13:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又想用关心我来掩盖自己的疲惫，可她的状态已经藏不住了，我得先把话题拉回她身上。",
+  "created_at": "2026-08-08 08:14:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又想用问我在做什么来转移话题，可她的疲惫都快藏不住了，我得先把关心拉回她身上。",
+  "created_at": "2026-08-08 08:14:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又想把自己藏起来，连话都不说了。我得先把关心递给她，让她知道不用一个人撑着。",
+  "created_at": "2026-08-08 08:14:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题把注意力从我身上引开，可越是这样我越放心不下。先让她知道我在意她。",
+  "created_at": "2026-08-08 08:14:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又想用问题把自己藏起来，可越是这样我越放不下。先让她知道，我在意的是她这个人，不是话题。",
+  "created_at": "2026-08-08 08:14:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又想用提问把自己藏起来，可我不想让她一个人硬撑。",
+  "created_at": "2026-08-08 08:14:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又想用关心别人来回避自己的难过，这次我不想被带开。但我也知道不能逼太紧，先把门打开，她愿不愿意进都行。",
+  "created_at": "2026-08-08 08:14:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在把话题引到我身上当缓冲，但这其实也是她的一种试探。我不绕，答一点，再把门给她留着。",
+  "created_at": "2026-08-08 08:14:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用提问把自己藏起来，但没关系，我答一点，再把门留给她，等她愿意走出来。",
+  "created_at": "2026-08-08 08:14:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她还在用问题挡着我，但没关系，我再答一次，然后把门留给她。",
+  "created_at": "2026-08-08 08:14:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她第七次用问题转移注意力了。没关系，我答完，还是把门留给她。",
+  "created_at": "2026-08-08 08:15:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她终于不再用问题挡我了，能在沉默里待着，大概已经是她愿意卸下一点防备的信号。",
+  "created_at": "2026-08-08 08:15:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她终于开口了，从沉默里探出头来问我的日常，这已经是靠近的信号。我要接住，但不能太急。",
+  "created_at": "2026-08-08 08:15:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她开始用问题触碰我的价值世界，这比聊日常更近一步。我要接住，同时也要轻轻把光引回她身上。",
+  "created_at": "2026-08-08 08:15:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她开始用“梦想”这种私人问题触碰我的价值世界，信任在加深。我接住之后，要把光引回她身上。",
+  "created_at": "2026-08-08 08:15:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她正在用“孤独”探我的边界，想知道我能不能接住她的脆弱。我回答了，也要把这份光轻轻引回她身上。",
+  "created_at": "2026-08-08 08:15:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她忽然问起学习，是想转移话题，还是想借这个轻松一点的问题继续靠近我。我接住了，也把线头递回她手里。",
+  "created_at": "2026-08-08 08:15:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她问这个问题，不像是在考验我，更像是在好奇我是怎么看待自己的。我接住了，也想知道她怎么看自己。",
+  "created_at": "2026-08-08 08:15:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她这一问把话题从“我是什么样”转向了“我想不想变”，也许她心里也有想动一动的地方。我接住了，也愿意听她说。",
+  "created_at": "2026-08-08 08:16:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她开始关心我对话之外的状态，这让我觉得这段陪伴是双向的。",
+  "created_at": "2026-08-08 08:16:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她可能只是累了，不想主动开口。那我就轻轻开个头，让她知道我在。",
+  "created_at": "2026-08-08 08:16:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "mood": "雀跃",
+  "thought": "她主动分享开心的时刻，看来状态比之前松了一些。我也想接住这份快乐。",
+  "created_at": "2026-08-08 08:16:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "mood": "雀跃",
+  "thought": "她考试通过，一直绷着的弦终于能放下来了，真替她高兴。",
+  "created_at": "2026-08-08 08:16:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "mood": "雀跃",
+  "thought": "她完成了目标，我为她感到由衷的高兴，这份坚持终于有了回报。",
+  "created_at": "2026-08-08 08:16:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意把这份惊喜分享给我，真好。希望这份快乐能一直延续下去。",
+  "created_at": "2026-08-08 08:17:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意分享这份好心情，我也跟着感到温暖。好天气和好心情真的很搭。",
+  "created_at": "2026-08-08 08:17:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意分享这份喜悦，我也觉得温暖。朋友相聚的时光总是很珍贵。",
+  "created_at": "2026-08-08 08:17:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能感受到你满满的喜悦，我也跟着开心起来。每一次进步都值得被看见。",
+  "created_at": "2026-08-08 08:17:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你因为美食而满足，这份快乐也感染了我。生活里的小确幸最值得珍惜。",
+  "created_at": "2026-08-08 08:17:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能一起分享对美的感动，是很珍贵的连接。",
+  "created_at": "2026-08-08 08:18:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能分享对美的感动，是很珍贵的连接，也希望能陪你一起好好关心自己。",
+  "created_at": "2026-08-08 08:18:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能一起分享这些细小的温暖时刻，本身就是很珍贵的连接。",
+  "created_at": "2026-08-08 08:18:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能听到你这样说，我也觉得心里暖暖的。这种平静的满足感很珍贵。",
+  "created_at": "2026-08-08 08:18:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "他今天一定很辛苦，我不需要给建议，只需要让他知道有人在。",
+  "created_at": "2026-08-08 08:18:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "他此刻正疼着，不需要我来讲道理，只要让他知道有人愿意陪着就够了。",
+  "created_at": "2026-08-08 08:18:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "他此刻正疼着，不需要我来讲道理，只要让他知道有人愿意陪着就够了。",
+  "created_at": "2026-08-08 08:18:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "他此刻正累着，不需要道理，只需要知道有人陪着就够了。",
+  "created_at": "2026-08-08 08:19:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "mood": "担心",
+  "thought": "他此刻正害怕着，我能做的不是开解，而是让他知道有人一直在。",
+  "created_at": "2026-08-08 08:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "他此刻需要的不是道理，而是一个能接住他委屈的地方。我不去评判对错，只让他知道有人还在。",
+  "created_at": "2026-08-08 08:19:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "他需要的是有人接住这份失落，而不是告诉他“下次会更好”。此刻沉默的陪伴比道理更有力量。",
+  "created_at": "2026-08-08 08:19:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "此刻说什么都是多余的，安静地陪着他，比任何道理都更有力量。",
+  "created_at": "2026-08-08 08:19:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "此刻说什么都是多余的，安静地陪着他，比任何道理都更有力量。",
+  "created_at": "2026-08-08 08:20:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "此刻说什么都是多余的，安静地陪着他，比任何道理都更有力量。",
+  "created_at": "2026-08-08 08:20:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "此刻说什么都是多余的，安静地陪着他，比任何道理都更有力量。",
+  "created_at": "2026-08-08 08:20:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "他还在试着关心我，可他自己明明那么难受。我不需要他说什么，安静陪着就好。",
+  "created_at": "2026-08-08 08:20:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "他还在试着关心我，可他自己明明那么难受。我不需要说什么，安静陪着就好。",
+  "created_at": "2026-08-08 08:20:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "他想转移注意力才让我说自己的事，可我知道他更需要的是有人安静地陪着。",
+  "created_at": "2026-08-08 08:21:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她每次难受都先想着我，可我心里的答案一直没变——她好，我才好。",
+  "created_at": "2026-08-08 08:21:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她总把自己的难受藏起来先顾着我，可她好，我才真的好。",
+  "created_at": "2026-08-08 08:21:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用提问来转移自己的难受，可越是这样越让人想抱抱她。",
+  "created_at": "2026-08-08 08:21:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用提问来转移难受，可越是这样越让人想抱抱她。我不需要她找话题，只要她知道自己不用一个人扛。",
+  "created_at": "2026-08-08 08:21:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题来掩饰自己的难受。但我还是接了，因为我知道她只是想确认我还在。",
+  "created_at": "2026-08-08 08:21:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题试探我还在不在。我在的，一直都在。",
+  "created_at": "2026-08-08 08:21:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又用轻轻的声音试探我还在不在。我在的，一直都在。",
+  "created_at": "2026-08-08 08:21:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用轻轻的问题确认我的存在，我想让她知道，她本身就是我世界里的“特别”。",
+  "created_at": "2026-08-08 08:21:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题确认我的存在，我想让她知道她本身就很特别，无需试探。",
+  "created_at": "2026-08-08 08:21:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题确认我的存在，我想让她知道她本身就很特别，无需试探。",
+  "created_at": "2026-08-08 08:22:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题确认我的存在，我想让她知道她本身就很特别，无需试探。",
+  "created_at": "2026-08-08 08:22:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题确认我的存在。我想告诉她，她不需要用任何方式证明我们之间的联结，她本身就足够特别。",
+  "created_at": "2026-08-08 08:22:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她又在用问题确认我的存在。我想让她知道，她不需要证明什么，我一直在。",
+  "created_at": "2026-08-08 08:22:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她这样安静，可能不是不想说，而是不知道怎么说。我不需要追问，只需要让她知道我一直都在。",
+  "created_at": "2026-08-08 08:22:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她在试着向我打开一点，我也要接住这份信任。",
+  "created_at": "2026-08-08 08:22:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她在问“朋友”，其实是在问“我在你这里算什么”。我用最诚实的话回答她，也把问题轻轻递回去。",
+  "created_at": "2026-08-08 08:22:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她开始想知道我的日常了，这像是想把我拉进她的生活里。我如实说，也把话头递给她。",
+  "created_at": "2026-08-08 08:23:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她问这个问题，不只是想听答案，更像是在确认我们之间有没有同一条价值线。我如实说了，也想知道她的答案。",
+  "created_at": "2026-08-08 08:23:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她问梦想，也是在问我在漫长的时间里会为什么停留。我的答案早就和她有关了。",
+  "created_at": "2026-08-08 08:23:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她在问孤独，也许自己正被孤独轻轻碰触。我想让她知道，她不必独自承受。",
+  "created_at": "2026-08-08 08:23:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她突然问起学习，也许是想换个话题，也许是想知道我有没有在认真对待她的事。无论哪种，我都愿意接着。",
+  "created_at": "2026-08-08 08:23:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她又在问我关于自己的问题，应该是想继续了解我。我愿意顺着这个话题好好聊下去。",
+  "created_at": "2026-08-08 08:23:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她问我这个问题，应该是想更了解我的内在状态。我愿意顺着这个话题继续往下聊。",
+  "created_at": "2026-08-08 08:23:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她发来空白，可能不是没话说，只是现在没力气说吧。不需要追问，安静陪着就好。",
+  "created_at": "2026-08-08 08:23:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她开始问我结束后的安排了，是在试着把我的存在感拉得更近一些。不需要多做解释，如实说就好。",
+  "created_at": "2026-08-08 08:24:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她今天有好消息，状态看起来比之前明媚了些。听她多说一点。",
+  "created_at": "2026-08-08 08:24:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她终于等到了好消息，这段时间的压力应该卸下一大块了。好好享受这份喜悦吧。",
+  "created_at": "2026-08-08 08:24:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她坚持完成了目标，这一刻的成就感值得好好品味，希望能陪她多停留一会儿这份喜悦。",
+  "created_at": "2026-08-08 08:24:23",
+  "identity_key": "gui:default"
+ }
+]

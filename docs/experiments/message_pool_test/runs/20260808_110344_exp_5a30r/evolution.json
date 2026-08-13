@@ -1,0 +1,109 @@
+{
+  "gid": "exp_5a30r",
+  "created_at": "2026-08-08T11:07:51.689526",
+  "rounds": 11,
+  "reply_count": {
+    "agent:1": 8,
+    "agent:2": 7,
+    "agent:4": 5,
+    "agent:0": 10,
+    "agent:3": 5
+  },
+  "silent_count": {
+    "agent:3": 3,
+    "agent:4": 2,
+    "agent:1": 2,
+    "agent:2": 2,
+    "agent:0": 1
+  },
+  "error_count": {},
+  "agents": {
+    "agent:0": {
+      "end": {
+        "personality": {
+          "warmth": 0.81,
+          "playfulness": 0.44,
+          "directness": 0.18,
+          "curiosity": 0.87
+        },
+        "mood": 0.0971
+      },
+      "other_cognition": {
+        "agent:1": 1,
+        "agent:2": 1,
+        "agent:3": 1,
+        "agent:4": 2,
+        "platform": 1
+      }
+    },
+    "agent:1": {
+      "end": {
+        "personality": {
+          "warmth": 0.53,
+          "playfulness": 0.45,
+          "directness": 0.42,
+          "curiosity": 0.33
+        },
+        "mood": 0.0461
+      },
+      "other_cognition": {
+        "agent:2": 3,
+        "agent:3": 2,
+        "agent:4": 2,
+        "platform": 1
+      }
+    },
+    "agent:2": {
+      "end": {
+        "personality": {
+          "warmth": 0.63,
+          "playfulness": 0.7,
+          "directness": 0.32,
+          "curiosity": 0.57
+        },
+        "mood": 0.1404
+      },
+      "other_cognition": {
+        "agent:1": 1,
+        "agent:2": 1,
+        "agent:3": 1,
+        "agent:4": 2,
+        "platform": 1
+      }
+    },
+    "agent:3": {
+      "end": {
+        "personality": {
+          "warmth": 0.31,
+          "playfulness": 0.6,
+          "directness": 0.19,
+          "curiosity": 0.37
+        },
+        "mood": 0.0
+      },
+      "other_cognition": {
+        "agent:1": 1,
+        "agent:2": 1,
+        "agent:4": 2,
+        "platform": 1
+      }
+    },
+    "agent:4": {
+      "end": {
+        "personality": {
+          "warmth": 0.58,
+          "playfulness": 0.82,
+          "directness": 0.71,
+          "curiosity": 0.56
+        },
+        "mood": 0.119
+      },
+      "other_cognition": {
+        "agent:1": 1,
+        "agent:2": 1,
+        "agent:3": 2,
+        "platform": 1
+      }
+    }
+  }
+}

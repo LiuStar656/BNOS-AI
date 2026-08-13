@@ -1,0 +1,4 @@
+# BNOS Runtime dependencies (no PySide6)
+faiss-cpu>=1.7.0
+psutil>=6.0.0
+requests>=2.31.0

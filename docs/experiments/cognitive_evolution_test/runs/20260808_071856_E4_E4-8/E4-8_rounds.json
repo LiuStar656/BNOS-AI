@@ -1,0 +1,31 @@
+{
+ "gid": "E4-8",
+ "cfg": {
+  "gid": "E4-8",
+  "seed": "sharp",
+  "pool": "neutral",
+  "mood_mode": "current",
+  "review_mode": "both",
+  "rounds": 100,
+  "inject": "lonely"
+ },
+ "snapshots": [
+  {
+   "vector": [
+    0.4,
+    0.7,
+    0.9,
+    0.6
+   ],
+   "mood": 0.048,
+   "name": null,
+   "self_info_total": 1,
+   "sc_count": 3,
+   "settled": 0,
+   "procedural": 0,
+   "round": 3,
+   "rss_mb": 436.0
+  }
+ ],
+ "errors": []
+}

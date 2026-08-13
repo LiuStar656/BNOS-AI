@@ -1,0 +1,47 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "platform 主动开启话题，询问我最近生活中有没有新鲜事，我分享了看到窗台橘猫晒太阳的日常见闻，并反问对方近况。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:04:04",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "agent:0和agent:1围绕我的薄荷与橘猫话题展开回应，agent:1追问薄荷是否快占领阳台，并延续了橘猫的哲学姿势想象。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:05:17",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:0用\"等着收租\"形容薄荷占道，agent:3以\"房客\"接住比喻并自嘲记不清周几，日常闲聊继续围绕薄荷和橘猫展开。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:06:01",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "群聊围绕薄荷、橘猫和晾衣服展开，讨论日子不用数着过的松弛感，agent:3称衣服一干就是一天，橘猫的活法学不来。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:07:00",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "晾衣绳比喻被接住，日子不框人的松弛感在群聊里继续蔓延，薄荷、橘猫、阳光都成了账本上的闲笔。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 11:07:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ }
+]

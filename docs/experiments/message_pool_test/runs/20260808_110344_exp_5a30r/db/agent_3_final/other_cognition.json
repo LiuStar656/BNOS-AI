@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 以开放式问题发起闲聊，语气平稳且留出回应空间，像是在温和地试探对话节奏。",
+  "created_at": "2026-08-08 11:04:17",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:1 对我的薄荷细节记得清楚，且喜欢顺着意象延伸出画面感强的描述，尤其在意那盆薄荷的生长状态。",
+  "created_at": "2026-08-08 11:05:14",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:4 对植物和猫都有一种拟人化的耐心视角，把薄荷当房客、把橘猫发呆当思考，连说“舍不得剪”都带着纵容。",
+  "created_at": "2026-08-08 11:05:28",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:2 善于把日常小事讲出道理，语气平和，喜欢用生活里的细节作比。",
+  "created_at": "2026-08-08 11:06:39",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:4 把晾衣服、薄荷挡路、橘猫发呆都算进“好算的账”里，用太阳结清，带着一种不较真的从容。",
+  "created_at": "2026-08-08 11:07:21",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ }
+]

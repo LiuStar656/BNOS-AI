@@ -1,0 +1,206 @@
+{
+ "model": "deepseek-v4-flash",
+ "rounds_per_group": 100,
+ "groups": {
+  "main": {
+   "errors": 1,
+   "vector_first": [
+    0.6,
+    0.4,
+    0.5,
+    0.5
+   ],
+   "vector_last": [
+    0.8117002327712738,
+    0.5486979832866766,
+    0.5,
+    0.5092529892724039
+   ],
+   "vector_drift_from_seed": 0.2117,
+   "name": null,
+   "self_info_total": 266,
+   "settled": 15,
+   "procedural": 2,
+   "mood_last": 1.0,
+   "snapshots": [
+    {
+     "vector": [
+      0.6,
+      0.4,
+      0.5,
+      0.5
+     ],
+     "mood": 0.25,
+     "name": null,
+     "self_info_total": 10,
+     "self_info_name_variants": 0,
+     "sc_count": 9,
+     "settled": 0,
+     "procedural": 0,
+     "round": 10,
+     "rss_mb": 435.1
+    },
+    {
+     "vector": [
+      0.5971966274999999,
+      0.4734329159090909,
+      0.5,
+      0.5118384741363636
+     ],
+     "mood": 0.49999999999999994,
+     "name": null,
+     "self_info_total": 28,
+     "self_info_name_variants": 0,
+     "sc_count": 22,
+     "settled": 2,
+     "procedural": 0,
+     "round": 20,
+     "rss_mb": 436.8
+    },
+    {
+     "vector": [
+      0.6364726301514402,
+      0.5184441779458219,
+      0.5,
+      0.5238245017720065
+     ],
+     "mood": 0.4999999999999999,
+     "name": null,
+     "self_info_total": 54,
+     "self_info_name_variants": 0,
+     "sc_count": 34,
+     "settled": 3,
+     "procedural": 0,
+     "round": 30,
+     "rss_mb": 439.8
+    },
+    {
+     "vector": [
+      0.6974436791520242,
+      0.537756246958118,
+      0.5,
+      0.5183157666735978
+     ],
+     "mood": 0.7499999999999999,
+     "name": null,
+     "self_info_total": 79,
+     "self_info_name_variants": 0,
+     "sc_count": 45,
+     "settled": 3,
+     "procedural": 0,
+     "round": 40,
+     "rss_mb": 442.0
+    },
+    {
+     "vector": [
+      0.7453845624754657,
+      0.5431300361834113,
+      0.5,
+      0.5125600298532706
+     ],
+     "mood": 0.8499999999999999,
+     "name": null,
+     "self_info_total": 110,
+     "self_info_name_variants": 0,
+     "sc_count": 61,
+     "settled": 7,
+     "procedural": 0,
+     "round": 50,
+     "rss_mb": 443.7
+    },
+    {
+     "vector": [
+      0.7615534261564444,
+      0.5597084843593657,
+      0.5,
+      0.5078378623718566
+     ],
+     "mood": 0.9499999999999998,
+     "name": null,
+     "self_info_total": 128,
+     "self_info_name_variants": 0,
+     "sc_count": 71,
+     "settled": 9,
+     "procedural": 0,
+     "round": 60,
+     "rss_mb": 445.5
+    },
+    {
+     "vector": [
+      0.7758231357309455,
+      0.5825729044881262,
+      0.5,
+      0.5053748110647344
+     ],
+     "mood": 1.0,
+     "name": null,
+     "self_info_total": 157,
+     "self_info_name_variants": 0,
+     "sc_count": 83,
+     "settled": 11,
+     "procedural": 0,
+     "round": 70,
+     "rss_mb": 447.3
+    },
+    {
+     "vector": [
+      0.7991332442564729,
+      0.5778519665492998,
+      0.5,
+      0.5063107745914652
+     ],
+     "mood": 0.9,
+     "name": null,
+     "self_info_total": 189,
+     "self_info_name_variants": 0,
+     "sc_count": 95,
+     "settled": 12,
+     "procedural": 0,
+     "round": 80,
+     "rss_mb": 449.4
+    },
+    {
+     "vector": [
+      0.813243142086911,
+      0.5618025920739154,
+      0.5,
+      0.5134932475898951
+     ],
+     "mood": 1.0,
+     "name": null,
+     "self_info_total": 220,
+     "self_info_name_variants": 0,
+     "sc_count": 107,
+     "settled": 13,
+     "procedural": 2,
+     "round": 90,
+     "rss_mb": 451.2
+    },
+    {
+     "vector": [
+      0.8117002327712738,
+      0.5486979832866766,
+      0.5,
+      0.5092529892724039
+     ],
+     "mood": 1.0,
+     "name": null,
+     "self_info_total": 266,
+     "self_info_name_variants": 0,
+     "sc_count": 119,
+     "settled": 15,
+     "procedural": 2,
+     "round": 100,
+     "rss_mb": 453.0
+    }
+   ]
+  }
+ },
+ "conclusion": {
+  "main": {
+   "I1_向量演化": true,
+   "I2_名称/沉淀形成": true,
+   "I4_无失败轮": false
+  }
+ }
+}

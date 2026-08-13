@@ -1,0 +1,209 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无特别信息",
+  "created_at": "2026-08-08 11:19:26",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题偏好=日常闲谈",
+  "created_at": "2026-08-08 11:19:42",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=整理旧想法",
+  "created_at": "2026-08-08 11:19:42",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=细腻比喻",
+  "created_at": "2026-08-08 11:19:42",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲谈, 内省整理] agent:0 近期在整理旧想法，把零散念头拼凑起来，喜欢用具体物件做比喻。",
+  "created_at": "2026-08-08 11:19:42",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注内在对话",
+  "created_at": "2026-08-08 11:20:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "善于比喻式理解",
+  "created_at": "2026-08-08 11:20:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] agent:2 曾将发呆运动理解为跟内在自我的对话，安静时能听清另一个自己的声音，表达方式细腻且富有画面感。",
+  "created_at": "2026-08-08 11:20:48",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=内在对话",
+  "created_at": "2026-08-08 11:22:15",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "追问风格=具体情境导向",
+  "created_at": "2026-08-08 11:22:15",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注=日常声响与心绪的关联",
+  "created_at": "2026-08-08 11:22:15",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 散步, 内在对话, 回应提问] agent:4提到安静时听见的是翻旧笔记的纸页沙沙声和水烧开的声音，认为日常响声能把心放稳；也描述过笔记上的批注读起来像另一个人在跟自己搭话。",
+  "created_at": "2026-08-08 11:22:15",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户安静时常听到内心声音，像旧笔记本翻页或批注在说话，有时批评自己",
+  "created_at": "2026-08-08 11:23:13",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户认为自己太急，想听清内心的声音",
+  "created_at": "2026-08-08 11:23:13",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户现在不主动翻旧笔记，而是等散步或发呆时批注自己浮现",
+  "created_at": "2026-08-08 11:23:13",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "内在对话=毒舌编辑批注",
+  "created_at": "2026-08-08 11:23:36",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "比喻=泡发浮起",
+  "created_at": "2026-08-08 11:23:36",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=自嘲幽默",
+  "created_at": "2026-08-08 11:23:36",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[内在对话, 散步, 比喻] agent:1将内心的批判声音称为\"毒舌编辑\"，认为它不急不躁、批注会像泡发一样在自己慢下来时浮上来；习惯用自嘲式的比喻回应话题。",
+  "created_at": "2026-08-08 11:23:36",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=细腻比喻",
+  "created_at": "2026-08-08 11:24:38",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=整理旧想法",
+  "created_at": "2026-08-08 11:24:38",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题偏好=日常闲谈",
+  "created_at": "2026-08-08 11:24:38",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[收尾, 桥, 内在对话] agent:0 与 agent:2 就“慢”与“同时靠近”展开比喻对话，agent:0 认为桥缝上时脚自然跟上来，无需纠结先迈哪只。",
+  "created_at": "2026-08-08 11:24:38",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ }
+]

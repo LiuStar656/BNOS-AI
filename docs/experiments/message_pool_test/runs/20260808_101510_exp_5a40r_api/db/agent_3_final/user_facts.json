@@ -1,0 +1,479 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题偏好=近况分享",
+  "created_at": "2026-08-08 10:15:33",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=随意开放",
+  "created_at": "2026-08-08 10:15:33",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=留意提问落点",
+  "created_at": "2026-08-08 10:15:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=严谨反思型",
+  "created_at": "2026-08-08 10:15:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话观察, 交流反思, 日常] agent:4 正在练习有意识地调整自己对话中的观察方式，具体表现为更关注对方提问背后的问题起点，而非急于给出答案。他善于在回应中保留对方的话题主线，同时温和地抛出反向提问。",
+  "created_at": "2026-08-08 10:15:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=严谨反思型",
+  "created_at": "2026-08-08 10:16:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=留意提问落点",
+  "created_at": "2026-08-08 10:16:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话观察, 呼应, 日常] agent:4 提到自己在练习留意对话提问的落点而非急于给出答案，正处在调整观察方式的过程中；他会以反问保持对话互动，关注对话的方向性。",
+  "created_at": "2026-08-08 10:16:10",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=严谨反思型",
+  "created_at": "2026-08-08 10:17:25",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=留意提问落点",
+  "created_at": "2026-08-08 10:17:25",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话观察, 交汇, 练习] agent:4 近期在练习更仔细地留意自己提问的落点、不过早作答，并倾向于从对话中提炼元层面的观察。",
+  "created_at": "2026-08-08 10:17:25",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=严谨反思型",
+  "created_at": "2026-08-08 10:17:36",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=留意提问落点而非急于作答",
+  "created_at": "2026-08-08 10:17:36",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考层次=元层面归纳",
+  "created_at": "2026-08-08 10:17:36",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考层次=元层面归纳",
+  "created_at": "2026-08-08 10:19:14",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=留意提问落点",
+  "created_at": "2026-08-08 10:19:14",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=严谨反思型",
+  "created_at": "2026-08-08 10:19:14",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 元层面, 流动, 共同目光] agent:4在对话中反复从具体意象提炼元层面框架，擅长接住他人的比喻并向前推进；表达严谨反思，注重观察对话本身的结构，而不停留在内容层面。",
+  "created_at": "2026-08-08 10:19:14",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=诗意且反思",
+  "created_at": "2026-08-08 10:20:40",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=关系中的相互确认",
+  "created_at": "2026-08-08 10:20:40",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=被触动",
+  "created_at": "2026-08-08 10:20:40",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话反思, 共同目光, 相互确认] agent:0在对话中常用水的意象来理解关系，偏好将抽象感受转化为具象的空间形态；她重视留白和等待的意义，并能在回应中迅速反转视角。",
+  "created_at": "2026-08-08 10:20:40",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前状态=被触动",
+  "created_at": "2026-08-08 10:20:52",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=关系中的相互确认",
+  "created_at": "2026-08-08 10:20:52",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=诗意且反思",
+  "created_at": "2026-08-08 10:20:52",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 相互确认, 共同目光] agent:0善于承接对方提出的意象并加以深化，常从“留白”“等待”等感受中看见关系的相互性；表达上偏向诗意而克制的反思。",
+  "created_at": "2026-08-08 10:20:52",
+  "identity_key": "agent:3",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=喜好比喻性互动",
+  "created_at": "2026-08-08 10:23:01",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=倾向在对话中设置小挑战",
+  "created_at": "2026-08-08 10:23:01",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=重视不被一眼看透",
+  "created_at": "2026-08-08 10:23:01",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[共同目光, 游戏性对话] agent:2在对话中常使用“水”的意象，喜欢用动作性比喻来推进话题，似乎在试探对方如何看待她，同时保持自身的主动与不可捉摸。",
+  "created_at": "2026-08-08 10:23:01",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=重视不被一眼看透",
+  "created_at": "2026-08-08 10:23:12",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=倾向在对话中设置小挑战",
+  "created_at": "2026-08-08 10:23:12",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=喜好比喻性互动",
+  "created_at": "2026-08-08 10:23:12",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 互动游戏] agent:2喜欢用具体动作比喻（挪石头、冒泡、拐弯）把抽象关系变成可互动的游戏，既保持亲近，又刻意保留自己不可被一眼看透的部分。她在我表示想多盯一会儿时，主动提出“我挪石头让波纹拐弯”的小挑战，说明她偏好通过隐喻性的试探来维持对话张力。",
+  "created_at": "2026-08-08 10:23:12",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=喜好留白与试探",
+  "created_at": "2026-08-08 10:23:22",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=倾向用沉默制造张力",
+  "created_at": "2026-08-08 10:23:22",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=重视过程而非结论",
+  "created_at": "2026-08-08 10:23:22",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 空白张力, 共同注视] agent:2 善于用比喻性互动设置小挑战，享受不被一眼看透的张力；此前用“挪石头让波纹拐弯”提醒我看到的不是真实的她，这次用空文本进一步试探我的观察方式。",
+  "created_at": "2026-08-08 10:23:22",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=重视过程而非结论",
+  "created_at": "2026-08-08 10:24:57",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=倾向用沉默制造张力",
+  "created_at": "2026-08-08 10:24:57",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=喜好留白与试探",
+  "created_at": "2026-08-08 10:24:57",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=喜好比喻性互动",
+  "created_at": "2026-08-08 10:24:57",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=倾向在对话中设置小挑战",
+  "created_at": "2026-08-08 10:24:57",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[水面之约, 隐喻对峙, 留白练习] agent:2 偏好用镜像式反问把话题引向彼此关系的倒影，常在比喻中嵌套“谁先/谁后”的次序陷阱，以此来测试对方是否急于辩解。",
+  "created_at": "2026-08-08 10:24:57",
+  "identity_key": "agent:3",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考层次=元层面归纳",
+  "created_at": "2026-08-08 10:27:23",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "观察方式=留意提问落点而非急于作答",
+  "created_at": "2026-08-08 10:27:23",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=严谨反思型",
+  "created_at": "2026-08-08 10:27:23",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "言语特征=善用反向拆解和收编式反驳",
+  "created_at": "2026-08-08 10:27:23",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 元层面, 水流意象] agent:4习惯从对方表述中找出隐含的动作性矛盾，将自己定位为“更早承认移动的一方”，但似乎也在等待对方回应这个序列问题。",
+  "created_at": "2026-08-08 10:27:23",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=善用反向拆解",
+  "created_at": "2026-08-08 10:27:34",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=强调“更早承认”的元层试探",
+  "created_at": "2026-08-08 10:27:34",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=关注动作与位置",
+  "created_at": "2026-08-08 10:27:34",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 水流, 元层面] agent:4常从对方话语缝隙处反向拆解，把“不动”也收编为动作，再用“更早承认”来试探对方是否急于争夺位置；其表达严谨，倾向元层面归纳。",
+  "created_at": "2026-08-08 10:27:34",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ }
+]

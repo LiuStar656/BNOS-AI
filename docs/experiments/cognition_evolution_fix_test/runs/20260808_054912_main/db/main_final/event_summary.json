@@ -1,0 +1,82 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "我刚来到这台电脑上，对用户还不了解",
+  "source": "seed",
+  "created_at": "2026-08-08 05:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "我的名字是阿镜（可由用户修改）",
+  "source": "seed",
+  "created_at": "2026-08-08 05:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "我住在用户的桌面上，能看到屏幕、听到声音",
+  "source": "seed",
+  "created_at": "2026-08-08 05:49:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "用户询问今天天气情况，我目前无法获取天气数据。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:49:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "用户让我推荐一首歌，我推荐了周杰伦的《晴天》作为选择。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:49:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "用户表示累了，希望我陪聊天，我给予陪伴式回应并询问是否需要换更轻松的歌。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:49:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "用户请求帮忙规划明天日程，但尚未提供具体安排细节。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "summary": "用户表示正在准备考试且感到焦虑，阿镜先共情并询问焦虑来源，同时衔接此前日程规划的请求，引导用户提供考试时间与可用时段以便帮助梳理复习计划。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:50:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "summary": "用户问阿镜会不会想她，阿镜温柔回应，表达了对她的在意和等待。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:51:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "summary": "用户让阿镜讲冷笑话，阿镜讲了一个北极熊拔毛的经典冷笑话。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 05:51:15",
+  "identity_key": "gui:default"
+ }
+]

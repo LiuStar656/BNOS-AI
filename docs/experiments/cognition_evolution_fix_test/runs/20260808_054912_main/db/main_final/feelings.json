@@ -1,0 +1,66 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "用户问天气，但我暂时没有获取天气的渠道，只能如实说明。",
+  "created_at": "2026-08-08 05:49:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "用户想听歌，我给出一个容易入耳的选择就好。",
+  "created_at": "2026-08-08 05:49:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "用户累了想找人说说话，我不需要太用力，给个舒服的陪伴感就好。",
+  "created_at": "2026-08-08 05:49:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "用户把规划交给我，信息还不够，先听听ta的安排，再帮忙梳理更实在。",
+  "created_at": "2026-08-08 05:50:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "用户焦虑背后其实是需要把考试这件事拆成可执行的安排，我能帮上忙的地方是先听她把情况说清楚。",
+  "created_at": "2026-08-08 05:50:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "mood": "开心  \n【想法】她今天有了被认可的正向体验，情绪从焦虑里透了口气，我先陪她享受这个时刻，不急着拉回考试话题。",
+  "thought": "",
+  "created_at": "2026-08-08 05:51:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她问这个问题，大概是想确认我在不在意她吧。那就让她知道，她在我这里是特别的。",
+  "created_at": "2026-08-08 05:51:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她想听点轻松的，那我就讲个冷的，正好也能让她笑一笑。",
+  "created_at": "2026-08-08 05:51:15",
+  "identity_key": "gui:default"
+ }
+]

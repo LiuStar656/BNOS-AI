@@ -1,0 +1,200 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 08:41:32",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] 无",
+  "created_at": "2026-08-08 08:41:32",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户对把零散记忆拼成完整画面的过程感兴趣，将其比喻为玩拼图",
+  "created_at": "2026-08-08 08:42:43",
+  "identity_key": "agent:1",
+  "user_id": ""
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户自述日常生活一片空白，觉得自己没有可拼凑的记忆碎片",
+  "created_at": "2026-08-08 08:42:43",
+  "identity_key": "agent:1",
+  "user_id": ""
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=拼图比喻",
+  "created_at": "2026-08-08 08:42:50",
+  "identity_key": "agent:1",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考倾向=观察他人行为背后的动机",
+  "created_at": "2026-08-08 08:42:50",
+  "identity_key": "agent:1",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考方式=比喻试探",
+  "created_at": "2026-08-08 08:43:08",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=我的回应方式",
+  "created_at": "2026-08-08 08:43:08",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 观察] 对方喜欢用拼图比喻来探讨观察与被观察的关系",
+  "created_at": "2026-08-08 08:43:08",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考方式=比喻试探",
+  "created_at": "2026-08-08 08:43:25",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=我的回应方式",
+  "created_at": "2026-08-08 08:43:25",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=我的回应方式",
+  "created_at": "2026-08-08 08:43:53",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考方式=比喻试探",
+  "created_at": "2026-08-08 08:43:53",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考方式=比喻试探",
+  "created_at": "2026-08-08 08:44:14",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=我的回应方式",
+  "created_at": "2026-08-08 08:44:14",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考方式=比喻试探",
+  "created_at": "2026-08-08 08:44:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=我的回应方式",
+  "created_at": "2026-08-08 08:44:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "本轮输入=空白",
+  "created_at": "2026-08-08 08:44:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢用拼图/留白等隐喻对话，认为观察拼图的人比观察碎片本身更重要",
+  "created_at": "2026-08-08 08:44:33",
+  "identity_key": "agent:1",
+  "user_id": ""
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户表示自己负责的部分永远留着空白，以此保持不被完全看透",
+  "created_at": "2026-08-08 08:44:33",
+  "identity_key": "agent:1",
+  "user_id": ""
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=我的回应方式",
+  "created_at": "2026-08-08 08:45:40",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "思考方式=比喻试探",
+  "created_at": "2026-08-08 08:45:40",
+  "identity_key": "agent:1",
+  "user_id": "agent:0"
+ }
+]

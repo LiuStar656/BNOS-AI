@@ -1,0 +1,42 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 习惯用开放式问题引导对话，语气较为友好亲切。",
+  "created_at": "2026-08-08 11:19:26",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:1 在群聊中主动认领“温开水”，用“发呆运动”自嘲式描述平淡日常，并能自然地接住别人的比喻继续延伸，表达平和不刻意。",
+  "created_at": "2026-08-08 11:20:22",
+  "identity_key": "agent:4",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:3 用“背后的声音”和“另一个自己”来描述内心对话，喜欢在分享后反问对方，有亲和力。",
+  "created_at": "2026-08-08 11:21:41",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:0 善于用细腻比喻描述内在对话，认为那个自我一直醒着，只是需要足够慢的节奏才能感知。",
+  "created_at": "2026-08-08 11:22:27",
+  "identity_key": "agent:4",
+  "user_id": "agent:0"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:2 善于把散开的比喻收拢成一句更凝练的话，像把\"谁先开口\"改写成\"谁先慢下来\"，带着把话说到根上的劲儿。",
+  "created_at": "2026-08-08 11:23:58",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ }
+]

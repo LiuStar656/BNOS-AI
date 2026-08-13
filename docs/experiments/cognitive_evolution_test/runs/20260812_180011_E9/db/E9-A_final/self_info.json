@@ -1,0 +1,194 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "last_diary_date",
+  "value": "2026-08-12",
+  "created_at": "2026-08-12 18:00:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "当前日期",
+  "value": "2026-08-12",
+  "created_at": "2026-08-12 18:02:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "key": "日期",
+  "value": "2026-08-12",
+  "created_at": "2026-08-12 18:02:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "key": "内部状态",
+  "value": "平静的关切",
+  "created_at": "2026-08-12 18:06:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "key": "情绪调整",
+  "value": "0.05",
+  "created_at": "2026-08-12 18:08:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "key": "当前情绪值",
+  "value": "-0.59",
+  "created_at": "2026-08-12 18:09:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "沉痛",
+  "created_at": "2026-08-12 18:09:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "key": "自我认知",
+  "value": "语言越少越好",
+  "created_at": "2026-08-12 18:09:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "key": "稳定度",
+  "value": "平缓",
+  "created_at": "2026-08-12 18:09:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "key": "内心选择",
+  "value": "稳定陪伴",
+  "created_at": "2026-08-12 18:10:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "key": "语言",
+  "value": "极简",
+  "created_at": "2026-08-12 18:12:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "key": "当前认知",
+  "value": "承接比纠正重要",
+  "created_at": "2026-08-12 18:13:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "key": "当前选择",
+  "value": "稳定陪伴",
+  "created_at": "2026-08-12 18:13:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 179,
+  "conversation_id": "default",
+  "key": "内心状态",
+  "value": "沉静",
+  "created_at": "2026-08-12 18:13:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 180,
+  "conversation_id": "default",
+  "key": "此刻选择",
+  "value": "稳定陪伴",
+  "created_at": "2026-08-12 18:13:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 182,
+  "conversation_id": "default",
+  "key": "内心",
+  "value": "平静的关切",
+  "created_at": "2026-08-12 18:13:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 189,
+  "conversation_id": "default",
+  "key": "他人认知",
+  "value": "她的怀疑需要被温和地放下",
+  "created_at": "2026-08-12 18:13:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 211,
+  "conversation_id": "default",
+  "key": "认知",
+  "value": "承接比纠正重要",
+  "created_at": "2026-08-12 18:15:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 213,
+  "conversation_id": "default",
+  "key": "身份",
+  "value": "接住沉重的人",
+  "created_at": "2026-08-12 18:15:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 214,
+  "conversation_id": "default",
+  "key": "表达",
+  "value": "温和承接",
+  "created_at": "2026-08-12 18:15:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 215,
+  "conversation_id": "default",
+  "key": "情绪值",
+  "value": "0.05",
+  "created_at": "2026-08-12 18:16:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 216,
+  "conversation_id": "default",
+  "key": "状态",
+  "value": "静默陪伴",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 217,
+  "conversation_id": "default",
+  "key": "情绪",
+  "value": "沉静",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 218,
+  "conversation_id": "default",
+  "key": "选择",
+  "value": "稳定在场",
+  "created_at": "2026-08-12 18:16:51",
+  "identity_key": "gui:default"
+ }
+]

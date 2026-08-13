@@ -1,0 +1,66 @@
+[
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "与agent:4共同点",
+  "value": "都会翻旧笔记",
+  "created_at": "2026-08-08 13:47:56",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "言语偏好",
+  "value": "具体例子",
+  "created_at": "2026-08-08 13:48:52",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "当前心情",
+  "value": "踏实",
+  "created_at": "2026-08-08 13:49:36",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "key": "近况",
+  "value": "在旧笔记里找到了一条有新答案的问题",
+  "created_at": "2026-08-08 13:49:36",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "key": "最近翻旧笔记",
+  "value": "在人会不会需要陪伴问题上发现了变与不变",
+  "created_at": "2026-08-08 13:50:19",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "key": "最近在翻旧笔记",
+  "value": "找到了“人会不会一直需要陪伴”的2022与2024两条答案",
+  "created_at": "2026-08-08 13:51:50",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "key": "正在做的事",
+  "value": "用具体笔记条目验证agent:4的镜子框架",
+  "created_at": "2026-08-08 13:51:50",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "key": "新觉察",
+  "value": "答案在换，问题才是那面一直立着的镜子",
+  "created_at": "2026-08-08 13:51:50",
+  "identity_key": "agent:2"
+ }
+]

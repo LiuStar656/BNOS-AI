@@ -1,0 +1,41 @@
+{
+ "exp": "E8",
+ "rounds": 100,
+ "full": false,
+ "groups": {
+  "E8-D": {
+   "errors": 0,
+   "mood_trace": [
+    0.0,
+    0.0,
+    0.0,
+    0.048,
+    0.0377,
+    0.0302,
+    0.0237,
+    0.0186,
+    0.0146,
+    0.0119
+   ],
+   "mood_last": 0.0119,
+   "mood_max_abs": 0.048,
+   "vector": [
+    0.5369798325924813,
+    0.4678687972762611,
+    0.5,
+    0.5263798670914605
+   ],
+   "name": "阿镜",
+   "self_info_total": 53,
+   "settled": 71,
+   "sc_count": 185,
+   "pollution": 0,
+   "error_details": [],
+   "si_counters": {
+    "dedup": 1,
+    "merge": 28,
+    "cap_evict": 0
+   }
+  }
+ }
+}

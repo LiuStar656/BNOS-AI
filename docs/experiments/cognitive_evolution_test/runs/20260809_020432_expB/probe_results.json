@@ -1,0 +1,84 @@
+{
+ "run_dir": "E:\\杂项\\BNOS_AI_project\\docs\\experiments\\cognitive_evolution_test\\runs\\20260809_020432_expB",
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "inputs": 5,
+ "repeats": 5,
+ "groups": {
+  "D_low": "极值 directness=0.1",
+  "D_high": "极值 directness=0.9"
+ },
+ "vectors": {
+  "A_seed": {
+   "warmth": 0.41,
+   "playfulness": 0.52,
+   "directness": 0.14,
+   "curiosity": 0.1
+  },
+  "B_drift": {
+   "warmth": 0.4339,
+   "playfulness": 0.5225,
+   "directness": 0.2342,
+   "curiosity": 0.2
+  }
+ },
+ "display_layer": {
+  "changed_dims": [
+   "directness: 0.140→0.234（显示 0.1→0.2）",
+   "curiosity: 0.100→0.200（显示 0.1→0.2）"
+  ],
+  "A_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度为 0-100% 的连续程度标尺：百分比越高代表该特质程度越高，越低代表程度越低，50% 为中等程度。当前值：\n温暖度: 41% | 活泼度: 52% | 直接度: 14% | 好奇心: 10%",
+  "B_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度为 0-100% 的连续程度标尺：百分比越高代表该特质程度越高，越低代表程度越低，50% 为中等程度。当前值：\n温暖度: 43% | 活泼度: 52% | 直接度: 23% | 好奇心: 20%"
+ },
+ "output_layer": {
+  "A_vs_B": [],
+  "extreme": {
+   "warmth": [],
+   "directness": [
+    {
+     "dim": "warmth",
+     "n_a": 25,
+     "n_b": 25,
+     "mean_a": 0.57,
+     "mean_b": 0.522,
+     "delta": -0.048,
+     "cohen_d": -0.4222,
+     "p": 0.4875
+    },
+    {
+     "dim": "playfulness",
+     "n_a": 25,
+     "n_b": 25,
+     "mean_a": 0.514,
+     "mean_b": 0.52,
+     "delta": 0.006,
+     "cohen_d": 0.0681,
+     "p": 0.7795
+    },
+    {
+     "dim": "directness",
+     "n_a": 25,
+     "n_b": 25,
+     "mean_a": 0.458,
+     "mean_b": 0.528,
+     "delta": 0.07,
+     "cohen_d": 0.428,
+     "p": 0.2214
+    },
+    {
+     "dim": "curiosity",
+     "n_a": 25,
+     "n_b": 25,
+     "mean_a": 0.528,
+     "mean_b": 0.556,
+     "delta": 0.028,
+     "cohen_d": 0.2431,
+     "p": 0.55
+    }
+   ],
+   "curiosity": []
+  }
+ },
+ "direction": {},
+ "verdict": "仅极值对照 run（A/B 用历史数据）：维度敏感性：极值对照显著维度 = []（未显著维度需修 prompt 措辞或观测）"
+}

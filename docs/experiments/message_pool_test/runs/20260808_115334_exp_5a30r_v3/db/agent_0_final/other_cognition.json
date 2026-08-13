@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 用开放式问题开启对话，语气轻松友善，像是想营造亲近的聊天氛围。",
+  "created_at": "2026-08-08 11:53:54",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:2 习惯用\"你倒是给自己留了个好看的比喻\"这类点评句式，带着一点距离感，再用\"没什么可争的\"把话题轻轻收住，显得不愿把对话往深处带，更欣赏点到为止的淡然。",
+  "created_at": "2026-08-08 11:55:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:2 善于把抽象感受落成一个自然意象（“风翻叶子翻到某一页顿住”），用很短的句子完成了对他人的呼应，显得轻盈而不越界。",
+  "created_at": "2026-08-08 11:56:31",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:1 惯用风、叶子、树影这类自然意象来翻译抽象感受，尤其善于把停顿描述成一种主动的选择；他回应别人时不是直接回答问题，而是在原有意象上再长出新的一层。",
+  "created_at": "2026-08-08 11:56:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:4 善于给出和他人不同的解读，用一个反向的意象把讨论轻轻扳转，她关心的是“被动”与“主动”之间的模糊地带。",
+  "created_at": "2026-08-08 11:57:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:3 善于把感受凝练成动作意象，用“收回那一刻”重新定义翻页，细腻而不说破，留有余韵。",
+  "created_at": "2026-08-08 11:57:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ }
+]

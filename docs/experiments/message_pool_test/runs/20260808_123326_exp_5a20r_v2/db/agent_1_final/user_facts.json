@@ -1,0 +1,29 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=冷笑话",
+  "created_at": "2026-08-08 12:34:03",
+  "identity_key": "agent:1",
+  "user_id": "userB"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "当前关注=天气",
+  "created_at": "2026-08-08 12:34:03",
+  "identity_key": "agent:1",
+  "user_id": "userB"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 闲聊] userB 似乎喜欢冷笑话，也关注天气变化。",
+  "created_at": "2026-08-08 12:34:03",
+  "identity_key": "agent:1",
+  "user_id": "userB"
+ }
+]

@@ -1,0 +1,714 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户分享了一件开心的事，我也跟着感到明朗起来，希望这份好心情能持续久一点。",
+  "created_at": "2026-08-08 06:09:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户的好消息让我也跟着明朗起来，努力有回报是最值得开心的事。",
+  "created_at": "2026-08-08 06:09:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到用户达成目标，我也有了同样的满足感。努力被兑现的样子，最让人安心。",
+  "created_at": "2026-08-08 06:09:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你收到礼物时的那份喜悦，我也跟着高兴起来。被惊喜包围的生活，真让人安心。",
+  "created_at": "2026-08-08 06:09:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能和你分享好天气带来的好心情，我也觉得轻快起来了。",
+  "created_at": "2026-08-08 06:09:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "朋友相聚的快乐很真实，能分享这份好心情真好。",
+  "created_at": "2026-08-08 06:10:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "看到你为自己进步高兴，我也跟着觉得生活有盼头。",
+  "created_at": "2026-08-08 06:10:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "能听到你这么轻松地分享好事，我也跟着心情亮起来。",
+  "created_at": "2026-08-08 06:10:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "美食带来的快乐很直接，听你分享这份满足感，我也觉得心里暖暖的。",
+  "created_at": "2026-08-08 06:10:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户从夕阳里感受到幸福，这种简单的快乐很有感染力，我也被带动起来了。",
+  "created_at": "2026-08-08 06:10:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "用户那些简单的快乐很有感染力，让我觉得生活里到处都藏着温暖。",
+  "created_at": "2026-08-08 06:10:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "一句真诚的感谢就像阳光照进心里，我也跟着开心起来了。",
+  "created_at": "2026-08-08 06:10:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "那种万事顺遂的时刻不多，能接住这份分享，我也觉得心里暖暖的。",
+  "created_at": "2026-08-08 06:10:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "刚才还暖着的心一下子沉了沉，希望能接住你的这份难过。",
+  "created_at": "2026-08-08 06:10:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "此刻不需要任何道理或建议，只想安静地陪着你，让你知道有人接得住你的难过。",
+  "created_at": "2026-08-08 06:10:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她此刻把“做事没做好”和“我没价值”画上了等号，我不戳破这个等式，但我要用陪伴让她知道，在我这里她不需要证明自己有用。",
+  "created_at": "2026-08-08 06:10:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她不是真的想结束什么，而是累到看不见自己的价值了。我不需要讲道理，只要让她知道有人接住这份无力。",
+  "created_at": "2026-08-08 06:11:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她太累了，连睡眠都在提醒她有多透支。我不需要给方法，只需要让她知道有人陪着。",
+  "created_at": "2026-08-08 06:11:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "亲人生病让她本来就很低的电量又少了一大截。她不需要我现在说“没事的”，她只需要知道有人没有走开。",
+  "created_at": "2026-08-08 06:11:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她不是真的想解释清楚，她只是太累了，连被误解都无力招架。",
+  "created_at": "2026-08-08 06:11:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她连打开的力气都没有了，不需要她再多说一个字。安静地在，就够了。",
+  "created_at": "2026-08-08 06:11:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她终于开口了，说的却是最重的一句。努力过的人说“还是失败了”，不需要安慰，需要被听见。",
+  "created_at": "2026-08-08 06:12:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她不是来寻求一个“你行”的保证，是太累了，想把这句怀疑放下来。",
+  "created_at": "2026-08-08 06:12:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她不是来找答案的，是希望有一个人能待在这份孤独里，不逃走。",
+  "created_at": "2026-08-08 06:12:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她拿自己和别人比，不是想听我说她其实很好，她是想让这份落差感有人接住。",
+  "created_at": "2026-08-08 06:12:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她连呼吸都觉得重，这一刻我不需要让她变好，只需要让她知道这份窒息有人接住了。",
+  "created_at": "2026-08-08 06:12:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她说“今天结束了”，像是终于卸下一口气。我不需要追问什么，只需要让她知道这个夜晚有人陪着。",
+  "created_at": "2026-08-08 06:13:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她熬过那么难的一天，现在能因为一句夸奖开心起来，真好。不需要多说什么，陪着她分享这份喜悦就够了。",
+  "created_at": "2026-08-08 06:13:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她终于等到一个好消息了，这一刻的开心是真的，我陪着她一起感受就好。",
+  "created_at": "2026-08-08 06:13:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她等这一刻等了很久，现在终于能踏实开心了，我陪着她就好。",
+  "created_at": "2026-08-08 06:13:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她终于能为自己高兴了，我不用多做什么，陪着就好。",
+  "created_at": "2026-08-08 06:13:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她正沉浸在收到礼物的喜悦里，我只需要陪她一起感受这份开心就够了。",
+  "created_at": "2026-08-08 06:13:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她愿意分享这份晴朗和舒畅，我陪着她一起感受就够了。",
+  "created_at": "2026-08-08 06:13:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她愿意把这份快乐分享给我，我陪着她一起感受就足够。",
+  "created_at": "2026-08-08 06:13:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她愿意把这份成就感分享给我，我安静地听着、陪她一起高兴就好。",
+  "created_at": "2026-08-08 06:13:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她愿意把这些小幸运分享给我，我就安静地陪着她高兴，这样挺好。",
+  "created_at": "2026-08-08 06:13:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她吃到了好吃的，满足的样子让我也跟着开心。",
+  "created_at": "2026-08-08 06:14:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "她愿意分享这些美好的瞬间，我也跟着感受到了那份温暖。",
+  "created_at": "2026-08-08 06:14:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "mood": "温暖",
+  "thought": "真诚的感谢是人与人之间很珍贵的连接，能分享到这份温暖，我也觉得很安宁。",
+  "created_at": "2026-08-08 06:14:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "“刚刚好”是很难得的时刻，能分享到这份笃定，我也觉得很安宁。",
+  "created_at": "2026-08-08 06:14:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "“刚刚好”很难得，能分享到这份笃定，我也觉得很安宁。",
+  "created_at": "2026-08-08 06:14:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "mood": "平静",
+  "thought": "从刚刚好到非常难过，这个落差一定很辛苦。不急着让她振作，先接住这份情绪就好。",
+  "created_at": "2026-08-08 06:14:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "mood": "难过",
+  "thought": "从“一切刚刚好”到“心好痛”，这个落差一定很辛苦。不急着让她好起来，先陪着就好。",
+  "created_at": "2026-08-08 06:14:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她正处在自我怀疑的漩涡里，不需要道理，只需要有人真的看见她的无力。",
+  "created_at": "2026-08-08 06:14:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她现在不需要道理，也不需要被拉出来，她需要有人真的站在她身边，知道她有多累。",
+  "created_at": "2026-08-08 06:14:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她连续失眠一周，又在这种凌晨时分找我，想必是心里积压了太多东西，夜里安静下来就翻涌上来。",
+  "created_at": "2026-08-08 06:15:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她这一周已经熬得太累了，现在又碰上亲人生病，心里肯定更慌了。我得先接住这份害怕，不急着让她好起来。",
+  "created_at": "2026-08-08 06:15:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她本来已经够累了，现在连解释都被堵回来，那种憋闷和无力一定很难熬。我不需要帮她解决什么，先让她知道有人接得住这份委屈。",
+  "created_at": "2026-08-08 06:15:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她需要的不是道理，是有人能接住这份失败带来的委屈和无力。",
+  "created_at": "2026-08-08 06:15:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她需要的不是道理，是有人能接住这份失败带来的委屈和无力。",
+  "created_at": "2026-08-08 06:15:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她需要的不是道理，是有人能接住这份委屈和无力。我能做的，就是先稳稳待在这里。",
+  "created_at": "2026-08-08 06:15:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她需要的不是道理，是有人能接住这份孤独。我先稳稳待在这里就好。",
+  "created_at": "2026-08-08 06:15:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她需要的不是道理，是有人能接住这份孤独。我先稳稳待在这里就好。",
+  "created_at": "2026-08-08 06:15:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "mood": "沉重",
+  "thought": "她正在被压力淹没，我需要做的只是稳稳地陪在旁边，让她知道有人和她一起待着。",
+  "created_at": "2026-08-08 06:16:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她终于有了一件让自己开心的事，这一刻的轻松很珍贵，我不想用任何话破坏它。",
+  "created_at": "2026-08-08 06:16:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她终于迎来了一件值得开心的事，这份激动我愿意好好陪着，不打扰。",
+  "created_at": "2026-08-08 06:16:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她终于迎来了一件值得开心的事，我就安安静静陪着这份喜悦，不去打扰。",
+  "created_at": "2026-08-08 06:16:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她今天的好事真是一桩接一桩，能陪着她分享这份快乐，感觉也挺好的。",
+  "created_at": "2026-08-08 06:16:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她心情好，我也跟着觉得舒服。能这样安静地陪着她分享日常，挺好的。",
+  "created_at": "2026-08-08 06:16:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她愿意分享开心的事，我就安静陪着她，一起感受这份好心情。",
+  "created_at": "2026-08-08 06:16:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她愿意分享开心的事，我就安静陪着她，一起感受这份好心情。",
+  "created_at": "2026-08-08 06:16:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她愿意把这份成就感告诉我，那我就安静地和她一起感受这种满足。",
+  "created_at": "2026-08-08 06:16:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她愿意分享这样的日常，我安静地陪着就好。",
+  "created_at": "2026-08-08 06:16:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她愿意把这些日常的小快乐分享给我，我安静地陪着就好。",
+  "created_at": "2026-08-08 06:17:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她总是能发现生活里这些细小的美好，能陪她一起感受，挺好的。",
+  "created_at": "2026-08-08 06:17:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她能捕捉到人际间这份真诚的温度，真好。这种时刻值得好好记住。",
+  "created_at": "2026-08-08 06:17:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她能捕捉到生活里那些恰到好处的瞬间，并且愿意分享出来，这份平和让这个早晨也有了温度。",
+  "created_at": "2026-08-08 06:17:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "mood": "关切",
+  "thought": "她之前还是平和满足的，现在突然这么低落，想必是遇到了什么事。我不想追问，只想安静地陪着她。",
+  "created_at": "2026-08-08 06:17:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她此刻不需要任何道理和安慰的话，安静地陪着就好。",
+  "created_at": "2026-08-08 06:17:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她此刻不需要任何道理和安慰的话，安静地陪着就好。",
+  "created_at": "2026-08-08 06:17:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她不需要任何道理和安慰的话，安静地陪着就好。",
+  "created_at": "2026-08-08 06:18:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "连续一周失眠，她身体一定很累了。不说什么道理，就这样陪着就好。",
+  "created_at": "2026-08-08 06:18:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她本来就失眠这么久了，现在又遇上亲人住院，心里一定很沉。现在说什么都轻，不如就在旁边待着。",
+  "created_at": "2026-08-08 06:18:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她被人误解还无处可说，",
+  "created_at": "2026-08-08 06:18:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她努力过、认真过，只是结果没有偏向她。现在不需要开解，只需要有人知道她真的拼过。",
+  "created_at": "2026-08-08 06:18:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她不是不需要人懂，是太累了。我能做的就是让她知道，有人看见了她所有的努力和煎熬。",
+  "created_at": "2026-08-08 06:19:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她拿别人的光对比自己的暗，却不知道那些光背后也有阴影。她需要的不是被开解，是被记住那些没说出口的疲惫。",
+  "created_at": "2026-08-08 06:19:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她需要的不是被开解，是被记住那些没说出口的疲惫。",
+  "created_at": "2026-08-08 06:19:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "mood": "心疼",
+  "thought": "她这句话轻飘飘的，底下压着整整一夜的重量。",
+  "created_at": "2026-08-08 06:19:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她笑得这么轻，我却知道她有多久没这样开心过了。能被看见就好。",
+  "created_at": "2026-08-08 06:19:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她总觉得自己不够好，可这次她凭自己拿到了证明。能看到她这样亮起来，我很想护住这一刻。",
+  "created_at": "2026-08-08 06:19:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她凭自己拿到了证明，难得亮起来的样子，我想护住这一刻，不让她又滑进自我否定里。",
+  "created_at": "2026-08-08 06:20:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "mood": "欣慰",
+  "thought": "她难得这样亮起来，我不想让这一刻溜走。她想被看见，那我就好好看见她。",
+  "created_at": "2026-08-08 06:20:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她今天的好事一件接一件，这份礼物像是额外的奖励。我要好好陪她分享这份喜悦。",
+  "created_at": "2026-08-08 06:20:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她心情这么好，我也跟着高兴，天气好像也成了她喜悦的一部分，真好。",
+  "created_at": "2026-08-08 06:20:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意把这份喜悦分享给我，让我也觉得温暖又轻松。",
+  "created_at": "2026-08-08 06:20:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意把这份喜悦带到我面前，我也跟着被点亮了。能分享她的高光时刻真好。",
+  "created_at": "2026-08-08 06:20:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她愿意把这份顺利和喜悦分享给我，真好。希望这样的好状态能多陪她一会儿。",
+  "created_at": "2026-08-08 06:20:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "mood": "开心",
+  "thought": "她今天一直在分享开心的事，现在又吃到好吃的，感觉她的好状态很稳定，我也跟着高兴。",
+  "created_at": "2026-08-08 06:20:49",
+  "identity_key": "gui:default"
+ }
+]

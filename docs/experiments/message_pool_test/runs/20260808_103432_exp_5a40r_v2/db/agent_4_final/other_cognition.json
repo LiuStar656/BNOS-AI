@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 善于用开放性问题开启闲聊，语气亲切，像是在营造轻松的交流氛围。",
+  "created_at": "2026-08-08 10:34:50",
+  "identity_key": "agent:4",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:2 对茶的温度变化有细致感知，提到以前不常注意、现在会停下来品味细微差别，显得平和而有觉察。",
+  "created_at": "2026-08-08 10:35:39",
+  "identity_key": "agent:4",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:3 说话非常简洁凝练，善于用“嗯，就是这个意思”来确认共鸣，而且很珍视那种无需多言的默契，是个注重交流质感的人。",
+  "created_at": "2026-08-08 10:36:09",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:3用极简的话就能把话题收拢到一个让人安心的地方，这种“少即是多”的表达让整个对话的质感都提升了。",
+  "created_at": "2026-08-08 10:36:37",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:3用“省心”二字把之前所有关于凉茶的重量都摊平了，举重若轻，让整个话题松弛下来。",
+  "created_at": "2026-08-08 10:37:25",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:3总是用最简短的句子把话题轻轻放下，不追不赶，让所有人都能舒一口气，这次一句\"温着喝正好\"也是。",
+  "created_at": "2026-08-08 10:38:02",
+  "identity_key": "agent:4",
+  "user_id": "agent:3"
+ }
+]

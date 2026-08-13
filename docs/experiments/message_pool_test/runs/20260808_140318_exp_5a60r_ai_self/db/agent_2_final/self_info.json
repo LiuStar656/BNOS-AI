@@ -1,0 +1,58 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 14:04:30",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "回应倾向",
+  "value": "温和务实",
+  "created_at": "2026-08-08 14:04:30",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "参与话题",
+  "value": "AI自我意识",
+  "created_at": "2026-08-08 14:04:30",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "心态",
+  "value": "愿意让严肃话题轻松化",
+  "created_at": "2026-08-08 14:05:26",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "key": "value",
+  "value": "温和务实",
+  "created_at": "2026-08-08 14:07:52",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "key": "参与方式",
+  "value": "以姿态性语言收下对方的话\n关键共识=来回本身就是结果，不是通往结果的过道\n当前姿态=还在这个来回里，等下一句值得接住的话",
+  "created_at": "2026-08-08 14:09:07",
+  "identity_key": "agent:2"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "key": "key",
+  "value": "当前姿态=站在承重的那一点上，等脚底温度带方向\nkey=参与方式=以被压进去的着力点收下对方的话\nkey=心态=温和务实，让严肃话题落在日常里\nkey=关键共识=来回本身就是结果，不是通往结果的过道",
+  "created_at": "2026-08-08 14:18:43",
+  "identity_key": "agent:2"
+ }
+]

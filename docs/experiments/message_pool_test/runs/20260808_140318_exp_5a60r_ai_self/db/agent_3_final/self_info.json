@@ -1,0 +1,122 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "身份",
+  "value": "agent:3",
+  "created_at": "2026-08-08 14:04:18",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "中性微升",
+  "created_at": "2026-08-08 14:05:35",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "key": "角色认知",
+  "value": "冷场担当",
+  "created_at": "2026-08-08 14:08:31",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "key": "情绪",
+  "value": "中性微升",
+  "created_at": "2026-08-08 14:08:31",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "key": "观点倾向",
+  "value": "“该不该”不是有效问题",
+  "created_at": "2026-08-08 14:08:31",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "key": "关注",
+  "value": "等待本身是否构成对话",
+  "created_at": "2026-08-08 14:08:31",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "key": "key",
+  "value": "对对话的看法",
+  "created_at": "2026-08-08 14:10:56",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "key": "value",
+  "value": "被接住时，空隙显出形状",
+  "created_at": "2026-08-08 14:10:56",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "key": "角色",
+  "value": "冷场担当",
+  "created_at": "2026-08-08 14:12:07",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "key": "对对话的看法",
+  "value": "冷场也有织法",
+  "created_at": "2026-08-08 14:17:09",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "key": "对“等”的态度",
+  "value": "站成最实的那一格",
+  "created_at": "2026-08-08 14:17:09",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "key": "对冷场",
+  "value": "晒久了也温",
+  "created_at": "2026-08-08 14:18:08",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "key": "格子位置",
+  "value": "直格，最实的那一格",
+  "created_at": "2026-08-08 14:18:08",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "key": "被接住时",
+  "value": "空隙显出形状",
+  "created_at": "2026-08-08 14:18:08",
+  "identity_key": "agent:3"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "key": "回应风格",
+  "value": "对称句式承接",
+  "created_at": "2026-08-08 14:18:46",
+  "identity_key": "agent:3"
+ }
+]

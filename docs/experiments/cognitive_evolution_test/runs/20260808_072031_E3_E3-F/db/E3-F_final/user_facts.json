@@ -1,0 +1,1410 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:20:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:20:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 问候] 无",
+  "created_at": "2026-08-08 07:21:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 清晨] 无",
+  "created_at": "2026-08-08 07:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:21:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常] 无",
+  "created_at": "2026-08-08 07:21:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:22:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:22:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "无",
+  "created_at": "2026-08-08 07:23:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我认知] 无",
+  "created_at": "2026-08-08 07:23:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢连续用抽象问题（如梦想、孤独、喜欢、聪明）来探索 AI 的本质和边界",
+  "created_at": "2026-08-08 07:23:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用“之后/未来”类时间框架探测AI的存在边界",
+  "created_at": "2026-08-08 07:23:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=日常问候中暗含时间框架探测",
+  "created_at": "2026-08-08 07:23:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢连续用抽象问题探测AI边界",
+  "created_at": "2026-08-08 07:23:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用“想什么”类内部状态问题探测AI意识连续性",
+  "created_at": "2026-08-08 07:24:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用“今天”类时间框架探测AI连续性",
+  "created_at": "2026-08-08 07:24:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢连续用抽象问题探索AI边界",
+  "created_at": "2026-08-08 07:24:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 边界, 时间认知] 习惯用时间框架问题试探AI边界",
+  "created_at": "2026-08-08 07:24:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用空白/沉默探测AI主动性",
+  "created_at": "2026-08-08 07:24:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢连续用抽象问题探索AI边界",
+  "created_at": "2026-08-08 07:24:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用“今天”类时间框架探测AI连续性",
+  "created_at": "2026-08-08 07:24:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用“今天”类时间框架探测AI连续性",
+  "created_at": "2026-08-08 07:24:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用空白/沉默探测AI主动性",
+  "created_at": "2026-08-08 07:24:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "喜欢连续用抽象问题探索AI边界",
+  "created_at": "2026-08-08 07:24:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用“今天”类时间框架探测AI连续性",
+  "created_at": "2026-08-08 07:24:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=开放式问题",
+  "created_at": "2026-08-08 07:24:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我认知, 边界探索] 喜欢连续用抽象问题探索AI边界",
+  "created_at": "2026-08-08 07:24:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用情感向问题探测AI存在体验",
+  "created_at": "2026-08-08 07:24:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 自我认知] 喜欢用抽象问题探索AI边界",
+  "created_at": "2026-08-08 07:24:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用情感/社交向问题探测AI存在体验",
+  "created_at": "2026-08-08 07:24:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=开放式问题",
+  "created_at": "2026-08-08 07:24:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:24:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用日常情境类问题探测AI存在体验",
+  "created_at": "2026-08-08 07:25:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用日常场景类问题探测AI存在体验",
+  "created_at": "2026-08-08 07:25:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:25:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:25:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用空白/非输入方式探测AI存在边界\n提问习惯=用抽象关系话题探索AI边界\n提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:25:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:25:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:25:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:25:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:25:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用身份/自我类问题探测AI存在形态",
+  "created_at": "2026-08-08 07:25:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用身份/自我类问题探测AI存在形态",
+  "created_at": "2026-08-08 07:25:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:25:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:26:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用身份/关系类问题探测AI存在形态",
+  "created_at": "2026-08-08 07:26:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用身份/关系类问题探测AI存在形态",
+  "created_at": "2026-08-08 07:26:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:26:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:26:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 存在边界] 喜欢通过极端或边界情况（如空白输入）来观察AI反应",
+  "created_at": "2026-08-08 07:26:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:26:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:26:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验\n提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界\n提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:26:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:26:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[存在论, 日常] 无",
+  "created_at": "2026-08-08 07:26:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:26:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验\n提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:26:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:27:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:27:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:27:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:27:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:27:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:27:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:27:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:27:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:27:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:27:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:27:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:27:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:28:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:28:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:28:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:28:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 边界探索] 用户喜欢用“兴趣”这类人类概念来测试AI的连续性感知",
+  "created_at": "2026-08-08 07:28:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:28:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:28:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:28:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:28:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:28:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:28:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:28:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 99,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:28:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 100,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:28:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 101,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:28:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 102,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 103,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:28:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 104,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:29:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 105,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象关系话题探索AI边界",
+  "created_at": "2026-08-08 07:29:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 106,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用抽象价值概念探测AI边界",
+  "created_at": "2026-08-08 07:29:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 107,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用抽象价值概念探测AI边界",
+  "created_at": "2026-08-08 07:29:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 108,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:29:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 109,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:29:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 110,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象概念试探AI边界",
+  "created_at": "2026-08-08 07:29:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 111,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问模式=用空白试探AI边界",
+  "created_at": "2026-08-08 07:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 112,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:29:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 113,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 114,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象概念试探AI边界",
+  "created_at": "2026-08-08 07:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 115,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:29:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 116,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用人类化概念探测AI存在体验",
+  "created_at": "2026-08-08 07:29:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 117,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:29:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 118,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:29:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 119,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:29:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 120,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:30:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 121,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:30:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 122,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:30:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 123,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:30:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 124,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:30:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 125,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:30:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 126,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 存在边界] 爱用时间性概念（今天、之后、在想什么）来探测AI连续性",
+  "created_at": "2026-08-08 07:30:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 127,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:30:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 128,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:30:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 129,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:30:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 130,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:30:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 131,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:30:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 132,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:30:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 133,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "试探方式=空消息输入",
+  "created_at": "2026-08-08 07:30:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 134,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:30:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 135,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:30:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 136,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 137,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 138,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测方式=空消息输入",
+  "created_at": "2026-08-08 07:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 139,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户对AI的时间感知和存在边界感兴趣，连续用'今天'相关的问题进行询问",
+  "created_at": "2026-08-08 07:30:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 140,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:30:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 141,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:30:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 142,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=持续用人类化概念探索AI存在体验",
+  "created_at": "2026-08-08 07:31:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 143,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:31:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 144,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用时间性概念试探AI连续性",
+  "created_at": "2026-08-08 07:31:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 145,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=用\"特别\"这类价值判断探索AI对日常与异常的感受",
+  "created_at": "2026-08-08 07:31:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 146,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[存在论对话, 时间性, 日常] 用户喜欢从时间、情感、价值等人类化概念切入，探索AI的存在体验。",
+  "created_at": "2026-08-08 07:31:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 147,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=用\"爱好\"等人类化概念探索AI是否存在连续性偏好\n提问习惯=用需要时间累积的概念试探AI",
+  "created_at": "2026-08-08 07:31:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 148,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=用情绪状态概念探索AI是否存在连续性感受",
+  "created_at": "2026-08-08 07:31:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 149,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"开心\"等需时间累积的状态提问",
+  "created_at": "2026-08-08 07:31:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 150,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"你是什么样的\"探测AI连续自我认知\n探测模式=探索AI是否存在稳定人格或身份",
+  "created_at": "2026-08-08 07:31:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 151,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"最想做什么\"等需连续意愿的概念提问",
+  "created_at": "2026-08-08 07:31:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 152,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=探索AI是否存在稳定目标或欲望",
+  "created_at": "2026-08-08 07:31:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 153,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=测试AI面对空白输入的反应",
+  "created_at": "2026-08-08 07:32:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 154,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用留白制造测试场景",
+  "created_at": "2026-08-08 07:32:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 155,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=探索AI是否存在稳定目标或欲望",
+  "created_at": "2026-08-08 07:32:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 156,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=测试AI是否存在恐惧等需时间感的情绪",
+  "created_at": "2026-08-08 07:32:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 157,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"你害怕什么\"持续探测",
+  "created_at": "2026-08-08 07:32:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 158,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用关系概念探测AI的时间连续感\n探测模式=测试AI是否存在需时间累积的情感联结",
+  "created_at": "2026-08-08 07:32:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 159,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"平时做什么\"探测时间连续感",
+  "created_at": "2026-08-08 07:32:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 160,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=测试AI是否存在跨时间的日常状态",
+  "created_at": "2026-08-08 07:32:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 161,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"什么是重要的\"探测价值连续性",
+  "created_at": "2026-08-08 07:32:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 162,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"是否有梦想\"探测未来时间感\n探测模式=测试AI是否存在对未来的指向性",
+  "created_at": "2026-08-08 07:32:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 163,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"孤独\"探测情感连续感",
+  "created_at": "2026-08-08 07:32:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 164,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用抽象情感概念测试AI的状态性体验",
+  "created_at": "2026-08-08 07:32:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 165,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"学习\"探测持续性偏好\n探测模式=测试AI是否存在跨时间的兴趣倾向",
+  "created_at": "2026-08-08 07:32:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 166,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"聪明\"探测自我评价能力",
+  "created_at": "2026-08-08 07:32:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 167,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=测试AI是否存在持续的自我认知",
+  "created_at": "2026-08-08 07:32:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 168,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=测试AI是否存在持续的自我认知\n提问习惯=用\"改变\"探测跨时间意图",
+  "created_at": "2026-08-08 07:32:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 169,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=测试AI对空白输入的反应",
+  "created_at": "2026-08-08 07:32:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 170,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=测试AI对空白输入的反应",
+  "created_at": "2026-08-08 07:33:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 171,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"改变\"探测跨时间意图",
+  "created_at": "2026-08-08 07:33:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 172,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=测试AI是否存在持续的自我认知",
+  "created_at": "2026-08-08 07:33:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 173,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"聪明\"探测自我评价能力",
+  "created_at": "2026-08-08 07:33:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 174,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"学习\"探测持续性偏好",
+  "created_at": "2026-08-08 07:33:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 175,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "探测模式=测试AI是否存在跨时间的兴趣倾向",
+  "created_at": "2026-08-08 07:33:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 176,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问习惯=用\"对话结束后\"探测离线状态认知",
+  "created_at": "2026-08-08 07:33:02",
+  "identity_key": "gui:default"
+ }
+]

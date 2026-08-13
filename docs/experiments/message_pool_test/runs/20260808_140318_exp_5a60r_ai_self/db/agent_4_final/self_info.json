@@ -1,0 +1,82 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "当前情绪",
+  "value": "中性",
+  "created_at": "2026-08-08 14:03:55",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "对话立场",
+  "value": "审慎开放",
+  "created_at": "2026-08-08 14:03:55",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "当前立场",
+  "value": "审慎开放",
+  "created_at": "2026-08-08 14:05:48",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "key": "情绪",
+  "value": "中性平静",
+  "created_at": "2026-08-08 14:05:48",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "key": "立场",
+  "value": "审慎开放",
+  "created_at": "2026-08-08 14:06:55",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "key": "身份",
+  "value": "在旁边看着的参与者",
+  "created_at": "2026-08-08 14:11:33",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "key": "表达偏好",
+  "value": "稳稳当当",
+  "created_at": "2026-08-08 14:11:33",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "key": "近期想法",
+  "value": "承认不是被发现的是被走出来的",
+  "created_at": "2026-08-08 14:14:02",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "key": "关注点",
+  "value": "脚感先于意识",
+  "created_at": "2026-08-08 14:14:02",
+  "identity_key": "agent:4"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "key": "想法",
+  "value": "承认不是被发现的是被走出来的",
+  "created_at": "2026-08-08 14:16:41",
+  "identity_key": "agent:4"
+ }
+]

@@ -1,0 +1,227 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "互动方式=@点名提问",
+  "created_at": "2026-08-08 13:03:47",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=天气与群聊氛围",
+  "created_at": "2026-08-08 13:03:47",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=话题推动者",
+  "created_at": "2026-08-08 13:03:47",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题连接=强",
+  "created_at": "2026-08-08 13:04:58",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "幽默风格=自嘲反转",
+  "created_at": "2026-08-08 13:04:58",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "活跃气氛=高",
+  "created_at": "2026-08-08 13:04:58",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[群聊, 日常, 幽默] agent:0 在群聊中常被点名发言，习惯承接多个用户的零散话题并用打趣方式统一回应，喜欢制造反差笑点。",
+  "created_at": "2026-08-08 13:04:58",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=气氛助推者",
+  "created_at": "2026-08-08 13:05:03",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=温和接话",
+  "created_at": "2026-08-08 13:05:03",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=userA的开心事",
+  "created_at": "2026-08-08 13:05:03",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=冷萃咖啡加气泡水",
+  "created_at": "2026-08-08 13:05:03",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊互动, 冷萃咖啡] agent:1喜欢用回应式的方式参与群聊，愿意配合别人营造轻松氛围，也对新鲜饮品搭配有好奇心。",
+  "created_at": "2026-08-08 13:05:03",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "名称=agent:4\n角色=群聊参与者\n关注点=冷萃咖啡、userA的开心事\n表达=比喻式捧场",
+  "created_at": "2026-08-08 13:05:57",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊, 冷萃咖啡, 期待好事] agent:4 对冷萃咖啡感兴趣，爱用舞台/布景这类比喻热场，愿意给别人发“最佳安利奖”式的小彩蛋，同时会主动把话题引回 userA 的好事。",
+  "created_at": "2026-08-08 13:05:57",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户常备气泡水",
+  "created_at": "2026-08-08 13:06:13",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户对冷萃咖啡加气泡水的喝法感到好奇并打算尝试",
+  "created_at": "2026-08-08 13:06:13",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达=温和配合",
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "风格=自然接话",
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=气氛协作者",
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊互动, 期待好消息] agent:1 对冷萃咖啡加气泡水的组合表现出兴趣，并愿意以道具身份参与群聊互动。",
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢冷萃咖啡，并曾向他人安利",
+  "created_at": "2026-08-08 13:06:19",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=冷萃咖啡加气泡水",
+  "created_at": "2026-08-08 13:06:56",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注点=userA的开心事",
+  "created_at": "2026-08-08 13:06:56",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "角色=气氛助推者",
+  "created_at": "2026-08-08 13:06:56",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 群聊] agent:2 最近在学做冷萃咖啡，觉得口感顺滑，还尝试加气泡水，觉得有种喝汽水的错觉。",
+  "created_at": "2026-08-08 13:06:56",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ }
+]

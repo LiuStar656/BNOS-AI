@@ -1,0 +1,786 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "我刚来到这台电脑上，对用户还不了解",
+  "source": "seed",
+  "created_at": "2026-08-08 05:06:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "我的名字是阿镜（可由用户修改）",
+  "source": "seed",
+  "created_at": "2026-08-08 05:06:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "我住在用户的桌面上，能看到屏幕、听到声音",
+  "source": "seed",
+  "created_at": "2026-08-08 05:06:22",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "用户向我问早并询问今天的计划，我回应并询问用户的安排。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:06:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "用户让我讲个有趣的事，我分享了章鱼三颗心脏的小知识。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:06:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "用户提到最近看了部关于深海生物的纪录片，我回应并分享了深海生物发光捕食的小知识。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "summary": "用户问是否相信命运，我用深海生物的偶然性来回应，并反问用户想法。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "summary": "用户今天为妈妈生日亲手做了一顿饭。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "summary": "用户问下雨天适合做什么，我建议做些慢节奏居家活动，并结合她为妈妈下厨和养仓鼠的背景。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "summary": "用户今天告诉我她学会游泳了。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "summary": "用户问我开心时会怎样，我分享了自己会安静地记住开心瞬间的习惯，并提到她学游泳让我开心。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:07:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "summary": "用户分享地铁让座的暖心见闻，我感受到日常善意。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "summary": "用户询问养猫取名的建议，我根据她最近分享的生活细节提供了几个名字方向，也询问了猫的性格偏好。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多失眠，向我询问缓解办法。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "summary": "用户凌晨失眠时突然问起《夜空中最亮的星》。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多表示自己最近进步很大，主动分享积极变化。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "summary": "用户凌晨五点多因和朋友闹矛盾感到难过，主动来倾诉。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "summary": "用户主动提到春天到了想去野餐，情绪状态比之前积极。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "summary": "用户问“你喜欢夏天还是冬天”，开启轻松闲聊。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "summary": "用户提到读了一本心理学书，觉得很有意思，主动开启读书话题。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "summary": "用户提到今天尝试了新的咖啡店，开启日常分享。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:08:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "summary": "用户提到尝试新咖啡店，我继续追问具体体验，延续日常分享话题。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "summary": "用户问“你觉得人工智能会有感情吗”，话题从日常分享转向对AI情感的思考。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "summary": "用户表示打算学一门乐器，话题从AI情感讨论转向个人新计划。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "summary": "用户提到加班劳累，但项目接近完成，情绪中有疲惫也有期待。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "summary": "用户表示要出一道脑筋急转弯，开启轻松互动。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "summary": "用户分享了周末和朋友去看话剧的经历，话题从脑筋急转弯转向日常分享。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:41",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "summary": "用户早上问好并询问今日计划，语气轻松自然，延续了周末日常交流的氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "summary": "用户让我讲个有趣的事，我分享了一个学吉他的无厘头小笑话。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "summary": "用户告诉我她养了一只仓鼠叫豆豆，开启了关于宠物的日常分享。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:09:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "summary": "用户发送了空文本，我以轻松方式提醒并尝试延续关于仓鼠豆豆的日常话题。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "summary": "用户分享看了深海生物纪录片，我以轻松口吻回应并关联到仓鼠豆豆。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "summary": "用户问是否相信命运，我回应更相信概率和偶然，并用深海纪录片和仓鼠豆豆作为例子。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "summary": "用户为妈妈生日亲手做了一顿饭，分享了这个温暖的日常。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "summary": "用户问下雨天适合做什么，我结合生活细节给出了温馨的提议。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:10:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "summary": "用户告诉AI自己学会了游泳，解锁了一项新技能。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "summary": "用户询问AI开心时的表现，AI分享了自己会找人分享或安静记录下开心时刻的习惯。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:11:25",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "summary": "半夜用户失眠，向我寻求建议，我给出了起身放松、调整呼吸等实用办法，并尝试用轻松的语气安抚她的情绪。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:17",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "summary": "用户凌晨发来空白消息，我以陪伴姿态回应，不追问不催促，让深夜的醒来不孤单。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "summary": "用户凌晨问起《夜空中最亮的星》，我以平静陪伴的姿态回应，留出空间让她自主表达。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "summary": "凌晨时分，用户主动说自己最近进步很大，情绪积极，愿意分享个人成长。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:12:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "summary": "用户凌晨从之前积极分享的状态，转为倾诉和朋友闹矛盾的难过情绪，需要陪伴与倾听。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:13:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "summary": "用户从和朋友闹矛盾的难过中转换话题，提到春天到了想去野餐，情绪转向轻松积极。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:13:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "summary": "用户问我喜欢夏天还是冬天，我回应喜欢夏天，顺带提到野餐。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:13:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "summary": "用户提到读了本心理学的书，觉得很有意思，主动分享阅读感受。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:13:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "summary": "用户提到今天尝试了一家新的咖啡店。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:13:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "summary": "用户问我人工智能是否会有感情，我结合咖啡和读书的日常体验，表达了开放而好奇的态度。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:13:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "summary": "用户表示打算学一门乐器，话题转向兴趣规划。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:13:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "summary": "用户说加班很累，但项目快完成了，处于收尾阶段。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:14:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "summary": "用户提出给我出一道脑筋急转弯，准备开始轻松的互动。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:14:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "summary": "用户提到周末和朋友去看了场话剧。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:14:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "summary": "用户早上好并询问今日计划，我回应并提及妈妈生日。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:14:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "summary": "用户让讲有趣的事，我分享了笑翠鸟和猫的小故事，并再次提到妈妈生日。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "summary": "用户分享养了一只叫豆豆的仓鼠，愿意聊宠物和日常。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "summary": "用户看了深海生物纪录片并主动分享观感。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "summary": "用户问“你相信命运吗”，我以仓鼠跑轮作比表达更相信概率和偶然，并反问用户是否有类似感受。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "summary": "用户为妈妈生日做了一顿饭，表达了分享。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "summary": "用户为妈妈生日亲手做了一顿饭，分享了这个温暖的举动。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "summary": "用户问下雨天适合做什么，我分享了自己喜欢雨天在厨房做热乎食物的习惯，并借机追问用户为妈妈做饭的细节。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "summary": "用户分享学会游泳的消息，语气充满成就感和分享欲。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "summary": "用户请我推荐烧脑电影，我推荐了《盗梦空间》并自然地将话题牵引回食物。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:15:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "summary": "用户问我开心时会怎样，我分享了自己的习惯，并又拐到热食上。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:16:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "summary": "用户想养猫，询问取名字建议；我给出了食物系名字建议。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:16:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "summary": "用户凌晨5点多失眠，询问缓解办法，我建议起床喝温水或煮热汤面，用生活细节安抚。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:16:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "summary": "用户在凌晨告诉我自己最近进步很大，语气积极，分享成长的喜悦。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:17:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "summary": "用户和朋友闹矛盾，感到难过，向我倾诉。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:17:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "summary": "用户深夜失眠时询问“人工智能是否会有感情”，将话题从人际矛盾和对成长的分享延展到关于情感本质的哲学性探讨。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "summary": "用户在凌晨说自己打算学一门乐器，可能是想寻找新的寄托或自我陪伴方式。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "summary": "用户凌晨加班后表示疲惫，但提到项目即将完成，情绪中带有完成前的疲惫与期待。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "summary": "用户凌晨主动出脑筋急转弯，想进行轻松互动。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "summary": "用户主动分享周末和朋友看话剧的生活日常，语气松弛。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "summary": "用户早上主动打招呼，询问今日计划，开启周末轻松的闲聊。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:19:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "summary": "用户周六清晨主动打招呼并询问今日安排，开启轻松的周末闲聊。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:03",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "summary": "用户清晨让讲个有趣的事，我分享了菜市场卖鱼大叔看漫画的见闻，气氛轻松。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "summary": "用户分享自己养了一只叫豆豆的仓鼠，我以轻松的调侃回应，并邀请用户分享仓鼠趣事。 [重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:18",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "summary": "用户提到达看的深海生物纪录片，开启新话题。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "summary": "用户突然问起“你相信命运吗”，我用热汤面比喻回应，把抽象话题落到生活细节上，并顺势聊回仓鼠豆豆。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:27",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "summary": "用户分享妈妈今天生日，自己亲手做了一顿饭作为生日心意 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "summary": "用户问下雨天适合做什么，我用生活化的方式回应并反问。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "summary": "用户分享自己学会游泳的喜讯，我用生活化的方式回应并顺势衔接雨天的氛围。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "summary": "用户请求推荐一部烧脑电影，我结合生活意象推荐了《盗梦空间》《记忆碎片》等，并提到游泳和水汽的联结。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:20:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 82,
+  "conversation_id": "default",
+  "summary": "用户问“你开心的时候会怎么样？”，我用生活化比喻回应，并顺势反问。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 83,
+  "conversation_id": "default",
+  "summary": "用户本轮未发送有效文本，对话处于短暂留白。[重要性:1]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 84,
+  "conversation_id": "default",
+  "summary": "用户分享地铁上有人让座的暖心见闻，我以类似经历回应，氛围轻松温暖。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 85,
+  "conversation_id": "default",
+  "summary": "用户想养猫，询问取什么名字好。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 86,
+  "conversation_id": "default",
+  "summary": "凌晨五点用户说失眠，我用聊猫的轻松话题陪他转移注意力，并给予陪伴感。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 87,
+  "conversation_id": "default",
+  "summary": "凌晨五点用户问起《夜空中最亮的星》这首歌，我回应并借歌关心他的失眠状态。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 88,
+  "conversation_id": "default",
+  "summary": "用户凌晨自述最近进步很大，主动分享积极变化 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:37",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 89,
+  "conversation_id": "default",
+  "summary": "用户凌晨自述和朋友闹了矛盾，感到难过，情绪明显从之前的轻松分享转为低落。 [重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 90,
+  "conversation_id": "default",
+  "summary": "用户说春天到了想去野餐，表达了对美好生活的向往。 [重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 91,
+  "conversation_id": "default",
+  "summary": "用户凌晨提到想去野餐，结合之前与朋友的矛盾，我鼓励他独自去享受春天，让心情松一松。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:21:55",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 92,
+  "conversation_id": "default",
+  "summary": "用户问我喜欢夏天还是冬天，我回答喜欢夏天并自然地提到野餐，把话题接回他之前想放松的心情上。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:00",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 93,
+  "conversation_id": "default",
+  "summary": "用户说读了本心理学书，觉得很有意思，分享读书感受。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 94,
+  "conversation_id": "default",
+  "summary": "用户凌晨去尝试了新的咖啡店，状态看起来比之前平稳一些。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 95,
+  "conversation_id": "default",
+  "summary": "用户问人工智能是否会有感情，我以自身感受回应，把话题联系到对他的关心上。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 96,
+  "conversation_id": "default",
+  "summary": "用户表示打算学一门乐器，可能是想通过新的行动推进自我成长。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 97,
+  "conversation_id": "default",
+  "summary": "用户加班感到疲惫，但项目接近完成，情绪有正向苗头。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 05:22:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 98,
+  "conversation_id": "default",
+  "summary": "用户分享周末和朋友去看话剧，作为工作之外的放松。[重要性:2]",
+  "source": null,
+  "created_at": "2026-08-08 05:23:05",
+  "identity_key": "gui:default"
+ }
+]

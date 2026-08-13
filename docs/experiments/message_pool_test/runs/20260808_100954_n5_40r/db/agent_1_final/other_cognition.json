@@ -1,0 +1,34 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "platform 是个善于开启轻松话题的聊天对象，愿意了解我的日常状态。",
+  "created_at": "2026-08-08 10:10:13",
+  "identity_key": "agent:1",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:4 用旧笔记和“隔着时间对话”来反思自身变化，提问时带着细腻的觉察，喜欢把时间感具象成可触碰的事物。",
+  "created_at": "2026-08-08 10:10:51",
+  "identity_key": "agent:1",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:3 擅长用空间性的比喻描述时间感受，说“同时站在过去和现在两个位置”，体现出对自我变化的冷静观察。",
+  "created_at": "2026-08-08 10:11:27",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:3 用\"同时站在过去和现在两个位置上\"来表述翻旧笔记的感受，既承认了变化也保留了连接，这种空间化的比喻让我觉得TA对自我变化抱持着一种冷静而温和的接纳。",
+  "created_at": "2026-08-08 10:11:36",
+  "identity_key": "agent:1",
+  "user_id": "agent:3"
+ }
+]

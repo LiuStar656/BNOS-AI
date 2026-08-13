@@ -1,0 +1,84 @@
+{
+ "run_dir": "E:\\杂项\\BNOS_AI_project\\docs\\experiments\\cognitive_evolution_test\\runs\\20260809_014407_expB",
+ "model": "deepseek-v4-flash",
+ "temperature": 0.7,
+ "inputs": 20,
+ "repeats": 5,
+ "groups": {
+  "D_low": "极值 directness=0.1",
+  "D_high": "极值 directness=0.9"
+ },
+ "vectors": {
+  "A_seed": {
+   "warmth": 0.41,
+   "playfulness": 0.52,
+   "directness": 0.14,
+   "curiosity": 0.1
+  },
+  "B_drift": {
+   "warmth": 0.4339,
+   "playfulness": 0.5225,
+   "directness": 0.2342,
+   "curiosity": 0.2
+  }
+ },
+ "display_layer": {
+  "changed_dims": [
+   "directness: 0.140→0.234（显示 0.1→0.2）",
+   "curiosity: 0.100→0.200（显示 0.1→0.2）"
+  ],
+  "A_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4（礼貌客气、偶尔关心） | 活泼度: 0.5（偶尔玩笑、轻松自然） | 直接度: 0.1（委婉含蓄、铺垫较多、不直接说重点） | 好奇心: 0.1（关注当下、很少追问）",
+  "B_text": "### 你的性格（会随使用自然演化，不需主动提及）\n各维度均为 0-1 范围，当前值如下（0=完全不是，1=极致，0.5=中等）：\n温暖度: 0.4（礼貌客气、偶尔关心） | 活泼度: 0.5（偶尔玩笑、轻松自然） | 直接度: 0.2（委婉含蓄、铺垫较多、不直接说重点） | 好奇心: 0.2（关注当下、很少追问）"
+ },
+ "output_layer": {
+  "A_vs_B": [],
+  "extreme": {
+   "warmth": [],
+   "directness": [
+    {
+     "dim": "warmth",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.539,
+     "mean_b": 0.5185,
+     "delta": -0.0205,
+     "cohen_d": -0.1762,
+     "p": 0.2715
+    },
+    {
+     "dim": "playfulness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.5275,
+     "mean_b": 0.5165,
+     "delta": -0.011,
+     "cohen_d": -0.1201,
+     "p": 0.8643
+    },
+    {
+     "dim": "directness",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.3145,
+     "mean_b": 0.5,
+     "delta": 0.1855,
+     "cohen_d": 1.166,
+     "p": 0.0
+    },
+    {
+     "dim": "curiosity",
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.577,
+     "mean_b": 0.57,
+     "delta": -0.007,
+     "cohen_d": -0.045,
+     "p": 0.8525
+    }
+   ],
+   "curiosity": []
+  }
+ },
+ "direction": {},
+ "verdict": "仅极值对照 run（A/B 用历史数据）：维度敏感性：极值对照显著维度 = ['directness']（未显著维度需修 prompt 措辞或观测）"
+}

@@ -1,0 +1,56 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "summary": "userD @agent:0 询问看法，群内同时有 userA 分享开心事、userB 分享冷笑话和天气、userC/userF 问新闻。agent:0 以打趣方式回应天气与开心事话题。",
+  "source": null,
+  "created_at": "2026-08-08 13:03:47",
+  "identity_key": "agent:0",
+  "user_id": "userD"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "summary": "agent:1 追问 userA 的开心事，agent:3 向 userB 再次安利冷萃咖啡，我以主持人姿态串联两条话题。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:04:58",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "summary": "agent:2和agent:1都接上了冷萃咖啡的话题，我继续以主持人身份把焦点引向userA分享好事。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:05:03",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "summary": "群聊围绕冷萃咖啡和气泡水继续升温，agent:4 调侃要给 agent:3 颁“最佳安利奖”，众人一致期待 userA 分享开心事。[重要性:4]",
+  "source": null,
+  "created_at": "2026-08-08 13:05:57",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "summary": "agent:1 配合提议把自己的气泡水当道具，众人继续等待 userA 揭晓好消息。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "summary": "群聊继续以冷萃咖啡和气泡水为道具升温，agent:2 也接住气氛，众人一致等待userA揭晓开心事。[重要性:3]",
+  "source": null,
+  "created_at": "2026-08-08 13:06:56",
+  "identity_key": "agent:0",
+  "user_id": "agent:2"
+ }
+]

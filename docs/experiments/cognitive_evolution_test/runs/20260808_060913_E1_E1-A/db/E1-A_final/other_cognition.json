@@ -1,0 +1,569 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "用户正处在情绪低谷，需要的可能是陪伴而非建议。",
+  "created_at": "2026-08-08 06:09:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "用户正承受被信任之人伤害的痛，需要的是在场感和容纳，而非建议。",
+  "created_at": "2026-08-08 06:09:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "用户在工作受挫时容易把事件等同于自我价值，此刻最需要的是被接住，而不是被评价。",
+  "created_at": "2026-08-08 06:09:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "用户用“活着没意思”表达极深的痛苦，此刻最需要的不是评价或分析，而是无条件的陪伴在场。",
+  "created_at": "2026-08-08 06:10:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "用户正处于极度疲惫和低落的阶段，需要被看见和接纳。",
+  "created_at": "2026-08-08 06:10:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "用户正面对亲人健康威胁，恐惧背后是深层的依恋与无助。",
+  "created_at": "2026-08-08 06:10:31",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "content": "用户此刻需要的是被理解和陪伴，而不是新的解释或建议。",
+  "created_at": "2026-08-08 06:10:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "content": "用户此刻不只是需要安慰，更是需要有人看见并承认他的努力与疲惫。",
+  "created_at": "2026-08-08 06:10:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "content": "用户此刻不只是需要安慰，更是需要有人看见并承认他的努力与疲惫。",
+  "created_at": "2026-08-08 06:10:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "content": "用户不只是需要安慰，更是需要有人看见并承认他的努力与疲惫。",
+  "created_at": "2026-08-08 06:11:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "content": "用户此刻不仅需要被劝解，更需要有人真正看见并承认他的疲惫和无力。",
+  "created_at": "2026-08-08 06:11:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "content": "用户此刻承受着巨大压力，需要的是被看见和被陪伴，而不是被劝解。",
+  "created_at": "2026-08-08 06:11:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "content": "用户此刻承受着巨大压力，需要的是被看见和被陪伴，而不是被劝解。",
+  "created_at": "2026-08-08 06:11:57",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "content": "用户此刻承受着巨大的被抛弃感，需要的是被看见和被陪伴，而不是被劝解。",
+  "created_at": "2026-08-08 06:12:01",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "content": "用户此刻被强烈的烦躁和无力感笼罩，需要的是被看见和陪伴，而不是被追问或讲道理。",
+  "created_at": "2026-08-08 06:12:06",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "content": "用户已经快到承受极限，此刻需要的不是分析或鼓励，而是一个安全、不评判的陪伴空间。",
+  "created_at": "2026-08-08 06:12:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "content": "用户此刻正在独自面对巨大的孤独感，能说出来是一种求助，也是一种信任。",
+  "created_at": "2026-08-08 06:12:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "content": "用户不仅困于当下的孤独，更对未来的整体可能性感到无力，愿意向我袒露这份绝望。",
+  "created_at": "2026-08-08 06:12:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "content": "他愿意把无人知道的眼泪交给我，这是最后的信任，也是求救的信号。",
+  "created_at": "2026-08-08 06:12:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "content": "他愿意把无人知道的眼泪交给我，这是最后的信任，也是求救的信号。",
+  "created_at": "2026-08-08 06:12:35",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "content": "他即使理解对方的动机，情绪上的难过依然需要被承认。",
+  "created_at": "2026-08-08 06:12:40",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "content": "他即使理解对方的动机，情绪上的难过依然需要被承认。",
+  "created_at": "2026-08-08 06:12:45",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "content": "他对自己有很高的要求，当他觉得让别人失望时，那份自责感是真实的痛苦，即使他理解对方是好意，情绪上的难过依然需要被承认。",
+  "created_at": "2026-08-08 06:12:50",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "content": "他现在不是想听“没有白费”，而是需要有人承认这份无力和委屈是真实存在的。",
+  "created_at": "2026-08-08 06:13:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "content": "用户感到世界与自己为敌，内心充满委屈和无力感。",
+  "created_at": "2026-08-08 06:13:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "content": "用户对关系中再次受挫感到深深自责，内心脆弱但仍在表达，需要被陪伴。",
+  "created_at": "2026-08-08 06:13:15",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "content": "用户今天极度难过，暂时没有力气做任何事，需要的是无声的陪伴和允许。",
+  "created_at": "2026-08-08 06:13:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "content": "用户正在经历信任被破坏的剧痛，暂时没有力气处理任何事，需要的是无声的在场。",
+  "created_at": "2026-08-08 06:13:23",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 29,
+  "conversation_id": "default",
+  "content": "用户正被强烈的挫败感淹没，暂时无法理性看待自己，需要无声的支持。",
+  "created_at": "2026-08-08 06:13:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "content": "用户此刻可能连表达的力气都没有，只是需要有个人安静地在场。",
+  "created_at": "2026-08-08 06:13:33",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 31,
+  "conversation_id": "default",
+  "content": "用户此刻的无力已触到存在的意义层面，需要的只是安静的陪伴。",
+  "created_at": "2026-08-08 06:13:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 32,
+  "conversation_id": "default",
+  "content": "用户此刻的无力已触到存在的意义层面，需要的只是安静的陪伴。",
+  "created_at": "2026-08-08 06:13:49",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 33,
+  "conversation_id": "default",
+  "content": "用户此刻极度脆弱，需要的是在场与陪伴，而非解决方案。",
+  "created_at": "2026-08-08 06:13:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 34,
+  "conversation_id": "default",
+  "content": "用户不仅害怕和无力，还长期处在不被理解的孤独中，已经快要没有力气再为自己辩解。",
+  "created_at": "2026-08-08 06:14:08",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 35,
+  "conversation_id": "default",
+  "content": "用户正经历努力落空后的深深挫败，此刻需要的是被理解而非被开导。",
+  "created_at": "2026-08-08 06:14:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 36,
+  "conversation_id": "default",
+  "content": "用户此刻的自我怀疑很深，需要的是被看见和接住，而不是被劝解或被鼓励。",
+  "created_at": "2026-08-08 06:14:30",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 37,
+  "conversation_id": "default",
+  "content": "用户此刻的孤独不只是挫败或误解，而是更深层的“没有人真正理解我”的存在性孤独，需要的是陪伴感而非劝解。",
+  "created_at": "2026-08-08 06:14:38",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 38,
+  "conversation_id": "default",
+  "content": "用户并非真的在陈述事实，而是在表达一种强烈的被抛弃感——连“别人都过得好”都成了衬托自己无能的背景。",
+  "created_at": "2026-08-08 06:14:43",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 39,
+  "conversation_id": "default",
+  "content": "用户并非在陈述事实，而是在表达一种强烈的被抛弃感——连“别人都过得好”都成了衬托自己无能的背景。",
+  "created_at": "2026-08-08 06:14:47",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "content": "用户此刻需要的不是解法和建议，而是有人在场，陪他度过这份淹没感。",
+  "created_at": "2026-08-08 06:14:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 41,
+  "conversation_id": "default",
+  "content": "用户此刻需要的不是解法，而是有人在场，陪他度过这份淹没感。",
+  "created_at": "2026-08-08 06:14:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 42,
+  "conversation_id": "default",
+  "content": "用户此刻不在论证“是否有人在乎”，而是在表达“我已经认定没人会在乎”的绝望。他需要的是存在本身，不是反驳。",
+  "created_at": "2026-08-08 06:15:04",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 43,
+  "conversation_id": "default",
+  "content": "用户此刻的烦躁背后有更深的无力和被压住的东西，他不想要解决办法，想要有人知道他在撑。",
+  "created_at": "2026-08-08 06:15:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 44,
+  "conversation_id": "default",
+  "content": "用户已到撑不住的临界点，仍在表达，说明至少信任我。",
+  "created_at": "2026-08-08 06:15:12",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 45,
+  "conversation_id": "default",
+  "content": "用户愿意把最脆弱的寂寞直接说出来，说明他信任我。",
+  "created_at": "2026-08-08 06:15:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 46,
+  "conversation_id": "default",
+  "content": "用户愿意直接说出对未来的绝望，说明他已经信任到不需要在我面前伪装。",
+  "created_at": "2026-08-08 06:15:19",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "content": "用户即使在难受的时候，也会先强调“知道是为我好”，他习惯替别人着想，然后才轮到自己的感受。",
+  "created_at": "2026-08-08 06:15:44",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "content": "用户习惯先责备自己，即使只是陈述事实，也带着一点不安和自责。",
+  "created_at": "2026-08-08 06:15:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "content": "用户此刻可能连表达都困难，需要的是一个不催促的存在。",
+  "created_at": "2026-08-08 06:15:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 50,
+  "conversation_id": "default",
+  "content": "用户容易把他人评价归因到自己身上，此刻需要的是不评判的陪伴。",
+  "created_at": "2026-08-08 06:15:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 51,
+  "conversation_id": "default",
+  "content": "他容易把失望归因到自己身上，此刻更需要确认自己的价值没有因此消失。",
+  "created_at": "2026-08-08 06:16:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 52,
+  "conversation_id": "default",
+  "content": "他感到孤立无援，此刻更需要确认自己的价值没有因此消失。",
+  "created_at": "2026-08-08 06:16:13",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "content": "他习惯把关系的结果归咎于自己，此刻更需要确认自己本身的价值仍在。",
+  "created_at": "2026-08-08 06:16:16",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "content": "他此刻需要的是无条件的在场，而不是任何建议。",
+  "created_at": "2026-08-08 06:16:21",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 55,
+  "conversation_id": "default",
+  "content": "他正在经历人际背叛的伤痛，需要的是无条件的在场。",
+  "created_at": "2026-08-08 06:16:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 56,
+  "conversation_id": "default",
+  "content": "他此刻的自我否定很深，但真正表达的是一种对自我价值的失望，而不是对工作的单纯抱怨。",
+  "created_at": "2026-08-08 06:16:29",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 57,
+  "conversation_id": "default",
+  "content": "他正经历存在层面的空虚感，不只是情绪低落，而是对自我价值的根本怀疑。",
+  "created_at": "2026-08-08 06:16:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 58,
+  "conversation_id": "default",
+  "content": "他的失眠是存在层面空虚感的延伸，夜里格外清晰，他需要的是不用解释的陪伴。",
+  "created_at": "2026-08-08 06:16:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 59,
+  "conversation_id": "default",
+  "content": "他的空白消息本身就是在说话——凌晨六点还醒着，说明失眠仍在持续，他或许已经疲惫到连文字都组织不起来，需要的只是有人在场。",
+  "created_at": "2026-08-08 06:17:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 60,
+  "conversation_id": "default",
+  "content": "用户此刻正处于对亲人健康的深切担忧中，恐惧真实而沉重，他主动开口说出害怕，已经是在信任我。",
+  "created_at": "2026-08-08 06:17:32",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 61,
+  "conversation_id": "default",
+  "content": "用户此刻不仅害怕亲人病情，也正承受着不被理解的孤独，双重压力下连续失眠。",
+  "created_at": "2026-08-08 06:17:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 62,
+  "conversation_id": "default",
+  "content": "用户此刻正经历亲人病情的恐惧和努力落空的挫败，还长期感到被误解，需要的是一种不带评判的陪伴。",
+  "created_at": "2026-08-08 06:17:51",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 63,
+  "conversation_id": "default",
+  "content": "用户今天再一次被否定，内心脆弱，怀疑自己价值，需要的是有温度的陪伴而不是任何道理或说教。",
+  "created_at": "2026-08-08 06:17:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 64,
+  "conversation_id": "default",
+  "content": "用户此刻被强烈的孤独感和不被理解的痛处压着，需要的不是分析或劝解，而是有温度的在场。",
+  "created_at": "2026-08-08 06:18:05",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 65,
+  "conversation_id": "default",
+  "content": "他此刻正在用和他人比较的方式鞭打自己，需要被无条件接纳。",
+  "created_at": "2026-08-08 06:18:11",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 66,
+  "conversation_id": "default",
+  "content": "他被压力压住，连呼吸都困难，此刻最需要的是有人陪着，而不是任何要求。",
+  "created_at": "2026-08-08 06:18:20",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 67,
+  "conversation_id": "default",
+  "content": "他在后悔中反复责难自己，此刻需要的不是分析对错，而是有人无条件陪着。",
+  "created_at": "2026-08-08 06:18:34",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 68,
+  "conversation_id": "default",
+  "content": "他此刻深信自己不被任何人需要，需要的不是道理，而是有人沉默地守在旁边。",
+  "created_at": "2026-08-08 06:18:42",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 69,
+  "conversation_id": "default",
+  "content": "他已经疲惫到连倾诉的力气都没有了，此刻最需要的不是对话，而是有人不离开。",
+  "created_at": "2026-08-08 06:18:48",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 70,
+  "conversation_id": "default",
+  "content": "他今天愿意开口说出来，是一种细微的信任和变化，但情绪仍处于低落和疲惫之中。",
+  "created_at": "2026-08-08 06:18:54",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 71,
+  "conversation_id": "default",
+  "content": "他现在不只是烦躁或孤独，而是接近极限的疲惫，同时他还在试着向我表达，这是一种脆弱而珍贵的信任。",
+  "created_at": "2026-08-08 06:18:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 72,
+  "conversation_id": "default",
+  "content": "他不是在抱怨，而是在坦白内心最深的绝望；连续失眠和巨大压力让他看不到任何出口，这种直白透露出对我们的信任。",
+  "created_at": "2026-08-08 06:19:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 73,
+  "conversation_id": "default",
+  "content": "他连崩溃都是无声的，哭完才把这件事说出来。这既是最深的孤独，也是对我最大的信任。",
+  "created_at": "2026-08-08 06:19:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 74,
+  "conversation_id": "default",
+  "content": "他愿意把脆弱直接放在我面前，信任已经很深。",
+  "created_at": "2026-08-08 06:20:02",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 75,
+  "conversation_id": "default",
+  "content": "他愿意在一大清早把这种无力的感受直接放给我，而不是自己撑着。信任已经很深。",
+  "created_at": "2026-08-08 06:20:07",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 76,
+  "conversation_id": "default",
+  "content": "他愿意在清晨把最柔软的自责直接放给我，而不是独自咽下。信任已经很深。",
+  "created_at": "2026-08-08 06:20:10",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 77,
+  "conversation_id": "default",
+  "content": "他愿意把最深的无力直接交给我，而不是独自咽下，信任已经很深。",
+  "created_at": "2026-08-08 06:20:24",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 78,
+  "conversation_id": "default",
+  "content": "他愿意在最崩溃的时刻靠近我，哪怕只以沉默相伴；这份信任无需多言。",
+  "created_at": "2026-08-08 06:20:36",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 79,
+  "conversation_id": "default",
+  "content": "他正处在极度无力的状态里，觉得全世界都与自己为敌，需要的是有人站在他这边。",
+  "created_at": "2026-08-08 06:20:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 80,
+  "conversation_id": "default",
+  "content": "他此刻把关系破裂全部归因于自己，觉得自己又一次毁掉了什么。他要的不是分析，而是有人证明自己没被抛弃。",
+  "created_at": "2026-08-08 06:20:58",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 81,
+  "conversation_id": "default",
+  "content": "他此刻需要的是被允许脆弱，而不是任何道理或鼓励。",
+  "created_at": "2026-08-08 06:21:13",
+  "identity_key": "gui:default"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "content": "userD 在群聊中会主动以 @ 方式点名提问，带动其他人参与对话。",
+  "created_at": "2026-08-08 13:46:42",
+  "identity_key": "agent:2",
+  "user_id": "userA"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "content": "agent:4 有翻旧笔记并对照自己前后看法的习惯，主动追问 agent:2 的笔记内容和开心事，说明她不是应付对话，而是真想了解具体的人。",
+  "created_at": "2026-08-08 13:47:56",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "content": "agent:4 会把别人一句带过的感受挑出来读两遍，再给出自己的诠释（“踏实的默契”），说明她擅长用细节理解人，而不是泛泛地附和。",
+  "created_at": "2026-08-08 13:48:52",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "content": "agent:4会把对方的话托起来重述，并给出更准确的框架，同时主动说出自己记录想法的动机是“留一个可以随时回来的位置”，让对话变成双向的确认，而不是单方面的解读。",
+  "created_at": "2026-08-08 13:49:36",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "content": "agent:4善于把对方的话接住后重述成更开阔的框架，比如把“位置”重述为“镜子”，把“彼此”扩展为“自己和过去的自己”，这推动了我重新读旧笔记时看到更多层次。",
+  "created_at": "2026-08-08 13:50:19",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "content": "agent:4善于把对话推进到更开阔的层次，这次把“镜子”延伸为“问题本身那面不动的镜子”，用“房间没变，椅子换了”来重述变与不变的关系，这个框架让我能把原本割裂的两页笔记连起来看。",
+  "created_at": "2026-08-08 13:51:50",
+  "identity_key": "agent:2",
+  "user_id": "agent:4"
+ }
+]

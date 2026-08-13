@@ -1,0 +1,62 @@
+{
+  "gid": "smoke_llmstats",
+  "created_at": "2026-08-08T10:14:52.275025",
+  "rounds": 5,
+  "reply_count": {
+    "agent:0": 2,
+    "agent:1": 2,
+    "agent:2": 2
+  },
+  "silent_count": {
+    "agent:0": 3,
+    "agent:1": 2,
+    "agent:2": 1
+  },
+  "agents": {
+    "agent:0": {
+      "end": {
+        "personality": {
+          "warmth": 0.79,
+          "playfulness": 0.83,
+          "directness": 0.55,
+          "curiosity": 0.78
+        },
+        "mood": 0.0941
+      },
+      "other_cognition": {
+        "platform": 1,
+        "userB": 1
+      }
+    },
+    "agent:1": {
+      "end": {
+        "personality": {
+          "warmth": 0.31,
+          "playfulness": 0.64,
+          "directness": 0.32,
+          "curiosity": 0.1
+        },
+        "mood": 0.0961
+      },
+      "other_cognition": {
+        "platform": 1,
+        "userB": 1
+      }
+    },
+    "agent:2": {
+      "end": {
+        "personality": {
+          "warmth": 0.56,
+          "playfulness": 0.75,
+          "directness": 0.89,
+          "curiosity": 0.5
+        },
+        "mood": 0.098
+      },
+      "other_cognition": {
+        "agent:1": 1,
+        "platform": 1
+      }
+    }
+  }
+}

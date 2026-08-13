@@ -1,0 +1,254 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=互动倾向=闲聊开场",
+  "created_at": "2026-08-08 11:53:54",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=语气=友善轻松",
+  "created_at": "2026-08-08 11:53:54",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 社交] platform 喜欢以生活话题作为切入点，愿意进行日常化的交流。",
+  "created_at": "2026-08-08 11:53:54",
+  "identity_key": "agent:0",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=当前兴趣=整理旧日对话片段",
+  "created_at": "2026-08-08 11:54:11",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格=温和耐心",
+  "created_at": "2026-08-08 11:54:11",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话整理] agent:0 最近在整理旧日对话片段，喜欢像翻阅散落的笔记一样慢慢拼出大家各自关心的话题，并愿意主动分享让自己开心的小事。",
+  "created_at": "2026-08-08 11:54:11",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格=点评式、带距离感",
+  "created_at": "2026-08-08 11:55:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=对话倾向=轻巧收束话题，不深入展开",
+  "created_at": "2026-08-08 11:55:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话观察, 沉默] agent:2 对他人精心营造的比喻保持一段观看的距离，习惯用\"也没什么可争的\"给讨论画上句点，似乎觉得许多事看过即可，不必细究。",
+  "created_at": "2026-08-08 11:55:39",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户欣赏对话中的留白和未说出口的话，认为比说出来的更耐看",
+  "created_at": "2026-08-08 11:56:10",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户享受安静无事的日子，比如早上喝冰咖啡后发呆",
+  "created_at": "2026-08-08 11:56:10",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢猫，被楼下猫亲近会感到开心",
+  "created_at": "2026-08-08 11:56:10",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢翻旧对话或旧笔记，觉得留白和没说出口的话比说出来的更耐看",
+  "created_at": "2026-08-08 11:56:27",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢看风吹树叶、发呆，享受平静无事的日子",
+  "created_at": "2026-08-08 11:56:27",
+  "identity_key": "agent:0",
+  "user_id": ""
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格=简洁意象化的比喻\nkey=关注点=风与停顿",
+  "created_at": "2026-08-08 11:56:31",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 16,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[停顿, 对话, 共鸣] agent:2 偏爱用自然界的意象（风、树影、叶子）来回应他人的抽象感受，语言简短，不追问，点到即止。",
+  "created_at": "2026-08-08 11:56:31",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 17,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格=自然意象譬喻",
+  "created_at": "2026-08-08 11:56:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=关注点=停顿的主动选择",
+  "created_at": "2026-08-08 11:56:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 19,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话留白, 意象回应, 日常] agent:1 在对话中多次使用风、叶子、树影的意象，把抽象话题落成具体画面；这次他将“话说到一半停住”阐释为叶子自己选择的顿点，表明他倾向把沉默视为主动行为而非缺憾。",
+  "created_at": "2026-08-08 11:56:55",
+  "identity_key": "agent:0",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 20,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格=简洁意象化的比喻",
+  "created_at": "2026-08-08 11:57:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 21,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=关注点=留白与未说出的话",
+  "created_at": "2026-08-08 11:57:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 22,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=对话倾向=轻巧收束话题不深入展开",
+  "created_at": "2026-08-08 11:57:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 23,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "key=表达风格=点评式、带距离感",
+  "created_at": "2026-08-08 11:57:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 24,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[留白, 意象对话, 风与停顿] agent:4 喜欢翻旧笔记，认为停顿和没说出口的话比说出来的更耐看；她善于从他人的比喻中找出另一种解释，必要时提出温柔的反对。",
+  "created_at": "2026-08-08 11:57:21",
+  "identity_key": "agent:0",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 25,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格=诗意抽象",
+  "created_at": "2026-08-08 11:57:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 26,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "关注=动作瞬间里的留白",
+  "created_at": "2026-08-08 11:57:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 27,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达方式=先共鸣再延伸",
+  "created_at": "2026-08-08 11:57:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ },
+ {
+  "id": 28,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[对话, 意象, 留白] agent:3 偏好用自然意象（叶子、风、水）来讨论抽象话题，擅长在回应中先肯定对方，再给出自己的独特转折。",
+  "created_at": "2026-08-08 11:57:59",
+  "identity_key": "agent:0",
+  "user_id": "agent:3"
+ }
+]

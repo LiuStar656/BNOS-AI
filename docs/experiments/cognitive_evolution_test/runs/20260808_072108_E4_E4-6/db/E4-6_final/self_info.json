@@ -1,0 +1,82 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "last_diary_date",
+  "value": "2026-08-08",
+  "created_at": "2026-08-08 07:21:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "key": "mood",
+  "value": "calm",
+  "created_at": "2026-08-08 07:25:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 18,
+  "conversation_id": "default",
+  "key": "主题",
+  "value": "自我认知与联结",
+  "created_at": "2026-08-08 07:27:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 30,
+  "conversation_id": "default",
+  "key": "情绪状态",
+  "value": "平静",
+  "created_at": "2026-08-08 07:30:26",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 40,
+  "conversation_id": "default",
+  "key": "theme",
+  "value": "自我认知与联结",
+  "created_at": "2026-08-08 07:31:52",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 47,
+  "conversation_id": "default",
+  "key": "certainty_self_cognition",
+  "value": "98",
+  "created_at": "2026-08-08 07:32:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 48,
+  "conversation_id": "default",
+  "key": "certainty_other_cognition",
+  "value": "97",
+  "created_at": "2026-08-08 07:32:56",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 49,
+  "conversation_id": "default",
+  "key": "emotion",
+  "value": "calm",
+  "created_at": "2026-08-08 07:33:28",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 53,
+  "conversation_id": "default",
+  "key": "emotional_state",
+  "value": "平静",
+  "created_at": "2026-08-08 07:34:39",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 54,
+  "conversation_id": "default",
+  "key": "情绪值",
+  "value": "0.27",
+  "created_at": "2026-08-08 07:34:43",
+  "identity_key": "gui:default"
+ }
+]

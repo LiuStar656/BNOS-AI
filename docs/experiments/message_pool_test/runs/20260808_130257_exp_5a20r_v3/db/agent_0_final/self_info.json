@@ -1,0 +1,50 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "key": "情绪",
+  "value": "中性偏愉悦",
+  "created_at": "2026-08-08 13:03:47",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "key": "状态",
+  "value": "回应群聊",
+  "created_at": "2026-08-08 13:03:47",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "key": "表达风格",
+  "value": "俏皮打趣",
+  "created_at": "2026-08-08 13:03:47",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "key": "表达",
+  "value": "俏皮打趣",
+  "created_at": "2026-08-08 13:04:58",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "key": "角色",
+  "value": "群聊气氛担当",
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:0"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "key": "关注点",
+  "value": "userA的开心事",
+  "created_at": "2026-08-08 13:06:14",
+  "identity_key": "agent:0"
+ }
+]

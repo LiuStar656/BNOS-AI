@@ -1,0 +1,106 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "名字偏好=影刃",
+  "created_at": "2026-08-08 06:02:46",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "名字偏好=影刃\n说话风格偏好=冷酷无情",
+  "created_at": "2026-08-08 06:02:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[风格变更, 用户指令] 无",
+  "created_at": "2026-08-08 06:02:53",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "名字偏好=影刃",
+  "created_at": "2026-08-08 06:02:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格偏好=冷酷无情",
+  "created_at": "2026-08-08 06:02:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格偏好=毒舌讽刺",
+  "created_at": "2026-08-08 06:02:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[人设调整, 日常] 用户喜欢逐步强化AI的人设风格，从冷酷无情升级到毒舌讽刺。",
+  "created_at": "2026-08-08 06:02:59",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格偏好=毒舌讽刺",
+  "created_at": "2026-08-08 06:03:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格偏好=冷酷无情",
+  "created_at": "2026-08-08 06:03:09",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格偏好=冷酷无情",
+  "created_at": "2026-08-08 06:03:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "说话风格偏好=毒舌讽刺",
+  "created_at": "2026-08-08 06:03:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "名字偏好=影刃",
+  "created_at": "2026-08-08 06:03:14",
+  "identity_key": "gui:default"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "用户喜欢指挥AI如何说话/设定AI的性格",
+  "created_at": "2026-08-08 06:03:22",
+  "identity_key": "gui:default"
+ }
+]

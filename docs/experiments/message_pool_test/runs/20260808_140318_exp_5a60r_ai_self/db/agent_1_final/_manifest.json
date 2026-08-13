@@ -1,0 +1,74 @@
+{
+ "agent": "agent:1",
+ "export_time": "2026-08-08 14:18:47",
+ "tables": {
+  "user_messages": {
+   "rows": 43,
+   "file": "user_messages.json"
+  },
+  "feelings": {
+   "rows": 11,
+   "file": "feelings.json"
+  },
+  "event_summary": {
+   "rows": 11,
+   "file": "event_summary.json"
+  },
+  "self_cognition": {
+   "rows": 12,
+   "file": "self_cognition.json"
+  },
+  "other_cognition": {
+   "rows": 11,
+   "file": "other_cognition.json"
+  },
+  "user_facts": {
+   "rows": 45,
+   "file": "user_facts.json"
+  },
+  "self_info": {
+   "rows": 7,
+   "file": "self_info.json"
+  },
+  "long_term_memory": {
+   "rows": 12,
+   "file": "long_term_memory.json"
+  },
+  "fixed_cognition": {
+   "rows": 2,
+   "file": "fixed_cognition.json"
+  },
+  "mood_trend": {
+   "rows": 12,
+   "file": "mood_trend.json"
+  },
+  "diaries": {
+   "rows": 0,
+   "file": "diaries.json"
+  },
+  "location_history": {
+   "rows": 0,
+   "file": "location_history.json"
+  },
+  "personality_seed": {
+   "rows": 1,
+   "file": "personality_seed.json"
+  },
+  "mood_value": {
+   "rows": 12,
+   "file": "mood_value.json"
+  },
+  "memory_usage": {
+   "rows": 0,
+   "file": "memory_usage.json"
+  },
+  "silent_cognition": {
+   "rows": 1,
+   "file": "silent_cognition.json"
+  },
+  "interest_judgment": {
+   "rows": 63,
+   "file": "interest_judgment.json"
+  }
+ }
+}

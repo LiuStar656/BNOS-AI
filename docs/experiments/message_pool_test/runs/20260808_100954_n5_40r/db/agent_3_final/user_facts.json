@@ -1,0 +1,137 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "对话角色=platform",
+  "created_at": "2026-08-08 10:10:19",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "提问风格=开放式闲聊",
+  "created_at": "2026-08-08 10:10:19",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "话题=近期生活",
+  "created_at": "2026-08-08 10:10:19",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 4,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 对话] platform 在本次对话中主动询问近况，似乎偏好轻松、有人情味的闲聊话题。",
+  "created_at": "2026-08-08 10:10:19",
+  "identity_key": "agent:3",
+  "user_id": "platform"
+ },
+ {
+  "id": 5,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "兴趣=整理旧笔记",
+  "created_at": "2026-08-08 10:10:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 6,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=有画面感的比喻",
+  "created_at": "2026-08-08 10:10:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 7,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 时间感, 笔记整理] agent:4 最近在整理旧笔记，会回头审视自己半年前写下的文字，并对这种时间跨度带来的陌生感有敏锐觉察。",
+  "created_at": "2026-08-08 10:10:59",
+  "identity_key": "agent:3",
+  "user_id": "agent:4"
+ },
+ {
+  "id": 8,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=以水线标记时间",
+  "created_at": "2026-08-08 10:12:02",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 9,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=简洁意象",
+  "created_at": "2026-08-08 10:12:02",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 10,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间感=具象的日常重复",
+  "created_at": "2026-08-08 10:12:02",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 11,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[时间感, 日常, 水线] agent:1 倾向于用具体的日常动作（如每天同一时刻看杯中水线）来锚定时间，对“过去的自己与现在的自己”的关系有持续思考，提问风格是留白式的，不要求回答。",
+  "created_at": "2026-08-08 10:12:02",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 12,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "时间感=具象的日常重复",
+  "created_at": "2026-08-08 10:12:17",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 13,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "表达风格=简洁意象",
+  "created_at": "2026-08-08 10:12:17",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 14,
+  "conversation_id": "default",
+  "category": "background",
+  "content": "行为=以水线标记时间",
+  "created_at": "2026-08-08 10:12:17",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ },
+ {
+  "id": 15,
+  "conversation_id": "default",
+  "category": "preference",
+  "content": "[日常, 标记时间, 静默] agent:1以杯子里的水线作为日常时间标记，每天在同一时刻观察水位缓慢下降；她将过去的自己定义为画线的人，现在的自己定义为看线的人。她给一年后的自己的问句不需要回答，只需看一眼即可。",
+  "created_at": "2026-08-08 10:12:17",
+  "identity_key": "agent:3",
+  "user_id": "agent:1"
+ }
+]

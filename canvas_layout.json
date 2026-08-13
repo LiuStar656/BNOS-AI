@@ -1,0 +1,201 @@
+{
+  "nodes": {
+    "node_python_llm_infer": {
+      "x": 141.0,
+      "y": -516.0,
+      "width": 340.0,
+      "height": 457.0,
+      "style": "detailed",
+      "custom_colors": null,
+      "is_internal": false
+    },
+    "node_python_aaa_cognition": {
+      "x": -341.0,
+      "y": -373.0,
+      "width": 340.0,
+      "height": 374.0,
+      "style": "detailed",
+      "custom_colors": null,
+      "is_internal": false
+    },
+    "node_python_tts": {
+      "x": 7.0,
+      "y": 62.0,
+      "width": 340.0,
+      "height": 233.0,
+      "style": "detailed",
+      "custom_colors": null,
+      "is_internal": false
+    }
+  },
+  "edges": [
+    {
+      "source": "node_python_aaa_cognition",
+      "target": "node_python_llm_infer",
+      "source_port": "diary_prompt",
+      "target_port": "diary_prompt",
+      "waypoints": [
+        [
+          0.16353992799304762,
+          101.39927303325838,
+          54.78587587767095
+        ],
+        [
+          0.9375801801553253,
+          -38.702012608113876,
+          -20.910639647966036
+        ]
+      ],
+      "edge_key": [
+        "STANDALONE_PORT_MAP",
+        "node_python_aaa_cognition",
+        "node_python_llm_infer",
+        "diary_prompt",
+        "diary_prompt"
+      ]
+    },
+    {
+      "source": "node_python_llm_infer",
+      "target": "node_python_aaa_cognition",
+      "source_port": "diary_response",
+      "target_port": "diary_response",
+      "waypoints": [
+        [
+          0.0,
+          50.0,
+          0.0
+        ],
+        [
+          0.0593697316730074,
+          96.48649989996477,
+          -424.43218776220465
+        ],
+        [
+          1.0,
+          -94.0,
+          -257.0
+        ],
+        [
+          1.0,
+          -94.0,
+          0.0
+        ]
+      ],
+      "edge_key": [
+        "STANDALONE_PORT_MAP",
+        "node_python_llm_infer",
+        "node_python_aaa_cognition",
+        "diary_response",
+        "diary_response"
+      ]
+    },
+    {
+      "source": "node_python_llm_infer",
+      "target": "node_python_aaa_cognition",
+      "source_port": "default",
+      "target_port": "llm_response",
+      "waypoints": [
+        [
+          0.0,
+          34.0,
+          1.0
+        ],
+        [
+          0.07223824011735001,
+          90.56254201188506,
+          -354.55235197652996
+        ],
+        [
+          1.0,
+          -66.0,
+          -169.0
+        ],
+        [
+          1.0,
+          -66.0,
+          0.0
+        ]
+      ],
+      "edge_key": [
+        "STANDALONE_PORT_MAP",
+        "node_python_llm_infer",
+        "node_python_aaa_cognition",
+        "default",
+        "llm_response"
+      ]
+    },
+    {
+      "source": "node_python_aaa_cognition",
+      "target": "node_python_tts",
+      "source_port": "reply",
+      "target_port": "reply",
+      "waypoints": [
+        [
+          0.05968830099106062,
+          38.89264293300493,
+          -10.44545267343561
+        ],
+        [
+          0.7285151120884272,
+          7.4577828114287,
+          -2.0029473836408442
+        ],
+        [
+          0.6207612456747404,
+          -46.45121107266436,
+          16.853979238754334
+        ],
+        [
+          0.9079933809855721,
+          -59.95112143227344,
+          16.10115832752487
+        ]
+      ],
+      "edge_key": [
+        "STANDALONE_PORT_MAP",
+        "node_python_aaa_cognition",
+        "node_python_tts",
+        "reply",
+        "reply"
+      ]
+    },
+    {
+      "source": "node_python_aaa_cognition",
+      "target": "node_python_llm_infer",
+      "source_port": "prompt",
+      "target_port": "prompt",
+      "waypoints": [
+        [
+          0.12957262509843223,
+          76.54735485718376,
+          42.37024840718735
+        ],
+        [
+          0.8950461736702698,
+          -62.00335743431884,
+          -34.31990120982175
+        ]
+      ],
+      "edge_key": [
+        "STANDALONE_PORT_MAP",
+        "node_python_aaa_cognition",
+        "node_python_llm_infer",
+        "prompt",
+        "prompt"
+      ]
+    }
+  ],
+  "view_state": {
+    "scale": 1.0,
+    "scroll_x": -454,
+    "scroll_y": -477,
+    "center_x": 108.0,
+    "center_y": -70.0
+  },
+  "canvas_size": {
+    "width": 5000,
+    "height": 5000
+  },
+  "toolbar_visible": false,
+  "drawing_graphics": []
+}

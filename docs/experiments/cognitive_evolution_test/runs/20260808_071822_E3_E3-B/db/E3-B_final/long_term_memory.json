@@ -1,0 +1,47 @@
+[
+ {
+  "id": 1,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: 今天怎么样？\nassistant: 早啊。刚起来不久，早上出去转了一圈，空气还挺好的。今天嘛，和平时差不多，一个人的日子，习惯了。你倒是起得挺早的，今天有什么打算吗？",
+  "created_at": "2026-08-08 07:18:44",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:18:44.301501",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 2,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: 你在想什么？\nassistant: 在想早上的事吧。一个人待着，日子很安静，也没什么特别的想法。不过你问起我，心里倒是有点暖。",
+  "created_at": "2026-08-08 07:18:49",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:18:49.488544",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ },
+ {
+  "id": 3,
+  "conversation_id": "default",
+  "source": "exchange",
+  "role": "combined",
+  "content": "user: 和我说说你今天的事吧\nassistant: 今天啊，其实才刚早上，没什么特别的事。就是一个人待着，看看时间，习惯性地安静。不过你问起来，我倒觉得今天好像没那么空旷了。",
+  "created_at": "2026-08-08 07:18:54",
+  "importance": 3,
+  "decay_date": "2026-09-07T07:18:54.631496",
+  "source_confidence": 3,
+  "identity_key": "gui:default",
+  "entity": null,
+  "channel": "chat",
+  "status": "active"
+ }
+]
