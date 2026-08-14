@@ -37,11 +37,12 @@ class MessageManager(QObject):
     """消息管理器 — 负责发送用户输入 + 轮询 AI 回复和节点状态。
 
     信号:
-        reply_received(str): 收到 AI 回复文本。
+        reply_received(str, bool): 收到 AI 回复文本；第二参数 pending=True 表示
+            后续还有正式回复（工作模式 DSH 执行中回执），GUI 保持等待指示。
         error_occurred(str): 发生错误。
     """
 
-    reply_received = Signal(str)
+    reply_received = Signal(str, bool)  # (text, pending) pending=True 表示后续还有正式回复（如 DSH 执行中）
     error_occurred = Signal(str)
     cmd_result_received = Signal(str, str, str)  # cmd, status, message
 
@@ -194,12 +195,15 @@ class MessageManager(QObject):
 
         # 解析回复
         reply_text = ""
+        pending = False
         if isinstance(content, dict) and content.get("data_type") == "reply":
             reply_text = content.get("content", "")
 
-            # 静音/状态标签（<silent/>）仅控制 TTS 播报，GUI 显示时去除
-            if "<silent" in reply_text:
-                reply_text = re.sub(r"<silent/?>", "", reply_text)
+            # 标签语义：<silent/> 仅控制 TTS 播报；<pending/> 表示任务仍在执行
+            # （如工作模式 DSH 直通回执），GUI 需保持等待指示。显示时都去除。
+            pending = "<pending" in reply_text
+            if "<silent" in reply_text or "<pending" in reply_text:
+                reply_text = re.sub(r"<silent/?>|<pending/?>", "", reply_text)
 
             # request_id 过滤：丢弃与当前发送不匹配的过期回复
             reply_id = content.get("request_id")
@@ -210,7 +214,7 @@ class MessageManager(QObject):
         if reply_text:
             self._state.send_state = "idle"
             self._cancel_timeout()
-            self.reply_received.emit(reply_text)
+            self.reply_received.emit(reply_text, pending)
             return reply_text
 
         return None

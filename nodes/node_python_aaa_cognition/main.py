@@ -276,7 +276,8 @@ class MyNode:
             args=(task_id, rid, conv_id, identity_key, dbp), daemon=True).start()
         return {
             "_port": "reply", "data_type": "reply",
-            "content": f"<silent/>已提交 DSH（工作模式直通，task_id={task_id[:8]}…），完成后我会推送结果。",
+            # <pending/> 通知 GUI 保持等待指示（DSH 仍在执行），<silent/> 不播报
+            "content": f"<pending/><silent/>已提交 DSH（工作模式直通，task_id={task_id[:8]}…），DSH 正在执行，完成后我会推送结果。",
             "request_id": rid,
         }
 

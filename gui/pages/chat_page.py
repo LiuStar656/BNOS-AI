@@ -15,6 +15,7 @@ from PySide6.QtWidgets import (
     QHBoxLayout,
     QLabel,
     QLineEdit,
+    QProgressBar,
     QPushButton,
     QScrollArea,
     QSizePolicy,
@@ -236,6 +237,8 @@ class ChatPage(QWidget):
         self._config = AppConfig()
         self._msg_mgr: MessageManager | None = None
         self._current_ai_bubble: ChatBubble | None = None  # 当前正在 append 的 AI 气泡
+        self._waiting_bubble: QWidget | None = None  # 等待指示气泡（AI/DSH 处理中）
+        self._waiting_label: QLabel | None = None    # 等待气泡的状态文字
         self._conversation_messages: dict[str, list[tuple[str, str]]] = {}  # conv_id -> [(role, text)]
         self._prev_conv_id: str = ""  # 切换前记录旧对话 id
         self._pending_reply_conv_id: str = ""  # 当前发送消息所属对话 id（回复路由用）
@@ -472,6 +475,7 @@ class ChatPage(QWidget):
     def _on_conversation_changed(self, conv_id: str):
         """切换对话 — 保存当前消息（用旧 id），加载目标对话消息"""
         self._cancel_typing()  # 取消打字动画
+        self._hide_waiting()  # 移除等待指示（回复将路由到目标对话）
         # 用 _prev_conv_id 保存当前消息（state.current 已被覆盖）
         if self._prev_conv_id:
             self._save_current_messages(self._prev_conv_id)
@@ -638,6 +642,8 @@ class ChatPage(QWidget):
         ok = self._msg_mgr.send_text(text, attachments)
         if not ok:
             pass
+        # 发送成功 → 显示等待指示（AI 处理中）；收到正式回复时移除
+        self._show_waiting("AI 思考中…")
 
     def _on_send_state_changed(self, state: str):
         if state == "sending":
@@ -653,8 +659,12 @@ class ChatPage(QWidget):
         text = self._strip_mood_tag(text)
         self._start_typing(text)
 
-    def _on_reply(self, text: str):
-        """收到 AI 回复 → 去掉情绪标签 → 路由到正确对话"""
+    def _on_reply(self, text: str, pending: bool = False):
+        """收到 AI 回复 → 去掉情绪标签 → 路由到正确对话。
+
+        pending=True（工作模式 DSH 回执）：显示回执文本后保持等待指示，
+        直到最终结果到达（pending=False）才移除。
+        """
         text = self._strip_mood_tag(text)
         if not text:
             return
@@ -669,7 +679,11 @@ class ChatPage(QWidget):
             self._save_history()
             return
 
+        if not pending:
+            self._hide_waiting()
         self._start_typing(text)
+        if pending:
+            self._show_waiting("DSH 正在执行中…")
 
     def _start_typing(self, text: str):
         """开始逐字输出"""
@@ -707,7 +721,63 @@ class ChatPage(QWidget):
         self._typing_index = 0
 
     def _on_error(self, msg: str):
+        self._hide_waiting()
         self._append_bubble(f"[错误] {msg}", "ai")
+
+    # ─── 等待指示气泡 ──────────────────────────
+
+    def _show_waiting(self, text: str):
+        """显示等待指示气泡（转圈动画 + 状态文字）；已存在则只更新文字"""
+        if self._waiting_bubble is not None:
+            if self._waiting_label is not None:
+                self._waiting_label.setText(text)
+            self._scroll_to_bottom()
+            return
+        colors = AppConfig().get_all_colors()
+        bubble = QWidget()
+        bubble.setObjectName("waitingBubble")
+        bubble.setStyleSheet(f"""
+            #waitingBubble {{
+                background-color: {colors['bubble_ai_bg']};
+                border: 1px solid {colors['border_color']};
+                border-radius: 10px;
+            }}
+        """)
+        lay = QHBoxLayout(bubble)
+        lay.setContentsMargins(12, 8, 12, 8)
+        lay.setSpacing(8)
+        bar = QProgressBar(bubble)
+        bar.setRange(0, 0)  # 不确定模式：自带动画转圈
+        bar.setFixedSize(16, 16)
+        bar.setTextVisible(False)
+        bar.setStyleSheet(f"""
+            QProgressBar {{
+                background-color: transparent;
+                border: none;
+            }}
+            QProgressBar::chunk {{
+                background-color: {colors['accent']};
+                border-radius: 3px;
+            }}
+        """)
+        self._waiting_label = QLabel(text)
+        self._waiting_label.setStyleSheet(
+            f"color: {colors['text_secondary']}; font-size: 12px;")
+        lay.addWidget(bar)
+        lay.addWidget(self._waiting_label)
+        count = self._msg_layout.count()
+        self._msg_layout.insertWidget(count - 1, bubble)
+        self._msg_layout.setAlignment(bubble, Qt.AlignmentFlag.AlignLeft)
+        self._waiting_bubble = bubble
+        self._scroll_to_bottom()
+
+    def _hide_waiting(self):
+        """移除等待指示气泡"""
+        if self._waiting_bubble is not None:
+            self._msg_layout.removeWidget(self._waiting_bubble)
+            self._waiting_bubble.deleteLater()
+            self._waiting_bubble = None
+            self._waiting_label = None
 
     @staticmethod
     def _strip_mood_tag(text: str) -> str:
