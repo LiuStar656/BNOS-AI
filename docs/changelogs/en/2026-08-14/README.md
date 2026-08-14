@@ -13,6 +13,7 @@
 - [05 AI-Authored Presets & Skinning Closed Loop (Tool Expansion)](#05-ai-authored-presets--skinning-closed-loop-tool-expansion)
 - [06 Global Button Font Auto-Fit](#06-global-button-font-auto-fit)
 - [07 AAA Direct-to-DSH Node Channel & Daily/Work Modes](#07-aaa-direct-to-dsh-node-channel--dailywork-modes)
+- [08 GUI Development Standards (Engineering + Styling + Config)](#08-gui-development-standards-engineering--styling--config)
 
 ---
 
@@ -27,6 +28,7 @@
 | 05 | ToolRegistry expanded to 25 tools: 7 new `dsh.preset_*` (list/copy/read/write/persona/remove/set_default) enabling AI-authored presets; `gui_tools.py` injection note broadened | DSH officially allows user presets "authored by a person or by an agent"; user wanted dialog-driven preset creation like DSH | Tell the AI "create an Agent named xx with persona…" to create/customize presets, effective next headless task |
 | 06 | New `fit_button_width()` helper: fontMetrics width + padding, only sets minimumWidth (keeps sizeHint); replaced all `setFixedWidth` text buttons in 6 pages | Fixed QSS padding + fixed button widths → text overflows buttons when fonts enlarge | Buttons no longer overflow under DPI/theme font scaling; convention: no setFixedWidth for text buttons |
 | 07 | AAA talks to the DSH node channel directly (dsh_client.py, no GUI tool bridge) + async receipt (background polling pushes results via gui_reply.json) + daily/work modes (manual GUI button & configurable keyword auto-switch; work mode skips LLM judgment and sends the full context straight to DSH); GUI tool bridge drops the dsh execution organs (25→22 tools), workflow steps go direct to the node | node_dsh is already a standard BNOS node; forwarding should use the node channel, not the GUI tool bridge (which requires the GUI online); DSH results never flowed back; every turn paid LLM judgment cost | Forwarding no longer depends on the GUI; DSH results are pushed automatically; work-mode input goes straight to DSH without LLM judgment; keywords editable in the settings panel; workflow dsh steps keep sync-wait semantics |
+| 08 | New `docs/design/[OK]-GUI开发规范.md` (engineering: layout/module duties/page registration/message protocol/node channels; styling: token-first no raw hex/component rules/WeChat-style chat UI/skinning loop; config: gui_config.json/node configs/shared protocol files) + `gui/README.md` module index | After letting AI control the GUI directly (22 tools/presets/skinning), a spec telling AI *how* to change the GUI was missing — the counterpart to DSH's AGENTS.md+web-styling.md+config-catalog; GUI had no README and hard-coded colors were scattered | AI and developers now share one rule set for GUI changes (tokens/registration/messages/buttons/bubbles/atomic writes) with a review checklist; existing hard-coded colors logged as remediation items |
 
 ---
 
@@ -57,6 +59,10 @@ See [06_ButtonFontAutoFit.md](./06_ButtonFontAutoFit.md).
 ### 07 AAA Direct-to-DSH Node Channel & Daily/Work Modes
 
 See [07_AAADirectDSHNodeAndModes.md](./07_AAADirectDSHNodeAndModes.md).
+
+### 08 GUI Development Standards (Engineering + Styling + Config)
+
+See [08_GUIDevStandards.md](./08_GUIDevStandards.md).
 
 ---
 
@@ -89,6 +95,8 @@ See [07_AAADirectDSHNodeAndModes.md](./07_AAADirectDSHNodeAndModes.md).
 | `docs/design/[PLAN]-DeepSeekHarness接入方案.md` | #02、#03 |
 | `docs/design/[PLAN]-DSH会话续接方案（待决策）.md` | #02 |
 | `docs/design/[OK]-AAA直连DSH节点与模式切换方案.md` | #07 |
+| `docs/design/[OK]-GUI开发规范.md` | #08 |
+| `gui/README.md` | #08 |
 
 ### Major Modified Files
 

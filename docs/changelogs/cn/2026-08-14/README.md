@@ -13,6 +13,7 @@
 - [05 AI 协作创建预设与换肤闭环（工具扩充）](#05-ai-协作创建预设与换肤闭环工具扩充)
 - [06 全局按钮字体自适应](#06-全局按钮字体自适应)
 - [07 AAA 直连 DSH 节点与日常/工作模式](#07-aaa-直连-dsh-节点与日常工作模式)
+- [08 GUI 开发规范（工程+样式+配置三层）](#08-gui-开发规范工程样式配置三层)
 
 ---
 
@@ -27,6 +28,7 @@
 | 05 | ToolRegistry 扩充至 25 工具：新增 7 个 `dsh.preset_*`（list/copy/read/write/persona/remove/set_default）实现 AI 协作创建预设；`gui_tools.py` 工具注入说明放宽（UI/主题、DSH 任务、Agent 预设、页面导航均可调用） | DSH 官方允许 user 预设 "authored by a person or by an agent"；用户要求像 DSH 一样通过对话创建预设 | 对 AI 说「创建一个叫 xx 的 Agent，人格是…」即可创建/定制预设，下一次 headless 任务生效 |
 | 06 | 新增 `gui/core/utils/widget_utils.py::fit_button_width()`：fontMetrics 计算文本宽+padding，只设 minimumWidth 保留 sizeHint 自适应；替换 6 个页面全部 `setFixedWidth` 文本按钮 | 全局 QSS 按钮 padding 固定 + 各页固定宽度 → 字体放大后文字溢出按钮 | 系统字体/主题字号放大后按钮不再溢出；约定文本按钮一律不用 setFixedWidth |
 | 07 | AAA 直连 DSH 节点通道（dsh_client.py，不经 GUI 工具桥）+ 异步回执（后台轮询完成后主动推送 gui_reply.json）+ 日常/工作双模式（GUI 按钮手动 + 可配置关键词自动切换，工作模式跳过 LLM 判断带完整上下文直通 DSH）；GUI 工具桥移除 dsh 执行器官（25→22 工具），workflow 步骤直连节点 | node_dsh 本就是标准 BNOS 节点，转发应走节点通道而非 GUI 工具桥（GUI 必须在线）；DSH 结果不回流；每轮都走 LLM 判断浪费成本 | 转发不依赖 GUI；DSH 完成结果自动推送；工作模式输入直通 DSH 不再走 LLM 判断；关键词可设置面板修改；workflow dsh 步骤同步等待语义保留 |
+| 08 | 新增 `docs/design/[OK]-GUI开发规范.md`（工程层：目录/模块职责/页面注册/消息协议/节点通信；样式层：Token 优先禁裸色/组件规则/聊天 UI 微信风/换肤闭环；配置层：gui_config.json/节点配置/共享协议）+ `gui/README.md` 模块索引 | 让 AI 直接操控 GUI（22 工具/改预设/换肤）后缺"告诉 AI 怎么改 GUI"的规范文件，对应 DSH 的 AGENTS.md+web-styling.md+config-catalog 三层；GUI 无 README、硬编码色散落 | AI 与开发者改 GUI 有统一规则可循（token/注册/消息/按钮/气泡/原子写），审查清单逐项自检；现有硬编码色登记为治理项 |
 
 ---
 
@@ -57,6 +59,10 @@
 ### 07 AAA 直连 DSH 节点与日常/工作模式
 
 详见 [07_AAA直连DSH节点与日常工作模式.md](./07_AAA直连DSH节点与日常工作模式.md)。
+
+### 08 GUI 开发规范（工程+样式+配置三层）
+
+详见 [08_GUI开发规范.md](./08_GUI开发规范.md)。
 
 ---
 
@@ -89,6 +95,8 @@
 | `docs/design/[PLAN]-DeepSeekHarness接入方案.md` | #02、#03 |
 | `docs/design/[PLAN]-DSH会话续接方案（待决策）.md` | #02 |
 | `docs/design/[OK]-AAA直连DSH节点与模式切换方案.md` | #07 |
+| `docs/design/[OK]-GUI开发规范.md` | #08 |
+| `gui/README.md` | #08 |
 
 ### 重大修改文件
 
