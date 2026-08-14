@@ -56,7 +56,7 @@ class UiRegistry:
         self.register("page.live2d", Live2DPage, meta={"icon": "live2d", "page_id": "live2d", "title": "Live2D"})
         self.register("page.location", LocationPage, meta={"icon": "map", "page_id": "location", "title": "地图"})
         self.register("page.mcp", MCPPage, meta={"icon": "mcp", "page_id": "mcp", "title": "MCP 管理"})
-        self.register("page.knowledge", KnowledgePanel, meta={"icon": "book", "page_id": "knowledge", "title": "知识库"})
+        self.register("page.knowledge", KnowledgePanel, meta={"icon": "book", "page_id": "knowledge", "title": "记忆库"})
         self.register("page.proposals", ProposalsPage, meta={"icon": "git-pull-request", "page_id": "proposals", "title": "提案"})
         self.register("page.tools", ToolsPage, meta={"icon": "beaker", "page_id": "tools", "title": "AI 工具"})
         self.register("page.workflows", WorkflowPage, meta={"icon": "hubot", "page_id": "workflows", "title": "流程"})

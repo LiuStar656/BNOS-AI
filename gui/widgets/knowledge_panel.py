@@ -1,4 +1,4 @@
-"""知识库面板 — 数据浏览 + 记忆图谱双视图 + 时间区间筛选"""
+"""记忆库面板 — 数据浏览 + 记忆图谱双视图 + 时间区间筛选"""
 
 from __future__ import annotations
 
@@ -43,17 +43,22 @@ _IGNORED_TABLES: set[str] = set()
 TABLE_LABELS: dict[str, str] = {
     "all":               "全部",
     "diaries":           "日记",
+    "entity_attrs":      "实体属性",
     "event_summary":     "事件摘要",
     "feelings":          "情感",
     "fixed_cognition":   "固定认知",
+    "interest_judgment": "兴趣判断",
     "location_history":  "定位历史",
     "long_term_memory":  "长期记忆（归档）",
+    "memory_usage":      "记忆使用",
     "mood_trend":        "情感趋势",
     "mood_value":        "情绪值",
     "other_cognition":   "对用户认知",
     "personality_seed":  "性格种子",
     "self_cognition":    "自我认知",
     "self_info":         "自我信息",
+    "session_summaries": "会话摘要",
+    "silent_cognition":  "静默认知",
     "user_facts":        "记忆归档",
     "user_messages":     "对话记录",
 }
@@ -239,7 +244,7 @@ def _read_graph() -> dict | None:
 # ════════════════════════════════════════════════════════════════
 
 class KnowledgePanel(QWidget):
-    """知识库面板内容 — 数据浏览 + 记忆图谱双视图"""
+    """记忆库面板内容 — 数据浏览 + 记忆图谱双视图"""
 
     def __init__(self, parent=None):
         super().__init__(parent)

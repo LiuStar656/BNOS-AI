@@ -268,7 +268,7 @@ class SettingsPanel(QWidget):
         self._add_mode_keywords_section(layout, btn_style)
 
         # ─── Logseq 目录 ───
-        logseq_group = QGroupBox("Logseq 知识库")
+        logseq_group = QGroupBox("Logseq 记忆库")
         logseq_layout = QFormLayout(logseq_group)
         self._logseq_path_label = QLabel(self._get_logseq_path_display())
         self._logseq_path_label.setStyleSheet(f"color: {theme_engine.get('icon_color')}; font-size: 12px;")
