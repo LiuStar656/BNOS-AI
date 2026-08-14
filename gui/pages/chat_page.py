@@ -780,6 +780,8 @@ class ChatPage(QWidget):
             }}
         """)
         self._waiting_label = QLabel(text)
+        self._waiting_label.setWordWrap(True)          # DSH 实时输出多行自动换行
+        self._waiting_label.setMaximumWidth(420)       # 限制宽度，避免撑爆窗口
         self._waiting_label.setStyleSheet(
             f"color: {colors['text_secondary']}; font-size: 12px;")
         lay.addWidget(bar)

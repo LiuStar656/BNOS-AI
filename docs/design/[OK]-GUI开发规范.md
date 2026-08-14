@@ -120,7 +120,7 @@ gui/
 | `nodes/node_dsh/output.json` | ← node_dsh | DSH 结果（task_id 精确匹配） |
 | `nodes/shared/dsh_question_in.json` | node_dsh → GUI | DSH 提问（headless provider 写入，qid 批次） |
 | `nodes/shared/dsh_answer_out.json` | GUI → node_dsh | 用户回答（qid 精确匹配，options 按钮 + 自由输入） |
-| `nodes/shared/node_activity.json` | AAA/LLM/DSH → GUI | 任务活动状态 `{"stage","text","ts","request_id?"}`（各节点阶段原子写，GUI 等待气泡轮询实时文案，超时可定位卡点） |
+| `nodes/shared/node_activity.json` | AAA/LLM/DSH → GUI | 任务活动状态 `{"stage","text","ts","request_id?"}`（各节点阶段原子写，GUI 等待气泡轮询实时文案，超时可定位卡点；DSH 执行阶段 text 为实时输出——headless runner 经 session/event 把回合开始/工具调用/中间文本逐段写入，GUI 显示后随最终回复关闭） |
 
 规则：
 - 写共享文件一律**原子写**（tmp + replace），避免并发写撕裂
