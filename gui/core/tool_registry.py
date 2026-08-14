@@ -12,6 +12,7 @@
 from __future__ import annotations
 
 import json
+import uuid
 from dataclasses import dataclass, field
 from typing import Any, Callable
 
@@ -238,6 +239,24 @@ class ToolRegistry:
             handler=_get_theme_state,
         ))
 
+        # ── 布局（数据驱动 UI 布局动态调整：导航位置/宽度/页面显隐排序） ──
+        self.register(ToolSpec(
+            name="ui.list_layouts",
+            description="列出全部布局包及激活状态（default=左侧栏，top-nav=顶部标签栏等）",
+            handler=_list_layouts_tool,
+        ))
+        self.register(ToolSpec(
+            name="ui.apply_layout",
+            description="生成布局变更提案（待审批，不直接生效）：name 引用已注册布局，或提供 spec JSON 定义新布局（如 nav_position=top 把侧边栏改成顶边栏）",
+            parameters={
+                "name": {"type": "string", "description": "布局名（引用已注册布局，如 top-nav）或新布局显示名"},
+                "spec": {"type": "object", "description": "（可选）新布局定义 JSON：{nav_position: left|top, nav_width, nav_height, nav_mode: icon|text|icon_text, nav_visible, pages: [{\"id\", \"visible\"}], window_default: {\"width\",\"height\"}}"},
+                "description": {"type": "string", "description": "（可选）布局说明"},
+            },
+            required=["name"],
+            handler=_create_layout_proposal,
+        ))
+
         # ── DSH Agent 预设（AI 协作创建：DSH 官方允许 agent author user 预设）──
         self.register(ToolSpec(
             name="dsh.preset_list",
@@ -368,6 +387,83 @@ def _get_theme_state(args: dict) -> dict:
             "mode": cfg.get_theme("mode"),
         },
     }
+
+
+def _list_layouts_tool(args: dict) -> dict:
+    from gui.core.config import AppConfig
+    from gui.core.layout_registry import layout_registry
+
+    current = AppConfig().get("layout_id", "default")
+    data = [
+        {
+            "id": p.id,
+            "name": p.name,
+            "description": p.description,
+            "active": p.id == current,
+            "builtin": p.builtin,
+        }
+        for p in layout_registry.list_layouts()
+    ]
+    return {"ok": True, "message": f"共 {len(data)} 个布局", "data": data}
+
+
+def _create_layout_proposal(args: dict) -> dict:
+    """生成布局变更提案（待审批，不直接生效）。
+
+    两种场景：
+    - name 引用已注册布局（无 spec）→ 切换提案（如应用 top-nav）
+    - 提供 spec JSON → 新布局落盘提案（AI 产出入口）
+    """
+    from gui.core.layout_registry import layout_registry
+    from gui.core.layout_spec import LayoutSpec
+
+    name = str(args.get("name") or "").strip()
+    description = str(args.get("description") or "")
+    spec_dict = args.get("spec") or {}
+    if isinstance(spec_dict, str):
+        try:
+            spec_dict = json.loads(spec_dict)
+        except json.JSONDecodeError:
+            return {"ok": False, "message": "spec 需为 JSON 对象"}
+    if not isinstance(spec_dict, dict):
+        return {"ok": False, "message": "spec 需为 JSON 对象"}
+    if not name:
+        return {"ok": False, "message": "缺少布局名 name"}
+
+    # 场景1：引用已注册布局（切换）
+    if not spec_dict:
+        existing = layout_registry.get(name)
+        if existing is None:
+            return {"ok": False, "message": f"布局 {name!r} 不存在，且未提供 spec（ui.list_layouts 查询可用布局）"}
+        payload = {
+            "layout_id": existing.id,
+            "name": existing.name,
+            "description": description or existing.description,
+            "version": existing.version,
+            "spec": existing.spec.to_dict(),
+        }
+        proposal = proposal_store.create("layout", f"布局：{existing.name}", payload["description"], payload)
+        return {"ok": True, "message": f"已生成布局提案 {proposal.id}，等待审批", "data": {"proposal_id": proposal.id}}
+
+    # 场景2：全新 spec（宽容两种格式：完整布局 JSON / 仅 layout 内层）
+    spec_data = spec_dict if "layout" in spec_dict else {"layout": spec_dict}
+    spec_data = dict(spec_data)
+    spec_data["id"] = _slugify(name) or f"layout_{uuid.uuid4().hex[:8]}"
+    spec_data["name"] = name
+    spec_data.setdefault("description", description)
+    tmp = LayoutSpec.from_dict(spec_data)
+    errs = tmp.errors()
+    if errs:
+        return {"ok": False, "message": "布局校验失败: " + "; ".join(errs)}
+    payload = {
+        "layout_id": tmp.id,
+        "name": name,
+        "description": description,
+        "version": tmp.version,
+        "spec": spec_data,
+    }
+    proposal = proposal_store.create("layout", f"布局：{name}", description, payload)
+    return {"ok": True, "message": f"已生成布局提案 {proposal.id}，等待审批", "data": {"proposal_id": proposal.id}}
 
 
 def _slugify(text: str) -> str:

@@ -260,6 +260,7 @@ class AppConfig:
 
         self.config: dict = {
             "selected_preset": "default_light",
+            "layout_id": "default",
             "theme": {
                 "mode": "light",
                 "accent_color": "#1a73e8",

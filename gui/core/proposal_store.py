@@ -7,8 +7,8 @@
 
 提案目录约定（gui/resources/proposals/<id>.json）：
 {
-  "id", "kind"("skin"), "title", "description", "payload", "status",
-  "created_at", "applied_at", "prior": {生效前 theme/selected_skin/selected_preset 快照}
+  "id", "kind"("skin"|"layout"), "title", "description", "payload", "status",
+  "created_at", "applied_at", "prior": {生效前 theme/selected_skin/selected_preset 或 layout_id 快照}
 }
 """
 
@@ -40,7 +40,7 @@ class ChangeProposal:
     """一条 UI 变更提案"""
 
     id: str
-    kind: str                        # 当前支持 "skin"
+    kind: str                        # 当前支持 "skin" | "layout"
     title: str
     description: str = ""
     payload: dict = field(default_factory=dict)
@@ -160,6 +160,33 @@ class ProposalStore:
                 "type": "proposal",
                 "text": f"提案「{proposal.title}」已批准生效",
             })
+        elif proposal.kind == "layout":
+            from gui.core.config import AppConfig
+            from gui.core.layout_engine import layout_engine
+            from gui.core.layout_registry import layout_registry
+
+            cfg = AppConfig()
+            # 记录生效前布局快照（回退 = 恢复该布局）
+            proposal.prior = {"layout_id": cfg.get("layout_id", "default")}
+            payload = proposal.payload
+            layout_registry.install(
+                payload["layout_id"],
+                payload["name"],
+                payload.get("spec", {}),
+                description=payload.get("description", ""),
+                version=payload.get("version", "1.0"),
+            )
+            spec = layout_registry.get_spec(payload["layout_id"])
+            if spec is not None:
+                layout_engine.apply(spec)
+            proposal.status = APPLIED
+            proposal.applied_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            self._save(proposal)
+            # P0-2：实时事件推送（AI 操作可见）
+            event_bus.publish(AI_EVENT, {
+                "type": "proposal",
+                "text": f"提案「{proposal.title}」已批准生效",
+            })
         return proposal
 
     def reject(self, proposal_id: str) -> ChangeProposal | None:
@@ -177,7 +204,7 @@ class ProposalStore:
         return proposal
 
     def revert(self, proposal_id: str) -> ChangeProposal | None:
-        """回退已生效提案：恢复生效前主题状态（皮肤包保留安装）"""
+        """回退已生效提案：恢复生效前状态（皮肤/布局包保留安装，可再次选用）"""
         proposal = self.get(proposal_id)
         if proposal is None or not proposal.is_revertable:
             return None
@@ -185,11 +212,20 @@ class ProposalStore:
             from gui.core.config import AppConfig
 
             cfg = AppConfig()
-            cfg.config["theme"] = dict(proposal.prior.get("theme", cfg.get_theme()))
-            cfg.config["selected_skin"] = proposal.prior.get("selected_skin")
-            cfg.config["selected_preset"] = proposal.prior.get("selected_preset")
-            cfg.save()
-            event_bus.publish(THEME_CHANGED)
+            if proposal.kind == "layout":
+                from gui.core.layout_engine import layout_engine
+                from gui.core.layout_registry import layout_registry
+                from gui.core.layout_spec import LayoutSpec
+
+                prior_id = proposal.prior.get("layout_id", "default")
+                spec = layout_registry.get_spec(prior_id) or LayoutSpec.default()
+                layout_engine.apply(spec)
+            else:
+                cfg.config["theme"] = dict(proposal.prior.get("theme", cfg.get_theme()))
+                cfg.config["selected_skin"] = proposal.prior.get("selected_skin")
+                cfg.config["selected_preset"] = proposal.prior.get("selected_preset")
+                cfg.save()
+                event_bus.publish(THEME_CHANGED)
         proposal.status = REVERTED
         proposal.applied_at = None
         self._save(proposal)

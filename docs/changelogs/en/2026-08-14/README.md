@@ -14,6 +14,7 @@
 - [06 Global Button Font Auto-Fit](#06-global-button-font-auto-fit)
 - [07 AAA Direct-to-DSH Node Channel & Daily/Work Modes](#07-aaa-direct-to-dsh-node-channel--dailywork-modes)
 - [08 GUI Development Standards (Engineering + Styling + Config)](#08-gui-development-standards-engineering--styling--config)
+- [09 Data-Driven UI Layout Hot-Switching (Sidebar ↔ Top Nav + Revert)](#09-data-driven-ui-layout-hot-switching-sidebar--top-nav--revert)
 
 ---
 
@@ -29,6 +30,7 @@
 | 06 | New `fit_button_width()` helper: fontMetrics width + padding, only sets minimumWidth (keeps sizeHint); replaced all `setFixedWidth` text buttons in 6 pages | Fixed QSS padding + fixed button widths → text overflows buttons when fonts enlarge | Buttons no longer overflow under DPI/theme font scaling; convention: no setFixedWidth for text buttons |
 | 07 | AAA talks to the DSH node channel directly (dsh_client.py, no GUI tool bridge) + async receipt (background polling pushes results via gui_reply.json) + daily/work modes (manual GUI button & configurable keyword auto-switch; work mode skips LLM judgment and sends the full context straight to DSH); GUI tool bridge drops the dsh execution organs (25→22 tools), workflow steps go direct to the node | node_dsh is already a standard BNOS node; forwarding should use the node channel, not the GUI tool bridge (which requires the GUI online); DSH results never flowed back; every turn paid LLM judgment cost | Forwarding no longer depends on the GUI; DSH results are pushed automatically; work-mode input goes straight to DSH without LLM judgment; keywords editable in the settings panel; workflow dsh steps keep sync-wait semantics |
 | 08 | New `docs/design/[OK]-GUI开发规范.md` (engineering: layout/module duties/page registration/message protocol/node channels; styling: token-first no raw hex/component rules/WeChat-style chat UI/skinning loop; config: gui_config.json/node configs/shared protocol files) + `gui/README.md` module index | After letting AI control the GUI directly (22 tools/presets/skinning), a spec telling AI *how* to change the GUI was missing — the counterpart to DSH's AGENTS.md+web-styling.md+config-catalog; GUI had no README and hard-coded colors were scattered | AI and developers now share one rule set for GUI changes (tokens/registration/messages/buttons/bubbles/atomic writes) with a review checklist; existing hard-coded colors logged as remediation items |
+| 09 | Layout data-driven: LayoutSpec (schema+validator) → LayoutRegistry (built-in default + scanned disk packs) → LayoutEngine (rebuilds the nav container without restart, reuses page instances, preserves the current page, persists layout_id) + NavView interface (SidebarNav vertical / TopNav horizontal) + ProposalStore kind="layout" (approve/revert) + tools ui.list_layouts/ui.apply_layout (25→27) + sample pack top-nav + LAYOUT_REQUEST/LAYOUT_CHANGED messages | The nav layout was still hard-coded in main_window (fixed vertical sidebar); the user wanted "sidebar → top nav" without restart plus revert (matching DSH's dynamic layout) | Layout is orthogonal to theming (structure via LayoutSpec, styling via tokens); switching/reverting is restart-free with page state preserved; last layout restored on restart; the AAA dialog "move the nav to the top" → proposal → approval → live top nav → revert loop |
 
 ---
 
@@ -64,6 +66,10 @@ See [07_AAADirectDSHNodeAndModes.md](./07_AAADirectDSHNodeAndModes.md).
 
 See [08_GUIDevStandards.md](./08_GUIDevStandards.md).
 
+### 09 Data-Driven UI Layout Hot-Switching (Sidebar ↔ Top Nav + Revert)
+
+See [09_DataDrivenLayoutHotSwitch.md](./09_DataDrivenLayoutHotSwitch.md).
+
 ---
 
 ## Modified Files
@@ -97,6 +103,13 @@ See [08_GUIDevStandards.md](./08_GUIDevStandards.md).
 | `docs/design/[OK]-AAA直连DSH节点与模式切换方案.md` | #07 |
 | `docs/design/[OK]-GUI开发规范.md` | #08 |
 | `gui/README.md` | #08 |
+| `gui/core/layout_spec.py` | #09 |
+| `gui/core/layout_registry.py` | #09 |
+| `gui/core/layout_engine.py` | #09 |
+| `gui/widgets/top_nav.py` | #09 |
+| `gui/resources/layouts/top-nav/layout.json` | #09 |
+| `docs/design/[OK]-数据驱动UI布局动态调整方案.md` | #09 |
+| `docs/changelogs/{cn,en}/2026-08-14/09_*.md` | #09 |
 
 ### Major Modified Files
 
@@ -123,6 +136,14 @@ See [08_GUIDevStandards.md](./08_GUIDevStandards.md).
 | `gui/pages/dsh_manage_page.py` | Comment sync (task path described as node_dsh node channel) | #07 |
 | `nodes/shared/gui_tool_schemas.json` | Capability list refreshed to 22 tools | #07 |
 | `pipeline.json` | Engine pipeline adds `node_dsh` node | #02 |
+| `gui/widgets/sidebar.py` | Extracted NavView interface; old Sidebar → SidebarNav (vertical, behavior unchanged; spec-driven width/appearance/page filtering) | #09 |
+| `gui/main_window.py` | `_init_central` data-driven (layout_id → LayoutEngine assembles nav); subscribes LAYOUT_REQUEST; animation direction follows layout page order | #09 |
+| `gui/core/config.py` | New `layout_id` default (layout restored on restart) | #09 |
+| `gui/core/proposal_store.py` | kind extended to "layout" (approve prior-snapshot/install/apply; revert restores prior layout) | #09 |
+| `gui/core/tool_registry.py` | New ui.list_layouts / ui.apply_layout (25→27 tools) | #09 |
+| `gui/core/messages.py` | New LAYOUT_CHANGED / LAYOUT_REQUEST message constants | #09 |
+| `gui/pages/proposals_page.py` | Proposal badge mapping adds "layout" → "布局" | #09 |
+| `docs/changelogs/{cn,en}/README.md`, `docs/changelogs/cn/2026-08-14/README.md`, `docs/changelogs/en/2026-08-14/README.md` | Changelog indexes add item 09 | #09 |
 
 ---
 

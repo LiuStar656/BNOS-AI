@@ -1,0 +1,18 @@
+{
+  "id": "top-nav",
+  "name": "顶部标签栏",
+  "description": "导航置于顶部，图标横向排列",
+  "version": "1.0",
+  "layout": {
+    "nav_position": "top",
+    "nav_width": 56,
+    "nav_height": 48,
+    "nav_mode": "icon",
+    "nav_visible": true,
+    "pages": [],
+    "window_default": {
+      "width": 1200,
+      "height": 800
+    }
+  }
+}

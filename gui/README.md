@@ -27,16 +27,21 @@ gui/
 
 | 文件 | 用途 |
 |------|------|
-| `core/config.py` | AppConfig：主题/配置持久化（gui_config.json） |
+| `core/config.py` | AppConfig：主题/布局/配置持久化（gui_config.json） |
 | `core/theme_engine.py` | 主题引擎：token → 全局 QSS + 统一取色 |
 | `core/event_bus.py` + `core/messages.py` | 组件间消息发布订阅（消息名单一事实源） |
 | `core/ui_registry.py` | 页面插槽注册中心（页面组装不硬编码在 main_window） |
-| `core/tool_registry.py` | AI 操控工具注册（22 工具） |
+| `core/layout_spec.py` | 布局 Schema + 校验器（LayoutSpec） |
+| `core/layout_registry.py` | 布局包注册中心（内置 default + 扫描落盘） |
+| `core/layout_engine.py` | 布局应用器（spec → 重建导航容器，不重启） |
+| `core/tool_registry.py` | AI 操控工具注册（27 工具） |
 | `core/tool_bridge.py` | 工具桥：GUI ↔ AAA 节点文件通道 |
 | `core/message_manager.py` | 消息收发（gui_input/gui_reply 轮询） |
 | `core/workflow_store.py` | 流程库（dsh.* 执行步骤直连 node_dsh 节点） |
 | `pages/chat_page.py` | 聊天页（微信风气泡 + 日常/工作模式切换） |
 | `pages/settings_panel.py` | 设置面板（主题/预设/模式关键词） |
+| `widgets/sidebar.py` | NavView 接口 + SidebarNav（左栏竖排实现） |
+| `widgets/top_nav.py` | TopNav（顶栏横排实现） |
 
 ## 关键约定（完整见规范）
 
@@ -45,3 +50,5 @@ gui/
 - 组件协作走 event_bus + messages 常量
 - 文本按钮用 `fit_button_width`，禁 `setFixedWidth`
 - 聊天气泡：用户右绿 / AI 左白 / 宽度自适应 / 下往上堆叠
+- 导航容器由 `layout_engine` 依 LayoutSpec 组装（SidebarNav/TopNav），
+  布局切换走 `LAYOUT_REQUEST` / 提案审批，不直接在 main_window 手搭布局

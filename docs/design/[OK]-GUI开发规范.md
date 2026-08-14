@@ -78,6 +78,9 @@ gui/
 | `event_bus` | 消息发布订阅 | `event_bus.publish(THEME_CHANGED, data)`；页面 `on_change(...)` 订阅 |
 | `messages` | 消息名常量 | **只 import 常量，禁止拼字符串** |
 | `ui_registry` | 页面插槽注册/解析 | 新页面 → 在 `_register_builtin` 注册（注册顺序=侧边栏顺序） |
+| `layout_spec` | 布局 Schema（LayoutSpec）校验 | 改布局结构 → `spec.errors()` 校验非法值 |
+| `layout_registry` | 布局包注册中心（内置 default + 扫描落盘） | 新布局 → 落盘 `gui/resources/layouts/<id>/layout.json` 或 `install()` |
+| `layout_engine` | 布局应用器（spec → 重建导航容器，不重启、页面复用） | 切换布局 → `event_bus.publish(LAYOUT_REQUEST, layout_id)` 或提案审批 |
 | `tool_registry` | AI 工具注册 | 新增 AI 能力 → 注册 `ui.` 前缀工具 |
 | `message_manager` | GUI↔AAA 消息（gui_input/gui_reply） | 发消息 → `message_manager.send_text(...)` |
 | `workflow_store` | 流程执行；dsh.* 步骤直连 node_dsh 节点 | 流程步骤的 tool 名 + args |
@@ -100,6 +103,8 @@ gui/
 | `PAGE_ACTIVATED` | 页面被激活 | page_id |
 | `DATA_REFRESH_REQUESTED` | 数据刷新请求（AI 操控入口） | 页面 id 或 None=当前页 |
 | `NAVIGATE_REQUEST` | 页面导航（AI 操控入口） | page_id |
+| `LAYOUT_REQUEST` | 布局应用请求（设置面板/AI 工具入口） | layout_id |
+| `LAYOUT_CHANGED` | 布局已变更 → 组件自查刷新 | layout_id |
 | `AI_EVENT` | AI 实时事件推送 | {"type","text","ts"} |
 
 规则：组件对外只订阅关心的消息；调用方只 `publish`，不 import 对方内部方法。

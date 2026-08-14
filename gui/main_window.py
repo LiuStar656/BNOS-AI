@@ -1,4 +1,4 @@
-"""主窗口 — 自定义标题栏 + 左侧 Sidebar + 右侧 QStackedWidget + 底部状态栏"""
+"""主窗口 — 自定义标题栏 + 数据驱动导航容器 + 右侧 QStackedWidget + 底部状态栏"""
 
 from __future__ import annotations
 
@@ -14,14 +14,22 @@ from gui.core.config import AppConfig
 from gui.core.state import AppState
 from gui.core.theme_engine import theme_engine
 from gui.core.ui_registry import ui_registry
-from gui.core.messages import PAGE_ACTIVATED, THEME_CHANGED, DATA_REFRESH_REQUESTED, NAVIGATE_REQUEST
+from gui.core.messages import (
+    PAGE_ACTIVATED,
+    THEME_CHANGED,
+    DATA_REFRESH_REQUESTED,
+    NAVIGATE_REQUEST,
+    LAYOUT_REQUEST,
+)
+from gui.core.layout_engine import layout_engine
+from gui.core.layout_registry import layout_registry
+from gui.core.layout_spec import LayoutSpec
 from gui.core.tool_bridge import tool_bridge
 from gui.dialogs.archive_panel import ArchivePanel
 from gui.pages.settings_panel import SettingsPanel
 from gui.pages.node_page import NodePage
 from gui.widgets.floating_panel import FloatingPanel
 from gui.widgets.logseq_writer import LogseqWriter
-from gui.widgets.sidebar import Sidebar
 from gui.widgets.status_bar import StatusBar
 from gui.widgets.title_bar import TitleBar
 
@@ -29,9 +37,10 @@ _RESIZE_MARGIN = 6  # 窗口边缘 resize 区域宽度
 
 
 class MainWindow(QMainWindow):
-    """主窗口 — 自定义标题栏 + 左侧 Sidebar + 右侧 QStackedWidget + 底部状态栏。
+    """主窗口 — 自定义标题栏 + 数据驱动导航容器 + 右侧 QStackedWidget + 底部状态栏。
 
-    页面装配由 UiRegistry 插槽注册中心驱动（阶段3），不再硬编码页面列表。
+    页面装配由 UiRegistry 插槽注册中心驱动（阶段3）；导航容器由 LayoutEngine 依
+    LayoutSpec 数据驱动（Phase 0-1，可切换/回退），不再硬编码在内容区布局。
     """
 
     def __init__(self):
@@ -61,6 +70,8 @@ class MainWindow(QMainWindow):
         self._pages: dict[str, QWidget] = {}
         self._anim_group: QParallelAnimationGroup | None = None  # 页面滑动动画组
         self._resize_edge = 0  # 当前鼠标所在边缘
+        self._nav_view = None  # 当前导航容器（NavView 接口：SidebarNav/TopNav）
+        self._layout_spec: LayoutSpec = LayoutSpec.default()  # 当前生效布局 spec
 
         self._init_central()
         self._init_pages()
@@ -70,7 +81,7 @@ class MainWindow(QMainWindow):
         self._restore_window_geometry()
 
         # 默认显示聊天页
-        self._sidebar.set_active("chat")
+        self._nav_view.set_active("chat")
         self._stack.setCurrentWidget(self._pages["chat"])
 
         # 启动后发送 init_check
@@ -87,24 +98,20 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(central)
 
         # 整体布局：竖排 标题栏 + 内容区
-        main_layout = QVBoxLayout(central)
-        main_layout.setContentsMargins(0, 0, 0, 0)
-        main_layout.setSpacing(0)
+        self._main_layout = QVBoxLayout(central)
+        self._main_layout.setContentsMargins(0, 0, 0, 0)
+        self._main_layout.setSpacing(0)
 
         # 顶部自定义标题栏
         self._title_bar = TitleBar(self, "BNOS AI 伴侣")
-        main_layout.addWidget(self._title_bar)
+        self._main_layout.addWidget(self._title_bar)
 
-        # 内容区（Sidebar + 页面栈 + 状态栏）
-        content = QWidget()
-        content.setObjectName("mainContent")
-        content_layout = QHBoxLayout(content)
-        content_layout.setContentsMargins(0, 0, 0, 0)
-        content_layout.setSpacing(0)
-
-        # 左侧标签栏
-        self._sidebar = Sidebar()
-        content_layout.addWidget(self._sidebar)
+        # 内容区（导航容器 + 页面栈 + 状态栏）
+        self._content = QWidget()
+        self._content.setObjectName("mainContent")
+        self._content_layout = QHBoxLayout(self._content)
+        self._content_layout.setContentsMargins(0, 0, 0, 0)
+        self._content_layout.setSpacing(0)
 
         # 右侧内容区（页面栈 + 状态栏）
         self._right_side = QWidget()
@@ -119,8 +126,17 @@ class MainWindow(QMainWindow):
         # self._status_bar = StatusBar()
         # right_layout.addWidget(self._status_bar)
 
-        content_layout.addWidget(self._right_side, 1)
-        main_layout.addWidget(content, 1)
+        self._content_layout.addWidget(self._right_side, 1)
+        self._main_layout.addWidget(self._content, 1)
+
+        # 数据驱动布局（Phase 0-1）：导航容器由 LayoutEngine 依 LayoutSpec 创建。
+        # 启动时恢复配置中的布局（缺省 default 左栏），行为与旧硬编码一致。
+        layout_engine.bind(self)
+        self._layout_spec = (
+            layout_registry.get_spec(self._config.get("layout_id", "default"))
+            or LayoutSpec.default()
+        )
+        layout_engine.apply(self._layout_spec, self)
 
     def _init_floating_panel(self):
         """初始化浮动面板（延迟创建，避免 init 时 right_side 尺寸为 0）"""
@@ -171,9 +187,9 @@ class MainWindow(QMainWindow):
             self._stack.addWidget(page)
 
     def _connect_signals(self):
-        self._sidebar.page_changed.connect(self._switch_page)
-        self._sidebar.settings_clicked.connect(self._on_open_settings)
-        self._sidebar.node_clicked.connect(self._on_open_node)
+        self._nav_view.page_changed.connect(self._switch_page)
+        self._nav_view.settings_clicked.connect(self._on_open_settings)
+        self._nav_view.node_clicked.connect(self._on_open_node)
         # 归档信号在 ConversationList 上（位于 ChatPage 内部）
         chat_page = self._pages.get("chat")
         if chat_page and hasattr(chat_page, "_conv_list"):
@@ -207,8 +223,22 @@ class MainWindow(QMainWindow):
         event_bus.subscribe(NAVIGATE_REQUEST, self._on_navigate_request)
         event_bus.subscribe(DATA_REFRESH_REQUESTED, self._on_refresh_requested)
 
+        # 数据驱动布局（Phase 1）：布局应用请求入口（设置面板 / AI 工具）
+        event_bus.subscribe(LAYOUT_REQUEST, self._on_layout_request)
+
         # 阶段7：启动文件工具桥（AI 写请求文件 → GUI 执行 → 回结果）
         tool_bridge.start()
+
+    # ─── 布局请求（数据驱动 UI 布局动态调整） ────
+
+    def _on_layout_request(self, layout_id=None):
+        """布局应用请求：查注册中心 spec → 应用（不重启，页面实例复用，可回退）"""
+        if not layout_id:
+            return
+        spec = layout_registry.get_spec(layout_id)
+        if spec is None:
+            return
+        layout_engine.apply(spec, self)
 
     # ─── AI 工具消息（阶段7） ──────────────────
 
@@ -507,7 +537,7 @@ class MainWindow(QMainWindow):
         """归档对话被恢复 → 切换对话并保存"""
         self._floating_panel.hide()
         self._state.current_conversation_id = conv_id
-        self._sidebar.set_active("chat")
+        self._nav_view.set_active("chat")
         self._stack.setCurrentWidget(self._pages["chat"])
         chat = self._pages.get("chat")
         if chat and hasattr(chat, "_on_conversation_changed"):
@@ -532,8 +562,8 @@ class MainWindow(QMainWindow):
             self._after_page_switch(page_id, target)
             return
 
-        # 计算滑动方向（1=左滑，-1=右滑）
-        page_ids = ui_registry.page_ids()
+        # 计算滑动方向（1=左滑，-1=右滑）— 按当前布局的页面视图顺序（LayoutSpec 视图优先）
+        page_ids = self._layout_spec.page_filter() or ui_registry.page_ids()
         direction = 1
         current_widget = self._stack.currentWidget()
         for pid, wid in self._pages.items():

@@ -1,124 +1,46 @@
-"""导航视图 — 左侧标签栏（竖排图标按钮，点击切换页面）。
+"""顶栏横排导航 — 页面标签水平排列（顶部布局实现）。
 
-数据驱动 UI 布局动态调整方案（Phase 0）：
-- 抽取 NavView 抽象接口（SidebarNav 左栏竖排 / TopNav 顶栏横排共享协议）
-- SidebarNav 由 LayoutSpec 驱动（宽度 / 外观 / 页面过滤排序），行为与旧 Sidebar 一致
-- 标签列表由 UiRegistry 插槽注册中心驱动（阶段3），LayoutSpec 提供过滤/排序视图
+数据驱动 UI 布局动态调整方案（Phase 1）：
+- nav_position=top 时的导航容器，与 SidebarNav 共享 NavView 协议
+- 高度 / 外观 / 页面显隐顺序由 LayoutSpec 驱动
+- 右侧固定「更多」入口（设置 / 节点管理），与左栏语义对齐
 """
 
 from __future__ import annotations
 
-from PySide6.QtCore import Qt, Signal
-from PySide6.QtWidgets import QButtonGroup, QMenu, QPushButton, QVBoxLayout, QWidget
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QHBoxLayout, QMenu, QPushButton
 
-from gui.core.config import AppConfig
-from gui.core.event_bus import event_bus
 from gui.core.layout_spec import LayoutSpec
-from gui.core.messages import THEME_CHANGED
-from gui.core.ui_registry import ui_registry
 from gui.resources.icons.codicon import codicon
+from gui.widgets.sidebar import NavView
 
 
-class NavView(QWidget):
-    """导航视图抽象接口 — 左栏竖排 / 顶栏横排两种实现共享的协议。
-
-    LayoutEngine 只依赖本接口重建导航容器，不关心具体摆放方式：
-    - page_changed(page_id)   点击导航项
-    - settings_clicked()      打开设置（更多菜单 / 入口按钮）
-    - node_clicked()          打开节点管理
-    - set_active(page_id)     外部设置当前选中项
-    - refresh_theme()         换肤自查刷新（订阅 THEME_CHANGED，阶段4 模式）
-    """
-
-    page_changed = Signal(str)
-    settings_clicked = Signal()
-    node_clicked = Signal()
-
-    def __init__(self, spec: LayoutSpec | None = None, parent=None):
-        super().__init__(parent)
-        self._config = AppConfig()
-        self._spec = spec
-        self._buttons: dict[str, QPushButton] = {}
-        self._group = QButtonGroup(self)
-        self._group.setExclusive(True)
-        self._events_subscribed = False
-        self._more_btn: QPushButton | None = None
-        self._more_menu: QMenu | None = None
-
-    # ─── 公共协议实现 ──────────────────────────────
-
-    def set_active(self, page_id: str):
-        btn = self._buttons.get(page_id)
-        if btn:
-            btn.setChecked(True)
-
-    def _subscribe_messages(self):
-        """订阅关心的 UI 消息（幂等，防重复实例化重复订阅）"""
-        if self._events_subscribed:
-            return
-        self._events_subscribed = True
-        event_bus.subscribe(THEME_CHANGED, self._on_theme_changed_msg)
-
-    def _on_theme_changed_msg(self, _data=None):
-        self.refresh_theme()
-
-    def refresh_theme(self):
-        """主题颜色变更后刷新导航样式（子类实现）"""
-        raise NotImplementedError
-
-    # ─── 导航项数据源（注册中心 × LayoutSpec 视图） ──
-
-    def _page_items(self) -> list[tuple[str, str, str]]:
-        """导航项 [(icon, page_id, title)] — 注册中心全量权威，LayoutSpec 过滤/排序视图"""
-        tabs = {page_id: (icon, page_id, title) for icon, page_id, title in ui_registry.tabs()}
-        if self._spec is not None:
-            ordered = self._spec.page_filter()
-            if ordered is not None:
-                out = []
-                for pid in ordered:
-                    t = tabs.get(pid)
-                    if t:
-                        out.append(t)
-                return out
-        return list(tabs.values())
-
-    def _on_clicked(self, btn: QPushButton):
-        for page_id, b in self._buttons.items():
-            if b is btn:
-                self.page_changed.emit(page_id)
-                return
-
-
-class SidebarNav(NavView):
-    """左侧标签栏 — 竖排图标按钮组（默认布局实现，等价旧 Sidebar）。
-
-    布局参数来自 LayoutSpec：nav_width 控制栏宽、nav_mode 控制外观、pages 控制显隐顺序。
-    """
+class TopNav(NavView):
+    """顶栏横排导航 — 页面标签水平排列 + 右侧更多菜单入口。"""
 
     def __init__(self, spec: LayoutSpec | None = None, parent=None):
         super().__init__(spec, parent)
-        width = spec.nav_width if spec else 56
-        self.setFixedWidth(width)
-        self.setObjectName("sidebar")
+        height = spec.nav_height if spec else 48
+        self.setFixedHeight(height)
+        self.setObjectName("topNav")
 
         self._nav_mode = spec.nav_mode if spec else "icon"
-        self._nav_width = width
 
         colors = self._config.get_all_colors()
         self.setStyleSheet(f"""
-            #sidebar {{
+            #topNav {{
                 background-color: {colors['sidebar_bg']};
-                border-right: 1px solid {colors['border_color']};
+                border-bottom: 1px solid {colors['border_color']};
             }}
         """)
 
-        layout = QVBoxLayout(self)
-        layout.setContentsMargins(4, 8, 4, 8)
+        layout = QHBoxLayout(self)
+        layout.setContentsMargins(8, 4, 8, 4)
         layout.setSpacing(4)
-        layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
         codicon.init()
-        self._icon_font = codicon.get_font(20)
+        self._icon_font = codicon.get_font(18)
 
         for icon_name, page_id, title in self._page_items():
             btn = self._create_button(icon_name, title, colors)
@@ -128,10 +50,10 @@ class SidebarNav(NavView):
 
         layout.addStretch(1)
 
-        # ─── 底部更多按钮（弹出菜单：设置 / 节点管理）──
+        # ─── 右侧更多按钮（弹出菜单：设置 / 节点管理）──
         self._more_btn = QPushButton()
         self._more_btn.setToolTip("更多")
-        self._more_btn.setFixedSize(48, 48)
+        self._more_btn.setFixedSize(36, height - 8)
         self._more_btn.setCheckable(False)
         self._more_btn.setFont(self._icon_font)
         self._more_btn.setText(codicon.get_char("settings"))
@@ -141,14 +63,13 @@ class SidebarNav(NavView):
                 background-color: transparent;
                 color: {colors['sidebar_text']};
                 border: none;
-                border-radius: 8px;
+                border-radius: 6px;
             }}
             QPushButton:hover {{
                 background-color: {colors['bg_chat']};
                 color: {colors['text_secondary']};
             }}
         """)
-        # 弹出菜单
         self._more_menu = QMenu(self)
         self._more_menu.setStyleSheet(f"""
             QMenu {{
@@ -168,31 +89,29 @@ class SidebarNav(NavView):
         self._node_action = self._more_menu.addAction("节点管理")
         self._settings_action.triggered.connect(self.settings_clicked.emit)
         self._node_action.triggered.connect(self.node_clicked.emit)
-
         self._more_btn.clicked.connect(self._show_more_menu)
         layout.addWidget(self._more_btn)
 
         self._group.buttonClicked.connect(self._on_clicked)
 
-        # 阶段4：自查订阅主题变更消息（替代 MainWindow 直接调用）
         self._subscribe_messages()
 
-    # ─── 按钮构建（nav_mode 驱动外观） ─────────────
+    # ─── 按钮构建 ─────────────────────────────────
 
     def _create_button(self, icon_name: str, title: str, colors: dict) -> QPushButton:
         btn = QPushButton()
         btn.setToolTip(title)
-        if self._nav_mode == "text":
-            btn.setText(title)
-            btn.setFixedSize(self._nav_width - 8, 40)
-        elif self._nav_mode == "icon_text":
-            btn.setText(f"{codicon.get_char(icon_name)}  {title}")
-            btn.setFixedSize(self._nav_width - 8, 40)
-            btn.setFont(self._icon_font)
-        else:  # icon
-            btn.setFixedSize(48, 48)
+        if self._nav_mode == "icon":
+            btn.setFixedSize(36, self.height() - 8)
             btn.setFont(self._icon_font)
             btn.setText(codicon.get_char(icon_name))
+        elif self._nav_mode == "icon_text":
+            btn.setText(f"{codicon.get_char(icon_name)}  {title}")
+            btn.setFont(self._icon_font)
+            btn.setFixedHeight(self.height() - 8)
+        else:  # text
+            btn.setText(title)
+            btn.setFixedHeight(self.height() - 8)
         btn.setCheckable(True)
         btn.setCursor(Qt.CursorShape.PointingHandCursor)
         btn.setStyleSheet(f"""
@@ -200,8 +119,8 @@ class SidebarNav(NavView):
                 background-color: transparent;
                 color: {colors['sidebar_text']};
                 border: none;
-                border-radius: 8px;
-                text-align: center;
+                border-radius: 6px;
+                padding: 0 12px;
             }}
             QPushButton:hover {{
                 background-color: {colors['bg_chat']};
@@ -215,18 +134,17 @@ class SidebarNav(NavView):
         return btn
 
     def _show_more_menu(self):
-        """在按钮上方弹出更多菜单"""
         btn_rect = self._more_btn.rect()
-        global_pos = self._more_btn.mapToGlobal(btn_rect.topLeft())
+        global_pos = self._more_btn.mapToGlobal(btn_rect.bottomLeft())
         self._more_menu.exec(global_pos)
 
     def refresh_theme(self):
-        """主题颜色变更后刷新侧边栏样式"""
+        """主题颜色变更后刷新顶栏样式"""
         colors = self._config.get_all_colors()
         self.setStyleSheet(f"""
-            #sidebar {{
+            #topNav {{
                 background-color: {colors['sidebar_bg']};
-                border-right: 1px solid {colors['border_color']};
+                border-bottom: 1px solid {colors['border_color']};
             }}
         """)
         for page_id, btn in self._buttons.items():
@@ -235,8 +153,8 @@ class SidebarNav(NavView):
                     background-color: transparent;
                     color: {colors['sidebar_text']};
                     border: none;
-                    border-radius: 8px;
-                    text-align: center;
+                    border-radius: 6px;
+                    padding: 0 12px;
                 }}
                 QPushButton:hover {{
                     background-color: {colors['bg_chat']};
@@ -247,21 +165,19 @@ class SidebarNav(NavView):
                     color: {colors['sidebar_active_text']};
                 }}
             """)
-        # 刷新底部更多按钮
         if self._more_btn:
             self._more_btn.setStyleSheet(f"""
                 QPushButton {{
                     background-color: transparent;
                     color: {colors['sidebar_text']};
                     border: none;
-                    border-radius: 8px;
+                    border-radius: 6px;
                 }}
                 QPushButton:hover {{
                     background-color: {colors['bg_chat']};
                     color: {colors['text_secondary']};
                 }}
             """)
-        # 刷新菜单样式
         if self._more_menu:
             self._more_menu.setStyleSheet(f"""
                 QMenu {{

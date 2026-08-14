@@ -1,6 +1,6 @@
-# 数据驱动 UI 布局动态调整方案（待决策）
+# 数据驱动 UI 布局动态调整方案
 
-> 日期：2026-08-14 | 版本：v1.0 | 状态：[PLAN]
+> 日期：2026-08-14 | 版本：v1.1 | 状态：[OK]
 
 ## 目录
 
@@ -11,6 +11,7 @@
 5. [风险评估](#五风险评估)
 6. [测试计划](#六测试计划)
 7. [影响范围](#七影响范围)
+8. [实施记录](#八实施记录v10--v11)
 
 ---
 
@@ -142,26 +143,26 @@ nav_position=top）→ 提案卡 → 用户批准 → 顶部标签栏即时生�
 
 ## 四、分阶段实施计划
 
-### Phase 0：布局抽象重构（纯 GUI）
+### Phase 0：布局抽象重构（纯 GUI）✅
 
 - 抽 NavView 接口；Sidebar 改名为 SidebarNav（竖排实现，行为不变）
 - MainWindow `_init_central` 改为读「默认 LayoutSpec」组装（先用内置 default，行为不变）
 - 验收：启动与现状无差异（8 套预设视觉回归）
 
-### Phase 1：LayoutRegistry + LayoutEngine
+### Phase 1：LayoutRegistry + LayoutEngine ✅
 
 - 新增 layout_registry.py / layout_engine.py / TopNav 实现
 - `apply()` 支持 left/top 切换、宽度/高度、页面显隐排序、窗口默认尺寸
 - LAYOUT_CHANGED 消息；MainWindow 订阅后重建导航
 - 验收：GUI 设置页或调试入口可切换 default ↔ top-nav 布局，不重启、页面状态保留
 
-### Phase 2：提案治理 + 回退
+### Phase 2：提案治理 + 回退 ✅
 
 - ProposalStore 支持 kind="layout"；prior 快照与 revert
 - 提案页渲染 layout 提案（复用皮肤提案卡片，标题/描述区分）
 - 验收：apply → 审批生效 → revert 恢复，先决条件齐全
 
-### Phase 3：AI 工具闭环
+### Phase 3：AI 工具闭环 ✅
 
 - ToolRegistry 注册 ui.list_layouts / ui.apply_layout
 - gui_tool_schemas.json 自动包含新工具（to_file 已泛化）
@@ -192,16 +193,18 @@ nav_position=top）→ 提案卡 → 用户批准 → 顶部标签栏即时生�
 
 | 文件 | 改动 |
 |---|---|
-| `gui/widgets/sidebar.py` | 改造为 SidebarNav（竖排实现），样式逻辑保持 |
+| `gui/widgets/sidebar.py` | 改造为 NavView + SidebarNav（竖排实现），样式逻辑保持 |
 | `gui/widgets/top_nav.py` | 新增：顶栏横排导航 |
 | `gui/core/layout_registry.py` | 新增：布局注册中心（扫描/安装/移除） |
 | `gui/core/layout_engine.py` | 新增：布局应用器（spec→重建导航容器） |
 | `gui/core/layout_spec.py` | 新增：LayoutSpec 校验器（枚举/引用/数值边界） |
-| `gui/main_window.py` | `_init_central` 数据驱动化；订阅 LAYOUT_CHANGED 重建导航 |
+| `gui/main_window.py` | `_init_central` 数据驱动化；订阅 LAYOUT_REQUEST 重建导航 |
 | `gui/core/proposal_store.py` | kind 扩展 "layout" + prior 快照/revert |
-| `gui/core/messages.py` | 新增 `LAYOUT_CHANGED` 消息常量 |
+| `gui/core/messages.py` | 新增 `LAYOUT_CHANGED` / `LAYOUT_REQUEST` 消息常量 |
 | `gui/core/tool_registry.py` | 新增 `ui.list_layouts` / `ui.apply_layout`（工具 25→27） |
 | `gui/core/config.py` | 持久化当前 layout_id（重启恢复） |
+| `gui/pages/proposals_page.py` | 提案徽标增加 "layout" → "布局" |
+| `gui/resources/layouts/top-nav/layout.json` | 新增：顶栏示例布局包 |
 | `docs/design/[PLAN]-GUI可插拔化与AI操控UI完整方案.md` | P0-1c 布局结构调整项标注完成 |
 
 ## 附：与「换肤」的边界
@@ -213,3 +216,47 @@ nav_position=top）→ 提案卡 → 用户批准 → 顶部标签栏即时生�
 | 导航位置/方向/宽度 | LayoutSpec | 布局包 / ui.apply_layout |
 | 页面显隐 / 顺序 | LayoutSpec | 布局包 / ui.apply_layout |
 | 窗口默认尺寸 | LayoutSpec.window_default | 布局包 / ui.apply_layout |
+
+---
+
+## 八、实施记录（v1.0 → v1.1）
+
+**决策**（2026-08-14，用户 AskUserQuestion 回答）：按方案全面实施。
+
+**已落地**（v1.1，状态 [PLAN] → [OK]）：
+
+- **Phase 0**：`sidebar.py` 抽 NavView 抽象接口（`page_changed/settings_clicked/node_clicked/set_active/refresh_theme`
+  协议），原 Sidebar → `SidebarNav`（竖排实现，样式逻辑不变）；新增 `layout_spec.py`（LayoutSpec
+  dataclass + 校验器：nav_position 枚举 / 数值边界 / pages 引用存在性 / 重复页检测）；
+  MainWindow `_init_central` 数据驱动化（读配置 layout_id → 默认 default，行为不变）
+- **Phase 1**：新增 `layout_registry.py`（内置 default 代码内注册 + 扫描 `gui/resources/layouts/`，
+  容错加载、install 安全字符校验、同名内置优先）；新增 `top_nav.py`（TopNav 顶栏横排，nav_mode
+  支持 icon/text/icon_text，右侧更多菜单入口）；新增 `layout_engine.py`（apply：删旧导航 →
+  按 spec 创建新导航 → 重连信号 → 保持当前页 → 持久化 layout_id → 发布 LAYOUT_CHANGED；
+  `bind()` 供提案审批等无窗口上下文使用）；示例布局包 `top-nav/layout.json` 落盘
+- **Phase 2**：`proposal_store.py` 支持 kind="layout"（approve：prior 快照 layout_id → install →
+  apply；revert：恢复 prior 布局，与皮肤提案正交）；`proposals_page.py` 徽标映射加 "布局"
+- **Phase 3**：`tool_registry.py` 新增 `ui.list_layouts`（布局清单+激活态）与 `ui.apply_layout`
+  （name 引用已注册布局 / spec JSON 定义新布局，均生成提案待审批）；schemas 由
+  `tool_bridge.start()` 的 `to_file` 自动刷新；MainWindow 订阅 `LAYOUT_REQUEST` 消息统一入口
+
+**取舍说明**：
+
+- `window_default` 保留于 spec（落盘/文档/未来首应用），切换布局时**不强制拉扯用户当前窗口尺寸**
+  （避免打扰用户已手动调整的窗口）
+- 切换动画方向改为按当前 `_layout_spec.page_filter()` 顺序计算（顶栏布局下按逻辑顺序滑动）
+- 布局持久化：apply 成功即写入 `gui_config.json` 的 `layout_id`，重启自动恢复
+
+**验证**（offscreen 自动化，9 组断言全过）：
+
+1. 注册中心扫描含 default + top-nav
+2. 校验器拒绝非法值（非法 id / nav_position / 边界）
+3. MainWindow 默认实例化 → SidebarNav
+4. apply top-nav → TopNav、页面实例复用、当前页保持
+5. apply default → 恢复 SidebarNav
+6. 非法 spec 应用被拒绝且状态不变
+7. 提案闭环：create(layout) → approve → TopNav + layout_id 持久化 → revert → SidebarNav
+8. LAYOUT_REQUEST 消息路径（设置面板/AI 工具入口）切换生效
+9. 工具注册含 ui.list_layouts / ui.apply_layout（25→27）
+
+**真机视觉回归**（8 套预设 + run.bat 启动）待用户运行确认。

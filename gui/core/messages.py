@@ -24,3 +24,9 @@ NAVIGATE_REQUEST = "ui.navigate_request"
 
 # AI 活动事件（data: {"type", "text", "ts"}）— 实时事件推送（P0-2）
 AI_EVENT = "ai.event"
+
+# 布局已变更（data: layout_id）— 组件自查刷新（P2 布局引擎）
+LAYOUT_CHANGED = "ui.layout_changed"
+
+# 布局应用请求（data: layout_id）— 设置面板/AI 工具入口（与 NAVIGATE_REQUEST 同模式）
+LAYOUT_REQUEST = "ui.layout_request"

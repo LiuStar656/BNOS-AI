@@ -42,6 +42,7 @@ _STATUS_META = {
 # 类型 → 徽标文字
 _KIND_LABELS = {
     "skin": "皮肤包",
+    "layout": "布局",
 }
 
 
