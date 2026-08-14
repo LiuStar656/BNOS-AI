@@ -234,7 +234,8 @@ class MyNode:
         # ── P2-2 工作模式直通：跳过 LLM 判断，带 AAA 完整上下文直发 DSH ──
         if mode_manager.get_mode() == mode_manager.MODE_WORK:
             return self._direct_dsh_to_node(
-                query, ctx, rid, conv_id=conv_id, identity_key=identity_key, dbp=dbp)
+                query, ctx, rid, conv_id=conv_id, identity_key=identity_key,
+                dbp=dbp, user_id=user_id)
 
         return {
             "_port": "prompt", "data_type": "prompt", "content": pt.build(ctx),
@@ -243,24 +244,22 @@ class MyNode:
 
     def _direct_dsh_to_node(self, user_text: str, ctx: dict, rid: str,
                             conv_id: str = "", identity_key: str = "",
-                            dbp: str = "") -> dict:
-        """工作模式直通：不经过 LLM 判断，把用户输入 + AAA 完整上下文
+                            dbp: str = "", user_id: str = "") -> dict:
+        """工作模式直通：不经过 LLM 判断，把 AAA 完整提示词 + 用户输入
         直接提交给 node_dsh（标准 BNOS 节点通道），后台轮询完成后再推送结果。
 
-        - 上下文：_gather_context 产出的完整认知上下文（self_cognition /
-          fixed_cognition / recent_feelings / history_summary / user_info 等），
-          随任务文件传给 node_dsh 拼入 task 前缀。
+        完整流程对齐日常模式（AAA → LLM → AAA）：
+            AAA → DSH → AAA
+        - 注入 AAA 完整提示词（pt.build_direct：人格/认知/行为准则/输出格式），
+          DSH 替代 LLM 层按此执行并组织回复。
+        - DSH 回复按 AAA 输出格式（含【心情】【情绪调整】【自我认知】等节），
+          回库后由 _dsh_wait_and_push 走同一解析链，认知演化与日常模式一致。
         - 会话续接：沿用最近一次 DSH 回带的 session_id（多轮连贯）。
-        - 回执：先回复「已提交」（<silent/> 静音标记，仅 GUI 显示不播报），
+        - 回执：先回复「已提交」（<silent/> 不播报、<pending/> 保持等待指示），
           完成结果由 _dsh_wait_and_push 主动推送并写入对话库。
         """
-        # 规整上下文：列表字段 join 为字符串，供 node_dsh 拼接
-        context = {}
-        for key, val in ctx.items():
-            if isinstance(val, list):
-                context[key] = "\n".join(str(x) for x in val if str(x).strip())
-            elif isinstance(val, str) and val.strip():
-                context[key] = val
+        # 注入 AAA 完整提示词：DSH 按此人格/认知/行为准则/输出格式执行与回复
+        context = {"system_prompt": pt.build_direct(ctx)}
 
         submitted = dsh_client.submit_task(
             user_text, session_id=self._dsh_session_id, context=context)
@@ -273,7 +272,8 @@ class MyNode:
         task_id = submitted["data"]["task_id"]
         threading.Thread(
             target=self._dsh_wait_and_push,
-            args=(task_id, rid, conv_id, identity_key, dbp), daemon=True).start()
+            args=(task_id, rid, conv_id, identity_key, dbp, user_text, user_id),
+            daemon=True).start()
         return {
             "_port": "reply", "data_type": "reply",
             # <pending/> 通知 GUI 保持等待指示（DSH 仍在执行），<silent/> 不播报
@@ -701,11 +701,14 @@ class MyNode:
         }
 
     def _dsh_wait_and_push(self, task_id: str, rid: str, conv_id: str = "",
-                           identity_key: str = "", dbp: str = "") -> None:
-        """后台线程：等待 node_dsh 完成 → 结果主动推送 gui_reply.json 并写库。
+                           identity_key: str = "", dbp: str = "",
+                           user_text: str = "", user_id: str = "") -> None:
+        """后台线程：等待 node_dsh 完成 → 解析认知 → 落库 → 推送结果。
 
-        conv_id/identity_key/dbp 非空时，把 DSH 最终回复作为 assistant 消息
-        写入对话库，保证工作模式直通的对话历史连续（后续记忆/反思可用）。
+        工作模式 = AAA → DSH → AAA：DSH 回复按 AAA 输出格式（含节标记），
+        与日常模式 LLM 回复走同一解析链（psr.parse_llm_output →
+        write_parsed_async），情绪/自我认知/他人认知/事件摘要/记忆照常演化；
+        解析失败时兜底保留对话历史。
         """
         result = dsh_client.wait_result(task_id, timeout=dsh_client.DEFAULT_TIMEOUT)
         if result is None:
@@ -720,8 +723,24 @@ class MyNode:
         final = str(result.get("final") or result.get("result") or "").strip()
         if not final:
             final = f"DSH 任务完成（{result.get('message', '无内容')}）"
-        # 写库：DSH 回复作为 assistant 消息（工作模式直通专用，保证对话历史连续）
-        if final and dbp and conv_id:
+        # 与日常模式同一认知链：解析节 → 写库（情绪/认知/事件摘要/记忆）
+        parsed = {}
+        try:
+            parsed = psr.parse_llm_output(final) or {}
+        except Exception:
+            parsed = {}
+        if parsed and dbp and conv_id:
+            try:
+                db.write_parsed_async(
+                    parsed, dbp, conversation_id=conv_id,
+                    user_input=user_text,
+                    identity_key=identity_key or _IDENTITY_KEY_DEFAULT,
+                    user_id=user_id,
+                )
+            except Exception:
+                pass
+        elif final and dbp and conv_id:
+            # 解析失败兜底：仍保留对话历史（认知演化缺失但对话连续）
             try:
                 db.write_async({
                     "conversation_id": conv_id,
@@ -731,7 +750,10 @@ class MyNode:
                 }, dbp, role="assistant")
             except Exception:
                 pass
-        dsh_client.push_reply(final, request_id=rid)
+        # 推送 GUI：优先【自然回复】（注入心情标签），否则整段兜底
+        reply_text = (psr.inject_mood_tag(parsed["自然回复"], parsed.get("心情", ""))
+                      if parsed.get("自然回复") else final)
+        dsh_client.push_reply(reply_text, request_id=rid)
 
     def _on_tool_result(self, data, dbp):
         db.ensure(dbp)
