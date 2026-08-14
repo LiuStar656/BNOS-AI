@@ -217,6 +217,49 @@ def _headless_pids() -> list[str]:
     return pids
 
 
+def _read_session_title(blob: Path) -> str:
+    """读取会话可读标题：优先 DSH 官方 session/title 事件，否则取首条用户消息。
+
+    session.jsonl.zstd 是 zstd 压缩的 JSONL；stream_reader 单次 read 有内部
+    缓冲限制，需循环累积。标题事件紧跟首条用户消息（位于文件前部），预算 1MB 即停。
+    """
+    try:
+        import zstandard as zstd
+
+        dctx = zstd.ZstdDecompressor()
+        raw = b""
+        with dctx.stream_reader(blob.open("rb")) as r:
+            while len(raw) < 1024 * 1024:
+                chunk = r.read(1024 * 1024)
+                if not chunk:
+                    break
+                raw += chunk
+        title, first_user = "", ""
+        for line in raw.decode("utf-8", errors="replace").splitlines():
+            try:
+                ev = json.loads(line)
+            except (ValueError, UnicodeDecodeError):
+                continue
+            t = ev.get("type")
+            if t == "session/title" and not title:
+                title = str(ev.get("data", {}).get("title") or "").strip()
+                if title:
+                    break
+            if t == "user/message" and not first_user:
+                src = ev.get("data", {}).get("source") or {}
+                if src.get("kind") != "user":
+                    continue
+                content = ev.get("data", {}).get("content") or []
+                first_user = " ".join(
+                    b.get("text", "") for b in content
+                    if isinstance(b, dict) and b.get("type") == "text"
+                ).strip()
+        # 无官方标题 → fallback 首条用户消息（与 DSH fallbackSessionTitle 语义一致）
+        return title or (first_user[:24] + ("…" if len(first_user) > 24 else ""))
+    except Exception:
+        return ""
+
+
 def list_sessions() -> list[dict]:
     """扫描 dsh_home/sessions/<workspace-hash>/<session-id>/session.jsonl.zstd。"""
     sessions = []
@@ -232,6 +275,7 @@ def list_sessions() -> list[dict]:
             st = blob.stat()
             sessions.append({
                 "id": sess_dir.name,
+                "title": _read_session_title(blob),
                 "workspace": ws_dir.name,
                 "mtime": st.st_mtime,
                 "size": st.st_size,
@@ -924,11 +968,15 @@ class SessionsTab(QWidget):
         lay = QHBoxLayout(card)
         lay.setContentsMargins(10, 6, 10, 6)
         info = QVBoxLayout()
-        id_label = QLabel(s["id"])
+        # 主行显示可读标题（DSH 官方标题 / 首条用户消息），悬停提示完整会话 id
+        id_label = QLabel(s.get("title") or s["id"])
+        id_label.setToolTip(f"会话 id：{s['id']}")
         id_label.setStyleSheet(_style(_primary_color(), 13, True))
+        short_id = s["id"].replace("session-", "")[:8]
         meta = QLabel(
-            f"{time.strftime('%m-%d %H:%M', time.localtime(s['mtime']))}  ·  {s['size'] // 1024} KB"
+            f"{time.strftime('%m-%d %H:%M', time.localtime(s['mtime']))}  ·  {s['size'] // 1024} KB  ·  {short_id}"
         )
+        meta.setToolTip(s["id"])
         meta.setStyleSheet(_style(_sec_color(), 11))
         info.addWidget(id_label)
         info.addWidget(meta)
