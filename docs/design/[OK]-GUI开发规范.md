@@ -126,6 +126,18 @@ gui/
 - 结果判定用 `request_id` / `task_id` 精确匹配，不读"最近一次"
 - 节点文件属 BNOS 层，GUI 只读写协议文件，不直接调用节点内部模块
 
+### 2.6 布局调整
+
+布局完整契约（LayoutSpec 全字段/校验/切换语义/提案回退）见
+[数据驱动UI布局动态调整方案](./[OK]-数据驱动UI布局动态调整方案.md)。此处为改布局时的强制项：
+
+- **唯一事实源**：布局 = `gui/resources/layouts/<id>/layout.json` 的 LayoutSpec；改动必须落盘或 `layout_registry.install()`，禁止在 main_window 硬编码布局结构
+- **pages 是过滤/排序视图**：`spec.pages` 只控制显示顺序与显隐，`ui_registry` 注册中心仍是全量权威源，禁止删注册
+- **切换不重建页面**：`layout_engine.apply()` 复用页面实例（QStackedWidget 不重建），只重建导航容器，页面状态必须保留
+- **走提案审批**：AI 布局变更（`ui.apply_layout` / 新布局包）生成 `kind="layout"` 提案，审批后才 apply；回退恢复 prior 布局
+- **不拉扯窗口**：`window_default` 仅作 spec 记录/新装默认，切换布局不强制改变用户当前窗口尺寸
+- **与换肤正交**：布局只操作结构（导航位置/方向/宽度/显隐/顺序），颜色/大小走 theme_engine token；二者独立切换、独立回退
+
 ---
 
 ## 三、GUI 样式规范
