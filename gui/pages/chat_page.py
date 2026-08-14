@@ -249,14 +249,19 @@ class ChatPage(QWidget):
         self._typing_text: str = ""
         self._typing_index: int = 0
 
-        # 从历史文件恢复对话状态
+        # 从历史文件恢复对话列表（左侧会话标签可见可点）
         self._load_history()
+
+        # DeepSeek 风格：每次启动从新对话开始（打开即输入框，不直接进入具体聊天历史），
+        # 历史会话保留在左侧列表，由用户点击切换
+        new_id = self._state.add_conversation("新对话")
+        self._state.current_conversation_id = new_id
 
         self._init_ui()
         # 记录初始对话 id，供切换时保存使用
         self._prev_conv_id = self._state.current_conversation_id
         self._connect_signals()
-        # 加载当前对话的气泡
+        # 加载当前对话的气泡（新对话为空，不加载历史消息）
         self._load_conversation_messages(self._state.current_conversation_id)
 
         # 阶段4：自查订阅主题变更消息（替代 MainWindow 直接调用）
@@ -527,14 +532,17 @@ class ChatPage(QWidget):
                 "convs": {},
                 "archived_convs": {},
             }
-            # 活跃对话
+            # 活跃对话（跳过空对话：未发消息的新会话不落盘，防止每次启动累积）
             for conv in self._state.conversations:
                 cid = conv["id"]
+                msgs = self._conversation_messages.get(cid, [])
+                if not msgs:
+                    continue
                 data["convs"][cid] = {
                     "name": conv.get("name", "新对话"),
                     "last_message": conv.get("last_message", ""),
                     "timestamp": conv.get("timestamp", 0),
-                    "messages": self._conversation_messages.get(cid, []),
+                    "messages": msgs,
                 }
             # 归档对话
             for conv in self._state.archived_conversations:

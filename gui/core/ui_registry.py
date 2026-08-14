@@ -39,7 +39,6 @@ class UiRegistry:
     # ─── 内置页面插槽注册（懒加载工厂） ─────────
 
     def _register_builtin(self):
-        from gui.pages.home_page import HomePage
         from gui.pages.chat_page import ChatPage
         from gui.pages.activity_page import ActivityPage
         from gui.pages.live2d_page import Live2DPage
@@ -51,8 +50,7 @@ class UiRegistry:
         from gui.pages.dsh_manage_page import DshManagePage
         from gui.widgets.knowledge_panel import KnowledgePanel
 
-        # 注意：注册顺序即侧边栏/页面切换顺序；page.home 排最前 → 启动默认页
-        self.register("page.home", HomePage, meta={"icon": "home", "page_id": "home", "title": "首页"})
+        # 注意：注册顺序即侧边栏/页面切换顺序；chat 排最前 → 启动默认页
         self.register("page.chat", ChatPage, meta={"icon": "chat", "page_id": "chat", "title": "聊天"})
         self.register("page.activity", ActivityPage, meta={"icon": "pulse", "page_id": "activity", "title": "AI 活动"})
         self.register("page.live2d", Live2DPage, meta={"icon": "live2d", "page_id": "live2d", "title": "Live2D"})
