@@ -118,6 +118,8 @@ gui/
 | `nodes/shared/mode.json` | 双向 | `{"mode": "daily"|"work"}`（日常/工作模式，原子写） |
 | `nodes/shared/dsh_task_in.json` | → node_dsh | DSH 任务（data_type=dsh_task, task_id） |
 | `nodes/node_dsh/output.json` | ← node_dsh | DSH 结果（task_id 精确匹配） |
+| `nodes/shared/dsh_question_in.json` | node_dsh → GUI | DSH 提问（headless provider 写入，qid 批次） |
+| `nodes/shared/dsh_answer_out.json` | GUI → node_dsh | 用户回答（qid 精确匹配，options 按钮 + 自由输入） |
 
 规则：
 - 写共享文件一律**原子写**（tmp + replace），避免并发写撕裂
@@ -196,7 +198,7 @@ gui/
 
 ### 4.3 共享协议文件（nodes/shared/）
 
-- `gui_input.json` / `gui_reply.json` / `mode.json` / `dsh_task_in.json` 为运行时协议文件，**不入库、不手改**，只经各模块原子读写
+- `gui_input.json` / `gui_reply.json` / `mode.json` / `dsh_task_in.json` / `dsh_question_in.json` / `dsh_answer_out.json` 为运行时协议文件，**不入库、不手改**，只经各模块原子读写
 - 新增共享协议：先写方案文档 + 两侧读写方，再落 `nodes/shared/`，并同步更新本规范 2.5
 
 ### 4.4 工具清单（nodes/shared/gui_tool_schemas.json）

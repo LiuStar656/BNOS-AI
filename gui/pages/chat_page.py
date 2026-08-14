@@ -4,11 +4,23 @@ from __future__ import annotations
 
 import json
 import os
+from datetime import datetime
 from pathlib import Path
 
-from PySide6.QtCore import Qt, QTimer
+from PySide6.QtCore import Qt, QTimer, Signal
 from PySide6.QtGui import QColor, QPalette
-from PySide6.QtWidgets import QHBoxLayout, QPushButton, QScrollArea, QSizePolicy, QVBoxLayout, QWidget
+from PySide6.QtWidgets import (
+    QButtonGroup,
+    QCheckBox,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QScrollArea,
+    QSizePolicy,
+    QVBoxLayout,
+    QWidget,
+)
 
 from gui.core.config import AppConfig
 from gui.core.event_bus import event_bus
@@ -27,6 +39,193 @@ _HISTORY_FILE = Path(__file__).resolve().parent / "conversation_history.json"
 # 日常/工作模式状态文件（AAA 与 GUI 共享的事实来源）
 _MODE_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "mode.json"
 
+# DSH 提问交互文件（node_dsh headless provider ↔ GUI，qid 精确匹配）
+_QUESTION_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "dsh_question_in.json"
+_ANSWER_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "dsh_answer_out.json"
+
+
+def _atomic_write_json(path: Path, data: dict) -> bool:
+    """原子写共享协议文件（tmp + replace，规范 2.5）"""
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(path.suffix + ".tmp")
+        tmp.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        tmp.replace(path)
+        return True
+    except OSError:
+        return False
+
+
+class _QuestionCard(QWidget):
+    """DSH 提问卡片 — 问题正文 + 选项按钮（单选/多选）+ 自由输入 + 提交。
+
+    提交后把答案原子写 dsh_answer_out.json（qid 精确匹配），并以 answered 信号
+    回调 chat_page 把回答追加为用户气泡。回答后禁用交互，标注「已回答」。
+    """
+
+    answered = Signal(str)
+
+    def __init__(self, qid: str, questions: list[dict], parent=None):
+        super().__init__(parent)
+        self._qid = qid
+        self._questions = questions
+        self._option_groups: list[list[QPushButton]] = [[] for _ in questions]  # 每问题单选按钮组（按 questions 索引对齐）
+        self._option_checks: list[list[QCheckBox]] = [[] for _ in questions]   # 每问题多选按钮组（按 questions 索引对齐）
+        self._input_fields: list[QLineEdit] = []
+        self._submit_btn: QPushButton | None = None
+
+        colors = AppConfig().get_all_colors()
+        self.setObjectName("questionCard")
+        self.setStyleSheet(f"""
+            #questionCard {{
+                background-color: {colors['bubble_ai_bg']};
+                border: 1px solid {colors['border_color']};
+                border-radius: 10px;
+            }}
+        """)
+
+        outer = QVBoxLayout(self)
+        outer.setContentsMargins(12, 10, 12, 10)
+        outer.setSpacing(8)
+
+        title = QLabel("DSH 需要确认")
+        title.setStyleSheet(
+            f"font-weight: bold; font-size: 14px; color: {colors['text_primary']};")
+        outer.addWidget(title)
+
+        for idx, q in enumerate(questions):
+            q_box = QVBoxLayout()
+            q_box.setSpacing(6)
+            header = str(q.get("header") or "").strip()
+            if header:
+                h_lbl = QLabel(header)
+                h_lbl.setStyleSheet(
+                    f"font-weight: bold; font-size: 12px; color: {colors['text_secondary']};")
+                q_box.addWidget(h_lbl)
+            body = QLabel(str(q.get("question") or ""))
+            body.setWordWrap(True)
+            body.setStyleSheet(f"font-size: 13px; color: {colors['text_primary']};")
+            q_box.addWidget(body)
+
+            options = q.get("options") or []
+            multi = bool(q.get("multiSelect"))
+            if options:
+                row = QHBoxLayout()
+                row.setSpacing(8)
+                if multi:
+                    checks = []
+                    for opt in options:
+                        cb = QCheckBox(str(opt.get("label") or ""))
+                        cb.setStyleSheet(f"font-size: 13px; color: {colors['text_primary']};")
+                        cb.setToolTip(str(opt.get("description") or ""))
+                        checks.append(cb)
+                        row.addWidget(cb)
+                    self._option_checks[idx] = checks
+                else:
+                    grp = QButtonGroup(self)
+                    grp.setExclusive(True)
+                    btns = []
+                    for i, opt in enumerate(options):
+                        btn = QPushButton(str(opt.get("label") or ""))
+                        btn.setCheckable(True)
+                        btn.setChecked(i == 0)
+                        btn.setToolTip(str(opt.get("description") or ""))
+                        btn.setCursor(Qt.CursorShape.PointingHandCursor)
+                        btn.setStyleSheet(f"""
+                            QPushButton {{
+                                background-color: transparent;
+                                color: {colors['text_primary']};
+                                border: 1px solid {colors['border_color']};
+                                border-radius: 6px;
+                                padding: 3px 12px; font-size: 13px;
+                            }}
+                            QPushButton:hover {{
+                                background-color: {colors['bg_chat']};
+                            }}
+                            QPushButton:checked {{
+                                background-color: {colors['accent_color']};
+                                color: #ffffff;
+                                border-color: {colors['accent_color']};
+                            }}
+                        """)
+                        grp.addButton(btn)
+                        btns.append(btn)
+                        row.addWidget(btn)
+                    self._option_groups[idx] = btns
+                q_box.addLayout(row)
+
+            inp = QLineEdit()
+            inp.setPlaceholderText("补充说明（可选）")
+            inp.setStyleSheet(f"""
+                QLineEdit {{
+                    background-color: {colors['bg_chat']};
+                    color: {colors['text_primary']};
+                    border: 1px solid {colors['border_color']};
+                    border-radius: 6px;
+                    padding: 4px 8px; font-size: 13px;
+                }}
+            """)
+            self._input_fields.append(inp)
+            q_box.addWidget(inp)
+            outer.addLayout(q_box)
+
+        self._submit_btn = QPushButton("提交回答")
+        self._submit_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._submit_btn.setStyleSheet(f"""
+            QPushButton {{
+                background-color: {colors['accent_color']};
+                color: #ffffff;
+                border: none; border-radius: 6px;
+                padding: 5px 18px; font-size: 13px; font-weight: bold;
+            }}
+            QPushButton:hover {{ background-color: {colors['accent_hover']}; }}
+        """)
+        self._submit_btn.clicked.connect(self._on_submit)
+        outer.addWidget(self._submit_btn, alignment=Qt.AlignmentFlag.AlignRight)
+
+    def _on_submit(self):
+        answers = []
+        text_parts = []
+        for idx, q in enumerate(self._questions):
+            selected: list[str] = []
+            if q.get("options"):
+                if q.get("multiSelect"):
+                    checks = self._option_checks[idx]
+                    selected = [cb.text() for cb in checks if cb.isChecked()]
+                else:
+                    btns = self._option_groups[idx]
+                    selected = [b.text() for b in btns if b.isChecked()]
+            custom = self._input_fields[idx].text().strip()
+            answers.append({
+                "id": str(q.get("id") or ""),
+                "selected": selected,
+                "custom": custom or None,
+            })
+            if selected:
+                text_parts.append("、".join(selected))
+            if custom:
+                text_parts.append(custom)
+        if not _atomic_write_json(_ANSWER_FILE, {
+            "qid": self._qid,
+            "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "answers": answers,
+        }):
+            return
+        answer_text = "、".join(text_parts) if text_parts else "（已选择）"
+        self.answered.emit(answer_text)
+        # 提交后锁定交互
+        for group in self._option_groups:
+            for b in group:
+                b.setEnabled(False)
+        for checks in self._option_checks:
+            for cb in checks:
+                cb.setEnabled(False)
+        for inp in self._input_fields:
+            inp.setEnabled(False)
+        if self._submit_btn:
+            self._submit_btn.setText("已回答 ✓")
+            self._submit_btn.setEnabled(False)
+
 
 class ChatPage(QWidget):
     """聊天页 — 消息列表 + ChatInput 输入栏。"""
@@ -40,6 +239,7 @@ class ChatPage(QWidget):
         self._conversation_messages: dict[str, list[tuple[str, str]]] = {}  # conv_id -> [(role, text)]
         self._prev_conv_id: str = ""  # 切换前记录旧对话 id
         self._pending_reply_conv_id: str = ""  # 当前发送消息所属对话 id（回复路由用）
+        self._processed_qids: set[str] = set()  # 已渲染的 DSH 提问 qid（判新）
 
         # 打字机效果状态
         self._typing_timer: QTimer | None = None
@@ -165,6 +365,12 @@ class ChatPage(QWidget):
         self._mode_sync_timer.timeout.connect(self._sync_mode_btn)
         self._mode_sync_timer.start()
 
+        # DSH 提问轮询（node_dsh provider 写 dsh_question_in.json → GUI 渲染提问卡片）
+        self._question_poll_timer = QTimer(self)
+        self._question_poll_timer.setInterval(1000)
+        self._question_poll_timer.timeout.connect(self._poll_question)
+        self._question_poll_timer.start()
+
     def _connect_signals(self):
         self._state.on_change("send_state", self._on_send_state_changed)
         self._conv_list.conversation_deleted.connect(self._on_conversation_deleted)
@@ -227,6 +433,39 @@ class ChatPage(QWidget):
         nxt = "work" if self._read_mode() == "daily" else "daily"
         if self._write_mode(nxt):
             self._update_mode_btn(nxt)
+
+    # ─── DSH 提问回 GUI（node_dsh provider ↔ 本页）────────
+
+    def _poll_question(self):
+        """轮询 dsh_question_in.json：新 qid → 渲染提问卡片（判新用已处理 qid 集）"""
+        try:
+            if not _QUESTION_FILE.is_file():
+                return
+            data = json.loads(_QUESTION_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return
+        qid = str(data.get("qid") or "").strip()
+        questions = data.get("questions")
+        if not qid or qid in self._processed_qids or not isinstance(questions, list) or not questions:
+            return
+        self._processed_qids.add(qid)
+        self._append_question_card(qid, questions)
+
+    def _append_question_card(self, qid: str, questions: list[dict]):
+        """把 DSH 提问卡片插入消息流（AI 侧左对齐，微信风）"""
+        card = _QuestionCard(qid, questions)
+        card.answered.connect(self._on_question_answered)
+        count = self._msg_layout.count()
+        self._msg_layout.insertWidget(count - 1, card)
+        self._msg_layout.setAlignment(card, Qt.AlignmentFlag.AlignLeft)
+        self._msg_container.updateGeometry()
+        self._scroll_to_bottom()
+
+    def _on_question_answered(self, text: str):
+        """用户已提交 DSH 提问回答 → 回答入会话（用户气泡）+ 持久化"""
+        self._append_bubble(f"（回答 DSH 提问）{text}", "user")
+        if self._state.current_conversation_id:
+            self._save_current_messages(self._state.current_conversation_id)
 
     # ─── 对话切换 ────────────────────────────────
 
