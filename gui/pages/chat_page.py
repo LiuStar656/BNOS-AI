@@ -40,6 +40,12 @@ _HISTORY_FILE = Path(__file__).resolve().parent / "conversation_history.json"
 # 日常/工作模式状态文件（AAA 与 GUI 共享的事实来源）
 _MODE_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "mode.json"
 
+# 节点任务活动状态文件（AAA/LLM/DSH 各阶段原子写，GUI 轮询驱动等待气泡动态文案）
+_ACTIVITY_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "node_activity.json"
+
+# 活动状态轮询间隔（毫秒）
+_ACTIVITY_POLL_MS = 500
+
 # DSH 提问交互文件（node_dsh headless provider ↔ GUI，qid 精确匹配）
 _QUESTION_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "dsh_question_in.json"
 _ANSWER_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "dsh_answer_out.json"
@@ -248,6 +254,9 @@ class ChatPage(QWidget):
         self._typing_timer: QTimer | None = None
         self._typing_text: str = ""
         self._typing_index: int = 0
+
+        # 节点活动状态轮询（等待气泡动态文案：AAA/LLM/DSH 当前阶段）
+        self._activity_timer: QTimer | None = None
 
         # 从历史文件恢复对话列表（左侧会话标签可见可点）
         self._load_history()
@@ -650,8 +659,10 @@ class ChatPage(QWidget):
         ok = self._msg_mgr.send_text(text, attachments)
         if not ok:
             pass
-        # 发送成功 → 显示等待指示（AI 处理中）；收到正式回复时移除
-        self._show_waiting("AI 思考中…")
+        # 发送成功 → 显示等待指示并轮询节点活动状态（AAA/LLM/DSH 各阶段实时文案）；
+        # 收到正式回复时由 _hide_waiting 停止轮询
+        self._show_waiting("已发送，等待 AI 处理…")
+        self._start_activity_poll()
 
     def _on_send_state_changed(self, state: str):
         if state == "sending":
@@ -764,7 +775,7 @@ class ChatPage(QWidget):
                 border: none;
             }}
             QProgressBar::chunk {{
-                background-color: {colors['accent']};
+                background-color: {colors['accent_color']};
                 border-radius: 3px;
             }}
         """)
@@ -781,11 +792,44 @@ class ChatPage(QWidget):
 
     def _hide_waiting(self):
         """移除等待指示气泡"""
+        self._stop_activity_poll()
         if self._waiting_bubble is not None:
             self._msg_layout.removeWidget(self._waiting_bubble)
             self._waiting_bubble.deleteLater()
             self._waiting_bubble = None
             self._waiting_label = None
+
+    # ─── 节点活动状态轮询（AAA/LLM/DSH 各阶段实时文案） ──
+
+    def _start_activity_poll(self):
+        """开始轮询 node_activity.json，用节点实时阶段更新等待气泡文案"""
+        if self._activity_timer is not None:
+            return
+        timer = QTimer(self)
+        timer.setInterval(_ACTIVITY_POLL_MS)
+        timer.timeout.connect(self._poll_activity)
+        timer.start()
+        self._activity_timer = timer
+
+    def _stop_activity_poll(self):
+        """停止活动状态轮询"""
+        if self._activity_timer is not None:
+            self._activity_timer.stop()
+            self._activity_timer.deleteLater()
+            self._activity_timer = None
+
+    def _poll_activity(self):
+        """读取最近节点活动状态，更新等待气泡文案（超时时停留最后阶段便于定位卡点）"""
+        if self._waiting_label is None:
+            self._stop_activity_poll()
+            return
+        try:
+            data = json.loads(_ACTIVITY_FILE.read_text(encoding="utf-8"))
+            text = data.get("text", "") if isinstance(data, dict) else ""
+        except (OSError, json.JSONDecodeError):
+            return  # 文件暂不可读：保持当前文案
+        if text:
+            self._waiting_label.setText(text)
 
     @staticmethod
     def _strip_mood_tag(text: str) -> str:

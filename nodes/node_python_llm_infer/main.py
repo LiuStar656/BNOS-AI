@@ -9,11 +9,32 @@ LLM 推理节点 - 路由入口
 import sys
 import json
 import os
+import time
 import requests
 import subprocess
+from pathlib import Path
 
 from config import load_config, extract_params
 from backends import create_backend, LlamaServerBackend
+
+# 节点任务活动状态文件（GUI 等待气泡实时文案的数据源，原子写）
+_ACTIVITY_FILE = (
+    Path(__file__).resolve().parent.parent / "shared" / "node_activity.json"
+)
+
+
+def _write_activity(stage: str, text: str, rid: str = "") -> None:
+    """原子写节点活动状态（tmp + replace，避免并发写撕裂）。"""
+    try:
+        data = {"stage": stage, "text": text, "ts": time.time()}
+        if rid:
+            data["request_id"] = rid
+        _ACTIVITY_FILE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = _ACTIVITY_FILE.with_suffix(".tmp")
+        tmp.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        tmp.replace(_ACTIVITY_FILE)
+    except OSError:
+        pass
 
 
 # ════════════════════════════════════════════════════════════════
@@ -71,6 +92,9 @@ class MyNode:
         params = extract_params(self._cfg)
         max_tokens = params.get("max_tokens", 2048)
         temperature = params.get("temperature", 0.7)
+
+        # 上报活动状态：LLM 推理中（GUI 等待气泡实时显示，超时可定位卡点）
+        _write_activity("llm", "LLM 推理中…", rid)
 
         try:
             result_text = self._backend.infer(prompt_text, max_tokens, temperature)

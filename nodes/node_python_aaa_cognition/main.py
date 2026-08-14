@@ -15,7 +15,9 @@ import re
 import shutil
 import sqlite3
 import threading
+import time
 from datetime import datetime
+from pathlib import Path
 
 from config import load_config, resolve
 import db
@@ -39,6 +41,29 @@ from session_manager import SessionManager
 # ════════════════════════════════════════════════════════════════
 
 _IDENTITY_KEY_DEFAULT = "gui:default"
+
+# 节点任务活动状态文件（GUI 等待气泡实时文案的数据源，原子写）
+_ACTIVITY_FILE = (
+    Path(__file__).resolve().parent.parent / "shared" / "node_activity.json"
+)
+
+
+def _write_activity(stage: str, text: str, rid: str = "") -> None:
+    """原子写节点活动状态（tmp + replace，避免并发写撕裂）。
+
+    GUI 等待气泡轮询本文件动态展示 AAA/LLM/DSH 各阶段；超时无回复时
+    停留最后写入的阶段，便于用户定位卡点（如长时间"LLM 推理中…"）。
+    """
+    try:
+        data = {"stage": stage, "text": text, "ts": time.time()}
+        if rid:
+            data["request_id"] = rid
+        _ACTIVITY_FILE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = _ACTIVITY_FILE.with_suffix(".tmp")
+        tmp.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        tmp.replace(_ACTIVITY_FILE)
+    except OSError:
+        pass
 
 # v4.0 Prefetch：无意义输入（短输入/礼貌语/命令）跳过记忆预取
 _TRIVIAL_PATTERNS = [
@@ -167,6 +192,8 @@ class MyNode:
 
     def _on_text(self, data, dbp):
         db.ensure(dbp)
+        # 上报活动状态：AAA 已接收（GUI 等待气泡实时显示链路阶段）
+        _write_activity("aaa", "AAA 已接收，正在处理…", data.get("request_id", ""))
         # 首次连接 DB 时加载 MemOS 索引
         if memos._embeddings is None:
             memos.load_index(dbp)
@@ -177,6 +204,8 @@ class MyNode:
         query = data.get("content", "")
         rid = data.get("request_id", "")
         attachments = data.get("attachments", [])
+        # 多用户归属：GUI 单用户为空，消息池批量走 user_id 归因
+        user_id = str(data.get("user_id", "") or "")
 
         # ── P2-1 模式切换 NLP：关键词命中 → 切模式并立即回执（不写库、不走 LLM）──
         switch_msg = mode_manager.try_switch(query)
@@ -291,6 +320,8 @@ class MyNode:
           最终返回 {action: reply|silent} 显式决策（F4）。
         """
         db.ensure(dbp)
+        # 上报活动状态：AAA 处理批量消息
+        _write_activity("aaa", "AAA 正在处理消息…", data.get("request_id", ""))
         # 首次连接 DB 时加载 MemOS 索引
         if memos._embeddings is None:
             memos.load_index(dbp)
@@ -362,6 +393,8 @@ class MyNode:
     # ── LLM 节标记回执 ─────────────────────────────────────────
     def _on_parsed(self, data, dbp, cfg, user_id="", batch_mode=False):
         db.ensure(dbp)
+        # 上报活动状态：LLM 已回，AAA 解析写库阶段（GUI 等待气泡实时显示）
+        _write_activity("aaa_parse", "AAA 正在解析并写入记忆…", data.get("request_id", ""))
         conv_id = data.get("conversation_id") or data.get("_session_id", "default")
         content = data.get("content", "")
         parsed = psr.parse_llm_output(content)
@@ -717,6 +750,8 @@ class MyNode:
                 request_id=rid,
             )
             return
+        # 上报活动状态：DSH 已回，AAA 解析写库阶段（与日常模式 LLM 回执同链）
+        _write_activity("aaa_parse", "AAA 正在解析并写入记忆…", rid)
         # 会话续接：回带真实 session_id，供本会话后续多轮续接
         if isinstance(result.get("session_id"), str) and result["session_id"]:
             self._dsh_session_id = result["session_id"]

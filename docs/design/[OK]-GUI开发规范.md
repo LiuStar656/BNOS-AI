@@ -120,10 +120,11 @@ gui/
 | `nodes/node_dsh/output.json` | ← node_dsh | DSH 结果（task_id 精确匹配） |
 | `nodes/shared/dsh_question_in.json` | node_dsh → GUI | DSH 提问（headless provider 写入，qid 批次） |
 | `nodes/shared/dsh_answer_out.json` | GUI → node_dsh | 用户回答（qid 精确匹配，options 按钮 + 自由输入） |
+| `nodes/shared/node_activity.json` | AAA/LLM/DSH → GUI | 任务活动状态 `{"stage","text","ts","request_id?"}`（各节点阶段原子写，GUI 等待气泡轮询实时文案，超时可定位卡点） |
 
 规则：
 - 写共享文件一律**原子写**（tmp + replace），避免并发写撕裂
-- 结果判定用 `request_id` / `task_id` 精确匹配，不读"最近一次"
+- 结果判定用 `request_id` / `task_id` 精确匹配，不读"最近一次"；活动状态文件仅作**展示**（最近一次即可，不作结果判定）
 - 节点文件属 BNOS 层，GUI 只读写协议文件，不直接调用节点内部模块
 
 ### 2.6 布局调整

@@ -498,8 +498,12 @@ def _process_one(src_path, raw_data):
                     future = pool.submit(aaa_main._node.process, input_data)
                     try:
                         result = future.result(timeout=180)
-                    except Exception:
+                    except TimeoutError:
                         log(f"处理超时 [{src_path}]: 超过 180 秒未返回", "ERROR")
+                        return
+                    except Exception as e:
+                        # 进程内异常与超时区分记录，避免真实错误被误报为超时
+                        log(f"处理异常 [{src_path}]: {type(e).__name__}: {e}", "ERROR")
                         return
                 # 格式化输出（与 main.py __main__ 块逻辑一致）
                 if isinstance(result, list):
