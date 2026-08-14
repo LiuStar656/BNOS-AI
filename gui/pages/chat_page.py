@@ -8,7 +8,7 @@ from pathlib import Path
 
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QColor, QPalette
-from PySide6.QtWidgets import QHBoxLayout, QScrollArea, QSizePolicy, QVBoxLayout, QWidget
+from PySide6.QtWidgets import QHBoxLayout, QPushButton, QScrollArea, QSizePolicy, QVBoxLayout, QWidget
 
 from gui.core.config import AppConfig
 from gui.core.event_bus import event_bus
@@ -23,6 +23,9 @@ _TYPING_INTERVAL_MS = 50  # 逐字输出间隔（毫秒）
 
 # 对话历史持久化文件
 _HISTORY_FILE = Path(__file__).resolve().parent / "conversation_history.json"
+
+# 日常/工作模式状态文件（AAA 与 GUI 共享的事实来源）
+_MODE_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "mode.json"
 
 
 class ChatPage(QWidget):
@@ -123,6 +126,18 @@ class ChatPage(QWidget):
         self._msg_layout.setSpacing(8)
         self._msg_layout.addStretch(1)  # 弹簧在最底部
 
+        # ─── 顶部模式栏（P2：日常/工作切换）────────
+        mode_bar = QWidget()
+        mode_bar_layout = QHBoxLayout(mode_bar)
+        mode_bar_layout.setContentsMargins(12, 6, 12, 2)
+        mode_bar_layout.setSpacing(8)
+        self._mode_btn = QPushButton()
+        self._mode_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._mode_btn.clicked.connect(self._on_mode_toggle)
+        mode_bar_layout.addWidget(self._mode_btn)
+        mode_bar_layout.addStretch()
+        inner_layout.addWidget(mode_bar)
+
         self._scroll_area.setWidget(self._msg_container)
         inner_layout.addWidget(self._scroll_area, 1)
 
@@ -143,9 +158,75 @@ class ChatPage(QWidget):
         outer.setStretch(1, 90)  # 聊天区
         outer.setStretch(2, 5)   # 右侧留白
 
+        # 初始化模式按钮状态 + 定时同步（AAA 关键词自动切换后 GUI 同步显示）
+        self._update_mode_btn(self._read_mode())
+        self._mode_sync_timer = QTimer(self)
+        self._mode_sync_timer.setInterval(1000)
+        self._mode_sync_timer.timeout.connect(self._sync_mode_btn)
+        self._mode_sync_timer.start()
+
     def _connect_signals(self):
         self._state.on_change("send_state", self._on_send_state_changed)
         self._conv_list.conversation_deleted.connect(self._on_conversation_deleted)
+
+    # ─── 日常/工作模式切换（P2）──────────────────
+
+    def _read_mode(self) -> str:
+        """读取当前模式（nodes/shared/mode.json），默认 daily"""
+        try:
+            if _MODE_FILE.is_file():
+                data = json.loads(_MODE_FILE.read_text(encoding="utf-8"))
+                mode = str(data.get("mode", "")).strip()
+                if mode in ("daily", "work"):
+                    return mode
+        except Exception:
+            pass
+        return "daily"
+
+    def _write_mode(self, mode: str) -> bool:
+        """原子写模式状态（临时文件 + replace）"""
+        try:
+            _MODE_FILE.parent.mkdir(parents=True, exist_ok=True)
+            tmp = _MODE_FILE.with_suffix(".json.tmp")
+            tmp.write_text(json.dumps({"mode": mode}, ensure_ascii=False), encoding="utf-8")
+            tmp.replace(_MODE_FILE)
+            return True
+        except OSError:
+            return False
+
+    def _mode_btn_style(self, mode: str) -> str:
+        colors = self._config.get_all_colors()
+        if mode == "work":
+            bg, fg = colors.get("accent_color", "#4f8cff"), "#ffffff"
+        else:
+            bg, fg = colors.get("bg_primary", "#f2f3f5"), colors.get("text_primary", "#1f2329")
+        return f"""
+            QPushButton {{
+                background-color: {bg}; color: {fg};
+                border: none; border-radius: 6px;
+                padding: 4px 14px; font-size: 13px; font-weight: bold;
+            }}
+            QPushButton:hover {{ background-color: {bg}; }}
+        """
+
+    def _update_mode_btn(self, mode: str):
+        self._current_mode = mode
+        self._mode_btn.setText("工作模式" if mode == "work" else "日常模式")
+        self._mode_btn.setToolTip(
+            "工作模式：输入直通 DSH 执行（不走 AI 对话判断）；日常模式：正常对话。"
+            "点击切换，也可在对话中说「进入工作模式/退出工作模式」。")
+        self._mode_btn.setStyleSheet(self._mode_btn_style(mode))
+
+    def _sync_mode_btn(self):
+        """定时同步按钮状态（关键词自动切换后 GUI 保持一致）"""
+        mode = self._read_mode()
+        if mode != getattr(self, "_current_mode", ""):
+            self._update_mode_btn(mode)
+
+    def _on_mode_toggle(self):
+        nxt = "work" if self._read_mode() == "daily" else "daily"
+        if self._write_mode(nxt):
+            self._update_mode_btn(nxt)
 
     # ─── 对话切换 ────────────────────────────────
 

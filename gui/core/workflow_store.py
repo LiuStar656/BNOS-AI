@@ -15,6 +15,7 @@ from __future__ import annotations
 import json
 import math
 import time
+import uuid
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -193,7 +194,11 @@ class WorkflowStore:
                 if isinstance(v, str) and v.startswith("{{") and v.endswith("}}"):
                     key = v[2:-2]
                     args[k] = overrides.get(key)
-            outcome = tool_registry.execute(tool_name, args)
+            # dsh 执行类步骤：直连 node_dsh 节点通道（不走 GUI 工具桥，保留同步等待语义）
+            if tool_name.startswith("dsh.run_task"):
+                outcome = self._run_dsh_direct(args)
+            else:
+                outcome = tool_registry.execute(tool_name, args)
             results.append({"tool": tool_name, **outcome})
             if not outcome.get("ok"):
                 self.record_use(flow_id)
@@ -205,6 +210,62 @@ class WorkflowStore:
         return {
             "ok": True, "message": f"流程 {wf.name} 执行完成（{len(results)} 步）",
             "data": {"flow_id": flow_id, "steps": results},
+        }
+
+    def _run_dsh_direct(self, args: dict) -> dict:
+        """DSH 执行类步骤直连 node_dsh 节点通道（同步等待，task_id 精确匹配）。"""
+        task = str(args.get("task", "")).strip()
+        if not task:
+            return {"ok": False, "message": "缺少 task 字段"}
+        session_id = str(args.get("session_id") or "").strip()
+        try:
+            timeout = float(args.get("timeout", 600))
+        except (TypeError, ValueError):
+            timeout = 600.0
+        timeout = max(1.0, timeout)
+
+        node_dir = _SHARED_DIR.parent / "node_dsh"
+        if not (node_dir / "node_config.json").is_file():
+            return {"ok": False, "message": "node_dsh 节点不存在"}
+        task_id = uuid.uuid4().hex[:12]
+        payload = {
+            "data_type": "dsh_task",
+            "task": task,
+            "task_id": task_id,
+            "_ts": time.time(),
+        }
+        if session_id:
+            payload["session_id"] = session_id
+        try:
+            _SHARED_DIR.mkdir(parents=True, exist_ok=True)
+            (_SHARED_DIR / "dsh_task_in.json").write_text(
+                json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+        except OSError as exc:
+            return {"ok": False, "message": f"提交失败: {exc}"}
+
+        # 同步轮询：node_dsh 执行完毕后写入 output.json（task_id 精确判定本次任务）
+        out_path = node_dir / "output.json"
+        deadline = time.time() + timeout
+        while time.time() < deadline:
+            time.sleep(1.0)
+            if not out_path.is_file():
+                continue
+            try:
+                data = json.loads(out_path.read_text(encoding="utf-8"))
+                inner = data.get("data", data) if isinstance(data, dict) else data
+            except (json.JSONDecodeError, OSError):
+                continue
+            if not isinstance(inner, dict) or inner.get("task_id") != task_id:
+                continue
+            return {
+                "ok": True,
+                "message": "DSH 任务完成" if inner.get("ok") else "DSH 任务失败",
+                "data": inner,
+            }
+        return {
+            "ok": False,
+            "message": f"DSH 任务等待超时（>{timeout:.0f}s，任务仍在后台执行）",
+            "data": {"task_id": task_id, "submitted": True},
         }
 
     # ─── 用进废退：隐性反馈 ──────────────────────

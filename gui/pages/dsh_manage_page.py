@@ -1076,7 +1076,7 @@ class TasksTab(QWidget):
             timeout = max(1, int(self._timeout_edit.text() or 600))
         except ValueError:
             timeout = 600
-        # 与 tool_registry 的 dsh.run_task_sync 同链路：提交 + 轮询 output.json（task_id 匹配）
+        # 与 node_dsh 节点通道同链路：提交 + 轮询 output.json（task_id 匹配）
         import uuid
         task_id = uuid.uuid4().hex[:12]
         req = _NODE_DIR.parent / "shared" / "dsh_task_in.json"

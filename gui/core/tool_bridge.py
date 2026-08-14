@@ -33,8 +33,10 @@ _SCHEMAS_FILE = _SHARED_DIR / "gui_tool_schemas.json"
 
 _POLL_INTERVAL_MS = 600
 
-# 耗时工具集合：在独立线程执行，避免阻塞 GUI 主线程（QTimer 轮询 / 界面渲染）
-_HEAVY_TOOLS = {"dsh.run_task_sync"}
+# 耗时工具集合：在独立线程执行，避免阻塞 GUI 主线程（QTimer 轮询 / 界面渲染）。
+# 注：dsh.* 执行工具已迁移到 node_dsh 节点通道直连（AAA/workflow 不再走工具桥），
+# 此处集合保留机制，供未来其他耗时工具加入。
+_HEAVY_TOOLS: set[str] = set()
 
 
 class ToolBridge(QObject):

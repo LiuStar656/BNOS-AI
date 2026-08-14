@@ -26,6 +26,8 @@ import diary
 import personality as prs
 import retrieval_gate
 import gui_tools
+import dsh_client
+import mode_manager
 from perception_capabilities import PerceptionCapabilities
 from memory_provider import MemOSProvider, sanitize_memory_context
 from context_engine import ContextEngine
@@ -86,6 +88,8 @@ class MyNode:
         self.session_manager = SessionManager()
         # v4.0 Review 回执重试：已重试的 request_id（防无限重发）
         self._review_retried_ids: set = set()
+        # P1-3 DSH 会话续接：最近一次 DSH 任务回带的真实 session_id（工作模式多轮续接）
+        self._dsh_session_id: str = ""
 
     # ── 框架入口 ──────────────────────────────────────────────
     def process(self, data):
@@ -170,6 +174,18 @@ class MyNode:
         identity_key = data.get("identity_key", _IDENTITY_KEY_DEFAULT)
         self._current_conversation_id = conv_id
 
+        query = data.get("content", "")
+        rid = data.get("request_id", "")
+        attachments = data.get("attachments", [])
+
+        # ── P2-1 模式切换 NLP：关键词命中 → 切模式并立即回执（不写库、不走 LLM）──
+        switch_msg = mode_manager.try_switch(query)
+        if switch_msg:
+            return {
+                "_port": "reply", "data_type": "reply",
+                "content": switch_msg, "request_id": rid,
+            }
+
         # 写用户输入到 DB（去重 + importance）
         db.write_async(data, dbp, role="user")
 
@@ -187,13 +203,9 @@ class MyNode:
         today = datetime.now().strftime("%Y-%m-%d")
         diary.check_and_write_diary(today, dbp)
 
-        attachments = data.get("attachments", [])
-        rid = data.get("request_id", "")
-
         # ── v4.0 Prefetch：单轮交互，同步预取记忆并注入安全协议 ──
         # v7.0 检索门控（retrieval_gate.should_prefetch）：判断这轮需不需要
         # 预取记忆（config.retrieval_gate.mode，默认 off = 每轮强制预取）
-        query = data.get("content", "")
         memory_context = ""
         if not self._is_trivial_prompt(query):
             should, _gate_info = retrieval_gate.should_prefetch(query)
@@ -219,8 +231,47 @@ class MyNode:
             "memory_hits": self._last_prefetch_hits,
         }
 
+        # ── P2-2 工作模式直通：跳过 LLM 判断，带 AAA 完整上下文直发 DSH ──
+        if mode_manager.get_mode() == mode_manager.MODE_WORK:
+            return self._direct_dsh_to_node(query, ctx, rid)
+
         return {
             "_port": "prompt", "data_type": "prompt", "content": pt.build(ctx),
+            "request_id": rid,
+        }
+
+    def _direct_dsh_to_node(self, user_text: str, ctx: dict, rid: str) -> dict:
+        """工作模式直通：不经过 LLM 判断，把用户输入 + AAA 完整上下文
+        直接提交给 node_dsh（标准 BNOS 节点通道），后台轮询完成后再推送结果。
+
+        - 上下文：_gather_context 产出的完整认知上下文（self_cognition /
+          fixed_cognition / recent_feelings / history_summary / user_info 等），
+          随任务文件传给 node_dsh 拼入 task 前缀。
+        - 会话续接：沿用最近一次 DSH 回带的 session_id（多轮连贯）。
+        - 回执：先回复「已提交」，完成结果由 _dsh_wait_and_push 主动推送。
+        """
+        # 规整上下文：列表字段 join 为字符串，供 node_dsh 拼接
+        context = {}
+        for key, val in ctx.items():
+            if isinstance(val, list):
+                context[key] = "\n".join(str(x) for x in val if str(x).strip())
+            elif isinstance(val, str) and val.strip():
+                context[key] = val
+
+        submitted = dsh_client.submit_task(
+            user_text, session_id=self._dsh_session_id, context=context)
+        if not submitted.get("ok"):
+            return {
+                "_port": "reply", "data_type": "reply",
+                "content": f"DSH 提交失败：{submitted.get('message', '未知错误')}",
+                "request_id": rid,
+            }
+        task_id = submitted["data"]["task_id"]
+        threading.Thread(
+            target=self._dsh_wait_and_push, args=(task_id, rid), daemon=True).start()
+        return {
+            "_port": "reply", "data_type": "reply",
+            "content": f"已提交 DSH（工作模式直通，task_id={task_id[:8]}…），完成后我会推送结果。",
             "request_id": rid,
         }
 
@@ -360,13 +411,22 @@ class MyNode:
                 "request_id": rid,
             }
 
-        # ③ 工具调用（P0-1 开放）：操控 GUI 文件桥 → 转述结果
+        # ③ 工具调用：dsh.* 直连 node_dsh（节点通道，不依赖 GUI）+
+        #    异步回执；其余工具走 GUI 文件桥
         if tool_call:
             results = []
             for tc in tool_call:
                 tname = str(tc.get("tool_name", "")).strip()
                 targs = tc.get("args") or {}
-                outcome = gui_tools.call_tool(tname, targs)
+                if tname.startswith("dsh."):
+                    outcome = self._invoke_dsh_direct(tname, targs, rid)
+                    # 异步任务：立即回复「已提交」，完成由后台线程推送
+                    if outcome.get("async"):
+                        results.append(
+                            f"· {tname} 已提交（完成结果稍后推送）：{outcome.get('message', '')}")
+                        continue
+                else:
+                    outcome = gui_tools.call_tool(tname, targs)
                 status = "成功" if outcome.get("ok") else "失败"
                 results.append(f"· {tname} {status}：{outcome.get('message', '')}")
             reply_text = "我已处理你的请求，GUI 操作结果：\n" + "\n".join(results)
@@ -608,6 +668,49 @@ class MyNode:
         return {"_port": "default", "status": "ok", "message": f"diary processed for {date_str}"}
 
     # ── 工具执行结果 ──────────────────────────────────────────
+    def _invoke_dsh_direct(self, tname: str, targs: dict, rid: str) -> dict:
+        """直连 node_dsh 执行 DSH 任务（不经 GUI 工具桥）。
+
+        dsh.* 工具统一映射为 submit_task：task 取 targs["task"]，
+        session_id 续接会话；提交后启动后台线程轮询结果并推送。
+        返回 {"ok", "message", "async"}：async=True 表示结果稍后推送。
+        """
+        task = str(targs.get("task", "")).strip()
+        if not task:
+            return {"ok": False, "message": "缺少 task 字段（DSH 工具需传 task）"}
+        session_id = str(targs.get("session_id", "")).strip()
+        submitted = dsh_client.submit_task(task, session_id=session_id)
+        if not submitted.get("ok"):
+            return {"ok": False, "message": submitted.get("message", "DSH 任务提交失败")}
+        task_id = submitted["data"]["task_id"]
+        threading.Thread(
+            target=self._dsh_wait_and_push,
+            args=(task_id, rid),
+            daemon=True,
+        ).start()
+        return {
+            "ok": True,
+            "async": True,
+            "message": f"任务已提交（task_id={task_id[:8]}…）",
+        }
+
+    def _dsh_wait_and_push(self, task_id: str, rid: str) -> None:
+        """后台线程：等待 node_dsh 完成 → 结果主动推送 gui_reply.json。"""
+        result = dsh_client.wait_result(task_id, timeout=dsh_client.DEFAULT_TIMEOUT)
+        if result is None:
+            dsh_client.push_reply(
+                "DSH 任务仍在执行中（已超过等待上限），你可以再问我进展。",
+                request_id=rid,
+            )
+            return
+        # 会话续接：回带真实 session_id，供本会话后续多轮续接
+        if isinstance(result.get("session_id"), str) and result["session_id"]:
+            self._dsh_session_id = result["session_id"]
+        final = str(result.get("final") or result.get("result") or "").strip()
+        if not final:
+            final = f"DSH 任务完成（{result.get('message', '无内容')}）"
+        dsh_client.push_reply(final, request_id=rid)
+
     def _on_tool_result(self, data, dbp):
         db.ensure(dbp)
         conv_id = data.get("conversation_id") or data.get("_session_id", "default")

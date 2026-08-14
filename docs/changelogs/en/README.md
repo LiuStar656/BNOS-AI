@@ -6,7 +6,7 @@
 
 | Date | Description |
 |------|-------------|
-| [2026-08-14](./2026-08-14/README.md) | GUI pluggability & AI UI control (7 phases) / DSH manage page (9 tabs) / Workflow drives DSH executor / Persona merged into Agent presets / AI-authored presets & skinning closed loop / Global button font auto-fit |
+| [2026-08-14](./2026-08-14/README.md) | GUI pluggability & AI UI control (7 phases) / DSH manage page (9 tabs) / Workflow drives DSH executor / Persona merged into Agent presets / AI-authored presets & skinning closed loop / Global button font auto-fit / AAA direct-to-DSH node channel & daily/work modes |
 | [2026-08-08](./2026-08-08/README.md) | Message pool & danmaku processing infrastructure (AAA batch entry + user_id multi-user dimension + platform pool/router/arbiter/collector) / Location fixes (county-level reverse geocoding / IP fallback suppression while Qt active / same-coordinate history dedup) / Data browser "colon-only" placeholder fix |
 | [2026-08-07](./2026-08-07/README.md) | Logging system implementation (GUI logs / engine logs / node logs batch-isolated by launch) / AAA memory system refactor (diary table / multi-table retrieval / graph PCA) |
 | [2026-07-28](./2026-07-28/README.md) | Chat bubble layout & alignment refactor / Live2D encoding fix / Knowledge panel display optimization |

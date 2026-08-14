@@ -12,6 +12,7 @@
 - [04 Persona Merged into Agent Presets (Goal/Persona Tab Removed)](#04-persona-merged-into-agent-presets-goalpersona-tab-removed)
 - [05 AI-Authored Presets & Skinning Closed Loop (Tool Expansion)](#05-ai-authored-presets--skinning-closed-loop-tool-expansion)
 - [06 Global Button Font Auto-Fit](#06-global-button-font-auto-fit)
+- [07 AAA Direct-to-DSH Node Channel & Daily/Work Modes](#07-aaa-direct-to-dsh-node-channel--dailywork-modes)
 
 ---
 
@@ -25,6 +26,7 @@
 | 04 | Removed the standalone 「目标/人格」Tab; persona merged into Agent Presets (the `id: persona` row in agent.cordis.yml); added `_migrate_drop_global_persona()` to clean leftover global `system-prompt` rows | The old tab wrote global `system-prompt.persona`, conflicting with DSH's official "persona belongs to preset" semantics and overlapping AAA's persona responsibility | Persona editing lives in the preset edit dialog; empty text = inherit deployment default; `!!js` expressions roundtrip intact |
 | 05 | ToolRegistry expanded to 25 tools: 7 new `dsh.preset_*` (list/copy/read/write/persona/remove/set_default) enabling AI-authored presets; `gui_tools.py` injection note broadened | DSH officially allows user presets "authored by a person or by an agent"; user wanted dialog-driven preset creation like DSH | Tell the AI "create an Agent named xx with persona…" to create/customize presets, effective next headless task |
 | 06 | New `fit_button_width()` helper: fontMetrics width + padding, only sets minimumWidth (keeps sizeHint); replaced all `setFixedWidth` text buttons in 6 pages | Fixed QSS padding + fixed button widths → text overflows buttons when fonts enlarge | Buttons no longer overflow under DPI/theme font scaling; convention: no setFixedWidth for text buttons |
+| 07 | AAA talks to the DSH node channel directly (dsh_client.py, no GUI tool bridge) + async receipt (background polling pushes results via gui_reply.json) + daily/work modes (manual GUI button & configurable keyword auto-switch; work mode skips LLM judgment and sends the full context straight to DSH); GUI tool bridge drops the dsh execution organs (25→22 tools), workflow steps go direct to the node | node_dsh is already a standard BNOS node; forwarding should use the node channel, not the GUI tool bridge (which requires the GUI online); DSH results never flowed back; every turn paid LLM judgment cost | Forwarding no longer depends on the GUI; DSH results are pushed automatically; work-mode input goes straight to DSH without LLM judgment; keywords editable in the settings panel; workflow dsh steps keep sync-wait semantics |
 
 ---
 
@@ -52,6 +54,10 @@ See [05_AIAuthoredPresetsAndSkinning.md](./05_AIAuthoredPresetsAndSkinning.md).
 
 See [06_ButtonFontAutoFit.md](./06_ButtonFontAutoFit.md).
 
+### 07 AAA Direct-to-DSH Node Channel & Daily/Work Modes
+
+See [07_AAADirectDSHNodeAndModes.md](./07_AAADirectDSHNodeAndModes.md).
+
 ---
 
 ## Modified Files
@@ -66,20 +72,23 @@ See [06_ButtonFontAutoFit.md](./06_ButtonFontAutoFit.md).
 | `gui/core/messages.py` | #01 |
 | `gui/core/skin_registry.py` | #01 |
 | `gui/core/proposal_store.py` | #01 |
-| `gui/core/tool_registry.py` | #01、#05 |
-| `gui/core/tool_bridge.py` | #01 |
-| `gui/core/workflow_store.py` | #01、#03 |
+| `gui/core/tool_registry.py` | #01、#05、#07 |
+| `gui/core/tool_bridge.py` | #01、#07 |
+| `gui/core/workflow_store.py` | #01、#03、#07 |
 | `gui/core/utils/widget_utils.py` | #06 |
 | `gui/pages/activity_page.py` | #01 |
 | `gui/pages/tools_page.py` | #01 |
 | `gui/pages/proposals_page.py` | #01 |
 | `gui/pages/workflow_page.py` | #01、#03 |
 | `gui/pages/dsh_manage_page.py` | #02、#04、#05 |
+| `nodes/node_python_aaa_cognition/dsh_client.py` | #07 |
+| `nodes/node_python_aaa_cognition/mode_manager.py` | #07 |
 | `docs/design/[PLAN]-GUI可插拔化与AI操控UI完整方案.md` | #01 |
 | `docs/design/[PLAN]-DSH设置控制组件接入GUI方案（待决策）.md` | #02、#04、#05 |
 | `docs/design/[PLAN]-workflow接入DSH执行器方案（待决策）.md` | #03 |
 | `docs/design/[PLAN]-DeepSeekHarness接入方案.md` | #02、#03 |
 | `docs/design/[PLAN]-DSH会话续接方案（待决策）.md` | #02 |
+| `docs/design/[OK]-AAA直连DSH节点与模式切换方案.md` | #07 |
 
 ### Major Modified Files
 
@@ -92,11 +101,19 @@ See [06_ButtonFontAutoFit.md](./06_ButtonFontAutoFit.md).
 | `gui/core/ui_registry.py` | `page.dsh_config` → `page.dsh_manage` (title 「DSH 管理」) | #02 |
 | `nodes/node_dsh/harness/packages/bundle/headless/cordis.patch.yml` | Adds `agent-presets` row (enables preset roster) | #02、#04 |
 | `nodes/node_dsh/harness/packages/bundle/headless/src/index.ts` | `setup` async; mounts preset via `DSH_PRESET`; merges `DSH_TEMPERATURE` in `agent/request` | #02 |
-| `nodes/node_dsh/main.py` | Injects `DSH_TEMPERATURE`/`DSH_PRESET` env; loads `--patch extra.patch.yml` (skips empty patch) | #02、#03 |
 | `nodes/node_python_aaa_cognition/gui_tools.py` | Tool-bridge client (load_schemas/call_tool/tool_list_text/workflows_text); injection note broadened | #01、#05 |
-| `nodes/node_python_aaa_cognition/main.py` | Parses 【工具调用】【流程选择】sections → call_tool / flow branch | #01、#03 |
+| `nodes/node_python_aaa_cognition/main.py` | Parses 【工具调用】【流程选择】sections → call_tool / flow branch; dsh.* direct to node_dsh + async receipt; `_on_text` mode NLP + work pass-through; `_dsh_session_id` resume | #01、#03、#07 |
+| `nodes/node_python_aaa_cognition/node_config.json` | New `mode_keywords` section (default switch keywords) | #07 |
+| `nodes/node_dsh/main.py` | Injects `DSH_TEMPERATURE`/`DSH_PRESET` env; loads `--patch extra.patch.yml` (skips empty patch); `context` field prepended to the task | #02、#03、#07 |
 | `nodes/node_python_aaa_cognition/prompt.py` | `_gui_tools_section()` injects tool list + flow library | #01、#03 |
 | `nodes/node_python_aaa_cognition/parser.py` | New tool-call / flow-selection section parsing | #01、#03 |
+| `gui/core/tool_registry.py` | Removed dsh.run_task / run_task_sync / check_task (25→22 tools) | #07 |
+| `gui/core/workflow_store.py` | `run()` routes dsh.* execution-class steps to `_run_dsh_direct` (sync-wait semantics kept) | #07 |
+| `gui/core/tool_bridge.py` | `_HEAVY_TOOLS` emptied (dsh execution migrated to the node channel) | #07 |
+| `gui/pages/chat_page.py` | Top-bar 「日常/工作」toggle button + 1s state sync | #07 |
+| `gui/pages/settings_panel.py` | 「模式切换关键词」config group (edits AAA node_config.json) | #07 |
+| `gui/pages/dsh_manage_page.py` | Comment sync (task path described as node_dsh node channel) | #07 |
+| `nodes/shared/gui_tool_schemas.json` | Capability list refreshed to 22 tools | #07 |
 | `pipeline.json` | Engine pipeline adds `node_dsh` node | #02 |
 
 ---

@@ -16,6 +16,7 @@ from PySide6.QtWidgets import (
     QGroupBox,
     QHBoxLayout,
     QLabel,
+    QLineEdit,
     QMessageBox,
     QPushButton,
     QSlider,
@@ -263,6 +264,9 @@ class SettingsPanel(QWidget):
         # ─── 性格参数（v5.1 角色种子）───
         self._add_personality_section(layout, btn_style)
 
+        # ─── 模式切换关键词（P2）───
+        self._add_mode_keywords_section(layout, btn_style)
+
         # ─── Logseq 目录 ───
         logseq_group = QGroupBox("Logseq 知识库")
         logseq_layout = QFormLayout(logseq_group)
@@ -354,6 +358,80 @@ class SettingsPanel(QWidget):
         v.addWidget(save_btn)
 
         layout.addWidget(group)
+
+    # ─── 模式切换关键词（P2）───────────────────
+
+    @staticmethod
+    def _aaa_config_path() -> Path:
+        """AAA 节点配置路径（node_config.json）"""
+        return Path(__file__).resolve().parent.parent.parent \
+            / "nodes" / "node_python_aaa_cognition" / "node_config.json"
+
+    def _add_mode_keywords_section(self, layout, btn_style: str):
+        """日常/工作模式切换关键词配置（写回 AAA node_config.json）"""
+        group = QGroupBox("模式切换关键词")
+        v = QVBoxLayout(group)
+        v.setSpacing(8)
+
+        tip = QLabel("对话中说出以下关键词即自动切换模式（子串匹配）。多个关键词用逗号分隔。")
+        tip.setWordWrap(True)
+        tip.setStyleSheet(f"color: {theme_engine.get('text_secondary')}; font-size: 12px;")
+        v.addWidget(tip)
+
+        form = QFormLayout()
+        form.setSpacing(6)
+        self._kw_work_edit = QLineEdit()
+        self._kw_work_edit.setStyleSheet(f"""
+            QLineEdit {{
+                background-color: {theme_engine.get('bg_secondary')};
+                color: {theme_engine.get('text_primary')};
+                border: 1px solid {theme_engine.get('border_color')};
+                border-radius: 4px; padding: 4px 8px;
+            }}
+        """)
+        form.addRow("进入工作模式：", self._kw_work_edit)
+        self._kw_daily_edit = QLineEdit()
+        self._kw_daily_edit.setStyleSheet(self._kw_work_edit.styleSheet())
+        form.addRow("进入日常模式：", self._kw_daily_edit)
+        v.addLayout(form)
+
+        save_btn = QPushButton("保存关键词")
+        save_btn.setStyleSheet(btn_style)
+        save_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        save_btn.clicked.connect(self._save_mode_keywords)
+        v.addWidget(save_btn)
+
+        layout.addWidget(group)
+
+        # 延迟加载当前关键词（节点配置已存在）
+        QTimer.singleShot(0, self._load_mode_keywords)
+
+    def _load_mode_keywords(self):
+        """从 AAA node_config.json 读取 mode_keywords 填充输入框"""
+        try:
+            cfg_path = self._aaa_config_path()
+            if cfg_path.exists():
+                cfg = json.loads(cfg_path.read_text("utf-8"))
+                kw = cfg.get("mode_keywords") or {}
+                self._kw_work_edit.setText(",".join(kw.get("work", []) or []))
+                self._kw_daily_edit.setText(",".join(kw.get("daily", []) or []))
+        except Exception:
+            pass
+
+    def _save_mode_keywords(self):
+        """保存关键词到 AAA node_config.json（read-modify-write 保留其余配置）"""
+        try:
+            cfg_path = self._aaa_config_path()
+            cfg = json.loads(cfg_path.read_text("utf-8")) if cfg_path.exists() else {}
+            cfg["mode_keywords"] = {
+                "work": [w.strip() for w in self._kw_work_edit.text().split(",") if w.strip()],
+                "daily": [w.strip() for w in self._kw_daily_edit.text().split(",") if w.strip()],
+            }
+            cfg_path.write_text(
+                json.dumps(cfg, indent=2, ensure_ascii=False), encoding="utf-8")
+            QMessageBox.information(self, "保存成功", "模式切换关键词已更新，下次对话生效。")
+        except Exception as e:
+            QMessageBox.warning(self, "保存失败", f"保存关键词失败: {e}")
 
     def _import_db(self):
         """延迟导入 AAA 节点 db 模块"""
