@@ -36,8 +36,8 @@ _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 _DB_PATH = str(_PROJECT_ROOT / "nodes" / "shared" / "chatbot.db")
 _GRAPH_PATH = str(_PROJECT_ROOT / "nodes" / "shared" / "knowledge_graph.json")
 
-# 不参与知识面板展示的表（目前无；location_history 已纳入展示）
-_IGNORED_TABLES: set[str] = set()
+# 不展示的表（fixed_cognition 已废弃移除；旧库残留表不再显示）
+_IGNORED_TABLES: set[str] = {"fixed_cognition"}
 
 # ─── 数据库表分类标签 ─────────────────────────
 TABLE_LABELS: dict[str, str] = {
@@ -46,7 +46,6 @@ TABLE_LABELS: dict[str, str] = {
     "entity_attrs":      "实体属性",
     "event_summary":     "事件摘要",
     "feelings":          "情感",
-    "fixed_cognition":   "固定认知",
     "interest_judgment": "兴趣判断",
     "location_history":  "定位历史",
     "long_term_memory":  "长期记忆（归档）",
@@ -80,8 +79,8 @@ def _read_db() -> list[dict]:
             # 跳过既无 id 列也无 identity_key 列的表
             if "id" not in cols and "identity_key" not in cols:
                 continue
-            # self_cognition / other_cognition 只显示最新 1 条
-            limit = 1 if tname in ("self_cognition", "other_cognition") else 200
+            # self_cognition / other_cognition 展示最近 5 条（自我认知=身份背景）
+            limit = 5 if tname in ("self_cognition", "other_cognition") else 200
             if "id" in cols:
                 table_rows = conn.execute(
                     f"SELECT * FROM [{tname}] ORDER BY id DESC LIMIT {limit}"

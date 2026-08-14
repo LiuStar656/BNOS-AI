@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -43,6 +44,9 @@ _MODE_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" 
 
 # 节点任务活动状态文件（AAA/LLM/DSH 各阶段原子写，GUI 轮询驱动等待气泡动态文案）
 _ACTIVITY_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "node_activity.json"
+
+# 任务取消标记（GUI 终止按钮写入；AAA wait_result / node_dsh 轮询检测到即中断）
+_CANCEL_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "dsh_cancel.json"
 
 # 活动状态轮询间隔（毫秒）
 _ACTIVITY_POLL_MS = 500
@@ -803,13 +807,33 @@ class ChatPage(QWidget):
             "QScrollArea { background: transparent; border: none; }")
         self._waiting_label = QLabel(header + text)
         self._waiting_label.setWordWrap(True)          # DSH 实时输出多行自动换行
-        self._waiting_label.setMaximumWidth(400)       # 限制宽度，避免撑爆窗口
+        self._waiting_label.setMaximumWidth(560)       # 限制宽度，避免撑爆窗口
         self._waiting_label.setStyleSheet(
             f"color: {colors['text_secondary']}; font-size: 12px;")
         scroll.setWidget(self._waiting_label)
         self._waiting_scroll = scroll
+        # 终止按钮：DSH 执行可能数十秒，用户可随时放弃等待
+        cancel_btn = QPushButton("✕", bubble)
+        cancel_btn.setFixedSize(22, 22)
+        cancel_btn.setToolTip("终止当前任务")
+        cancel_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        cancel_btn.setStyleSheet(f"""
+            QPushButton {{
+                background-color: transparent;
+                color: {colors['text_secondary']};
+                border: none;
+                border-radius: 11px;
+                font-size: 13px;
+            }}
+            QPushButton:hover {{
+                background-color: {colors['border_color']};
+                color: {colors['text_color']};
+            }}
+        """)
+        cancel_btn.clicked.connect(self._cancel_current)
         lay.addWidget(bar)
         lay.addWidget(scroll, 1)
+        lay.addWidget(cancel_btn, 0, Qt.AlignmentFlag.AlignTop)
         count = self._msg_layout.count()
         self._msg_layout.insertWidget(count - 1, bubble)
         self._msg_layout.setAlignment(bubble, Qt.AlignmentFlag.AlignLeft)
@@ -826,6 +850,22 @@ class ChatPage(QWidget):
             self._waiting_bubble.deleteLater()
             self._waiting_bubble = None
             self._waiting_label = None
+
+    def _cancel_current(self):
+        """终止当前任务：写取消标记 → 关闭等待气泡 → 恢复输入。
+
+        AAA wait_result 与 node_dsh 轮询 dsh_cancel.json（时间窗口内）即中断；
+        GUI 本地立即恢复可输入，不等待后台清理。
+        """
+        try:
+            _CANCEL_FILE.parent.mkdir(parents=True, exist_ok=True)
+            tmp = _CANCEL_FILE.with_suffix(".tmp")
+            tmp.write_text(json.dumps({"ts": time.time()}), encoding="utf-8")
+            tmp.replace(_CANCEL_FILE)
+        except OSError:
+            pass  # 标记写入失败不阻塞本地取消
+        self._hide_waiting()
+        self._chat_input.set_enabled(True)
 
     # ─── 节点活动状态轮询（AAA/LLM/DSH 各阶段实时文案） ──
 
