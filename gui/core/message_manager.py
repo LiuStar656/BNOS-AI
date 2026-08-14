@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import shutil
 import time
 import uuid
@@ -195,6 +196,10 @@ class MessageManager(QObject):
         reply_text = ""
         if isinstance(content, dict) and content.get("data_type") == "reply":
             reply_text = content.get("content", "")
+
+            # 静音/状态标签（<silent/>）仅控制 TTS 播报，GUI 显示时去除
+            if "<silent" in reply_text:
+                reply_text = re.sub(r"<silent/?>", "", reply_text)
 
             # request_id 过滤：丢弃与当前发送不匹配的过期回复
             reply_id = content.get("request_id")

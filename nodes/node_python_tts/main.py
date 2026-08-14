@@ -332,6 +332,13 @@ def _poll_input():
                     if not content:
                         continue
 
+                    # 静音标记：状态提示类回复（如工作模式「已提交」回执）仅 GUI
+                    # 显示不播报；renderer 显示时按 <.+?> 正则去标签，文本不受影响。
+                    if "<silent" in content:
+                        print("[TTS] 静音标记（状态提示），跳过播放")
+                        sys.stdout.flush()
+                        continue
+
                     # 提取情绪和纯文本
                     emotion = extract_emotion(content)
                     clean_text = extract_clean_text(content)

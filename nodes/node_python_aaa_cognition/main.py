@@ -233,14 +233,17 @@ class MyNode:
 
         # ── P2-2 工作模式直通：跳过 LLM 判断，带 AAA 完整上下文直发 DSH ──
         if mode_manager.get_mode() == mode_manager.MODE_WORK:
-            return self._direct_dsh_to_node(query, ctx, rid)
+            return self._direct_dsh_to_node(
+                query, ctx, rid, conv_id=conv_id, identity_key=identity_key, dbp=dbp)
 
         return {
             "_port": "prompt", "data_type": "prompt", "content": pt.build(ctx),
             "request_id": rid,
         }
 
-    def _direct_dsh_to_node(self, user_text: str, ctx: dict, rid: str) -> dict:
+    def _direct_dsh_to_node(self, user_text: str, ctx: dict, rid: str,
+                            conv_id: str = "", identity_key: str = "",
+                            dbp: str = "") -> dict:
         """工作模式直通：不经过 LLM 判断，把用户输入 + AAA 完整上下文
         直接提交给 node_dsh（标准 BNOS 节点通道），后台轮询完成后再推送结果。
 
@@ -248,7 +251,8 @@ class MyNode:
           fixed_cognition / recent_feelings / history_summary / user_info 等），
           随任务文件传给 node_dsh 拼入 task 前缀。
         - 会话续接：沿用最近一次 DSH 回带的 session_id（多轮连贯）。
-        - 回执：先回复「已提交」，完成结果由 _dsh_wait_and_push 主动推送。
+        - 回执：先回复「已提交」（<silent/> 静音标记，仅 GUI 显示不播报），
+          完成结果由 _dsh_wait_and_push 主动推送并写入对话库。
         """
         # 规整上下文：列表字段 join 为字符串，供 node_dsh 拼接
         context = {}
@@ -263,15 +267,16 @@ class MyNode:
         if not submitted.get("ok"):
             return {
                 "_port": "reply", "data_type": "reply",
-                "content": f"DSH 提交失败：{submitted.get('message', '未知错误')}",
+                "content": f"<silent/>DSH 提交失败：{submitted.get('message', '未知错误')}",
                 "request_id": rid,
             }
         task_id = submitted["data"]["task_id"]
         threading.Thread(
-            target=self._dsh_wait_and_push, args=(task_id, rid), daemon=True).start()
+            target=self._dsh_wait_and_push,
+            args=(task_id, rid, conv_id, identity_key, dbp), daemon=True).start()
         return {
             "_port": "reply", "data_type": "reply",
-            "content": f"已提交 DSH（工作模式直通，task_id={task_id[:8]}…），完成后我会推送结果。",
+            "content": f"<silent/>已提交 DSH（工作模式直通，task_id={task_id[:8]}…），完成后我会推送结果。",
             "request_id": rid,
         }
 
@@ -694,8 +699,13 @@ class MyNode:
             "message": f"任务已提交（task_id={task_id[:8]}…）",
         }
 
-    def _dsh_wait_and_push(self, task_id: str, rid: str) -> None:
-        """后台线程：等待 node_dsh 完成 → 结果主动推送 gui_reply.json。"""
+    def _dsh_wait_and_push(self, task_id: str, rid: str, conv_id: str = "",
+                           identity_key: str = "", dbp: str = "") -> None:
+        """后台线程：等待 node_dsh 完成 → 结果主动推送 gui_reply.json 并写库。
+
+        conv_id/identity_key/dbp 非空时，把 DSH 最终回复作为 assistant 消息
+        写入对话库，保证工作模式直通的对话历史连续（后续记忆/反思可用）。
+        """
         result = dsh_client.wait_result(task_id, timeout=dsh_client.DEFAULT_TIMEOUT)
         if result is None:
             dsh_client.push_reply(
@@ -709,6 +719,17 @@ class MyNode:
         final = str(result.get("final") or result.get("result") or "").strip()
         if not final:
             final = f"DSH 任务完成（{result.get('message', '无内容')}）"
+        # 写库：DSH 回复作为 assistant 消息（工作模式直通专用，保证对话历史连续）
+        if final and dbp and conv_id:
+            try:
+                db.write_async({
+                    "conversation_id": conv_id,
+                    "identity_key": identity_key or _IDENTITY_KEY_DEFAULT,
+                    "content": final,
+                    "request_id": rid,
+                }, dbp, role="assistant")
+            except Exception:
+                pass
         dsh_client.push_reply(final, request_id=rid)
 
     def _on_tool_result(self, data, dbp):
