@@ -19,6 +19,8 @@ from PySide6.QtWidgets import (
 )
 
 from gui.widgets.floating_panel import FloatingPanel
+from gui.core.theme_engine import theme_engine
+from gui.core.icon_registry import icons
 
 # 预设色板（明亮主题适用）
 _PRESET_COLORS = [
@@ -58,15 +60,15 @@ class ColorPickerPopup(FloatingPanel):
         self._preview_old = QLabel()
         self._preview_old.setFixedSize(40, 22)
         self._preview_old.setStyleSheet(
-            f"background-color: {self._current.name()}; border: 1px solid #d0d0d0; border-radius: 3px;"
+            f"background-color: {self._current.name()}; border: 1px solid {theme_engine.get('border_color')}; border-radius: 3px;"
         )
         preview.addWidget(QLabel("当前:"))
         preview.addWidget(self._preview_old)
-        preview.addWidget(QLabel(" → "))
+        preview.addWidget(QLabel(f" {icons.get('arrow')} "))
         self._preview_new = QLabel()
         self._preview_new.setFixedSize(40, 22)
         self._preview_new.setStyleSheet(
-            f"background-color: {self._current.name()}; border: 1px solid #d0d0d0; border-radius: 3px;"
+            f"background-color: {self._current.name()}; border: 1px solid {theme_engine.get('border_color')}; border-radius: 3px;"
         )
         preview.addWidget(self._preview_new)
         self._hex_input = QLineEdit(self._current.name())
@@ -108,11 +110,11 @@ class ColorPickerPopup(FloatingPanel):
         swatch.setStyleSheet(f"""
             QLabel {{
                 background-color: {hex_color};
-                border: 1px solid #d0d0d0;
+                border: 1px solid {theme_engine.get('border_color')};
                 border-radius: 2px;
             }}
             QLabel:hover {{
-                border: 2px solid #1a73e8;
+                border: 2px solid {theme_engine.get('accent_color')};
             }}
         """)
         swatch.mousePressEvent = lambda e, c=hex_color: self._select_color(c)
@@ -125,7 +127,7 @@ class ColorPickerPopup(FloatingPanel):
     def _update_preview(self):
         color = self._current
         self._preview_new.setStyleSheet(
-            f"background-color: {color.name()}; border: 1px solid #d0d0d0; border-radius: 3px;"
+            f"background-color: {color.name()}; border: 1px solid {theme_engine.get('border_color')}; border-radius: 3px;"
         )
         self._hex_input.setText(color.name())
 

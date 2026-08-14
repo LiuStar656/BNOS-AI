@@ -11,6 +11,7 @@ from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWebEngineCore import QWebEngineSettings
 
 from gui.core.config import AppConfig
+from gui.core.theme_engine import theme_engine
 
 
 class Live2DOverlay(QWidget):
@@ -230,10 +231,10 @@ class Live2DOverlay(QWidget):
 
     def contextMenuEvent(self, event):
         menu = QMenu(self)
-        menu.setStyleSheet("""
-            QMenu { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 4px; }
-            QMenu::item { padding: 6px 20px; border-radius: 4px; }
-            QMenu::item:selected { background: #e8f0fe; }
+        menu.setStyleSheet(f"""
+            QMenu {{ background: {theme_engine.get('bg_secondary')}; border: 1px solid {theme_engine.get('border_color')}; border-radius: 6px; padding: 4px; }}
+            QMenu::item {{ padding: 6px 20px; border-radius: 4px; }}
+            QMenu::item:selected {{ background: {theme_engine.get('sidebar_active')}; }}
         """)
         close_action = QAction("关闭", self)
         close_action.triggered.connect(self.close)

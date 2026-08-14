@@ -25,6 +25,9 @@ from PySide6.QtWidgets import (
 
 from gui.core.config import AppConfig
 from gui.core.event_bus import event_bus
+from gui.core.theme_engine import theme_engine
+from gui.core.icon_registry import icons
+from gui.core.messages import THEME_CHANGED
 from gui.widgets.color_picker import ColorPickerPopup
 
 
@@ -58,57 +61,66 @@ class SettingsPanel(QWidget):
     @staticmethod
     def _settings_qss() -> str:
         """设置面板专用样式：所有文字黑色，下拉框白色背景"""
-        return """
+        te = theme_engine
+        return f"""
             /* 所有文字标签强制黑色 */
-            QLabel {
-                color: #000000;
-            }
-            QGroupBox {
-                color: #000000;
+            QLabel {{
+                color: {te.get('text_primary')};
+            }}
+            QGroupBox {{
+                color: {te.get('text_primary')};
                 font-weight: bold;
-            }
-            QGroupBox::title {
-                color: #000000;
-            }
+            }}
+            QGroupBox::title {{
+                color: {te.get('text_primary')};
+            }}
             /* 下拉框白色背景 + 黑色文字 */
-            QComboBox {
-                background-color: #ffffff;
-                color: #000000;
-                border: 1px solid #d0d0d0;
+            QComboBox {{
+                background-color: {te.get('bg_secondary')};
+                color: {te.get('text_primary')};
+                border: 1px solid {te.get('border_color')};
                 border-radius: 4px;
                 padding: 4px 8px;
-            }
-            QComboBox::drop-down {
+            }}
+            QComboBox::drop-down {{
                 border: none;
-            }
-            QComboBox QAbstractItemView {
-                background-color: #ffffff;
-                color: #000000;
-                selection-background-color: #e8f0fe;
-                selection-color: #000000;
-            }
+            }}
+            QComboBox QAbstractItemView {{
+                background-color: {te.get('bg_secondary')};
+                color: {te.get('text_primary')};
+                selection-background-color: {te.get('sidebar_active')};
+                selection-color: {te.get('text_primary')};
+            }}
             /* 表单布局中的标签 */
-            QFormLayout QLabel {
-                color: #000000;
-            }
+            QFormLayout QLabel {{
+                color: {te.get('text_primary')};
+            }}
         """
 
     def _apply_style_override(self):
         """应用文字颜色覆盖样式，不改动 QPushButton 等带独立样式的控件"""
         self.setStyleSheet(self._settings_qss())
 
-    def _on_preset_changed(self, index: int):
-        preset_id = self._preset_combo.itemData(index)
-        if not preset_id or preset_id == self._config.get_selected_preset():
+    def _on_theme_selected(self, index: int):
+        data = self._preset_combo.itemData(index)
+        if not data:
             return
-        self._config.apply_preset(preset_id)
+        source, theme_id = data
+        if source == "skin":
+            if theme_id == self._config.get_selected_skin():
+                return
+            self._config.apply_skin(theme_id)
+        else:
+            if theme_id == self._config.get_selected_preset():
+                return
+            self._config.apply_preset(theme_id)
         colors = self._config.get_all_colors()
         for child in self.findChildren(QPushButton):
             key = getattr(child, "_config_key", "")
             if key and key in colors:
                 child.setStyleSheet(self._btn_style(colors[key]))
                 child.setToolTip(colors[key])
-        event_bus.publish("theme_changed")
+        event_bus.publish(THEME_CHANGED)
 
     def _init_ui(self):
         layout = QVBoxLayout(self)
@@ -122,13 +134,17 @@ class SettingsPanel(QWidget):
         preset_layout = QHBoxLayout(preset_group)
         self._preset_combo = QComboBox()
         self._preset_combo.setMinimumWidth(200)
-        for pid, name in AppConfig.get_preset_list():
-            self._preset_combo.addItem(name, pid)
-        current_preset = self._config.get_selected_preset()
-        idx = self._preset_combo.findData(current_preset)
+        # 内置预设 + 皮肤包平级（阶段5）
+        for theme_id, name, source in self._config.get_theme_list():
+            self._preset_combo.addItem(name, (source, theme_id))
+        # 当前选中项（皮肤包优先，其次预设）
+        current_skin = self._config.get_selected_skin()
+        idx = self._preset_combo.findData(("skin", current_skin)) if current_skin else -1
+        if idx < 0:
+            idx = self._preset_combo.findData(("preset", self._config.get_selected_preset()))
         if idx >= 0:
             self._preset_combo.setCurrentIndex(idx)
-        self._preset_combo.currentIndexChanged.connect(self._on_preset_changed)
+        self._preset_combo.currentIndexChanged.connect(self._on_theme_selected)
         preset_layout.addWidget(QLabel("选择主题："))
         preset_layout.addWidget(self._preset_combo)
         preset_layout.addStretch()
@@ -189,13 +205,13 @@ class SettingsPanel(QWidget):
         # ─── 操作按钮 ───
         btn_layout = QHBoxLayout()
         reset_btn = QPushButton("恢复默认")
-        reset_btn.setStyleSheet("""
-            QPushButton {
-                background-color: #f5f5f5; color: #333;
-                border: 1px solid #d0d0d0; border-radius: 4px;
+        reset_btn.setStyleSheet(f"""
+            QPushButton {{
+                background-color: {theme_engine.get('bg_primary')}; color: {theme_engine.get('text_primary')};
+                border: 1px solid {theme_engine.get('border_color')}; border-radius: 4px;
                 padding: 8px 20px; font-size: 14px;
-            }
-            QPushButton:hover { background-color: #e8e8e8; }
+            }}
+            QPushButton:hover {{ background-color: {theme_engine.get('neutral_btn_hover')}; }}
         """)
         reset_btn.clicked.connect(self._reset_defaults)
         btn_layout.addStretch()
@@ -207,21 +223,21 @@ class SettingsPanel(QWidget):
         db_layout = QVBoxLayout(db_group)
         db_layout.setSpacing(8)
 
-        btn_style = """
-            QPushButton {
-                background-color: #1a73e8; color: white;
+        btn_style = f"""
+            QPushButton {{
+                background-color: {theme_engine.get('accent_color')}; color: white;
                 border: none; border-radius: 4px;
                 padding: 8px 16px; font-size: 13px;
-            }
-            QPushButton:hover { background-color: #1557b0; }
+            }}
+            QPushButton:hover {{ background-color: {theme_engine.get('accent_hover')}; }}
         """
-        danger_btn_style = """
-            QPushButton {
-                background-color: #d32f2f; color: white;
+        danger_btn_style = f"""
+            QPushButton {{
+                background-color: {theme_engine.get('danger_color')}; color: white;
                 border: none; border-radius: 4px;
                 padding: 8px 16px; font-size: 13px;
-            }
-            QPushButton:hover { background-color: #b71c1c; }
+            }}
+            QPushButton:hover {{ background-color: {theme_engine.get('danger_hover')}; }}
         """
 
         self._backup_btn = QPushButton("备份数据库")
@@ -251,7 +267,7 @@ class SettingsPanel(QWidget):
         logseq_group = QGroupBox("Logseq 知识库")
         logseq_layout = QFormLayout(logseq_group)
         self._logseq_path_label = QLabel(self._get_logseq_path_display())
-        self._logseq_path_label.setStyleSheet("color: #555; font-size: 12px;")
+        self._logseq_path_label.setStyleSheet(f"color: {theme_engine.get('icon_color')}; font-size: 12px;")
         self._logseq_browse_btn = QPushButton("浏览...")
         self._logseq_browse_btn.setStyleSheet(btn_style)
         self._logseq_browse_btn.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -288,7 +304,7 @@ class SettingsPanel(QWidget):
 
         self._personality_info = QLabel("当前预设：加载中...")
         self._personality_info.setStyleSheet(
-            "color: #333; font-size: 12px; font-weight: bold;")
+            f"color: {theme_engine.get('text_primary')}; font-size: 12px; font-weight: bold;")
         v.addWidget(self._personality_info)
 
         self._personality_sliders: dict[str, QSlider] = {}
@@ -297,29 +313,29 @@ class SettingsPanel(QWidget):
             row = QHBoxLayout()
             row.setSpacing(8)
             name_label = QLabel(f"{name}：")
-            name_label.setStyleSheet("color: #333; font-size: 12px;")
+            name_label.setStyleSheet(f"color: {theme_engine.get('text_primary')}; font-size: 12px;")
             name_label.setFixedWidth(60)
             row.addWidget(name_label)
 
             slider = QSlider(Qt.Orientation.Horizontal)
             slider.setRange(0, 100)
             slider.setFixedWidth(220)
-            slider.setStyleSheet("""
-                QSlider::groove:horizontal {
-                    height: 4px; background: #e0e0e0; border-radius: 2px;
-                }
-                QSlider::handle:horizontal {
+            slider.setStyleSheet(f"""
+                QSlider::groove:horizontal {{
+                    height: 4px; background: {theme_engine.get('slider_groove')}; border-radius: 2px;
+                }}
+                QSlider::handle:horizontal {{
                     width: 14px; height: 14px; margin: -5px 0;
-                    background: #1a73e8; border-radius: 7px;
-                }
-                QSlider::sub-page:horizontal {
-                    background: #1a73e8; border-radius: 2px;
-                }
+                    background: {theme_engine.get('accent_color')}; border-radius: 7px;
+                }}
+                QSlider::sub-page:horizontal {{
+                    background: {theme_engine.get('accent_color')}; border-radius: 2px;
+                }}
             """)
             row.addWidget(slider)
 
             val_label = QLabel("0.5")
-            val_label.setStyleSheet("color: #666; font-size: 12px;")
+            val_label.setStyleSheet(f"color: {theme_engine.get('text_secondary')}; font-size: 12px;")
             val_label.setFixedWidth(40)
             row.addWidget(val_label)
 
@@ -514,7 +530,7 @@ class SettingsPanel(QWidget):
         msg = QMessageBox(self)
         msg.setWindowTitle("人格格式化")
         msg.setText(
-            "⚠ 人格格式化\n\n"
+            f"{icons.get('warn')} 人格格式化\n\n"
             "此操作将清空数据库中的全部数据：\n"
             "· 所有对话记录、记忆、情感与定位历史\n"
             "· AI 的当前性格与固定认知\n\n"
@@ -570,11 +586,11 @@ class SettingsPanel(QWidget):
         return f"""
             QPushButton {{
                 background-color: {hex_color};
-                border: 2px solid #d0d0d0;
+                border: 2px solid {theme_engine.get('border_color')};
                 border-radius: 4px;
             }}
             QPushButton:hover {{
-                border-color: #1a73e8;
+                border-color: {theme_engine.get('accent_color')};
             }}
         """
 

@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (
 )
 
 from gui.core.config import AppConfig
+from gui.core.theme_engine import theme_engine
 
 # ─── 路径 ─────────────────────────────────────────
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -111,9 +112,9 @@ class PersonalityDialog(QDialog):
         outer.setContentsMargins(0, 0, 0, 0)
 
         container = QWidget()
-        container.setStyleSheet("""
-            QWidget { background-color: #ffffff;
-                      border-radius: 10px; border: 1px solid #d0d0d0; }
+        container.setStyleSheet(f"""
+            QWidget {{ background-color: {theme_engine.get('bg_secondary')};
+                      border-radius: 10px; border: 1px solid {theme_engine.get('border_color')}; }}
         """)
         outer.addWidget(container)
 
@@ -123,14 +124,14 @@ class PersonalityDialog(QDialog):
 
         # 标题
         title = QLabel("选择阿镜的性格")
-        title.setStyleSheet("font-size: 16px; font-weight: bold; color: #333333;"
+        title.setStyleSheet(f"font-size: 16px; font-weight: bold; color: {theme_engine.get('text_primary')};"
                             "background: transparent;")
         lay.addWidget(title)
 
         subtitle = QLabel("第一次见面，先选一个性格起点。它会随你们的相处自然演化，"
                           "之后也可以在设置里手动微调。")
         subtitle.setWordWrap(True)
-        subtitle.setStyleSheet("font-size: 12px; color: #666666; background: transparent;")
+        subtitle.setStyleSheet(f"font-size: 12px; color: {theme_engine.get('text_secondary')}; background: transparent;")
         lay.addWidget(subtitle)
 
         # 预设卡片行
@@ -153,7 +154,7 @@ class PersonalityDialog(QDialog):
         # 分隔
         sep = QWidget()
         sep.setFixedHeight(1)
-        sep.setStyleSheet("background-color: #eeeeee;")
+        sep.setStyleSheet(f"background-color: {theme_engine.get('separator')};")
         lay.addWidget(sep)
 
         # 四维滑块
@@ -161,7 +162,7 @@ class PersonalityDialog(QDialog):
         slider_grid.setSpacing(8)
         for i, dim in enumerate(_DIM_ORDER):
             name_label = QLabel(f"{_DIM_LABELS[dim]}：")
-            name_label.setStyleSheet("font-size: 12px; color: #333333;"
+            name_label.setStyleSheet(f"font-size: 12px; color: {theme_engine.get('text_primary')};"
                                      "background: transparent;")
             name_label.setFixedWidth(60)
             slider_grid.addWidget(name_label, i, 0)
@@ -169,23 +170,23 @@ class PersonalityDialog(QDialog):
             slider = QSlider(Qt.Orientation.Horizontal)
             slider.setRange(0, 100)
             slider.setFixedWidth(320)
-            slider.setStyleSheet("""
-                QSlider::groove:horizontal {
-                    height: 4px; background: #e0e0e0; border-radius: 2px;
-                }
-                QSlider::handle:horizontal {
+            slider.setStyleSheet(f"""
+                QSlider::groove:horizontal {{
+                    height: 4px; background: {theme_engine.get('slider_groove')}; border-radius: 2px;
+                }}
+                QSlider::handle:horizontal {{
                     width: 14px; height: 14px; margin: -5px 0;
-                    background: #1a73e8; border-radius: 7px;
-                }
-                QSlider::sub-page:horizontal {
-                    background: #1a73e8; border-radius: 2px;
-                }
+                    background: {theme_engine.get('accent_color')}; border-radius: 7px;
+                }}
+                QSlider::sub-page:horizontal {{
+                    background: {theme_engine.get('accent_color')}; border-radius: 2px;
+                }}
             """)
             slider_grid.addWidget(slider, i, 1)
             self._sliders[dim] = slider
 
             value_label = QLabel("0.5")
-            value_label.setStyleSheet("font-size: 12px; color: #666666;"
+            value_label.setStyleSheet(f"font-size: 12px; color: {theme_engine.get('text_secondary')};"
                                       "background: transparent;")
             value_label.setFixedWidth(40)
             slider_grid.addWidget(value_label, i, 2)
@@ -202,22 +203,22 @@ class PersonalityDialog(QDialog):
         btn_row.addStretch()
 
         skip_btn = QPushButton("稍后再说")
-        skip_btn.setStyleSheet("""
-            QPushButton { background-color: #f5f5f5; color: #666666;
-                          border: 1px solid #d0d0d0; border-radius: 4px;
-                          padding: 8px 24px; font-size: 13px; }
-            QPushButton:hover { background-color: #e8e8e8; }
+        skip_btn.setStyleSheet(f"""
+            QPushButton {{ background-color: {theme_engine.get('bg_primary')}; color: {theme_engine.get('text_secondary')};
+                          border: 1px solid {theme_engine.get('border_color')}; border-radius: 4px;
+                          padding: 8px 24px; font-size: 13px; }}
+            QPushButton:hover {{ background-color: {theme_engine.get('neutral_btn_hover')}; }}
         """)
         skip_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         skip_btn.clicked.connect(self._on_skip)
         btn_row.addWidget(skip_btn)
 
         save_btn = QPushButton("开始使用")
-        save_btn.setStyleSheet("""
-            QPushButton { background-color: #1a73e8; color: white;
+        save_btn.setStyleSheet(f"""
+            QPushButton {{ background-color: {theme_engine.get('accent_color')}; color: white;
                           border: none; border-radius: 4px;
-                          padding: 8px 32px; font-size: 13px; }
-            QPushButton:hover { background-color: #1557b0; }
+                          padding: 8px 32px; font-size: 13px; }}
+            QPushButton:hover {{ background-color: {theme_engine.get('accent_hover')}; }}
         """)
         save_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         save_btn.clicked.connect(self._on_save)
@@ -238,20 +239,20 @@ class PersonalityDialog(QDialog):
 
     def _card_qss(self, selected: bool) -> str:
         if selected:
-            return """
-                QPushButton {
-                    background-color: #e8f0fe; color: #1a73e8;
-                    border: 2px solid #1a73e8; border-radius: 8px;
+            return f"""
+                QPushButton {{
+                    background-color: {theme_engine.get('sidebar_active')}; color: {theme_engine.get('accent_color')};
+                    border: 2px solid {theme_engine.get('accent_color')}; border-radius: 8px;
                     font-size: 13px; font-weight: bold;
-                }
+                }}
             """
-        return """
-            QPushButton {
-                background-color: #f8f9fa; color: #333333;
-                border: 1px solid #d0d0d0; border-radius: 8px;
+        return f"""
+            QPushButton {{
+                background-color: {theme_engine.get('bg_primary')}; color: {theme_engine.get('text_primary')};
+                border: 1px solid {theme_engine.get('border_color')}; border-radius: 8px;
                 font-size: 13px;
-            }
-            QPushButton:hover { background-color: #eef2f7; border-color: #1a73e8; }
+            }}
+            QPushButton:hover {{ background-color: {theme_engine.get('card_hover')}; border-color: {theme_engine.get('accent_color')}; }}
         """
 
     # ─── 交互 ──────────────────────────────────────────

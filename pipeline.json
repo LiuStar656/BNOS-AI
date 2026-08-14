@@ -5,7 +5,8 @@
   "nodes": [
     "node_python_aaa_cognition",
     "node_python_llm_infer",
-    "node_python_tts"
+    "node_python_tts",
+    "node_dsh"
   ],
   "edges": [
     {

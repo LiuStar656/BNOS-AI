@@ -20,6 +20,7 @@ from PySide6.QtWidgets import (
 )
 
 from gui.core.config import AppConfig
+from gui.core.theme_engine import theme_engine
 from gui.resources.icons.codicon import codicon
 
 
@@ -48,26 +49,26 @@ class AttachmentWidget(QFrame):
         # 图标
         icon_name = "file-media" if attach.get("type") == "image" else "file"
         icon_label = QLabel(codicon.get_char(icon_name))
-        icon_label.setStyleSheet("font-size:14px; color:#555;")
+        icon_label.setStyleSheet(f"font-size:14px; color:{theme_engine.get('icon_color')};")
         layout.addWidget(icon_label)
 
         # 文件名
         name_label = QLabel(attach.get("name", ""))
-        name_label.setStyleSheet("color:#333; font-size:12px;")
+        name_label.setStyleSheet(f"color:{theme_engine.get('text_primary')}; font-size:12px;")
         name_label.setMaximumWidth(100)
         layout.addWidget(name_label)
 
         # 删除按钮
         del_btn = QPushButton(codicon.get_char("close"))
         del_btn.setFixedSize(16, 16)
-        del_btn.setStyleSheet("""
-            QPushButton {
+        del_btn.setStyleSheet(f"""
+            QPushButton {{
                 background: transparent;
                 border: none;
-                color:#999;
+                color:{theme_engine.get('icon_muted')};
                 font-size:10px;
-            }
-            QPushButton:hover { color:#d32f2f; }
+            }}
+            QPushButton:hover {{ color:{theme_engine.get('danger_color')}; }}
         """)
         del_btn.clicked.connect(lambda: self.remove_requested.emit(self._attach))
         layout.addWidget(del_btn)

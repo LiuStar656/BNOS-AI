@@ -19,15 +19,37 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-_STYLE_CONTAINER = (
-    "QWidget { background-color: #ffffff; border-radius: 8px; border: 1px solid #d0d0d0; }"
-)
-_STYLE_TITLE = "color: #333333; font-size: 13px; font-weight: bold; background: transparent;"
-_STYLE_LABEL = "color: #666666; font-size: 12px; background: transparent;"
-_STYLE_INPUT = "background: #ffffff; color: #333333; border: 1px solid #d0d0d0; border-radius: 4px; padding: 6px 10px; font-size: 13px;"
-_STYLE_BTN_OK = "QPushButton { background: #1a73e8; color: white; border: none; border-radius: 4px; padding: 6px 20px; } QPushButton:hover { background: #1557b0; }"
-_STYLE_BTN_GREY = "QPushButton { background: #f0f0f0; color: #333; border: 1px solid #d0d0d0; border-radius: 4px; padding: 6px 20px; } QPushButton:hover { background: #e0e0e0; }"
-_STYLE_TEXT = "background: #ffffff; color: #333333; border: 1px solid #d0d0d0; border-radius: 4px; font-size: 12px;"
+from gui.core.theme_engine import theme_engine
+
+
+def _style_container():
+    return (
+        f"QWidget {{ background-color: {theme_engine.get('bg_secondary')}; border-radius: 8px; border: 1px solid {theme_engine.get('border_color')}; }}"
+    )
+
+
+def _style_title():
+    return f"color: {theme_engine.get('text_primary')}; font-size: 13px; font-weight: bold; background: transparent;"
+
+
+def _style_label():
+    return f"color: {theme_engine.get('text_secondary')}; font-size: 12px; background: transparent;"
+
+
+def _style_input():
+    return f"background: {theme_engine.get('bg_secondary')}; color: {theme_engine.get('text_primary')}; border: 1px solid {theme_engine.get('border_color')}; border-radius: 4px; padding: 6px 10px; font-size: 13px;"
+
+
+def _style_btn_ok():
+    return f"QPushButton {{ background: {theme_engine.get('accent_color')}; color: white; border: none; border-radius: 4px; padding: 6px 20px; }} QPushButton:hover {{ background: {theme_engine.get('accent_hover')}; }}"
+
+
+def _style_btn_grey():
+    return f"QPushButton {{ background: {theme_engine.get('bg_chat')}; color: {theme_engine.get('text_primary')}; border: 1px solid {theme_engine.get('border_color')}; border-radius: 4px; padding: 6px 20px; }} QPushButton:hover {{ background: {theme_engine.get('slider_groove')}; }}"
+
+
+def _style_text():
+    return f"background: {theme_engine.get('bg_secondary')}; color: {theme_engine.get('text_primary')}; border: 1px solid {theme_engine.get('border_color')}; border-radius: 4px; font-size: 12px;"
 
 
 class ThemedDialogBase(QDialog):
@@ -44,7 +66,7 @@ class ThemedDialogBase(QDialog):
         outer_layout.setContentsMargins(0, 0, 0, 0)
 
         self._container = QWidget()
-        self._container.setStyleSheet(_STYLE_CONTAINER)
+        self._container.setStyleSheet(_style_container())
         outer_layout.addWidget(self._container)
 
         self._main_layout = QVBoxLayout(self._container)
@@ -53,13 +75,13 @@ class ThemedDialogBase(QDialog):
 
         self._title_bar = QHBoxLayout()
         self._title_label = QLabel(title)
-        self._title_label.setStyleSheet(_STYLE_TITLE)
+        self._title_label.setStyleSheet(_style_title())
         self._title_bar.addWidget(self._title_label)
         self._title_bar.addStretch()
 
         self._close_label = QLabel("x")
         self._close_label.setStyleSheet(
-            "color: #999999; font-size: 14px; padding:0 5px; background:transparent;"
+            f"color: {theme_engine.get('icon_muted')}; font-size: 14px; padding:0 5px; background:transparent;"
         )
         self._close_label.setCursor(Qt.CursorShape.PointingHandCursor)
         self._close_label.mousePressEvent = lambda e: self.reject()
@@ -108,17 +130,17 @@ def themed_input(parent, title, prompt, default=""):
     lay = dlg.get_main_layout()
 
     lb = QLabel(prompt)
-    lb.setStyleSheet(_STYLE_LABEL)
+    lb.setStyleSheet(_style_label())
     lay.addWidget(lb)
 
     e = QLineEdit(default)
-    e.setStyleSheet(_STYLE_INPUT)
+    e.setStyleSheet(_style_input())
     lay.addWidget(e)
 
     def on_accept():
         dlg.accept()
 
-    dlg.add_button_row([("取消", _STYLE_BTN_GREY, dlg.reject), ("确定", _STYLE_BTN_OK, on_accept)])
+    dlg.add_button_row([("取消", _style_btn_grey(), dlg.reject), ("确定", _style_btn_ok(), on_accept)])
 
     e.returnPressed.connect(dlg.accept)
 
@@ -137,22 +159,22 @@ def themed_message(parent, title, text, mode="info"):
 
     lb = QLabel(text)
     lb.setWordWrap(True)
-    lb.setStyleSheet(_STYLE_LABEL)
+    lb.setStyleSheet(_style_label())
     lay.addWidget(lb, 1)
 
     if mode in ("info", "warning", "error"):
-        dlg.add_button_row([("确定", _STYLE_BTN_OK, dlg.accept)])
+        dlg.add_button_row([("确定", _style_btn_ok(), dlg.accept)])
     elif mode == "question":
         dlg.add_button_row(
-            [("否", _STYLE_BTN_GREY, dlg.reject), ("是", _STYLE_BTN_OK, dlg.accept)]
+            [("否", _style_btn_grey(), dlg.reject), ("是", _style_btn_ok(), dlg.accept)]
         )
     elif mode == "question3":
         cancel_btn = QPushButton("取消")
-        cancel_btn.setStyleSheet(_STYLE_BTN_GREY)
+        cancel_btn.setStyleSheet(_style_btn_grey())
         no_btn = QPushButton("否")
-        no_btn.setStyleSheet(_STYLE_BTN_GREY)
+        no_btn.setStyleSheet(_style_btn_grey())
         yes_btn = QPushButton("是")
-        yes_btn.setStyleSheet(_STYLE_BTN_OK)
+        yes_btn.setStyleSheet(_style_btn_ok())
 
         def _on_yes():
             dlg.done(MSG_ACCEPT)
@@ -190,8 +212,8 @@ def show_text_dialog(parent, title, content, width=600, height=400):
     te = QTextEdit()
     te.setReadOnly(True)
     te.setPlainText(content)
-    te.setStyleSheet(_STYLE_TEXT)
+    te.setStyleSheet(_style_text())
     lay.addWidget(te, 1)
 
-    dlg.add_button_row([("关闭", _STYLE_BTN_GREY, dlg.reject)])
+    dlg.add_button_row([("关闭", _style_btn_grey(), dlg.reject)])
     dlg.exec()

@@ -9,6 +9,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from gui.core.skin_registry import skin_registry
+
 # ─── 8 套主题预设 ──────────────────────────────────
 THEME_PRESETS: dict[str, dict] = {
     "default_light": {
@@ -354,15 +356,25 @@ class AppConfig:
         self.config["theme"].update(colors)
         self.save()
 
-    # ─── 主题预设管理 ──────────────────────────────
+    # ─── 主题预设 / 皮肤包管理 ─────────────────────
 
     @staticmethod
     def get_preset_list() -> list[tuple[str, str]]:
-        """返回 [(preset_id, display_name), ...]"""
+        """返回 [(preset_id, display_name), ...]（仅内置预设，兼容旧接口）"""
         return [(pid, p["name"]) for pid, p in THEME_PRESETS.items()]
+
+    def get_theme_list(self) -> list[tuple[str, str, str]]:
+        """返回 [(theme_id, display_name, source), ...]（内置预设 + 皮肤包平级）"""
+        themes = [(pid, p["name"], "preset") for pid, p in THEME_PRESETS.items()]
+        themes += [(s.id, s.name, "skin") for s in skin_registry.list_skins()]
+        return themes
 
     def get_selected_preset(self) -> str:
         return self.config.get("selected_preset", "default_light")
+
+    def get_selected_skin(self) -> str | None:
+        """当前选中的皮肤包 id（未启用皮肤包时为 None）"""
+        return self.config.get("selected_skin")
 
     def apply_preset(self, preset_id: str):
         """应用主题预设：覆盖所有颜色并持久化"""
@@ -370,5 +382,18 @@ class AppConfig:
         if not preset:
             return
         self.config["selected_preset"] = preset_id
+        self.config.pop("selected_skin", None)
         self.config["theme"].update(preset["colors"])
+        self.save()
+
+    def apply_skin(self, skin_id: str):
+        """应用皮肤包：增量覆盖 token 并持久化（与内置预设平级）"""
+        skin = skin_registry.get(skin_id)
+        if not skin:
+            return
+        if skin.mode:
+            self.config["theme"]["mode"] = skin.mode
+        self.config["theme"].update(skin.tokens)
+        self.config["selected_skin"] = skin_id
+        self.config.pop("selected_preset", None)
         self.save()

@@ -69,26 +69,58 @@ def parse_llm_output(text):
     return r
 
 
+def _parse_call_lines(v):
+    """解析「工具名 | 参数名=值, 参数名=值」行列表（工具调用/流程选择共用）。
+
+    值可能为 JSON 对象（含逗号），按闭合大括号合并解析为 dict。
+    """
+    import json as _json
+
+    items = []
+    for line in v.split("\n"):
+        line = line.strip()
+        if "|" not in line:
+            continue
+        name, _, rest = line.partition("|")
+        args = {}
+        parts = rest.split(",")
+        i = 0
+        while i < len(parts):
+            kv = parts[i].strip()
+            if "=" not in kv:
+                i += 1
+                continue
+            kk, vv = kv.split("=", 1)
+            kk, vv = kk.strip(), vv.strip()
+            # 值以 { 开头 → JSON 对象，合并含逗号的后续片段直到闭合
+            if vv.startswith("{"):
+                j = i
+                merged = vv
+                while not merged.endswith("}") and j + 1 < len(parts):
+                    j += 1
+                    merged += "," + parts[j].strip()
+                i = j
+                try:
+                    vv = _json.loads(merged)
+                except _json.JSONDecodeError:
+                    vv = merged
+            args[kk] = vv
+            i += 1
+        items.append((name.strip(), args))
+    return items
+
+
 def _store_section(r, k, v):
     """存入一个节的解析结果；空节/无内容节直接跳过"""
     v = v.strip()
     if not v:
         return
     if k == "工具调用":
-        ts = []
-        for line in v.split("\n"):
-            line = line.strip()
-            if "|" not in line:
-                continue
-            name, _, rest = line.partition("|")
-            args = {}
-            for kv in rest.split(","):
-                kv = kv.strip()
-                if "=" in kv:
-                    kk, vv = kv.split("=", 1)
-                    args[kk.strip()] = vv.strip()
-            ts.append({"tool_name": name.strip(), "args": args})
-        r[k] = ts
+        r[k] = [{"tool_name": name, "args": args}
+                for name, args in _parse_call_lines(v)]
+    elif k == "流程选择":
+        r[k] = [{"flow_id": name, "args": args}
+                for name, args in _parse_call_lines(v)]
     else:
         # 提取 [importance=N] 属性
         importance = None

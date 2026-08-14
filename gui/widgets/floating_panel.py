@@ -19,6 +19,9 @@ from PySide6.QtWidgets import (
 )
 
 from gui.core.config import AppConfig
+from gui.core.event_bus import event_bus
+from gui.core.icon_registry import icons
+from gui.core.messages import THEME_CHANGED
 
 
 class FloatingPanel(QDialog):
@@ -47,6 +50,22 @@ class FloatingPanel(QDialog):
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
 
         self._setup_frame(title)
+
+        # 阶段4：自查订阅主题变更消息（替代 MainWindow 直接调用）
+        self._subscribe_messages()
+
+    # ─── 消息订阅（阶段4） ──────────────────────
+
+    def _subscribe_messages(self):
+        """订阅关心的 UI 消息（幂等，防重复实例化重复订阅）"""
+        if getattr(self, "_events_subscribed", False):
+            return
+        self._events_subscribed = True
+        event_bus.subscribe(THEME_CHANGED, self._on_theme_changed_msg)
+
+    def _on_theme_changed_msg(self, _data=None):
+        if hasattr(self, "refresh_theme"):
+            self.refresh_theme()
 
     # ─── 颜色工具 ─────────────────────────────
 
@@ -118,7 +137,7 @@ class FloatingPanel(QDialog):
         title_layout.addStretch()
 
         # 关闭按钮
-        close_btn = QLabel("✕")
+        close_btn = QLabel(icons.get("panel_close"))
         close_btn.setStyleSheet(f"""
             QLabel {{
                 color: {self._rgba('text_secondary', 180)};

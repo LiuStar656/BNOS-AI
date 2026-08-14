@@ -83,9 +83,24 @@ TOOL_TEMPLATE = _CONTEXT_HEADER + """
 def build(ctx):
     """用上下文填充第一轮模板（v4.0 单轮交互：记忆已随上下文预取注入）"""
     _prepare_ctx(ctx)
-    return DIRECT_TEMPLATE.format(**ctx) + """
+    return DIRECT_TEMPLATE.format(**ctx) + _gui_tools_section()
 
-（注意：你也可以输出【工具调用】来调用工具。）"""
+
+def _gui_tools_section() -> str:
+    """P0-1/P1-2：GUI 工具可用性 + 流程库说明（GUI 未启动/无清单时为空）"""
+    try:
+        import gui_tools as _gt
+
+        parts = []
+        tool_text = _gt.tool_list_text()
+        if tool_text:
+            parts.append(tool_text)
+        flow_text = _gt.workflows_text()
+        if flow_text:
+            parts.append(flow_text)
+        return ("\n\n" + "\n\n".join(parts)) if parts else ""
+    except Exception:
+        return ""
 
 
 def build_direct(ctx):

@@ -40,6 +40,7 @@ class _Live2DWebPage(QWebEnginePage):
         super().javaScriptConsoleMessage(level, message, lineNumber, sourceID)
 
 from gui.core.config import AppConfig
+from gui.core.theme_engine import theme_engine
 from gui.widgets.live2d_overlay import Live2DOverlay
 
 
@@ -178,7 +179,7 @@ class Live2DPage(QWidget):
 
         self._desktop_btn = QPushButton("桌面显示")
         self._desktop_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        accent = self._colors.get('accent_color', '#1a73e8')
+        accent = theme_engine.get('accent_color')
         self._desktop_btn.setStyleSheet(f"""
             QPushButton {{
                 background-color: {accent};
@@ -189,7 +190,7 @@ class Live2DPage(QWidget):
                 font-size: 13px;
             }}
             QPushButton:hover {{
-                background-color: {self._colors.get('select_bg', '#1557b0')};
+                background-color: {theme_engine.get('select_bg')};
             }}
         """)
         self._desktop_btn.clicked.connect(self._toggle_desktop)
@@ -447,9 +448,9 @@ class Live2DPage(QWidget):
 
     def _apply_tts_btn_style(self):
         """根据 _tts_enabled 更新按钮文本与样式。"""
-        accent = self._colors.get('accent_color', '#1a73e8')
+        accent = theme_engine.get('accent_color')
         on_bg = accent
-        off_bg = self._colors.get('bg_primary', '#555555')
+        off_bg = theme_engine.get('bg_primary')
         if self._tts_enabled:
             self._tts_btn.setText("语音：开")
             bg, fg = on_bg, "white"
@@ -466,7 +467,7 @@ class Live2DPage(QWidget):
                 font-size: 13px;
             }}
             QPushButton:hover {{
-                background-color: {self._colors.get('select_bg', '#1557b0')};
+                background-color: {theme_engine.get('select_bg')};
             }}
         """)
 

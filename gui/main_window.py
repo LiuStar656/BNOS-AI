@@ -12,16 +12,14 @@ from gui.core.event_bus import event_bus
 from gui.core.message_manager import MessageManager
 from gui.core.config import AppConfig
 from gui.core.state import AppState
+from gui.core.theme_engine import theme_engine
+from gui.core.ui_registry import ui_registry
+from gui.core.messages import PAGE_ACTIVATED, THEME_CHANGED, DATA_REFRESH_REQUESTED, NAVIGATE_REQUEST
+from gui.core.tool_bridge import tool_bridge
 from gui.dialogs.archive_panel import ArchivePanel
-from gui.pages.chat_page import ChatPage
-from gui.pages.live2d_page import Live2DPage
-from gui.pages.location_page import LocationPage
-from gui.pages.mcp_page import MCPPage
-from gui.pages.node_page import NodePage
 from gui.pages.settings_panel import SettingsPanel
-from gui.resources.theme import get_light_qss
+from gui.pages.node_page import NodePage
 from gui.widgets.floating_panel import FloatingPanel
-from gui.widgets.knowledge_panel import KnowledgePanel
 from gui.widgets.logseq_writer import LogseqWriter
 from gui.widgets.sidebar import Sidebar
 from gui.widgets.status_bar import StatusBar
@@ -31,15 +29,10 @@ _RESIZE_MARGIN = 6  # 窗口边缘 resize 区域宽度
 
 
 class MainWindow(QMainWindow):
-    """主窗口 — 自定义标题栏 + 左侧 Sidebar + 右侧 QStackedWidget + 底部状态栏。"""
+    """主窗口 — 自定义标题栏 + 左侧 Sidebar + 右侧 QStackedWidget + 底部状态栏。
 
-    PAGE_CLASSES = {
-        "chat":     ChatPage,
-        "live2d":   Live2DPage,
-        "location": LocationPage,
-        "mcp":      MCPPage,
-        "knowledge": KnowledgePanel,
-    }
+    页面装配由 UiRegistry 插槽注册中心驱动（阶段3），不再硬编码页面列表。
+    """
 
     def __init__(self):
         super().__init__()
@@ -54,7 +47,8 @@ class MainWindow(QMainWindow):
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setAutoFillBackground(False)
-        self.setStyleSheet(get_light_qss())
+        # 全局样式由 ThemeEngine 统一生成（换肤即时生效）
+        theme_engine.apply_global(self)
 
         self._config = AppConfig()
         self._state = AppState()
@@ -87,15 +81,9 @@ class MainWindow(QMainWindow):
         self._init_floating_panel()
 
     def _init_central(self):
-        # 外层容器（白色圆角背景，模拟窗口内容区）
+        # 外层容器（圆角背景，颜色由全局 QSS #centralWidget 接管）
         central = QWidget()
         central.setObjectName("centralWidget")
-        central.setStyleSheet("""
-            QWidget#centralWidget {
-                background-color: white;
-                border-radius: 8px;
-            }
-        """)
         self.setCentralWidget(central)
 
         # 整体布局：竖排 标题栏 + 内容区
@@ -176,8 +164,9 @@ class MainWindow(QMainWindow):
             self._node_content._stale_timer.stop()
 
     def _init_pages(self):
-        for page_id, page_cls in self.PAGE_CLASSES.items():
-            page = page_cls()
+        for slot in ui_registry.page_slots():
+            page_id = ui_registry.meta(slot).get("page_id", slot.removeprefix("page."))
+            page = ui_registry.resolve(slot)
             self._pages[page_id] = page
             self._stack.addWidget(page)
 
@@ -212,28 +201,42 @@ class MainWindow(QMainWindow):
         self._state.on_change("nodes", self._on_nodes_changed)
 
         # 监听主题变更
-        event_bus.subscribe("theme_changed", self._on_theme_changed)
+        event_bus.subscribe(THEME_CHANGED, self._on_theme_changed)
+
+        # 阶段7：AI 工具消息（导航 / 数据刷新请求）
+        event_bus.subscribe(NAVIGATE_REQUEST, self._on_navigate_request)
+        event_bus.subscribe(DATA_REFRESH_REQUESTED, self._on_refresh_requested)
+
+        # 阶段7：启动文件工具桥（AI 写请求文件 → GUI 执行 → 回结果）
+        tool_bridge.start()
+
+    # ─── AI 工具消息（阶段7） ──────────────────
+
+    def _on_navigate_request(self, page_id=None):
+        """AI 导航请求：切换到指定页面"""
+        if page_id:
+            self._switch_page(page_id)
+
+    def _on_refresh_requested(self, page_id=None):
+        """AI 数据刷新请求：广播页面激活消息，页面自查刷新"""
+        if page_id:
+            self._after_page_switch(page_id, self._pages.get(page_id))
+            return
+        current = self._stack.currentWidget()
+        for pid, wid in self._pages.items():
+            if wid is current:
+                self._after_page_switch(pid, current)
+                break
 
     # ─── 主题刷新 ──────────────────────────────
 
     def _on_theme_changed(self, _data=None):
-        """主题颜色在设置页被修改时触发刷新"""
-        # 1. 刷新全局 QSS
-        self.setStyleSheet(get_light_qss())
-        # 2. 刷新侧边栏样式
-        self._sidebar.refresh_theme()
-        # 3. 刷新状态栏样式（暂时隐藏）
-        # self._status_bar.refresh_theme()
-        # 4. 刷新气泡颜色
-        chat_page = self._pages.get("chat")
-        if chat_page and hasattr(chat_page, "refresh_bubble_themes"):
-            chat_page.refresh_bubble_themes()
-        # 5. 刷新输入栏样式
-        if chat_page and hasattr(chat_page, "refresh_input_bar"):
-            chat_page.refresh_input_bar()
-        # 6. 刷新浮动面板
-        if self._floating_panel and hasattr(self._floating_panel, "refresh_theme"):
-            self._floating_panel.refresh_theme()
+        """主题颜色在设置页被修改时触发刷新
+
+        各组件已自查订阅 THEME_CHANGED 刷新自身样式（阶段4），
+        MainWindow 只负责刷新全局 QSS。
+        """
+        theme_engine.apply_global(self)
 
     # ─── 启动后初始化 ──────────────────────────
 
@@ -530,7 +533,7 @@ class MainWindow(QMainWindow):
             return
 
         # 计算滑动方向（1=左滑，-1=右滑）
-        page_ids = list(self.PAGE_CLASSES.keys())
+        page_ids = ui_registry.page_ids()
         direction = 1
         current_widget = self._stack.currentWidget()
         for pid, wid in self._pages.items():
@@ -545,13 +548,12 @@ class MainWindow(QMainWindow):
         self._after_page_switch(page_id, target)
 
     def _after_page_switch(self, page_id: str, target):
-        """页面切换完成后的统一处理（刷新懒加载页面数据）"""
-        # 切到知识库页面时刷新数据库数据
-        if page_id == "knowledge" and hasattr(target, "_load_data"):
-            target._load_data()
-        # 切到定位页面时刷新位置信息
-        if page_id == "location" and hasattr(target, "_refresh_location"):
-            target._refresh_location()
+        """页面切换完成后的统一处理
+
+        各页面已自查订阅 PAGE_ACTIVATED 刷新自身数据（阶段4），
+        MainWindow 只负责广播页面激活消息。
+        """
+        event_bus.publish(PAGE_ACTIVATED, page_id)
 
     def _cancel_animation(self):
         """取消正在播放的动画，清理覆盖层"""

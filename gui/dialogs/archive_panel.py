@@ -17,6 +17,7 @@ from PySide6.QtWidgets import (
 
 from gui.core.config import AppConfig
 from gui.core.state import AppState
+from gui.core.theme_engine import theme_engine
 
 
 class ArchivePanel(QWidget):
@@ -57,13 +58,13 @@ class ArchivePanel(QWidget):
         self._restore_btn = QPushButton("恢复选中对话")
         self._restore_btn.clicked.connect(self._on_restore)
         self._restore_btn.setEnabled(False)
-        self._restore_btn.setStyleSheet("""
-            QPushButton {
+        self._restore_btn.setStyleSheet(f"""
+            QPushButton {{
                 padding: 6px 16px; border-radius: 4px;
-                background: #07C160; color: white; font-size: 13px; border: none;
-            }
-            QPushButton:hover { background: #06AD56; }
-            QPushButton:disabled { background: #ccc; }
+                background: {theme_engine.get('success_color')}; color: white; font-size: 13px; border: none;
+            }}
+            QPushButton:hover {{ background: {theme_engine.get('success_hover')}; }}
+            QPushButton:disabled {{ background: {theme_engine.get('disabled_bg')}; }}
         """)
         btn_layout.addWidget(self._restore_btn)
         left.addLayout(btn_layout)
@@ -78,12 +79,12 @@ class ArchivePanel(QWidget):
 
         self._preview = QTextEdit()
         self._preview.setReadOnly(True)
-        self._preview.setStyleSheet("""
-            QTextEdit {
-                border: 1px solid #ddd; border-radius: 6px;
+        self._preview.setStyleSheet(f"""
+            QTextEdit {{
+                border: 1px solid {theme_engine.get('border_color')}; border-radius: 6px;
                 padding: 8px; font-size: 13px;
-                background: #fafafa;
-            }
+                background: {theme_engine.get('bg_secondary')};
+            }}
         """)
         right.addWidget(self._preview, 1)
 

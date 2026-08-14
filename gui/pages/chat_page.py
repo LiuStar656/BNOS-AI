@@ -11,7 +11,9 @@ from PySide6.QtGui import QColor, QPalette
 from PySide6.QtWidgets import QHBoxLayout, QScrollArea, QSizePolicy, QVBoxLayout, QWidget
 
 from gui.core.config import AppConfig
+from gui.core.event_bus import event_bus
 from gui.core.message_manager import MessageManager
+from gui.core.messages import THEME_CHANGED
 from gui.core.state import AppState
 from gui.widgets.chat_bubble import ChatBubble
 from gui.widgets.chat_input import ChatInput
@@ -50,6 +52,24 @@ class ChatPage(QWidget):
         self._connect_signals()
         # 加载当前对话的气泡
         self._load_conversation_messages(self._state.current_conversation_id)
+
+        # 阶段4：自查订阅主题变更消息（替代 MainWindow 直接调用）
+        self._subscribe_messages()
+
+    # ─── 消息订阅（阶段4） ──────────────────────
+
+    def _subscribe_messages(self):
+        """订阅关心的 UI 消息（幂等，防重复实例化重复订阅）"""
+        if getattr(self, "_events_subscribed", False):
+            return
+        self._events_subscribed = True
+        event_bus.subscribe(THEME_CHANGED, self._on_theme_changed_msg)
+
+    def _on_theme_changed_msg(self, _data=None):
+        if hasattr(self, "refresh_bubble_themes"):
+            self.refresh_bubble_themes()
+        if hasattr(self, "refresh_input_bar"):
+            self.refresh_input_bar()
 
     def set_message_manager(self, msg_mgr: MessageManager):
         """设置 MessageManager 实例（由 MainWindow 传入）"""

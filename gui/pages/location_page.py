@@ -25,6 +25,9 @@ from PySide6.QtWidgets import (
 )
 
 from gui.core.config import AppConfig
+from gui.core.theme_engine import theme_engine
+from gui.core.event_bus import event_bus
+from gui.core.messages import PAGE_ACTIVATED
 from gui.widgets.location_map_widget import LocationMapWidget
 
 
@@ -38,6 +41,22 @@ class LocationPage(QWidget):
 
         # 初始加载位置
         QTimer.singleShot(1000, self._refresh_location)
+
+        # 阶段4：自查订阅页面激活消息（替代 MainWindow 直接调用）
+        self._subscribe_messages()
+
+    # ─── 消息订阅（阶段4） ──────────────────────────────
+
+    def _subscribe_messages(self):
+        """订阅关心的 UI 消息（幂等，防重复实例化重复订阅）"""
+        if getattr(self, "_events_subscribed", False):
+            return
+        self._events_subscribed = True
+        event_bus.subscribe(PAGE_ACTIVATED, self._on_page_activated_msg)
+
+    def _on_page_activated_msg(self, page_id=None):
+        if page_id == "location":
+            self._refresh_location()
 
     # ─── UI 构建 ──────────────────────────────────────────
 
@@ -57,26 +76,26 @@ class LocationPage(QWidget):
 
         refresh_btn = QPushButton("刷新位置")
         refresh_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        refresh_btn.setStyleSheet("""
-            QPushButton {
-                background-color: #1a73e8; color: white;
+        refresh_btn.setStyleSheet(f"""
+            QPushButton {{
+                background-color: {theme_engine.get('accent_color')}; color: white;
                 border: none; border-radius: 4px;
                 padding: 6px 16px; font-size: 12px;
-            }
-            QPushButton:hover { background-color: #1557b0; }
+            }}
+            QPushButton:hover {{ background-color: {theme_engine.get('accent_hover')}; }}
         """)
         refresh_btn.clicked.connect(self._refresh_location)
         title_row.addWidget(refresh_btn)
 
         clear_btn = QPushButton("清除历史")
         clear_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        clear_btn.setStyleSheet("""
-            QPushButton {
-                background-color: #d32f2f; color: white;
+        clear_btn.setStyleSheet(f"""
+            QPushButton {{
+                background-color: {theme_engine.get('danger_color')}; color: white;
                 border: none; border-radius: 4px;
                 padding: 6px 16px; font-size: 12px;
-            }
-            QPushButton:hover { background-color: #b71c1c; }
+            }}
+            QPushButton:hover {{ background-color: {theme_engine.get('danger_hover')}; }}
         """)
         clear_btn.clicked.connect(self._clear_location_history)
         title_row.addWidget(clear_btn)
@@ -90,7 +109,7 @@ class LocationPage(QWidget):
         # 位置信息栏
         self.location_info_label = QLabel("位置：加载中...")
         self.location_info_label.setStyleSheet(
-            "font-weight: bold; padding: 8px 4px; font-size: 14px; color: #000000;")
+            f"font-weight: bold; padding: 8px 4px; font-size: 14px; color: {theme_engine.get('text_primary')};")
         lay.addWidget(self.location_info_label)
 
         # 开关行

@@ -11,6 +11,8 @@ import time
 from datetime import datetime
 from pathlib import Path
 
+from gui.core.utils.widget_utils import fit_button_width
+
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import (
     QHBoxLayout,
@@ -24,6 +26,8 @@ from PySide6.QtWidgets import (
 )
 
 from gui.core.state import AppState
+from gui.core.theme_engine import theme_engine
+from gui.core.icon_registry import icons
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 BNOS_STATUS_PATH = str(PROJECT_ROOT / "bnos_status.json")
@@ -77,8 +81,8 @@ class NodePage(QWidget):
         bar = QHBoxLayout()
         self._status_label = QLabel("引擎状态: --")
         self._status_label.setStyleSheet("font-weight: bold; font-size: 14px;")
-        self._start_btn = QPushButton("▶ 启动引擎")
-        self._stop_btn = QPushButton("■ 停止引擎")
+        self._start_btn = QPushButton(f"{icons.get('node_start')} 启动引擎")
+        self._stop_btn = QPushButton(f"{icons.get('node_stop')} 停止引擎")
         self._start_btn.setMinimumWidth(110)
         self._stop_btn.setMinimumWidth(110)
         self._start_btn.clicked.connect(self._start_engine)
@@ -93,7 +97,7 @@ class NodePage(QWidget):
         # 分隔线
         sep = QLabel()
         sep.setFixedHeight(1)
-        sep.setStyleSheet("background-color: #d0d0d0;")
+        sep.setStyleSheet(f"background-color: {theme_engine.get('border_color')};")
         layout.addWidget(sep)
 
         # 节点树
@@ -110,7 +114,7 @@ class NodePage(QWidget):
         # 离线占位文案
         self._placeholder = QLabel("引擎未启动，请点击「启动引擎」启动 BNOS 运行时")
         self._placeholder.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self._placeholder.setStyleSheet("color: #999; font-size: 16px; padding: 40px;")
+        self._placeholder.setStyleSheet(f"color: {theme_engine.get('icon_muted')}; font-size: 16px; padding: 40px;")
         layout.addWidget(self._placeholder)
 
     # ── AppState 回调 ──────────────────────────────
@@ -157,9 +161,9 @@ class NodePage(QWidget):
         """根据 AppState.engine_status 切换 UI。"""
         status = self._state.engine_status
         if status == "online":
-            self._status_label.setText("引擎状态: ● online")
+            self._status_label.setText(f"引擎状态: {icons.get('state_online')} online")
             self._status_label.setStyleSheet(
-                "font-weight: bold; font-size: 14px; color: #4caf50;"
+                f"font-weight: bold; font-size: 14px; color: {theme_engine.get('status_ok')};"
             )
             self._start_btn.setEnabled(False)
             self._stop_btn.setEnabled(True)
@@ -169,14 +173,14 @@ class NodePage(QWidget):
         else:
             # offline / starting / error
             if status == "starting":
-                label = "引擎状态: ● starting"
-                color = "#ff9800"
+                label = f"引擎状态: {icons.get('state_starting')} starting"
+                color = theme_engine.get('status_warn')
             elif status == "error":
-                label = "引擎状态: ● error"
-                color = "#f44336"
+                label = f"引擎状态: {icons.get('state_error')} error"
+                color = theme_engine.get('status_error')
             else:
-                label = "引擎状态: ○ offline"
-                color = "#999"
+                label = f"引擎状态: {icons.get('state_offline')} offline"
+                color = theme_engine.get('icon_muted')
             self._status_label.setText(label)
             self._status_label.setStyleSheet(
                 f"font-weight: bold; font-size: 14px; color: {color};"
@@ -197,8 +201,8 @@ class NodePage(QWidget):
             item = QTreeWidgetItem([node_name, display_status, detail, ""])
             self._tree.addTopLevelItem(item)
             btn = QPushButton("重启")
-            btn.setFixedWidth(60)
-            btn.setFixedHeight(26)
+            fit_button_width(btn, padding=20)
+            btn.setMinimumHeight(24)
             btn.clicked.connect(
                 lambda checked, nid=node_name: self._restart_node(nid)
             )
@@ -249,9 +253,9 @@ class NodePage(QWidget):
             return
 
         if not os.path.exists(PIPELINE_PATH):
-            self._status_label.setText("引擎状态: ● error - pipeline.json 不存在")
+            self._status_label.setText(f"引擎状态: {icons.get('state_error')} error - pipeline.json 不存在")
             self._status_label.setStyleSheet(
-                "font-weight: bold; font-size: 14px; color: #f44336;"
+                f"font-weight: bold; font-size: 14px; color: {theme_engine.get('status_error')};"
             )
             return
         try:

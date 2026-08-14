@@ -13,6 +13,7 @@ from PySide6.QtWidgets import (
 )
 
 from gui.core.config import AppConfig
+from gui.core.theme_engine import theme_engine
 
 
 class Toast(QFrame):
@@ -108,7 +109,7 @@ class Toast(QFrame):
                 padding: 0px;
             }}
             QPushButton:hover {{
-                color: #d32f2f;
+                color: {theme_engine.get('danger_color')};
             }}
         """)
         self._close_btn.clicked.connect(lambda: self._close_now("button"))

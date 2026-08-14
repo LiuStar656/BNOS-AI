@@ -25,6 +25,7 @@ import memos
 import diary
 import personality as prs
 import retrieval_gate
+import gui_tools
 from perception_capabilities import PerceptionCapabilities
 from memory_provider import MemOSProvider, sanitize_memory_context
 from context_engine import ContextEngine
@@ -335,17 +336,49 @@ class MyNode:
             else:
                 user_id = ""
 
-        # ③ 工具调用（当前功能尚未开放）
-        if tool_call:
+        # ② 流程选择（P1-2：AAA 自动选流程，双引擎分数驱动 LLM 决策）
+        flow_call = parsed.get("流程选择", [])
+        if flow_call:
+            fc = flow_call[0]
+            flow_id = str(fc.get("flow_id", "")).strip()
+            overrides = fc.get("args") or {}
+            outcome = gui_tools.call_tool(
+                "ui.run_workflow",
+                {"flow_id": flow_id, "overrides": overrides},
+            )
+            status = "成功" if outcome.get("ok") else "失败"
+            reply_text = f"我已执行流程「{flow_id}」{status}：{outcome.get('message', '')}"
             if batch_mode:
                 return {
                     "action": "reply",
-                    "content": "抱歉，工具调用功能目前尚未开放。",
+                    "content": reply_text,
                     "user_id": user_id, "request_id": rid,
                 }
             return {
                 "_port": "reply", "data_type": "reply",
-                "content": "抱歉，工具调用功能目前尚未开放。",
+                "content": reply_text,
+                "request_id": rid,
+            }
+
+        # ③ 工具调用（P0-1 开放）：操控 GUI 文件桥 → 转述结果
+        if tool_call:
+            results = []
+            for tc in tool_call:
+                tname = str(tc.get("tool_name", "")).strip()
+                targs = tc.get("args") or {}
+                outcome = gui_tools.call_tool(tname, targs)
+                status = "成功" if outcome.get("ok") else "失败"
+                results.append(f"· {tname} {status}：{outcome.get('message', '')}")
+            reply_text = "我已处理你的请求，GUI 操作结果：\n" + "\n".join(results)
+            if batch_mode:
+                return {
+                    "action": "reply",
+                    "content": reply_text,
+                    "user_id": user_id, "request_id": rid,
+                }
+            return {
+                "_port": "reply", "data_type": "reply",
+                "content": reply_text,
                 "request_id": rid,
             }
 

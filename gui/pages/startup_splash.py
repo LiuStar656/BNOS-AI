@@ -15,6 +15,9 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from gui.core.theme_engine import theme_engine
+from gui.core.icon_registry import icons
+
 
 def _read_node_status(project_root: str) -> dict | None:
     """读取 bnos_status.json，返回节点状态字典。"""
@@ -87,6 +90,7 @@ class StartupSplash(QWidget):
         "node_python_aaa_cognition": "AAA 认知",
         "node_python_llm_infer":     "LLM 推理",
         "node_python_tts":           "TTS 语音",
+        "node_dsh":                  "DSH 执行",
     }
 
     POLL_INTERVAL_MS = 500
@@ -126,12 +130,12 @@ class StartupSplash(QWidget):
         # 背景容器
         container = QWidget(self)
         container.setObjectName("splashContainer")
-        container.setStyleSheet("""
-            QWidget#splashContainer {
-                background-color: #ffffff;
+        container.setStyleSheet(f"""
+            QWidget#splashContainer {{
+                background-color: {theme_engine.get('bg_secondary')};
                 border-radius: 12px;
-                border: 1px solid #e0e0e0;
-            }
+                border: 1px solid {theme_engine.get('border_color')};
+            }}
         """)
         container.setGeometry(0, 0, 420, 300)
 
@@ -141,14 +145,14 @@ class StartupSplash(QWidget):
 
         # 标题
         title = QLabel("BNOS AI 伴侣")
-        title.setStyleSheet("font-size: 20px; font-weight: bold; color: #1a1a1a;")
+        title.setStyleSheet(f"font-size: 20px; font-weight: bold; color: {theme_engine.get('text_primary')};")
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(title)
 
         # 副标题
         subtitle = QLabel("正在启动引擎...")
         subtitle.setObjectName("splashSubtitle")
-        subtitle.setStyleSheet("font-size: 13px; color: #888;")
+        subtitle.setStyleSheet(f"font-size: 13px; color: {theme_engine.get('text_secondary')};")
         subtitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(subtitle)
 
@@ -167,8 +171,8 @@ class StartupSplash(QWidget):
         # 节点状态列表
         self._status_labels: dict[str, QLabel] = {}
         for node_id, label in self.NODE_LABELS.items():
-            lbl = QLabel(f"  ○  {label}  等待中...")
-            lbl.setStyleSheet("font-size: 12px; color: #aaa;")
+            lbl = QLabel(f"  {icons.get('state_wait')}  {label}  等待中...")
+            lbl.setStyleSheet(f"font-size: 12px; color: {theme_engine.get('icon_muted')};")
             lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
             layout.addWidget(lbl)
             self._status_labels[node_id] = lbl
@@ -178,7 +182,7 @@ class StartupSplash(QWidget):
         # 底部提示
         hint = QLabel("首次启动可能需要下载模型")
         hint.setObjectName("splashHint")
-        hint.setStyleSheet("font-size: 11px; color: #bbb;")
+        hint.setStyleSheet(f"font-size: 11px; color: {theme_engine.get('icon_muted')};")
         hint.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(hint)
 
@@ -205,18 +209,18 @@ class StartupSplash(QWidget):
             last = self._last_nodes.get(node_id)
             if node_info is None:
                 if last != "waiting":
-                    label_obj.setText(f"  ○  {self.NODE_LABELS[node_id]}  等待中...")
-                    label_obj.setStyleSheet("font-size: 12px; color: #aaa;")
+                    label_obj.setText(f"  {icons.get('state_wait')}  {self.NODE_LABELS[node_id]}  等待中...")
+                    label_obj.setStyleSheet(f"font-size: 12px; color: {theme_engine.get('icon_muted')};")
                     self._last_nodes[node_id] = "waiting"
             elif node_info.get("status") == "running":
                 if last != "running":
-                    label_obj.setText(f"  ●  {self.NODE_LABELS[node_id]}  已就绪")
-                    label_obj.setStyleSheet("font-size: 12px; color: #1a73e8; font-weight: bold;")
+                    label_obj.setText(f"  {icons.get('state_ready')}  {self.NODE_LABELS[node_id]}  已就绪")
+                    label_obj.setStyleSheet(f"font-size: 12px; color: {theme_engine.get('accent_color')}; font-weight: bold;")
                     self._last_nodes[node_id] = "running"
             else:
                 if last != "starting":
-                    label_obj.setText(f"  ◌  {self.NODE_LABELS[node_id]}  启动中...")
-                    label_obj.setStyleSheet("font-size: 12px; color: #e8a01a;")
+                    label_obj.setText(f"  {icons.get('state_booting')}  {self.NODE_LABELS[node_id]}  启动中...")
+                    label_obj.setStyleSheet(f"font-size: 12px; color: {theme_engine.get('status_warn')};")
                     self._last_nodes[node_id] = "starting"
 
         # 更新副标题

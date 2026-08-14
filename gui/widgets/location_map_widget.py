@@ -16,6 +16,7 @@ from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QLabel
 
 from gui.core.config import AppConfig
+from gui.core.theme_engine import theme_engine
 
 
 class _MapFetchWorker(QThread):
@@ -92,12 +93,12 @@ class LocationMapWidget(QLabel):
     def _setup_ui(self):
         self.setAlignment(Qt.AlignCenter)
         self.setMinimumSize(480, 360)
-        self.setStyleSheet("""
-            QLabel {
-                background: #f5f6fa;
-                border: 1px solid #e0e0e0;
+        self.setStyleSheet(f"""
+            QLabel {{
+                background: {theme_engine.get('bg_primary')};
+                border: 1px solid {theme_engine.get('border_color')};
                 border-radius: 8px;
-            }
+            }}
         """)
         self._show_placeholder("点击\"刷新位置\"获取当前位置")
 
@@ -140,12 +141,12 @@ class LocationMapWidget(QLabel):
         city = location_dict.get("city") or "未知城市"
         accuracy = location_dict.get("accuracy", "?")
         self.setText(f"{city}\n精度: {accuracy}米\n(地图加载失败)")
-        self.setStyleSheet("""
-            QLabel {
-                background: #f5f6fa;
-                border: 1px solid #e0e0e0;
+        self.setStyleSheet(f"""
+            QLabel {{
+                background: {theme_engine.get('bg_primary')};
+                border: 1px solid {theme_engine.get('border_color')};
                 border-radius: 8px;
-                color: #666;
+                color: {theme_engine.get('text_secondary')};
                 font-size: 14px;
-            }
+            }}
         """)

@@ -23,6 +23,10 @@ from PySide6.QtWidgets import (
 )
 
 from gui.core.config import AppConfig
+from gui.core.event_bus import event_bus
+from gui.core.theme_engine import theme_engine
+from gui.core.icon_registry import icons
+from gui.core.messages import PAGE_ACTIVATED
 from gui.widgets.knowledge_graph import KnowledgeGraph, _node_id_for_entry, LINK_THRESHOLD
 from gui.widgets.mood_chart import MoodChartWidget
 
@@ -274,6 +278,22 @@ class KnowledgePanel(QWidget):
         self._filter_debounce_timer.setSingleShot(True)
         self._filter_debounce_timer.timeout.connect(self._exec_pending_time_filter)
 
+        # 阶段4：自查订阅页面激活消息（替代 MainWindow 直接调用）
+        self._subscribe_messages()
+
+    # ─── 消息订阅（阶段4） ──────────────────────
+
+    def _subscribe_messages(self):
+        """订阅关心的 UI 消息（幂等，防重复实例化重复订阅）"""
+        if getattr(self, "_events_subscribed", False):
+            return
+        self._events_subscribed = True
+        event_bus.subscribe(PAGE_ACTIVATED, self._on_page_activated_msg)
+
+    def _on_page_activated_msg(self, page_id=None):
+        if page_id == "knowledge":
+            self._load_data()
+
     def _build_ui(self):
         colors = self._config.get_all_colors()
         bg = colors["bg_secondary"]
@@ -305,7 +325,7 @@ class KnowledgePanel(QWidget):
             }}
             QTabBar::tab:selected {{
                 color: {txt};
-                border-bottom: 2px solid {colors.get('accent_color', '#1a73e8')};
+                border-bottom: 2px solid {theme_engine.get('accent_color')};
             }}
             QTabBar::tab:hover {{
                 color: {txt};
@@ -356,12 +376,12 @@ class KnowledgePanel(QWidget):
         refresh_btn = QPushButton("刷新")
         refresh_btn.setStyleSheet(f"""
             QPushButton {{
-                background: {colors.get('accent_color', '#1a73e8')};
+                background: {theme_engine.get('accent_color')};
                 border: none; border-radius: 4px; padding: 4px 14px;
                 font-size: 12px; color: white;
             }}
             QPushButton:hover {{
-                background: {colors.get('select_bg', '#1557b0')};
+                background: {theme_engine.get('select_bg')};
             }}
         """)
         refresh_btn.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -423,11 +443,11 @@ class KnowledgePanel(QWidget):
                     text-align: left;
                 }}
                 QPushButton:checked {{
-                    background: {colors.get('accent_color', '#1a73e8')};
+                    background: {theme_engine.get('accent_color')};
                     color: white;
                 }}
                 QPushButton:hover {{
-                    background: {colors.get('bg_chat', '#eee')};
+                    background: {theme_engine.get('bg_chat')};
                 }}
             """)
             btn.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -499,7 +519,7 @@ class KnowledgePanel(QWidget):
             self._time_btns[key] = btn
 
         # 自定义范围按钮
-        self._custom_btn = QPushButton("自定义 ▾")
+        self._custom_btn = QPushButton(f"自定义 {icons.get('dropdown')}")
         self._custom_btn.setCheckable(True)
         self._custom_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         self._custom_btn.setStyleSheet(self._filter_btn_qss(colors))
@@ -524,11 +544,11 @@ class KnowledgePanel(QWidget):
             }}
             QSlider::handle:horizontal {{
                 width: 14px; height: 14px; margin: -5px 0;
-                background: {colors.get('accent_color', '#1a73e8')};
+                background: {theme_engine.get('accent_color')};
                 border-radius: 7px;
             }}
             QSlider::sub-page:horizontal {{
-                background: {colors.get('accent_color', '#1a73e8')};
+                background: {theme_engine.get('accent_color')};
                 border-radius: 2px;
             }}
         """)
@@ -561,7 +581,7 @@ class KnowledgePanel(QWidget):
         self._date_to.setDate(QDate.currentDate())
         custom_layout.addWidget(self._date_to)
 
-        accent = colors.get("accent_color", "#1a73e8")
+        accent = theme_engine.get('accent_color')
         apply_btn = QPushButton("应用")
         apply_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         apply_btn.setStyleSheet(f"""
@@ -570,7 +590,7 @@ class KnowledgePanel(QWidget):
                 border: none; border-radius: 12px;
                 padding: 3px 14px; font-size: 11px;
             }}
-            QPushButton:hover {{ background: {colors.get('select_bg', '#1557b0')}; }}
+            QPushButton:hover {{ background: {theme_engine.get('select_bg')}; }}
         """)
         apply_btn.clicked.connect(self._apply_custom_range)
         custom_layout.addWidget(apply_btn)
@@ -598,7 +618,7 @@ class KnowledgePanel(QWidget):
         layout.setSpacing(6)
 
         txt = colors["text_primary"]
-        accent = colors.get("accent_color", "#1a73e8")
+        accent = theme_engine.get('accent_color')
 
         # ── 顶部工具行：标题 + 范围切换按钮 + 导出 ──
         tool_row = QHBoxLayout()
@@ -641,7 +661,7 @@ class KnowledgePanel(QWidget):
                 border: none; border-radius: 12px;
                 padding: 3px 14px; font-size: 11px;
             }}
-            QPushButton:hover {{ background: {colors.get('select_bg', '#1557b0')}; }}
+            QPushButton:hover {{ background: {theme_engine.get('select_bg')}; }}
         """)
         mood_refresh_btn.clicked.connect(self._reload_mood_chart)
         tool_row.addWidget(mood_refresh_btn)
@@ -672,11 +692,11 @@ class KnowledgePanel(QWidget):
     @staticmethod
     def _filter_btn_qss(colors: dict) -> str:
         """筛选按钮统一 QSS"""
-        accent = colors.get("accent_color", "#1a73e8")
-        select_bg = colors.get("select_bg", "#1557b0")
-        bg_chat = colors.get("bg_chat", "#eee")
-        border = colors.get("border_color", "#d0d0d0")
-        txt = colors.get("text_primary", "#333")
+        accent = theme_engine.get('accent_color')
+        select_bg = theme_engine.get('select_bg')
+        bg_chat = theme_engine.get('bg_chat')
+        border = theme_engine.get('border_color')
+        txt = theme_engine.get('text_primary')
         return f"""
             QPushButton {{
                 background: transparent; border: 1px solid {border};
@@ -864,7 +884,7 @@ class KnowledgePanel(QWidget):
                 border-radius: 6px;
             }}
             QWidget#highlight {{
-                border: 2px solid {colors.get('accent_color', '#1a73e8')};
+                border: 2px solid {theme_engine.get('accent_color')};
             }}
         """)
         card_layout = QVBoxLayout(card)
@@ -873,7 +893,7 @@ class KnowledgePanel(QWidget):
 
         cat_label = QLabel(label)
         cat_label.setStyleSheet(f"""
-            font-size: 10px; color: {colors.get('accent_color', '#1a73e8')};
+            font-size: 10px; color: {theme_engine.get('accent_color')};
             font-weight: bold; border: none; background: transparent;
         """)
         card_layout.addWidget(cat_label)
@@ -1042,7 +1062,7 @@ class KnowledgePanel(QWidget):
         start_qdate = self._date_from.date()
         end_qdate = self._date_to.date()
         if start_qdate > end_qdate:
-            self._count_label.setText("⚠ 错误: 起始日期不能晚于结束日期")
+            self._count_label.setText(f"{icons.get('warn')} 错误: 起始日期不能晚于结束日期")
             return
         start = datetime.datetime(
             start_qdate.year(), start_qdate.month(), start_qdate.day())
@@ -1188,9 +1208,9 @@ class KnowledgePanel(QWidget):
 
         # 5. 边界提示 + 更新状态栏
         if len(filtered_entries) < 5:
-            tip = "⚠ 节点过少，建议扩大时间范围 | "
+            tip = f"{icons.get('warn')} 节点过少，建议扩大时间范围 | "
         elif len(filtered_entries) > 500:
-            tip = "⚠ 节点较多，建议缩小时间范围 | "
+            tip = f"{icons.get('warn')} 节点较多，建议缩小时间范围 | "
         else:
             tip = ""
         self._update_status_bar(filtered_entries, start, end, tip)

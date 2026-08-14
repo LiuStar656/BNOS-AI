@@ -6,23 +6,21 @@ from PySide6.QtCore import Qt, Signal
 from PySide6.QtWidgets import QButtonGroup, QMenu, QPushButton, QVBoxLayout, QWidget
 
 from gui.core.config import AppConfig
+from gui.core.event_bus import event_bus
+from gui.core.messages import THEME_CHANGED
+from gui.core.ui_registry import ui_registry
 from gui.resources.icons.codicon import codicon
 
 
 class Sidebar(QWidget):
-    """左侧标签栏 — 竖排图标按钮组，点击切换 QStackedWidget 页面。"""
+    """左侧标签栏 — 竖排图标按钮组，点击切换 QStackedWidget 页面。
+
+    标签列表由 UiRegistry 插槽注册中心驱动（阶段3），不再硬编码。
+    """
 
     page_changed = Signal(str)
     settings_clicked = Signal()    # 设置面板
     node_clicked = Signal()        # 节点管理页
-
-    TABS = [
-        ("chat",     "chat",     "聊天"),
-        ("live2d",   "live2d",   "Live2D"),
-        ("map",      "location", "地图"),
-        ("mcp",      "mcp",      "MCP 管理"),
-        ("book",  "knowledge","知识库"),
-    ]
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -51,7 +49,7 @@ class Sidebar(QWidget):
         codicon.init()
         self._icon_font = codicon.get_font(20)
 
-        for icon_name, page_id, tooltip in self.TABS:
+        for icon_name, page_id, tooltip in ui_registry.tabs():
             btn = self._create_button(icon_name, tooltip, colors)
             self._buttons[page_id] = btn
             self._group.addButton(btn)
@@ -105,6 +103,21 @@ class Sidebar(QWidget):
         layout.addWidget(self._more_btn)
 
         self._group.buttonClicked.connect(self._on_clicked)
+
+        # 阶段4：自查订阅主题变更消息（替代 MainWindow 直接调用）
+        self._subscribe_messages()
+
+    # ─── 消息订阅（阶段4） ──────────────────────
+
+    def _subscribe_messages(self):
+        """订阅关心的 UI 消息（幂等，防重复实例化重复订阅）"""
+        if getattr(self, "_events_subscribed", False):
+            return
+        self._events_subscribed = True
+        event_bus.subscribe(THEME_CHANGED, self._on_theme_changed_msg)
+
+    def _on_theme_changed_msg(self, _data=None):
+        self.refresh_theme()
 
     def _create_button(self, icon_name: str, tooltip: str, colors: dict) -> QPushButton:
         btn = QPushButton()

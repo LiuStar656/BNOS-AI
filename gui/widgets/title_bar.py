@@ -10,6 +10,8 @@ from __future__ import annotations
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtWidgets import QHBoxLayout, QLabel, QPushButton, QWidget
 
+from gui.core.icon_registry import icons
+
 _RESIZE_MARGIN = 6  # 顶部边缘保留给窗口 resize，不响应拖动
 
 
@@ -55,21 +57,21 @@ class TitleBar(QWidget):
         layout.addStretch(1)
 
         # 最小化
-        self.min_btn = QPushButton("─")
+        self.min_btn = QPushButton(icons.get("title_min"))
         self.min_btn.setObjectName("titleBarMinBtn")
         self.min_btn.setFixedSize(50, 40)
         self.min_btn.clicked.connect(self.minimize_clicked.emit)
         layout.addWidget(self.min_btn)
 
         # 最大化/还原
-        self.max_btn = QPushButton("□")
+        self.max_btn = QPushButton(icons.get("title_max"))
         self.max_btn.setObjectName("titleBarMaxBtn")
         self.max_btn.setFixedSize(50, 40)
         self.max_btn.clicked.connect(self._on_max_clicked)
         layout.addWidget(self.max_btn)
 
         # 关闭
-        self.close_btn = QPushButton("✕")
+        self.close_btn = QPushButton(icons.get("title_close"))
         self.close_btn.setObjectName("titleBarCloseBtn")
         self.close_btn.setFixedSize(50, 40)
         self.close_btn.clicked.connect(self.close_clicked.emit)
@@ -147,16 +149,16 @@ class TitleBar(QWidget):
 
     def _on_max_clicked(self):
         if self._is_maximized:
-            self.max_btn.setText("□")
+            self.max_btn.setText(icons.get("title_max"))
             self._is_maximized = False
         else:
-            self.max_btn.setText("❐")
+            self.max_btn.setText(icons.get("title_restore"))
             self._is_maximized = True
         self.maximize_clicked.emit()
 
     def set_maximized_state(self, is_maximized):
         self._is_maximized = is_maximized
-        self.max_btn.setText("❐" if is_maximized else "□")
+        self.max_btn.setText(icons.get("title_restore") if is_maximized else icons.get("title_max"))
 
     def set_title(self, title):
         self.title_label.setText(title)
