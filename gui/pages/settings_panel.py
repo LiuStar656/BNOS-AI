@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import sqlite3
 from pathlib import Path
 
 from PySide6.QtCore import Qt, QTimer
@@ -102,6 +103,47 @@ class SettingsPanel(QWidget):
         """应用文字颜色覆盖样式，不改动 QPushButton 等带独立样式的控件"""
         self.setStyleSheet(self._settings_qss())
 
+    # ─── AI 名字（v8.4，酒馆 Character Card name 式固定字段）───
+    _DB_PATH = str(Path(__file__).resolve().parent.parent.parent
+                   / "nodes" / "shared" / "chatbot.db")
+
+    def _load_ai_name(self) -> str:
+        """读取当前 AI 名字（无记录→默认 阿镜）"""
+        try:
+            conn = sqlite3.connect(self._DB_PATH)
+            try:
+                row = conn.execute(
+                    "SELECT name FROM personality_seed WHERE identity_key='gui:default'"
+                ).fetchone()
+            finally:
+                conn.close()
+            return (row[0] or "阿镜") if row else "阿镜"
+        except sqlite3.Error:
+            return "阿镜"
+
+    def _on_save_name(self):
+        """保存 AI 名字到 personality_seed.name（即时生效，永久注入）"""
+        name = self._name_edit.text().strip()
+        if not name:
+            QMessageBox.warning(self, "提示", "名字不能为空")
+            return
+        try:
+            conn = sqlite3.connect(self._DB_PATH)
+            try:
+                conn.execute(
+                    """INSERT INTO personality_seed(identity_key, name, updated_at)
+                       VALUES('gui:default', ?, datetime('now','localtime'))
+                       ON CONFLICT(identity_key) DO UPDATE SET
+                           name=excluded.name, updated_at=datetime('now','localtime')""",
+                    (name,),
+                )
+                conn.commit()
+            finally:
+                conn.close()
+            QMessageBox.information(self, "已保存", f"AI 名字已设为：{name}\n下次对话即时生效")
+        except sqlite3.Error as e:
+            QMessageBox.warning(self, "保存失败", str(e))
+
     def _on_theme_selected(self, index: int):
         data = self._preset_combo.itemData(index)
         if not data:
@@ -129,6 +171,21 @@ class SettingsPanel(QWidget):
         layout.setContentsMargins(24, 16, 24, 16)
 
         colors = self._config.get_all_colors()
+
+        # ─── AI 名字（酒馆 Character Card name 式：固定字段，永久注入，永不丢）───
+        name_group = QGroupBox("AI 名字")
+        name_layout = QHBoxLayout(name_group)
+        self._name_edit = QLineEdit(self._load_ai_name())
+        self._name_edit.setPlaceholderText("AI 的名字（默认 阿镜）")
+        self._name_edit.setMaximumWidth(160)
+        save_btn = QPushButton("保存")
+        save_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        save_btn.clicked.connect(self._on_save_name)
+        name_layout.addWidget(QLabel("名字："))
+        name_layout.addWidget(self._name_edit)
+        name_layout.addWidget(save_btn)
+        name_layout.addStretch()
+        layout.addWidget(name_group)
 
         # ─── 主题预设选择 ───
         preset_group = QGroupBox("主题预设")
