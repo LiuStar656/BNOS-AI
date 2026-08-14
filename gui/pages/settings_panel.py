@@ -108,7 +108,7 @@ class SettingsPanel(QWidget):
                    / "nodes" / "shared" / "chatbot.db")
 
     def _load_ai_name(self) -> str:
-        """读取当前 AI 名字（无记录→默认 阿镜）"""
+        """读取当前 AI 名字（v8.4 自然生成：未命名返回空串）"""
         try:
             conn = sqlite3.connect(self._DB_PATH)
             try:
@@ -117,9 +117,9 @@ class SettingsPanel(QWidget):
                 ).fetchone()
             finally:
                 conn.close()
-            return (row[0] or "阿镜") if row else "阿镜"
+            return (row[0] or "").strip() if row else ""
         except sqlite3.Error:
-            return "阿镜"
+            return ""
 
     def _on_save_name(self):
         """保存 AI 名字到 personality_seed.name（即时生效，永久注入）"""
@@ -176,7 +176,7 @@ class SettingsPanel(QWidget):
         name_group = QGroupBox("AI 名字")
         name_layout = QHBoxLayout(name_group)
         self._name_edit = QLineEdit(self._load_ai_name())
-        self._name_edit.setPlaceholderText("AI 的名字（默认 阿镜）")
+        self._name_edit.setPlaceholderText("未命名（对话中 AI 可自我起名）")
         self._name_edit.setMaximumWidth(160)
         save_btn = QPushButton("保存")
         save_btn.setCursor(Qt.CursorShape.PointingHandCursor)
