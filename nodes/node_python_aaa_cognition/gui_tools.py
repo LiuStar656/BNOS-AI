@@ -54,7 +54,9 @@ def tool_list_text() -> str:
     lines.append(
         "调用格式：【工具调用】\\n工具名 | 参数名=值, 参数名=值\\n"
         "调用后 GUI 会执行并把结果告诉我。按需使用：用户请求 UI/主题/皮肤相关变更、"
-        "DSH 任务或 Agent 预设管理、页面导航等均可调用。）"
+        "DSH 任务或 Agent 预设管理、页面导航等均可调用。"
+        "涉及 GUI 样式/布局/结构类变更前，先读 GUI 开发规范 "
+        "docs/design/[OK]-GUI开发规范.md（布局调整见其中 2.6，链接布局方案）。）"
     )
     return "\n".join(lines)
 
