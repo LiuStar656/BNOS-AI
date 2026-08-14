@@ -241,8 +241,22 @@ def _write_speaking(v: bool):
         p = Path(__file__).resolve().parent.parent / "shared" / "speaking.json"
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(json.dumps({"speaking": v}), "utf-8")
-    except Exception:
+    except OSError:
         pass
+
+
+def _tts_enabled() -> bool:
+    """读 GUI 语音开关共享 flag（nodes/shared/tts_enabled.json）。
+
+    GUI「语音：开/关」按钮写入；文件缺失或非法默认开启（兼容节点独立运行）。
+    """
+    try:
+        p = Path(__file__).resolve().parent.parent / "shared" / "tts_enabled.json"
+        if p.is_file():
+            return bool(json.loads(p.read_text("utf-8")).get("tts_enabled", True))
+    except (OSError, json.JSONDecodeError, AttributeError):
+        pass
+    return True
 
 
 def _play_audio(audio_data: bytes):
@@ -326,6 +340,13 @@ def _poll_input():
 
                     print(f"[TTS] 新回复: {clean_text[:60]}...")
                     sys.stdout.flush()
+
+                    # 语音开关（GUI「语音：开/关」共享 flag）：关闭则跳过合成播放，
+                    # 文本仍由 Live2D 渲染器打字机显示（不受影响）。
+                    if not _tts_enabled():
+                        print("[TTS] 语音已关闭（GUI 开关），跳过播放")
+                        sys.stdout.flush()
+                        continue
 
                     # 合成并播放
                     engine = TTSHandler.engine
