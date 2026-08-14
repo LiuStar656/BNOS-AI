@@ -51,6 +51,10 @@ class Live2DPage(QWidget):
     CURRENT_MODEL_KEY = "live2d_current_model"
     TTS_ENABLED_KEY = "tts_enabled"
 
+    # 语音开关共享 flag：写 nodes/shared/tts_enabled.json，供 TTS 节点
+    # （pygame 播放路径）读取。与 mode.json / speaking.json 同族协议文件。
+    _TTS_FLAG_FILE = Path(__file__).resolve().parent.parent.parent / "nodes" / "shared" / "tts_enabled.json"
+
     @classmethod
     def _server_script_path(cls) -> Path:
         return Path(__file__).resolve().parent.parent / "live2d" / "server.py"
@@ -445,6 +449,15 @@ class Live2DPage(QWidget):
         # 桌面悬浮窗
         if self._overlay is not None and hasattr(self._overlay, "_web"):
             self._overlay._web.page().runJavaScript(js)
+        # 共享 flag：TTS 节点（pygame 播放）读此文件决定是否合成播放
+        try:
+            self._TTS_FLAG_FILE.parent.mkdir(parents=True, exist_ok=True)
+            tmp = self._TTS_FLAG_FILE.with_suffix(self._TTS_FLAG_FILE.suffix + ".tmp")
+            tmp.write_text(
+                json.dumps({"tts_enabled": self._tts_enabled}), encoding="utf-8")
+            tmp.replace(self._TTS_FLAG_FILE)
+        except OSError:
+            pass
 
     def _apply_tts_btn_style(self):
         """根据 _tts_enabled 更新按钮文本与样式。"""
