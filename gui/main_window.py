@@ -80,9 +80,10 @@ class MainWindow(QMainWindow):
         # 恢复窗口位置和尺寸
         self._restore_window_geometry()
 
-        # 默认显示聊天页
-        self._nav_view.set_active("chat")
-        self._stack.setCurrentWidget(self._pages["chat"])
+        # 默认显示首页（ui_registry 注册顺序最前的页面）
+        default_id = ui_registry.page_ids()[0] if ui_registry.page_ids() else "chat"
+        self._nav_view.set_active(default_id)
+        self._stack.setCurrentWidget(self._pages[default_id])
 
         # 启动后发送 init_check
         from PySide6.QtCore import QTimer

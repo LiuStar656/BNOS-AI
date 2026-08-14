@@ -217,12 +217,16 @@ def _format_location_content(record: dict) -> str:
 
 
 def _format_extra(table: str, record: dict) -> str:
-    """提取额外信息（分类、角色、来源等）"""
+    """提取额外信息（分类、角色、来源等），字段名映射为中文标签"""
+    _FIELD_LABELS = {
+        "category": "分类", "role": "角色", "source": "来源",
+        "mood": "心情", "key": "键",
+    }
     parts = []
     for key in ("category", "role", "source", "mood", "key"):
         val = record.get(key)
         if val:
-            parts.append("{}={}".format(key, val))
+            parts.append("{}={}".format(_FIELD_LABELS.get(key, key), val))
     return " | ".join(parts) if parts else ""
 
 
