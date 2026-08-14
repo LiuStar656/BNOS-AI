@@ -12,6 +12,7 @@ from PySide6.QtGui import QColor, QPalette
 from PySide6.QtWidgets import (
     QButtonGroup,
     QCheckBox,
+    QFrame,
     QHBoxLayout,
     QLabel,
     QLineEdit,
@@ -245,6 +246,8 @@ class ChatPage(QWidget):
         self._current_ai_bubble: ChatBubble | None = None  # 当前正在 append 的 AI 气泡
         self._waiting_bubble: QWidget | None = None  # 等待指示气泡（AI/DSH 处理中）
         self._waiting_label: QLabel | None = None    # 等待气泡的状态文字
+        self._waiting_scroll: QScrollArea | None = None  # 固定高度滚动区（DSH 输出在框内滚动，换行不闪烁）
+        self._waiting_header: str = ""              # 等待气泡固定前缀（工作模式"已提交 DSH"回执）
         self._conversation_messages: dict[str, list[tuple[str, str]]] = {}  # conv_id -> [(role, text)]
         self._prev_conv_id: str = ""  # 切换前记录旧对话 id
         self._pending_reply_conv_id: str = ""  # 当前发送消息所属对话 id（回复路由用）
@@ -700,9 +703,11 @@ class ChatPage(QWidget):
 
         if not pending:
             self._hide_waiting()
-        self._start_typing(text)
-        if pending:
-            self._show_waiting("DSH 正在执行中…")
+            self._start_typing(text)
+        else:
+            # 工作模式 DSH 回执（"已提交 DSH…"）：并入等待小气泡固定前缀，
+            # 不单独创建气泡；后续 node_activity 实时输出追加在下方
+            self._show_waiting("DSH 正在执行中…", header=f"{text}\n")
 
     def _start_typing(self, text: str):
         """开始逐字输出"""
@@ -745,11 +750,20 @@ class ChatPage(QWidget):
 
     # ─── 等待指示气泡 ──────────────────────────
 
-    def _show_waiting(self, text: str):
-        """显示等待指示气泡（转圈动画 + 状态文字）；已存在则只更新文字"""
+    def _show_waiting(self, text: str, header: str = ""):
+        """显示等待指示气泡（转圈动画 + 状态文字）；已存在则只更新文字。
+
+        header：固定前缀（如工作模式"已提交 DSH"回执），显示在动态文案
+        上方，node_activity 轮询的实时输出追加其后。气泡固定高度，实时
+        输出在框内滚动到底部——文本换行不改变气泡大小，避免闪烁。
+        """
+        self._waiting_header = header
         if self._waiting_bubble is not None:
             if self._waiting_label is not None:
-                self._waiting_label.setText(text)
+                self._waiting_label.setText(header + text)
+                if self._waiting_scroll is not None:
+                    vsb = self._waiting_scroll.verticalScrollBar()
+                    vsb.setValue(vsb.maximum())
             self._scroll_to_bottom()
             return
         colors = AppConfig().get_all_colors()
@@ -779,13 +793,23 @@ class ChatPage(QWidget):
                 border-radius: 3px;
             }}
         """)
-        self._waiting_label = QLabel(text)
+        # 固定高度的滚动区：DSH 实时输出在框内滚动，气泡整体大小不变 → 换行不闪烁
+        scroll = QScrollArea(bubble)
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QFrame.Shape.NoFrame)
+        scroll.setFixedHeight(88)
+        scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        scroll.setStyleSheet(
+            "QScrollArea { background: transparent; border: none; }")
+        self._waiting_label = QLabel(header + text)
         self._waiting_label.setWordWrap(True)          # DSH 实时输出多行自动换行
-        self._waiting_label.setMaximumWidth(420)       # 限制宽度，避免撑爆窗口
+        self._waiting_label.setMaximumWidth(400)       # 限制宽度，避免撑爆窗口
         self._waiting_label.setStyleSheet(
             f"color: {colors['text_secondary']}; font-size: 12px;")
+        scroll.setWidget(self._waiting_label)
+        self._waiting_scroll = scroll
         lay.addWidget(bar)
-        lay.addWidget(self._waiting_label)
+        lay.addWidget(scroll, 1)
         count = self._msg_layout.count()
         self._msg_layout.insertWidget(count - 1, bubble)
         self._msg_layout.setAlignment(bubble, Qt.AlignmentFlag.AlignLeft)
@@ -795,6 +819,8 @@ class ChatPage(QWidget):
     def _hide_waiting(self):
         """移除等待指示气泡"""
         self._stop_activity_poll()
+        self._waiting_header = ""
+        self._waiting_scroll = None
         if self._waiting_bubble is not None:
             self._msg_layout.removeWidget(self._waiting_bubble)
             self._waiting_bubble.deleteLater()
@@ -831,7 +857,10 @@ class ChatPage(QWidget):
         except (OSError, json.JSONDecodeError):
             return  # 文件暂不可读：保持当前文案
         if text:
-            self._waiting_label.setText(text)
+            self._waiting_label.setText(self._waiting_header + text)
+            if self._waiting_scroll is not None:
+                vsb = self._waiting_scroll.verticalScrollBar()
+                vsb.setValue(vsb.maximum())  # 保持滚动到底部显示最新输出
 
     @staticmethod
     def _strip_mood_tag(text: str) -> str:
