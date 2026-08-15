@@ -204,6 +204,11 @@ def main():
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
 
+    # 按主题 mode 设置应用级调色板：避免 Windows 暗色模式下 Fusion 默认
+    # 白字泄漏到未被全局 QSS 覆盖的控件（QCheckBox/QMenu/日期框等）
+    from gui.core.theme_engine import theme_engine
+    theme_engine.apply_palette(app)
+
     # 闪屏
     splash = StartupSplash(_project_root)
 

@@ -264,9 +264,11 @@ class MainWindow(QMainWindow):
         """主题颜色在设置页被修改时触发刷新
 
         各组件已自查订阅 THEME_CHANGED 刷新自身样式（阶段4），
-        MainWindow 只负责刷新全局 QSS。
+        MainWindow 只负责刷新全局 QSS + 应用级调色板。
         """
         theme_engine.apply_global(self)
+        from PySide6.QtWidgets import QApplication
+        theme_engine.apply_palette(QApplication.instance())
 
     # ─── 启动后初始化 ──────────────────────────
 

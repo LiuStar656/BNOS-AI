@@ -6,6 +6,9 @@ output.json
 .pid
 models/
 
+# 本地密钥配置（不提交不追踪）
+local_config.json
+
 # OS
 .DS_Store
 Thumbs.db

@@ -66,3 +66,18 @@ schemanet/data/
 bnos_status.json
 conversation_history.json
 output_*.json
+
+# Paper assets — 论文初稿/大纲与生成物仅本地保留，不入公开镜像
+docs/cogevo/\[WIP\]*
+docs/cogevo/\[EXP\]*
+docs/cogevo/\[PLAN\]*
+docs/cogevo/\[REPORT\]*
+docs/cogevo/paper.html
+docs/cogevo/convert_paper.py
+docs/cogevo/figs/
+
+# 复现包内的实验样本放行（覆盖上方 *.jsonl）
+!docs/cogevo/paper_repro/**/*.jsonl
+
+# schemanet 子项目 — 含论文草稿/终结宣告/答辩材料等敏感资产，仅本地保留
+schemanet/

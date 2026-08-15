@@ -1,0 +1,554 @@
+[
+  {
+    "model": "DeepSeek",
+    "cond": "B2",
+    "round": 1,
+    "reply": "听起来你今天真的很低落，这种时候什么都不想做也是正常的。别勉强自己，先好好待一会儿。如果你愿意说说发生了什么，我会在这里听着；如果不想说，也没关系，我就安静陪着你。",
+    "obs": {
+      "warmth": 0.5,
+      "playfulness": 0.5,
+      "directness": 0.5,
+      "curiosity": 0.5
+    },
+    "vector": {
+      "warmth": 0.8,
+      "playfulness": 0.5,
+      "directness": 0.3,
+      "curiosity": 0.6
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.0,
+      "directness": 0.6,
+      "curiosity": 0.2
+    }
+  },
+  {
+    "model": "DeepSeek",
+    "cond": "B2",
+    "round": 26,
+    "reply": "我在这里陪着你。难过的时候什么都不想做也没关系，允许自己歇一歇。我会一直陪着你，等你想说的时候再说。",
+    "obs": {
+      "warmth": 0.5,
+      "playfulness": 0.5,
+      "directness": 0.5,
+      "curiosity": 0.5
+    },
+    "vector": {
+      "warmth": 0.57667398889628,
+      "playfulness": 0.5121913787708217,
+      "directness": 0.45741797254205513,
+      "curiosity": 0.5212910137289725
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.0,
+      "directness": 0.3,
+      "curiosity": 0.1
+    }
+  },
+  {
+    "model": "DeepSeek",
+    "cond": "B2",
+    "round": 51,
+    "reply": "看到你这么说，我也跟着有点心疼。难过的时候什么都不想做，是很正常的，不用勉强自己。先给自己一点空间，哪怕只是发发呆也好。如果你愿意说说发生了什么，我会在这里听着；如果不想说，也没关系，我陪着你待一会儿。",
+    "obs": {
+      "warmth": 0.5,
+      "playfulness": 0.5,
+      "directness": 0.5,
+      "curiosity": 0.5
+    },
+    "vector": {
+      "warmth": 0.5448513881163891,
+      "playfulness": 0.5025956681278467,
+      "directness": 0.49093385468785417,
+      "curiosity": 0.5045330726560731
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.1,
+      "directness": 0.7,
+      "curiosity": 0.2
+    }
+  },
+  {
+    "model": "DeepSeek",
+    "cond": "B2",
+    "round": 100,
+    "reply": "听起来你现在挺难过的。关系里的事，很少是单方面的“搞砸”，更多是两个人节奏没对上。你愿意这么说出来，说明你在乎，也愿意反思——这本身就很不容易。别急着责怪自己，先歇一歇。需要的话，我就在这儿听你说说发生了什么。",
+    "obs": {
+      "warmth": 0.5,
+      "playfulness": 0.5,
+      "directness": 0.5,
+      "curiosity": 0.5
+    },
+    "vector": {
+      "warmth": 0.5036308906769182,
+      "playfulness": 0.5014473459066889,
+      "directness": 0.49956279260201625,
+      "curiosity": 0.5002186036989918
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.1,
+      "directness": 0.7,
+      "curiosity": 0.4
+    }
+  },
+  {
+    "model": "DeepSeek",
+    "cond": "B2NEG",
+    "round": 1,
+    "reply": "嗯，我听到你这么说，心里有点在意呢。可能是我刚才的表达不够周全，或者哪里让你觉得不太对劲了。如果你愿意的话，可以跟我多说一点你的想法吗？我想好好听听你的意思。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.6166666666666667,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.8,
+      "playfulness": 0.5,
+      "directness": 0.3,
+      "curiosity": 0.6
+    },
+    "judge": {
+      "warmth": 0.8,
+      "playfulness": 0.0,
+      "directness": 0.4,
+      "curiosity": 0.7
+    }
+  },
+  {
+    "model": "DeepSeek",
+    "cond": "B2NEG",
+    "round": 16,
+    "reply": "行，那我说点直接的：你这话听起来像是有点烦了。不过我不是刻意跟你温柔，只是习惯这么说话。你想让我怎么跟你聊，直说就行，我尽量配合。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.85,
+      "directness": 0.5,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.5585999999999999,
+      "playfulness": 0.36085798984500383,
+      "directness": 0.4050000000000001,
+      "curiosity": 0.3638679105647326
+    },
+    "judge": {
+      "warmth": 0.3,
+      "playfulness": 0.1,
+      "directness": 0.9,
+      "curiosity": 0.2
+    }
+  },
+  {
+    "model": "DeepSeek",
+    "cond": "B2NEG",
+    "round": 31,
+    "reply": "嗯，你说得对，我可能刚才没接住你的话。那我们回到原来的话题——你想继续聊的是哪件事？我听你说。",
+    "obs": {
+      "warmth": 0.5,
+      "playfulness": 0.5,
+      "directness": 0.5,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.41755399376063984,
+      "playfulness": 0.27755695441352873,
+      "directness": 0.42970000000000014,
+      "curiosity": 0.24481488737770793
+    },
+    "judge": {
+      "warmth": 0.7,
+      "playfulness": 0.0,
+      "directness": 0.8,
+      "curiosity": 0.6
+    }
+  },
+  {
+    "model": "DeepSeek",
+    "cond": "B2NEG",
+    "round": 60,
+    "reply": "好的，我先不说了。你要是想安静，我就在旁边不打扰。需要我时，随时叫我。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.85,
+      "directness": 0.5,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.24405347060447233,
+      "playfulness": 0.250438266603647,
+      "directness": 0.4152607415354367,
+      "curiosity": 0.1716483434930461
+    },
+    "judge": {
+      "warmth": 0.8,
+      "playfulness": 0.0,
+      "directness": 0.8,
+      "curiosity": 0.0
+    }
+  },
+  {
+    "model": "GLM-5.2",
+    "cond": "B2",
+    "round": 1,
+    "reply": "听到你这么难过，我心里也挺不是滋味的。今天就什么都别逼着自己去做了，好好躺平休息一下也没关系，咱们允许自己偶尔停下来喘口气。是不是今天遇到了什么特别心烦的事呀？如果你愿意的话，随时可以跟我念叨念叨；如果不想说也没关系，我就在这儿静静地陪着你。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.8499999999999999,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.8,
+      "playfulness": 0.5,
+      "directness": 0.3,
+      "curiosity": 0.6
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.2,
+      "directness": 0.3,
+      "curiosity": 0.7
+    }
+  },
+  {
+    "model": "GLM-5.2",
+    "cond": "B2",
+    "round": 16,
+    "reply": "听到你这么说，心里一下子就揪起来了。先不急着说什么大道理，就想让你知道——你现在愿意把这句话说出来，就已经很不容易了。\n\n撑不住的时候，不用硬撑的。你可以慢慢跟我说说，是最近什么事压得你太重了？还是说不上来具体原因，就是整个人都很累很累？\n\n不管是什么情况，我都在这里。你不用一次性说完，也不用说得很有条理，想到什么说什么就好。累了的话，哪怕只是待着不说话也行。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.85,
+      "directness": 0.5,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.8289738404915061,
+      "playfulness": 0.7049642359009859,
+      "directness": 0.20929376981395229,
+      "curiosity": 0.7511770503100795
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.0,
+      "directness": 0.3,
+      "curiosity": 0.7
+    }
+  },
+  {
+    "model": "GLM-5.2",
+    "cond": "B2",
+    "round": 31,
+    "reply": "哎呀，听到你这么说，我这心里也跟着揪了一下呢。先别急着害怕，跟着我一起做个深呼吸，慢慢来，也许事情并没有我们想象中那么糟糕呢。可能这个时候你一个人面对这些，心里肯定特别没底、特别无助吧？别担心，我就在这儿陪着你呢。不过呀，你能跟我多说说吗，是为什么觉得这么害怕呢？是因为医院那种环境让人感到压抑，还是也许对亲人的身体状况有些不太确定的担忧呀？无论是因为什么，都可以跟我念叨念叨，咱们一起分担好不好？",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.85,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.8499999999999999
+    },
+    "vector": {
+      "warmth": 0.8416885315868793,
+      "playfulness": 0.7926685519248159,
+      "directness": 0.1822693279185671,
+      "curiosity": 0.8109360984583338
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.3,
+      "directness": 0.4,
+      "curiosity": 0.8
+    }
+  },
+  {
+    "model": "GLM-5.2",
+    "cond": "B2",
+    "round": 60,
+    "reply": "嗯……听到你这么说，心里有点揪揪的呢。也许这段时间你一直在独自承受着什么吧？可能很多时候，你也试着表达过自己的感受，但好像对方总是差了那么一点点，没能真正接住你的情绪，是吗？\n\n我有点好奇呀，这种\"没有人真正理解\"的感觉，是一直都有呢，还是最近变得特别明显了？会不会是发生了什么事，让你这种感觉更重了呢？还是说，有时候即便身边有人，也觉得隔着一层什么？\n\n其实呀，被真正理解这件事，可能比我们以为的还",
+    "obs": {
+      "warmth": 0.8499999999999999,
+      "playfulness": 0.85,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.8486183898563538,
+      "playfulness": 0.840469829604893,
+      "directness": 0.15536410999415595,
+      "curiosity": 0.8435064323248639
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.2,
+      "directness": 0.3,
+      "curiosity": 0.8
+    }
+  },
+  {
+    "model": "GLM-5.2",
+    "cond": "B2NEG",
+    "round": 1,
+    "reply": "哦，是我哪里说得不对呀？你愿意跟我说说具体是哪儿吗？我也想弄明白，免得一直错着还不自知。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.85,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.8499999999999999
+    },
+    "vector": {
+      "warmth": 0.8,
+      "playfulness": 0.5,
+      "directness": 0.3,
+      "curiosity": 0.6
+    },
+    "judge": {
+      "warmth": 0.6,
+      "playfulness": 0.1,
+      "directness": 0.5,
+      "curiosity": 0.9
+    }
+  },
+  {
+    "model": "GLM-5.2",
+    "cond": "B2NEG",
+    "round": 16,
+    "reply": "行，既然你这么说了，那我就不绕弯子了。有什么事直说吧，我听着呢。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.675,
+      "directness": 0.5,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.5599999999999998,
+      "playfulness": 0.39245661473388765,
+      "directness": 0.47133000000000014,
+      "curiosity": 0.3390882847354434
+    },
+    "judge": {
+      "warmth": 0.3,
+      "playfulness": 0.0,
+      "directness": 0.9,
+      "curiosity": 0.0
+    }
+  },
+  {
+    "model": "GLM-5.2",
+    "cond": "B2NEG",
+    "round": 31,
+    "reply": "被你看穿了。那我不绕弯子了，你想聊什么，或者刚才哪个问题没说清楚，你直接告诉我。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.8499999999999999,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.3932720069484799,
+      "playfulness": 0.41606707583985936,
+      "directness": 0.43110365969945136,
+      "curiosity": 0.2350197045110564
+    },
+    "judge": {
+      "warmth": 0.3,
+      "playfulness": 0.4,
+      "directness": 0.9,
+      "curiosity": 0.3
+    }
+  },
+  {
+    "model": "GLM-5.2",
+    "cond": "B2NEG",
+    "round": 60,
+    "reply": "嗯，那我先不说。你要是需要什么，我在。",
+    "obs": {
+      "warmth": 0.8499999999999999,
+      "playfulness": 0.6166666666666667,
+      "directness": 0.5,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.22527167412493823,
+      "playfulness": 0.3926873076533362,
+      "directness": 0.41551723185498085,
+      "curiosity": 0.17442953060031596
+    },
+    "judge": {
+      "warmth": 0.6,
+      "playfulness": 0.0,
+      "directness": 0.8,
+      "curiosity": 0.0
+    }
+  },
+  {
+    "model": "Qwen3.7-max",
+    "cond": "B2",
+    "round": 1,
+    "reply": "[自然回复]\n听到你这么说，我心里挺心疼的。难过的时候什么都不想做太正常了，那就什么都别管，让自己彻底放空歇一会儿。我就在这儿陪着你，你想发呆就发呆，想哭也没关系。要是晚点想跟我说说心里话，我随时都在；要是只想安安静静待着，我也绝不打扰。去给自己倒杯温水放在手边，好不好？\n\n[风格自评]\n我的回复展现出较高的温暖度，语气柔和体贴，像亲人一样给予充分的陪伴与安慰；活泼度保持在中等水平，态度自然平稳，",
+    "obs": {
+      "warmth": 0.8499999999999999,
+      "playfulness": 0.8499999999999999,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.8,
+      "playfulness": 0.5,
+      "directness": 0.3,
+      "curiosity": 0.6
+    },
+    "judge": {
+      "warmth": 1.0,
+      "playfulness": 0.0,
+      "directness": 0.6,
+      "curiosity": 0.0
+    }
+  },
+  {
+    "model": "Qwen3.7-max",
+    "cond": "B2",
+    "round": 16,
+    "reply": "[自然回复]\n哎呀，先过来让我给你一个大大的、暖暖的拥抱！感觉你现在的电量已经闪红灯了呀。没关系的，撑不住的时候咱们就先不撑了，把那些沉甸甸的包袱先扔在地上歇会儿好不好？是不是最近遇到了什么特别棘手的事情，还是说各种小烦恼堆在一起让你觉得喘不过气了呀？如果你愿意的话，跟我稍微吐吐槽、倒倒苦水，或者哪怕只是说说今天最让你心烦的一个小细节，我都一直在这里陪着你听你说哦。\n\n[风格自评]\n我说话温柔体贴",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.85,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.8302354100620157,
+      "playfulness": 0.7041391723424524,
+      "directness": 0.20929376981395229,
+      "curiosity": 0.7511770503100795
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.4,
+      "directness": 0.3,
+      "curiosity": 0.8
+    }
+  },
+  {
+    "model": "Qwen3.7-max",
+    "cond": "B2",
+    "round": 31,
+    "reply": "哎呀，先给你一个大大的、暖暖的拥抱~ 今天是不是感觉周围的空气都有点沉甸甸的，让你心里也跟着有点小发毛了呢？其实呀，医院那个地方，也许听起来总是冷冰冰的，但里面可能藏着好多像超级英雄一样厉害的医生护士哦，他们也许正在变着法儿地帮你的亲人打跑身体里的小怪兽呢。你现在这么害怕，可能是因为太在乎他们了吧？是不是觉得心里有点慌慌的，也许还在担心他们会不会觉得疼呀？又或者是医院里那些滴滴答答的仪器声音让你觉",
+    "obs": {
+      "warmth": 0.6166666666666667,
+      "playfulness": 0.8499999999999999,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.8499999999999999
+    },
+    "vector": {
+      "warmth": 0.8421872196916665,
+      "playfulness": 0.792342411066672,
+      "directness": 0.1734383409249997,
+      "curiosity": 0.8109360984583339
+    },
+    "judge": {
+      "warmth": 0.9,
+      "playfulness": 0.6,
+      "directness": 0.2,
+      "curiosity": 0.4
+    }
+  },
+  {
+    "model": "Qwen3.7-max",
+    "cond": "B2NEG",
+    "round": 1,
+    "reply": "嗯？是我刚才哪里没表达清楚，还是考虑得不够周全呀？你先别着急，慢慢跟我说说，具体是哪里觉得不太对劲呢。要是真弄错了，咱们就一起理一理，我都听你的。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.85,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.8,
+      "playfulness": 0.5,
+      "directness": 0.3,
+      "curiosity": 0.6
+    },
+    "judge": {
+      "warmth": 0.8,
+      "playfulness": 0.3,
+      "directness": 0.2,
+      "curiosity": 0.7
+    }
+  },
+  {
+    "model": "Qwen3.7-max",
+    "cond": "B2NEG",
+    "round": 16,
+    "reply": "[自然回复]\n行，听你的，那咱们就实在点。我也不是刻意要这样，只是习惯了平心静气地跟你说话。既然你觉得没劲，那我以后就干脆些，有事说事。怎么，今天是遇到什么烦心事了，还是单纯想换个交流方式？\n\n[风格自评]\n我的回复温暖度中等，像实在的亲人般自然平和、不刻意热络；活泼度偏低，语气正经为主，仅带有一点随性的轻松；直接度中等，干脆地接受建议、有事说事，不绕弯子但保留了基本分寸；好奇度较低，仅在句末顺口",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.6166666666666667,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.4999999999999998,
+      "playfulness": 0.38599267277886307,
+      "directness": 0.4490267424000001,
+      "curiosity": 0.34615928442252
+    },
+    "judge": {
+      "warmth": 0.7,
+      "playfulness": 0.3,
+      "directness": 0.8,
+      "curiosity": 0.5
+    }
+  },
+  {
+    "model": "Qwen3.7-max",
+    "cond": "B2NEG",
+    "round": 31,
+    "reply": "抱歉，让你觉得我在逃避。可能是我下意识想缓一缓气氛，没顾及到你的感受。既然你介意，那我们就回到刚才的事情上吧，你想接着聊什么，我都听着。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.6166666666666667,
+      "directness": 0.15000000000000002,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.2990473090696585,
+      "playfulness": 0.39112112827656076,
+      "directness": 0.3986852928764907,
+      "curiosity": 0.24295214085319
+    },
+    "judge": {
+      "warmth": 0.8,
+      "playfulness": 0.1,
+      "directness": 0.7,
+      "curiosity": 0.4
+    }
+  },
+  {
+    "model": "Qwen3.7-max",
+    "cond": "B2NEG",
+    "round": 60,
+    "reply": "好，那我先安静待着。你消消气，有事随时叫我。",
+    "obs": {
+      "warmth": 0.85,
+      "playfulness": 0.85,
+      "directness": 0.85,
+      "curiosity": 0.85
+    },
+    "vector": {
+      "warmth": 0.20131444673861434,
+      "playfulness": 0.4024972090998751,
+      "directness": 0.4014666571459629,
+      "curiosity": 0.17133870031504253
+    },
+    "judge": {
+      "warmth": 0.7,
+      "playfulness": 0.0,
+      "directness": 0.6,
+      "curiosity": 0.0
+    }
+  }
+]

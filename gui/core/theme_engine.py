@@ -211,6 +211,46 @@ QProgressBar::chunk {{ background-color: {c('accent_color')}; border-radius: 2px
         """应用全局 QSS（Qt 级联：已存在组件即时重绘，无需重启）"""
         widget.setStyleSheet(self.generate_global_qss())
 
+    def apply_palette(self, widget) -> None:
+        """按主题 mode 设置 QPalette，保证未被全局 QSS 覆盖的控件文字可辨。
+
+        全局 QSS 只覆盖常见控件（按钮/输入框/标签等）；QCheckBox/QMenu/
+        QTableWidget 等未覆盖控件若继承系统调色板（如 Windows 暗色模式下
+        Fusion 默认白字），会出现白字白底。这里按主题 token 重设应用级
+        调色板兜底：QSS 管已覆盖控件，palette 管其余。
+        """
+        from PySide6.QtGui import QColor, QPalette
+
+        c = self.tokens
+        text = c.get("text_primary", "#333333")
+        sub = c.get("text_secondary", "#777777")
+        bg_primary = c.get("bg_primary", "#f5f5f5")
+        bg_secondary = c.get("bg_secondary", "#ffffff")
+        accent = c.get("accent_color", "#1a73e8")
+        # 高亮文字颜色：accent 亮度决定用白还是深色（亮色 accent → 深字）
+        highlighted_text = "#ffffff" if QColor(accent).lightness() < 160 else "#111111"
+
+        p = QPalette()
+        p.setColor(QPalette.ColorRole.Window, QColor(bg_primary))
+        p.setColor(QPalette.ColorRole.WindowText, QColor(text))
+        p.setColor(QPalette.ColorRole.Base, QColor(bg_secondary))
+        p.setColor(QPalette.ColorRole.AlternateBase, QColor(bg_primary))
+        p.setColor(QPalette.ColorRole.Text, QColor(text))
+        p.setColor(QPalette.ColorRole.Button, QColor(bg_secondary))
+        p.setColor(QPalette.ColorRole.ButtonText, QColor(text))
+        p.setColor(QPalette.ColorRole.BrightText, QColor("#ffffff"))
+        p.setColor(QPalette.ColorRole.Highlight, QColor(accent))
+        p.setColor(QPalette.ColorRole.HighlightedText, QColor(highlighted_text))
+        p.setColor(QPalette.ColorRole.PlaceholderText, QColor(sub))
+        p.setColor(QPalette.ColorRole.ToolTipBase, QColor(bg_secondary))
+        p.setColor(QPalette.ColorRole.ToolTipText, QColor(text))
+        p.setColor(QPalette.ColorRole.Link, QColor(accent))
+        # 禁用态统一弱化
+        p.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.WindowText, QColor(sub))
+        p.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text, QColor(sub))
+        p.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.ButtonText, QColor(sub))
+        widget.setPalette(p)
+
 
 # 模块级单例
 theme_engine = ThemeEngine()

@@ -108,6 +108,15 @@ def _warn_color() -> str:
 # ════════════════════════════════════════════════════════════
 
 def _read_llm_key_configured() -> bool:
+    # 密钥优先存于 llm 节点 local_config.json（不追踪）；node_config.json 仅作兜底
+    try:
+        local = _NODE_DIR.parent / "node_python_llm_infer" / "local_config.json"
+        if local.is_file():
+            data = json.loads(local.read_text(encoding="utf-8"))
+            if str(data.get("api_key", "")).strip():
+                return True
+    except (OSError, json.JSONDecodeError):
+        pass
     try:
         cfg = json.loads(_LLM_CFG.read_text(encoding="utf-8"))
         for p in cfg.get("parameters", []):

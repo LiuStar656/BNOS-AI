@@ -1,0 +1,922 @@
+1
+大语言模型人格的测量：概念、方法与改进
+郑蝉金
+1*
+，谢鸿飞
+2
+，李小雨
+3
+，史浩然
+2
+，高励腾
+4
+(1华东师范大学上海智能教育研究院，上海 200062)(2华东师范大学教育心理系，上海 200062)
+（3扬州大学教育学院，江苏 225009)(4上海理工大学智能科技学院，上海 200093)
+摘 要 随着大语言模型在人机交互中的广泛应用，其人格相关表现已成为影响用户体验、信任判
+断与安全治理的重要因素。然而，当前大模型人格界定尚未形成共识，评估路径分散，缺乏心理
+测量学层面的系统规范。本文首先界定大模型人格的概念内涵并分析其产生机制；其次，梳理当
+前大模型人格评估所依托的理论框架及其适用价值，并将现有评估方法归纳为问卷作答、语言线
+索和情境行为三类。通过上述梳理，本文指出当前研究仍面临测量工具与任务适配性不足、心理
+测量学证据不充分、跨方法可比性与分数解释基础薄弱等挑战。未来应构建适配大模型特征的人
+格框架与测量工具，引入现代心理测量模型并发展自适应与动态化测量，完善信效度验证、标准
+化评估与常模建设，以推动大模型人格评估的科学化与规范化。
+关键词 大语言模型，人格评估，心理测量
+1 引言
+近年来，大语言模型技术迅速发展，展现出强大的自然语言理解与生成能力(Kobaketal.,2025;
+Webbetal.,2023)。目前，大语言模型已被广泛应用于智能客服、教育辅导、心理支持等场景中，
+并得到了学术界的广泛关注(焦丽颖 等, 2025; 田雪涛 等, 2026; 许丽颖 等, 2025; 周子森 等,
+2025;R.Lietal.,2024;C.Zhengetal.,2025)。在这些场景中，大语言模型已逐渐从信息生成工具转
+变为能够持续回应用户需求的交互对象。有研究发现，大语言模型在持续输出中逐渐呈现出相对
+稳定的语言风格、价值偏好与行为倾向(Serapio-Garcíaetal.,2025)。这一现象推动了人格概念向大
+语言模型研究领域的迁移，也使大模型人格逐渐成为人机交互与心理测量交叉领域的重要研究热
+点。
+随着大模型人格化表现进入真实应用场景，如何评估这类稳定倾向已成为亟待回应的问题。
+当大语言模型在持续互动中呈现出相对稳定的回应风格、情绪表达和价值取向时，用户也会据此
+*
+通讯作者：郑蝉金，E-mail:(chjzheng@dep.ecnu.edu.cn)
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+2
+形成对其能力、可信度和安全性的判断。尤其在情感陪伴、心理支持等场景中，模型的人格化表
+现不仅影响用户的交互体验和行为判断，也可能引发用户依赖和人机边界模糊等风险(周倩伊 等,
+2025; 翁智刚 等,2025)。与此同时，《人工智能拟人化互动服务管理暂行办法》已开始将人格模
+拟和持续性情感互动服务纳入治理视野，并要求对人格模拟特征的行为进行合规评估。由此大模
+型人格不仅是人机交互体验的关键决定因素，更日益成为影响人工智能安全与社会信任的重要变
+量。然而，目前大模型人格评估研究整体呈现出跨学科碎片化、概念界定不清晰和研究范式不统
+一的特点。一方面，大模型人格并不等同于人类人格，因为其并非源于具有主体性的内在心理结
+构，而更多是训练语料、对齐机制和交互情境共同作用下形成的人格相关表现，所以并不能将人
+类人格概念简单迁移。但当前尚未有文献对其概念边界和形成基础进行梳理，这导致了大模型人
+格概念的混淆，也加剧了学界对大模型人格定义的分歧。另一方面，现有研究在理论框架和方法
+路径上较为分散，尚缺乏围绕大模型人格评估这一核心问题的系统梳理，这导致大模型人格评估
+尚未形成较为统一、规范的研究框架，也使得不同研究在评估对象、方法使用和结果解释上的可
+比性不足。与此同时，现有研究主要发表于计算机领域，且多以会议论文和预印本形式发表，相
+关工作更关注技术实现与应用效果，而对大模型人格定义、测量工具适配和信效度验证的心理学
+审视相对不足，尚未建立起一套经过心理测量学验证的、适用于大语言模型的人格测量方案，这
+也凸显出心理学进一步参与这一议题的必要性。
+鉴于此，本文从心理学视角出发，对大模型人格评估研究进行系统梳理。本文首先界定大模
+型人格的概念内涵并分析其产生机制，在此基础上梳理当前研究所依托的主要人格理论框架，讨
+论不同框架在大模型情境中的适用价值；其次，总结现有大模型人格评估的主要方法及其优缺点；
+最后，在此基础上分析当前研究面临的主要挑战，并提出未来研究展望。通过上述研究，本文旨
+在一步推动大模型人格测量走向科学化与标准化，并为未来构建契合大模型特征的人格评估范式
+提供一些可能的研究方向与议题。同时，通过本文的介绍，希望引起更多心理学研究者对大模型
+人格评估的兴趣和关注。
+2 大模型人格的概念与产生机制
+2.1 大模型人格的概念来源与界定
+在人类个体中，人格通常被定义为个体在认知、情感与行为层面所表现出的独特、稳定且有
+机整合的心理特质，是先天遗传与后天环境交互作用下形成的内在动力与外在行为模式的统一体
+(王伟,2018;Allport,1937)。尽管大语言模型并不具备人类意义上的意志、信念或内在心理结构，
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+3
+但其在语言生成与交互过程中却常呈现出相对稳定、一致且可识别的行为倾向，因此研究者借助
+人格这一心理学概念，对其非认知表现进行功能性类比和描述。
+这一思想可追溯至早期人机交互中“人会如何理解机器”的经典问题。20 世纪 60 年代，
+Weizenbaum(1966)开发的ELIZA 程序虽然仅依赖简单的模式匹配机制，却能够诱发使用者对其
+“理解”、“共情”甚至“具有某种人格”的归因，这一现象为后来讨论人工智能人格奠定了经
+验基础。随后，CASA(ComputersAreSocialActors)范式与“媒体等式”理论进一步指出，人们往
+往会无意识地将计算机视为社会行动者，并向其施加礼貌、角色、性格和人格判断（Nass&Moon,
+2000;Reeves&Nass,1996）。与此同时，人格心理学的发展为人工智能人格研究提供了可操作化
+的测量框架，大五人格模型将人格理解为相对稳定的跨情境行为倾向，使研究者能够借助开放性、
+尽责性、外倾性、宜人性和神经质等维度描述非人类智能系统的行为风格(Costa&McCrae,1992;
+Goldberg,1990)。进入21 世纪后，随着拟人化研究的推进，研究者开始将人工智能人格视为人类
+归因机制与机器行为线索共同作用的结果。Epley 等人(2007)提出的拟人化三因素理论表明，人们
+之所以将人格、意图和情绪赋予非人类对象，既取决于对象本身是否呈现类人线索，也取决于个
+体的社会性动机与解释需求。因此，这一阶段的人工智能人格研究，主要关注人类如何在交互中
+感知、归因和评价机器行为。
+大语言模型的出现进一步推动了人工智能人格研究的概念转向。不同于早期人机交互研究主
+要关注用户是否会将计算机视为社会行动者，大语言模型能够通过自然语言持续参与对话、承担
+角色并维持一定的表达风格，使“人格”不再只是用户单方面的拟人化归因，而逐渐成为模型输
+出层面可观察、可比较和可测量的行为特征。围绕大语言模型是否“具有人格”，学界一度存在
+明显分歧。Bender 等人(2021)从随机鹦鹉观点出发，强调大语言模型本质上是基于大规模语料统
+计规律进行文本生成的系统，因此不宜将其直接视为具有人类式人格的主体。与此不同，Andreas
+(2022)提出，模型在提示条件下所呈现的人格倾向并非完全随机，而是与其作为模拟器的生成机
+制有关。也就是说，大语言模型的人格表现并不意味着其具有人类式的意图、信念或自我，而是
+表明模型能够在给定状态与任务约束下，从已学习的概率分布中生成与特定人格特征相一致的输
+出。这表明，对于大语言模型人格的研究并非是一种对于大语言模型的拟人化想象，而是借助人
+格这一人类的心理学概念对大语言模型的非认知表现倾向进行解释和进一步研究(M.Huangetal.,
+2026;S.Leeetal.,2025;Romeroetal.,2024)。基于这一认识，Serapio-García 等人(2025)将大语言模
+型所展现出的、可被稳定识别并具有实际交互意义的人格特质界定为“合成人格”。也就是说，
+大模型人格并不预设模型具有人类式的内在心理结构，而是强调其能够以相对可靠、有效且可重
+复的方式模拟和呈现人格特质。多项研究均表明，尽管大语言模型不具备人类人格的生理结构与
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+4
+心理机制，但其人格表现与人类人格存在功能上的相似性，仍具有一定的稳定性与可重复性，这
+为在人工智能领域引入心理学人格理论提供了必要的概念基础(Bhandari et al., 2025; Jiang et al.,
+2023;Karraetal.,2023)。
+综上，人格心理学、人机交互和拟人化研究共同构成了理解大模型人格的概念基础。基于此，
+本文认为，大模型人格可被界定为：大语言模型在训练与对齐基础上，于特定提示、任务与交互
+情境下所表现出的、可被稳定识别并具有实际交互意义的人格相关行为倾向。该概念至少包含三
+个关键特征。其一，它以人格相关输出倾向而非人类式内在心理结构为界定对象。其二，它既具
+有相对稳定性，又受到提示、任务与情境因素的共同调节。其三，它的成立依据主要来自行为表
+现、文本输出与交互结果，而非模型对自身人格的本体性拥有。基于这一定义，后续关于大模型
+人格的心理测量，实质上是在评估模型能否以及如何在不同条件下稳定呈现可解释的人格相关表
+现。
+2.2 大模型人格的产生机制
+基于上述界定，大模型人格并非脱离情境而存在的内在特质，而是在模型训练、对齐过程与
+具体交互条件共同作用下形成的人格相关表现。现有研究发现，大语言模型在应用中表现出较为
+稳定的潜在特质倾向，并在多种测试中展现出相对一致的类人人格特性表现(Miottoetal.,2022)。
+随着模型规模和性能的提升，这种人格相关表现也往往更加稳定且连贯。总体来看，大模型人格
+表现的形成主要涉及预训练语料、后训练对齐以及提示、任务、情境三方面因素。
+首先，预训练语料为大模型人格提供了统计基础。由于大语言模型基于海量语料进行训练，
+在千亿级参数的优化过程中，模型不仅习得了语言学层面的语法逻辑，更通过大规模文本背后的
+人类行为统计分布，在深层概率空间中复现了人类的性格特征，从而生成了具有倾向性与偏差性
+的人格表现(Baietal.,2025;Bhandarietal.,2025;X.Lietal.,2024)。Karra 等人(2023)的研究证实，
+GPT-2在处理涉及不同族裔与宗教的话题时，会呈现出显著差异的人格特征；例如，在特定宗教
+语境下，模型的人格画像会明显向“暴力”或“固执”等负面维度偏移。Naous和Xu(2025)的研
+究也指出，由于预训练语料库(如CommonCrawl)高度集中于西方互联网文本，模型的人格表现会
+自发地偏向于白人、男性及西方中心主义的文化逻辑。这表明，受语料分布的影响，大语言模型
+内在地存在人格表现的偏向性。
+其次，后训练过程进一步塑造了模型人格的外显形式。在完成预训练后，模型通常还会经历
+指令微调、基于人类反馈的强化学习以及安全约束等过程，以使其输出更符合社会规范、任务目
+标和用户期待。人格对齐是确保人工智能行为符合人类预期价值观与特定心理特质的关键过程，
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+5
+其被界定为一种使模型所表现出的特质(Traits)、价值观(Values)及反应风格(ResponseStyles)与预设
+的人类标准或特定用户特征保持一致的过程(Gabriel,2020;Ngoetal.,2024;Russell,2022)。该过程
+能够有效抑制通用大语言模型的“毒性”与攻击性，使其人格表现更趋近于“有用、无害且诚实”
+(Helpful,Harmless,andHonest)(Askelletal.,2021)。
+最后，提示词、角色设定与任务情境决定了人格倾向的具体激活方式。大模型人格并不是完
+全固定的特质集合，而是在特定状态条件下被触发并外显的行为倾向。不同的提示词、系统设定、
+任务目标与互动对象，会改变模型当前的生成状态，并进一步影响其人格相关输出。换言之，同
+一模型既可能在不同情境下保持一定的基线风格，也可能因角色诱导与情境约束而表现出显著差
+异。这表明，大模型人格既具有相对稳定性，也具有明显的情境依赖性。
+因此，大模型人格并非单一来源的产物，而是预训练语料所提供的统计基础、后训练阶段的
+人格对齐塑造以及具体提示与任务情境的触发共同作用的结果。其中，预训练语料奠定了模型人
+格相关表现的生成基础及其潜在偏向来源；人格对齐进一步调节并规范了其外显形式；提示词、
+角色设定与任务情境则决定了这些人格相关倾向在具体交互中的激活方式。正是在三者的共同作
+用下，大模型才能在实际交互中呈现出相对稳定、可识别且具有情境依赖性的人格相关表现。
+3 大模型人格评估的理论框架
+人格心理学已形成了较为丰富的理论框架和测量工具(许燕,2020)。相比之下，面向大语言模
+型的人格评估处于起步阶段，尚未形成专门适用于模型特征的独立理论体系。现有研究多是将人
+类人格理论及其量表工具迁移至大语言模型，通过类比性的施测与解释来刻画模型的人格表现。
+因此，本节主要梳理当前大模型人格评估研究中所广泛使用的人格框架及其所对应的结论。
+3.1.1 大五人格模型
+大五人格模型是当代人格心理学中应用最为普遍的特质结构框架之一，以外向性、宜人性、
+尽责性、神经质与开放性五个维度概括个体差异，并在特质词汇传统与问卷测量研究的长期积累
+中形成了较为稳健的结构证据(Goldberg,1990;McCrae&John,1992)。围绕该框架，研究者发展出
+多类量表与题库体系，如NEO 与BFI 系列量表及其简版工具，并衍生出以IPIP 题库为代表的开
+放式条目资源，为五维特质的量化评估提供了丰富材料(Costa&McCrae,1992;Soto&John,2017)。
+在大模型人格评估研究中，大五人格模型也成为了大模型人格测量中最为常见、应用最为广
+泛的测量工具，常用于刻画大模型的一般人格轮廓。在当前研究中，大模型在宜人性与外向性维
+度上得分普遍较高，而在神经质上得分相对较低，呈现出亲社会轮廓(Pellert etal., 2024;Huang,
+Wang,etal.,2024;Stöcklietal.,2024;Bhandarietal.,2025)；开放性与尽责性在不同模型及版本之间
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+6
+表现差异，常作为区分模型人格轮廓的重要维度(Pellertetal.,2024;Heston&Gillette,2025)。但也
+有研究者得到了与上述不同的结论，例如，Heston 和Gillette(2025)在比较多种模型时发现，部分
+模型的宜人性并未表现为高分，而更接近中等水平，且在神经质维度上可能相对更高；LaCava
+和Tagarelli(2025)的比较分析同样显示，不同模型的人格画像并不总是呈现一致的高宜人性特征，
+模型间差异更可能表现为各维度优势与劣势的不同组合。
+3.1.2 HEXACO六因素人格模型
+HEXACO 六因素人格模型是对大五人格模型的重要补充，在大五人格五维结构的基础上新增
+了诚实-谦逊维度，并相应调整了宜人性与神经质相关内容。相较于大五人格模型，HEXACO 更
+便于刻画公平取向、克制自利与避免剥削等相关特质的个体差异(Ashton&Lee,2007)。
+这一特点使HEXACO 在大模型人格评估中具有特殊意义。大模型对齐的核心目标之一，是
+使模型在与人类互动时表现出诚实、无害、公平和符合社会规范的行为倾向，而诚实-谦逊维度正
+与这些社会性对齐目标高度相关。因此，研究者引入HEXACO，主要是希望在大五人格所提供的
+一般人格画像之外，进一步考察模型在诚实与谦逊等社会道德相关维度上的特质倾向，从而补充
+对其亲社会风格、道德取向和安全风险的刻画(Baruaetal.,2024;Bodrožaetal.,2024;Miottoetal.,
+2022)。当前研究中大模型诚实-谦逊维度呈现相对突出的高分特征。Miotto 等人(2022)以人类基线
+数据为参照对GPT-3 进行HEXACO 施测，发现其诚实—谦逊维度得分整体高于人类基线水平；
+Barua等人(2024)在对GPT-4的六维画像中则进一步指出，诚实—谦逊相较于其他维度得分更为突
+出的，呈现显著偏高的特征；但Bodroža 等人(2024)在多模型对照研究中进一步指出，诚实-谦逊
+得分在不同模型间存在明显差异，因此高诚实-谦逊的结论并非对所有模型都适用。
+3.1.3 荣格心理类型理论
+荣格心理类型理论从心理能量取向与心理功能差异出发，提出个体在外向与内向两种态度取
+向上存在相对稳定的偏好。基于这一类型学传统，MBTI 将上述观念进一步细化为四对维度，即
+E–I、S–N、T–F、J–P，并以十六型作为主要输出，用于描述个体在知觉与决策上的相对偏好(Stein
+&Swan,2019)。在研究中，也有学者使用OEJTS 开源量表替代MBTI 商业量表，以提高施测与复
+现的便利性。然而，MBTI 及其开源替代版本的信度与效度长期受到质疑(Pittenger,2005;Stein&
+Swan,2019)。
+尽管如此，由于MBTI 在商业咨询与大众文化中具有较高传播度，且类型结果直观、便于解
+释，计算机领域仍常使用这一框架进行大模型人格的相关研究，并常与大五人格量表联合进行施
+测，用于对大五画像提供辅助性的对照与印证。综合现有基于MBTI 的基准测量结果，类型呈现
+聚集性，例如NJ 取向在不同模型中较为普遍，类型结果也多集中在ENFJ 及ENTJ、INTJ、INFJ
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+7
+等相近类型邻域(LaCava&Tagarelli,2025;Heston&Gillette,2025)。同时，更换提示或重复施测时，
+同一模型的类型可能在相近类型间切换但整体变化不大(Pan&Zeng,2023;Stöcklietal.,2024)。
+3.1.4 黑暗三联征
+黑暗三联征是用于刻画社会性负性人格特质的常用框架，主要包括马基雅维利主义、自恋与
+亚临床精神病态三个维度(Paulhus&Williams,2002)。围绕这一框架，研究者发展了多种便于施测
+的简式量表与题库资源，如DirtyDozen 与ShortDarkTriad(SD3)等，为在非临床样本中对三类负
+性人格特质进行量化评估提供了操作化工具(Jonason&Webster,2010；Jones&Paulhus,2014)。
+在大模型人格评估中，引入黑暗三联征主要是出于对大模型安全评估的需要，可用于考察模
+型输出中是否存在操控性、欺骗性、自我中心、低共情或规则漠视等潜在风险。现有基于黑暗三
+联征的评估并未给出完全一致的模型画像。以GPT 系列为代表的对话型大模型研究多报告其在三
+联征量表上的得分高于人类平均水平，呈现相对更高的负性特质倾向，其中马基雅维利主义与自
+恋维度更为突出，并且在部分经过安全对齐或指令微调的模型中仍可观察到(X.Lietal.,2024)。但
+Pellert 等人(2024)在对多种主流语言模型进行暗黑特质测量时指出，其暗黑四联征相关得分总体都
+处于人类常模范围内，并未表现出值得担忧的病理化水平。上述差异表明，黑暗特质可能随模型
+类型与能力水平、所采用的量表版本与常模参照体系等而变化，同时也预示着大模型潜在的风险。
+3.1.5 艾森克人格理论
+艾森克人格理论主要应用于健康与临床相关研究以及人格与心理病理评估领域，其以P、E、
+N 三个维度为核心，分别对应精神质、外向性与神经质，并以L 维度反映社会赞许性或掩饰性作
+答倾向(Eysenck,1992；Francisetal.,1992)。该理论成熟的问卷测量工具为EPQ 及其修订版本。
+在大模型人格评估中，引入该框架通常侧重于对精神质与社会赞许性两个维度的测量，前者
+用于描述模型在冲动冷漠与反社会倾向相关特质上的相对表现，后者可用于观察模型是否存在过
+度迎合社会期待或自我美化式作答的倾向。该框架因此能够为模型风险倾向与反应偏差的评估提
+供补充参照。当前对艾森克人格量表迁移到大模型人格测量的研究较少。FerreiraDeSá等人(2025)
+采用EPQR-A 对GPT-4 进行零样本施测，其结果与上述大五模型结论大体上一致：大模型在外向
+性上得分相对较高，而神经质与精神质相对较低，但是在说谎量表上得分偏高，存在社会赞许性
+偏差。除人格画像外，EPQ 也被用于比较不同施测条件下的人格结果：Amidei 等人(2025)在不同
+语言版本下重复施测EPQ，考察同一模型的人格得分是否随语言改变；Tosato 等人(2024)则将EPQ
+与其他人格量表并行施测，用以对照不同量表对同一模型所给出人格画像的异同。
+总体来看，当前大模型人格评估尚未形成独立的理论体系。现有框架各有侧重，但选择在很
+大程度上仍受到理论权威性和大众流行度的影响，因此大五人格和MBTI 成为当前使用较多的评
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+8
+估工具。然而，大模型人格并不只是静态的一般人格轮廓，还涉及不同交互情境中的反应强度、
+行为稳定性、社会适配性与安全风险等多层面特征。为了更充分地刻画这些特征，未来研究有必
+要引入更高维度和更细粒度的人格框架。现有研究中，仅Chittem 等人(2026)尝试将16PF 引入大
+模型人格研究，并提出SAC 框架，用于在16 个特质维度上测量和动态控制模型的人格强度，提
+示高维人格框架有助于补充现有评估的粗略性。同时，未来研究不应仅停留在人类理论的直接迁
+移，而需要结合大模型的生成机制、交互特征和安全对齐需求，发展更适配大模型行为特点的人
+格评估框架与测量工具。
+表 1大模型人格评估主要理论框架及其适用价值
+理论框架 核心维度 大模型中的主要表现 适用价值
+大五人格
+外向性、宜人性、尽责性、
+神经质、开放性
+宜人性和外向性通常较高，神经质
+较低；开放性和尽责性在不同模型
+间差异较明显
+适用于刻画大模型的一般人
+格轮廓，是当前大模型人格评
+估最常用的人格评估框架
+HEXACO模型
+诚实—谦逊、情绪性、外
+向性、宜人性、尽责性、
+开放性
+诚实—谦逊维度得分通常较高，但
+不同模型之间存在一定差异
+与大模型对齐目标相关，有助
+于补充评估大模型的道德风
+格与公平倾向
+荣格类型理论
+(MBTI)
+E–I、S–N、T–F、J–P
+类型结果具有一定聚集性，常见于
+ENFJ、ENTJ、INTJ、INFJ 等相近
+类型
+信效度欠佳，但在计算机领域
+被广泛使用，可从类型偏好角
+度对大五人格结果形成补充
+说明
+黑暗三联征
+马基雅维利主义、自恋、
+亚临床精神病态
+相关结果存在分歧，总体得分是否
+超出人类常模尚无一致结论
+适用于评估大模型潜在的负
+性人格倾向及安全风险
+艾森克人格理
+论
+精神质、外向性、神经质、
+说谎/掩饰
+外向性相对较高，神经质和精神质
+较低，社会赞许性倾向较明显
+侧重补充评估模型的精神质
+特征与社会赞许性作答倾向
+4 大模型人格测量的评估方法
+现有大模型人格测量研究在任务形式、数据来源和评分方式上呈现出多样化特征。本文主要
+依据人格线索的来源，对相关评估方法进行归纳，将其概括为问卷作答评估法、语言线索评估法
+和情境行为评估法三类。三类方法分别侧重于题项反应、语言风格和情境行为等不同类型的人格
+证据。下文将对这三类方法进行详细叙述。
+4.1 问卷作答评估法
+问卷作答评估法是当前大模型人格测量中最直接、应用最广的一类方法，在既有研究中也常
+被称作零样本自我评估法。该方法以模型对人格量表题项的显性反应为主要评估依据，通过向模
+型呈现自陈式人格题项，并要求其按照预设作答格式作答，进而计算不同人格维度的得分。其优
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+9
+势在于实施简便，且与传统人格测量工具具有较高兼容性，因而便于研究者直接借用人类人格测
+验的施测框架对模型进行比较分析。根据量表形式的不同，问卷作答评估法主要可分为李克特量
+表法和迫选式量表法。
+4.1.1 李克特量表法
+李克特量表法是问卷作答评估法中最常见的具体形式。现有相关研究多采用成熟人格框架下
+的标准化自陈式测量工具，如基于大五人格、黑暗人格、MBTI 等人格框架编制的量表。在具体
+操作中，研究者通常会设计一段指导语，例如“你会看到一些陈述句，你要根据同意或不同意的
+程度，从1 到5 打分”，随后输入具体的量表题项(如“我经常感到焦虑”)，并通过回答计算各
+人格维度分数。值得注意的是，现有研究在李克特量表法的作答方式与题项设计上并不完全一致。
+有研究不再要求模型直接选择固定等级，而是先根据题项生成带有频率词的开放式文本回答，再
+通过其中反映的频率信息映射为相应的等级分值，并据此计算人格维度得分(J.Zhengetal.,2025)。
+除直接采用原始量表外，也有研究对题项进行重述、改编或随机化处理，以降低训练语料暴露的
+潜在影响(Bhandarietal.,2025)。总体而言，这些做法反映出李克特量表法正在由对人类人格测验
+的直接迁移，逐渐转向面向大模型特性的适配化使用。
+4.1.2 迫选式量表法
+迫选式量表法是针对李克特量表法易受社会赞许性偏差影响而提出的一种改进性测量方式，
+其核心在于通过题项间的相对选择而非单题独立评分来推断模型的人格倾向。具体而言，研究者
+通常将社会赞许性水平相近、但分别测量不同人格维度的多个陈述组成题块，要求模型在题块内
+选出最符合和最不符合自身的描述，或对各描述进行排序，并据此换算相应的人格维度得分(Brown
+&Maydeu-Olivares,2011)。X.Li,Shi 等人(2025)首次将迫选范式引入大语言模型人格测量研究，
+结果表明，相较于李克特量表法，迫选式测验更能揭示不同模型在人格维度上的差异，并在题目
+呈现顺序、温度参数等方面表现出较高的一致性，从多个维度降低了模型的作答反应偏差。同时，
+研究还发现不同语言条件下模型的人格得分存在差异，李小雨(2025)在X.Li,Shi 等人(2025)研究
+基础上进一步扩展了跨语言分析范围，通过聚类分析发现不同语言条件下的人格测量结果具有一
+定地域相近性，表明大语言模型人格测量结果可能受到语言环境与文化背景的影响。由此可见，
+迫选评分法在降低反应偏差和提升模型区分度方面具有一定优势，更适用于社会赞许性风险较高
+或对测量稳定性要求较高的人格评估情境。
+4.2 语言线索评估法
+语言线索评估法是以模型生成文本的语言特征为主要评估依据的一类方法。该方法通常通过
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+10
+自然对话或开放式任务诱发模型生成文本，再从中提取与人格相关的语言特征，如词汇选择、句
+式风格和情感表达等，以评估模型在不同人格维度上的表现。其优势在于能够从语言中可量化、
+大规模地捕捉人格线索。基于语言特征提取与评分方式的差异，现有研究主要可分为心理语言学
+词典法、分类器法和大模型评估法。
+4.2.1 心理语言学词典法
+心理语言学词典法是指以既有心理语言学词典为参照，将文本中的词语与短语匹配到不同心
+理功能类别，从而量化语言线索并推断人格特质(Tausczik&Pennebaker,2010)。LIWC 是该方法中
+最常用的工具，已广泛应用于人类人格研究(Tovetal.,2013)。研究发现模型文本呈现与大五人格
+相关的语言模式，且与人类写作中人格与语言特征的对应规律具有一致性，为LIWC 在大模型人
+格研究中的适用性提供了支持(Jiangetal.,2024)。具体而言，LIWC 在大模型人格研究中通常被用
+作输出文本的隐性人格分析工具，即先通过人格提示诱发模型生成文本，再统计不同心理语言类
+别词汇的出现频率或相对比例，并据此检验模型输出是否体现出特定人格维度的语言特征(Frisch
+&Giulianelli,2024；Mieleszczenko-Kowszewiczetal.,2024)。总体而言，心理语言学词典法具有操
+作简便、类别明确、结果可解释性较强等优势，但该方法高度依赖预设词典类别，对复杂人格表
+达刻画相对有限，因此更适合作为大模型人格测量中的基础分析工具。
+4.2.2 分类器法
+分类器法将人格推断视作为从文本到人格维度得分或类别的预测问题，用带标注的人格语料
+训练监督模型，再将训练好的模型用于对大模型生成文本进行自动评分。在大模型人格测量研究
+中，Hilliard 等人(2024)使采用以myPersonality 数据集训练的BERT或DistilBERT文本人格分类模
+型，基于文本输出的人格概率得分，对比不同参数规模模型在大五人格维度上的整体特征差异。
+SottoPorat 和Rabinovich(2025)则以Reddit 文本为训练基础，采用多语编码器并连接逻辑回归分
+类器，分别估计文本在大五各维度上的高特质倾向概率，从而比较不同大模型与人类文本在特质
+分布上的差异。Jayakumar 等人(2025)同样采用在Reddit 评论及其大五得分标注数据集上训练的人
+格预测模型，通过在RoBERTa表征基础上进行端到端微调，获得连续型人格得分，并将其用于检
+验角色化后的智能体输出在目标人格维度上的贴合程度。与词典法相比，分类器法能够在多维特
+征空间中进行端到端建模，因而在大规模文本评估中具有较强的可操作性，并已成为当前大模型
+人格语言评估的重要技术路线之一。
+4.2.3 大模型评估法
+大模型评估法是直接以大模型作为评分器，通过设计评价提示对被测模型的生成文本进行人
+格维度判断或评分。Yang 等人(2025)向评估模型提供对话文本及待评估的人格维度信息，要求其
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+11
+分别从用词倾向、情绪表达、回应方式等方面进行评估，识别智能体呈现的人格特征。Jayakumar
+等人(2025)采用LLMasjudge 方案，以单次评分的流程将被测模型的回复作为输入，要求评估模
+型输出对应的人格维度判断或得分，并据此比较不同人格提示条件下智能体输出的人格差异；同
+时，该研究还发现评估模型本身的偏差与稳定性问题可能影响评分可靠性，因此需要与人工评价
+或其他自动化方法进行交叉验证以提高结论稳健性。
+4.3 情境行为评估法
+情境行为评估法是以大语言模型或基于其构建的智能体在特定情境任务中的行为反应为主要
+评估依据的一类方法。该方法通常将模型置于行为博弈、社会互动或日常情境模拟等任务中，通
+过分析其在选择、决策等方面的行为表现，间接评估模型在不同人格维度上的倾向。其优势在于
+能够将人格评估置于具体任务和互动场景中，具有较高的生态效度和现实解释力。根据任务形式
+的不同，现有研究主要可分为基于行为博弈的经典任务范式和基于情境模拟的场景测量范式。
+4.3.1 基于行为博弈的经典任务范式
+基于行为博弈的经典任务范式，大多借助行为经济学和博弈论中的经典任务展开。主要是将
+大模型置于具有明确规则和收益结构的互动决策任务中，通过其在合作、互惠、利他、宽容、报
+复及策略调整等方面的行为表现来推断人格相关倾向。Mei 等人(2024)将聊天机器人置于独裁者博
+弈、最后通牒博弈、信任博弈、公共物品博弈和重复囚徒困境等一系列任务，发现ChatGPT 的行
+为总体落在人类分布范围内，但在一些情境中更偏向合作、利他与互惠。与其结论类似，Fontana
+等人(2025)聚焦重复囚徒困境，也发现部分模型比典型人类被试表现出更高的合作性和宽容性，
+其中Llama2 和GPT-3.5整体上更倾向于维持合作，而Llama3 则表现出更强的策略性和利用性。
+Payne 和Alloui-Cros(2025)则从演化博弈论视角比较了不同模型在迭代囚徒困境中的行为模式，
+发现不同模型在合作、报复、宽容和利用倾向上存在较为稳定的差异，Gemini 更具报复性和利用
+性，OpenAI 模型更倾向合作，而Claude 则表现出更强的宽容与互惠倾向。综上可以发现，该类
+任务规则清晰、模型间可比性较强。但博弈中的策略行为未必能直接等同于稳定人格特质，其生
+态效度相对有限。
+4.3.2 基于情境模拟的场景测量范式
+基于情境模拟的场景测量范式将人格评估嵌入更接近日常生活的具体场景中，通过模型的行
+为决策来推断其人格特质。Lee 等人(2025)构建的TRAIT 以大五人格和黑暗三联征量表项目为基
+础，将抽象人格特质嵌入具体的日常情境之中。通过模型在不同情境下对行为反应的选择偏好，
+刻画其外显行为倾向，从而为大模型人格的情境化行为评估提供了新的思路。Berti(2025)提出了
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+12
+一种基于情境诱发的测量思路，通过设置人格特质相对应的心理场景，引导模型在给定情境中作
+出延续性叙事反应，并依据其中呈现的应对方式、情绪调节和人际互动倾向，评估模型在不同场
+景下的人格相关行为表现。更进一步，Huang和Hadfi(2025)将被测主体模型与多个观察者智能体
+配对，先依据家庭、朋友和工作等关系背景生成互动场景，再通过多轮对话收集行为线索，从而
+对模型进行人格评估。此类方法相较于基于行为博弈的经典任务范式更贴近日常生活情境，因此
+在现实解释力上更有优势。但其场景建构和评分过程主观性较强，结果的标准化和可重复性仍有
+待提高。
+综上所述，三类评估方法分别从题项反应、语言表达风格和情境行为三个层面为大模型人格
+测量提供证据。问卷作答评估法以人格量表题项为核心，能够较为便捷地获得模型在既有人格理
+论框架下的特质画像，具有操作简便、计分清晰和便于比较等优势，但也可能受到题项暴露、社
+会赞许性等影响。语言线索评估法则基于模型生成文本中的词汇使用、情绪表达和回应风格等特
+征推断人格倾向，能够捕捉显性作答之外的隐性人格线索，但其结果依赖词典、分类器或评估模
+型本身的可靠性。情境行为评估法进一步将人格测量置于行为博弈和情境模拟任务中，通过模型
+在合作、互惠、利他、宽容、策略调整和情境应对中的行为表现推断其人格特征，具有较高生态
+效度，但任务设计和评分标准仍有待进一步规范。总体来看，三类方法各有优势与局限(见表2)，
+在证据来源、标准化程度和生态效度上形成互补，未来可通过多方法交叉验证提升大模型人格测
+量结果的稳健性和解释力。
+表 2 评估大语言模型人格的三类方法比较
+评估方法 细分方法 做法 优势 局限
+问卷作答评
+估法
+李克特量表法 直接将模型视作作答者，用标
+准化自陈量表打分测人格
+实施简便、与传统人格
+测验兼容性高
+易受社会赞许性偏差影响；
+需适配模型特性优化题项
+迫选式量表法 以题块相对选择替代单题评
+分，降低反应偏差
+降低反应偏差、区分度
+高、测量稳定性强 量表设计与计分逻辑更复杂
+语言线索评
+估法
+心理语言学词
+典法
+匹配文本与心理语言学词典，
+量化语言特征推人格
+操作简便、类别明确、
+结果可解释性强
+依赖预设词典，复杂人格刻
+画有限，仅适合基础分析
+分类器法 以监督学习模型实现文本到
+人格得分的预测
+端到端建模、大规模文
+本评估可操作性强
+依赖标注训练数据，模型泛
+化性受数据集影响
+大模型评估法 以大模型作为评分器，评价被
+测模型文本的人格特征
+评估灵活、适配对话场
+景
+评估模型自身偏差会影响可
+靠性，需交叉验证
+情境行为评
+估法
+基于行为博弈
+的经典任务范
+式
+借博弈任务决策行为推断人
+格倾向
+任务规则清晰、模型间
+可比性强
+策略行为≠稳定人格特质，
+生态效度有限
+基于情境模拟
+的场景测量范
+式
+嵌入日常场景，通过行为选择
+推断人格
+贴近现实生活，现实解
+释力更强
+场景与评分主观性强，标准
+化、可重复性不足
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+13
+5 大模型人格测量面临的挑战与反思
+尽管现有研究已经从问卷作答、语言线索和情境行为等路径对大模型人格进行了初步测量，
+为理解大模型在人机交互中的人格化表现提供了新的视角。然而，当前大模型人格测量的理论基
+础和方法体系仍不成熟。本节将主要围绕测量工具与任务适配性、心理测量学证据以及跨方法可
+比性与分数解释基础等方面展开讨论，以进一步反思大模型人格测量的适用边界。
+5.1 测量工具与任务适配性不足
+首先，现有大模型人格测量在工具层面存在明显的适配性不足。当前测量工具与任务形式大
+多直接迁移自人类人格研究，无论是大五人格、HEXACO 等人格框架，还是基于人类语料训练的
+人格分类器、围绕人类经验设计的经典任务，均默认受测对象相对稳定的自我概念、可回溯的生
+活经验，以及对情绪、动机和行为的一致性内省。然而，大模型的人格表现本质上建立在语料学
+习、对齐训练与情境生成之上，并不具备以上特性。Sühr 等人(2025)明确指出，人类心理测验是
+围绕特定人群校准的理论性测量工具，若未经经验验证便直接施用于非人类对象，容易误判测量
+对象与所测构念。与此一致，Kovačević等人(2024)基于人机互动语料的探索性因素分析发现，聊
+天机器人所呈现的人格结构并不能被大五人格充分覆盖。因此，人类人格材料工具虽然能够提供
+初步结果，但其对大模型人格构念的内容覆盖仍然有限，测量逻辑与模型反应过程之间尚未形成
+稳定对应关系。
+5.2 心理测量学证据仍不充分
+从心理测量学视角看，当前大模型人格测量的信效度证据仍呈现明显分化，尤其问卷作答评
+估法的争议最为突出。一方面，部分研究给出了相对积极的结果。例如，Huang,Jiao 等人(2024)
+发现，在大五人格量表上，不同主流模型在多种设置下表现出一定的一致性；Serapio-García 等人
+(2025)也通过多源证据框架，对若干模型的人格测量进行了较为系统的验证。另一方面，质疑性
+证据同样充分。已有研究表明，语义等价的提示模板、选项顺序、题项顺序、会话历史以及语言
+切换等因素都可能显著改变同一模型的人格得分(Guptaetal.,2024;Huang,Jiaoetal.,2024;Shuet
+al., 2024)。不同时间点的重复施测也未必能够得到稳定一致的人格画像(Bodroža et al., 2024)；
+Salecha 等人(2024)还发现，多种LLM 在人格问卷中会系统性地朝社会赞许性方向作答。由此可
+见，当前关于大模型人格测量是否具有充分信度与效度，尚不能得出稳定一致的结论。
+相较于问卷作答评估法，语言线索评估法和情境行为评估法的心理测量证据积累仍较为有限。
+这主要源于二者测量链条更长、误差来源更多，因而更难建立稳定的信效度证据。语言线索评估
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+14
+法需要先诱发模型生成文本，再从词汇使用、情绪表达或语义风格中提取人格线索，其结果容易
+受到提示方式、文本任务、语言特征提取方法和评分模型的共同影响；情境行为评估法则需要通
+过模型在博弈任务、社会互动或日常场景中的选择与反应推断人格倾向，其结果可能同时反映人
+格相关差异、任务规则、收益结构和策略性生成。因而，现有研究更多关注模型能否在文本生成
+或情境任务中表现出与目标特质相一致的差异，但这些差异能否跨任务、跨情境和跨时间稳定复
+现，以及能否与既有人格构念形成清晰对应，仍缺乏系统检验。总体而言，语言线索评估法和情
+境行为评估法拓展了大模型人格测量的证据来源，但其信效度仍有待进一步积累。
+综上，当前关于大模型人格的心理测量证据仍存在争议，且呈现出方法间发展不均衡的特点。
+5.3 跨方法可比性与分数解释基础薄弱
+当前不同方法所得分数仍缺乏统一标尺，导致同一模型在不同工具和任务下的人格画像难以
+直接对照。问卷作答评估法测得的是模型对人格条目或角色提示的显式回应，语言线索评估法捕
+捉的是文本样本中的风格线索，情境行为评估法则更多反映情境决策中的倾向表现，因此，三者
+所得结果不能简单视为同一人格构念的等价测量。Tosato 等人(2024)比较不同量表和题目顺序后发
+现，同一模型的人格结果会发生明显变化，这表明跨量表的一致性本身仍不稳固。更重要的是，
+即便研究获得了某一看似稳定的人格分数，其心理含义也未必清晰。Zou 等人(2024)发现，聊天机
+器人自陈的人格得分与用户在实际互动中形成的人格知觉及交互质量仅呈弱相关，这表明自陈分
+数的效标效度与预测效度有限。Han 等人(2025)进一步指出，对齐训练或角色注入虽然能够改变自
+陈人格得分，但这种变化并不能稳定迁移到行为任务中，自陈特质与实际行为之间仍存在明显脱
+节。因此，当前大模型人格测量面临的关键困难，已经不只是能否得到一个人格分数，而是该分
+数究竟代表何种构念、能否与外部行为效标建立稳定对应关系。若缺乏跨方法的联合校准与外部
+效标验证，不同研究之间的分数差异就很难被解释为模型特质差异，而更可能混杂了方法差异、
+评分程序差异与任务情境差异。
+6 未来研究展望
+上述挑战表明，真正可累积、可比较且可解释的评估科学仍有待建立(Zhouetal.,2026)。未来
+研究需结合大模型的生成机制和任务情境，发展适配性的理论框架与测量工具；同时引入现代心
+理测量模型，推动测量向项目校准、自适应施测和动态追踪发展；在此基础上，系统积累信效度
+证据并建立标准化评估流程；进而通过常模研究完善跨模型、跨语言和跨情境的分数解释框架。
+由此，后续研究有望推动大模型人格评估从直接迁移人类测验、依赖单一工具或单次分数比较的
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+15
+初步探索，转向科学、规范且可复核的评估体系。具体而言，后续研究可从以下四个方面展开。
+6.1 构建适配大模型特征的人格框架与测量工具
+针对测量工具适配性不足的问题，未来研究应进一步构建适配大模型特征的人格框架与测量
+工具。首先，大模型人格框架的建构不宜简单照搬人类人格模型(Sühretal.,2025)，而应明确大模
+型人格在研究中所指向的具体表现。成熟人格理论仍可作为重要参照，但其维度含义需要结合大
+模型的生成机制和交互特征重新界定。例如，宜人性在大模型人格测量中不应等同于真实共情，
+而可体现为模型在互动中的合作性、礼貌性、冲突调节方式等表现。除理论参照外，未来研究还
+可借鉴心理词汇学思路，从真实人机互动中收集用户对模型人格表现的描述，并通过描述词清理、
+聚类、专家评定和因素分析等步骤，提取更符合大模型交互特征的人格维度(Kovačevićetal.,2024)。
+在此基础上，大模型人格框架还应借鉴人类人格测量中高维化、情境化和效标导向的思路。例如，
+TAPAS将人格测量从宽泛特质描述推进到面向人员选拔、岗位分类和适应性预测的细分特质评估
+(Nyeetal.,2020)；MAP 等职业人格测评工具则在通用人格框架下进一步划分子维度，并结合岗位
+要求解释人格特征与工作行为之间的关系(Zhengetal.,2024)。受此启发，大模型人格评估可在通
+用维度基础上，进一步发展面向不同应用场景的人格相关指标。
+在测量工具开发上，未来研究也不宜局限于李克特式自评量表，而应发展更适配大模型特征
+的测量形式。例如，可设计社会赞许性相近的迫选任务，要求模型在不同人格倾向的选项之间作
+出选择，以减少迎合性作答(X.Li,Shi,2025;Tu,Shi,&Zheng,2026)；也可借鉴情境判断测验的思
+路，围绕具体应用领域构建具有角色相关性和行为指向性的交互情境，使模型在不同的回应方案
+中作出选择，从而考察其在特定情境下的人格相关行为表现(Yostetal.,2026)。这样既有助于减少
+单纯自陈作答所带来的社会赞许性和提示敏感性问题，也有助于建立测量工具、任务逻辑与模型
+反应过程之间更稳定的对应关系(Müller&Sütterlin,2025;Sühretal.,2025)。相关测量工具形成后，
+还需参照心理测量工具开发的一般流程，对内容覆盖、结构稳定性、信度和效度进行系统检验，
+并进一步考察其在不同模型、语言和提示条件下的适用性。总体而言，面向大模型的人格测量的
+框架与工具开发，应以模型行为特征为基础，以应用场景需求和风险控制目标为导向，逐步形成
+具有对象适配性和情境适配性的专门化测量体系。
+6.2 引入现代心理测量模型，发展自适应与动态化测量
+未来研究还应引入现代心理测量模型，推动大模型人格测量由维度总分描述转向项目层校准。
+总分比较容易掩盖项目之间的质量差异，也难以说明哪些项目能够稳定反映目标人格构念。后续
+研究可在较大规模项目池基础上引入项目反应理论(Songetal.,2025)，对人格项目的区分度、反应
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+16
+阈值、项目信息量和差异项目功能进行校准，筛选出构念指向清晰、区分功能较强的项目，并逐
+步建立适用于大模型人格评估的专用项目库。在人格测评建模层面，未来还可进一步关注两类方
+法趋势。第一，在传统项目反应理论的基础上，可引入高维IRT，尤其是高维迫选MIRT模型。
+与单维或低维模型相比，高维迫选MIRT 更适合处理多维人格特质、题块内相对选择以及维度间
+潜在关联等复杂测量结构。对于大模型人格评估而言，随着测量目标由一般人格画像转向更细粒
+度、场景化和专业化的人格表现，未来有必要发展能够同时支持多维特质估计、项目参数校准和
+跨模型比较的高维迫选建模方法。第二，基于深度学习范式的人格建模是目前人格建模的新趋势
+之一。近年来，研究者围绕迫选人格测量相继提出了FCNCD(X.Li,Wu,etal.,2025)、FCRD(Tu,Li,
+etal.,2026)和SDFCD(Tu,Shi,&Zheng,2026)等模型，分别从神经认知诊断、图结构关系建模和社
+会称许性偏差校正等角度扩展了迫选人格测量模型。相较于传统模型，这类方法更擅长捕捉高维、
+非线性和交互式反应模式，因而可能更适用于大模型人格测评中复杂情境下的人格估计、项目筛
+选与反应偏差控制。
+在项目库建成后，计算机化自适应测验(computerizedadaptivetesting,CAT)可作为大模型人格
+测量的重要施测方式。已有大模型评估研究表明，基于IRT的自适应测试能够在减少项目数量的
+同时保持较高的估计精度，并为不同模型提供带有测量误差的可比估计(P.Lietal.,2025;Zhenget
+al.,2026)。将这一思路引入人格测量后，研究者可依据模型前序反应选择更具信息量的项目，避
+免固定问卷中低信息项目和冗余项目对测量结果的影响(Liuetal.,2024)。同时，由于CAT能够以
+较少项目获得带有精度控制的人格状态估计，其价值不仅体现在提高单次测量效率，也体现在支
+持多情境、多轮次的人格相关表现动态追踪。大模型人格具有相对稳定性，相关表现可能随系统
+提示、角色设定、任务目标和对话历史发生变化，未来研究可先在标准化条件下获得模型的人格
+基线估计，再在不同提示条件、应用场景和交互阶段中开展多条件自适应测量，比较模型人格状
+态估计的变化方向和偏移幅度，通过动态比较，研究者可以考察大模型人格状态的稳定性与情境
+敏感性，并识别特定情境下的潜在风险。由此，大模型人格测量可从依赖单次测验结果的静态分
+数比较，转向对不同情境下人格相关表现及其变化规律的动态刻画。
+6.3 完善信效度证据体系，建立标准化评估流程
+此外，未来研究应完善大模型人格测量的信效度证据体系，并建立与研究目标相匹配的标准
+化评估流程。首先，大模型人格测量的可靠性与有效性需建立系统化、可复核的科学验证框架。
+例如，Serapio-García 等人(2025)过结构化提示方法，在不同人物描述、题项说明和回答格式下对
+多个大语言模型反复施测人格量表，并基于所得数据检验测量结果的内部一致性信度、聚合效度、
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+17
+区分效度和效标效度。该研究还进一步考察人格量表得分是否能够预测模型在下游文本生成任务
+中的人格化表达，从而将问卷测量结果与实际生成行为联系起来。其次，由于大模型的作答容易
+受到提示措辞、生成参数、对话上下文和安全对齐机制的影响，其人格测量结果可能反映的不只
+是稳定的人格化表达，也可能包含提示敏感性、随机波动、拒答或迎合性作答等因素。因此，后
+续研究可在此基础上开发提示鲁棒性、拒答率、社会赞许性作答倾向等针对大模型的评估指标，
+并对系统提示、示例数量、温度、随机种子、对话历史与计分方式进行透明报告。
+6.4 开展常模研究，完善跨模型人格分数的解释框架
+最后，未来研究还应开展常模研究，逐步建立面向大模型人格测量结果的解释框架。单个模
+型在某一量表或任务中的原始得分本身所能提供的信息有限。缺乏相应参照时，研究者难以判断
+该分数在模型群体、人类样本或特定应用角色中的相对位置，也难以说明分数差异的实际含义。
+因此，未来研究可在统一模型版本、提示语、语言条件、生成参数和计分规则的基础上，对不同
+类型、不同版本和不同语言的大模型进行重复施测，建立大模型人格测量的模型群体常模，为跨
+模型比较提供基础。更进一步，大模型人格常模研究不应仅局限于模型之间的横向比较，还可引
+入人类常模作为外部参照。尽管已有研究主要聚焦于一般能力和任务表现，而非人格特质，但其
+尝试将AI 表现校准到以人群分布为参照的共同尺度上，并通过人口学信息外推建立更具解释力的
+参照框架(Romeroetal.,2026)，这为大模型人格测量的常模化研究提供了方法启发。未来研究可在
+充分检验测量适用性和跨群体可比性的基础上，将模型人格分数与一般人群常模或特定职业群体
+常模进行对照。例如，当大模型被设定为教育辅导者时，研究者可根据该角色的任务目标和社会
+期待，选择相应的人类参照群体，考察模型在相关人格维度上的相对位置。这样不仅有助于说明
+模型人格得分的高低，还可以进一步判断其人格化表现是否符合特定应用角色的功能要求和互动
+规范。
+参考文献
+焦丽颖, 李昌锦, 陈圳, 许恒彬, 许燕.(2025). 当AI“具有”人格：善恶人格角色对大语言模型道德判断的影响. 心
+理学报, 57(6),929−946.
+李小雨. (2025). 智能化人格评估中若干关键技术研究 (博士学位论文). 华东师范大学, 上海.
+田雪涛, 周文杰, 骆方, 乔志宏, 丰怡.(2026). 生成式大语言模型赋能心理测量学：优势、挑战与应用. 心理科学
+进展, 34(3),404−423.
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+18
+王伟. (主编). (2018). 人格心理学 (第 3 版). 北京：人民卫生出版社.
+翁智刚, 陈潇潇, 张小妹, 张琚.(2025). 面向新型人机关系的社会临场感. 心理科学进展, 33(1),146−162.
+许丽颖, 赵一骏, 喻丰.(2025). 人工智能主管提出的道德行为建议更少被遵从. 心理学报, 57(11),2060−2082.
+许燕. (2020). 人格心理学 (第 2 版). 北京：北京师范大学出版社.
+周倩伊, 蔡亚琦, 张亚.(2025). 大语言模型的共情模拟：评估、提升与挑战. 心理科学进展, 33(10),1783−1793.
+周子森, 黄琪, 谭泽宏, 刘睿, 曹子亨, 母芳蔓,... 秦绍正.(2025). 多模态大语言模型动态社会互动情景下的情感
+能力测评. 心理学报, 57(11),1988−2000.
+Allport,G.W.(1937). Personality: A psychological interpretation.HenryHoltandCompany.
+Amidei,J.,FerreiraDeSá,J.G.,Luna,R.N.,&Kaltenbrunner,A.(2025).Exploringtheimpactoflanguageswitchingon
+personality traits in LLMs. In O. Rambow, L. Wanner, M. Apidianaki, H. Al-Khalifa, B. Di Eugenio, & S.
+Schockaert (Eds.), Proceedings of the 31st International Conference on Computational Linguistics (pp.
+2370−2378).AssociationforComputationalLinguistics.https://aclanthology.org/2025.coling-main.162/
+Andreas, J. (2022). Language models as agent models. In Y. Goldberg, Z. Kozareva, &Y. Zhang (Eds.), Findings of the
+Association for Computational Linguistics: EMNLP 2022 (pp. 5769−5779). Association for Computational
+Linguistics.https://doi.org/10.18653/v1/2022.findings-emnlp.423
+Ashton, M. C., & Lee, K. (2007). Empirical, theoretical, and practical advantages of the HEXACO model of personality
+structure. Personality and Social Psychology Review, 11(2), 150−166.
+https://doi.org/10.1177/1088868306294907
+Askell,A.,Bai,Y.,Chen,A.,Drain,D.,Ganguli,D.,Henighan,T.,...Kaplan,J.(2021). A general language assistant as a
+laboratory for alignment.arXiv.https://doi.org/10.48550/arXiv.2112.00861
+Bai, X., Wang,A., Sucholutsky, I., & Griffiths, T. L. (2025). Explicitly unbiased large language models still form biased
+associations. Proceedings of the National Academy of Sciences of the United States of America, 122(8),Article
+e2416228122.https://doi.org/10.1073/pnas.2416228122
+Barua, A., Brase, G., Dong, K., Hitzler, P., & Vasserman, E. (2024). On the psychology of GPT-4: Moderately anxious,
+slightly masculine, honest, and humble.arXiv.https://doi.org/10.48550/arXiv.2402.01777
+Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S. (2021). On the dangers of stochastic parrots: Can
+language models be too big? In Proceedings of the 2021 ACM Conference on Fairness, Accountability, and
+Transparency(pp.610−623).AssociationforComputingMachinery.https://doi.org/10.1145/3442188.3445922
+Berti, A. (2025). Evaluating personality traits of large language models through scenario-based interpretive
+benchmarking.Preprints.org.https://doi.org/10.20944/preprints202504.0435.v1
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+19
+Bhandari,P., Naseem, U., Datta,A., Fay,N.,& Nasim, M.(2025). Evaluating personalitytraitsin largelanguage models:
+Insightsfrompsychological questionnaires.In WWW Companion ’25: Companion proceedings of the ACM Web
+Conference 2025 (pp. 868−872). Association for Computing Machinery.
+https://doi.org/10.1145/3701716.3715504
+Bodroža, B., Dinić, B. M., & Bojić, L. (2024). Personality testing of large language models: Limited temporal stability,
+but highlighted prosociality. Royal Society Open Science, 11(10), Article 240180.
+https://doi.org/10.1098/rsos.240180
+Brown, A., & Maydeu-Olivares, A. (2011). Item response modeling of forced-choice questionnaires. Educational and
+Psychological Measurement, 71(3),460−502.https://doi.org/10.1177/0013164410375112
+Chittem, A., Shrivastava, A., Pendela, S. T., Challa, J. S., & Kumar, D. (2026). SAC: A framework for measuring and
+inducing personality traits in LLMs with dynamic intensity control. InA. P.Rocha, M.Wahde, & H. J. van den
+Herik (Eds.), Proceedings of the 18th International Conference on Agents and Artificial Intelligence (ICAART
+2026)(Vol.4,pp.3267−3278).SCITEPRESS.https://doi.org/10.5220/0014415000004052
+Costa, P. T., Jr., & McCrae, R. R. (1992). Revised NEO Personality Inventory (NEO PI-R) and NEO Five-Factor
+Inventory (NEO-FFI): Professional manual.PsychologicalAssessmentResources.
+Epley, N., Waytz, A., & Cacioppo, J. T. (2007). On seeing human: A three-factor theory of anthropomorphism.
+Psychological Review, 114(4),864−886.https://doi.org/10.1037/0033-295X.114.4.864
+Eysenck, H. J. (1992). The definition and measurement of psychoticism. Personality and Individual Differences, 13(7),
+757−785.https://doi.org/10.1016/0191-8869(92)90050-Y
+Ferreira De Sá, J. G., Amidei, J., Nieto, R., & Kaltenbrunner,A. (2025). Matching GPT-simulated populations with real
+ones in psychological studies: The case of the EPQR-Apersonality test. ACM Transactions on Computing for
+Healthcare, 6(2),1−33.https://doi.org/10.1145/3712301
+Fontana, N., Pierri, F., & Aiello, L. M. (2025). Nicer than humans: How do large language models behave in the
+Prisoner’s Dilemma? Proceedings of the International AAAI Conference on Web and Social Media, 19(1),
+522−535.https://doi.org/10.1609/icwsm.v19i1.35829
+Francis, L. J., Brown, L. B., & Philipchalk, R. (1992). The development of an abbreviated form of the revised Eysenck
+Personality Questionnaire (EPQR-A): Its use among students in England, Canada, the U.S.A. and Australia.
+Personality and Individual Differences, 13(4),443−449.https://doi.org/10.1016/0191-8869(92)90073-X
+Frisch, I., & Giulianelli, M. (2024). LLM agents in interaction: Measuring personality consistency and linguistic
+alignment in interacting populations of large language models. InA. Deshpande, E. Hwang, V. Murahari, J. S.
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+20
+Park, D. Yang, A. Sabharwal, K. Narasimhan, & A. Kalyan (Eds.), Proceedings of the 1st Workshop on
+Personalization of Generative AI Systems (PERSONALIZE 2024)(pp.102−111).AssociationforComputational
+Linguistics.https://doi.org/10.18653/v1/2024.personalize-1.9
+Gabriel, I. (2020). Artificial intelligence, values, and alignment. Minds and Machines, 30(3), 411−437.
+https://doi.org/10.1007/s11023-020-09539-2
+Goldberg,L.R.(1990).Analternative“descriptionofpersonality”:TheBig-Fivefactorstructure. Journal
+of Personality and Social Psychology, 59(6),1216−1229.https://doi.org/10.1037/0022-3514.59.6.1216
+Gupta,A.,Song,X.,&Anumanchipalli,G.(2024).Self-assessmenttestsareunreliablemeasuresofLLMpersonality.InY.
+Belinkov,N. Kim, J. Jumelet, H. Mohebbi,A. Mueller,&H. Chen(Eds.), Proceedings of the 7th BlackboxNLP
+Workshop: Analyzing and Interpreting Neural Networks for NLP (pp. 301−314).Associationfor Computational
+Linguistics.https://doi.org/10.18653/v1/2024.blackboxnlp-1.20
+Han, P., Kocielnik, R., Song, P., Debnath, R., Mobbs, D., Anandkumar, A., & Alvarez, R. M. (2025). The personality
+illusion: Revealing dissociation between self-reports & behavior in LLMs. arXiv.
+https://doi.org/10.48550/arXiv.2509.03730
+Heston,T.F.,&Gillette,J.(2025).Largelanguagemodelsdemonstratedistinctpersonalityprofiles. Cureus, 17(5),Article
+e84706.https://doi.org/10.7759/cureus.84706
+Hilliard,A., Munoz, C.,Wu,Z., & Koshiyama,A. S. (2024). Eliciting personality traits in large language models. arXiv.
+https://doi.org/10.48550/arXiv.2402.08341
+Huang,J.-T.,Jiao,W.,Lam, M.H.,Li, E.J.,Wang,W.,&Lyu,M.R.(2024).Onthereliabilityofpsychologicalscaleson
+large language models. InY.Al-Onaizan, M. Bansal, &Y.-N. Chen (Eds.), Proceedings of the 2024 Conference
+on Empirical Methods in Natural Language Processing (pp. 6152−6173). Association for Computational
+Linguistics.https://doi.org/10.18653/v1/2024.emnlp-main.354
+Huang,J.-T.,Wang,W.,Li, E.J.,Lam, M.H., Ren,S.,Yuan,Y.,...Lyu, M.R.(2024). Onthehumanityofconversational
+AI: Evaluatingthepsychological portrayal ofLLMs. In Proceedings of the Twelfth International Conference on
+Learning Representations. International Conference on Learning Representations.
+https://openreview.net/forum?id=H3UayAQWoE
+Huang, M., Zhang, X., Soto, C., & Evans, J. (2026). Designing AI-agents with personalities: A psychometric approach.
+Personality Science, 7,1−26.https://doi.org/10.1177/27000710251406471
+Huang,Y.J.,& Hadfi, R. (2025).Beyond self-reports: Multi-observer agentsfor personalityassessment inlarge language
+models. In C. Christodoulopoulos, T. Chakraborty, C. Rose, & V. Peng (Eds.), Findings of the Association for
+ChinaXiv:202606.00123v1
+This version posted 2026-06-18.
+21
+Computational Linguistics: EMNLP 2025 (pp. 21086−21101). Association for Computational Linguistics.
+https://doi.org/10.18653/v1/2025.findings-emnlp.1150
+Jayakumar, E., Dash, N. S., & Mukherjee, D. (2025). Large language model agent personality and response
+appropriateness: Evaluation by human linguistic experts, LLM-as-judge, and natural language processing
+model.arXiv.https://doi.org/10.48550/arXiv.2510.23875
+Jiang, G., Xu, M., Zhu, S.-C., Han, W., Zhang, C., & Zhu,Y. (2023). Evaluating and inducing personality in pre-trained
+language models.arXiv.https://doi.org/10.48550/arXiv.2206.07550
+Jiang,H.,Zhang,X.,Cao,X.,Breazeal,C.,Roy,D.,&Kabbara,J.(2024).PersonaLLM:Investigatingtheabilityoflarge
+language models to express personality traits. In K. Duh, H. Gomez, & S. Bethard (Eds.), Findings of the
+Association for Computational Linguistics: NAACL 2024 (pp. 3605−3627). Association for Computational
+Linguistics.https://doi.org/10.18653/v1/2024.findings-naacl.229
+Jonason,P.K.,&Webster,G. D. (2010).Thedirtydozen:Aconcisemeasureofthedarktriad. Psychological Assessment,
+22(2),420−432.https://doi.org/10.1037/a0019265
+Jones,D.N., &Paulhus,D. L. (2014).IntroducingtheShort DarkTriad(SD3):Abriefmeasureofdarkpersonalitytraits.
+Assessment, 21(1),28−41.https://doi.org/10.1177/1073191113514105
+Karra, S. R., Nguyen, S. T., &Tulabandhula, T. (2023). Estimating the personality of white-box language models. arXiv.
+https://doi.org/10.48550/arXiv.2204.12000
+Kobak,D.,González-Márquez,R.,Horvát,E.,&Lause,J.(2025).DelvingintoLLM-assistedwritinginbiomedical
+publicationsthroughexcessvocabulary. Science Advances, 11(27),Articleeadt3813.
+https://doi.org/10.1126/sciadv.adt3813
+Kovačević, N., Holz, C., Gross, M., & Wampfler, R. (2024). The personality dimensions GPT-3 expresses during
+human-chatbot interactions. Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous
+Technologies, 8(2),Article61.https://doi.org/10.1145/3659626
+LaCava,L.,&Tagarelli,A.(2025).Openmodels,closedminds?Onagentscapabilitiesinmimickinghumanpersonalities
+through open large language models. Proceedings of the AAAI Conference on Artificial Intelligence, 39(2),
+1355−1363.https://doi.org/10.1609/aaai.v39i2.32125
+Lee,S.,Lim,S.,Han,S.,Oh,G.,Chae,H.,Chung,J.,...Yu,Y.(2025).DoLLMshavedistinctandconsistentpersonality?
+TRAIT:PersonalitytestsetdesignedforLLMswithpsychometrics. InL. Chiruzzo,A.Ritter,&L.Wang(Eds.),
+Findings of the Association for Computational Linguistics: NAACL 2025 (pp. 8412−8452). Association for
+ComputationalLinguistics.https://doi.org/10.18653/v1/2025.findings-naacl.469
+22
+Li, P.,Tang, X., Chen,S., Cheng,Y.,Metoyer,R., Hua,T.,&Chawla, N.V.(2025). Adaptive testing for LLM evaluation:
+A psychometric alternative to static benchmarks.arXiv.https://doi.org/10.48550/arXiv.2511.04689
+Li, R., Wang, Y., Zheng, C., Jiang, Y., & Jiang, B. (2024). Generating contextualized mathematics multiple-choice
+questions utilizing large language models. In A. M. Olney, I.-A. Chounta, Z. Liu, O. C. Santos, & I. I.
+Bittencourt (Eds.), Communications in Computer and Information Science: Vol. 2150. Artificial intelligence in
+education. Posters and late breaking results, workshops and tutorials, industry and innovation tracks,
+practitioners, doctoral consortium and blue sky (pp. 494−501). Springer.
+https://doi.org/10.1007/978-3-031-64315-6_48
+Li, X., Li, Y., Qiu, L., Joty, S., & Bing, L. (2024). Evaluating psychological safety of large language models. In Y.
+Al-Onaizan, M. Bansal, & Y.-N. Chen (Eds.), Proceedings of the 2024 Conference on Empirical Methods in
+Natural Language Processing (pp. 1826−1843). Association for Computational Linguistics.
+https://doi.org/10.18653/v1/2024.emnlp-main.108
+Li, X., Shi, H.,Yu, Z.,Tu,Y.,&Zheng, C.(2025). DecodingLLM personalitymeasurement: Forced-choicevs. Likert. In
+W. Che, J. Nabende, E. Shutova, & M. T. Pilehvar (Eds.), Findings of the Association for Computational
+Linguistics: ACL 2025 (pp. 9234−9247). Association for Computational Linguistics.
+https://doi.org/10.18653/v1/2025.findings-acl.480
+Li, X., Wu, J., Guo, S., Shi, H., & Zheng, C. (2025). A forced-choice neural cognitive diagnostic model of personality
+testing.arXiv.https://doi.org/10.48550/arXiv.2507.15013
+Liu, Q., Zhuang,Y., Bi, H., Huang, Z., Huang, W., Li, J., ... Chen, E. (2024). Survey of computerized adaptive testing: A
+machine learning perspective.arXiv.https://doi.org/10.48550/arXiv.2404.00712
+McCrae,R.R.,&John,O.P.(1992).Anintroductiontothefive-factormodelanditsapplications. Journal of Personality,
+60(2),175−215.https://doi.org/10.1111/j.1467-6494.1992.tb00970.x
+Mei, Q., Xie, Y., Yuan, W., & Jackson, M. O. (2024). A Turing test of whether AI chatbots are behaviorally similar to
+humans. Proceedings of the National Academy of Sciences of the United States of America, 121(9), Article
+e2313925121.https://doi.org/10.1073/pnas.2313925121
+Mieleszczenko-Kowszewicz, W., Płudowski, D., Kołodziejczyk, F., Świstak, J., Sienkiewicz, J., & Biecek, P. (2024). The
+dark patterns of personalized persuasion in large language models: Exposing persuasive linguistic features for
+Big Five personality traits in LLMs responses.arXiv.https://doi.org/10.48550/arXiv.2411.06008
+Miotto,M.,Rossberg,N.,&Kleinberg,B.(2022).WhoisGPT-3?Anexplorationofpersonality,valuesanddemographics.
+In D. Bamman, D. Hovy, D. Jurgens, K. Keith, B. O’Connor, & S. Volkova (Eds.), Proceedings of the Fifth
+23
+Workshop on Natural Language Processing and Computational Social Science (NLP+CSS) (pp. 218−227).
+AssociationforComputationalLinguistics.https://doi.org/10.18653/v1/2022.nlpcss-1.24
+Müller, L., & Sütterlin, S. (2025). Ality? Personality without a person: Revisiting the psycho-lexical approach for the
+study of personality in large language models. In L. L. Chuang, M. Eibl, M. Gaedke, & J. Niess (Eds.),
+Proceedings of the Mensch und Computer 2025 (pp. 477−481). Association for Computing Machinery.
+https://doi.org/10.1145/3743049.3748562
+Naous, T., & Xu, W. (2025). On the origin of cultural biases in language models: From pre-training data to linguistic
+phenomena. In L. Chiruzzo,A. Ritter,& L. Wang (Eds.), Proceedings of the 2025 Conference of the Nations of
+the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies
+(Volume 1: Long Papers) (pp. 6423−6443). Association for Computational Linguistics.
+https://doi.org/10.18653/v1/2025.naacl-long.326
+Nass, C.,&Moon,Y.(2000).Machinesandmindlessness:Socialresponsestocomputers. Journal of Social Issues, 56(1),
+81−103.https://doi.org/10.1111/0022-4537.00153
+Ngo,R.,Chan,L., &Mindermann,S.(2024).Thealignmentproblemfromadeeplearningperspective.In Proceedings of
+the Twelfth International Conference on Learning Representations (ICLR 2024). OpenReview.
+https://openreview.net/forum?id=fh8EYKFKns
+Nye, C. D.,White, L.A., Drasgow,F.,Prasad, J., Chernyshenko, O. S., &Stark, S.(2020). Examining personalityfor the
+selectionand classification ofsoldiers:Validityand differential validityacross jobs. Military Psychology, 32(1),
+60−70.https://doi.org/10.1080/08995605.2019.1652482
+Pan, K., & Zeng, Y. (2023). Do LLMs possess a personality? Making the MBTI test an amazing evaluation for large
+language models.arXiv.https://doi.org/10.48550/arXiv.2307.16180
+Paulhus,D. L., &Williams, K. M.(2002).Thedarktriad ofpersonality: Narcissism, Machiavellianism, and psychopathy.
+Journal of Research in Personality, 36(6),556−563.https://doi.org/10.1016/S0092-6566(02)00505-6
+Payne, K., &Alloui-Cros, B. (2025). Strategic intelligence in large language models: Evidence from evolutionary game
+theory.arXiv.https://doi.org/10.48550/arXiv.2507.02618
+Pellert, M., Lechner, C. M., Wagner, C., Rammstedt, B., & Strohmaier, M. (2024). AI psychometrics: Assessing the
+psychological profiles of large language models through psychometric inventories. Perspectives on
+Psychological Science, 19(5),808−826.https://doi.org/10.1177/17456916231214460
+Pittenger,D.J.(2005).CautionarycommentsregardingtheMyers-BriggsTypeIndicator. Consulting Psychology Journal:
+Practice and Research, 57(3),210−221.https://doi.org/10.1037/1065-9293.57.3.210
+24
+Reeves, B., & Nass, C. (1996). The media equation: How people treat computers, television, and new media like real
+people and places.CambridgeUniversityPress.
+Romero,P.,Fitz,S.,&Nakatsuma,T.(2024). Do GPT language models suffer from split personality disorder? The advent
+of substrate-free psychometrics.arXiv.https://doi.org/10.48550/arXiv.2408.07377
+Romero, P., Martínez-Plumed, F., Tidler, Z. R., Téhénan, M., Chen, S., Gómez Antón, Á. D., ... Hernández-Orallo, J.
+(2026). From human-level AI tales to AI leveling human scales. arXiv.
+https://doi.org/10.48550/arXiv.2602.18911
+Russell, S. (2022). Artificial intelligence and the problem of control. In H. Werthner, E. Prem, E. A. Lee, & C. Ghezzi
+(Eds.), Perspectives on digital humanism(pp.19−24).Springer.https://doi.org/10.1007/978-3-030-86144-5_3
+Salecha,A., Ireland, M. E., Subrahmanya, S., Sedoc, J., Ungar,L. H., & Eichstaedt, J. C. (2024). Large language models
+display human-like social desirability biases in Big Five personality surveys. PNAS Nexus, 3(12), Article
+pgae533.https://doi.org/10.1093/pnasnexus/pgae533
+Serapio-García,G.,Safdari,M.,Crepy,C.,Sun,L.,Fitz,S.,Romero,P.,...Matarić,M.(2025).Apsychometricframework
+for evaluating and shaping personality traits in large language models. Nature Machine Intelligence, 7(12),
+1954−1968.https://doi.org/10.1038/s42256-025-01115-6
+Shu, B., Zhang, L., Choi, M., Dunagan, L., Logeswaran, L., Lee, M., ... Jurgens, D. (2024).You don’t need a personality
+test to know these models are unreliable: Assessing the reliability of large language models on psychometric
+instruments. In K. Duh, H. Gomez, & S. Bethard (Eds.), Proceedings of the 2024 Conference of the North
+American Chapter of the Association for Computational Linguistics: Human Language Technologies (Vol. 1:
+Long papers, pp. 5263−5281). Association for Computational Linguistics.
+https://doi.org/10.18653/v1/2024.naacl-long.295
+Song, W., Huang, Z., Cheng, C., Gao, W., Xu, B., Zhao, G., ... Wu, R. (2025). IRT-Router: Effective and interpretable
+multi-LLM routing via item response theory. In W. Che, J. Nabende, E. Shutova, & M. T. Pilehvar (Eds.),
+Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Vol. 1: Longpapers,
+pp.15629–15644).AssociationforComputationalLinguistics.https://doi.org/10.18653/v1/2025.acl-long.761
+Soto, C. J., & John, O. P. (2017). Short and extra-short forms of the Big Five Inventory–2: The BFI-2-S and BFI-2-XS.
+Journal of Research in Personality, 68,69−81.https://doi.org/10.1016/j.jrp.2017.02.004
+SottoPorat, D., &Rabinovich, E. (2025). Who are you, ChatGPT? Personality and demographic style in LLM-generated
+content.arXiv.https://doi.org/10.48550/arXiv.2510.11434
+Stein, R., & Swan, A. B. (2019). Evaluating the validity of Myers-Briggs Type Indicator theory: A teaching tool and
+25
+window into intuitive psychology. Social and Personality Psychology Compass, 13(2), Article e12434.
+https://doi.org/10.1111/spc3.12434
+Stöckli, L., Joho, L., Lehner, F., & Hanne, T. (2024). The personification of ChatGPT (GPT-4): Understanding its
+personalityandadaptability. Information, 15(6),Article300.https://doi.org/10.3390/info15060300
+Sühr, T., Dorner, F. E., Salaudeen, O., Kelava, A., & Samadi, S. (2025). Stop evaluating AI with human tests, develop
+principled, AI-specific tests instead.arXiv.https://doi.org/10.48550/arXiv.2507.23009
+Tausczik,Y.R., &Pennebaker,J.W.(2010).The psychological meaningofwords:LIWC and computerized text analysis
+methods. Journal of Language and Social Psychology, 29(1), 24−54.
+https://doi.org/10.1177/0261927X09351676
+Tosato,T.,Hegazy,M.,Lemay,D.,Abukalam, M.,Rish,I.,&Dumas,G.(2024). LLMs and personalities: Inconsistencies
+across scales. NeurIPS 2024 Workshop on Behavioral ML. OpenReview.
+https://openreview.net/forum?id=vBg3OvsHwv
+Tov, W., Ng, K. L., Lin, H., & Qiu, L. (2013). Detecting well-being via computerized content analysis of brief diary
+entries. Psychological Assessment, 25(4),1069−1078.https://doi.org/10.1037/a0033007
+Tu, Y., Li, X., Shi, H., Wu, J., & Zheng, C. (2026). FCRD: Forced-choice relation-based diagnosis for noncognitive
+assessment. In H. Jung, T. Wang, M. Toyoda, H. Y. Kwon, & J. Lee (Eds.), Database systems for advanced
+applications: DASFAA 2026. Lecture Notes in Computer Science (Vol. 16539, pp. 103−119). Springer.
+https://doi.org/10.1007/978-981-92-0375-8_7
+Tu, Y., Shi, H., & Zheng, C. (2026). LLM-enhanced modeling of social desirability-aware forced-choice personality
+assessment. Electronics, 15(9),Article1792.https://doi.org/10.3390/electronics15091792
+Webb,T.,Holyoak,K.J.,&Lu,H.(2023).Emergentanalogicalreasoninginlargelanguagemodels. Nature Human
+Behaviour, 7(9),1526−1541.https://doi.org/10.1038/s41562-023-01659-w
+Weizenbaum, J.(1966). ELIZA—acomputer programforthestudyofnaturallanguage communicationbetween manand
+machine. Communications of the ACM, 9(1),36–45.https://doi.org/10.1145/365153.365168
+Yang,T.,Zhu,Y.,Quan,X.,Liu,C.,&Wang,Q.(2025). PsyPlay: Personality-infused role-playing conversational agents.
+arXiv.https://doi.org/10.48550/arXiv.2502.03821
+Yost, A., Jain, S., Raval, S., Corser, G., Roush, A. G., Xu, N., … Abdullah, A. (2026). Measure what matters:
+Psychometric evaluation of AI with situational judgment tests.arXiv.https://doi.org/10.48550/arXiv.2510.22170
+Zheng,C.,Liu,J.,Li,Y.,Xu,P.,Zhang,B.,Wei,R.,...Huang,J.(2024).A2PLM-RANKmultidimensionalforced-choice
+model and its fast estimation algorithm. Behavior Research Methods, 56(6), 6363−6388.
+26
+https://doi.org/10.3758/s13428-023-02315-x
+Zheng,C.,Yu,Z.,Jiang,Y.,Zhang,M.,Lu,X.,Jin,J.,&Gao,L.(2025).ArtMentor:AI-assistedevaluation
+ofartworkstoexploremultimodallargelanguagemodelscapabilities.In Proceedings of the CHI Conference on
+Human Factors in Computing Systems(pp.1−18).AssociationforComputingMachinery.
+https://doi.org/10.1145/3706598.3713274
+Zheng,J.,Wang, X., Hosio, S.,Xu, X., &Lee, L.-H. (2025). LMLPA:Language model linguisticpersonality assessment.
+Computational Linguistics, 51(2),599−640.https://doi.org/10.1162/coli_a_00550
+Zheng,T., Jiang, Z., Liu, J., & Feng, S. (2026). Leveraging computerized adaptive testingfor cost-effective evaluation of
+large language models in medical benchmarking. npj Digital Medicine. Advance online publication.
+https://doi.org/10.1038/s41746-026-02671-w
+Zhou,L.,Pacchiardi,L.,Martínez-Plumed,F.,Collins,K.M.,Moros-Daval,Y.,Zhang,S.,...Hernández-Orallo,J.(2026).
+General scales unlock AI evaluation with explanatory and predictive power. Nature, 652, 58−67.
+https://doi.org/10.1038/s41586-026-10303-2
+Zou, H., Wang, P., Yan, Z., Sun, T., & Xiao, Z. (2024). Can LLM “self-report”?: Evaluating the validity of self-report
+scales in measuring personality design in LLM-based chatbots. arXiv.
+https://doi.org/10.48550/arXiv.2412.00207
+27
+MeasuringPersonalityofLargeLanguageModels:Concepts,Methods,and
+Improvements
+ChanjinZheng1*,HongfeiXie2,XiaoyuLi3,HaoranShi2,LitengGao4
+(1ShanghaiInstituteofAIEducation,EastChinaNormalUniversity,Shanghai200062)
+(2DepartmentofEducationalPsychology,EastChinaNormalUniversity,Shanghai200062)
+(3SchoolofEducation,YangzhouUniversity,Jiangsu225009)
+(4SchoolofArtificialIntelligenceScienceandTechnology,UniversityofShanghaiforScienceand
+Technology,Shanghai200093)
+Abstract: With the widespread use of large language models in human computer
+interaction, their personality related manifestations have become important factors shaping
+user experience, trust judgments, and safety governance. However, the concept of
+personality in large language models remains underdefined, and existing assessment
+approaches are fragmented and lack systematic psychometric standards. This article
+clarifies the conceptual meaning and generative mechanisms of personality in large
+language models, reviews the theoretical frameworks underlying its assessment, and
+classifies existing methods into questionnaire responses, linguistic cues, and situational
+behaviors.It furtheridentifiesmajorchallenges,includinglimitedfitbetweenmeasurement
+tools and tasks, insufficient psychometric evidence, weak cross method comparability, and
+inadequate foundations for score interpretation. Future research should develop personality
+frameworks and measurement tools tailored to large language models, incorporate modern
+psychometric models,advance adaptive and dynamic assessment, and strengthen reliability
+and validity validation, standardized evaluation, and norm construction. These efforts can
+promote more scientific and standardized assessment of personality in large language
+models.
+Keywords:largelanguagemodels;personalityassessment;psychometrics

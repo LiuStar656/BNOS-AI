@@ -8,6 +8,8 @@ import subprocess
 import requests
 import tempfile
 
+from config import get_local_api_key
+
 
 # ════════════════════════════════════════════════════════════════
 #  工具函数
@@ -246,9 +248,18 @@ class CloudApiBackend:
     def __init__(self, config: dict):
         self.vendor = config.get("cloud_vendor", "openai")
         defaults = CLOUD_VENDOR_DEFAULTS.get(self.vendor, CLOUD_VENDOR_DEFAULTS["openai"])
-        self.api_key = config.get("api_key", "")
+        # 密钥优先级：运行时配置 > 本地密钥文件(local_config.json) > 环境变量
+        # local_config.json 不提交不追踪，防止密钥进入版本库（20260816 起）
+        self.api_key = (
+            config.get("api_key")
+            or get_local_api_key()
+            or os.environ.get("DEEPSEEK_API_KEY", "")
+        )
         self.api_base = (config.get("api_base") or "").strip() or defaults["api_base"]
         self.cloud_model = (config.get("cloud_model") or "").strip() or defaults["model"]
+        # 思考模式开关（deepseek-v4 推理模型专用）：disabled 关闭思维链，
+        # 规避 reasoning 耗尽 max_tokens 导致 content 为空的问题；默认关闭
+        self.thinking_mode = config.get("thinking_mode", "disabled")
 
     # ── OpenAI / 自定义兼容 ──────────────────────────────────
 
@@ -256,16 +267,21 @@ class CloudApiBackend:
         headers = {"Content-Type": "application/json"}
         if self.api_key:
             headers["Authorization"] = f"Bearer {self.api_key}"
+        body = {
+            "model": self.cloud_model,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+            "stream": False,
+        }
+        # deepseek-v4 推理模型：按 thinking_mode 开关注入思考模式
+        # （OpenAI 标准 API 不认识此字段，仅对 deepseek vendor 生效）
+        if self.vendor == "deepseek" and self.thinking_mode:
+            body["thinking"] = {"type": self.thinking_mode}
         resp = requests.post(
             f"{self.api_base}/chat/completions",
             headers=headers,
-            json={
-                "model": self.cloud_model,
-                "messages": [{"role": "user", "content": prompt}],
-                "max_tokens": max_tokens,
-                "temperature": temperature,
-                "stream": False,
-            },
+            json=body,
             timeout=120,
         )
         _check_response(resp)

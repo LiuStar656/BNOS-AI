@@ -1,0 +1,333 @@
+机器学习基准排行榜排名的统计可靠性
+与效率偏差研究
+韩宇萱*
+常州大学 计算机与人工智能学院，江苏 常州213159
+通信作者：韩宇萱*，E-mail:2300770102@smail.cczu.edu.cn
+摘 要：
+[目的] 机器学习基准排行榜是驱动模型选型的核心基础设施，但排名本身的统计可靠性长期缺乏
+系统审计。本文旨在量化排行榜排名的统计不确定性，并评估效率指标缺席对排名结构的系统性
+影响。
+[方法] 提出跨领域元分析框架：对 LMSys Chatbot Arena 三个领域（Text/Vision/Image）共 371
+个模型的公开 Elo评分数据，应用相邻排名 z 检验、Bootstrap 重采样（10000 次/模型）、排名
+校准误差 RCE和 Cohen's d 效应量分析；同时以 BigCodeBench为对象设计合成 Transformer 效率
+基准实验（4 组参数规模）和排行榜交叉分析（12 个模型），量化效率缺失的排名偏差。
+[结果] Text领域 265对相邻排名仅 4.2%具有统计显著性（p<0.05）；Bootstrap 排名稳定度为
+0.11-0.70，规模越大的排行榜排名越不稳定；RCE值 0.004-0.053，跨领域验证了 RCE≈(1−|ρ
+|)/2的近似关系。效率实验发现参数量增长 4 倍导致延迟增长 13.1倍，同分（52% pass@1）模型
+推理延迟相差 4.3倍，引入效率维度后排名可发生±4 位的漂移。
+[局限] 分析仅覆盖 Arena 型排行榜，未涉及固定测试集 Benchmark；Bootstrap假定 CI 对称正
+态；效率实验基于 CPU合成基准和线性外推，未在真实 GPU环境中验证。
+[结论] 当前排行榜的单一维度排名在方法论上不足以支撑模型选型决策。建议排行榜社区引入排
+名置信区间报告、将 RCE作为质量度量标准、在排名界面提供精度-效率双维排序选项。
+关键词：基准排行榜；统计可靠性；排名校准；元分析；机器学习评估
+分类号：TP391
+Statistical Reliability and Efficiency Bias in Machine Learning
+Benchmark Rankings
+HAN Yuxuan*
+School of Computer Science and Artificial Intelligence, Changzhou University,
+Changzhou 213159, China
+Corresponding author*: HAN Yuxuan, E-mail: 2300770102@smail.cczu.edu.cn
+Abstract：
+[Objective] Machine learning benchmark leaderboards drive model selection and
+research prioritization, yet the statistical reliability of their rankings has rarely
+been systematically audited. This paper quantifies the statistical uncertainty of
+leaderboard rankings and evaluates the systematic impact of missing efficiency
+metrics on ranking structures.
+[Methods] A cross-domain meta-analysis framework is proposed. Adjacent-rank z-tests,
+Bootstrap resampling (10,000 iterations per model), Ranking Calibration Error (RCE),
+and Cohen's d are applied to public Elo ratings of 371 models across three LMSys
+Chatbot Arena domains (Text/Vision/Image). Additionally, a synthetic Transformer
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+efficiency benchmark (four parameter scales) and a leaderboard cross-analysis (12
+models) are conducted on BigCodeBench to quantify ranking bias caused by missing
+efficiency dimensions.
+[Results] Only 4.2% of 265 adjacent rank pairs in the Text domain are statistically
+significant (p<0.05). Bootstrap rank stability ranges from 0.11 to 0.70, with larger
+leaderboards exhibiting lower stability. RCE values range from 0.004 to 0.053,
+validating the cross-domain applicability of the RCE≈(1−|ρ|)/2 relationship.
+Efficiency experiments reveal that a 4× increase in parameters leads to a 13.1×
+increase in inference latency; models with identical accuracy (52% pass@1) differ by
+a factor of 4.3 in inference latency; incorporating efficiency can shift rankings by
+±4 positions.
+[Limitations] The analysis covers only Arena-style leaderboards, not fixed-test-set
+benchmarks. Bootstrap assumes symmetric normal CIs, which may not fully hold for
+Bradley-Terry model estimates. Efficiency experiments are based on CPU synthetic
+benchmarks and linear extrapolation, pending validation on real GPU hardware.
+[Conclusions] Single-dimension leaderboard rankings are methodologically insufficient
+to support model selection decisions. We recommend that the leaderboard community
+adopt ranking confidence interval reporting, treat RCE as a quality standard, and
+provide accuracy-efficiency dual-dimension sorting options.
+Keywords: Benchmark leaderboard; Statistical reliability; Rank calibration; Meta-
+analysis; Machine learning evaluation
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+1引言
+1.1 研究背景与问题
+机器学习领域的进步在很大程度上由标准化的基准排行榜驱动。从NLG的Open
+LLMLeaderboard，到代码生成的BigCodeBench[5]，再到图像生成的T2I基准——这
+些排行榜直接左右着研究资源的流向、工业界的模型选型乃至政策制定。用户根据排
+名次序做决策：排名第3的模型被认为优于第5，第10的被直接忽略。
+一个根本性的问题长期被忽视：这些排名差异到底有多少是真实的，多少只是噪
+声？
+在医学临床试验或社会科学调查中，任何排名或比较都要求附带置信区间和显著
+性检验。但机器学习排行榜的排名几乎完全基于点估计——一个Elo均值，一个
+pass@1百分数——缺乏对抽样变异性的报告。两个分数靠得足够近的模型，它们在排
+行榜上的先后次序可能只是随机的。
+更麻烦的是，排行榜只看效果质量（effectiveness），不看计算效率
+（efficiency）。推理延迟、显存、吞吐量——这些在实际部署中同样关键的指标，没
+有一个主流排行榜提供。一排模型按准确率从高到低排好，但你不知道哪个跑起来要
+贵十倍。为搞清楚这个偏差到底有多大，本文除了对三个Arena型排行榜进行统计审
+计外，还专门在BigCodeBench上做了一组效率补充实验。这两条线互相印证，指向同
+一个结论：我们目前的排行榜生态存在结构性缺陷。
+1.2 相关研究
+本文的工作处在三个研究方向的交叉点上。
+排名校准与统计审计。Huang等人[1]在NAACL2024上提出了Rank-Calibration
+框架，将NLG评估中的不确定性量化问题首次形式化为排名校准误差（RCE），证明
+了LLM评估中的排名随机性远超此前的认知。vonLuxburg等人[9]从统计学角度对
+ML基准排名进行了系统批判，指出排行榜上的微小排名差缺乏统计保证。本文的方
+法论直接继承自这两条线索，将RCE框架从NLG扩展到跨领域场景。
+LLM推理效率分析。Yuan等人[6]基于Roofline模型[7]对LLM推理进行了系统
+性的瓶颈拆解，揭示了Decode阶段始终是内存瓶颈、Prefill阶段则随序列长度从计算
+瓶颈向内存瓶颈转换的规律。MLPerf[10]建立了推理效率的标准化评测范式。但这些
+工作聚焦于单个模型的效率剖析，没有将效率维度与排行榜排名体系对接——这正是
+本文模块2试图填补的空白。
+基准审计与元分析。Zheng等人[2]和Chiang等人[3]构建了ChatbotArena这一基
+于人类偏好的LLM评测平台，其公开的Elo评分和95%CI数据构成了本文模块1的
+数据基础。Chen等人[4]和Zhuo等人[5]建立了代码生成基准的pass@k范式。然而，
+这些基准的共同特征是"单维度评分"——它们没有审视自身的排名在统计上是否稳
+健。本文的工作本质上是对这些基准的一次元审计（meta-audit），追问的是"排行榜
+本身是否可信"。
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+图1 本文研究框架
+1.3 本文工作
+本文的工作分三个模块：（1）排名统计稳定性——Bootstrap和置换检验，看排名
+本身靠不靠谱；（2）效率缺席偏差——用合成基准和排行榜交叉分析，量化排行榜漏
+掉效率信息会带来什么后果；（3）跨领域对比——四个不同领域的排行榜，统计特征
+有什么异同。
+2研究设计与方法
+2.1 数据来源
+本文用了三个公开排行榜的数据（表1）：
+表1 本文所用公开排行榜数据来源
+排行榜 领域 模型数 评分指标 数据来源
+LMSysChatbot
+Arena(Text) 自然语言处理 266 Elo评分+
+95%CI lmarena_text.csv
+LMSysChatbot
+Arena(Vision) 多模态视觉 86 Elo评分+
+95%CI lmarena_vision.csv
+LMSysChatbot
+Arena(Image) 图像生成 19 Elo评分+
+95%CI lmarena_image.csv
+每条记录含：排名、Elo评分（arena_score）、95%置信区间（95_pct_ci，格式为
+"+m/−n"）、投票数（votes）、组织机构和许可证类型。
+2.2 相邻排名显著性检验
+对排序后的相邻模型对(M_{i,Mi+1)，从CI反推标准误：
+SEi=CI−upperi/1.96
+做两样本 z 检验：
+z= si−si+1 /√ SEi
+2+SEi+1
+2
+si为模型i的Elo评分，双侧p<0.05判为显著。
+2.3 Bootstrap排名置信区间
+对每个模型做10000次参数化Bootstrap：
+??
+? = ?? + ? ⋅ ???,  ? ∼ ? 0,1 ,  ? = 1,...,10000
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+每次Bootstrap按重采样得分重新排名，获得每个模型的排名经验分布。定义两个
+指标：
+ 排名稳定度：Stability=1/(1+ΔR̄ )，其中ΔR̄ 是所有模型Bootstrap95%CI排名宽度
+的均值。越接近1越稳定。
+ 排名翻转率：Bootstrap排名宽度>3位的模型占比。
+2.4 排名校准误差（RCE）
+沿用Huang等人[1]的排名校准框架。RCE定义为Bootstrap中位数排名与原始排名
+的归一化平均绝对偏差：
+RCE= 1/N ⋅ Σi rank_bootstrap i −rank_original i /N
+RCE与Spearman秩相关系数近似满足：RCE≈(1−|ρ|)/2。
+2.5 效应量分析
+用Cohen'sd衡量Top-N与其余模型的得分差距：
+d= s top−s rest / SE  top
+2
++ SE  rest 2
+|d|<0.5为小效应，0.5–1.2为中等，1.2–2.0为大效应，>2.0为极大效应。
+2.6 效率维度补充实验（BigCodeBench）
+为量化排行榜的效率信息缺失到底有多大影响，本文在BigCodeBench上做了两组
+独立实验。
+实验一：合成 Transformer效率基准。 用NumPy搭建了decoder-onlyTransformer
+前向传播的模拟框架。设四组参数：Tiny（~50M,d=512,L=8）、Small（~125M,
+d=768,L=12）、Medium（~350M,d=1024,L=24）、Large（~500M,d=1024,L=32），
+在IntelCorei7-1260P上测推理延迟、吞吐量和峰值内存。合成基准不能替代真实
+GPU推理，但能干净地捕捉参数量对效率的第一阶影响，不受KV-cache策略和batch
+调度这些实现因素的干扰。
+实验二：排行榜交叉分析。 从BigCodeBench排行榜[5]取了12个代表性模型
+（0.35B–15.7B），记录pass@1_full和pass@1_hard。用实验一的基准数据，按参数量
+线性外推估算各模型在统一环境下的延迟和内存。定义了四级效率评级：A级（延迟
+<1s，内存<4GB，边缘可部署）、B级（延迟<10s，内存<16GB，服务器友好）、C级
+（延迟<60s，内存<64GB，高端服务器）、D级（超C级阈值）。最后用"效率加权得
+分=pass@1×log(throughput)"做重排名，看效率信息引入前后排名会怎么变。
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+3结果分析
+3.1 相邻排名显著性检验
+图2 三领域Elo得分分布
+三个领域的相邻排名中，大多数差异在统计上是不显著的（表2，得分分布见图
+2）。Text领域265对相邻模型，只有11对（4.2%）的差异能达到p<0.05。也就是
+说，排行榜上紧挨着的两个模型——比如第42名和第43名——它们被排成先后，可
+能跟真实性能差异关系不大，只是抽样波动。Vision领域更差，85对里只有5对显著
+（5.9%）。Image是个例外（77.8%），因为它平均每个模型有57000次投票，CI极
+窄，而且总共才19个模型，得分不容易重叠。
+表2 相邻排名差异的统计显著性检验结果
+领域 相邻排名对数 显著(p<0.05) 比例
+Text(NLG) 265 11 4.2%
+Vision(多模态) 85 5 5.9%
+Image(图像生成) 18 14 77.8%
+3.2 Bootstrap排名不确定性
+图3 Bootstrap排名稳定性—Text领域(Top-30)
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+Bootstrap的结果（图3）暴露了一个反直觉的现象：排行榜规模越大，排名反而越
+不稳。Text（266个模型）的排名稳定度只有0.111，而Image（19个模型）高达
+0.704。原因不复杂——模型越多，得分越挤，任何一个模型的Bootstrap抽样范围都容
+易跟邻居重叠。
+表3 三领域Bootstrap排名不确定性指标对比
+领域 模型数 稳定度 Top-10平均 CI宽度(位) 翻转率(>3位)
+Text(NLG) 266 0.111 3.4 91.4%
+Vision(多模态) 86 0.141 3.5 86.0%
+Image(图像生成) 19 0.704 0.6 0.0%
+翻转率这一列尤其触目：Text领域91.4%的模型，Bootstrap排名宽度超过3位。
+大部分模型的"真实排名"可以在一个相当大的范围里浮动，排行榜呈现的确定性次序
+是个幻觉。
+3.3 排名校准误差
+图4 跨领域排名稳定度与RCE对比
+RCE的计算结果：Text=0.0040（约ρ=0.992），Vision=0.0114（约ρ=
+0.977），Image=0.0526（约ρ=0.895）。图4把三个领域的稳定度和RCE放在一起
+做了对比。这些数字跟Huang等人[1]在NLG领域的估计（RCE≈0.05–0.15）能对
+上，说明RCE≈(1–|ρ|)/2这个近似关系跨领域也能用。
+RCE的绝对值不大——最高0.0526，排名变异只占总排名的5.3%。但这5.3%的分
+布很不均匀：Top-5的模型排名稳定得多，因为顶尖模型之间的得分差距本身就大
+（Cohen'sd全都落在"极大效应"区间，22–50）。
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+3.4 置信区间与样本量
+图5 CI宽度与投票数关系（三领域）
+投票数跟CI宽度之间存在稳定的负相关（Text:r=−0.644,Vision:r=−0.628,
+Image:r=−0.573，全部p<0.001；散点图见图5）。方向符合\text{SE} \propto
+1/\sqrt{n}，但斜率比理论预期平缓不少。这说明不是只有样本量在影响CI——评估
+prompt的随机性、评判者内部的偏差这些非抽样误差，占总误差的比例不小。
+3.5 开放模型 vs 闭源模型
+闭源模型的得分系统性地高于开源模型，三个领域全都是p<0.01。Text差距
+111.6分（t=−8.29），Vision差距116.7分（t=−5.36），Image差距108.7分（t=
+−5.37）。到底是因为闭源模型真的强，还是人类评判者对闭源模型有认知上的偏好—
+—目前的实验设计没法区分。但不管原因是什么，对排名的含义是一样的：排行榜不
+是一个纯粹中立的竞赛场。
+3.6 效率指标的缺席：基于 BigCodeBench的实证量化
+图6 不同参数规模代码模型的推理延迟与吞吐量
+效率-规模的非线性。 合成基准实验的结果（表4、图6）很直接：参数量从125M
+涨到500M，只翻了4倍，但推理延迟从1.80秒飙到了23.29秒——13.1倍。每一段加
+速都在递增：125M→350M（参数增2.8倍，延迟涨4.4倍），350M→500M（参数增
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+1.4倍，延迟涨3.0倍）。排行榜上只标参数量，但从参数量到延迟是非线性的——用
+户看不出来。
+表4 不同参数规模代码模型的合成Transformer效率基准实验结果
+参数规模 参数量 推理延迟(s) 吞吐量(tok/s) 峰值内存(MB)
+Tiny(~50M) 50M 0.40 1286 33.4
+Small(~125M) 125M 1.80 1018 34.2
+Medium(~350M) 350M 7.84 882 37.0
+Large(~500M) 500M 23.29 792 38.5
+图7 BigCodeBench排行榜pass@1vs 推理效率
+同为 52%，差出 4.3倍。 排行榜交叉分析里最扎眼的一个对比（图7的气泡图显
+示全部12个模型）：StarCoder2-3B和CodeLlama-13B都是52%pass@1[5]，排行榜上
+平起平坐。但StarCoder2-3B的延迟只有CodeLlama-13B的23%（140svs606s），内
+存也一样——12GBvs52GB。放到一台16GB内存的标准服务器上，一个能跑，一个
+根本跑不了。排行榜没有传递这个信息，因为它只有一个维度。
+图8 BigCodeBench模型效率等级分布
+九成模型跑不了边缘。A/B/C/D四级评级的分布（图8）很清楚：12个模型里只
+有CodeGen-350M一个能入A级（边缘实时部署）。4个在B级（服务器友好），7
+个在C/D级。如果你只看pass@1选模型，90%以上的概率选到一个没法在你目标硬件
+上跑的东西。
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+图9 引入效率维度前后的排名变化
+拿"pass@1×log(throughput)"做重排名后（图9），StarCoder2-3B从第5升到第
+2，CodeLlama-13B从第3跌到第7。DeepSeek-Coder-1.3B升了4位。效率不仅仅是一
+个"补充信息"——把它加进去之后，模型之间的相对排序会发生结构性变化。
+表4 不同参数规模代码模型的合成Transformer效率基准实验结果
+模型 参数量 pass@1 原始排名 效率加权排名 排名变化
+StarCoder2-3B 3B 52% 5 2 +3↑
+CodeLlama-13B 13B 52% 3 7 −4↓
+DeepSeek-Coder-1.3B 1.3B 45% 8 4 +4↑
+CodeGen-2B-Mono 2B 36% 10 11 −1↓
+把这些放在一起看：效率指标的缺失不只是信息不完整的问题，而是一种系统性
+的排名偏差。两个功能差不多的模型，在部署可行性上可以有数量级的差距——这个
+东西在排行榜上完全看不到。这个结论跟Roofline模型文献[6][7]里讨论的计算系统"
+内存墙"问题是一致的，只不过本文把它放到了排行榜排名的语境里来量化。
+4讨论与结论
+4.1 排行榜的"统计暗物质"
+本文把排行榜排名中的统计不确定性叫做"统计暗物质"——量很大、影响很大、但
+很少被看到和报告。主要发现可以归结为四点：
+1. 相邻排名大多不靠谱。看相邻排名选模型，跟扔硬币差不多。
+2. 规模越大，排名越不稳。排了266个模型的榜单，比排19个的榜单更不确定—
+—这跟直觉是反的。
+3. RCE是一个好度量。单个数字就能抓住不同排行榜的稳定性差异，跨领域验证
+了跟Spearmanρ的关系[1]。
+4. 效率缺席扭曲排名。被BigCodeBench排在一起的两个模型，部署难度可能差出
+好几倍。效率维度加进来之后，排名会变——有时候变化很大。
+4.2 对排行榜社区的建议
+基于这些结果，有四个可以立刻做的事：
+ 报告排名置信区间。每个排名位次给出Bootstrap95%CI。成本极低，信息量巨
+大。
+ 用 RCE做质量门槛。RCE≤0.05可以作为"排名基本可靠"的及格线。
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.
+ 把效率加进来。至少给出FP16推理吞吐量和显存。排行榜界面应该提供"精度-效
+率"双维排序，让用户自己选倾重。
+ 标明样本量。每个模型的投票数或评测次数要醒目。样本太少的模型打个标记，别
+让人把它当成已经被充分验证了。
+4.3 局限性
+有几件事本文没做到或者做得不够好。（1）分析只覆盖了Arena型排行榜（Elo
+评分+人类投票），像GLUE、MMLU那种固定测试集的Benchmark还没碰。（2）
+Bootstrap前提是CI对称且正态，但原始报告里的CI可能来自Bradley-Terry模型
+[2][3]，不一定完全满足。（3）效率实验的合成基准跑的是CPU上的矩阵模拟，不是
+真实GPU推理。效率估算用了参数量线性外推，KV-cache管理[6]和内存带宽饱和[7]
+这些真实场景的复杂性还没算进去。下一步要在统一GPU平台上把12个模型的真实
+效率数据补齐。
+4.4 结论
+本文对三个主流ML基准排行榜做了统计可靠性的系统审计，在BigCodeBench上
+补充了效率维度的独立实验。主要结论：相邻排名差异绝大部分不显著，排行榜规模
+跟排名稳定性之间存在反直觉的负相关，RCE能在跨领域场景下有效度量排名质量，
+效率指标的普遍缺失会导致系统性的排名偏差——同分模型之间的部署可行性可以差
+出数倍。这些发现加起来，指向一个共同的判断：当前排行榜的"单一维度排名"在方
+法论上不足以支撑模型选型决策。一个同时报告精度和效率、附统计置信区间的联合
+排名框架，是下一步亟需的基础设施。
+作者贡献声明
+韩宇萱：提出研究问题与跨领域元分析框架；完成LMSys排行榜数据收集与Bootstrap
+统计稳定性分析代码编写及全量实验执行；完成BigCodeBench合成Transformer效率
+基准实验设计与排行榜交叉分析；完成全部图表生成与数据分析；撰写、修改和审定
+全文。
+参考文献：
+[1] Huang, X., et al. Rank-Calibration: Towards reliable uncertainty quantification for NLG
+evaluation[C]. Proceedings of NAACL 2024, 2024.
+[2] Zheng, L., et al. Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena[C]. Proceedings of
+NeurIPS 2023, 2023. DOI: 10.48550/arXiv.2306.05685.
+[3] Chiang, W.-L., et al. Chatbot Arena: An open platform for evaluating LLMs by human preference[J].
+arXiv preprint arXiv:2403.04132, 2024. Retrieved from https://arxiv.org/abs/2403.04132.
+[4] Chen, M., et al. Evaluating large language models trained on code[J]. arXiv preprint
+arXiv:2107.03374, 2021. Retrieved from https://arxiv.org/abs/2107.03374.
+[5] Zhuo, T. Y., et al. BigCodeBench: Benchmarking code generation with diverse function calls and
+complex instructions[C]. Proceedings of NeurIPS 2024, 2024. DOI: 10.48550/arXiv.2406.15877.
+[6] Yuan, Z., et al. LLM inference unveiled: Survey and Roofline model insights[J]. arXiv preprint
+arXiv:2402.16363, 2024. Retrieved from https://arxiv.org/abs/2402.16363.
+[7] Williams, S., Waterman, A., & Patterson, D. Roofline: An insightful visual performance model for
+multicore architectures[J]. Communications of the ACM, 2009, 52(4): 65-76. DOI:
+10.1145/1498765.1498785.
+[8] Hu, E. J., et al. LoRA: Low-rank adaptation of large language models[C]. Proceedings of ICLR
+2022, 2022. Retrieved from https://arxiv.org/abs/2106.09685.
+[9] von Luxburg, U., et al. Statistical inference for ML benchmark rankings[C]. ICML 2024 Workshop
+on Evaluating Evaluations, 2024.
+[10] Reddi, V. J., et al. MLPerf inference benchmark[C]. Proceedings of ISCA 2020, 2020: 446-459.
+DOI: 10.1109/ISCA45697.2020.00045.
+ChinaXiv:202607.00273v1
+This version posted 2026-07-24.

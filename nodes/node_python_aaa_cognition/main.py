@@ -400,6 +400,26 @@ class MyNode:
         parsed = psr.parse_llm_output(content)
         rid = data.get("request_id", "")
 
+        # ── 日常模式自动判定（方案 A）：LLM 输出【工作模式】=需要 →
+        #    本轮自动转 DSH 直通执行（单次，不持久切 mode.json）──
+        # 仅对话路径（非 batch_mode）判定；DSH 回执走 _dsh_wait_and_push，
+        # 不经本函数 → 无重入死循环。
+        wm = str(parsed.get("工作模式") or "").strip()
+        if "需要" in wm and not batch_mode:
+            _pending = self._pending_contexts.pop(rid, None) or {}
+            _ik = _pending.get("identity_key") or _IDENTITY_KEY_DEFAULT
+            _ctx = self._gather_context(
+                _pending.get("user_text", ""), dbp, _pending.get("attachments"),
+                _pending.get("conv_id", conv_id), skip_retrieval=True,
+                prefetch_override="", identity_key=_ik,
+            )
+            return self._direct_dsh_to_node(
+                _pending.get("user_text", ""), _ctx, rid,
+                conv_id=_pending.get("conv_id", conv_id),
+                identity_key=_ik, dbp=dbp,
+                user_id=str(_pending.get("user_id", "") or ""),
+            )
+
         # ── 三选一决策 ─────────────────────────────────
         tool_call = parsed.get("工具调用", [])
         pending = self._pending_contexts.pop(rid, None)
@@ -750,6 +770,9 @@ class MyNode:
                 request_id=rid,
             )
             return
+        if result.get("cancelled"):
+            # 用户已点终止（GUI 取消标记），静默结束：不推送任何回复
+            return
         # 上报活动状态：DSH 已回，AAA 解析写库阶段（与日常模式 LLM 回执同链）
         _write_activity("aaa_parse", "AAA 正在解析并写入记忆…", rid)
         # 会话续接：回带真实 session_id，供本会话后续多轮续接
@@ -836,14 +859,13 @@ class MyNode:
         try:
             limit = cfg.get("max_history_summary", 3)
 
-            # 1. 固定认知层（全局共享，不按 identity 隔离）
-            fixed_rows = conn.execute(
-                "SELECT key, value FROM fixed_cognition ORDER BY updated_at DESC"
-            ).fetchall()
-            fixed_context = "\n".join(f"{k}: {v}" for k, v in fixed_rows) if fixed_rows else ""
-
-            # 2. 对话层 — 按 identity_key + conversation_id 隔离
-            sc = db.g_where_identity(conn, "self_cognition", "content", conv_id, identity_key)
+            # 1. 对话层 — 按 identity_key + conversation_id 隔离
+            # 自我认知 → 身份背景：取最近 5 条合并（最新在前），形成"我是谁、
+            # 我是什么样的人"的人格叙事（酒馆 Character Card 式，不截断到单条）
+            sc = "\n".join(x[0] for x in conn.execute(
+                "SELECT content FROM self_cognition WHERE conversation_id=? AND identity_key=? ORDER BY id DESC LIMIT 5",
+                (conv_id, identity_key)
+            ).fetchall())
             # v6.0 多用户：他人认知按 user_id 检索（user_id='' 全局认知兜底）
             oc = db.g_where_identity_user(conn, "other_cognition", "content", conv_id, identity_key, user_id)
 
@@ -872,8 +894,11 @@ class MyNode:
                 (conv_id, identity_key, user_id, user_id)
             ).fetchall())
 
+            # 名字类 key 置顶（身份核心永不因 20 条截断被挤出 → AI 不忘记自己叫什么），
+            # 其余再按最新写入顺序补位
             si = ", ".join(f"{k}={v}" for k, v in conn.execute(
-                "SELECT key,value FROM self_info WHERE conversation_id=? AND identity_key=? ORDER BY id DESC LIMIT 20",
+                "SELECT key,value FROM self_info WHERE conversation_id=? AND identity_key=? "
+                "ORDER BY CASE WHEN key IN ('名字','姓名','name','昵称','称呼','名字叫','名字是') THEN 0 ELSE 1 END, id DESC LIMIT 20",
                 (conv_id, identity_key)
             ).fetchall())
 
@@ -948,9 +973,20 @@ class MyNode:
         except Exception:
             pass
 
+        # v8.4 名字行（条件注入）：有名字 → 固定身份行；无名字 → 引导自然自我起名
+        _name = (seed.get("name") or "").strip()
+        if _name:
+            name_line = (
+                f"你的名字：{_name}（这是你的固定名字，永远以它自称，不随记忆滚动变化）")
+        else:
+            name_line = (
+                "你还没有名字：如果用户问起或时机合适，你可以给自己取一个名字，"
+                "并在【自我认知】中写「我叫xxx」，我会记住。")
+
         return {
             "identity_key": identity_key,
-            "fixed_cognition": fixed_context,
+            "name": _name,
+            "name_line": name_line,  # v8.4 名字注入行（有/无名字两种形态）
             "self_cognition": sc, "other_cognition": oc, "recent_feelings": feel,
             "recent_observations": recent_observations,
             "user_text": user_text, "current_date": now.strftime("%Y-%m-%d"),

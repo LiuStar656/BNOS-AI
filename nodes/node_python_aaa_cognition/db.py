@@ -3,6 +3,7 @@
 """
 import sqlite3
 import json
+import re
 import threading
 import os
 from datetime import datetime, timedelta
@@ -137,6 +138,46 @@ def _dedup_and_merge(
     return new_content
 
 
+# 名字提取模式（v8.4 自然起名）：只认显式自我介绍句式，避免把
+# "我是一个温柔的人"这类性格描述误提取为名字
+_NAME_PATTERNS = (
+    r"(?:我叫|我的名字(?:是|叫)?|我名字是|你可以叫我|请叫我)"
+    r"\s*[「『\"'“]?\s*([\u4e00-\u9fa5A-Za-z][\u4e00-\u9fa5A-Za-z0-9]{0,9})",
+)
+
+
+def _maybe_capture_name(conn: sqlite3.Connection, identity_key: str, val: str) -> None:
+    """名字自然生成：自我认知含显式自我介绍句式且当前名字为空时，提取并固化。
+
+    一旦有名字（用户设置或自我起名）不再覆盖；名字写入 personality_seed.name，
+    此后由 prompt 顶部固定注入（酒馆 Character Card name 式，永不丢失）。
+    """
+    try:
+        for pat in _NAME_PATTERNS:
+            m = re.search(pat, val)
+            if not m:
+                continue
+            name = m.group(1).strip()
+            if not name:
+                return
+            row = conn.execute(
+                "SELECT name FROM personality_seed WHERE identity_key=?",
+                (identity_key,),
+            ).fetchone()
+            if row and (row[0] or "").strip():
+                return  # 已有名字，不覆盖
+            conn.execute(
+                """INSERT INTO personality_seed(identity_key, name, updated_at)
+                   VALUES(?,?, datetime('now','localtime'))
+                   ON CONFLICT(identity_key) DO UPDATE SET
+                       name=excluded.name, updated_at=datetime('now','localtime')""",
+                (identity_key, name),
+            )
+            return
+    except Exception:
+        pass
+
+
 def _write_self_info(conn: sqlite3.Connection, identity_key: str, kk: str, vv: str, now: str):
     """self_info 写入治理（v3.1 D4，防 self_info 爆发增长）。
 
@@ -172,21 +213,6 @@ def _write_self_info(conn: sqlite3.Connection, identity_key: str, kk: str, vv: s
         pass  # 治理失败不阻塞主流程，回到普通写入兜底
 
 
-def _increment_certainty(key: str, conn: sqlite3.Connection) -> int:
-    """增加确认次数；返回当前次数"""
-    conn.execute(
-        """INSERT INTO fixed_cognition(key, value) VALUES(?, '1')
-           ON CONFLICT(key) DO UPDATE SET value = CAST(CAST(value AS INTEGER) + 1 AS TEXT),
-           updated_at = datetime('now','localtime')""",
-        (f"certainty_{key}",),
-    )
-    row = conn.execute(
-        "SELECT value FROM fixed_cognition WHERE key = ?",
-        (f"certainty_{key}",),
-    ).fetchone()
-    return int(row[0]) if row else 0
-
-
 def _aggregate_mood(db_path: str, conv_id: str, period: str = "daily", identity_key: str = None):
     """聚合指定周期的情感数据到 mood_trend 表"""
     identity_key = identity_key or _IDENTITY_KEY_DEFAULT
@@ -218,7 +244,7 @@ def _aggregate_mood(db_path: str, conv_id: str, period: str = "daily", identity_
 
 
 def ensure(db_path):
-    """初始化数据库（幂等）— 建表 + 迁移 conversation_id 列 + fixed_cognition + v2.0 增强"""
+    """初始化数据库（幂等）— 建表 + 迁移 conversation_id 列 + v2.0 增强"""
     d = os.path.dirname(db_path)
     if d:
         os.makedirs(d, exist_ok=True)
@@ -273,11 +299,6 @@ def ensure(db_path):
                 role TEXT NOT NULL,
                 content TEXT NOT NULL,
                 created_at TEXT NOT NULL DEFAULT(datetime('now')));
-            CREATE TABLE IF NOT EXISTS fixed_cognition(
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                key TEXT UNIQUE NOT NULL,
-                value TEXT NOT NULL,
-                updated_at TEXT DEFAULT (datetime('now','localtime')));
             CREATE TABLE IF NOT EXISTS mood_trend(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 conversation_id TEXT NOT NULL DEFAULT 'default',
@@ -311,8 +332,10 @@ def ensure(db_path):
                 created_at TEXT NOT NULL DEFAULT(datetime('now','localtime')));
             -- v5.1 角色种子系统：性格向量表（多用户隔离，identity_key 为主键）
             -- v8.x 人格注入双开关：anchor_enabled（五档动作级锚点）/ instruction_enabled（通用激活指令）
+            -- v8.4 AI 名字：name 列（酒馆 Character Card name 式，固定字段永不丢）
             CREATE TABLE IF NOT EXISTS personality_seed(
                 identity_key TEXT PRIMARY KEY,
+                name TEXT DEFAULT '',
                 warmth REAL DEFAULT 0.6,
                 playfulness REAL DEFAULT 0.4,
                 directness REAL DEFAULT 0.5,
@@ -468,6 +491,8 @@ def ensure(db_path):
         for col_sql in [
             "ALTER TABLE personality_seed ADD COLUMN anchor_enabled INTEGER DEFAULT 1",
             "ALTER TABLE personality_seed ADD COLUMN instruction_enabled INTEGER DEFAULT 0",
+            # v8.4 AI 名字：酒馆 Character Card name 式固定字段
+            "ALTER TABLE personality_seed ADD COLUMN name TEXT DEFAULT ''",
         ]:
             try:
                 conn.execute(col_sql)
@@ -640,17 +665,12 @@ def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=
                     "INSERT INTO event_summary(conversation_id,identity_key,summary,user_id,created_at) VALUES(?,?,?,?,?)",
                     (conversation_id, identity_key, deduped, user_id, now))
             elif k == "自我认知":
-                # 检查是否带 [固定] 标记 → 写入 fixed_cognition 表
-                if val.startswith("[固定]") or val.startswith("[fixed]"):
-                    clean = val.split("]", 1)[1].strip() if "]" in val else val
-                    conn.execute(
-                        "INSERT INTO fixed_cognition(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value, updated_at=datetime('now','localtime')",
-                        ("self_cognition", clean))
+                # v8.4 名字自然生成：显式自我介绍且无名字 → 提取固化
+                _maybe_capture_name(conn, identity_key, val)
                 # 直接 INSERT，不去重合并（像 adaptive-agent-architecture 那样）
                 conn.execute(
                     "INSERT INTO self_cognition(conversation_id,identity_key,content,created_at) VALUES(?,?,?,?)",
                     (conversation_id, identity_key, val, now))
-                _increment_certainty("self_cognition", conn)
             elif k == "他人认知":
                 # v6.6 P0-2：批量模式空 user_id（无明确认知对象）跳过写入，
                 # 杜绝 "" 空键进入 other_cognition 污染认知矩阵统计
@@ -660,7 +680,6 @@ def _write_parsed(parsed, db_path, conversation_id, user_input="", identity_key=
                 conn.execute(
                     "INSERT INTO other_cognition(conversation_id,identity_key,content,user_id,created_at) VALUES(?,?,?,?,?)",
                     (conversation_id, identity_key, val, user_id, now))
-                _increment_certainty("other_cognition", conn)
             elif k == "用户信息":
                 for pair in val.split(","):
                     pair = pair.strip()
@@ -886,17 +905,22 @@ PERSONALITY_PRESETS = {
 }
 
 # 初始背景记忆（写入 event_summary，source='seed'，随真实记忆积累自然淡化）
+# v8.4 不再硬编码名字（"我的名字是阿镜"），名字由交互自然生成（_maybe_capture_name）
 _SEED_BACKGROUND_MEMORIES = [
     "我刚来到这台电脑上，对用户还不了解",
-    "我的名字是阿镜（可由用户修改）",
     "我住在用户的桌面上，能看到屏幕、听到声音",
 ]
 
 
 def get_personality(db_path: str, identity_key: str = _IDENTITY_KEY_DEFAULT) -> dict:
-    """读取性格向量 + 风格描述 + 注入双开关；无记录时返回默认种子（fallback）"""
+    """读取性格向量 + 风格描述 + 注入双开关 + AI 名字；无记录时返回默认种子（fallback）
+
+    v8.4 名字自然生成：name 默认空串（不硬编码），由交互中 AI 自我起名
+    （_maybe_capture_name 从【自我认知】提取）或用户显式设置（set_ai_name）。
+    """
     default = {
         **_DEFAULT_PERSONALITY,
+        "name": "",
         "style_description": PERSONALITY_PRESETS["默认"]["style_description"],
         "preset_name": "默认",
         "anchor_enabled": True,
@@ -907,7 +931,7 @@ def get_personality(db_path: str, identity_key: str = _IDENTITY_KEY_DEFAULT) -> 
         conn = sqlite3.connect(db_path)
         try:
             row = conn.execute(
-                "SELECT warmth, playfulness, directness, curiosity, style_description, preset_name, "
+                "SELECT name, warmth, playfulness, directness, curiosity, style_description, preset_name, "
                 "anchor_enabled, instruction_enabled "
                 "FROM personality_seed WHERE identity_key=?",
                 (identity_key,),
@@ -917,12 +941,13 @@ def get_personality(db_path: str, identity_key: str = _IDENTITY_KEY_DEFAULT) -> 
         if not row:
             return default
         return {
-            "warmth": row[0], "playfulness": row[1],
-            "directness": row[2], "curiosity": row[3],
-            "style_description": row[4] or "",
-            "preset_name": row[5] or "默认",
-            "anchor_enabled": bool(row[6]),
-            "instruction_enabled": bool(row[7]),
+            "name": row[0] or "",
+            "warmth": row[1], "playfulness": row[2],
+            "directness": row[3], "curiosity": row[4],
+            "style_description": row[5] or "",
+            "preset_name": row[6] or "默认",
+            "anchor_enabled": bool(row[7]),
+            "instruction_enabled": bool(row[8]),
             "exists": True,
         }
     except Exception:
@@ -956,6 +981,33 @@ def save_personality(db_path: str, vector: dict, style_description: str = "",
                  float(vector.get("directness", 0.5)), float(vector.get("curiosity", 0.5)),
                  style_description, preset_name,
                  1 if anchor_enabled else 0, 1 if instruction_enabled else 0),
+            )
+            conn.commit()
+        finally:
+            conn.close()
+        return True
+    except Exception:
+        return False
+
+
+def set_ai_name(db_path: str, name: str,
+                identity_key: str = _IDENTITY_KEY_DEFAULT) -> bool:
+    """更新 AI 名字（v8.4，酒馆 Character Card name 式固定字段）。
+
+    GUI 设置面板调用；空名不入库（name.strip() 为空则忽略）。
+    """
+    name = (name or "").strip()
+    if not name:
+        return False
+    try:
+        conn = sqlite3.connect(db_path)
+        try:
+            conn.execute(
+                """INSERT INTO personality_seed(identity_key, name, updated_at)
+                   VALUES(?,?, datetime('now','localtime'))
+                   ON CONFLICT(identity_key) DO UPDATE SET
+                       name=excluded.name, updated_at=datetime('now','localtime')""",
+                (identity_key, name),
             )
             conn.commit()
         finally:

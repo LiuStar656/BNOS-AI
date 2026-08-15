@@ -348,7 +348,7 @@ class ChatPage(QWidget):
         self._msg_layout = QVBoxLayout(self._msg_container)
         self._msg_layout.setContentsMargins(0, 0, 0, 0)
         self._msg_layout.setSpacing(8)
-        self._msg_layout.addStretch(1)  # 弹簧在最底部
+        self._msg_layout.addStretch(1)  # 弹簧在最顶部：气泡贴底，最新消息在最下方（微信式堆叠）
 
         # ─── 顶部模式栏（P2：日常/工作切换）────────
         mode_bar = QWidget()
@@ -479,8 +479,7 @@ class ChatPage(QWidget):
         """把 DSH 提问卡片插入消息流（AI 侧左对齐，微信风）"""
         card = _QuestionCard(qid, questions)
         card.answered.connect(self._on_question_answered)
-        count = self._msg_layout.count()
-        self._msg_layout.insertWidget(count - 1, card)
+        self._msg_layout.addWidget(card)  # 追加到弹簧之后（贴底堆叠）
         self._msg_layout.setAlignment(card, Qt.AlignmentFlag.AlignLeft)
         self._msg_container.updateGeometry()
         self._scroll_to_bottom()
@@ -495,7 +494,7 @@ class ChatPage(QWidget):
 
     def _on_conversation_changed(self, conv_id: str):
         """切换对话 — 保存当前消息（用旧 id），加载目标对话消息"""
-        self._cancel_typing()  # 取消打字动画
+        self._complete_typing()  # 强制完成打字动画，回复完整保留进气泡
         self._hide_waiting()  # 移除等待指示（回复将路由到目标对话）
         # 用 _prev_conv_id 保存当前消息（state.current 已被覆盖）
         if self._prev_conv_id:
@@ -633,7 +632,7 @@ class ChatPage(QWidget):
         if not self._msg_mgr:
             return
 
-        self._cancel_typing()  # 取消正在进行的打字动画
+        self._complete_typing()  # 强制完成打字动画，旧回复完整保留
         self._current_ai_bubble = None  # 发送新消息时重置当前 AI 气泡
         self._append_bubble(text, "user")
 
@@ -741,10 +740,27 @@ class ChatPage(QWidget):
         self._scroll_to_bottom()
 
     def _cancel_typing(self):
-        """取消打字动画"""
+        """取消打字动画（丢弃未输出部分）"""
         if self._typing_timer:
             self._typing_timer.stop()
             self._typing_timer = None
+        self._typing_text = ""
+        self._typing_index = 0
+
+    def _complete_typing(self):
+        """强制完成打字动画：一次性补齐剩余字符，回复完整渲染进气泡。
+
+        用于切换对话 / 发送新消息前，替代 _cancel_typing，避免正在流式
+        输出的回复被中断丢失。落盘保存由调用方按目标对话执行。
+        """
+        if self._typing_timer:
+            self._typing_timer.stop()
+            self._typing_timer = None
+        if self._current_ai_bubble and self._typing_text:
+            rest = self._typing_text[self._typing_index:]
+            if rest:
+                self._current_ai_bubble.append_text(rest)
+                self._typing_index = len(self._typing_text)
         self._typing_text = ""
         self._typing_index = 0
 
@@ -827,15 +843,14 @@ class ChatPage(QWidget):
             }}
             QPushButton:hover {{
                 background-color: {colors['border_color']};
-                color: {colors['text_color']};
+                color: {colors['text_primary']};
             }}
         """)
         cancel_btn.clicked.connect(self._cancel_current)
         lay.addWidget(bar)
         lay.addWidget(scroll, 1)
         lay.addWidget(cancel_btn, 0, Qt.AlignmentFlag.AlignTop)
-        count = self._msg_layout.count()
-        self._msg_layout.insertWidget(count - 1, bubble)
+        self._msg_layout.addWidget(bubble)  # 追加到弹簧之后（贴底堆叠）
         self._msg_layout.setAlignment(bubble, Qt.AlignmentFlag.AlignLeft)
         self._waiting_bubble = bubble
         self._scroll_to_bottom()
@@ -913,9 +928,8 @@ class ChatPage(QWidget):
 
     def _append_bubble(self, text: str, role: str):
         bubble = ChatBubble(text, role)
-        # 插入到 stretch 之前（最新消息在最下面）
-        count = self._msg_layout.count()
-        self._msg_layout.insertWidget(count - 1, bubble)
+        # 追加到弹簧之后：气泡贴底堆叠，最新消息在最下方（微信式）
+        self._msg_layout.addWidget(bubble)
         # 设置对齐：用户右对齐，AI左对齐
         alignment = Qt.AlignmentFlag.AlignRight if role == "user" else Qt.AlignmentFlag.AlignLeft
         self._msg_layout.setAlignment(bubble, alignment)
@@ -968,9 +982,9 @@ class ChatPage(QWidget):
             self._conv_list.refresh_theme()
 
     def clear_messages(self):
-        """清除所有消息气泡"""
+        """清除所有消息气泡（保留顶部弹簧，保证贴底堆叠）"""
         while self._msg_layout.count() > 1:
-            item = self._msg_layout.takeAt(0)
+            item = self._msg_layout.takeAt(1)  # index 0 是弹簧，从 1 开始删气泡
             if item.widget():
                 item.widget().deleteLater()
 

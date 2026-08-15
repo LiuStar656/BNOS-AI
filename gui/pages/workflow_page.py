@@ -234,9 +234,11 @@ class WorkflowPage(QWidget):
     def _btn_style(token: str) -> str:
         return (
             f"QPushButton {{ background: {theme_engine.get('bg_chat')};"
+            f"color: {theme_engine.get('text_primary')};"
             f"border: 1px solid {theme_engine.get('border_color')};"
             f"border-radius: 4px; }}"
-            f"QPushButton:hover {{ background: {theme_engine.get(token)}; }}"
+            f"QPushButton:hover {{ background: {theme_engine.get(token)};"
+            f"color: #ffffff; }}"
         )
 
     # ─── 用户评价（多巴胺显性反馈） ─────────────

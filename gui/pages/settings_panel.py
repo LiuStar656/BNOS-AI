@@ -324,6 +324,9 @@ class SettingsPanel(QWidget):
         # ─── 模式切换关键词（P2）───
         self._add_mode_keywords_section(layout, btn_style)
 
+        # ─── LLM API 密钥（存 llm 节点 local_config.json，不提交不追踪）───
+        self._add_llm_api_section(layout, btn_style)
+
         # ─── Logseq 目录 ───
         logseq_group = QGroupBox("Logseq 记忆库")
         logseq_layout = QFormLayout(logseq_group)
@@ -489,6 +492,111 @@ class SettingsPanel(QWidget):
             QMessageBox.information(self, "保存成功", "模式切换关键词已更新，下次对话生效。")
         except Exception as e:
             QMessageBox.warning(self, "保存失败", f"保存关键词失败: {e}")
+
+    # ─── LLM API 密钥（本地存储，不提交不追踪）───────────────────
+
+    @staticmethod
+    def _llm_local_config_path() -> Path:
+        """LLM 节点本地密钥文件（local_config.json，gitignore 不追踪）"""
+        return Path(__file__).resolve().parent.parent.parent \
+            / "nodes" / "node_python_llm_infer" / "local_config.json"
+
+    @staticmethod
+    def _mask_key(key: str) -> str:
+        """密钥脱敏显示（首 6 位 + 末 4 位）"""
+        return f"{key[:6]}…{key[-4:]}" if len(key) > 10 else "已配置"
+
+    def _add_llm_api_section(self, layout, btn_style: str):
+        """LLM API 密钥配置（存 llm 节点 local_config.json，不进版本库）"""
+        group = QGroupBox("LLM API 密钥")
+        v = QVBoxLayout(group)
+        v.setSpacing(8)
+
+        tip = QLabel(
+            "云端推理（DeepSeek 等）使用的 API Key。"
+            "仅保存在 llm 节点 local_config.json（不提交不追踪），"
+            "未配置时回退到环境变量 DEEPSEEK_API_KEY。")
+        tip.setWordWrap(True)
+        tip.setStyleSheet(f"color: {theme_engine.get('text_secondary')}; font-size: 12px;")
+        v.addWidget(tip)
+
+        form = QFormLayout()
+        form.setSpacing(6)
+        self._llm_api_edit = QLineEdit()
+        self._llm_api_edit.setEchoMode(QLineEdit.EchoMode.Password)
+        self._llm_api_edit.setStyleSheet(f"""
+            QLineEdit {{
+                background-color: {theme_engine.get('bg_secondary')};
+                color: {theme_engine.get('text_primary')};
+                border: 1px solid {theme_engine.get('border_color')};
+                border-radius: 4px; padding: 4px 8px;
+            }}
+        """)
+        toggle_btn = QPushButton("显示")
+        toggle_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        toggle_btn.setCheckable(True)
+        toggle_btn.setFixedWidth(48)
+        toggle_btn.toggled.connect(
+            lambda checked: self._llm_api_edit.setEchoMode(
+                QLineEdit.EchoMode.Normal if checked else QLineEdit.EchoMode.Password))
+        row = QHBoxLayout()
+        row.addWidget(self._llm_api_edit, 1)
+        row.addWidget(toggle_btn)
+        form.addRow("API Key：", row)
+        v.addLayout(form)
+
+        self._llm_api_status = QLabel("")
+        self._llm_api_status.setStyleSheet(
+            f"color: {theme_engine.get('text_secondary')}; font-size: 12px;")
+        v.addWidget(self._llm_api_status)
+
+        save_btn = QPushButton("保存密钥")
+        save_btn.setStyleSheet(btn_style)
+        save_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        save_btn.clicked.connect(self._save_llm_api_key)
+        v.addWidget(save_btn)
+
+        layout.addWidget(group)
+
+        # 延迟加载当前密钥（节点文件可能尚不存在，QTimer 兜底）
+        QTimer.singleShot(0, self._load_llm_api_key)
+
+    def _load_llm_api_key(self):
+        """读取 llm 节点 local_config.json 的 api_key 填充输入框"""
+        try:
+            path = self._llm_local_config_path()
+            key = ""
+            if path.exists():
+                data = json.loads(path.read_text("utf-8"))
+                key = str(data.get("api_key", "") or "").strip()
+            self._llm_api_edit.setText(key)
+            self._llm_api_status.setText(
+                f"已配置（{self._mask_key(key)}）" if key
+                else "未配置（回退到环境变量 DEEPSEEK_API_KEY）")
+        except Exception:
+            self._llm_api_status.setText("读取失败")
+
+    def _save_llm_api_key(self):
+        """保存 api_key 到 llm 节点 local_config.json（read-modify-write）"""
+        try:
+            path = self._llm_local_config_path()
+            key = self._llm_api_edit.text().strip()
+            data = {}
+            if path.exists():
+                try:
+                    data = json.loads(path.read_text("utf-8"))
+                except (OSError, json.JSONDecodeError):
+                    data = {}
+            data["api_key"] = key
+            path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+            self._llm_api_status.setText(
+                f"已保存（{self._mask_key(key)}）" if key
+                else "已清空（回退到环境变量 DEEPSEEK_API_KEY）")
+            QMessageBox.information(
+                self, "保存成功",
+                "API 密钥已保存到 llm 节点 local_config.json（不提交不追踪），下次调用生效。")
+        except Exception as e:
+            QMessageBox.warning(self, "保存失败", f"保存密钥失败: {e}")
 
     def _import_db(self):
         """延迟导入 AAA 节点 db 模块"""

@@ -98,6 +98,12 @@ class MyNode:
 
         try:
             result_text = self._backend.infer(prompt_text, max_tokens, temperature)
+            # 推理模型（如 deepseek-v4-flash）思维链偶发耗尽 max_tokens
+            # 导致正文为空 → 原样重试一次（reasoning 长度随机，重发可成功）
+            if not result_text.strip():
+                result_text = self._backend.infer(prompt_text, max_tokens, temperature)
+                if not result_text.strip():
+                    print(f"[WARN] LLM 两次输出均为空（rid={rid}），返回空内容", flush=True)
         except requests.RequestException as e:
             return {"_port": "default", "data_type": "text", "content": "", "error": str(e), "request_id": rid}
         except (subprocess.TimeoutExpired, TimeoutError) as e:

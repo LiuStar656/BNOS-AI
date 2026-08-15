@@ -28,8 +28,8 @@
   },
   "window": {
     "geometry": {
-      "x": 491,
-      "y": 326,
+      "x": 486,
+      "y": 297,
       "width": 1191,
       "height": 734
     }
@@ -42,7 +42,7 @@
     "h": 600
   },
   "live2d_model_scale": 0.25,
-  "tts_enabled": true,
+  "tts_enabled": false,
   "live2d_model_offset_x": -3,
   "live2d_model_offset_y": 263
 }

@@ -25,10 +25,16 @@ _REQ_FILE = _NODES_DIR / "shared" / "dsh_task_in.json"
 _OUT_FILE = _NODES_DIR / "node_dsh" / "output.json"
 _NODE_CONFIG = _NODES_DIR / "node_dsh" / "node_config.json"
 _GUI_REPLY_FILE = _NODES_DIR / "shared" / "gui_reply.json"
+# 任务取消标记（GUI 终止按钮写入；wait_result 检测到即中断等待）
+_CANCEL_FILE = _NODES_DIR / "shared" / "dsh_cancel.json"
+_CANCEL_WINDOW_S = 60  # 取消标记有效时间窗口（秒）
 
-# 与 node_dsh listener / GUI run_task_sync 对齐的轮询与超时
+# 与 node_dsh 对齐的轮询与超时：
+# - node_dsh main.py 内部 DSH_TIMEOUT=600（到时整树杀并写回"任务超时"结果）
+# - listener 兜底 SUBPROCESS_TIMEOUT=660
+# - 本处等待须 ≥ 节点超时+处理开销，确保能拿到"超时"回执而非提前判 None
 POLL_STEP = 1.0
-DEFAULT_TIMEOUT = 600  # 与 node_dsh DSH_TIMEOUT / GUI 默认一致
+DEFAULT_TIMEOUT = 660
 
 
 def push_reply(content: str, request_id: str = "") -> bool:
@@ -113,14 +119,37 @@ def read_result(task_id: str) -> dict | None:
     return inner
 
 
+def _cancel_requested() -> bool:
+    """检测任务取消标记（时间窗口内有效）；检测到即消费删除。
+
+    GUI 终止按钮写 dsh_cancel.json；wait_result 轮询期间检测到则中断
+    等待，返回 {"cancelled": True} 由调用方区分"超时"与"用户终止"。
+    """
+    try:
+        data = json.loads(_CANCEL_FILE.read_text(encoding="utf-8"))
+        ts = float(data.get("ts", 0))
+        if time.time() - ts <= _CANCEL_WINDOW_S:
+            try:
+                _CANCEL_FILE.unlink()
+            except OSError:
+                pass
+            return True
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
+        pass
+    return False
+
+
 def wait_result(task_id: str, timeout: float = DEFAULT_TIMEOUT) -> dict | None:
     """同步等待任务完成（后台线程用）。
 
     Returns:
-        完成时返回内层 dict；超时返回 None（任务仍在后台执行）。
+        完成时返回内层 dict；超时返回 None（任务仍在后台执行）；
+        用户终止（GUI 取消标记）返回 {"cancelled": True}。
     """
     deadline = time.time() + max(1.0, timeout)
     while time.time() < deadline:
+        if _cancel_requested():
+            return {"cancelled": True}
         result = read_result(task_id)
         if result is not None:
             return result

@@ -107,19 +107,13 @@
       "type": "string"
     },
     {
-      "default": "sk-REVOKED",
-      "label": "云端 API Key",
-      "name": "api_key",
-      "type": "password"
-    },
-    {
       "default": "deepseek-v4-flash",
       "label": "云端模型名",
       "name": "cloud_model",
       "type": "string"
     },
     {
-      "default": 2048,
+      "default": 8192,
       "label": "最大生成 Token",
       "max": 32768,
       "min": 256,
@@ -136,6 +130,16 @@
       "name": "temperature",
       "step": 0.1,
       "type": "float"
+    },
+    {
+      "default": "disabled",
+      "label": "思考模式（deepseek-v4 推理模型专用）",
+      "name": "thinking_mode",
+      "options": [
+        "enabled",
+        "disabled"
+      ],
+      "type": "enum"
     }
   ],
   "port_mappings": {
