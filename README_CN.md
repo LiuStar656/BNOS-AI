@@ -145,7 +145,7 @@ Phase 2: 基础 GUI 客户端
 
 ### 4.2 进行中 🟡
 
-- **Grok MCP 集成**：基础框架可用，但具体工具（搜索 / 天气 / Home Assistant）尚未注册
+- **DSH 工具扩展（MCP）**：node_dsh 已接入（工具池 27 个就绪），未来扩展统一走 MCP 通道（`nodes/shared/mcp_servers/`）
 - **Logseq 实际写盘**：能生成 .md 内容，但尚未写入 Logseq 目录
 - **TTS 引擎扩展**：仅 edge-tts 在线，未引入 GPT-SoVITS / VITS-ONNX 等本地引擎
 - **GUI 配置中心**：参数热更新面板开发中
@@ -168,7 +168,7 @@ Phase 2: 基础 GUI 客户端
 
 ### 5.1 Phase 2 — 对话增强（近期）
 
-- [ ] Grok 工具注册（搜索 / 天气 / 新闻 / Home Assistant）
+- [ ] DSH 工具扩展：注册 MCP server（搜索 / 天气 / 新闻 / Home Assistant）
 - [ ] Logseq 实际写入磁盘，实现 AI 日记与知识图谱
 - [ ] TTS 扩展至 11 种引擎（含 GPT-SoVITS / VITS-ONNX 本地引擎）
 - [ ] GUI 配置中心：节点参数热更新
