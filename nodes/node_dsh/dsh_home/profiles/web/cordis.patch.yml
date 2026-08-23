@@ -1,0 +1,14 @@
+# 由 BNOS GUI「DSH 管理-模型配置」统一维护（provider 配置）。
+- id: llm-pi-ai
+  config:
+    providers:
+      bnos-deepseek:
+        apiKeyEnv: DEEPSEEK_API_KEY
+        api: openai-completions
+        baseURL: https://api.deepseek.com/v1
+        models:
+        - id: deepseek-v4-flash
+- id: agent-default-model
+  config:
+    provider: bnos-deepseek
+    model: deepseek-v4-flash

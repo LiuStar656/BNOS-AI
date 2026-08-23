@@ -1,0 +1,9 @@
+node_modules/
+venv/
+logs/
+*.pid
+__pycache__/
+harness/
+dsh_home/sessions/
+dsh_home/storages/
+dsh_home/profiles/*/package-lock.json

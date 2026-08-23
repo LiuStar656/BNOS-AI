@@ -1,0 +1,40 @@
+{
+  "entry": "listener.py",
+  "filter": {
+    "task": {
+      "data_type": "dsh_task"
+    }
+  },
+  "input_ports": [
+    {
+      "label": "DSH任务输入",
+      "name": "task",
+      "required": true,
+      "source": "node",
+      "type": "string"
+    }
+  ],
+  "language": "python",
+  "listen_upper_file": "",
+  "node_name": "node_dsh",
+  "out_connections": {},
+  "output_file": "./output.json",
+  "output_ports": [
+    {
+      "label": "执行结果",
+      "name": "default",
+      "output_file": "./output.json",
+      "type": "default"
+    }
+  ],
+  "output_type": "",
+  "parameters": [],
+  "port_mappings": {
+    "task": "..\\shared\\dsh_task_in.json"
+  },
+  "python_exe": "",
+  "resource_limit": {
+    "cpu_percent": 90,
+    "memory_mb": 2048
+  }
+}

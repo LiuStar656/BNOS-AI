@@ -16,8 +16,10 @@ env/
 *.swp
 *.swo
 
-# Sub-repos — 每个节点独立仓库，不由主仓库跟踪
-nodes/
+# 节点代码入库（历史决策：节点纳入主仓库管理）
+# 排除：废弃节点、运行时文件、官方子仓库（harness 由 node_dsh/.gitignore 排除）
+nodes/shared/
+nodes/node_rust_grok_hands/
 voice/
 audio/
 models/

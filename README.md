@@ -41,7 +41,7 @@ The companion is structured like an organism: each "organ" is an independent nod
 |---------|------------------------|----------------|
 | 🧠 **Brain** | `aaa_cognition` + `memos.py` | Cognition loop, memory read/write, emotion evolution |
 | 👤 **Face** | `live2d_face` + `tts` | Live2D expressions, TTS speech synthesis |
-| 🖐️ **Hands** | `grok_hands` (Rust) | External tool calls: search, execute, control |
+| 🖐️ **Hands** | `node_dsh` (DeepSeek Harness) | Tool calls: on-demand tool assignment, agent execution, MCP extensions |
 | 🐚 **Hippocampus** | `logseq_writer` | Knowledge graph, long-term document archiving |
 | ⚡ **Nervous system** | `BNOS` engine | DAG orchestration, process scheduling, file protocol |
 
@@ -54,7 +54,7 @@ The companion is structured like an organism: each "organ" is an independent nod
 All input sources converge on the **AAA cognition hub** (the single memory entry point), which routes through **one output port with `data_type` routing**:
 
 - `prompt` → LLM
-- `tool_call` → Grok (Rust tools)
+- `tool_call` → DSH (DeepSeek Harness tools)
 - `reply` → Live2D face
 - `knowledge` → Logseq writer
 
@@ -65,7 +65,7 @@ ASR / GUI / env input ──→  aaa_cognition ──→  llm_infer ──→  a
      retrieval,               └── memos        index rebuild)
      identity_key)               (built-in)
 
-                      grok_hands (tool execution)
+                      node_dsh (DSH tool execution)
                       logseq_writer (knowledge persistence)
 ```
 
@@ -78,7 +78,7 @@ ASR / GUI / env input ──→  aaa_cognition ──→  llm_infer ──→  a
 | LLM inference | llama.cpp + cloud API | Dual backends, one-click switch |
 | Live2D rendering | PixiJS + Cubism SDK 4.x | Extracted from My-Neuro |
 | TTS | edge-tts + MOSS-TTS-Local | Online + local dual channel |
-| Tool execution | Grok Build (Rust) | MCP protocol client |
+| Tool execution | node_dsh (DeepSeek Harness) | Agent loop + tool pool + MCP extensions |
 | Knowledge graph | Logseq | Markdown + bidirectional links |
 | GUI client | PySide6 | Lightweight, non-web |
 | Communication | File JSON | stdin/stdout + output.json |
@@ -96,7 +96,7 @@ ASR / GUI / env input ──→  aaa_cognition ──→  llm_infer ──→  a
 | 5 | `node_python_asr_input` | Python | Speech recognition: Silero VAD + SenseVoice | 🔴 Design finalized |
 | 6 | `node_python_env_input` | Python | Environment sensing: CPU / memory / time | 🔴 Skeleton exists |
 | 7 | `node_python_logseq_writer` | Python | Knowledge archiving: Markdown + backlinks | 🟡 Generates .md, not writing to disk |
-| 8 | `node_rust_grok_hands` | Rust | Tool execution: MCP protocol | 🟡 Compiles, basic usable |
+| 8 | `node_dsh` | Python + TS | Tool execution: DSH agent loop + tool pool + MCP | 🟢 Integrated |
 | 9 | `node_python_vlm` | Python | Multimodal vision: screen / camera / image | 🔴 To be created |
 
 ### Key Subsystems
@@ -153,7 +153,7 @@ BNOS_AI_project/
 │   ├── node_python_asr_input/       # 👂 speech recognition (planned)
 │   ├── node_python_env_input/       # 🌡️ environment sensing
 │   ├── node_python_logseq_writer/   # 📝 knowledge archiving
-│   └── node_rust_grok_hands/        # 🖐️ tool execution (Rust)
+│   └── node_dsh/                    # 🖐️ tool execution (DeepSeek Harness, upstream in harness/)
 ├── gui/                     # PySide6 client (dashboard / chat / knowledge / settings)
 ├── docs/                    # design docs & architecture docs
 ├── schemanet/               # research subproject (gradient-free structural learning)

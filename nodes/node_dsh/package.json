@@ -1,0 +1,11 @@
+{
+  "name": "node_dsh",
+  "version": "0.1.0",
+  "description": "BNOS 节点 — DeepSeek Harness 执行器官（DSH headless 单次任务）",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@deepseek-ai/dsh": "0.1.0-rc.6"
+  }
+}

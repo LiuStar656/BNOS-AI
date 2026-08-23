@@ -1,4 +1,4 @@
-﻿🌍 语言：**中文** | [English](README.md)
+🌍 语言：**中文** | [English](README.md)
 
 # BNOS AI 伴侣
 
@@ -41,7 +41,7 @@ BNOS AI 伴侣不是一个聊天机器人，而是一个拥有独立意识、记
 |---------|----------|------|
 | 🧠 **大脑** | `aaa_cognition` + `memos.py` | 认知循环、记忆读写、情感演化 |
 | 👤 **面孔** | `live2d_face` + `tts` | Live2D 表情、TTS 语音合成、嘴型同步 |
-| 🖐️ **手脚** | `grok_hands` (Rust) | 外部工具调用：搜索、执行、操控 |
+| 🖐️ **手脚** | `node_dsh`（DeepSeek Harness） | 工具调用：按需分配工具集、agent 执行、MCP 扩展 |
 | 🐚 **海马体** | `logseq_writer` | 知识图谱、长期文档归档 |
 | ⚡ **神经系统** | `BNOS` 引擎 | DAG 编排、进程调度、文件协议通信 |
 
@@ -65,8 +65,8 @@ GUI 输入 ──→ aaa_cognition ──→ llm_infer ──→ aaa_cognition �
                                  │         └──→ logseq_writer
                                  │           (知识持久化)
                                  │
-                              grok_hands
-                              (工具执行)
+                              node_dsh
+                              (DSH 工具执行)
 ```
 
 ### 2.2 核心设计原则
@@ -88,7 +88,7 @@ GUI 输入 ──→ aaa_cognition ──→ llm_infer ──→ aaa_cognition �
 | LLM 推理 | llama.cpp + 云端 API | 双后端，一键切换 |
 | Live2D 渲染 | PixiJS + Cubism SDK 4.x | 从 My-Neuro 提取 |
 | TTS 合成 | edge-tts + MOSS-TTS-Local | 在线 + 本地双通道 |
-| 工具执行 | Grok Build (Rust) | MCP 协议客户端 |
+| 工具执行 | node_dsh（DeepSeek Harness） | agent 执行循环 + 工具池 + MCP 扩展 |
 | 知识图谱 | Logseq | Markdown + 双向链接 |
 | GUI 客户端 | PySide6 | 轻量级，非 Web |
 | 通信协议 | 文件 JSON | stdin/stdout + output.json |
@@ -108,7 +108,7 @@ GUI 输入 ──→ aaa_cognition ──→ llm_infer ──→ aaa_cognition �
 | 5 | `node_python_asr_input` | Python | 语音识别：Silero VAD + SenseVoice + 声纹 | 🔴 方案已细化 |
 | 6 | `node_python_env_input` | Python | 环境采集：CPU / 内存 / 时间 | 🔴 骨架存在 |
 | 7 | `node_python_logseq_writer` | Python | 知识归档：Markdown + 双向链接 | 🟡 生成 .md 但未写盘 |
-| 8 | `node_rust_grok_hands` | Rust | 工具执行：MCP 协议 | 🟡 基础编译可用 |
+| 8 | `node_dsh` | Python + TS | 工具执行：DSH agent 循环 + 工具池 + MCP 扩展 | 🟢 已接入 |
 | 9 | `node_python_vlm` | Python | 多模态视觉：屏幕 / 摄像头 / 图片 | 🔴 待创建 |
 
 ### 3.2 关键子系统
@@ -240,7 +240,7 @@ BNOS_AI_project/
 │   ├── node_python_asr_input/        # 👂 语音识别（方案中）
 │   ├── node_python_env_input/        # 🌡️ 环境采集
 │   ├── node_python_logseq_writer/    # 📝 知识归档
-│   └── node_rust_grok_hands/         # 🖐️ 工具执行
+│   └── node_dsh/                     # 🖐️ 工具执行（DeepSeek Harness，官方源码在 harness/）
 │
 ├── plugins/                # 插件节点（规划中）
 ├── assets/                 # 角色资源（规划中）
