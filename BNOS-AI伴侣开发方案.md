@@ -2,6 +2,8 @@
 
 > 日期：2026-07-26 | 版本：v2.1 | 状态：[PLAN]
 
+> **⚠ 废弃说明（2026-08-23）**：本方案中 **Grok Build / grok_hands（工具执行组件）设计已废弃**——工具调用已由 DSH（DeepSeek Harness，node_dsh 执行器官）完全接管：DSH 自带 27 工具池 + agent loop + MCP client，覆盖 Grok Build 的全部定位（工具执行 / MCP 客户端 / 工具注册）。未来加工具统一走 DSH MCP 通道（`nodes/shared/mcp_servers/`），不再需要 Grok 中转。本文档其余部分（AAA 认知 / BNOS 编排 / 文件协议）仍为有效参考；凡涉及 Grok 的架构描述请以 DSH 方案为准。
+
 ---
 
 ## 目录

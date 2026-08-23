@@ -5,6 +5,8 @@
 > 
 > **本次更新要点**：MemOS 语义检索已完成(集成到 aaa_cognition)、三阶段提示词重构完成、identity_key 多用户隔离上线、TTS 节点已独立、管线架构更新、新增 pub-local-jarvis-main 组件复用分析（感知算法/稳定性机制/提示词工程）
 
+> **⚠ 作废说明（2026-08-23）**：本清单中所有涉及 **grok_hands 工具执行 / MCP 集成** 的规划（§2.5 注册工具到 grok_hands、§2.6 搜索工具注册、§3.2 MCP 集成进 grok_hands、§五 P2 规划）**全部作废**——工具执行已由 DSH（node_dsh）完全接管，DSH 原生支持 MCP client。相关工具的复用价值保留，但落点统一改为"注册到 DSH（MCP server 放 `nodes/shared/mcp_servers/`）"，参考对应工具清单即可，不再做 grok_hands 增强。
+
 ---
 
 ## 一、BNOS 现有节点总览
@@ -240,19 +242,21 @@ MemOS 已作为内建模块集成到 `aaa_cognition` 内，采用**轻量内嵌�
 - LLM 驱动的记忆摘要与重要性评分（当前用简单 decay，可升级）
 - 多类型记忆（图像/偏好/工具 — 当前只做文本）
 
-### 3.2 MCP 协议支持 【补全现有节点：集成进 grok_hands】
+### 3.2 MCP 协议支持 【已作废：改由 DSH 原生 MCP 通道接管】
+
+> **⚠ 作废（2026-08-23）**：本节"MCP 集成进 grok_hands"规划作废——DSH 原生是 MCP client（`mcp-client` 自动 `ctx.tools.register()`），未来加工具统一走 DSH MCP 通道（server 放 `nodes/shared/mcp_servers/`）。参考源码的 MCP manager 实现思路仍可借鉴（传输层 stdio/HTTP、工具注册表结构），但落点是 DSH 侧。
 
 **源码**: [live-2d/js/ai/mcp-manager.js](file:///e:/杂项/BNOS_AI_project/references/my-neuro-main/live-2d/js/ai/mcp-manager.js)
 
-> `node_rust_grok_hands` 已是工具执行引擎。MCP 协议支持应**集成进 grok_hands**，而不是另建节点。
+> ~~`node_rust_grok_hands` 已是工具执行引擎。MCP 协议支持应**集成进 grok_hands**，而不是另建节点。~~
 
-| 特性 | 说明 | 集成方式 |
+| 特性 | 说明 | 集成方式（原规划） |
 |------|------|---------|
 | 传输层 | stdio + HTTP 双模式 | grok_hands 添加 MCP client 支持 |
 | 工具注册 | MCPToolRegistry 统一管理 | 扩展 grok_hands 的工具注册表 |
 | 自动同步 | tools 文件夹自动扫描 | 可选功能 |
 
-**建议**: 低优先级，作为 grok_hands 的增强功能（P3），先专注直接工具注册即可。
+**建议**: ~~低优先级，作为 grok_hands 的增强功能（P3），先专注直接工具注册即可。~~（作废，改走 DSH MCP 通道）
 
 ### 3.3 插件热加载架构 【架构参考，不直接复用】
 

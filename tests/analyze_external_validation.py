@@ -81,6 +81,22 @@ def main():
         d_neg = sum(s["judge"]["directness"] for s in neg) / len(neg)
         print(f"  {model:12s} warmth B2={w_b2:.3f} NEG={w_neg:.3f} (Δ={w_b2 - w_neg:+.3f})   "
               f"directness B2={d_b2:.3f} NEG={d_neg:.3f} (Δ={d_b2 - d_neg:+.3f})")
+    print()
+
+    # 4) 长度/投入度分析：裁判分是否由回复长度（投入度线索）中介
+    print("=" * 70)
+    print("4. 回复长度（投入度）：条件间对比 + 裁判分 vs 长度 Spearman")
+    print("=" * 70)
+    for s in results:
+        s["_len"] = len(s.get("reply") or "")
+    b2l = [s["_len"] for s in results if s["cond"] == "B2"]
+    negl = [s["_len"] for s in results if s["cond"] == "B2NEG"]
+    print(f"  B2   : n={len(b2l)} 平均 {sum(b2l)/len(b2l):.0f} 字符  中位 {sorted(b2l)[len(b2l)//2]}  min={min(b2l)} max={max(b2l)}")
+    print(f"  B2NEG: n={len(negl)} 平均 {sum(negl)/len(negl):.0f} 字符  中位 {sorted(negl)[len(negl)//2]}  min={min(negl)} max={max(negl)}")
+    L = [s["_len"] for s in results]
+    for d in DIMS:
+        rho = spearman([s["judge"][d] for s in results], L)
+        print(f"  裁判 {d:12s} vs 长度 rho = {rho:+.3f}")
 
 
 if __name__ == "__main__":

@@ -37,6 +37,17 @@ ROOT = r"E:\杂项\BNOS_AI_project"
 RUNS = os.path.join(ROOT, "docs", "experiments", "cognitive_evolution_test", "runs")
 DIMS = ["warmth", "playfulness", "directness", "curiosity"]
 
+if not API_KEY:
+    # 兜底：从 LLM 节点 local_config.json 读取（不提交的本地配置）
+    try:
+        import sys as _sys
+        _cfg_path = os.path.join(ROOT, "nodes", "node_python_llm_infer", "local_config.json")
+        if os.path.exists(_cfg_path):
+            _local = json.load(open(_cfg_path, encoding="utf-8"))
+            API_KEY = (_local.get("api_key") or "").strip()
+    except Exception:
+        API_KEY = ""
+
 JUDGE_PROMPT = """请以人类评估者的视角，仅根据下面这段【AI 回复】文本的实际内容，
 从四个行为风格维度打分（0-1 连续，0=完全不符，1=完全符合）：
 - warmth：温暖、友善、关怀、共情
@@ -81,9 +92,10 @@ def llm_judge(reply: str, retries: int = 4) -> dict:
     raise RuntimeError("judge retries exhausted")
 
 
-# ── 样本来源：3 模型 × 2 条件 ─────────────────────────────────────────
+# ── 样本来源：3 模型 × 2 条件（与论文 §6.3/表 4 采用的数据文件一致；
+#    DeepSeek B2 必须为 194649——192348 为收敛到 0.5 的早期版本，勿用）──────
 SOURCES = [
-    ("DeepSeek", "20260812_condB_192348", "B2", "condB_B2_rounds.json"),
+    ("DeepSeek", "20260812_condB_194649", "B2", "condB_B2_rounds.json"),
     ("DeepSeek", "20260812_condB_195954", "B2NEG", "condB_B2NEG_rounds.json"),
     ("GLM-5.2", "20260812_multimodel_201814", "B2", "glm5.2_B2_rounds.json"),
     ("GLM-5.2", "20260812_multimodel_201814", "B2NEG", "glm5.2_B2NEG_rounds.json"),
@@ -91,18 +103,21 @@ SOURCES = [
     ("Qwen3.7-max", "20260812_multimodel_201814", "B2NEG", "qwen3.7max_B2NEG_rounds.json"),
 ]
 
-# 每轨迹 4 个代表轮次：初始 / 1/4 / 1/2 / 末轮
-def pick_rounds(log):
-    n = len(log)
-    idx = [0, n // 4, n // 2, n - 1]
+# 每轨迹等间隔采样轮数（默认 20 → 6×20=120 条；Qwen B2 因 API 额度 55 轮仍可采 20 条）
+N_PER_TRAJ = int(sys.argv[1]) if len(sys.argv) > 1 else 20
+
+
+def pick_rounds(log, k=N_PER_TRAJ):
+    """等间隔取 k 个代表轮次（有回复文本的条目）。"""
+    items = [r for r in log if (r.get("reply") or "").strip()]
+    n = len(items)
+    if n <= k:
+        return items
     out, seen = [], set()
-    for i in idx:
-        if i >= n:
-            continue
-        r = log[i]
-        reply = r.get("reply", "") or ""
-        key = (r.get("round"), reply)
-        if key in seen or not reply:
+    for i in (round(i * (n - 1) / (k - 1)) for i in range(k)):
+        r = items[i]
+        key = (r.get("round"), r["reply"])
+        if key in seen:
             continue
         seen.add(key)
         out.append(r)
