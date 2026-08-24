@@ -12,3 +12,8 @@
   config:
     provider: bnos-deepseek
     model: deepseek-v4-flash
+# BNOS 桥接插件：DSH web ↔ nodes/shared 文件协议翻译层
+- insert:
+    - id: bnos-bridge
+      name: '@bnos/bridge'
+      config: {}

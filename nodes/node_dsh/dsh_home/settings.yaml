@@ -1,4 +1,4 @@
 ui-onboarding:
   welcomeNoticeVersion: 2026-08-13.1
 permission:
-  defaultPreset: read-only
+  defaultPreset: danger-full-access

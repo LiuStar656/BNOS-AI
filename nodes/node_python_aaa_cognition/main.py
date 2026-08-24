@@ -405,7 +405,8 @@ class MyNode:
         # 仅对话路径（非 batch_mode）判定；DSH 回执走 _dsh_wait_and_push，
         # 不经本函数 → 无重入死循环。
         wm = str(parsed.get("工作模式") or "").strip()
-        if "需要" in wm and not batch_mode:
+        # 精确判定：排除「不需要」被子串误判（"需要" in "不需要" == True）
+        if wm and "不需要" not in wm and "需要" in wm and not batch_mode:
             _pending = self._pending_contexts.pop(rid, None) or {}
             _ik = _pending.get("identity_key") or _IDENTITY_KEY_DEFAULT
             _ctx = self._gather_context(

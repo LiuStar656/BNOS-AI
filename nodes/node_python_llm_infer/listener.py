@@ -230,8 +230,14 @@ def resolve_input_sources():
                     if os.path.exists(src_cfg_path):
                         with open(src_cfg_path, "r", encoding="utf-8") as f2:
                             src_cfg = json.load(f2)
-                        src_output = src_cfg.get("output_file", "./output.json")
-                        src_path = os.path.abspath(os.path.join(src_node_dir, src_output))
+                        # 根据 source_port 匹配 output_ports（与 AAA 节点解析逻辑一致）
+                        src_port = edge.get("source_port", "default")
+                        src_output_file = src_cfg.get("output_file", "./output.json")
+                        for port in src_cfg.get("output_ports", []):
+                            if isinstance(port, dict) and port.get("name") == src_port and port.get("output_file"):
+                                src_output_file = port["output_file"]
+                                break
+                        src_path = os.path.abspath(os.path.join(src_node_dir, src_output_file))
                         if src_path not in sources:
                             sources.append(src_path)
                             log(f"  上游节点 [{src_node}] → {src_path}")

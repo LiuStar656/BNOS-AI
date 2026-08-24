@@ -6,6 +6,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "@bnos/bridge": "file:bridge/bnos-chat",
     "@deepseek-ai/dsh": "0.1.0-rc.6"
   }
 }

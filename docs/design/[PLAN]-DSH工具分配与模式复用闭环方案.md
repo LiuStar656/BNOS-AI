@@ -2,6 +2,9 @@
 
 > 状态：`[PLAN]`（待评审）
 > 主方案：`[PLAN]-DeepSeekHarness接入方案.md` 的延伸扩展
+> 载体：**DSH web 统一界面（`[PLAN]-DSH-web承载AAA主流程与BNOS资产迁移方案`）——
+> 本方案的 smart 模式即 BNOS 聊天在 DSH web 的最终形态：聊天用 DSH 原生
+> ui-conversation，不嵌入独立聊天页签**；GUI 切换预设均指 DSH web 原生设置
 > 前置：DSH 已接入（node_dsh + headless profile）、AAA 直连 DSH 已落地、`DSH_PRESET` 环境变量按任务注入可用
 > 实施策略：**零重构——新增第 5 个自创模式"smart"（AAA 为主要 agent + 按需工具分配；外壳官方 preset 挂载 + 内层自研 MCP 引擎），不做 AAA 主流程改造；先观察记录，验证后决定是否上学习系统**
 
@@ -10,6 +13,10 @@
 ## 1. 目标与实施策略
 
 在不引入多 agent 编排、**不做大量重构**的前提下，用"按任务自律分配工具"替代"每次固定全量工具集"，作为官方 4 个预设之外的**第 5 个自创模式**（smart）供选择使用；该模式的 **agent 以 AAA 为主要 agent 运转**——人格/认知来自 AAA，工具执行按需分配。
+
+> **定位（2026-08-24 明确）**：smart 模式 = **BNOS 聊天在 DSH web 的形态**。
+> 聊天直接发生在 DSH 原生 `ui-conversation`，用户在「设置 → Agent 预设」选
+> smart 即为"与 AAA 对话"；**不做独立 BNOS 聊天页签、不接管原生聊天**。
 
 **目标**：
 1. **AAA 为主要 agent**：smart 模式运行时 agent 以 AAA 身份工作（人格内嵌、记忆随行、输出按 AAA 格式），不依赖外部节点接力；外部 AAA 仅作首尾承接兜底。
@@ -49,20 +56,20 @@
 | `cordis` | ~32 | standard + 7 个自改工具 | 自我修改 |
 
 - 自创 preset 通过官方 copy 机制（`agent-presets`）裁剪任意工具组合；**用户预设目录 `DSH_HOME/.agent-presets/`**（`USER_PRESET_DIR = '.agent-presets'`，`dshHomePath` 解析，`includeUserRoot` 时扫描），**不侵入 harness 源码**。
-- `DSH_PRESET` 环境变量支持按任务注入（headless-runner 读取）；GUI「DSH 管理-预设管理」维护全局 preset（runtime.json）。
+- `DSH_PRESET` 环境变量支持按任务注入（headless-runner 读取）；DSH web「设置 → Agent 预设」/ PySide6「DSH 管理-预设管理」（双轨期）维护全局 preset（runtime.json）。
 - 工具全量注入成本：全池 ~25 工具 schema ≈ 数千 token/轮，工具越多每轮越贵、选择越易偏（末位偏置经验）。
 
 ## 3. 总体流程
 
-> **首尾 AAA 承接（硬约束）**：主流程输入先进 AAA、输出由 AAA 给出（`[OK]-AAA直连DSH节点与模式切换方案` 的 AAA → DSH → AAA 链路）。凡调用工具（DSH）的情况，**DSH 结果必须回 AAA 过一遍**：按 AAA 输出格式解析节（情绪/自我认知/他人认知/事件摘要/记忆）→ 写库存档 → 再推送 GUI。**严禁 DSH 结果直通 GUI**，否则 AAA 记忆断链。本方案为"预设级"，不改动既有输出/存档链路。
+> **首尾 AAA 承接（硬约束）**：主流程输入先进 AAA、输出由 AAA 给出（`[OK]-AAA直连DSH节点与模式切换方案` 的 AAA → DSH → AAA 链路）。凡调用工具（DSH）的情况，**DSH 结果必须回 AAA 过一遍**：按 AAA 输出格式解析节（情绪/自我认知/他人认知/事件摘要/记忆）→ 写库存档 → 再推送客户端（DSH web 原生聊天 / PySide6 GUI）。**严禁 DSH 结果直通客户端**，否则 AAA 记忆断链。本方案为"预设级"，不改动既有输出/存档链路。
 
 ### v1 流程（本次实施）
 
 ```
-用户在 GUI「DSH 管理-预设管理」切换到"smart / AAA 助理"模式（第 5 个模式）
+用户在 DSH web「设置 → Agent 预设」切换到"smart / AAA 助理"模式（第 5 个模式，原生预设切换）
   │
   ▼
-用户输入（GUI → AAA）
+用户输入（DSH 原生 ui-conversation → smart agent）
   │
   ▼
 意图门（LLM，现有【工作模式】判定）────── 不需要 → 直接回复（0 调用，现状已有）
@@ -78,10 +85,10 @@ DSH 任务：1 个 agent + "smart" 模式（AAA 为主要 agent）
 回 AAA 承接（复用 _dsh_wait_and_push 认知链，兜底）：
   │      ├─ 解析节 → 写库存档（情绪/认知/事件摘要/记忆，role=assistant）
   │      ├─ 顺带记录工具日志（见 4.2）
-  │      └─ 推送 GUI（注入心情标签的最终回复）
+  │      └─ 推送客户端（注入心情标签的最终回复，渲染进 DSH 原生聊天）
 ```
 
-**可逆性**：效果不佳 → GUI 切回 `standard` 即还原，无残留改动。
+**可逆性**：效果不佳 → DSH web「设置 → Agent 预设」切回 `standard` 即还原，无残留改动。
 
 ### v2 升级路径（验证后决定）
 
@@ -150,16 +157,16 @@ DSH 模式列表（DSH_PRESET=smart 可切换，与官方 4 模式并列）
 
 ### 4.2 观察与记录（v1）
 
-- **即时观察**：GUI 活动气泡已实时显示工具调用（`tool/call` 事件），切到新预设后直接可见工具调用是否收敛、是否减少。
+- **即时观察**：DSH web 轨迹/活动视图实时显示工具调用（`tool/call` 事件），切到新预设后直接可见工具调用是否收敛、是否减少。
 - **工具日志（必需——工具图谱的数据源）**：node_dsh 任务完成返回中携带工具调用摘要 → 追加一行 `nodes/shared/dsh_tool_usage_log.jsonl`（原子追加）：
   `{ts, task_id, preset, tools[], success, duration_ms}`
   v1 仅记录不决策，作为 v2 是否上学习系统的数据依据。**同时作为"工具图谱"的数据源（见下），故为必需项而非可选。**
-- **工具图谱（复用记忆图谱组件）**：在 GUI 知识图谱区域增加"工具图谱"视图，复用 `KnowledgeGraph` 力导向组件（节点尺寸 ∝ 调用次数、边粗细 ∝ 联动频次、高频联动工具自动聚合）：
+- **工具图谱（web 化，Phase 2）**：在 DSH web 增加"工具图谱"视图（随 bnos-memory/activity 插件落地），复用 web 力导向组件（节点尺寸 ∝ 调用次数、边粗细 ∝ 联动频次、高频联动工具自动聚合）：
   - 节点 = 工具（content 含工具名+类别，按类别着色）
   - 节点尺寸 = 调用次数（log 缩放，防糊屏）
   - 边 = 同任务共现对（v1 定义"联动"= 同一任务内一起调用；v2 可选升级为"调用顺序相邻"）
   - 力矩阵 = 联动频次归一化（高频联动工具聚在一起）
-  - 数据流：日志 → 聚合器（统计调用次数 + 共现对）→ `KnowledgeGraph.load_data(entries, edges, sim_matrix)` → 任务完成后自动刷新
+  - 数据流：日志 → 聚合器（统计调用次数 + 共现对）→ 图谱渲染 → 任务完成后自动刷新
   - 价值：AI 工具使用习惯白盒化；standard vs smart 图谱对比可直接验证"自律分配"是否生效
 
 **工具扩展路径（MCP，未来加工具的唯一标准通道）**：
@@ -189,7 +196,7 @@ v2：      意图门 + 执行 n 轮 × 精简池        = 更低    （命中模
 ```
 
 - smart 的收益不只是 schema 变小，更是**纪律提示词减少无谓工具调用**（本会调子代理/绕路的环节直接输出）。
-- v1 无需为"选择"付任何 LLM 成本（预设是静态的，切换靠 GUI）。
+- v1 无需为"选择"付任何 LLM 成本（预设是静态的，切换靠 DSH web 原生预设）。
 
 ## 5. 落地改动清单
 
@@ -201,10 +208,9 @@ v2：      意图门 + 执行 n 轮 × 精简池        = 更低    （命中模
 | `DSH_HOME/.agent-presets/smart/preset.yml`（新） | 名称/描述/order |
 | `nodes/shared/mcp_servers/aaa_engine/`（新） | 内层：自研 MCP server（Python），暴露 AAA 认知工具（memory_retrieve / context_build / parse_respond / cognition_commit）+ tool_route（v1 仅记录）；复用 AAA 现有模块 |
 | `nodes/shared/dsh_tool_usage_log.jsonl`（新） | 工具使用日志（逐行追加，只记录不学习；node_dsh 返回工具摘要） |
-| GUI `tool_usage_panel.py`（新） | 工具图谱视图：复用 `KnowledgeGraph`，节点=工具/尺寸=调用次数、边=联动/粗细=频次，任务完成后刷新 |
-| GUI `knowledge_panel.py`（改） | 增加"工具图谱"标签页入口 |
+| DSH web 工具图谱（slot 插件，Phase 2 随 bnos-memory/activity 评估） | 工具图谱视图：节点=工具/尺寸=调用次数、边=联动/粗细=频次，任务完成后刷新（替代 PySide6 `tool_usage_panel.py` 的 web 化方案） |
 | node_dsh | 任务完成返回携带工具调用摘要（`tool/call` 事件汇总，只读不改内核） |
-| GUI「DSH 管理-预设管理」 | 切换/查看第 5 个模式（现有功能，无需改） |
+| DSH web「设置 → Agent 预设」 | 切换/查看第 5 个模式（DSH 原生能力，无需自研） |
 
 **明确不改**：AAA `main.py` / `dsh_client.py` 主流程 / harness 源码 / DSH 内核（node_dsh 仅加"读取会话记录汇总工具摘要返回"的轻量代码，不动执行逻辑）。
 
@@ -215,18 +221,18 @@ v2：      意图门 + 执行 n 轮 × 精简池        = 更低    （命中模
 | AAA 侧 `tool_route.py`（新） | 静态映射表（关键词 → 预设）或模式库匹配（embedding + 阈值 + top-1）+ 固化 + 奖惩/衰减/合并 |
 | `nodes/shared/tool_mode_store.json`（新） | 模式库存储（见 4.3） |
 | AAA 任务特征 embedding | 复用 MemOS 向量化能力 |
-| GUI（可选） | 模式库查看/管理页 |
+| DSH web（可选） | 模式库查看/管理页（随 bnos 插件，Phase 2） |
 
 ## 6. 验收方式
 
 ### v1
 
-1. **预设可切换**：GUI 切换到 `smart`，`DSH_PRESET=smart` 生效，任务正常执行。
+1. **预设可切换**：DSH web「设置 → Agent 预设」切换到 `smart`，`DSH_PRESET=smart` 生效，任务正常执行。
 2. **工具集已裁剪**：smart 任务中无子代理/编排类工具被调用（观察活动气泡/日志）。
 3. **纪律生效**：纯文本可答的任务不调用工具（对比 standard 会调工具的环节）。
 4. **回 AAA 不破坏**：工具任务结果仍按 AAA 输出格式解析存档推送，记忆不断链（回归）。
 5. **日志落盘**：任务完成后 `dsh_tool_usage_log.jsonl` 追加一行，含实际工具列表。
-6. **工具图谱**：GUI 工具图谱页显示节点（工具）/尺寸（调用次数）/边（联动），任务完成后自动刷新；standard 与 smart 可对比。
+6. **工具图谱**：DSH web 工具图谱视图显示节点（工具）/尺寸（调用次数）/边（联动），任务完成后自动刷新；standard 与 smart 可对比。
 7. **可逆**：切回 `standard` 行为与现状一致，无残留改动。
 8. `run.bat` 启动检测无报错。
 

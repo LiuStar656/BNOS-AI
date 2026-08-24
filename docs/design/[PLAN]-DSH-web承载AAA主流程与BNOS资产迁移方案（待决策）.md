@@ -1,7 +1,8 @@
 # [PLAN] DSH Web 承载 AAA 主流程与 BNOS 资产迁移方案（待决策）
 
-> 日期：2026-08-16 ｜ 版本：v1.0 ｜ 状态：[PLAN]（待决策）
-> 关联：[OK]-AAA直连DSH节点与模式切换方案 ｜ [PLAN]-DeepSeekHarness接入方案 ｜ [PLAN]-GUI可插拔化与AI操控UI完整方案
+> 日期：2026-08-16 ｜ 修订：2026-08-24 ｜ 版本：v1.1 ｜ 状态：[PLAN]（待评审）
+> 关联：[OK]-AAA直连DSH节点与模式切换方案 ｜ [PLAN]-DeepSeekHarness接入方案 ｜ [PLAN]-GUI可插拔化与AI操控UI完整方案 ｜ [PLAN]-DSH工具分配与模式复用闭环方案
+> v1.1：聊天方向修正——**DSH 原生聊天 + smart 模式（AAA 为主要 agent）**，不做独立 BNOS 聊天页签/不接管 ui-conversation；bridge 仅作资产数据通道候选
 
 ---
 
@@ -32,12 +33,18 @@
 3. **许可合规**：DSH 为 MIT 协议（`harness/LICENSE`），允许自由使用/修改/再授权/商用，
    仅需保留版权声明——迁移与二次开发完全在授权范围内
 
-### 1.2 关键方向确认（2026-08-16）
+### 1.2 关键方向确认（2026-08-16，2026-08-24 修正）
 
-- **DSH 为主壳**：聊天/设置/工具/会话等直接用 DSH web；BNOS 独有资产
-  （Live2D/TTS/节点监控/提案治理）写成 slot 插件挂载
-- **AAA 主流程**：对话主链路仍是 AAA（想）→ DSH（做），AAA 保持大脑地位；
-  DSH web 只当"脸"，**DSH agent loop 不参与对话决策**
+- **DSH 为主壳**：聊天/设置/工具/会话等直接用 DSH web **原生界面**；BNOS 独有资产
+  （记忆库/活动流/节点监控/提案治理/流程库/定位/Live2D/TTS）写成 slot 插件挂载
+- **聊天 = DSH 原生 + smart 模式**：对话直接在 DSH 原生 `ui-conversation` 中进行，
+  **不做独立 BNOS 聊天页签、不接管 ui-conversation**；通过第 5 个预设
+  **smart（AAA 助理）** 让 DSH agent 以 **AAA 为主要 agent** 运转
+  （AAA 人格/记忆/输出格式内嵌 + 按需工具分配），详见
+  `[PLAN]-DSH工具分配与模式复用闭环方案`
+- **AAA 保持大脑地位**：日常对话由 smart 模式内嵌的 AAA 逻辑驱动；需要实际执行时
+  经 AAA 意图门判定、按需调用 DSH 工具，**结果回 AAA 写库存档**（记忆链不断）；
+  外部 AAA 节点保留首尾承接兜底
 - **节点层零改动**：aaa/llm_infer/tts/node_dsh 的文件协议保持不变
 
 ### 1.3 现状：AAA 已是主流程（2026-08-14 已落地）
@@ -61,13 +68,20 @@
 | 模式状态 | `nodes/shared/mode.json`（daily/work）| AAA `mode_manager.py` |
 | DSH 直连 | `dsh_task_in.json` / `node_dsh/output.json`（task_id 精确匹配）| AAA `dsh_client.py` |
 
-**结论：DSH web 化不需要改造 AAA——只需要把"GUI 轮询文件"换成"web 轮询文件"。**
+**结论：DSH web 化不需要改造 AAA——聊天直接在 DSH 原生 ui-conversation 进行，
+通过 smart 模式（AAA 为主要 agent）承载 AAA 逻辑。**
+
+> ⚠ **方向修正（2026-08-24）**：DSH web 化后聊天**不再"桥接/嵌入"**（无独立 BNOS
+> 聊天页签、不接管 ui-conversation），对话由 **smart 模式**（`[PLAN]-DSH工具分配与
+> 模式复用闭环方案`）驱动：DSH agent 以 AAA 为主要 agent 运转，经 aaa-engine MCP
+> 直读写 AAA 记忆库。上表 `gui_input.json`/`gui_reply.json` 文件协议是 PySide6 GUI
+> 时代的接口，双轨兼容期保留；smart 模式不经文件协议。
 
 ### 1.4 DSH web 能力盘点（迁移复用表）
 
 | DSH web 组件 | BNOS 对应 | 处置 |
 |---|---|---|
-| ui-conversation | chat_page（聊天） | **复用**，bridge 接管输入输出 |
+| ui-conversation | chat_page（聊天） | **复用**（原生，smart 模式下为 AAA 身份） |
 | ui-settings-*（models/plugins/general/presets） | settings_panel + dsh_manage 9 分区 | **复用**（原生） |
 | ui-goal / ui-plan / ui-jobs / ui-skill | workflow/activity 页 | **复用**（原生） |
 | ui-tool / ui-subagent / ui-workspace | tools 页 | **复用**（原生） |
@@ -86,7 +100,7 @@
 
 | # | 页面/组件 | 注册 | 文件 | 核心功能 | 迁移处置 | 备注 |
 |---|---|---|---|---|---|---|
-| 1 | 聊天页 | page.chat | chat_page.py | 消息列表 + ChatInput + 会话 + 日常/工作切换 + pending/取消 + DSH 提问交互 | **bridge 接管 ui-conversation**（§3.2-3.3） | 已覆盖 |
+| 1 | 聊天页 | page.chat | chat_page.py | 消息列表 + ChatInput + 会话 + 日常/工作切换 + pending/取消 + DSH 提问交互 | **DSH 原生 ui-conversation + smart 模式**（§3.2-3.3） | 已覆盖 |
 | 2 | AI 活动页 | page.activity | activity_page.py | AI 事件流（工具/提案/主题/AAA 内心活动轮询 feelings 表） | **独有 → bnos-activity 插件** ★ | 原方案未写；DSH 无"AAA 内心活动"概念 |
 | 3 | Live2D 页 | page.live2d | live2d_page.py | 面孔展示 | 方案 A/B（§3.11） | 已覆盖 |
 | 4 | 地图页 | page.location | location_page.py | 实时地图 + 位置状态 + 刷新/自动更新/清除历史 | **独有 → bnos-location 插件** ★ | 原方案完全未写 |
@@ -126,66 +140,83 @@
 ```
 ┌─────────────────────────────────────────────┐
 │  DSH web（React 客户端，统一界面）            │
-│  ├─ ui-conversation（聊天）← bridge 接管      │
-│  ├─ ui-settings / ui-goal / ui-tool ...      │
-│  └─ slot 插件：bnos-chat / bnos-status /      │
-│       bnos-governance / bnos-live2d /        │
-│       bnos-tts（独有资产）                    │
+│  ├─ ui-conversation（原生聊天）── 选 smart 模式  │
+│  │     = 以 AAA 为主要 agent 对话（AAA 人格/记忆）│
+│  ├─ ui-settings（Agent 预设中切换 smart）      │
+│  ├─ ui-goal / ui-tool / ui-plan（原生）       │
+│  └─ slot 插件（BNOS 独有资产）：               │
+│       bnos-memory / bnos-status /             │
+│       bnos-governance / bnos-activity /       │
+│       bnos-workflow / bnos-location /         │
+│       bnos-live2d / bnos-tts                  │
 └──────────────┬──────────────────────────────┘
                │ 浏览器 ↔ DSH webserver（Node，本机）
 ┌──────────────▼──────────────────────────────┐
-│  Bridge 服务（新增，Node，dsh 客户端插件）    │
-│  复用 BNOS 文件协议，作为 web 与节点的翻译层   │
+│  smart 预设（AAA 为主要 agent，第 5 个模式）   │
+│  外壳：官方 preset（AAA 人格骨架/记忆注入/工具纪律）│
+│  内层：aaa-engine MCP（memory_retrieve /      │
+│        context_build / parse_respond /       │
+│        cognition_commit）+ 按需工具分配       │
 └──────────────┬──────────────────────────────┘
-               │ 读写 nodes/shared/*.json（协议不变）
+               │ aaa-engine MCP 直读写 AAA 记忆库（nodes/shared/）
 ┌──────────────▼──────────────────────────────┐
 │  BNOS 节点层（零改动）                        │
-│  AAA（想）→ llm_infer / node_dsh（做）→ AAA → reply │
+│  AAA 节点（兜底承接：结果写库存档保记忆链）     │
 └─────────────────────────────────────────────┘
 ```
 
 **职责划分**：
-- DSH web：显示与输入（脸）
-- AAA：认知/记忆/情感/决策（大脑）
+- DSH web：显示与输入（脸）；聊天用原生 ui-conversation
+- smart 模式：以 AAA 为主要 agent 的对话/执行（AAA 逻辑内嵌 DSH agent loop）
+- AAA 节点：认知/记忆/情感/决策底座 + 首尾承接兜底（大脑）
 - node_dsh：执行器官（手）
-- Bridge：文件协议 ↔ DSH 内部 RPC 的翻译层（新增，唯一的"桥"）
+- slot 插件：BNOS 独有资产（记忆库/活动/节点/提案/流程/定位/Live2D/TTS）
 
-### 3.2 Bridge 插件设计（核心）
+### 3.2 聊天方案（核心）：DSH 原生 + smart 模式
 
-新增 DSH 客户端插件包（React/TS），命名 `dsh-client-bnos-chat`（先做聊天，
-其余独有资产按 3.3-3.10 分插件扩展）：
-
-**职责**：接管 `ui-conversation` 的输入输出，转发到 BNOS 文件协议。
+**聊天不再插件化、不接管原生**：直接用 DSH 原生 `ui-conversation`，通过第 5 个
+预设 **smart（AAA 助理）** 让 DSH agent 以 **AAA 为主要 agent** 运转。
+详细设计见 `[PLAN]-DSH工具分配与模式复用闭环方案`，此处只陈述与迁移的关系。
 
 ```
-用户输入（web）→ 写 gui_input.json（与 MessageManager 完全同格式）
-   {data_type: text, content, source: gui, identity_key: gui:web,
-    conversation_id, request_id(uuid8), timestamp}
-    ↓
-AAA 处理（daily: llm / work: dsh 直通）→ reply 写 gui_reply.json
-    ↓
-bridge 轮询 gui_reply.json（mtime + md5 判新，同 MessageManager L172-194）
-    ↓
-解析 reply（content / request_id 匹配 / <pending/> <silent/> 标签剥离）
-    ↓
-渲染进 ui-conversation
+用户（DSH 原生聊天）→ DSH agent loop（smart 预设）
+  ├─ 意图门（LLM，AAA 现有【工作模式】判定）
+  │     不需要 → 直接回复（AAA 人格，0 工具调用）
+  │     需要   → 按需调用执行工具（裁剪集，无子代理/编排）
+  ├─ 记忆/上下文 → aaa-engine MCP：memory_retrieve / context_build
+  └─ 输出 → parse_respond / cognition_commit 沉淀回 AAA 记忆库
+外部 AAA 节点：首尾承接兜底（结果过 AAA 解析写库存档，保记忆链）
 ```
 
-**协议对齐点（务必与 MessageManager 一致）**：
-- request_id：发送时生成 uuid4 hex8，只接受匹配 reply（过期回复丢弃）
-- `<pending/>`：工作模式 DSH 执行中回执，UI 保持等待指示
-- `<silent/>`：仅抑制 TTS 播报，显示正常
-- 发送状态锁：sending 状态下忽略新输入
+**smart 模式组成（三段式）**：
+- 外壳：官方 preset 格式（`DSH_HOME/.agent-presets/smart/`），复制 `standard` 后
+  裁剪子代理/编排类 8 个高风险工具，保留 19 个常用执行工具
+- 内层：`nodes/shared/mcp_servers/aaa_engine/`（Python MCP server），复用 AAA 现有
+  模块，暴露 AAA 认知工具（memory_retrieve / context_build / parse_respond /
+  cognition_commit）+ tool_route（按需分配，v1 仅记录）
+- 提示词三段式：AAA 人格骨架（与 AAA prompt.py 同源）／记忆注入位（动态填充）／
+  工具使用纪律（按需调用、最少够用、不编排、结果按 AAA 格式返回）
 
-**实现位置**：`nodes/node_dsh/harness/packages/client/bnos-chat/`
-（注册方式按 client 规范：tsconfig/tsdown/cordis.patch/package.json 四处）
-也可挂载到独立 `dsh-bridge` 服务进程，避免侵入 DSH 官方包结构（见待决策项 8.1）。
+**与文件协议的关系**：smart 模式经 aaa-engine MCP 直读写 AAA 记忆库，
+**不经 `gui_input.json`/`gui_reply.json`**；原文件协议保留给 PySide6 GUI
+（双轨兼容期）与工作模式兜底链路。
 
-### 3.3 模式切换（日常/工作）
+### 3.3 模式体系（两套概念的协同）
 
-- Bridge 渲染顶部「日常/工作」切换按钮（复用 chat_page 现有逻辑）
-- 切换写 `nodes/shared/mode.json`（原子写，与 GUI/AAA 共用同一文件）
-- 按钮状态每秒同步；AAA 关键词自动切换后 Bridge 保持一致
+DSH web 化后存在两套"模式"，需理清而非混淆：
+
+1. **DSH 预设（agent presets）**：standard / code / minimal / cordis / **smart（AAA 助理）**。
+   在 DSH 原生 `ui-settings → Agent 预设` 中切换。**smart 即"与 AAA 对话"的模式**
+   （BNOS 聊天在 DSH web 的形态），切换入口就是原生预设切换，无需自研按钮。
+2. **AAA 意图门（daily/work）**：smart 模式内部，AAA 每次对话先做意图判定
+   （LLM 的【工作模式】节，复用 AAA 现有逻辑）——不需要执行 → 直接回复（daily）；
+   需要执行 → 按需调用 DSH 工具（work）。
+
+关系：
+- **预设切换 = 模式切换**（用户级，DSH 原生设置完成）；
+- **daily/work = smart 内部的任务分流**（任务级，AAA 意图门自动判定，无需手动切换）；
+- `nodes/shared/mode.json`（daily/work 持久化）作为 AAA 意图门状态存储，
+  双轨兼容期与 PySide6 GUI 共用；smart 模式内由 aaa-engine 读写同一文件保持一致。
 
 ### 3.4 节点状态监控插件（bnos-status）
 
@@ -247,18 +278,28 @@ bridge 轮询 gui_reply.json（mtime + md5 判新，同 MessageManager L172-194�
 
 ### Phase 0：bridge 最小原型（验证可行性）
 
-- [ ] 确认 DSH web 本地启动链路（node_dsh webserver + 浏览器访问）
-- [ ] 新建 `dsh-client-bnos-chat` 最小插件：拦截输入写 gui_input.json
-- [ ] 轮询 gui_reply.json 渲染回复（含 request_id 过滤、pending 处理）
-- [ ] 验收：web 聊天 → AAA 日常模式回复完整显示
+> ✅ **已完成（2026-08-24）**：验证了 DSH web 的**插件扩展链路**（宿主插件 +
+> webServer 路由 + 客户端 slot 插件 + boot graph + bundle 服务），并临时以
+> BNOS 聊天页签跑通"浏览器 → AAA 日常模式 → 回复"端到端链路。
+> ⚠ **方向修正**：经确认，聊天**不做独立页签、不接管原生**，改为
+> **DSH 原生聊天 + smart 模式**（见 §3.2）。bridge 聊天链路作为技术验证保留，
+> 代码暂不重构；正式聊天方案见 `[PLAN]-DSH工具分配与模式复用闭环方案`。
 
-### Phase 1：聊天功能完整化
+- [x] 确认 DSH web 本地启动链路（node_dsh webserver + 浏览器访问）
+- [x] 验证 DSH web 插件扩展链路（slot/loader/client-modules/bundle 服务）
+- [x] 端到端验证：浏览器 → AAA 日常模式回复完整显示（临时 BNOS 页签）
+- [ ] **（方向调整）** 聊天改为 DSH 原生 + smart 模式，移除独立 BNOS 页签形态
 
-- [ ] 模式切换按钮（读/写 mode.json + 状态同步）
-- [ ] 工作模式直通显示（pending 回执 + 最终结果）
-- [ ] 会话切换（conversation_id 传递）
-- [ ] 附件发送（缓存附件 + attachments 字段）
-- [ ] 错误处理（60s 超时、发送状态锁、过期回复丢弃）
+### Phase 1：smart 模式聊天落地（替代原"bridge 聊天功能完整化"）
+
+> 聊天主体随 smart 预设落地，详见 `[PLAN]-DSH工具分配与模式复用闭环方案`。
+
+- [ ] smart 预设落地：官方 preset 格式（AAA 人格骨架 + 记忆注入位 + 工具纪律）
+- [ ] aaa-engine MCP server：memory_retrieve / context_build / parse_respond / cognition_commit
+- [ ] 意图门（daily/work）在 smart 内嵌生效（复用 AAA 现有【工作模式】判定）
+- [ ] 按需工具分配：工具裁剪（去子代理/编排 8 个）+ 纪律提示词 + 工具日志（`dsh_tool_usage_log.jsonl`）
+- [ ] 外部 AAA 节点兜底承接（结果回写库存档，保记忆链）
+- [ ] DSH 原生会话切换 / 附件 / 错误处理（随原生能力验证，无需自研）
 
 ### Phase 2：独有资产插件化
 
@@ -291,12 +332,12 @@ bridge 轮询 gui_reply.json（mtime + md5 判新，同 MessageManager L172-194�
 |---|---|
 | bridge 写 gui_input 与 PySide6 并发 | 文件协议单点 + mtime/hash 判新，天然互斥；双轨期同一时刻仅一个客户端在线 |
 | DSH web 需要本机 webserver | node_dsh 已在本机运行（headless fork + webserver），前提已具备 |
-| ui-conversation 接管难度 | 官方设计允许替换/新增 UI 插件（client 规范明示）；先做最小原型验证再全量 |
+| smart 预设（AAA 为主要 agent）落地难度 | 官方 preset + MCP 通道，非侵入 harness；先做最小 preset 验证意图门/记忆注入再全量 |
 | Live2D/TTS web 集成成本高 | 默认走方案 A（保留 PySide6 小窗），成本最低，不影响主迁移 |
-| request_id 协议细节不一致 | Bridge 严格复用 MessageManager 逻辑（mtime+hash+id 过滤+标签剥离），做对照测试 |
+| request_id 协议细节不一致（仅双轨期文件协议链路） | 现有实现严格复用 MessageManager 逻辑（mtime+hash+id 过滤+标签剥离）；smart 模式不经文件协议，不受影响 |
 | DSH 升级后插件兼容 | 插件按官方 slot 规范编写；升级前做快照测试 |
 | dsh_manage 9 分区未被 ui-settings 完全覆盖 | Phase 2 先做"9 分区覆盖度报告"（逐区对照），不足部分插件化（extra.patch/persona/工作区等） |
-| AAA 主流程被 DSH agent 抢话 | Bridge 只接管 ui-conversation 的收发，DSH agent loop 不注入对话；work 模式仍走 AAA→node_dsh |
+| AAA 主流程被 DSH agent 抢话 | smart 模式下 DSH agent 以 AAA 为主要 agent 运转（人格/记忆/输出格式内嵌），对话决策由内嵌 AAA 逻辑驱动；外部 AAA 节点首尾承接兜底，结果回写库存档保记忆链 |
 | tools_page 与 ui-tool 语义错位（GUI 工具 vs DSH 工具） | 先评估 ui-tool 能否展示 ToolRegistry 工具；不能则 bnos-tools 插件独立呈现 |
 | 记忆图谱 Qt GraphicsView → web 重写工作量 | bnos-memory 列为最高优先级单独排期；web 图谱用 d3-force/canvas 重写力导向布局，行为对标（阈值/分段斥力） |
 | 引擎进程控制 web 化（node_page 直接管进程） | web 不直接管本机进程，统一走 bnos_cmd.json（start/stop/restart 命令由节点侧执行），node_page 进程逻辑不迁移 |
@@ -319,7 +360,9 @@ bridge 轮询 gui_reply.json（mtime + md5 判新，同 MessageManager L172-194�
 
 | 文件 | 改动 |
 |---|---|
-| `nodes/node_dsh/harness/packages/client/bnos-chat/` | 新增：bridge 聊天插件（输入/轮询/渲染/模式/会话/附件） |
+| `DSH_HOME/.agent-presets/smart/` | 新增：smart 预设（AAA 人格骨架/记忆注入/工具纪律，复制 standard 裁剪） |
+| `nodes/shared/mcp_servers/aaa_engine/` | 新增：aaa-engine MCP server（AAA 认知工具 + 按需分配，Phase 1） |
+| `nodes/shared/dsh_tool_usage_log.jsonl` | 新增：工具使用日志（smart 观察数据，Phase 1） |
 | `nodes/node_dsh/harness/packages/client/bnos-status/` | 新增：节点监控插件（Phase 2） |
 | `nodes/node_dsh/harness/packages/client/bnos-governance/` | 新增：提案治理插件（Phase 2） |
 | `nodes/node_dsh/harness/packages/client/bnos-memory/` | 新增：记忆库插件（多表浏览 + 记忆图谱 + 情绪图，Phase 2 优先） |
@@ -335,19 +378,25 @@ bridge 轮询 gui_reply.json（mtime + md5 判新，同 MessageManager L172-194�
 
 ## 八、待决策项
 
-1. **Bridge 实现位置**：
-   - A. 挂载为 DSH 客户端 slot 插件（`dsh-client-bnos-chat`，按官方规范）
-   - B. 独立 `dsh-bridge` Node 服务（不动 DSH 官方包结构，web 通过现有 RPC 连它）
-   - 倾向：A（复用官方 slot 体系，符合"以 DSH 为载体"）；若侵入成本高则退 B
+1. **聊天实现方式（已定，2026-08-24）**：DSH 原生聊天 + smart 模式（AAA 为主要
+   agent），**不做独立 bnos-chat 页签、不接管 ui-conversation**。细节见
+   `[PLAN]-DSH工具分配与模式复用闭环方案`。
+2. **资产数据通道（原 bridge 角色）**：bnos-memory 等 slot 插件读节点数据
+   （chatbot.db / pipeline.json / 节点状态）的通道方式：
+   - A. 宿主插件暴露 webServer 路由（骨架已验证，bridge 代码可复用）
+   - B. 独立 `dsh-bridge` Node 服务（不动 DSH 官方包结构）
+   - 倾向：A（复用已验证的 bridge 宿主骨架，符合"以 DSH 为载体"）
 
-2. **Live2D / TTS 集成方式**：
+3. **Live2D / TTS 集成方式**：
    - A. 保留 PySide6 轻量窗口（只含面孔+声音），DSH web 为主界面（推荐，成本最低）
    - B. web 版 Live2D 运行时 + 服务端 TTS 推送（全浏览器化，成本高）
 
-3. **DSH agent loop 定位**：确认 DSH 在 BNOS 中**永远只当执行器官**（AAA 工作模式调用），
-   不参与日常对话决策——是否需要正式写入 DSH 使用约定文档
+4. **DSH agent loop 定位**：smart 模式下 DSH agent loop **以 AAA 身份参与对话**
+   （人格/认知来自 AAA，结果回 AAA 写库存档），DSH agent 不"独立"决策。
+   工作模式（需要外部执行的复杂任务）经 AAA 意图门判定后调用 DSH 工具——
+   是否需要将这一约定正式写入 DSH 使用约定文档。
 
-4. **PySide6 GUI 退役时机**：Phase 4 全功能对等后停用，或保留为可切换的备选界面
+5. **PySide6 GUI 退役时机**：Phase 4 全功能对等后停用，或保留为可切换的备选界面
 
 ---
 
