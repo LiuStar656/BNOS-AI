@@ -1,0 +1,18 @@
+diff --git a/dsh-plugin-desktop/src/bin.ts b/dsh-plugin-desktop/src/bin.ts
+index 893620f891..4c0dead3cd 100644
+--- a/dsh-plugin-desktop/src/bin.ts
++++ b/dsh-plugin-desktop/src/bin.ts
+@@ -87,8 +87,12 @@ async function launchElectron(): Promise<number> {
+     return 1
+   }
+   const mainPath = fileURLToPath(new URL('./main.js', import.meta.url))
++  const userDataDir = process.env.DSH_DESKTOP_USER_DATA_DIR
++  const electronArgs = userDataDir !== undefined && userDataDir.length > 0
++    ? [`--user-data-dir=${userDataDir}`, mainPath]
++    : [mainPath]
+   return new Promise<number>((resolveExit, reject) => {
+-    const child = spawn(electronPath, [mainPath], { stdio: 'inherit', env: process.env })
++    const child = spawn(electronPath, electronArgs, { stdio: 'inherit', env: process.env })
+     child.once('error', reject)
+     child.once('exit', (code, signal) => {
+       resolveExit(code ?? (signal === null ? 1 : 128))

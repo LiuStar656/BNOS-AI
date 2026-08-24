@@ -1,0 +1,5 @@
+# 强制补丁文件保持 LF（git apply 需要匹配源码的 LF 行尾，CRLF 会破坏 patch）
+scripts/*.patch text eol=lf
+
+# PowerShell 脚本跟随仓库行尾（Windows 默认 CRLF 友好）
+scripts/*.ps1 text eol=crlf
