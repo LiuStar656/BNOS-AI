@@ -1,0 +1,4 @@
+[submodule "dsh_desktop"]
+	path = dsh_desktop
+	url = https://github.com/anywhere-labs/deepseek-harness-desktop.git
+	branch = master
