@@ -17,3 +17,74 @@
     - id: bnos-bridge
       name: '@bnos/bridge'
       config: {}
+- insert:
+    - id: balance
+      name: '@deepseek-ai/dsh-balance'
+- insert:
+    - id: file-changes
+      name: '@deepseek-ai/dsh-file-changes'
+- insert:
+    - id: client-file-changes
+      name: '@deepseek-ai/dsh-client-file-changes'
+- insert:
+    - id: terminal
+      name: '@deepseek-ai/dsh-terminal-tab'
+- insert:
+    - id: float-window
+      name: '@deepseek-ai/dsh-float-window'
+- insert:
+    - id: conversation-tweaks
+      name: '@deepseek-ai/dsh-conversation-tweaks'
+- insert:
+    - id: quest-ui
+      name: '@deepseek-ai/dsh-quest-ui'
+- insert:
+    - id: prompt-custom
+      name: '@deepseek-ai/dsh-prompt-custom'
+- insert:
+    - id: workspace-anchor
+      name: '@deepseek-ai/dsh-workspace-anchor'
+- insert:
+    - id: wsl-settings
+      name: '@deepseek-ai/dsh-wsl-settings'
+- insert:
+    - id: dsh-vision
+      name: '@dsh-external/dsh-vision'
+- insert:
+    - id: plugin-manager
+      name: '@deepseek-ai/dsh-plugin-manager'
+- insert:
+    - id: dsh-hub
+      name: 'dsh-hub'
+- insert:
+    - id: file-drop
+      name: 'dsh-file-drop'
+- insert:
+    - id: image-paste
+      name: 'dsh-image-paste'
+- insert:
+    - id: change-review
+      name: 'dsh-change-review'
+- insert:
+    - id: auto-compact
+      name: 'dsh-auto-compact'
+- insert:
+    - id: offpeak
+      name: 'dsh-offpeak'
+- insert:
+    - id: settings-nav-custom
+      name: 'dsh-settings-nav-custom'
+- insert:
+    - id: settings-groups
+      name: 'dsh-settings-groups'
+- insert:
+    - id: dsh-subagent-lens
+      name: '@dsh-external/dsh-subagent-lens'
+
+# billion-context-dsh：禁用 preset realm 的 compaction-basic（ACP 模型驱动后端接管压缩决策）
+- id: compaction-basic
+  disabled: true
+
+# harness-pet：桌面宠物默认关闭（设置 → 插件 → 管理 可一键开启）
+- id: harness-pet
+  disabled: true
