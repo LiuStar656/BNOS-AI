@@ -36,6 +36,12 @@ Thumbs.db
 *.log
 logs/
 
+# Runtime artifacts — 引擎/节点/GUI 每次运行的产物，不入库
+*.pid
+bnos_status.json
+conversation_history.json
+output_*.json
+
 # Environment
 .env
 .env.*
