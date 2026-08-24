@@ -7,3 +7,15 @@ harness/
 dsh_home/sessions/
 dsh_home/storages/
 dsh_home/profiles/*/package-lock.json
+
+# 敏感凭据（本地保留，不进 git）
+dsh_home/.credentials.yaml
+dsh_home/**/token.txt
+
+# 运行时产物
+dsh_home/graph-memory/
+dsh_home/profiles/web.bak-*/
+dsh_home/profiles/web/.plugin-updates.json*
+dsh_home/hotplug-hub/
+dsh_home/synapse/
+dsh_home/openclaw-bridge/
